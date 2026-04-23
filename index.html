@@ -3,53 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 東京日光賞楓之旅</title>
+  <title>葉世家族旅遊 — 2026 東京日光賞楓</title>
   <style>
-    body { font-family: -apple-system, sans-serif; margin: 0; padding: 0; background-color: #f5f5f7; color: #333; line-height: 1.6; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f7; color: #333; line-height: 1.6; }
     header { background-color: #fff; padding: 30px 20px; text-align: center; border-bottom: 1px solid #ddd; }
+    h1 { margin: 0 0 10px 0; font-size: 26px; color: #222; }
+    p.subtitle { color: #666; margin: 0; font-size: 15px; }
     .container { padding: 15px; max-width: 600px; margin: 0 auto; }
     .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; text-align: center; }
-    .grid-item { background: #fff; padding: 15px 5px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-size: 12px; }
+    .grid-item { background: #fff; padding: 15px 5px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-size: 12px; color: #555; }
     .grid-item span { display: block; font-size: 26px; margin-bottom: 5px; }
     .section { background: #fff; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    h2 { font-size: 18px; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; margin-top: 0; }
+    h2 { font-size: 18px; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
     .day-card { border: 1px solid #f0f0f0; border-radius: 8px; padding: 12px; margin-bottom: 12px; background-color: #fafafa; }
-    .day-card h3 { margin: 0; font-size: 16px; color: #d35400; }
-    .btn-group { display: flex; flex-wrap: wrap; gap: 10px; }
-    .btn { flex: 1; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: bold; border: 1px solid #ddd; }
-    .btn-blue { background: #e6f2ff; color: #0056b3; }
-    .btn-green { background: #e8f5e9; color: #2e7d32; }
-    .btn-orange { background: #fff3e0; color: #e65100; }
+    .day-card h3 { margin: 0 0 5px 0; font-size: 16px; color: #d35400; }
+    .day-card p { margin: 0; font-size: 14px; color: #555; }
+    .map-link { color: #007aff; text-decoration: none; font-size: 13px; font-weight: bold; }
+    .member-list, .checklist { list-style: none; padding: 0; margin: 0; }
+    .member-list li, .checklist li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    .member-list li:last-child, .checklist li:last-child { border-bottom: none; }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+    .btn { flex: 1; min-width: 120px; text-align: center; display: inline-block; background: #f0f0f0; color: #333; padding: 12px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: bold; border: 1px solid #ddd; }
+    .btn-blue { background: #e6f2ff; color: #0056b3; border-color: #cce5ff; }
+    .btn-green { background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
+    .btn-orange { background: #fff3e0; color: #e65100; border-color: #ffe0b2; }
+    .highlight-box { background-color: #fff8dc; border-left: 4px solid #f39c12; padding: 10px 15px; margin-bottom: 15px; font-size: 14px; border-radius: 4px; }
+    .badge { background: #eee; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 5px; }
   </style>
 </head>
 <body>
+
   <header>
     <h1>🍁 2026 東京日光賞楓之旅</h1>
-    <p>11/21 — 11/29 ・ 9天8夜</p>
+    <p class="subtitle">11/21 — 11/29 ・ 9天8夜</p>
   </header>
+
   <div class="container">
+    
     <div class="grid-4">
       <div class="grid-item"><span>👥</span>人數<br>5 人</div>
-      <div class="grid-item"><span>📅</span>天數<br>9天</div>
-      <div class="grid-item"><span>🚆</span>交通<br>地鐵</div>
-      <div class="grid-item"><span>🏡</span>住宿<br>東京/日光</div>
+      <div class="grid-item"><span>📅</span>天數<br>9天8夜</div>
+      <div class="grid-item"><span>🚆</span>交通<br>地鐵/鐵路</div>
+      <div class="grid-item"><span>🏡</span>住宿<br>東京+日光</div>
     </div>
+
     <div class="section">
       <h2>📌 實用共用連結</h2>
       <div class="btn-group">
-        <a href="#" class="btn btn-green">💰 記帳表單</a>
-        <a href="#" class="btn btn-orange">🛒 購物清單</a>
-        <a href="https://www.google.com/maps" class="btn btn-blue">🗺️ 行程地圖</a>
+        <a href="#" class="btn btn-green">💰 共同記帳表單</a>
+        <a href="#" class="btn btn-orange">🛒 想吃想買清單</a>
+        <a href="https://maps.google.com/" target="_blank" class="btn btn-blue">🗺️ Google 行程地圖</a>
       </div>
+      <p style="font-size: 12px; color: #888; margin-top: 5px;">*點擊上方按鈕進入 Google Sheets 與 Google Maps（需更換為專屬網址）</p>
     </div>
+
+    <div class="section">
+      <h2>🚆 東京 ➔ 日光 交通方案評估</h2>
+      <p style="font-size: 14px; color: #444;">如果不搭乘 Spacia X，建議考慮以下兩種舒適且方便的方式：</p>
+      <ul style="font-size: 14px; color: #555; padding-left: 20px;">
+        <li style="margin-bottom: 8px;"><b>方案一：東武特急 Revaty (リバティ)</b><br>從淺草出發，車程約 110 分鐘。車廂新穎舒適，且班次比 Spacia X 多，適合購買「日光周遊券」搭配使用。</li>
+        <li><b>方案二：JR 新幹線轉乘 (最快速)</b><br>從東京或上野搭乘「東北新幹線」至宇都宮站（約 50 分鐘），轉乘 JR 日光線（約 45 分鐘）。若你們住宿靠近東京/上野站，此方案最省時。</li>
+      </ul>
+    </div>
+
     <div class="section">
       <h2>🗓️ 每日行程規劃</h2>
-      <div class="day-card"><h3>Day 1 — 11/21 (四)</h3><p>✈️ 第一批抵達成田 (11:10) → 谷根千散策 → 飯店 Check-in</p></div>
-      <div class="day-card"><h3>Day 2 — 11/22 (五)</h3><p>🍁 大田黑公園 (夜楓秘境) → 吉祥寺散策</p></div>
-      <div class="day-card"><h3>Day 3 — 11/23 (六)</h3><p>✈️ 第二批抵達成田 (12:10) → 全員會合 → 明治神宮外苑銀杏林</p></div>
-      <div class="day-card"><h3>Day 6 — 11/26 (二)</h3><p>🚆 前往日光 (推薦 Revaty) → 逍遙園賞楓</p></div>
-      <div class="day-card"><h3>Day 7 — 11/27 (三)</h3><p>⛩️ 日光東照宮 → 憾滿之淵 (靜謐散步)</p></div>
+      
+      <div class="day-card">
+        <h3>Day 1 — 11/21 (四) 東京：首批抵達與在地散策</h3>
+        <p>✈️ 第一批 3 人抵達成田 (11:10) → 🚆 搭乘地鐵前往市區飯店寄放行李 → ⛩️ <b>谷根千散策</b> (谷中銀座、根津神社，避開人潮感受下町老街氛圍) → 🍜 飯店附近吃晚餐</p>
+      </div>
+
+      <div class="day-card">
+        <h3>Day 2 — 11/22 (五) 東京：在地賞楓秘境</h3>
+        <p>☕ 悠閒早午餐 → 🛶 <b>井之頭恩賜公園</b> (吉祥寺商圈順遊) → 🍁 <b>大田黑公園</b> (極力推薦！荻窪站附近的日式庭園，晚上的夜楓點燈非常靜謐且少觀光客) <br><a href="https://goo.gl/maps/example1" class="map-link" target="_blank">📍 開啟地圖導航</a></p>
+      </div>
+
+      <div class="day-card">
+        <h3>Day 3 — 11/23 (六) 東京：全員會合與銀杏大道</h3>
+        <p>✈️ 第二批 2 人抵達成田 (12:10) → 🏨 飯店會合 → 🍂 <b>明治神宮外苑銀杏林</b> (雖然觀光客多但 11 月下旬必看) → 🛍️ 表參道/青山商圈 → 🍻 5 人相聚晚餐</p>
+      </div>
+
+      <div class="day-card">
+        <h3>Day 4 — 11/24 (日) 東京：名園秋色</h3>
+        <p>🍁 <b>小石川後樂園</b> (東京市區最頂級的迴遊式庭園賞楓) → ☕ 清澄白河 (特色咖啡廳巡禮與雜貨小店) → 🗼 眺望東京夜景</p>
+      </div>
+
+      <div class="day-card">
+        <h3>Day 5 — 11/25 (一) 東京：採購與購物日</h3>
+        <p>打開「想吃想買清單」盡情採購！ → 🛒 推薦至新宿、澀谷或前往 Outlet → 🧳 晚上整理行李準備明日移動</p>
+      </div>
+
+      <div class="day-card">
+        <h3>Day 6 — 11/26 (二) 轉移陣地：北上日光</h3>
+        <p>🚆 早上從東京出發前往日光 (推薦搭乘 Revaty 或是新幹線) → 🏨 抵達日光飯店寄放行李 → 🍁 <b>逍遙園</b> (輪王寺旁的小庭園，11月底日光市區最容易看到紅葉的地方) <br><a href="https://goo.gl/maps/example2" class="map-link" target="_blank">📍 開啟地圖導航</a></p>
+      </div>
+
+      <div class="day-card">
+        <h3>Day 7 — 11/27 (三) 日光：世界遺產與靜謐淵谷</h3>
+        <p>⛩️ <b>日光東照宮 & 二荒山神社</b> → 🌊 <b>憾滿之淵</b> (非常幽靜的沿溪步道，有一排神秘的地藏王菩薩，適合遠離人群散步) → ♨️ 享受日光溫泉與會席料理</p>
+      </div>
+
+      <div class="day-card">
+        <h3>Day 8 — 11/28 (四) 日光：周邊延伸</h3>
+        <p>🎭 <b>日光江戶村</b> (體驗江戶時代風情) 或 ♨️ <b>鬼怒川溫泉老街散步</b> → 🍽️ 採買伴手禮與最後的晚餐</p>
+      </div>
+
+      <div class="day-card">
+        <div class="highlight-box">
+          <b>⚠️ 航班注意：</b> 回程航班為 13:00。從日光前往成田機場約需 3.5 小時，務必於 <b>早上 07:00 前</b> 離開日光飯店！
+        </div>
+        <h3>Day 9 — 11/29 (五) 踏上歸途</h3>
+        <p>🧳 清晨退房 → 🚆 搭乘首班鐵路返回東京轉搭機場快線 → ✈️ 13:00 成田機場起飛 → 16:40 抵達小港機場</p>
+      </div>
     </div>
+
+    <div class="section">
+      <h2>✈️ 航班與成員資訊</h2>
+      <ul class="member-list">
+        <li><b>【第一批 3 人】</b><br>11/21 小港 06:55 ➔ 成田 11:10<br>11/29 成田 13:00 ➔ 小港 16:40</li>
+        <li><b>【第二批 2 人】</b><br>11/23 小港 08:00 ➔ 成田 12:10<br>11/29 成田 13:00 ➔ 小港 16:40</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>✅ 出國前 Checklist</h2>
+      <ul class="checklist">
+        <li>🔴 確認日光住宿是否已預訂 (因逢賞楓旺季需提早)</li>
+        <li>🟡 決定東京到日光的交通票券 (JR 東京廣域周遊券 或 日光周遊券)</li>
+        <li>🔵 填寫 Visit Japan Web (QR Code 截圖)</li>
+        <li>🟣 建立並分享 Google 記帳表單與購物清單</li>
+        <li>🟣 下載離線地圖與西瓜卡 (Suica) 綁定 Apple Pay</li>
+      </ul>
+    </div>
+
   </div>
 </body>
 </html>
