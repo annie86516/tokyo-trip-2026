@@ -1,142 +1,793 @@
-<!DOCTYPE html>
+import zipfile
+import os
+
+html_content = """<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 東京日光賞楓</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: #f5f5f7; color: #333; line-height: 1.6; }
-    header { background-color: #fff; padding: 30px 20px; text-align: center; border-bottom: 1px solid #ddd; }
-    h1 { margin: 0 0 10px 0; font-size: 26px; color: #222; }
-    p.subtitle { color: #666; margin: 0; font-size: 15px; }
-    .container { padding: 15px; max-width: 600px; margin: 0 auto; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; text-align: center; }
-    .grid-item { background: #fff; padding: 15px 5px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-size: 12px; color: #555; }
-    .grid-item span { display: block; font-size: 26px; margin-bottom: 5px; }
-    .section { background: #fff; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    h2 { font-size: 18px; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
-    .day-card { border: 1px solid #f0f0f0; border-radius: 8px; padding: 12px; margin-bottom: 12px; background-color: #fafafa; }
-    .day-card h3 { margin: 0 0 5px 0; font-size: 16px; color: #d35400; }
-    .day-card p { margin: 0; font-size: 14px; color: #555; }
-    .map-link { color: #007aff; text-decoration: none; font-size: 13px; font-weight: bold; }
-    .member-list, .checklist { list-style: none; padding: 0; margin: 0; }
-    .member-list li, .checklist li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
-    .member-list li:last-child, .checklist li:last-child { border-bottom: none; }
-    .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
-    .btn { flex: 1; min-width: 120px; text-align: center; display: inline-block; background: #f0f0f0; color: #333; padding: 12px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: bold; border: 1px solid #ddd; }
-    .btn-blue { background: #e6f2ff; color: #0056b3; border-color: #cce5ff; }
-    .btn-green { background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
-    .btn-orange { background: #fff3e0; color: #e65100; border-color: #ffe0b2; }
-    .highlight-box { background-color: #fff8dc; border-left: 4px solid #f39c12; padding: 10px 15px; margin-bottom: 15px; font-size: 14px; border-radius: 4px; }
-    .badge { background: #eee; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 5px; }
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026 東京・日光・成田 9天8夜｜A4直式圖文旅遊手冊</title>
+<style>
+    @page { size: A4 portrait; margin: 0; }
+    :root {
+        --ink: #23313f;
+        --muted: #6d7b89;
+        --paper: #fffdf8;
+        --soft-blue: #dceff2;
+        --soft-green: #eaf4e4;
+        --soft-cream: #fbf3df;
+        --line: #d8ded8;
+        --accent: #cf7e68;
+        --accent-dark: #8f5d52;
+        --accent-blue: #6f9fb3;
+        --accent-yellow: #e4b969;
+    }
+    * { box-sizing: border-box; }
+    body {
+        font-family: 'Noto Sans CJK TC', 'Microsoft JhengHei', sans-serif;
+        line-height: 1.52;
+        color: var(--ink);
+        max-width: 210mm;
+        margin: 0 auto;
+        padding: 0;
+        background: #e9f1ef;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        counter-reset: pageCount;
+    }
+    .page-sheet {
+        background: var(--paper);
+        width: 210mm;
+        min-height: 297mm;
+        padding: 15mm 15mm 17mm 15mm;
+        margin: 0 auto 12px auto;
+        box-shadow: 0 8px 28px rgba(44, 67, 82, .12);
+        page-break-after: always;
+        break-after: page;
+        position: relative;
+        overflow: hidden;
+        counter-increment: pageCount;
+    }
+    .page-sheet::before {
+        content: '';
+        position: absolute;
+        top: 9mm; left: 9mm; right: 9mm; bottom: 9mm;
+        border: 1.4px solid rgba(95, 123, 118, .32);
+        border-radius: 22px;
+        pointer-events: none;
+    }
+    .page-sheet::after {
+        content: 'TOKYO / NIKKO / NARITA 2026  ·  ' counter(pageCount);
+        position: absolute;
+        right: 16mm;
+        bottom: 7mm;
+        font-size: 8.5px;
+        letter-spacing: .08em;
+        color: #91a09b;
+    }
+    .container { width: 100%; position: relative; z-index: 1; }
+    .page-sheet:first-of-type {
+        background: linear-gradient(135deg, #cfe8ed 0%, #f8f3df 56%, #f8e6da 100%);
+        display: flex;
+        align-items: center;
+    }
+    .page-sheet:first-of-type .container { width: 100%; }
+    .page-sheet:first-of-type h1 {
+        border: 0;
+        font-size: 32px;
+        line-height: 1.28;
+        margin: 0 0 18px 0;
+        text-align: left;
+        color: #26384a;
+        letter-spacing: .02em;
+    }
+    .page-sheet:first-of-type h1::before {
+        content: 'JAPAN TRAVEL NOTE';
+        display: block;
+        font-family: 'Noto Sans', 'Arial', sans-serif;
+        font-size: 11px;
+        letter-spacing: .18em;
+        color: var(--accent-dark);
+        margin-bottom: 14px;
+        font-weight: 800;
+    }
+    h1, h2, h3, h4 { font-family: 'Noto Sans CJK TC', 'Microsoft JhengHei', sans-serif; }
+    h1 {
+        color: #203044;
+        border-bottom: 3px solid rgba(207, 126, 104, .55);
+        padding-bottom: 10px;
+        font-size: 24px;
+        text-align: center;
+        margin: 0 0 18px 0;
+    }
+    h2 {
+        color: #26384a;
+        background: transparent;
+        padding: 0 0 8px 0;
+        border: 0;
+        border-bottom: 2px solid #d9e3df;
+        margin: 0 0 16px 0;
+        font-size: 20px;
+        letter-spacing: .03em;
+    }
+    h2::before {
+        content: '';
+        display: inline-block;
+        width: 12px; height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-right: 9px;
+        vertical-align: 1px;
+        box-shadow: 16px 0 0 var(--accent-yellow), 32px 0 0 var(--accent-blue);
+    }
+    h3 {
+        color: #354d60;
+        border-bottom: 0;
+        padding-bottom: 3px;
+        margin: 16px 0 10px 0;
+        font-size: 16px;
+    }
+    h4 { margin: 12px 0 8px 0; font-size: 14px; color: #334b5d; }
+    p { margin: 6px 0 9px 0; font-size: 12.6px; }
+    ul { padding-left: 18px; margin: 5px 0 10px 0; }
+    li { margin-bottom: 4px; font-size: 12.4px; }
+    strong { font-weight: 800; }
+    a { color: #3c82a0; text-decoration: none; font-weight: 650; }
+    a:hover { text-decoration: underline; }
+    code {
+        font-family: 'Noto Sans Mono CJK TC', 'Consolas', monospace;
+        background: #f6eee5;
+        border: 1px solid #ead7c2;
+        border-radius: 5px;
+        padding: 1px 5px;
+    }
+    .meta-info, .tax-alert-box, .daily-note-box, .transit-card, .hotel-card {
+        border-radius: 18px;
+        background: rgba(255, 255, 255, .76);
+        border: 1px solid rgba(143, 162, 156, .32);
+        box-shadow: 0 3px 14px rgba(69, 89, 95, .055);
+    }
+    .meta-info {
+        padding: 14px 16px;
+        margin-bottom: 16px;
+        font-size: 12.4px;
+        backdrop-filter: blur(3px);
+    }
+    .meta-info p { font-size: 12.2px; }
+    .tax-alert-box {
+        background: #fff1ed;
+        border: 1px solid #e9b1a5;
+        border-left: 8px solid #cf7e68;
+        padding: 13px 16px;
+        margin: 16px 0;
+        color: #6e332e;
+    }
+    .tax-alert-box h3 { color: #8c473d; margin-top: 0; font-size: 15px; }
+    .daily-note-box {
+        background: #fff8df;
+        border-left: 6px solid #e4b969;
+        padding: 10px 14px;
+        margin: 14px 0 16px 0;
+        color: #694c19;
+    }
+    .reservation-red-tag {
+        color: #9d3e35;
+        font-size: 13px;
+        font-weight: 800;
+        background: #fff0ed;
+        padding: 9px 12px;
+        border: 1px solid #e9b1a5;
+        border-radius: 14px;
+        display: block;
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 12px 0;
+        font-size: 11.4px;
+        border: 1px solid #d8ded8;
+        border-radius: 14px;
+        overflow: hidden;
+    }
+    th {
+        background: #536b79;
+        color: #fff;
+        padding: 8px 9px;
+        text-align: left;
+        font-weight: 800;
+    }
+    td { border-top: 1px solid #e6e7e3; padding: 7px 9px; vertical-align: top; }
+    tr:nth-child(even) { background: rgba(230, 241, 240, .48); }
+    .badge { padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 800; display: inline-block; margin-right: 5px; }
+    .badge-orange { background: #fde6d5; color: #9a4e37; }
+    .badge-blue { background: #dfeff3; color: #3e7287; }
+    .badge-food { background: #f7d9d3; color: #8f3d35; }
+    .badge-spot { background: #e4f0dd; color: #526f3d; }
+    .badge-purple { background: #eee5f5; color: #6d5581; }
+    .transit-card {
+        padding: 13px 15px;
+        margin: 12px 0;
+        background: #fffdf8;
+    }
+    .transit-card.orange { border-left: 6px solid #d79668; }
+    .transit-card.blue { border-left: 6px solid #6f9fb3; }
+    .hotel-card {
+        background: #fcfbf4;
+        border-left: 0;
+        padding: 14px 16px;
+        margin: 12px 0;
+        overflow: hidden;
+    }
+    .hotel-hero {
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        gap: 14px;
+        align-items: stretch;
+        margin-top: 12px;
+    }
+    .photo-lead {
+        position: relative;
+        min-height: 245px;
+        border-radius: 22px;
+        overflow: hidden;
+        background: #e8eee8;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.4);
+    }
+    .photo-lead img, .photo-tile img, .hotel-inline-photo img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .photo-lead .photo-caption {
+        position: absolute;
+        left: 12px; right: 12px; bottom: 10px;
+        background: rgba(255,255,255,.86);
+        border-radius: 14px;
+        padding: 8px 10px;
+        color: #2f4350;
+        font-size: 11.5px;
+        font-weight: 700;
+    }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+    }
+    .photo-tile {
+        height: 118px;
+        border-radius: 18px;
+        overflow: hidden;
+        background: #eef1eb;
+        position: relative;
+    }
+    .photo-tile span {
+        position: absolute;
+        left: 8px; right: 8px; bottom: 7px;
+        background: rgba(255,255,255,.84);
+        border-radius: 999px;
+        padding: 4px 8px;
+        font-size: 10.2px;
+        line-height: 1.2;
+        color: #40525a;
+        font-weight: 650;
+    }
+    .hotel-summary-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        margin: 12px 0 10px 0;
+    }
+    .hotel-summary-strip .stat {
+        background: #edf3ef;
+        border: 1px solid #dae4df;
+        border-radius: 16px;
+        text-align: center;
+        padding: 8px 5px;
+        min-height: 50px;
+    }
+    .stat b { display: block; font-size: 15px; color: #355367; }
+    .stat small { display: block; font-size: 10.5px; color: #728075; margin-top: 2px; }
+    .source-note {
+        font-size: 10.2px;
+        color: #7c887f;
+        margin-top: 7px;
+    }
+    .hotel-inline-photo {
+        width: 100%; height: 128px; border-radius: 18px; overflow: hidden; margin: 8px 0 10px 0;
+        background: #eef1eb;
+    }
+    .image-card {
+        display: flex;
+        gap: 12px;
+        margin: 13px 0;
+        align-items: center;
+        background: #faf8f0;
+        border: 1px solid #e5dfd1;
+        padding: 10px;
+        border-radius: 18px;
+    }
+    .image-placeholder {
+        flex: 0 0 150px;
+        height: 108px;
+        border-radius: 16px;
+        border: 1px dashed #bccdc5;
+        background: linear-gradient(135deg, #e1eff1, #fbf0da);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #6a7b77;
+        font-weight: 800;
+        font-size: 12px;
+        padding: 12px;
+    }
+    .image-card img { width: 220px; max-height: 150px; object-fit: cover; border-radius: 14px; border: 1px solid #d7ded7; }
+    .image-card-caption { flex: 1; font-size: 12px; color: #475569; }
+    .mini-route {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+        margin: 12px 0 4px;
+    }
+    .mini-route span {
+        background: rgba(255,255,255,.8);
+        border: 1px solid rgba(130, 155, 150, .28);
+        border-radius: 999px;
+        padding: 7px 4px;
+        text-align: center;
+        font-size: 10.5px;
+        color: #43545d;
+    }
+    @media print {
+        body { background: #fff; }
+        .page-sheet { box-shadow: none; margin: 0; page-break-after: always; break-after: page; }
+        a { color: #2e718e; }
+    }
+
+
+/* ===== Rich daily itinerary redesign ===== */
+.page-sheet.day-page-sheet {
+    --day-accent: #cf745f;
+    --day-soft: #fae7df;
+    --day-dark: #6b433c;
+    padding: 12mm 14mm 15mm;
+    background:
+      radial-gradient(circle at 92% 7%, color-mix(in srgb, var(--day-soft) 88%, white) 0 48mm, transparent 48.5mm),
+      linear-gradient(180deg, color-mix(in srgb, var(--day-soft) 68%, white) 0 44mm, var(--paper) 44.2mm 100%);
+}
+.page-sheet.day-page-sheet::before { border-color: color-mix(in srgb, var(--day-accent) 30%, transparent); }
+.day-page-sheet .container { height: 100%; }
+.day-layout { min-height: 257mm; display: flex; flex-direction: column; gap: 10px; position: relative; isolation: isolate; }
+.day-layout > * { position: relative; z-index: 1; }
+.day-layout::after { content: attr(data-watermark); position: absolute; z-index: 0; left: 8px; bottom: 42px; font-size: 66px; line-height: 1; font-weight: 950; letter-spacing: .08em; color: color-mix(in srgb, var(--day-accent) 7%, transparent); white-space: nowrap; }
+.day-eyebrow {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 9px; font-weight: 850; letter-spacing: .17em; color: var(--day-dark);
+    padding: 0 2px;
+}
+.day-eyebrow .dots { display: flex; gap: 5px; align-items: center; }
+.day-eyebrow .dots i { display:block; width: 7px; height: 7px; border-radius: 50%; background: var(--day-accent); }
+.day-eyebrow .dots i:nth-child(2) { opacity: .58; }
+.day-eyebrow .dots i:nth-child(3) { opacity: .28; }
+.day-header {
+    display: grid; grid-template-columns: 73px 1fr; gap: 13px; align-items: center;
+    padding: 8px 3px 4px;
+}
+.day-number {
+    width: 70px; height: 70px; border-radius: 22px;
+    background: var(--day-accent); color: white;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 8px 22px color-mix(in srgb, var(--day-accent) 28%, transparent);
+    transform: rotate(-2deg);
+}
+.day-number span { font-size: 9px; font-weight: 900; letter-spacing: .18em; line-height: 1; }
+.day-number b { font-size: 31px; line-height: 1.02; letter-spacing: -.05em; }
+.day-date { color: var(--day-accent); font-size: 11px; font-weight: 900; letter-spacing: .08em; margin-bottom: 3px; }
+.day-title { color: #253542; font-size: 21px; line-height: 1.23; margin: 0; padding: 0; border: 0; letter-spacing: .01em; }
+.day-route {
+    display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: center;
+    border: 1px solid color-mix(in srgb, var(--day-accent) 28%, #d7ddd9);
+    border-radius: 16px; background: rgba(255,255,255,.78); padding: 8px 11px;
+    box-shadow: 0 3px 12px rgba(56,72,76,.05);
+}
+.day-route-label {
+    text-align: center; border-radius: 12px; padding: 6px 2px;
+    background: var(--day-soft); color: var(--day-dark); font-size: 10px; font-weight: 900;
+}
+.day-route-text { font-size: 11.7px; line-height: 1.45; color: #42535d; }
+.day-route-text strong { color: var(--day-dark); }
+.day-photo-collage { display: grid; grid-template-columns: 1.14fr .86fr; gap: 10px; height: 205px; }
+.day-photo {
+    position: relative; margin: 0; border-radius: 19px; overflow: hidden;
+    background: #e7ece8; border: 1px solid rgba(255,255,255,.9);
+    box-shadow: 0 6px 18px rgba(49,65,70,.11);
+}
+.day-photo:nth-child(2) { border-radius: 19px 30px 19px 19px; }
+.day-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.day-photo::after { content:''; position:absolute; inset:auto 0 0; height:58%; background:linear-gradient(transparent,rgba(18,29,35,.72)); pointer-events:none; }
+.day-photo figcaption { position:absolute; z-index:2; left:11px; right:10px; bottom:9px; color:white; }
+.day-photo figcaption b { display:block; font-size:12.5px; line-height:1.25; }
+.day-photo figcaption small { display:block; font-size:8.5px; opacity:.88; margin-top:2px; letter-spacing:.03em; }
+.day-panel {
+    background: rgba(255,255,255,.84); border: 1px solid #dde3df; border-radius: 18px;
+    padding: 11px 12px 12px; box-shadow: 0 3px 12px rgba(55,75,77,.045);
+}
+.day-panel-title { display:flex; align-items:center; gap:7px; color:var(--day-dark); font-size:11px; font-weight:900; letter-spacing:.08em; margin-bottom:9px; }
+.day-panel-title::before { content:''; width:19px; height:4px; border-radius:999px; background:var(--day-accent); }
+.day-items-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+.day-items-grid.single-column { grid-template-columns:1fr; }
+.day-item {
+    position:relative; min-height:49px; border-radius:13px; padding:8px 9px 8px 34px;
+    background: color-mix(in srgb, var(--day-soft) 37%, white); border:1px solid color-mix(in srgb, var(--day-accent) 16%, #dfe5e1);
+    font-size:11.15px; line-height:1.46; color:#3f4e57;
+    break-inside: avoid;
+}
+.day-item-icon {
+    position:absolute; left:8px; top:8px; width:20px; height:20px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center; font-size:11px;
+    background:white; box-shadow:0 2px 6px rgba(50,70,73,.08);
+}
+.day-item strong { color:#263b48; }
+.day-item ul { padding-left:15px; margin:4px 0 0; }
+.day-item li { font-size:10.2px; margin-bottom:2px; }
+.day-route-columns { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.day-route-card { border-radius:15px; background:color-mix(in srgb, var(--day-soft) 35%, white); border:1px solid color-mix(in srgb, var(--day-accent) 16%, #dfe5e1); padding:9px; }
+.day-route-card h4 { margin:0 0 6px; color:var(--day-dark); font-size:11px; line-height:1.35; }
+.day-route-card .day-item { background:white; }
+.day-alert-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.day-alert-grid.one { grid-template-columns:1fr; }
+.day-alert {
+    border-radius:15px; padding:8px 10px; font-size:10.8px; line-height:1.48;
+    border:1px solid; box-shadow:0 2px 8px rgba(60,70,70,.04); break-inside:avoid;
+}
+.day-alert.reserve { background:#fff0ed; border-color:#e7b4aa; color:#803e36; }
+.day-alert.note { background:#fff8dc; border-color:#ead594; color:#654d1f; }
+.day-alert strong { font-size:11px; }
+.day-credit { margin-top:auto; font-size:8.3px; color:#7a8781; text-align:right; line-height:1.35; padding:0 2px; }
+.day-credit a { font-size:8.3px; color:#627c88; font-weight:650; }
+.day-page-sheet.day-9 .day-photo-collage { height:215px; }
+.day-page-sheet.day-9 .day-item { font-size:10.45px; }
+.day-page-sheet.day-4 .day-photo-collage { height:195px; }
+.day-page-sheet.day-4 .day-panel { padding-bottom:9px; }
+.day-page-sheet.day-5 .day-item { font-size:10.5px; }
+.day-page-sheet.day-8 .day-photo:first-child img { object-position:center 48%; }
+.day-page-sheet.day-7 .day-photo:first-child img { object-position:center 42%; }
+
+/* Slightly richer section pages while staying print-safe */
+.page-sheet:not(.day-page-sheet) h2 { position:relative; }
+.page-sheet:not(.day-page-sheet) h2::after {
+    content:'TRAVEL GUIDE'; float:right; font-size:8px; letter-spacing:.15em; color:#96a49f; margin-top:7px;
+}
+.hotel-card, .transit-card, .meta-info, .tax-alert-box { backdrop-filter:none; }
+@media print {
+  .page-sheet.day-page-sheet { background:linear-gradient(180deg, color-mix(in srgb, var(--day-soft) 68%, white) 0 44mm, var(--paper) 44.2mm 100%); }
+  .day-photo, .day-number, .day-panel, .day-alert { box-shadow:none; }
+}
+</style>
 </head>
 <body>
+<!-- ========================================== -->
+<!-- 第一頁：封面與全域資訊、退稅提醒               -->
+<!-- ========================================== -->
+<div class="page-sheet">
+<div class="container">
+<h1>2026 東京・日光・成田 9天8夜完整旅遊指南與交通住宿手冊</h1>
+<div class="meta-info">
+<p><strong>📅 旅遊總日期：</strong>2026/11/21 (六) – 2026/11/29 (日) 【共 9 天 8 夜】</p>
+<p><strong>👥 參與組別：</strong>分成 3 個航班小組分批抵達、全員會合後深度遊，最後分批返台</p>
+<p><strong>🗺️ 涵蓋區域：</strong>東京下町(押上/淺草/谷根千)、世田谷(豪德寺)、原宿/澀谷/新宿、日光溫泉與世界遺產、成田山表參道與機場免稅區</p>
+<p><strong>💡 關鍵提醒：</strong><strong>11/23 (一)</strong> 為日本國定假日「勤勞感謝日」，因此 <strong>11/21 (六) 與 11/23 (一)</strong> 兩天抵達成田機場前往市區，均適用鐵道之「土曜・休日」（週六及假日）時刻表。另提醒：<strong>10 月份須再確認「酉市 (酉の市)」祭典具體舉行時間與動線</strong>。</p>
+</div><div class="mini-route"><span>成田</span><span>本所吾妻橋</span><span>東京下町</span><span>日光</span><span>成田山</span><span>返台</span></div>
+<!-- 退稅新制警示區塊 -->
+<div class="tax-alert-box">
+<h3>🚨 關鍵法規注意：2026 年 11 月 1 日上路「日本退稅新制度」與成田機場過關提醒</h3>
+<p><strong>1. 新制核心變更（先課稅、出境機場退稅）：</strong>自 2026 年 11 月 1 日起，日本全面廢除店家「現買現免稅」模式。旅客在市區購物（包括精品、藥妝、電器等）一律先支付含稅價格。出境當天須至機場（成田機場 T2）的海關退稅機台 (Tax Refund Kiosk) 掃描護照與電子發票，經海關查驗確認後，退稅款項始退回信用卡或指定帳戶。具體操作流程：</p>
+<p><strong>2. 嚴禁提前托運免稅商品：</strong>退稅機台與海關查驗區位於機場大廳（<strong>辦理行李托運手續之前</strong>）。海關有權隨機抽查商品，若免稅商品已放入托運行李並拖運走，將<strong>無法辦理退稅並需補繳 10% 消費稅</strong>！</p>
+<p><strong>3. 回程建議抵達成田機場時間：</strong>因 11 月新制上路後，機場海關查驗櫃檯與 Kiosk 自助機預計排隊人潮眾多，<strong>強烈建議回程當天須提早 3.5 小時抵達成田 Terminal 2 櫃檯</strong>辦理海關退稅查驗後，再前往航空公司櫃檯託運行李。</p>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 第二頁：飛機資訊一張                         -->
+<!-- ========================================== -->
+<div class="page-sheet">
+<div class="container">
+<h2>一、 航班分組資訊（去程與回程分開對照）</h2>
+<h3>🛫 1. 去程航班資訊表 (Outbound Flights)</h3>
+<table>
+<thead>
+<tr>
+<th>小組代號</th>
+<th>出發地與時間</th>
+<th>抵達目的地與時間</th>
+<th>航空公司與航班號碼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Group A</strong></td>
+<td>11/21 (六) 06:55 AM<br/>高雄小港 (KHH)</td>
+<td>11/21 (六) 11:10 AM<br/>成田機場 (NRT T2)</td>
+<td>台灣虎航<br/>IT280</td>
+</tr>
+<tr>
+<td><strong>Group B</strong></td>
+<td>11/21 (六) 14:25 PM<br/>台灣桃園 (TPE T2)</td>
+<td>11/21 (六) 18:30 PM<br/>成田機場 (NRT T2)</td>
+<td>中華航空<br/>CI108</td>
+</tr>
+<tr>
+<td><strong>Group C</strong></td>
+<td>11/23 (一) 08:00 AM<br/>高雄小港 (KHH)</td>
+<td>11/23 (一) 12:10 PM<br/>成田機場 (NRT T2)</td>
+<td>台灣虎航<br/>IT280</td>
+</tr>
+</tbody>
+</table>
+<h3>🛬 2. 回程航班資訊表 (Return Flights)</h3>
+<table>
+<thead>
+<tr>
+<th>小組代號</th>
+<th>出發地與時間</th>
+<th>抵達目的地與時間</th>
+<th>航空公司與航班號碼</th>
+<th>建議抵達成田 T2 時間</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Group A + C</strong></td>
+<td>11/29 (日) 13:00 PM<br/>成田機場 (NRT T2)</td>
+<td>11/29 (日) 16:40 PM<br/>高雄小港 (KHH)</td>
+<td>台灣虎航<br/>IT281</td>
+<td><strong style="color:#c0392b; font-size:14px;">09:30 AM</strong><br/>(提前 3.5 小時)</td>
+</tr>
+<tr>
+<td><strong>Group B</strong></td>
+<td>11/29 (日) 14:35 PM<br/>成田機場 (NRT T2)</td>
+<td>11/29 (日) 17:45 PM<br/>台灣桃園 (TPE T2)</td>
+<td>中華航空<br/>CI101</td>
+<td><strong style="color:#c0392b; font-size:14px;">11:00 AM</strong><br/>(提前 3.5 小時)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 第三頁：成田機場前往「本所吾妻橋」時刻表與搭乘動線指南 -->
+<!-- ========================================== -->
+<div class="page-sheet">
+<div class="container">
+<h2>二、 成田機場前往「本所吾妻橋」時刻表與搭乘動線指南</h2>
+<p><strong>⚠️ 關鍵提醒：</strong> 11/23 (一) 是日本國定假日「勤勞感謝日」，因此 11/21 與 11/23 兩天均適用「土曜・休日」（週六及假日）的時刻表。</p>
+<h3>🗓️ 1. 時刻表對照矩陣與班次</h3>
+<div class="transit-card orange" style="margin-top:10px;">
+<h4>📅 11/21 (六) 11:10 抵達成田機場 (Group A)</h4>
+<ul>
+<li><strong>方案一：【快速首選】京成電鐵－Access 特急 (Sky Access)</strong>
+<ul>
+<li>優點：速度最快，車廂較新。</li>
+<li>乘車方式：於成田機場第二航廈 B1 橘色月台搭乘。多數班次至「押上站」會變更為快特（跳過本所吾妻橋），故建議在「押上站」同月台換乘下一班普通車（僅一站，3 分鐘即達）。</li>
+<li>費用：1,311 日圓 (IC卡) / 1,320 日圓 (現金購票)</li>
+</ul>
+<table>
+<thead><tr><th>建議類型</th><th>成田機場 T2 出發</th><th>抵達本所吾妻橋</th><th>總計花費時間</th><th>備註</th></tr></thead>
+<tbody>
+<tr><td>若出關稍快</td><td>12:32</td><td>13:30</td><td>約 58 分鐘</td><td>需在押上換乘一次</td></tr>
+<tr><td>時間較充裕</td><td>13:12</td><td>14:10</td><td>約 58 分鐘</td><td>需在押上換乘一次</td></tr>
+<tr><td>晚到備案</td><td>13:52</td><td>14:50</td><td>約 58 分鐘</td><td>需在押上換乘一次</td></tr>
+</tbody>
+</table>
+</li>
+<li style="margin-top: 10px;"><strong>方案二：【省錢直達】京成本線 (特急/快速特急)</strong>
+<ul>
+<li>優點：一車直達不需要換車，且票價最便宜。</li>
+<li>乘車方式：於成田機場第二航廈 B1 藍色月台搭乘「往西馬込」之班次。</li>
+<li>費用：1,140 日圓 (IC卡) / 1,150 日圓 (現金購票)</li>
+</ul>
+<table>
+<thead><tr><th>建議類型</th><th>成田機場 T2 出發</th><th>抵達本所吾妻橋</th><th>總計花費時間</th><th>備註</th></tr></thead>
+<tbody>
+<tr><td>若出關稍快</td><td>12:44</td><td>13:53</td><td>約 69 分鐘</td><td>一車直達</td></tr>
+<tr><td>時間較充裕</td><td>13:04</td><td>14:13</td><td>約 69 分鐘</td><td>一車直達</td></tr>
+<tr><td>晚到備案</td><td>13:24</td><td>14:33</td><td>約 69 分鐘</td><td>一車直達</td></tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 第四頁：交通指南續 (DAY 1 夜間與 DAY 3)       -->
+<!-- ========================================== -->
+<div class="page-sheet">
+<div class="container">
+<h2>二、 成田機場前往「本所吾妻橋」時刻表與搭乘動線指南（續）</h2>
+<div class="transit-card orange" style="margin-top:10px;">
+<h4>📅 11/21 (六) 18:30 抵達成田機場（夜間時段，Group B）</h4>
+<ul>
+<li><strong>方案一：【快速首選】京成電鐵－Access 特急 (Sky Access)</strong>
+<ul>
+<li>優點：縮短搭車時間，適合想在深夜前趕快到飯店辦理入住的旅客。</li>
+<li>乘車方式：於成田機場第二航廈 B1 橘色月台搭乘。同樣建議於「押上站」同月台換乘普通車 1 站。</li>
+<li>費用：1,311 日圓 (IC卡) / 1,320 日圓 (現金購票)</li>
+</ul>
+<table>
+<thead><tr><th>建議類型</th><th>成田機場 T2 出發</th><th>抵達本所吾妻橋</th><th>總計花費時間</th><th>備註</th></tr></thead>
+<tbody>
+<tr><td>若出關稍快</td><td>19:12</td><td>20:10</td><td>約 58 分鐘</td><td>需在押上換乘一次</td></tr>
+<tr><td>時間較充裕</td><td>19:52</td><td>20:50</td><td>約 58 分鐘</td><td>需在押上換乘一次</td></tr>
+<tr><td>晚到備案</td><td>20:32</td><td>21:30</td><td>約 58 分鐘</td><td>需在押上換乘一次</td></tr>
+</tbody>
+</table>
+</li>
+<li style="margin-top: 10px;"><strong>方案二：【省錢直達】京成本線 (特急/快速特急)</strong>
+<ul>
+<li>優點：直達免換車，夜間視線較暗且疲憊時，免去轉乘提大行李的負擔。</li>
+<li>乘車方式：於成田機場第二航廈 B1 藍色月台搭乘「往西馬込」之班次。</li>
+<li>費用：1,140 日圓 (IC卡) / 1,150 日圓 (現金購票)</li>
+</ul>
+<table>
+<thead><tr><th>建議類型</th><th>成田機場 T2 出發</th><th>抵達本所吾妻橋</th><th>總計花費時間</th><th>備註</th></tr></thead>
+<tbody>
+<tr><td>若出關稍快</td><td>19:24</td><td>20:33</td><td>約 69 分鐘</td><td>一車直達</td></tr>
+<tr><td>時間較充裕</td><td>19:44</td><td>20:53</td><td>約 69 分鐘</td><td>一車直達</td></tr>
+<tr><td>晚到備案</td><td>20:04</td><td>21:13</td><td>約 69 分鐘</td><td>一車直達</td></tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 第五頁：交通指南續 (11/23 Group C)           -->
+<!-- ========================================== -->
+<div class="page-sheet">
+<div class="container">
+<h2>二、 成田機場前往「本所吾妻橋」時刻表與搭乘動線指南（續）</h2>
+<div class="transit-card orange" style="margin-top:10px;">
+<h4>📅 11/23 (一) 12:10 抵達成田機場（日本國定假日，Group C）</h4>
+<ul>
+<li><strong>方案一：【快速首選】京成電鐵－Access 特急 (Sky Access)</strong>
+<ul>
+<li>優點：縮短乘車時間，適合想盡快抵達飯店放行李的旅客。</li>
+<li>乘車方式：搭乘橘色標示的 Access 特急。同樣建議於「押上站」換乘普通車 1 站。</li>
+<li>費用：1,311 日圓 (IC卡) / 1,320 日圓 (現金購票)</li>
+</ul>
+<table>
+<thead><tr><th>建議類型</th><th>成田機場 T2 出發</th><th>抵達本所吾妻橋</th><th>總計花費時間</th><th>備註</th></tr></thead>
+<tbody>
+<tr><td>若出關稍快</td><td>13:12</td><td>14:10</td><td>約 58 分鐘</td><td>需在押上換乘一次</td></tr>
+<tr><td>時間較充裕</td><td>13:52</td><td>14:50</td><td>約 58 分鐘</td><td>需在押上換乘一次</td></tr>
+<tr><td>晚到備案</td><td>14:32</td><td>15:30</td><td>約 58 分鐘</td><td>需在押上換乘一次</td></tr>
+</tbody>
+</table>
+</li>
+<li style="margin-top: 10px;"><strong>方案二：【省錢直達】京成本線 (特急/快速特急)</strong>
+<ul>
+<li>優點：直達免換車，行李較多時最輕鬆。</li>
+<li>乘車方式：搭乘藍色標示的京成本線「往西馬込」班次。</li>
+<li>費用：1,140 日圓 (IC卡) / 1,150 日圓 (現金購票)</li>
+</ul>
+<table>
+<thead><tr><th>建議類型</th><th>成田機場 T2 出發</th><th>抵達本所吾妻橋</th><th>總計花費時間</th><th>備註</th></tr></thead>
+<tbody>
+<tr><td>若出關稍快</td><td>13:24</td><td>14:33</td><td>約 69 分鐘</td><td>一車直達</td></tr>
+<tr><td>時間較充裕</td><td>13:44</td><td>14:53</td><td>約 69 分鐘</td><td>一車直達</td></tr>
+<tr><td>晚到備案</td><td>14:04</td><td>15:13</td><td>約 69 分鐘</td><td>一車直達</td></tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 第六頁：詳細搭車指引與應注意事項             -->
+<!-- ========================================== -->
+<div class="page-sheet">
+<div class="container">
+<h2>🛠️ 補充：詳細搭車指引與應注意事項</h2>
+<div class="transit-card orange">
+<h4>🟠 橘色線【方案一：Access 特急 (Sky Access)】</h4>
+<p><strong>1. 機場進站與購票動線（認準「橘色」與「B1/B2 樓層」）</strong></p>
+<ul>
+<li><strong>1樓入境大廳 ➡️ B1 鐵道大廳：</strong>出關後在 1 樓尋找「鐵道 (Train)」指標，搭乘手扶梯降至 B1 樓層。</li>
+<li><strong>售票機與進站：</strong>現場會看到醒目的亮橘色大招牌寫著 「成田スカイアクセス線 / Narita SKY ACCESS Line」。若使用 IC 卡（Suica / PASMO 等），直接在手機感應或售票機儲值；若現場購票，請使用橘色區塊的自動售票機（僅需支付一般車資，免加購特急券）。持卡/車票通過橘色外觀的剪票閘門進站（僅需過這一道閘門）。</li>
+<li><strong>B2 月台等車：</strong>進站後，依照橘色指標下樓至 B2 樓層的月台（主要 in 第 1、4、5 月台）。</li>
+</ul>
+<p style="background-color: #fff7ed; padding: 8px; border-radius: 4px; font-size: 13px;"><strong>⚠️ 防呆視覺提醒：</strong> Access 特急與頂級的「Skyliner」會共用部分月台，兩者車外觀不同（Skyliner 為全車對號座、外觀非常有科技感）。上車前請務必抬頭看月台 LED 螢幕，確認亮起橘色 "Access Exp." 或日文 "アクセス特急（ア特）" 字樣再上車。</p>
+<p><strong>2. 認準時刻表代碼（上車前必看）</strong></p>
+<p>在月台螢幕或時刻表上，橘色「ア特」後方會帶有目的地平假名或中文字縮寫，請依此判斷：</p>
+<ul>
+<li><strong style="color: #166534;">【首選班次】帶有「西」、「羽」、「三」：</strong>西（西馬込）、羽（羽田機場）、三（三崎口）。這三種班次都一定會經過押上與淺草方向。</li>
+<li><strong style="color: #991b1b;">【避開班次】帶有「上」、「高」：</strong>上（京成上野）、高（京成高砂）。這兩者不會往淺草方向走。</li>
+</ul>
+<p>💡 <strong>萬一誤搭修正法：</strong> 如果不小心搭到往上野方向的 Access 特急，請在 「青砥站」 下車。此站設計非常貼心，下車後直接走到對面月台（免上下樓梯），換乘往淺草線/押上方向的列車即可。</p>
+<p><strong>3. 關鍵轉乘：押上站的「同月台 3 分鐘魔法」</strong></p>
+<p>當您搭乘往西馬込/羽田機場的 Access 特急抵達 「押上站」 時，因為列車過押上後大多會變成「快特」或「機場快特」，直接跳過本所吾妻橋站。</p>
+<ul>
+<li><strong>正確動作：</strong> 列車停靠押上站時，請直接拉著行李下車，留在原本的月台原地等候，不需要換月台、不需走樓梯。</li>
+<li>下一班進站的通常就是各站停車的「普通車」，直接上車坐 1 站（3 分鐘），即可順利抵達「本所吾妻橋站」。</li>
+</ul>
+</div>
 
-  <header>
-    <h1>🍁 2026 東京日光賞楓之旅</h1>
-    <p class="subtitle">11/21 — 11/29 ・ 9天8夜</p>
-  </header>
 
-  <div class="container">
-    
-    <div class="grid-4">
-      <div class="grid-item"><span>👥</span>人數<br>5 人</div>
-      <div class="grid-item"><span>📅</span>天數<br>9天8夜</div>
-      <div class="grid-item"><span>🚆</span>交通<br>地鐵/鐵路</div>
-      <div class="grid-item"><span>🏡</span>住宿<br>東京+日光</div>
-    </div>
-
-    <div class="section">
-      <h2>📌 實用共用連結</h2>
-      <div class="btn-group">
-        <a href="#" class="btn btn-green">💰 共同記帳表單</a>
-        <a href="#" class="btn btn-orange">🛒 想吃想買清單</a>
-        <a href="https://maps.google.com/" target="_blank" class="btn btn-blue">🗺️ Google 行程地圖</a>
-      </div>
-      <p style="font-size: 12px; color: #888; margin-top: 5px;">*點擊上方按鈕進入 Google Sheets 與 Google Maps（需更換為專屬網址）</p>
-    </div>
-
-    <div class="section">
-      <h2>🚆 東京 ➔ 日光 交通方案評估</h2>
-      <p style="font-size: 14px; color: #444;">如果不搭乘 Spacia X，建議考慮以下兩種舒適且方便的方式：</p>
-      <ul style="font-size: 14px; color: #555; padding-left: 20px;">
-        <li style="margin-bottom: 8px;"><b>方案一：東武特急 Revaty (リバティ)</b><br>從淺草出發，車程約 110 分鐘。車廂新穎舒適，且班次比 Spacia X 多，適合購買「日光周遊券」搭配使用。</li>
-        <li><b>方案二：JR 新幹線轉乘 (最快速)</b><br>從東京或上野搭乘「東北新幹線」至宇都宮站（約 50 分鐘），轉乘 JR 日光線（約 45 分鐘）。若你們住宿靠近東京/上野站，此方案最省時。</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🗓️ 每日行程規劃</h2>
-      
-      <div class="day-card">
-        <h3>Day 1 — 11/21 (四) 東京：首批抵達與在地散策</h3>
-        <p>✈️ 第一批 3 人抵達成田 (11:10) → 🚆 搭乘地鐵前往市區飯店寄放行李 → ⛩️ <b>谷根千散策</b> (谷中銀座、根津神社，避開人潮感受下町老街氛圍) → 🍜 飯店附近吃晚餐</p>
-      </div>
-
-      <div class="day-card">
-        <h3>Day 2 — 11/22 (五) 東京：在地賞楓秘境</h3>
-        <p>☕ 悠閒早午餐 → 🛶 <b>井之頭恩賜公園</b> (吉祥寺商圈順遊) → 🍁 <b>大田黑公園</b> (極力推薦！荻窪站附近的日式庭園，晚上的夜楓點燈非常靜謐且少觀光客) <br><a href="https://goo.gl/maps/example1" class="map-link" target="_blank">📍 開啟地圖導航</a></p>
-      </div>
-
-      <div class="day-card">
-        <h3>Day 3 — 11/23 (六) 東京：全員會合與銀杏大道</h3>
-        <p>✈️ 第二批 2 人抵達成田 (12:10) → 🏨 飯店會合 → 🍂 <b>明治神宮外苑銀杏林</b> (雖然觀光客多但 11 月下旬必看) → 🛍️ 表參道/青山商圈 → 🍻 5 人相聚晚餐</p>
-      </div>
-
-      <div class="day-card">
-        <h3>Day 4 — 11/24 (日) 東京：名園秋色</h3>
-        <p>🍁 <b>小石川後樂園</b> (東京市區最頂級的迴遊式庭園賞楓) → ☕ 清澄白河 (特色咖啡廳巡禮與雜貨小店) → 🗼 眺望東京夜景</p>
-      </div>
-
-      <div class="day-card">
-        <h3>Day 5 — 11/25 (一) 東京：採購與購物日</h3>
-        <p>打開「想吃想買清單」盡情採購！ → 🛒 推薦至新宿、澀谷或前往 Outlet → 🧳 晚上整理行李準備明日移動</p>
-      </div>
-
-      <div class="day-card">
-        <h3>Day 6 — 11/26 (二) 轉移陣地：北上日光</h3>
-        <p>🚆 早上從東京出發前往日光 (推薦搭乘 Revaty 或是新幹線) → 🏨 抵達日光飯店寄放行李 → 🍁 <b>逍遙園</b> (輪王寺旁的小庭園，11月底日光市區最容易看到紅葉的地方) <br><a href="https://goo.gl/maps/example2" class="map-link" target="_blank">📍 開啟地圖導航</a></p>
-      </div>
-
-      <div class="day-card">
-        <h3>Day 7 — 11/27 (三) 日光：世界遺產與靜謐淵谷</h3>
-        <p>⛩️ <b>日光東照宮 & 二荒山神社</b> → 🌊 <b>憾滿之淵</b> (非常幽靜的沿溪步道，有一排神秘的地藏王菩薩，適合遠離人群散步) → ♨️ 享受日光溫泉與會席料理</p>
-      </div>
-
-      <div class="day-card">
-        <h3>Day 8 — 11/28 (四) 日光：周邊延伸</h3>
-        <p>🎭 <b>日光江戶村</b> (體驗江戶時代風情) 或 ♨️ <b>鬼怒川溫泉老街散步</b> → 🍽️ 採買伴手禮與最後的晚餐</p>
-      </div>
-
-      <div class="day-card">
-        <div class="highlight-box">
-          <b>⚠️ 航班注意：</b> 回程航班為 13:00。從日光前往成田機場約需 3.5 小時，務必於 <b>早上 07:00 前</b> 離開日光飯店！
-        </div>
-        <h3>Day 9 — 11/29 (五) 踏上歸途</h3>
-        <p>🧳 清晨退房 → 🚆 搭乘首班鐵路返回東京轉搭機場快線 → ✈️ 13:00 成田機場起飛 → 16:40 抵達小港機場</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>✈️ 航班與成員資訊</h2>
-      <ul class="member-list">
-        <li><b>【第一批 3 人】</b><br>11/21 小港 06:55 ➔ 成田 11:10<br>11/29 成田 13:00 ➔ 小港 16:40</li>
-        <li><b>【第二批 2 人】</b><br>11/23 小港 08:00 ➔ 成田 12:10<br>11/29 成田 13:00 ➔ 小港 16:40</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>✅ 出國前 Checklist</h2>
-      <ul class="checklist">
-        <li>🔴 確認日光住宿是否已預訂 (因逢賞楓旺季需提早)</li>
-        <li>🟡 決定東京到日光的交通票券 (JR 東京廣域周遊券 或 日光周遊券)</li>
-        <li>🔵 填寫 Visit Japan Web (QR Code 截圖)</li>
-        <li>🟣 建立並分享 Google 記帳表單與購物清單</li>
-        <li>🟣 下載離線地圖與西瓜卡 (Suica) 綁定 Apple Pay</li>
-      </ul>
-    </div>
-
-  </div>
+</div>
+</div><div class="page-sheet"><div class="container"><h2>🛠️ 補充：詳細搭車指引與應注意事項（續）</h2><div class="transit-card blue" style="margin-top: 15px;">
+<h4>🔵 藍色線【方案二：京成本線】</h4>
+<p><strong>1. 機場進站與購票動線（認準「藍色」與「雙重閘門」）</strong></p>
+<ul>
+<li><strong>認準深藍色指標：</strong>降至 B1 鐵道大廳後，全程尋找深藍色的 「Keisei Line（京成本線）」 指標與售票機。</li>
+<li><strong>解鎖雙重閘門限制：</strong>
+<ul>
+<li>第一道閘門： 先刷卡/過票進入藍色外觀的京成電鐵大剪票口。</li>
+<li>第二道「中間檢票口」： 進站後順著藍色本線的地板引導線往前走，下月台前會遇到第二道閘門。不要慌張，這只是用來區分本線與 Sky Access 票價的查驗閘門，持同一張 IC 卡或車票再次感應/投入即可通過。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 認準終點站，開啟一車直達模式</strong></p>
+<p>進到藍色本線月台後，請在時刻表或月台螢幕上尋找終點站為 「西馬込 (Nishi-Magome)」 的班次（車種通常會亮藍色或紅色的「特急」或「快速特急」）。</p>
+<p>只要認準這班車，因為成田機場是始發站，車廂通常很空，放好行李找位子坐下後，中途完全不需下車、不需轉乘。列車在抵達押上站後會自動變更為各站停車的普通車，直接載您直達「本所吾妻橋站」（車程約 69 分鐘）。</p>
+<p style="background-color: #eff6ff; padding: 8px; border-radius: 4px; font-size: 13px;"><strong>⚠️ 注意：</strong> 藍色本線有非常多班次是開往「京成上野」的，上車前一定要看清螢幕是寫「西馬込」，若搭錯一樣必須在青砥站換車。</p>
+</div><div class="transit-card" style="margin-top: 15px; border-left: 5px solid #475569;">
+<h4>兩方案共同：抵達本所吾妻橋站後的指引與夜間提醒</h4>
+<p>不論您採取方案一或方案二，抵達「本所吾妻橋站」後，請注意以下事項：</p>
+<ul>
+<li><strong>1. 出站與行李搬運</strong>
+<ul>
+<li>出口選擇： 請由 A3 或 A4 出口出站。</li>
+<li><strong>強烈建議走 A3 出口：</strong> 本所吾妻橋站的許多出口只有純樓梯。若攜帶大件行李，請在站內跟隨無障礙標示，尋找設有電梯 (Elevator) 的 A3 出口，以免辛苦搬運行李。出站後步行約 300 公尺（3-5 分鐘）即可抵達 4-chōme-21-4。</li>
+</ul>
+</li>
+<li><strong>2. 夜間時段（18:30 抵達）特別提醒</strong>
+<ul>
+<li>機場櫃檯時間： 若有預約網卡、WiFi 機或實體交通票券需要現場取件，部分機場櫃檯在 20:00 或 21:00 就會結束營業，下機出關後請留意時間。</li>
+<li>晚餐與宵夜安排： 18:30 抵達的班機，順利的話到飯店辦理入住約在 20:30 - 21:30 之間。此時本所吾妻橋周邊的獨立餐館多數已過最後點餐時間。建議在出站前往住宿點的路上，直接在 24 小時營業的連鎖超商（7-Eleven、FamilyMart、Lawson）或連鎖餐廳（如松屋、吉野家）解決晚餐。</li>
+</ul>
+</li>
+</ul>
+</div></div></div>
+<!-- ========================================== -->
+<!-- 第七頁：住宿 一間一張 (1. 東京民宿)          -->
+<!-- ========================================== -->
+<div class="page-sheet">
+<div class="container">
+<h2>三、 住宿地點與預約編號詳細指南（三階段住宿）</h2>
+<div class="hotel-card" style="margin-top:10px;">
+<h3>🏠 東京住宿｜本所吾妻橋包棟民宿</h3>
+<div class="hotel-summary-strip">
+<div class="stat"><b>5 夜</b><small>11/21-11/26</small></div>
+<div class="stat"><b>10 人</b><small>最多入住</small></div>
+<div class="stat"><b>5 房</b><small>9 張床</small></div>
+<div class="stat"><b>3 分鐘</b><small>到本所吾妻橋</small></div>
+</div>
+<p><strong>民宿名稱/地點：</strong>東京都墨田區本所吾妻橋包棟民宿 <a href="https://maps.app.goo.gl/QZX3Ty983HxajN197" target="_blank">[Google Map 導航連結]</a> | <a href="https://www.airbnb.com.tw/rooms/1661217093593003826?source_impression_id=p3_1784729466_P3GzdZpmGv3sepaQ" target="_blank">[Airbnb 房源網站]</a></p>
+<p><strong>完整地址：</strong>4-chōme-21-4 Higashikomagata Sumida City, Tokyo 130-0005</p>
+<p><strong>入住時間：</strong>下午 16:00 - 晚上 22:00 | <strong>退房時間：</strong>上午 10:00 前</p>
+<p><strong>交通與進出方式：</strong>都營淺草線「本所吾妻橋站」A3 出口（設有雙向電梯）步行約 300 公尺；採電子密碼鎖自主 Check-in。</p>
+<p><strong>住宿重點：</strong>整套 5 臥房源，適合多人分房；房源頁標示提供完整廚房、Wi-Fi、洗衣機與烘乾設備，夜間需注意住宅區安靜規範。</p>
+<div class="hotel-hero"><div class="photo-lead"><img alt="房源外觀／共用空間" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1661217093593003826/original/07d5500c-e25b-4de8-8d3e-e97c6551d275.jpeg?im_w=720"/><div class="photo-caption">房源外觀／共用空間｜Airbnb 房源頁相片區</div></div><div class="photo-grid"><div class="photo-tile"><img alt="臥室與寢具配置" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1661217093593003826/original/aef15c64-7fb4-4dbd-bd14-e19b0265acaa.jpeg?im_w=720"/><span>臥室與寢具配置</span></div><div class="photo-tile"><img alt="室內採光" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1661217093593003826/original/7a697eaf-1a8f-449e-b166-c05ff010a331.jpeg?im_w=720"/><span>室內採光</span></div></div></div>
+</div>
+</div>
+</div>
 </body>
 </html>
+"""
+
+readme_content = """# 2026 東京・日光・成田 9天8夜｜旅遊手冊專案
+
+本專案包含一套為 2026 年 11 月東京、日光、成田 9 天 8 夜行程精心設計的 A4 直式圖文旅遊手冊。採用高顏值排版與 CSS Paged Media 技術，可直接透過瀏覽器列印或透過 Python (WeasyPrint) 自動生成高畫質 PDF。
+
+## 📁 專案目錄結構
+```text
+tokyo-travel-guide-2026/
+├── index.html          # 手冊 HTML 原始碼（內含完整排版與 CSS）
+├── generate_pdf.py     # Python 自動化轉 PDF 腳本
+├── requirements.txt    # 專案依賴套件清單
+├── .gitignore          # Git 忽略設定
+└── README.md           # 專案說明文件
