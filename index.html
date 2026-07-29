@@ -1491,6 +1491,21 @@ html { scroll-behavior: smooth; }
   .day-index-card > i { transform: translateY(-50%) !important; }
 }
 </style>
+
+<style>
+/* ===== 2026-07-29 各頁抬頭三色圓點與文字錯開 ===== */
+.page-sheet:not(.day-page-sheet) h2 {
+  position: relative;
+  padding-left: 53px !important;
+}
+.page-sheet:not(.day-page-sheet) h2::before {
+  position: absolute;
+  left: 1px;
+  top: 0.42em;
+  margin-right: 0 !important;
+  vertical-align: initial;
+}
+</style>
 </head>
 <body>
 <!-- ========================================== -->
