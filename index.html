@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>2026 東京・日光・成田 9天8夜｜露營燈外觀瑕疵返送・日本郵局寄件步驟版</title>
+<title>2026 楓葉之旅｜東京・日光・成田 9天8夜・餐廳後日光交通接送版</title>
 <style>
     @page { size: A4 portrait; margin: 0; }
     :root {
@@ -2523,55 +2523,201 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   #side-toc-toggle,
   #side-toc-backdrop { display: none !important; }
 }
+</style><style id="maple-journey-side-toc-style">
+/* ===== 左側浮動目錄：楓葉之旅主題 ===== */
+:root {
+  --maple-wine: #6f2e2a;
+  --maple-red: #a94b37;
+  --maple-orange: #cf7637;
+  --maple-gold: #d4a34c;
+  --maple-olive: #6f7650;
+  --maple-cream: #fff9ee;
+}
+#side-toc {
+  border-color: rgba(111,46,42,.22) !important;
+  background: rgba(255,250,240,.988) !important;
+  box-shadow: 0 21px 56px rgba(76,43,33,.22), 0 3px 9px rgba(76,43,33,.08) !important;
+}
+#side-toc::before {
+  background: linear-gradient(180deg, var(--maple-wine) 0%, var(--maple-red) 28%, var(--maple-orange) 53%, var(--maple-gold) 76%, var(--maple-olive) 100%) !important;
+}
+.side-toc-header {
+  background:
+    radial-gradient(circle at 90% 16%, rgba(255,226,167,.22) 0 30px, transparent 31px),
+    radial-gradient(circle at 98% 53%, rgba(255,255,255,.10) 0 45px, transparent 46px),
+    linear-gradient(138deg, #5a2927 0%, #8c382f 42%, #b95a32 72%, #9a713d 122%) !important;
+}
+.side-toc-header::before,
+.side-toc-header::after {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  font-family: 'Noto Color Emoji', 'Segoe UI Emoji', sans-serif !important;
+  line-height: 1;
+}
+.side-toc-header::before {
+  content: '🍁';
+  right: 44px;
+  top: 6px;
+  font-size: 34px;
+  opacity: .20;
+  transform: rotate(-17deg);
+}
+.side-toc-header::after {
+  content: '🍁';
+  right: 7px;
+  bottom: 6px;
+  font-size: 24px;
+  opacity: .13;
+  transform: rotate(18deg);
+}
+.side-toc-header-main,
+.side-toc-route-line { position: relative; z-index: 1; }
+.side-toc-kicker {
+  color: rgba(255,238,203,.82) !important;
+  letter-spacing: .135em !important;
+}
+.side-toc-title {
+  font-size: 22px !important;
+  letter-spacing: .09em !important;
+  color: #fffaf0 !important;
+  text-shadow: 0 2px 4px rgba(55,24,20,.28) !important;
+}
+.side-toc-subtitle { color: rgba(255,244,221,.84) !important; }
+.side-toc-route-line { color: rgba(255,243,218,.91) !important; }
+.side-toc-route-line i {
+  background: linear-gradient(90deg, rgba(255,228,177,.22), rgba(255,238,207,.72)) !important;
+}
+.side-toc-route-line i::after { background: #f4d68d !important; }
+.side-toc-list {
+  background:
+    radial-gradient(circle at 96% 4%, rgba(207,118,55,.09) 0 34px, transparent 35px),
+    linear-gradient(180deg, rgba(251,237,215,.62), transparent 68px),
+    rgba(255,251,243,.988) !important;
+  scrollbar-color: #cfb295 transparent !important;
+}
+.side-toc-list::-webkit-scrollbar-thumb { background: #cfb295 !important; }
+.side-toc-section-label {
+  color: #8b6a52 !important;
+}
+.side-toc-section-label::before {
+  content: '◆';
+  color: var(--maple-gold);
+  font-size: 7px;
+}
+.side-toc-section-label::after {
+  background: linear-gradient(90deg, rgba(169,75,55,.35), rgba(212,163,76,.27), transparent) !important;
+}
+.side-toc-link {
+  color: #55443c !important;
+  background: rgba(255,255,255,.50) !important;
+}
+.side-toc-link:hover {
+  color: #71382f !important;
+  background: #fff1df !important;
+  border-color: #edd1b6 !important;
+  box-shadow: 0 3px 11px rgba(112,66,45,.08) !important;
+}
+.side-toc-link:hover::after { color: var(--maple-orange) !important; }
+.side-toc-link.is-active {
+  color: #6e302a !important;
+  background: linear-gradient(90deg, #ffe9da, #fff7e7) !important;
+  border-color: #e8b9a2 !important;
+  box-shadow: 0 4px 13px rgba(126,66,43,.12), inset 3px 0 0 var(--maple-red) !important;
+}
+.side-toc-link.is-active::after { color: var(--maple-red) !important; }
+.side-toc-icon {
+  outline: 1px solid rgba(255,255,255,.30);
+  outline-offset: -3px;
+}
+.side-toc-icon.coral { background: #ac533e !important; }
+.side-toc-icon.gold { background: #bf8a39 !important; }
+.side-toc-icon.green { background: #737b53 !important; }
+.side-toc-icon.blue { background: #657f83 !important; }
+.side-toc-icon.plum { background: #7b5967 !important; }
+.side-toc-day-link {
+  border-color: #eadccc !important;
+  background: rgba(255,253,248,.88) !important;
+}
+.side-toc-day-link:hover {
+  background: #fff1df !important;
+  border-color: #e3c6aa !important;
+}
+.side-toc-day-link.is-active {
+  color: #6f3028 !important;
+  background: linear-gradient(150deg, #ffe7d7, #fff5dd) !important;
+  border-color: #e3ab90 !important;
+  box-shadow: 0 4px 12px rgba(126,66,43,.12), inset 0 -3px 0 var(--maple-red) !important;
+}
+.side-toc-footer {
+  border-top-color: rgba(169,75,55,.17) !important;
+  color: #8a725f !important;
+  background: linear-gradient(90deg, #f6eee2, #faf4e8) !important;
+}
+.side-toc-footer b { color: #74483c !important; }
+#side-toc-toggle {
+  color: #71382f !important;
+  border-color: rgba(111,46,42,.22) !important;
+  background: rgba(255,249,238,.98) !important;
+  box-shadow: 0 9px 25px rgba(76,43,33,.19) !important;
+}
+#side-toc-toggle::before {
+  content: '楓' !important;
+  background: linear-gradient(135deg, var(--maple-wine), var(--maple-orange)) !important;
+  font-family: var(--kai-font, 'DFKai-SB', 'BiauKai', '標楷體', serif) !important;
+  font-size: 16px !important;
+}
+#side-toc-toggle:hover { background: #fffaf1 !important; }
+#side-toc-backdrop { background: rgba(56,31,26,.38) !important; }
+@media print {
+  #side-toc, #side-toc-toggle, #side-toc-backdrop { display: none !important; }
+}
 </style></head>
 <body>
-<nav aria-hidden="true" aria-label="頁面左側旅程目錄" class="is-closed" id="side-toc">
-  <div class="side-toc-header">
-    <div class="side-toc-header-main">
-      <a class="side-toc-brand" href="#cover" title="回到封面">
-        <span class="side-toc-kicker">TRIP NAVIGATION</span>
-        <span class="side-toc-title">旅程導覽</span>
-        <span class="side-toc-subtitle">2026 東京・日光・成田</span>
-      </a>
-      <button aria-label="收合目錄" class="side-toc-close" title="收合目錄" type="button">×</button>
-    </div>
-    <div aria-hidden="true" class="side-toc-route-line"><span>東京</span><i></i><span>日光</span><i></i><span>成田</span></div>
-  </div>
-  <div class="side-toc-list">
-    <div class="side-toc-section-label">行前準備</div>
-    <a class="side-toc-link" href="#tax-vjw"><span class="side-toc-icon coral">退</span><span class="side-toc-text">日本退稅新制＋Visit Japan Web 行前填寫</span></a>
-    <a class="side-toc-link" href="#packing-list-1"><span class="side-toc-icon gold">行</span><span class="side-toc-text">行李清單</span></a>
-    <a class="side-toc-link" href="#flight-info"><span class="side-toc-icon blue">航</span><span class="side-toc-text">航班分組資訊</span></a>
-    <a class="side-toc-link" href="#narita-honjo-guide"><span class="side-toc-icon green">成</span><span class="side-toc-text">成田機場→本所吾妻橋攻略</span></a>
-    <a class="side-toc-link" href="#tokyo-subway-pass"><span class="side-toc-icon plum">鐵</span><span class="side-toc-text">東京地鐵</span></a>
-
-    <div class="side-toc-section-label">住宿</div>
-    <a class="side-toc-link" href="#stay-tokyo"><span class="side-toc-icon coral">東</span><span class="side-toc-text">住宿_東京</span></a>
-    <a class="side-toc-link" href="#stay-nikko"><span class="side-toc-icon green">日</span><span class="side-toc-text">住宿_日光</span></a>
-    <a class="side-toc-link" href="#stay-narita"><span class="side-toc-icon blue">成</span><span class="side-toc-text">住宿_成田</span></a>
-
-    <div class="side-toc-section-label">每日行程</div>
-    <div class="side-toc-day-grid">
-      <a class="side-toc-link side-toc-day-link" href="#day1"><span class="side-toc-day-no">01</span><span class="side-toc-day-name">DAY</span></a>
-      <a class="side-toc-link side-toc-day-link" href="#day2"><span class="side-toc-day-no">02</span><span class="side-toc-day-name">DAY</span></a>
-      <a class="side-toc-link side-toc-day-link" href="#day3"><span class="side-toc-day-no">03</span><span class="side-toc-day-name">DAY</span></a>
-      <a class="side-toc-link side-toc-day-link" href="#day4"><span class="side-toc-day-no">04</span><span class="side-toc-day-name">DAY</span></a>
-      <a class="side-toc-link side-toc-day-link" href="#day5"><span class="side-toc-day-no">05</span><span class="side-toc-day-name">DAY</span></a>
-      <a class="side-toc-link side-toc-day-link" href="#day6"><span class="side-toc-day-no">06</span><span class="side-toc-day-name">DAY</span></a>
-      <a class="side-toc-link side-toc-day-link" href="#day7"><span class="side-toc-day-no">07</span><span class="side-toc-day-name">DAY</span></a>
-      <a class="side-toc-link side-toc-day-link" href="#day8"><span class="side-toc-day-no">08</span><span class="side-toc-day-name">DAY</span></a>
-      <a class="side-toc-link side-toc-day-link" href="#day9"><span class="side-toc-day-no">09</span><span class="side-toc-day-name">DAY</span></a>
-    </div>
-
-    <div class="side-toc-section-label">餐飲與寄件</div>
-    <a class="side-toc-link" href="#restaurant-main"><span class="side-toc-icon coral">餐</span><span class="side-toc-text">主餐與需預約餐廳總表</span></a>
-    <a class="side-toc-link" href="#restaurant-alternative"><span class="side-toc-icon gold">分</span><span class="side-toc-text">分流、替代餐廳與後段主餐總表</span></a>
-    <a class="side-toc-link" href="#restaurant-snacks"><span class="side-toc-icon green">甜</span><span class="side-toc-text">點心、咖啡與順路加碼美食總表</span></a>
-    <a class="side-toc-link" href="#japan-post-domestic-1"><span class="side-toc-icon blue">郵</span><span class="side-toc-text">日本郵局寄件步驟</span></a>
-  </div>
-  <div class="side-toc-footer"><span><b>9 DAYS</b> · 8 NIGHTS</span><span>11/21—11/29</span></div>
+<nav aria-hidden="true" aria-label="頁面左側楓葉之旅目錄" class="is-closed" id="side-toc">
+<div class="side-toc-header">
+<div class="side-toc-header-main">
+<a class="side-toc-brand" href="#cover" title="回到楓葉之旅封面">
+<span class="side-toc-kicker">AUTUMN MAPLE JOURNEY</span>
+<span class="side-toc-title">楓葉之旅</span>
+<span class="side-toc-subtitle">2026 東京・日光・成田</span>
+</a>
+<button aria-label="收合楓葉之旅目錄" class="side-toc-close" title="收合楓葉之旅目錄" type="button">×</button>
+</div>
+<div aria-hidden="true" class="side-toc-route-line"><span>東京</span><i></i><span>日光</span><i></i><span>成田</span></div>
+</div>
+<div class="side-toc-list">
+<div class="side-toc-section-label">行前準備</div>
+<a class="side-toc-link" href="#tax-vjw"><span class="side-toc-icon coral">退</span><span class="side-toc-text">日本退稅新制＋Visit Japan Web 行前填寫</span></a>
+<a class="side-toc-link" href="#packing-list-1"><span class="side-toc-icon gold">行</span><span class="side-toc-text">行李清單</span></a>
+<a class="side-toc-link" href="#flight-info"><span class="side-toc-icon blue">航</span><span class="side-toc-text">航班分組資訊</span></a>
+<a class="side-toc-link" href="#narita-honjo-guide"><span class="side-toc-icon green">成</span><span class="side-toc-text">成田機場→本所吾妻橋攻略</span></a>
+<a class="side-toc-link" href="#tokyo-subway-pass"><span class="side-toc-icon plum">鐵</span><span class="side-toc-text">東京地鐵</span></a>
+<div class="side-toc-section-label">住宿</div>
+<a class="side-toc-link" href="#stay-tokyo"><span class="side-toc-icon coral">東</span><span class="side-toc-text">住宿_東京</span></a>
+<a class="side-toc-link" href="#stay-nikko"><span class="side-toc-icon green">日</span><span class="side-toc-text">住宿_日光</span></a>
+<a class="side-toc-link" href="#stay-narita"><span class="side-toc-icon blue">成</span><span class="side-toc-text">住宿_成田</span></a>
+<div class="side-toc-section-label">每日行程</div>
+<div class="side-toc-day-grid">
+<a class="side-toc-link side-toc-day-link" href="#day1"><span class="side-toc-day-no">01</span><span class="side-toc-day-name">DAY</span></a>
+<a class="side-toc-link side-toc-day-link" href="#day2"><span class="side-toc-day-no">02</span><span class="side-toc-day-name">DAY</span></a>
+<a class="side-toc-link side-toc-day-link" href="#day3"><span class="side-toc-day-no">03</span><span class="side-toc-day-name">DAY</span></a>
+<a class="side-toc-link side-toc-day-link" href="#day4"><span class="side-toc-day-no">04</span><span class="side-toc-day-name">DAY</span></a>
+<a class="side-toc-link side-toc-day-link" href="#day5"><span class="side-toc-day-no">05</span><span class="side-toc-day-name">DAY</span></a>
+<a class="side-toc-link side-toc-day-link" href="#day6"><span class="side-toc-day-no">06</span><span class="side-toc-day-name">DAY</span></a>
+<a class="side-toc-link side-toc-day-link" href="#day7"><span class="side-toc-day-no">07</span><span class="side-toc-day-name">DAY</span></a>
+<a class="side-toc-link side-toc-day-link" href="#day8"><span class="side-toc-day-no">08</span><span class="side-toc-day-name">DAY</span></a>
+<a class="side-toc-link side-toc-day-link" href="#day9"><span class="side-toc-day-no">09</span><span class="side-toc-day-name">DAY</span></a>
+</div>
+<div class="side-toc-section-label">餐飲總表</div>
+<a class="side-toc-link" href="#restaurant-main"><span class="side-toc-icon coral">餐</span><span class="side-toc-text">主餐與需預約餐廳總表</span></a>
+<a class="side-toc-link" href="#restaurant-alternative"><span class="side-toc-icon gold">分</span><span class="side-toc-text">分流、替代餐廳與後段主餐總表</span></a>
+<a class="side-toc-link" href="#restaurant-snacks"><span class="side-toc-icon green">甜</span><span class="side-toc-text">點心、咖啡與順路加碼美食總表</span></a>
+<div class="side-toc-section-label maple-logistics-label">日光交通與接送</div><a class="side-toc-link" href="#nikko-bus-guide-1"><span class="side-toc-icon green">巴</span><span class="side-toc-text">東武巴士票券、站牌與上／下車完整操作</span></a><a class="side-toc-link" href="#day8-transfer-compare-1"><span class="side-toc-icon coral">送</span><span class="side-toc-text">接送比較｜2026/11/28 日光民宿 → Richmond Hotel Narita</span></a><a class="side-toc-link" href="#day8-transfer-compare-2"><span class="side-toc-icon gold">詢</span><span class="side-toc-text">接送比較｜統一詢價條件、詢價文字與下單檢查</span></a><div class="side-toc-section-label">寄件</div><a class="side-toc-link" href="#japan-post-domestic-1"><span class="side-toc-icon blue">郵</span><span class="side-toc-text">日本郵局寄件步驟</span></a>
+</div>
+<div class="side-toc-footer"><span><b>9 DAYS</b> · 8 NIGHTS</span><span>11/21—11/29</span></div>
 </nav>
-<button aria-controls="side-toc" aria-expanded="false" id="side-toc-toggle" type="button">旅程目錄</button>
+<button aria-controls="side-toc" aria-expanded="false" aria-label="開啟楓葉之旅目錄" id="side-toc-toggle" title="開啟楓葉之旅目錄" type="button">楓葉之旅</button>
 <div aria-hidden="true" id="side-toc-backdrop"></div>
 <!-- ========================================== -->
 <!-- 第一頁：封面與全域資訊、退稅提醒               -->
@@ -3379,46 +3525,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
 <tr><td>4</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B9%96" rel="noopener noreferrer" target="_blank">中禪寺湖</a>／<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%8C%E8%8D%92%E5%B1%B1%E7%A5%9E%E7%A4%BE%20%E4%B8%AD%E5%AE%AE%E7%A5%A0" rel="noopener noreferrer" target="_blank">二荒山神社中宮祠</a></td><td>湖畔步行／擇一延伸</td><td>以湖畔短走與拍照為主；不安排環湖或長距離健行，保留返回市區的巴士彈性。</td></tr>
 <tr><td>5</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E5%81%9C" rel="noopener noreferrer" target="_blank">中禪寺溫泉站</a> → <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%A5%BF%E5%8F%82%E9%81%93%E5%85%A5%E5%8F%A3%20%E6%97%A5%E5%85%89" rel="noopener noreferrer" target="_blank">西參道入口</a>／<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%A9%8B%20%E6%97%A5%E5%85%89" rel="noopener noreferrer" target="_blank">神橋</a></td><td>東武巴士下山</td><td>候車時再次確認目的站；塞車時優先在西參道入口下車，直接進世界遺產區。</td></tr>
 <tr><td>6</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE" rel="noopener noreferrer" target="_blank">日光東照宮</a></td><td>步行參拜</td><td>本日世界遺產第一優先：陽明門、三猿、眠貓與奧宮依體力取捨。</td></tr><tr><td>7</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%97%A5%E5%85%89%E4%BA%8C%E8%8D%92%E5%B1%B1%E7%A5%9E%E7%A4%BE" rel="noopener noreferrer" target="_blank">日光二荒山神社</a></td><td>東照宮旁步行</td><td>與東照宮動線相連；完成主要境內後再評估是否走大猷院。</td></tr><tr><td>8</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%97%A5%E5%85%89%E5%B1%B1%E8%BC%AA%E7%8E%8B%E5%AF%BA%20%E4%B8%89%E4%BB%8F%E5%A0%82" rel="noopener noreferrer" target="_blank">輪王寺三佛堂</a>／<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%97%A5%E5%85%89%E5%B1%B1%E8%BC%AA%E7%8E%8B%E5%AF%BA%20%E5%A4%A7%E7%8C%B7%E9%99%A2" rel="noopener noreferrer" target="_blank">輪王寺大猷院</a></td><td>擇一</td><td>時間與體力不足時只選一處；不要為了全收集而錯過下山後天黑前的安全步行。</td></tr><tr><td>9</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E6%A9%8B%20%E6%97%A5%E5%85%89" rel="noopener noreferrer" target="_blank">神橋</a> → <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89" rel="noopener noreferrer" target="_blank">鉢石町</a> → <a class="map-link" href="https://maps.app.goo.gl/xPXoTRvUER7Yosbm6" rel="noopener noreferrer" target="_blank">日光 Airbnb</a></td><td>步行／巴士／計程車</td><td>神橋可作行程收尾；天黑、下雨或腳程疲累時直接搭車回住宿。</td></tr></tbody></table></section>
-<div class="weather-focus-box"><h3>日光當日取捨規則</h3><div class="detail-option-grid"><div class="detail-option"><b>天候正常／巴士準點</b>保留華嚴瀑布＋中禪寺湖短走，下午完成東照宮、二荒山神社，再由輪王寺／大猷院擇一。</div><div class="detail-option"><b>降雪、結冰或巴士大幅延誤</b>取消湖畔延伸，甚至改成全日世界遺產；以東照宮為絕對優先，不硬追全部景點。</div></div></div><div class="detail-page-nav"><a href="#day7">← 返回 DAY7 簡略行程</a><span class="nav-hint"></span><button class="open-side-toc-button" type="button">☰ 左側目錄</button></div></div></div><div class="page-sheet guide-page" id="nikko-bus-guide-1"><div class="container">
-<h2>日光攻略｜東武巴士票券、站牌與上／下車完整操作</h2>
-<div class="guide-lead"><p><strong>本行程推薦：</strong>購買成人 ¥2,300 的「中禪寺溫泉フリーパス」；日光站至中禪寺溫泉單程約 ¥1,250，來回已約 ¥2,500，買票後還可使用涵蓋範圍內的世界遺產區巴士。</p></div>
-<div class="guide-grid">
-<div class="guide-card good"><h3>票券怎麼選</h3><ul><li><strong>中禪寺溫泉 Free Pass：</strong>2 日券，最貼合 DAY 7 的華嚴瀑布、中禪寺湖與世界遺產。</li><li><strong>NIKKO PASS ALL AREA ¥8,000：</strong>本團不回東京，淺草往返價值用不到，不建議。</li><li><strong>單次付費：</strong>僅在臨時取消奧日光、全日只走世界遺產時使用。</li></ul></div>
-<div class="guide-card warn"><h3>紙本或數位票</h3><ul><li><strong>數位票：</strong>需指定 App；上車、下車都顯示 QR 並掃描。</li><li><strong>紙本票：</strong>每人各持一張；依車型於上／下車時清楚出示給司機。</li><li>手機低電量時不要只靠一人代管全團票券。</li></ul></div>
-</div>
-<h3>東武日光站 2 號乘車區｜看清楚 2A／2C／2E</h3>
-<table class="guide-table"><thead><tr><th>月台</th><th>車種代碼</th><th>方向</th><th>本團用途</th></tr></thead><tbody>
-<tr><td><strong>2A</strong></td><td>Y／YK</td><td>往湯元溫泉，途中經中禪寺溫泉</td><td class="verdict">可搭</td></tr>
-<tr><td><strong>2C</strong></td><td>C</td><td>往中禪寺溫泉；另有 M／SP 等其他方向</td><td class="verdict">看到 C 才搭</td></tr>
-<tr><td><strong>2E</strong></td><td>EX</td><td>急行往中禪寺溫泉</td><td class="verdict">最省站停，可優先</td></tr>
-<tr><td><strong>2B</strong></td><td>W</td><td>世界遺產巡迴巴士</td><td>不會上中禪寺湖；下午回市區才用</td></tr>
-</tbody></table>
-<div class="route-flow"><span>排隊確認車頭</span><span>上車掃 QR／刷卡</span><span>看車內停留所編號</span><span>按下車鈴</span><span>下車再掃／刷</span></div>
-<div class="guide-grid">
-<div class="guide-card blue"><h3>使用 IC／信用卡</h3><p>上車於乘車口感應一次；車內螢幕出現目的站後按鈴；下車在運賃箱旁再感應一次。兩次都要使用同一張卡。</p></div>
-<div class="guide-card"><h3>使用現金</h3><p>上車取「整理券」；依車內螢幕對照整理券號碼與車資；下車把整理券放入運賃箱，再付款。團體不建議全員臨時使用現金。</p></div>
-</div>
-<div class="guide-button-row"><a href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" target="_blank">東武巴士 Free Pass ↗</a><a href="https://www.tobu-bus.com/pc/area/nikko/guide.html" target="_blank">官方乘車方法 ↗</a><a href="#nikko-bus-guide-2">下一頁：DAY 7 實際搭乘流程 →</a></div>
-</div></div><div class="page-sheet guide-page" id="nikko-bus-guide-2"><div class="container">
-<h2>日光攻略｜DAY 7 中禪寺湖→世界遺產實際執行版</h2>
-<div class="guide-lead"><p>2026 夏秋時刻表標示日光站至中禪寺溫泉約 48 分鐘，但也明載道路壅塞可能造成大幅延誤。11/27 雖已過賞楓尖峰，仍要以「下午世界遺產不被壓縮」為優先。</p></div>
-<table class="guide-table"><thead><tr><th>步驟</th><th>做法</th><th>看哪個編號／字樣</th><th>防呆</th></tr></thead><tbody>
-<tr><td>1</td><td>到東武日光站 2 號乘車區排隊</td><td>2A 的 Y／YK、2C 的 C、或 2E 的 EX</td><td>2B 是世界遺產巡迴，不會上山</td></tr>
-<tr><td>2</td><td>上車後把暖層、暈車藥與水放手邊</td><td>目的地「中禅寺温泉」</td><td>山路彎多；容易暈車者先吃藥、盡量坐前段</td></tr>
-<tr><td>3</td><td>在 <strong>26 中禪寺溫泉</strong>下車</td><td>車內螢幕顯示 26</td><td>華嚴瀑布步行約 5 分鐘；勿誤搭超過湖區</td></tr>
-<tr><td>4</td><td>華嚴瀑布 → 中禪寺湖短走</td><td>只做湖畔核心區</td><td>11 月下旬不再加湯元、戰場之原或龍頭瀑布</td></tr>
-<tr><td>5</td><td><strong>建議 13:00–13:30 開始返程</strong></td><td>往 JR／東武日光站方向</td><td>先看下一班車，再決定是否多走湖畔</td></tr>
-<tr><td>6</td><td>在 <strong>9 西參道入口</strong>下車</td><td>車內螢幕顯示 9</td><td>由此進世界遺產區；東照宮為第一優先</td></tr>
-<tr><td>7</td><td>東照宮 → 二荒山神社</td><td>步行主線</td><td>剩餘時間再由輪王寺／大猷院擇一</td></tr>
-<tr><td>8</td><td>返回民宿／日光站</td><td>世界遺產巴士 W 或一般巴士</td><td>查即時位置，不在站牌盲等</td></tr>
-</tbody></table>
-<div class="guide-grid">
-<div class="guide-card good"><h3>正常版</h3><p>華嚴瀑布＋中禪寺湖短走 → 13:00–13:30 返程 → 西參道入口 → 東照宮 → 二荒山神社 → 輪王寺／大猷院擇一。</p></div>
-<div class="guide-card red"><h3>縮短版</h3><p>遇降雪、結冰、巴士大幅延誤或有人暈車：直接取消湖畔延伸；必要時改成全日世界遺產，不為了「全部走到」犧牲安全。</p></div>
-</div>
-<div class="guide-callout"><strong>現場備案：</strong>QR 打不開時，先切換行動網路、提高螢幕亮度並關閉深色模式；仍無法使用就向司機說明，改用 IC／信用卡或現金，保留購票紀錄再洽客服。每人另存票券截圖，但截圖是否能直接驗票仍以 App 當下規則為準。</div>
-<div class="guide-button-row"><a href="https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408=" target="_blank">2026 東武巴士時刻表 ↗</a><a href="https://tobu-bus-nikko.mobustation.jp/" target="_blank">巴士即時位置 ↗</a><a href="#day7-route-detail">返回 DAY 7 詳細路線</a></div>
-</div></div>
+<div class="weather-focus-box"><h3>日光當日取捨規則</h3><div class="detail-option-grid"><div class="detail-option"><b>天候正常／巴士準點</b>保留華嚴瀑布＋中禪寺湖短走，下午完成東照宮、二荒山神社，再由輪王寺／大猷院擇一。</div><div class="detail-option"><b>降雪、結冰或巴士大幅延誤</b>取消湖畔延伸，甚至改成全日世界遺產；以東照宮為絕對優先，不硬追全部景點。</div></div></div><div class="detail-page-nav"><a href="#day7">← 返回 DAY7 簡略行程</a><span class="nav-hint"></span><button class="open-side-toc-button" type="button">☰ 左側目錄</button></div></div></div>
 <!-- ========================================== -->
 <!-- 第十七頁：每日行程一日一張 (DAY 8)           -->
 <!-- ========================================== -->
@@ -3440,50 +3547,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
 <tr><td>4</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B7%9D%E8%B1%8A%20%E6%9C%AC%E5%BA%97%20%E6%88%90%E7%94%B0" rel="noopener noreferrer" target="_blank">川豐本店</a></td><td>表參道步行</td><td>抵達後先抽號碼牌，再決定先參拜或在周邊等待；不要讓全團一起卡在狹窄店門。</td></tr>
 <tr><td>5</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%88%90%E7%94%B0%E5%B1%B1%E8%A1%A8%E5%8F%82%E9%81%93" rel="noopener noreferrer" target="_blank">成田山表參道</a>／<a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B1%9F%E6%88%B8%E3%83%83%E5%AD%90%E5%AF%BF%E5%8F%B8%20%E6%88%90%E7%94%B0" rel="noopener noreferrer" target="_blank">成田江戶人壽司</a></td><td>步行／午餐備案</td><td>沿坡道逛老店；川豐等待過久或不吃鰻魚者，可改成江戶人壽司或其他表參道餐廳。</td></tr>
 <tr><td>6</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%88%90%E7%94%B0%E5%B1%B1%E6%96%B0%E5%8B%9D%E5%AF%BA%20%E7%B7%8F%E9%96%80" rel="noopener noreferrer" target="_blank">成田山新勝寺總門</a> → <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%88%90%E7%94%B0%E5%B1%B1%E6%96%B0%E5%8B%9D%E5%AF%BA%20%E4%BB%81%E7%8E%8B%E9%96%80" rel="noopener noreferrer" target="_blank">仁王門</a> → <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%88%90%E7%94%B0%E5%B1%B1%E6%96%B0%E5%8B%9D%E5%AF%BA%20%E5%A4%A7%E6%9C%AC%E5%A0%82" rel="noopener noreferrer" target="_blank">大本堂</a></td><td>步行參拜</td><td>依序進入主要伽藍；石階多，團體不要邊走邊看手機。</td></tr><tr><td>7</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%88%90%E7%94%B0%E5%B1%B1%E5%85%AC%E5%9C%92" rel="noopener noreferrer" target="_blank">成田山公園</a></td><td>加碼步行</td><td>只有抵達時間與體力充足才走；若天色已暗或下雨，從大本堂直接回表參道。</td></tr><tr><td>8</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%AA%E3%81%94%E3%81%BF%E3%81%AE%E7%B1%B3%E5%B1%8B%20%E7%B8%BD%E6%9C%AC%E5%BA%97%20%E6%88%90%E7%94%B0" rel="noopener noreferrer" target="_blank">なごみの米屋 總本店</a></td><td>回程採買</td><td>羊羹、大福與伴手禮集中購買；確認保存期限與托運／隨身限制。</td></tr><tr><td>9</td><td><a class="map-link" href="https://maps.app.goo.gl/FTSRu1WMKEDXw1dQ8" rel="noopener noreferrer" target="_blank">成田裡士滿飯店</a></td><td>步行返回</td><td>整理託運箱；需要退稅確認的商品、護照、收據與退款說明另放，不要壓在箱底。</td></tr></tbody></table></section>
-<div class="detail-option-grid"><div class="detail-option"><b>標準版</b>飯店寄放行李 → 川豐抽號碼 → 新勝寺主要伽藍 → 公園短走 → 米屋 → 回飯店。</div><div class="detail-option"><b>較晚抵達版</b>飯店寄放行李 → 表參道用餐 → 新勝寺大本堂 → 米屋；直接刪除公園，不摸黑走山坡。</div></div><div class="detail-page-nav"><a href="#day8">← 返回 DAY8 簡略行程</a><span class="nav-hint"></span><button class="open-side-toc-button" type="button">☰ 左側目錄</button></div></div></div><div class="page-sheet guide-page" id="day8-transfer-compare-1"><div class="container">
-<h2>接送比較｜2026/11/28 日光民宿 → Richmond Hotel Narita</h2>
-<div class="guide-lead"><p><strong>比較前先統一目的地：</strong>本團不是只到成田機場，而是要直接抵達 <strong>Richmond Hotel Narita（千葉縣成田市花崎町 970）</strong>。公開價格多以「日光 ↔ NRT」為基準，付款前一定取得「日光民宿門口 → 成田飯店門口」的書面總價。</p></div>
-<table class="guide-table compact transfer-provider-table"><thead><tr><th>業者</th><th>直達飯店適配</th><th>車型／行李</th><th>公開價格基準</th><th>限制與本團判斷</th></tr></thead><tbody>
-<tr><td><strong>① Soushin<br/>成田空港ジャンボタクシー</strong></td><td><strong>高</strong><br/>官網明列可接送飯店、設施、民宅與車站；Richmond 仍需個別報價。</td><td>Hiace Grand Cabin 最多 9 人；官網 9 人積載例為 L 8＋M 11。指定 Hiace 加 ¥10,000。</td><td>「日光」到 NRT：高速／稅含 ¥82,200。指定 Hiace 推估約 ¥92,200，7 人約 ¥13,171／人。</td><td><strong>第一詢價。</strong>最符合「民宿直接到飯店」；但不得把機場價直接當成飯店成交價，須拿全包書面報價。</td></tr>
-<tr><td><strong>② 可樂旅遊</strong></td><td><strong>中</strong><br/>商品主範圍是日光 ↔ NRT；超出範圍依公里數與客服回覆。</td><td>Hiace：9 人＋9 件 24 吋行李；合法綠牌、中文司機。</td><td>價格依使用日／場次動態顯示；包含單程、燃油、高速與中文司機。</td><td><strong>第二詢價。</strong>中文溝通最方便；無中途停靠，確認後不得取消、變更或退款，飯店端點與加價要先寫清楚。</td></tr>
-<tr><td><strong>③ 日光交通<br/>Nikko Kotsu</strong></td><td><strong>中</strong><br/>在地業者，可依希望行程詢問客製；未公開日光→成田定額。</td><td>Deluxe 4 人、Alphard 6 人、Jumbo Hire 9 人；本團只問 9 人座 Jumbo。</td><td>跨縣長途無公開價，需直接詢問日光營業所。</td><td><strong>第三詢價。</strong>日光端調度最熟；要求報出高速、停車、冬季胎、等待與飯店下車的完整總價。</td></tr>
-<tr><td><strong>④ Rakuraku Taxi</strong></td><td><strong>低</strong><br/>公開方案為栃木各地 ↔ 成田機場，非成田市區飯店。</td><td>5–9 人 Jumbo；Hiace／GranAce／Alphard 等。</td><td>日光→NRT：日間 ¥67,500；深夜早晨 ¥81,000。含高速，停車另計。</td><td><strong>第四／價格基準。</strong>公開價最低，但不可新增經由地、車數有限；除非書面同意延伸飯店，否則還要 NRT 再轉車。</td></tr>
-</tbody></table>
-<div class="transfer-rank-grid">
-<div class="transfer-rank-box best"><b>最優先：Soushin</b>官方明確處理飯店／民宅接送，Hiace 行李容量也最透明；先問「直達 Richmond 的全包價」。</div>
-<div class="transfer-rank-box second"><b>最省溝通：可樂旅遊</b>中文司機與台灣客服便利，但商品本體仍是 NRT；未拿到飯店端點書面確認前不要付款。</div>
-<div class="transfer-rank-box"><b>在地備案：日光交通</b>適合直接問 Jumbo 長途客製；優點是日光端上車協調，缺點是沒有公開定額可先比較。</div>
-<div class="transfer-rank-box"><b>最低價基準：Rakuraku</b>用 ¥67,500 作為「只到機場」基準；若另加 NRT→飯店搬運與轉車，總體未必最省。</div>
-</div>
-<div class="guide-buttons"><a class="guide-button rose" href="https://narita.airport-taxi.soushin-ichiba.jp/price?town=nikko-city" rel="noopener noreferrer" target="_blank">Soushin 日光價目 ↗</a><a class="guide-button" href="https://www.colatour.com.tw/C10T_Ticket/C10T02_Feature.aspx?ItemNo=6548" rel="noopener noreferrer" target="_blank">可樂旅遊商品 ↗</a><a class="guide-button" href="https://www.nikko-kotsu.co.jp/sightseeing/taxi.php" rel="noopener noreferrer" target="_blank">日光交通 ↗</a><a class="guide-button gold" href="https://www.rakurakutaxi.jp/customer/static/narita01_jumbo_tochigi.html" rel="noopener noreferrer" target="_blank">Rakuraku ↗</a><a class="guide-button" href="#day8-transfer-compare-2">下一頁：統一詢價表 →</a></div>
-</div></div><div class="page-sheet guide-page" id="day8-transfer-compare-2"><div class="container">
-<h2>接送比較｜統一詢價條件、詢價文字與下單檢查</h2>
-<div class="guide-grid">
-<div class="guide-card good"><h3>固定行程資料</h3><ul><li><strong>日期：</strong>2026/11/28（六）</li><li><strong>上車：</strong>1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411</li><li><strong>下車：</strong>Richmond Hotel Narita, 〒286-0033 千葉県成田市花崎町970</li><li><strong>人數：</strong>7 位成人</li><li><strong>指定：</strong>一台 Hiace Grand Cabin／合法綠牌 9 人座，不接受以乘客座位堆大行李。</li></ul></div>
-<div class="guide-card caution"><h3>先完成行李盤點</h3><ul><li>24／26／28 吋各幾件。</li><li>登機箱、後背包、折疊購物袋各幾件。</li><li>回程購物後是否會多 1–2 個旅行袋。</li><li>請業者以照片或尺寸清單「書面確認全部可裝」。</li><li>若不能保證，才比較兩車或 Coaster，不先付不可退費方案。</li></ul></div>
-</div>
-<div class="quote-template">您好，我們要詢問 2026/11/28（六）的日本合法綠牌包車：
-上車：1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411（Airbnb）
-下車：Richmond Hotel Narita, 〒286-0033 千葉県成田市花崎町970
-乘客：7 位成人
-行李：24 吋＿＿件、26 吋＿＿件、28 吋＿＿件、登機箱＿＿件、後背包／折疊袋＿＿件
-希望車型：Toyota Hiace Grand Cabin，一車直達
-
-請書面確認：
-1. 可否由民宿門口直接送到 Richmond Hotel Narita，而不是只到成田機場？
-2. 總價是否已含高速、燃油、稅、停車、跨區、車型指定與司機費？
-3. 所有行李是否能裝妥且不占乘客座位？
-4. 11 月下旬是否有冬季胎／防滑設備？是否另收費？
-5. 是否可安排一次洗手間休息？若公開方案禁止中停，請明確告知。
-6. 免費等候、超時、取消／改期與天候封路規則？
-7. 司機語言、聯絡軟體、車牌與司機資料何時提供？</div>
-<div class="quote-check-grid">
-<div class="quote-check-card"><h3>比較時一定同口徑</h3><ul><li>一台車的最終含稅總價。</li><li>直接到 Richmond Hotel，不以 NRT 代替。</li><li>Hiace 車型是否「保證」，不是同級可能替換。</li><li>7 人＋最終行李件數的承載承諾。</li><li>信用卡／現金、預付款與匯率規則。</li></ul></div>
-<div class="quote-check-card"><h3>下單前保留證據</h3><ul><li>客服對話、車型、總價與端點截圖。</li><li>取消、延誤、雪況與道路封閉處理。</li><li>上車位置可否停靠、司機需不需要房東電話。</li><li>出發前 7 天重報行李；前一晚確認車牌／司機。</li><li>可樂與 Rakuraku 公開條件均不允許中停，不把休息站視為既定服務。</li></ul></div>
-</div>
-<div class="guide-verdict"><p><strong>建議實際詢價順序：</strong>先同一天寄給 Soushin、可樂旅遊、日光交通；以 Rakuraku 的「只到 NRT」¥67,500 作價格下限參考。最終選擇「可直接到飯店＋一車裝完＋條款可接受」者，不單看最低畫面價。</p></div>
-<div class="guide-buttons"><a class="guide-button" href="#day8-transfer-compare-1">← 多家比較</a><a class="guide-button" href="https://maps.app.goo.gl/xPXoTRvUER7Yosbm6" rel="noopener noreferrer" target="_blank">日光上車地圖 ↗</a><a class="guide-button" href="https://maps.app.goo.gl/FTSRu1WMKEDXw1dQ8" rel="noopener noreferrer" target="_blank">Richmond Hotel ↗</a><a class="guide-button" href="#day8-route-detail">返回 DAY 8 詳細路線</a></div>
-</div></div>
+<div class="detail-option-grid"><div class="detail-option"><b>標準版</b>飯店寄放行李 → 川豐抽號碼 → 新勝寺主要伽藍 → 公園短走 → 米屋 → 回飯店。</div><div class="detail-option"><b>較晚抵達版</b>飯店寄放行李 → 表參道用餐 → 新勝寺大本堂 → 米屋；直接刪除公園，不摸黑走山坡。</div></div><div class="detail-page-nav"><a href="#day8">← 返回 DAY8 簡略行程</a><span class="nav-hint"></span><button class="open-side-toc-button" type="button">☰ 左側目錄</button></div></div></div>
 <!-- ========================================== -->
 <!-- 第十八頁：每日行程一日一張 (DAY 9)           -->
 <!-- ========================================== -->
@@ -3551,7 +3615,89 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
 </tbody></table>
 <p class="source-note">所有點心店皆可能因售完、臨休、季節菜單或 2026 年營業調整而變更；建議出發前一週再逐店確認。</p>
 </div>
+</div><div class="page-sheet guide-page" id="nikko-bus-guide-1"><div class="container">
+<h2>日光攻略｜東武巴士票券、站牌與上／下車完整操作</h2>
+<div class="guide-lead"><p><strong>本行程推薦：</strong>購買成人 ¥2,300 的「中禪寺溫泉フリーパス」；日光站至中禪寺溫泉單程約 ¥1,250，來回已約 ¥2,500，買票後還可使用涵蓋範圍內的世界遺產區巴士。</p></div>
+<div class="guide-grid">
+<div class="guide-card good"><h3>票券怎麼選</h3><ul><li><strong>中禪寺溫泉 Free Pass：</strong>2 日券，最貼合 DAY 7 的華嚴瀑布、中禪寺湖與世界遺產。</li><li><strong>NIKKO PASS ALL AREA ¥8,000：</strong>本團不回東京，淺草往返價值用不到，不建議。</li><li><strong>單次付費：</strong>僅在臨時取消奧日光、全日只走世界遺產時使用。</li></ul></div>
+<div class="guide-card warn"><h3>紙本或數位票</h3><ul><li><strong>數位票：</strong>需指定 App；上車、下車都顯示 QR 並掃描。</li><li><strong>紙本票：</strong>每人各持一張；依車型於上／下車時清楚出示給司機。</li><li>手機低電量時不要只靠一人代管全團票券。</li></ul></div>
 </div>
+<h3>東武日光站 2 號乘車區｜看清楚 2A／2C／2E</h3>
+<table class="guide-table"><thead><tr><th>月台</th><th>車種代碼</th><th>方向</th><th>本團用途</th></tr></thead><tbody>
+<tr><td><strong>2A</strong></td><td>Y／YK</td><td>往湯元溫泉，途中經中禪寺溫泉</td><td class="verdict">可搭</td></tr>
+<tr><td><strong>2C</strong></td><td>C</td><td>往中禪寺溫泉；另有 M／SP 等其他方向</td><td class="verdict">看到 C 才搭</td></tr>
+<tr><td><strong>2E</strong></td><td>EX</td><td>急行往中禪寺溫泉</td><td class="verdict">最省站停，可優先</td></tr>
+<tr><td><strong>2B</strong></td><td>W</td><td>世界遺產巡迴巴士</td><td>不會上中禪寺湖；下午回市區才用</td></tr>
+</tbody></table>
+<div class="route-flow"><span>排隊確認車頭</span><span>上車掃 QR／刷卡</span><span>看車內停留所編號</span><span>按下車鈴</span><span>下車再掃／刷</span></div>
+<div class="guide-grid">
+<div class="guide-card blue"><h3>使用 IC／信用卡</h3><p>上車於乘車口感應一次；車內螢幕出現目的站後按鈴；下車在運賃箱旁再感應一次。兩次都要使用同一張卡。</p></div>
+<div class="guide-card"><h3>使用現金</h3><p>上車取「整理券」；依車內螢幕對照整理券號碼與車資；下車把整理券放入運賃箱，再付款。團體不建議全員臨時使用現金。</p></div>
+</div>
+<div class="guide-button-row"><a href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" target="_blank">東武巴士 Free Pass ↗</a><a href="https://www.tobu-bus.com/pc/area/nikko/guide.html" target="_blank">官方乘車方法 ↗</a><a href="#nikko-bus-guide-2">下一頁：DAY 7 實際搭乘流程 →</a></div>
+</div></div><div class="page-sheet guide-page" id="nikko-bus-guide-2"><div class="container">
+<h2>日光攻略｜DAY 7 中禪寺湖→世界遺產實際執行版</h2>
+<div class="guide-lead"><p>2026 夏秋時刻表標示日光站至中禪寺溫泉約 48 分鐘，但也明載道路壅塞可能造成大幅延誤。11/27 雖已過賞楓尖峰，仍要以「下午世界遺產不被壓縮」為優先。</p></div>
+<table class="guide-table"><thead><tr><th>步驟</th><th>做法</th><th>看哪個編號／字樣</th><th>防呆</th></tr></thead><tbody>
+<tr><td>1</td><td>到東武日光站 2 號乘車區排隊</td><td>2A 的 Y／YK、2C 的 C、或 2E 的 EX</td><td>2B 是世界遺產巡迴，不會上山</td></tr>
+<tr><td>2</td><td>上車後把暖層、暈車藥與水放手邊</td><td>目的地「中禅寺温泉」</td><td>山路彎多；容易暈車者先吃藥、盡量坐前段</td></tr>
+<tr><td>3</td><td>在 <strong>26 中禪寺溫泉</strong>下車</td><td>車內螢幕顯示 26</td><td>華嚴瀑布步行約 5 分鐘；勿誤搭超過湖區</td></tr>
+<tr><td>4</td><td>華嚴瀑布 → 中禪寺湖短走</td><td>只做湖畔核心區</td><td>11 月下旬不再加湯元、戰場之原或龍頭瀑布</td></tr>
+<tr><td>5</td><td><strong>建議 13:00–13:30 開始返程</strong></td><td>往 JR／東武日光站方向</td><td>先看下一班車，再決定是否多走湖畔</td></tr>
+<tr><td>6</td><td>在 <strong>9 西參道入口</strong>下車</td><td>車內螢幕顯示 9</td><td>由此進世界遺產區；東照宮為第一優先</td></tr>
+<tr><td>7</td><td>東照宮 → 二荒山神社</td><td>步行主線</td><td>剩餘時間再由輪王寺／大猷院擇一</td></tr>
+<tr><td>8</td><td>返回民宿／日光站</td><td>世界遺產巴士 W 或一般巴士</td><td>查即時位置，不在站牌盲等</td></tr>
+</tbody></table>
+<div class="guide-grid">
+<div class="guide-card good"><h3>正常版</h3><p>華嚴瀑布＋中禪寺湖短走 → 13:00–13:30 返程 → 西參道入口 → 東照宮 → 二荒山神社 → 輪王寺／大猷院擇一。</p></div>
+<div class="guide-card red"><h3>縮短版</h3><p>遇降雪、結冰、巴士大幅延誤或有人暈車：直接取消湖畔延伸；必要時改成全日世界遺產，不為了「全部走到」犧牲安全。</p></div>
+</div>
+<div class="guide-callout"><strong>現場備案：</strong>QR 打不開時，先切換行動網路、提高螢幕亮度並關閉深色模式；仍無法使用就向司機說明，改用 IC／信用卡或現金，保留購票紀錄再洽客服。每人另存票券截圖，但截圖是否能直接驗票仍以 App 當下規則為準。</div>
+<div class="guide-button-row"><a href="https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408=" target="_blank">2026 東武巴士時刻表 ↗</a><a href="https://tobu-bus-nikko.mobustation.jp/" target="_blank">巴士即時位置 ↗</a><a href="#day7-route-detail">返回 DAY 7 詳細路線</a></div>
+</div></div><div class="page-sheet guide-page" id="day8-transfer-compare-1"><div class="container">
+<h2>接送比較｜2026/11/28 日光民宿 → Richmond Hotel Narita</h2>
+<div class="guide-lead"><p><strong>比較前先統一目的地：</strong>本團不是只到成田機場，而是要直接抵達 <strong>Richmond Hotel Narita（千葉縣成田市花崎町 970）</strong>。公開價格多以「日光 ↔ NRT」為基準，付款前一定取得「日光民宿門口 → 成田飯店門口」的書面總價。</p></div>
+<table class="guide-table compact transfer-provider-table"><thead><tr><th>業者</th><th>直達飯店適配</th><th>車型／行李</th><th>公開價格基準</th><th>限制與本團判斷</th></tr></thead><tbody>
+<tr><td><strong>① Soushin<br/>成田空港ジャンボタクシー</strong></td><td><strong>高</strong><br/>官網明列可接送飯店、設施、民宅與車站；Richmond 仍需個別報價。</td><td>Hiace Grand Cabin 最多 9 人；官網 9 人積載例為 L 8＋M 11。指定 Hiace 加 ¥10,000。</td><td>「日光」到 NRT：高速／稅含 ¥82,200。指定 Hiace 推估約 ¥92,200，7 人約 ¥13,171／人。</td><td><strong>第一詢價。</strong>最符合「民宿直接到飯店」；但不得把機場價直接當成飯店成交價，須拿全包書面報價。</td></tr>
+<tr><td><strong>② 可樂旅遊</strong></td><td><strong>中</strong><br/>商品主範圍是日光 ↔ NRT；超出範圍依公里數與客服回覆。</td><td>Hiace：9 人＋9 件 24 吋行李；合法綠牌、中文司機。</td><td>價格依使用日／場次動態顯示；包含單程、燃油、高速與中文司機。</td><td><strong>第二詢價。</strong>中文溝通最方便；無中途停靠，確認後不得取消、變更或退款，飯店端點與加價要先寫清楚。</td></tr>
+<tr><td><strong>③ 日光交通<br/>Nikko Kotsu</strong></td><td><strong>中</strong><br/>在地業者，可依希望行程詢問客製；未公開日光→成田定額。</td><td>Deluxe 4 人、Alphard 6 人、Jumbo Hire 9 人；本團只問 9 人座 Jumbo。</td><td>跨縣長途無公開價，需直接詢問日光營業所。</td><td><strong>第三詢價。</strong>日光端調度最熟；要求報出高速、停車、冬季胎、等待與飯店下車的完整總價。</td></tr>
+<tr><td><strong>④ Rakuraku Taxi</strong></td><td><strong>低</strong><br/>公開方案為栃木各地 ↔ 成田機場，非成田市區飯店。</td><td>5–9 人 Jumbo；Hiace／GranAce／Alphard 等。</td><td>日光→NRT：日間 ¥67,500；深夜早晨 ¥81,000。含高速，停車另計。</td><td><strong>第四／價格基準。</strong>公開價最低，但不可新增經由地、車數有限；除非書面同意延伸飯店，否則還要 NRT 再轉車。</td></tr>
+</tbody></table>
+<div class="transfer-rank-grid">
+<div class="transfer-rank-box best"><b>最優先：Soushin</b>官方明確處理飯店／民宅接送，Hiace 行李容量也最透明；先問「直達 Richmond 的全包價」。</div>
+<div class="transfer-rank-box second"><b>最省溝通：可樂旅遊</b>中文司機與台灣客服便利，但商品本體仍是 NRT；未拿到飯店端點書面確認前不要付款。</div>
+<div class="transfer-rank-box"><b>在地備案：日光交通</b>適合直接問 Jumbo 長途客製；優點是日光端上車協調，缺點是沒有公開定額可先比較。</div>
+<div class="transfer-rank-box"><b>最低價基準：Rakuraku</b>用 ¥67,500 作為「只到機場」基準；若另加 NRT→飯店搬運與轉車，總體未必最省。</div>
+</div>
+<div class="guide-buttons"><a class="guide-button rose" href="https://narita.airport-taxi.soushin-ichiba.jp/price?town=nikko-city" rel="noopener noreferrer" target="_blank">Soushin 日光價目 ↗</a><a class="guide-button" href="https://www.colatour.com.tw/C10T_Ticket/C10T02_Feature.aspx?ItemNo=6548" rel="noopener noreferrer" target="_blank">可樂旅遊商品 ↗</a><a class="guide-button" href="https://www.nikko-kotsu.co.jp/sightseeing/taxi.php" rel="noopener noreferrer" target="_blank">日光交通 ↗</a><a class="guide-button gold" href="https://www.rakurakutaxi.jp/customer/static/narita01_jumbo_tochigi.html" rel="noopener noreferrer" target="_blank">Rakuraku ↗</a><a class="guide-button" href="#day8-transfer-compare-2">下一頁：統一詢價表 →</a></div>
+</div></div><div class="page-sheet guide-page" id="day8-transfer-compare-2"><div class="container">
+<h2>接送比較｜統一詢價條件、詢價文字與下單檢查</h2>
+<div class="guide-grid">
+<div class="guide-card good"><h3>固定行程資料</h3><ul><li><strong>日期：</strong>2026/11/28（六）</li><li><strong>上車：</strong>1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411</li><li><strong>下車：</strong>Richmond Hotel Narita, 〒286-0033 千葉県成田市花崎町970</li><li><strong>人數：</strong>7 位成人</li><li><strong>指定：</strong>一台 Hiace Grand Cabin／合法綠牌 9 人座，不接受以乘客座位堆大行李。</li></ul></div>
+<div class="guide-card caution"><h3>先完成行李盤點</h3><ul><li>24／26／28 吋各幾件。</li><li>登機箱、後背包、折疊購物袋各幾件。</li><li>回程購物後是否會多 1–2 個旅行袋。</li><li>請業者以照片或尺寸清單「書面確認全部可裝」。</li><li>若不能保證，才比較兩車或 Coaster，不先付不可退費方案。</li></ul></div>
+</div>
+<div class="quote-template">您好，我們要詢問 2026/11/28（六）的日本合法綠牌包車：
+上車：1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411（Airbnb）
+下車：Richmond Hotel Narita, 〒286-0033 千葉県成田市花崎町970
+乘客：7 位成人
+行李：24 吋＿＿件、26 吋＿＿件、28 吋＿＿件、登機箱＿＿件、後背包／折疊袋＿＿件
+希望車型：Toyota Hiace Grand Cabin，一車直達
+
+請書面確認：
+1. 可否由民宿門口直接送到 Richmond Hotel Narita，而不是只到成田機場？
+2. 總價是否已含高速、燃油、稅、停車、跨區、車型指定與司機費？
+3. 所有行李是否能裝妥且不占乘客座位？
+4. 11 月下旬是否有冬季胎／防滑設備？是否另收費？
+5. 是否可安排一次洗手間休息？若公開方案禁止中停，請明確告知。
+6. 免費等候、超時、取消／改期與天候封路規則？
+7. 司機語言、聯絡軟體、車牌與司機資料何時提供？</div>
+<div class="quote-check-grid">
+<div class="quote-check-card"><h3>比較時一定同口徑</h3><ul><li>一台車的最終含稅總價。</li><li>直接到 Richmond Hotel，不以 NRT 代替。</li><li>Hiace 車型是否「保證」，不是同級可能替換。</li><li>7 人＋最終行李件數的承載承諾。</li><li>信用卡／現金、預付款與匯率規則。</li></ul></div>
+<div class="quote-check-card"><h3>下單前保留證據</h3><ul><li>客服對話、車型、總價與端點截圖。</li><li>取消、延誤、雪況與道路封閉處理。</li><li>上車位置可否停靠、司機需不需要房東電話。</li><li>出發前 7 天重報行李；前一晚確認車牌／司機。</li><li>可樂與 Rakuraku 公開條件均不允許中停，不把休息站視為既定服務。</li></ul></div>
+</div>
+<div class="guide-verdict"><p><strong>建議實際詢價順序：</strong>先同一天寄給 Soushin、可樂旅遊、日光交通；以 Rakuraku 的「只到 NRT」¥67,500 作價格下限參考。最終選擇「可直接到飯店＋一車裝完＋條款可接受」者，不單看最低畫面價。</p></div>
+<div class="guide-buttons"><a class="guide-button" href="#day8-transfer-compare-1">← 多家比較</a><a class="guide-button" href="https://maps.app.goo.gl/xPXoTRvUER7Yosbm6" rel="noopener noreferrer" target="_blank">日光上車地圖 ↗</a><a class="guide-button" href="https://maps.app.goo.gl/FTSRu1WMKEDXw1dQ8" rel="noopener noreferrer" target="_blank">Richmond Hotel ↗</a><a class="guide-button" href="#day8-route-detail">返回 DAY 8 詳細路線</a></div>
+</div></div>
 <script>
 window.addEventListener('load', () => {
   setTimeout(() => {
