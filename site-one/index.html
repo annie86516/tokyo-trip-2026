@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>2026 楓葉之旅｜出發前預約・購票・日光接送總表（10–11月合併一頁版）</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  :root{
+    --ink:#2f332e;
+    --muted:#6d7469;
+    --paper:#fffdf7;
+    --cream:#f7f0df;
+    --maple:#a94632;
+    --maple-dark:#6f2d22;
+    --amber:#d69a3d;
+    --green:#526b4e;
+    --sage:#dfe8d8;
+    --line:#d9d5ca;
+    --blue:#48758c;
+    --red-soft:#f9e6df;
+    --yellow-soft:#fff3d6;
+    --green-soft:#edf4e8;
+    --shadow:0 10px 30px rgba(45,41,32,.12);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    color:var(--ink);
+    background:#e8e4dc;
+    font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",Arial,sans-serif;
+    font-size:14px;
+    line-height:1.55;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  a{color:var(--blue);text-decoration:none;font-weight:750}
+  a:hover{text-decoration:underline}
+  button{font:inherit}
+  .page{
+    position:relative;
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto 14px;
+    padding:14mm 15mm 16mm;
+    background:var(--paper);
+    box-shadow:var(--shadow);
+    page-break-after:always;
+    break-after:page;
+    overflow:hidden;
+  }
+  .page::before{
+    content:"";
+    position:absolute;
+    inset:8mm;
+    border:1px solid rgba(111,78,52,.20);
+    border-radius:20px;
+    pointer-events:none;
+  }
+  .page::after{
+    content:attr(data-footer);
+    position:absolute;
+    right:15mm;
+    bottom:6.5mm;
+    color:#8c8b82;
+    font-size:9px;
+    letter-spacing:.04em;
+  }
+  .content{position:relative;z-index:1}
+  .cover{
+    background:
+      radial-gradient(circle at 85% 10%,rgba(214,154,61,.24) 0 52mm,transparent 52.5mm),
+      radial-gradient(circle at 5% 95%,rgba(82,107,78,.18) 0 58mm,transparent 58.5mm),
+      linear-gradient(135deg,#f7eadc 0%,#fffdf7 52%,#e9efe3 100%);
+  }
+  .cover .content{min-height:254mm;display:flex;flex-direction:column;justify-content:center}
+  .kicker{font-size:12px;letter-spacing:.2em;font-weight:900;color:var(--maple);text-transform:uppercase}
+  h1{font-size:34px;line-height:1.22;margin:12px 0 10px;color:#2d392d;letter-spacing:.015em}
+  .subtitle{font-size:18px;color:var(--maple-dark);font-weight:800;margin-bottom:18px}
+  h2{
+    margin:0 0 14px;
+    padding:0 0 8px;
+    font-size:24px;
+    line-height:1.25;
+    color:#344533;
+    border-bottom:2px solid #d9dfd2;
+  }
+  h2::before{content:"🍁";margin-right:8px;font-size:.9em}
+  h3{font-size:18px;line-height:1.35;margin:0 0 8px;color:var(--maple-dark)}
+  h4{font-size:16px;line-height:1.35;margin:0 0 6px;color:#3b4e3a}
+  p{margin:5px 0 9px}
+  ul{margin:5px 0 8px;padding-left:19px}
+  li{margin:3px 0}
+  .note{color:var(--muted)}
+  .tiny{font-size:11px;color:var(--muted)}
+  .pill-row{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+  .pill{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:850;border:1px solid}
+  .must{background:var(--red-soft);border-color:#e3b4a7;color:#863a2e}
+  .should{background:var(--yellow-soft);border-color:#ead18d;color:#76571f}
+  .optional{background:var(--green-soft);border-color:#bdd0b4;color:#486044}
+  .confirm{background:#e7f0f4;border-color:#bad0db;color:#35657b}
+  .key-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:18px 0}
+  .key-card{background:rgba(255,255,255,.82);border:1px solid rgba(111,78,52,.2);border-radius:18px;padding:13px;min-height:145px;box-shadow:0 5px 16px rgba(63,52,35,.06)}
+  .key-card .date{font-size:24px;font-weight:950;color:var(--maple);line-height:1.1;margin-bottom:7px}
+  .key-card .time{font-size:14px;font-weight:850;color:#3c4c3a;margin-bottom:7px}
+  .key-card p{font-size:13px;line-height:1.45;margin:4px 0}
+  .progress-box{margin-top:16px;background:rgba(255,255,255,.75);border:1px solid #d7d3c8;border-radius:16px;padding:12px 14px}
+  .progress-top{display:flex;justify-content:space-between;align-items:center;font-weight:800}
+  .progress-track{height:10px;border-radius:999px;background:#e4e1d9;margin-top:8px;overflow:hidden}
+  .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--maple),var(--amber));transition:width .2s}
+  .action-buttons{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+  .btn,.calendar-btn,.copy-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:5px;
+    border:1px solid #cfc9bb;border-radius:999px;padding:5px 10px;
+    background:white;color:#455348;font-weight:850;font-size:12px;cursor:pointer;text-decoration:none;
+  }
+  .btn.primary{background:var(--maple);border-color:var(--maple);color:white}
+  .btn.green{background:var(--green);border-color:var(--green);color:white}
+  .btn:hover,.calendar-btn:hover,.copy-btn:hover{filter:brightness(.97);text-decoration:none}
+  .timeline-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 12px}
+  .month-head{grid-column:1/-1;display:flex;align-items:center;gap:9px;margin:7px 0 0;font-size:18px;font-weight:950;color:var(--maple-dark)}
+  .month-head::after{content:"";height:1px;flex:1;background:#d9d5ca}
+  .task{
+    display:grid;grid-template-columns:28px 78px 1fr;gap:8px;align-items:start;
+    min-height:64px;padding:9px 10px;border-radius:15px;border:1px solid #dcd7cb;background:#fff;
+  }
+  .task input{width:19px;height:19px;margin:3px 0 0;accent-color:var(--maple)}
+  .task-date{font-weight:950;color:var(--maple);line-height:1.25}
+  .task-date small{display:block;font-size:10px;color:var(--muted);font-weight:700;margin-top:2px}
+  .task-title{font-weight:900;color:#354436;line-height:1.35}
+  .task-desc{font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px}
+  .task-tools{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+  .task.completed{opacity:.62;background:#f2f2ed}
+  .task.completed .task-title{text-decoration:line-through}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .card{border:1px solid #d9d5ca;border-radius:18px;background:#fff;padding:13px 14px;margin:10px 0;box-shadow:0 3px 12px rgba(50,45,35,.04);break-inside:avoid}
+  .card.feature{border-left:7px solid var(--maple)}
+  .card.green-card{border-left:7px solid var(--green)}
+  .card.amber-card{border-left:7px solid var(--amber)}
+  .card.blue-card{border-left:7px solid var(--blue)}
+  .card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .status{white-space:nowrap;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:900;background:var(--red-soft);color:#8b3a2e;border:1px solid #e3b4a7}
+  .status.green{background:var(--green-soft);color:#486044;border-color:#bdd0b4}
+  .status.blue{background:#e7f0f4;color:#35657b;border-color:#bad0db}
+  .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:9px 0}
+  .fact{background:#f6f3eb;border-radius:12px;padding:7px 8px;border:1px solid #e4dfd2}
+  .fact b{display:block;color:#4a5a46;font-size:13px}
+  .fact span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+  .link-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .link-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:999px;background:#edf4f6;border:1px solid #c9dce4;color:#31687e;font-size:12px;font-weight:850}
+  .link-btn.maple{background:#f9ebe6;border-color:#e6c0b5;color:#863e31}
+  .alert{border-radius:14px;padding:9px 11px;margin:8px 0;border:1px solid}
+  .alert.red{background:#fff0eb;border-color:#e7b7aa;color:#76362d}
+  .alert.yellow{background:#fff7df;border-color:#e8d18c;color:#69501f}
+  .alert.green{background:#eff6eb;border-color:#bfd1b6;color:#405b3c}
+  .restaurant-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .restaurant-grid .card{margin:0}
+  .provider-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .provider{border-radius:17px;border:1px solid #d9d5ca;background:#fff;padding:12px 13px;break-inside:avoid}
+  .provider.recommended{border:2px solid #b85c42;background:#fffaf7}
+  .provider .rank{display:inline-block;padding:2px 8px;border-radius:999px;background:#f3e8df;color:#82402f;font-size:11px;font-weight:900;margin-bottom:6px}
+  .provider dl{display:grid;grid-template-columns:76px 1fr;gap:4px 7px;margin:7px 0;font-size:12.5px}
+  .provider dt{font-weight:900;color:#4c5c48}
+  .provider dd{margin:0;color:#5d635b}
+  .address-box{background:#f4f1e9;border:1px solid #ded8ca;border-radius:15px;padding:10px 12px;margin:9px 0;font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;font-size:12px;line-height:1.55}
+  .template{white-space:pre-wrap;background:#2f352f;color:#f6f4ed;border-radius:16px;padding:13px 14px;font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;font-size:12px;line-height:1.55;max-height:315px;overflow:auto}
+  .checklist{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .check-item{display:flex;gap:8px;align-items:flex-start;background:#fff;border:1px solid #ddd8cb;border-radius:13px;padding:8px 9px}
+  .check-item input{width:18px;height:18px;margin-top:2px;accent-color:var(--maple)}
+  .check-item b{display:block;color:#3e4d3b}
+  .check-item span{display:block;color:var(--muted);font-size:12px}
+  .no-book-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .no-book{background:#f5f5ef;border:1px solid #ddddd4;border-radius:14px;padding:9px 11px}
+  .no-book b{color:#4a5c46}
+  .security-note{background:#f3eef5;border:1px solid #d9cbe0;border-left:6px solid #7b5b86;border-radius:14px;padding:9px 11px;color:#5a4164}
+  .source-list{columns:2;column-gap:22px;font-size:11px;color:var(--muted)}
+  .source-list a{font-size:11px;word-break:break-all}
+  .screen-nav{
+    position:fixed;left:14px;top:14px;z-index:20;width:222px;max-height:calc(100vh - 28px);overflow:auto;
+    border-radius:18px;background:rgba(45,52,42,.96);color:white;padding:12px;box-shadow:0 10px 30px rgba(0,0,0,.20);
+  }
+  .nav-brand{font-size:17px;font-weight:950;margin-bottom:2px}.nav-sub{font-size:10px;letter-spacing:.1em;color:#d8dfd2;margin-bottom:9px}
+  .screen-nav a{display:block;color:#f7f4ec;padding:7px 8px;border-radius:10px;font-size:12px;font-weight:750}
+  .screen-nav a:hover,.screen-nav a.active{background:#a94632;text-decoration:none}
+  .nav-progress{font-size:11px;color:#d9e1d5;margin-top:9px;padding-top:8px;border-top:1px solid rgba(255,255,255,.18)}
+  .nav-toggle{display:none;position:fixed;left:10px;top:10px;z-index:30;border:0;border-radius:999px;background:#354235;color:white;padding:8px 12px;font-weight:900;box-shadow:0 5px 16px rgba(0,0,0,.22)}
+  .page-num{position:absolute;left:15mm;bottom:6.5mm;font-size:9px;color:#8c8b82}
+  @media (max-width:1180px){
+    .screen-nav{transform:translateX(-245px);transition:transform .2s}.screen-nav.open{transform:translateX(0)}.nav-toggle{display:block}
+  }
+  @media (max-width:800px){
+    body{background:var(--paper)}.page{width:100%;min-height:auto;margin:0;padding:22px 18px 46px;box-shadow:none}.page::before{inset:8px}.key-grid,.two-col,.restaurant-grid,.provider-grid,.timeline-grid,.checklist,.no-book-grid{grid-template-columns:1fr}.month-head{grid-column:1}.fact-grid{grid-template-columns:1fr 1fr}.source-list{columns:1}
+  }
+  @media print{
+    body{background:#fff}.page{margin:0;box-shadow:none}.screen-nav,.nav-toggle,.screen-only{display:none!important}.template{max-height:none;overflow:visible}.page:last-of-type{page-break-after:auto;break-after:auto}
+  }
+</style>
+<style>
+/* A4 fit refinements for the standalone booking guide */
+#timeline h2{margin-bottom:10px}
+#timeline .timeline-grid{gap:7px 12px}
+#timeline .month-head{margin:4px 0 0}
+#timeline .task{min-height:60px;padding:7px 9px}
+#timeline .task-tools{margin-top:3px}
+
+.timeline-nov-page .compact-lead{margin:0 0 9px;padding:8px 10px}
+.restaurant-page{padding-top:12mm;padding-bottom:14mm}
+.restaurant-page h2{margin-bottom:10px}
+.restaurant-page .restaurant-grid{gap:8px}
+.restaurant-page .card{padding:10px 12px}
+.restaurant-page .card h3{font-size:17px;margin-bottom:6px}
+.restaurant-page .card p{margin:3px 0 7px}
+.restaurant-page .card ul{margin:3px 0 6px}
+.restaurant-page .link-row{margin-top:7px}
+.restaurant-page .restaurant-grid + .card{margin-top:8px}
+.final-page{padding-top:12mm;padding-bottom:14mm}
+.final-page h2{margin-bottom:9px}
+.final-page h3{margin:10px 0 6px}
+.final-page .no-book-grid{gap:7px}
+.final-page .no-book{padding:7px 9px}
+.final-page .checklist{gap:6px}
+.final-page .check-item{padding:6px 8px}
+.final-page .security-note{margin-top:8px!important;padding:7px 9px}
+.final-page .source-list p{margin:2px 0 5px}
+.final-page .tiny{margin-top:5px}
+@media print{
+  body{background:#fff!important}
+  .page{
+    width:210mm!important;min-height:297mm!important;height:297mm!important;max-height:297mm!important;
+    margin:0!important;padding:14mm 15mm 16mm!important;box-shadow:none!important;overflow:hidden!important;
+  }
+  .page::before{inset:8mm!important}
+  .key-grid{grid-template-columns:repeat(3,1fr)!important}
+  .timeline-grid,.two-col,.restaurant-grid,.provider-grid,.checklist,.no-book-grid{grid-template-columns:1fr 1fr!important}
+  .fact-grid{grid-template-columns:repeat(3,1fr)!important}
+  .month-head{grid-column:1/-1!important}
+  .source-list{columns:2!important}
+  #restaurants,#final{padding-top:12mm!important;padding-bottom:14mm!important}
+  #inquiry h2{margin-bottom:9px}
+  #inquiry h3{margin:0 0 6px}
+  #inquiry .template{font-size:10.3px;line-height:1.34;padding:10px 11px}
+  #inquiry .checklist{gap:5px}
+  #inquiry .check-item{padding:5px 7px}
+  #inquiry .check-item span{font-size:11px}
+  #inquiry .alert{padding:7px 9px;margin:6px 0}
+}
+</style><style>
+/* ===== 2026-08-02 10月與11月時間總表合併成一張 ===== */
+.timeline-merged-page{padding-top:12mm;padding-bottom:13mm}
+.timeline-merged-page h2{margin-bottom:8px}
+.timeline-merged-page .compact-lead{margin:0 0 8px;padding:7px 10px;font-size:12.2px;line-height:1.4}
+.month-combined{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+.month-column{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.76);padding:8px;box-shadow:0 3px 12px rgba(50,45,35,.04)}
+.month-column .month-head{display:block;margin:0 0 7px;padding:5px 0 5px 8px;border-left:6px solid var(--maple);font-size:15.4px;line-height:1.25;font-weight:950;color:var(--maple-dark)}
+.month-column.month-nov .month-head{border-left-color:var(--green);color:var(--green)}
+.month-column .month-head::after{display:none}
+.month-column .task{grid-template-columns:22px 62px 1fr;gap:6px;align-items:start;min-height:0;margin:0 0 5px;padding:6px 7px;border-radius:12px;background:#fff}
+.month-column .task:last-child{margin-bottom:0}
+.month-column .task input{width:16px;height:16px;margin-top:2px}
+.month-column .task-date{font-size:12px;line-height:1.18}
+.month-column .task-date small{font-size:8.6px;line-height:1.2;margin-top:1px}
+.month-column .task-title{font-size:12.2px;line-height:1.28}
+.month-column .task-desc{font-size:10.65px;line-height:1.28;margin-top:1px}
+.month-column .task-tools{gap:4px;margin-top:3px}
+.month-column .btn,.month-column .calendar-btn{font-size:9.7px;padding:2px 6px;line-height:1.25}
+@media (max-width:800px){.month-combined{grid-template-columns:1fr}.month-column .task{grid-template-columns:24px 72px 1fr}}
+@media print{.month-column{box-shadow:none}}
+</style></head>
+<body><!-- Updated 2026-08-02: Nikko-to-Narita transfer set to one recommended completion date (2026-10-15); removed Airbnb/eSIM/checklist/no-booking page; Richmond airport shuttle unified for all travelers. -->
+<button class="nav-toggle" id="navToggle">☰ 楓葉之旅</button>
+<nav aria-label="頁面目錄" class="screen-nav" id="screenNav">
+<div class="nav-brand">🍁 楓葉之旅</div>
+<div class="nav-sub">BOOKING MASTER PLAN</div>
+<a href="#cover">封面與三大關鍵日</a>
+<a href="#timeline">預約時間總表｜10–11月</a>
+<a href="#tickets">熱門票券</a>
+<a href="#restaurants">餐廳與足湯</a>
+<a href="#transfer">日光至成田接送</a>
+<a href="#inquiry">接送詢價文字</a>
+<a href="#forms">VJW、成田住宿與機場接駁</a>
+<div class="nav-progress" id="navProgress">完成 0 / 0</div>
+</nav>
+<section class="page cover" data-footer="2026 楓葉之旅｜出發前預約作戰表" id="cover">
+<div class="content">
+<div class="kicker">TOKYO · NIKKO · NARITA</div>
+<h1>2026 楓葉之旅<br/>出發前預約・購票・確認作戰表</h1>
+<div class="subtitle">2026/11/21（六）– 11/29（日）｜9 天 8 夜｜目前規劃 7 位成人</div>
+<p>本表只整理<strong>出發前需要先詢價、預約、購票或確認</strong>的事項，並把官方網址、使用日期與建議處理日集中在一起。</p>
+<div class="pill-row">
+<span class="pill must">必搶／必訂</span>
+<span class="pill should">建議預約</span>
+<span class="pill optional">可選項目</span>
+<span class="pill confirm">已訂後確認</span>
+</div>
+<div class="key-grid">
+<article class="key-card">
+<div class="date">10/15 前</div>
+<div class="time">日光 → 成田接送完成預訂</div>
+<p>10/15 前完成詢價、比較與下單，並取得 <strong>Richmond Hotel Narita 直達、車型、行李與全包總價</strong>的書面確認。</p>
+</article>
+<article class="key-card">
+<div class="date">10/26 08:00</div>
+<div class="time">台灣時間｜SPACIA X 開賣</div>
+<p>搶 11/26 的 7 人 Cockpit Suite。07:50 前登入，首選 3 號、備選 5 號。</p>
+</article>
+<article class="key-card">
+<div class="date">11/09 23:00</div>
+<div class="time">台灣時間｜SHIBUYA SKY</div>
+<p>依目前兩週前、日本時間 00:00 開賣規則推算。首選 15:40、備選 16:00；當日日落約 16:30。</p>
+</article>
+</div>
+<div class="alert yellow"><strong>日期說明：</strong>標示「官方開賣」者依官方目前規則計算；餐廳與接送的日期是本行程建議完成日，不是店家硬性截止。所有開賣時刻均以<strong>台灣時間</strong>呈現，另有註明者除外。</div>
+<div class="progress-box screen-only">
+<div class="progress-top"><span>整體完成度</span><span id="progressText">0 / 0</span></div>
+<div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+<div class="action-buttons"><button class="btn" id="resetTasks">重設勾選</button><button class="btn primary" onclick="window.print()">列印／另存 PDF</button></div>
+</div>
+<p class="tiny" style="margin-top:18px">資料基準：2026/08/02。票價、開賣規則、營業時間與取消條款仍可能變更，付款前請再閱讀各官方頁面。</p>
+</div>
+<div class="page-num">01</div>
+</section>
+<section class="page timeline-merged-page" data-footer="預約時間總表｜10–11月｜日期以台灣時間為主" id="timeline">
+<div class="content">
+<h2>預約與確認時間總表（10 月＋11 月）</h2>
+<div class="alert yellow compact-lead"><strong>整理原則：</strong>10 月項目集中處理預訂、餐廳與票券；11 月只保留出發前資料、接送行李與現場確認。所有時間以台灣時間標示，另有註明者除外。</div>
+<div class="month-combined">
+<div class="month-column month-oct">
+<div class="month-head">2026 年 10 月｜預訂、購票與餐廳定案</div>
+<label class="task" data-task="transfer-book">
+<input class="task-check" type="checkbox"/><div class="task-date">10/15<small>建議完成</small></div>
+<div><div class="task-title">完成日光至成田接送預訂</div><div class="task-desc">10/15 前完成三家同步詢價、比較與下單，取得 Richmond Hotel Narita 直達、車型、行李與全包總價的書面確認。</div><div class="task-tools"><a class="btn" href="#transfer">比較頁</a><button class="calendar-btn" data-date="2026-10-15" data-title="完成日光至成田接送預訂">加入行事曆</button></div></div>
+</label><label class="task" data-task="torikizoku-book">
+<input class="task-check" type="checkbox"/><div class="task-date">10/21<small>建議完成</small></div>
+<div><div class="task-title">完成鳥貴族淺草店訂位</div><div class="task-desc">確認 7 人、時間、姓名、電話與 Email 正確。</div><div class="task-tools"><button class="calendar-btn" data-date="2026-10-21" data-title="完成鳥貴族淺草店訂位">加入行事曆</button></div></div>
+</label><label class="task" data-task="jojoen-book">
+<input class="task-check" type="checkbox"/><div class="task-date">10/23<small>建議完成</small></div>
+<div><div class="task-title">完成叙叙苑晴空塔店訂位</div><div class="task-desc">5 人以上電話訂；無牛團改 Triton，不需訂位。</div><div class="task-tools"><button class="calendar-btn" data-date="2026-10-23" data-title="完成叙叙苑晴空塔店訂位">加入行事曆</button></div></div>
+</label><label class="task" data-task="tobuchike-prep">
+<input class="task-check" type="checkbox"/><div class="task-date">10/24<small>事前測試</small></div>
+<div><div class="task-title">建立／測試トブチケ！帳號與信用卡</div><div class="task-desc">先熟悉搜尋、乘車站、列車與 Cockpit Suite 選擇畫面。</div><div class="task-tools"><a class="btn" href="https://tobuchike.jp/shop/default.aspx" rel="noopener" target="_blank">トブチケ！</a><button class="calendar-btn" data-date="2026-10-24" data-title="測試トブチケ帳號與信用卡">加入行事曆</button></div></div>
+</label><label class="task" data-task="day5-book">
+<input class="task-check" type="checkbox"/><div class="task-date">10/25<small>建議完成</small></div>
+<div><div class="task-title">完成 Chinya／秋光午餐訂位</div><div class="task-desc">各團人數、午餐時段與會合點同步記錄。</div><div class="task-tools"><button class="calendar-btn" data-date="2026-10-25" data-title="完成DAY5 Chinya與秋光訂位">加入行事曆</button></div></div>
+</label><label class="task" data-task="spacia-book">
+<input class="task-check" type="checkbox"/><div class="task-date">10/26 08:00<small>官方開賣</small></div>
+<div><div class="task-title">搶 SPACIA X 7 人 Cockpit Suite</div><div class="task-desc">07:50 登入；11/26 乘車，首選 3 號、備選 5 號。</div><div class="task-tools"><a class="btn" href="#tickets">詳細頁</a><button class="calendar-btn" data-date="2026-10-26" data-time="07:50" data-title="搶SPACIA X Cockpit Suite">加入行事曆</button></div></div>
+</label><label class="task" data-task="bus-pass">
+<input class="task-check" type="checkbox"/><div class="task-date">10/27 起<small>官方開賣窗</small></div>
+<div><div class="task-title">購買中禪寺溫泉 Free Pass</div><div class="task-desc">11/27 使用；成人 ¥2,300、2 日有效，每人一張。</div><div class="task-tools"><a class="btn" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" rel="noopener" target="_blank">官方票券</a><button class="calendar-btn" data-date="2026-10-27" data-title="購買中禪寺溫泉Free Pass">加入行事曆</button></div></div>
+</label>
+</div>
+<div class="month-column month-nov">
+<div class="month-head">2026 年 11 月｜出發前與現場確認</div>
+<label class="task" data-task="shibuya-book">
+<input class="task-check" type="checkbox"/><div class="task-date">11/09 23:00<small>目前開賣規則</small></div>
+<div><div class="task-title">搶 11/24 SHIBUYA SKY 夕陽票</div><div class="task-desc">22:45 上線；首選 15:40、備選 16:00。</div><div class="task-tools"><a class="btn" href="#tickets">詳細頁</a><button class="calendar-btn" data-date="2026-11-09" data-time="22:45" data-title="搶SHIBUYA SKY夕陽票">加入行事曆</button></div></div>
+</label><label class="task" data-task="vjw">
+<input class="task-check" type="checkbox"/><div class="task-date">11/10–15<small>建議完成</small></div>
+<div><div class="task-title">每位旅客完成 Visit Japan Web</div><div class="task-desc">護照、航班、第一晚住宿、入境審查與海關申報。</div><div class="task-tools"><a class="btn" href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" rel="noopener" target="_blank">VJW 官方</a><button class="calendar-btn" data-date="2026-11-10" data-title="完成Visit Japan Web">加入行事曆</button></div></div>
+</label><label class="task" data-task="footbath-book">
+<input class="task-check" type="checkbox"/><div class="task-date">11/11<small>可選</small></div>
+<div><div class="task-title">決定是否預約上野足湯</div><div class="task-desc">7 人以上先確認座位；按摩不能預約。</div><div class="task-tools"><a class="btn" href="https://www.tablecheck.com/shops/mominokihouse-ueno/reserve" rel="noopener" target="_blank">TableCheck</a><button class="calendar-btn" data-date="2026-11-11" data-title="決定並預約上野足湯">加入行事曆</button></div></div>
+</label><label class="task" data-task="luggage-final">
+<input class="task-check" type="checkbox"/><div class="task-date">11/14<small>最終盤點</small></div>
+<div><div class="task-title">回報接送行李件數＋確認成田住宿</div><div class="task-desc">24／26／28 吋、登機箱、折疊袋逐項統計；確認 Richmond 房名。</div><div class="task-tools"><button class="calendar-btn" data-date="2026-11-14" data-title="最終盤點接送行李與確認成田住宿">加入行事曆</button></div></div>
+</label><label class="task" data-task="driver-info">
+<input class="task-check" type="checkbox"/><div class="task-date">11/27<small>用車前一天</small></div>
+<div><div class="task-title">取得 11/28 司機、車牌與聯絡方式</div><div class="task-desc">再次確認民宿門口上車、Richmond 飯店門口下車。</div><div class="task-tools"><button class="calendar-btn" data-date="2026-11-27" data-title="確認日光至成田接送司機與車牌">加入行事曆</button></div></div>
+</label><label class="task" data-task="richmond-shuttle">
+<input class="task-check" type="checkbox"/><div class="task-date">11/28<small>日本現場</small></div>
+<div><div class="task-title">Richmond Check-in 時確認全員統一機場接駁</div><div class="task-desc">全體 7 人統一搭乘 11/29 08:20 飯店接駁，約 08:40 抵達成田 T2；仍以飯店最新時刻與登記規則為準。</div><div class="task-tools"><a class="btn" href="https://richmondhotel.jp/narita/" rel="noopener" target="_blank">飯店官方</a><button class="calendar-btn" data-date="2026-11-28" data-title="Richmond入住時確認全員統一機場接駁">加入行事曆</button></div></div>
+</label>
+</div>
+</div>
+</div>
+<div class="page-num">02</div>
+</section>
+<section class="page" data-footer="熱門票券｜SPACIA X・SHIBUYA SKY・日光巴士" id="tickets">
+<div class="content">
+<h2>熱門票券：依開賣時間搶購</h2>
+<article class="card feature">
+<div class="card-head"><div><h3>1. SPACIA X｜7 人 Cockpit Suite</h3><p class="note">使用日：2026/11/26（四）｜東京晴空塔站 → 東武日光站</p></div><span class="status">必搶</span></div>
+<div class="fact-grid">
+<div class="fact"><b>10/26 08:00</b><span>台灣時間正式開賣</span></div>
+<div class="fact"><b>07:50 前</b><span>先登入並完成搜尋</span></div>
+<div class="fact"><b>¥18,000／室</b><span>另加每人車資與特急費</span></div>
+</div>
+<ul>
+<li><strong>官方規則：</strong>乘車日 1 個月前，日本時間 09:00 開賣。</li>
+<li><strong>首選：</strong>SPACIA X 3 號，東京晴空塔站 09:03 出發。</li>
+<li><strong>備選：</strong>SPACIA X 5 號，東京晴空塔站 10:03 出發。</li>
+<li><strong>座位：</strong>6 號車 Cockpit Suite，全列車僅 1 室，定員 7 人。</li>
+<li>10/24 先用同網站測試帳號、信用卡與操作流程；11/26 是否運行與班次仍須在開賣時重新確認。</li>
+</ul>
+<div class="link-row">
+<a class="link-btn maple" href="https://tobuchike.jp/shop/default.aspx" rel="noopener" target="_blank">直接進入トブチケ！</a>
+<a class="link-btn" href="https://www.tobu.co.jp/railway/special_express/purchase/" rel="noopener" target="_blank">東武購票規則</a>
+<a class="link-btn" href="https://www.tobu.co.jp/spaciax/tcn/guide/" rel="noopener" target="_blank">SPACIA X 中文指南</a>
+</div>
+</article>
+<article class="card amber-card">
+<div class="card-head"><div><h3>2. SHIBUYA SKY｜夕陽時段</h3><p class="note">使用日：2026/11/24（二）｜東京預估日落 16:30</p></div><span class="status">必搶</span></div>
+<div class="fact-grid">
+<div class="fact"><b>11/09 23:00</b><span>台灣時間推算開賣</span></div>
+<div class="fact"><b>15:40</b><span>首選入場時段</span></div>
+<div class="fact"><b>16:00</b><span>第二選擇</span></div>
+</div>
+<ul>
+<li>目前售票系統以<strong>入場日前 2 週、日本時間 00:00</strong>開放為基準；11/24 的台灣時間對應為 11/09 23:00。</li>
+<li>建議 22:45 前完成登入／排隊，23:00 立即刷新；付款卡與同行人數先備妥。</li>
+<li>15:40 票建議 15:20 抵達 14 樓入口，可看白天、日落與夜景；熱門時段售完就改 16:00。</li>
+<li>官方可能調整售票窗或系統，11/09 當天仍以官方頁顯示為準。</li>
+</ul>
+<div class="link-row">
+<a class="link-btn maple" href="https://www.shibuya-scramble-square.com/sky/ticket/" rel="noopener" target="_blank">官方購票頁</a>
+<a class="link-btn" href="https://www.shibuya-scramble-square.com/sky/" rel="noopener" target="_blank">SHIBUYA SKY 官方首頁</a>
+<a class="link-btn" href="https://eco.mtk.nao.ac.jp/koyomi/dni/2026/s1311.html" rel="noopener" target="_blank">國立天文台日落表</a>
+</div>
+</article>
+<article class="card green-card">
+<div class="card-head"><div><h3>3. 東武巴士｜中禪寺溫泉 Free Pass</h3><p class="note">使用日：2026/11/27（五）｜東武日光站 ↔ 中禪寺溫泉、世界遺產區</p></div><span class="status green">應購買</span></div>
+<div class="fact-grid">
+<div class="fact"><b>10/27 起</b><span>NIKKO MaaS 1 個月前開賣</span></div>
+<div class="fact"><b>¥2,300</b><span>成人票，目前價格</span></div>
+<div class="fact"><b>2 日有效</b><span>每人各持一張票</span></div>
+</div>
+<ul>
+<li>建議 10/27 起購入，最晚 11/20 完成並確認手機可顯示票券。</li>
+<li>數位票上、下車均需顯示 QR；全員不要只由一支手機代管。</li>
+<li>若數位票付款或顯示有問題，可於東武日光站旅遊中心購買紙本票。</li>
+</ul>
+<div class="link-row">
+<a class="link-btn maple" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" rel="noopener" target="_blank">東武巴士官方票券說明</a>
+<a class="link-btn" href="https://ticket.jorudan.co.jp/tobu-bus-nikko/en/" rel="noopener" target="_blank">手機票入口（Jorudan）</a>
+</div>
+</article>
+</div>
+<div class="page-num">03</div>
+</section>
+<section class="page restaurant-page" data-footer="餐廳與足湯｜建議完成日為行程內部管理日期" id="restaurants">
+<div class="content">
+<h2>餐廳與足湯：先確定人數再訂</h2>
+<div class="restaurant-grid">
+<article class="card feature">
+<div class="card-head"><h3>DAY 1｜鳥貴族 淺草店</h3><span class="status">建議預約</span></div>
+<p><strong>用餐：</strong>11/21（六）約 20:45｜預計 7 人</p>
+<p><strong>建議完成：</strong>10/21 前完成訂位。</p>
+<ul>
+<li>網路預約為 2 小時制。</li>
+<li>逾預約時間 15 分鐘未聯絡，店家可能取消。</li>
+<li>電話與 Email 必須填寫正確。</li>
+</ul>
+<div class="link-row"><a class="link-btn maple" href="https://booking.ebica.jp/webrsv/search/e014049901/26226?affiid=line1&amp;isfixshop=true" rel="noopener" target="_blank">官方訂位</a><a class="link-btn" href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" rel="noopener" target="_blank">Google Maps</a></div>
+</article>
+<article class="card feature">
+<div class="card-head"><h3>DAY 3｜叙叙苑 晴空塔 30F</h3><span class="status">牛肉團必訂</span></div>
+<p><strong>用餐：</strong>11/23（一・國定假日）晚餐｜先確認吃牛人數</p>
+<p><strong>建議完成：</strong>10/23 前完成訂位。</p>
+<ul>
+<li>網路僅接受 2–4 人；<strong>5 人以上請電話 03-5610-2728</strong>。</li>
+<li>預約時間後 10 分鐘未聯絡，店家可能取消。</li>
+<li>無牛團改 Solamachi 6F Triton，現場取號，不需預約。</li>
+</ul>
+<div class="link-row"><a class="link-btn maple" href="https://booking.resty.jp/webrsv/search/s014005101/2902" rel="noopener" target="_blank">官方訂位頁</a><a class="link-btn" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%99%E3%80%85%E8%8B%91+%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC%E3%82%BF%E3%82%A6%E3%83%B3+%E3%82%BD%E3%83%A9%E3%83%9E%E3%83%81%E5%BA%97" rel="noopener" target="_blank">Google Maps</a></div>
+</article>
+<article class="card amber-card">
+<div class="card-head"><h3>DAY 5｜Chinya ちんや</h3><span class="status">牛肉團</span></div>
+<p><strong>用餐：</strong>11/25（三）午餐</p>
+<p><strong>建議完成：</strong>10/25 前完成訂位。</p>
+<ul>
+<li>TableCheck 目前註明平日午餐須於 13:00 前的預約條件內辦理，以頁面顯示為準。</li>
+<li>先決定牛肉團人數、座位／包廂需求與套餐。</li>
+<li>店家電話：03-3841-0010。</li>
+</ul>
+<div class="link-row"><a class="link-btn maple" href="https://www.tablecheck.com/zh-TW/shops/chinya-asakusa/reserve" rel="noopener" target="_blank">TableCheck</a><a class="link-btn" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%A1%E3%82%93%E3%82%84+%E6%B5%85%E8%8D%89" rel="noopener" target="_blank">Google Maps</a></div>
+</article>
+<article class="card green-card">
+<div class="card-head"><h3>DAY 5｜天麩羅 秋光 浅草本店</h3><span class="status green">無牛團首選</span></div>
+<p><strong>用餐：</strong>11/25（三）午餐</p>
+<p><strong>建議完成：</strong>10/25 前完成訂位。</p>
+<ul>
+<li>與 Chinya 同區分流；訂位後把兩團預約時間與會合點放在同一則群組訊息。</li>
+<li>點餐前再次確認天汁、湯品與配菜是否含牛肉、牛骨或牛脂。</li>
+<li>若 Hot Pepper 尚未開放 11/25，保留提醒並每週重查。</li>
+</ul>
+<div class="link-row"><a class="link-btn maple" href="https://www.hotpepper.jp/strJ001128341/yoyaku/hpds/?ROUTE_KBN=20" rel="noopener" target="_blank">線上預約</a><a class="link-btn" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A4%A9%E9%BA%A9%E7%BE%85+%E7%A7%8B%E5%85%89+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97" rel="noopener" target="_blank">Google Maps</a></div>
+</article>
+</div>
+<article class="card blue-card" style="margin-top:11px">
+<div class="card-head"><div><h3>可選｜足湯カフェ もみの湯 上野店</h3><p class="note">11/25 上野採買後使用；不是必要行程</p></div><span class="status blue">可選預約</span></div>
+<div class="two-col">
+<div><p><strong>建議決定日：</strong>11/11 前確認參加人數與時段。</p><ul><li>先用 TableCheck 查看足湯座位。</li><li>7 人以上依頁面指示另電話確認，座位可能分開。</li><li>大型行李不能帶入；按摩項目只能當日依序安排。</li></ul></div>
+<div><p><strong>目前足湯基本費：</strong>¥1,100／人，含足湯、毛巾與飲品。</p><p><strong>足湯專線：</strong>050-1720-5137<br/><strong>店家電話：</strong>03-5817-4147</p><p class="tiny">同日取消與臨時變更有人數費用風險，送出前先確認全團。</p></div>
+</div>
+<div class="link-row"><a class="link-btn maple" href="https://www.tablecheck.com/shops/mominokihouse-ueno/reserve" rel="noopener" target="_blank">足湯 TableCheck</a><a class="link-btn" href="https://www.mominokihouse.jp/ueno/" rel="noopener" target="_blank">店家官方頁</a></div>
+</article>
+</div>
+<div class="page-num">04</div>
+</section>
+<section class="page" data-footer="日光接送｜目的地必須寫 Richmond Hotel Narita" id="transfer">
+<div class="content">
+<h2>日光民宿 → Richmond Hotel Narita 接送</h2>
+<div class="alert red"><strong>使用日：</strong>2026/11/28（六）｜7 位成人｜希望一台 Toyota Hiace Grand Cabin／日本合法綠牌車。公開方案多寫「日光 ↔ 成田機場」，但本團要<strong>直接到成田市區飯店</strong>，付款前必須取得書面總價與端點確認。<br/><strong>建議預訂完成時間：</strong>2026/10/15 前。</div>
+<div class="address-box"><strong>上車：</strong>1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411（Airbnb）<br/><strong>下車：</strong>Richmond Hotel Narita, 〒286-0033 千葉県成田市花崎町970<br/><strong>上車時間：</strong>＿＿：＿＿（請業者依路況與成田行程提供建議）<br/><strong>行李：</strong>24 吋＿＿件／26 吋＿＿件／28 吋＿＿件／登機箱＿＿件／後背包或折疊袋＿＿件</div>
+<div class="provider-grid">
+<article class="provider recommended">
+<span class="rank">第一詢價｜最符合端點</span>
+<h3>Soushin 成田空港ジャンボタクシー</h3>
+<dl><dt>公開基準</dt><dd>日光市 ↔ NRT：高速與稅含 ¥82,200。</dd><dt>優點</dt><dd>官網明列飯店、設施、民宅與車站均可接送。</dd><dt>必問</dt><dd>Richmond Hotel Narita 的一車全包價、Hiace 車型、全部行李可否裝下。</dd><dt>聯絡</dt><dd>0476-37-5616｜06:00–24:00。</dd></dl>
+<div class="link-row"><a class="link-btn maple" href="https://narita.airport-taxi.soushin-ichiba.jp/price?town=nikko-city" rel="noopener" target="_blank">日光價目</a><a class="link-btn" href="https://narita.airport-taxi.soushin-ichiba.jp/contact" rel="noopener" target="_blank">詢價表單</a><a class="link-btn" href="https://narita.airport-taxi.soushin-ichiba.jp/reserve" rel="noopener" target="_blank">預約表單</a></div>
+</article>
+<article class="provider">
+<span class="rank">第二詢價｜中文最方便</span>
+<h3>可樂旅遊 Colatour</h3>
+<dl><dt>車型</dt><dd>Hiace 標示可載 9 人＋9 件 24 吋行李。</dd><dt>包含</dt><dd>單程、燃油、高速與中文司機。</dd><dt>限制</dt><dd>標準商品為 NRT ↔ 日光；不提供中途停靠，確認後不得取消／更改／退款。</dd><dt>必問</dt><dd>可否直接到 Richmond，以及超出機場範圍的最終加價。</dd></dl>
+<div class="link-row"><a class="link-btn maple" href="https://www.colatour.com.tw/C10T_Ticket/C10T02_Feature.aspx?ItemNo=6548" rel="noopener" target="_blank">可樂商品頁</a></div>
+</article>
+<article class="provider">
+<span class="rank">第三詢價｜日光在地業者</span>
+<h3>日光交通 Nikko Kotsu</h3>
+<dl><dt>車型</dt><dd>可詢問 9 人座 Jumbo Hire；可依希望行程客製。</dd><dt>價格</dt><dd>跨縣長途未公開，必須直接報價。</dd><dt>優點</dt><dd>日光端上車、民宿位置與當地路況協調較直接。</dd><dt>聯絡</dt><dd>0288-54-1197｜08:00–17:00。</dd></dl>
+<div class="link-row"><a class="link-btn maple" href="https://www.nikko-kotsu.co.jp/sightseeing/taxi.php" rel="noopener" target="_blank">官方詢價資訊</a></div>
+</article>
+<article class="provider">
+<span class="rank">價格基準／備案</span>
+<h3>Rakuraku Taxi</h3>
+<dl><dt>車型</dt><dd>5–9 人 Jumbo；可能為 Hiace、GranAce、Alphard 等。</dd><dt>包含</dt><dd>公開方案含高速費，停車另計。</dd><dt>限制</dt><dd>不能增加經由地，且車數少、滿車日多；商品端點以 NRT 為主。</dd><dt>用途</dt><dd>重新查價作基準；未書面同意 Richmond 前不要下單。</dd></dl>
+<div class="link-row"><a class="link-btn maple" href="https://www.rakurakutaxi.jp/customer/static/narita01_jumbo_tochigi.html" rel="noopener" target="_blank">官方方案頁</a></div>
+</article>
+</div>
+<div class="alert green"><strong>建議決策：</strong>先比較 Soushin、可樂與日光交通；選擇標準不是最低畫面價，而是「直接到 Richmond＋一車裝完＋總價全包＋取消條款可接受」。</div>
+</div>
+<div class="page-num">05</div>
+</section>
+<section class="page" data-footer="接送詢價｜複製後補上時間與最終行李件數" id="inquiry">
+<div class="content">
+<h2>日光接送：可直接複製的詢價文字</h2>
+<div class="two-col">
+<div>
+<div class="card-head"><h3>中文版本</h3><button class="copy-btn" data-copy="transferZh">複製</button></div>
+<div class="template" id="transferZh">您好，我們要詢問 2026/11/28（六）的日本合法綠牌接送：
+
+上車：1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411（Airbnb）
+下車：Richmond Hotel Narita, 〒286-0033 千葉県成田市花崎町970
+希望上車時間：＿＿：＿＿（也請提供建議時間）
+乘客：7 位成人
+行李：24 吋＿＿件、26 吋＿＿件、28 吋＿＿件、登機箱＿＿件、後背包／折疊袋＿＿件
+希望車型：Toyota Hiace Grand Cabin，一車直達
+
+請書面確認：
+1. 是否可由民宿門口直接送到 Richmond Hotel Narita，而不是只到成田機場？
+2. 最終總價是否已含高速、燃油、稅、停車、跨區、車型指定與司機費？
+3. 所有行李是否能裝妥且不占乘客座位？
+4. 11 月下旬是否有冬季胎／防滑設備？是否另收費？
+5. 是否可安排一次洗手間休息？若方案禁止中停，請明確告知。
+6. 免費等候、超時、取消／改期與天候封路規則？
+7. 司機語言、聯絡軟體、車牌與司機資料何時提供？</div>
+</div>
+<div>
+<div class="card-head"><h3>日文版本</h3><button class="copy-btn" data-copy="transferJp">複製</button></div>
+<div class="template" id="transferJp">2026年11月28日（土）の送迎について、見積りをお願いいたします。
+
+乗車場所：1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411（Airbnb）
+降車場所：Richmond Hotel Narita
+〒286-0033 千葉県成田市花崎町970
+希望乗車時間：＿＿：＿＿（推奨時間もご提案ください）
+人数：大人7名
+荷物：24インチ＿＿個、26インチ＿＿個、28インチ＿＿個、機内持込ケース＿＿個、リュック／折りたたみバッグ＿＿個
+希望車種：Toyota Hiace Grand Cabin 1台、直行
+
+以下を書面でご確認ください。
+1. 成田空港ではなく、Richmond Hotel Naritaまで直接送迎できますか。
+2. 高速料金、燃料、税金、駐車料金、地域追加料金、車種指定料金、運転手料金を含む最終総額はいくらですか。
+3. すべての荷物を乗客席に置かず積載できますか。
+4. 11月下旬の冬用タイヤ／滑り止め装備はありますか。追加料金はありますか。
+5. 途中で1回トイレ休憩は可能ですか。途中停車不可の場合は明記してください。
+6. 無料待機時間、延長料金、キャンセル／変更、降雪・通行止め時の規定を教えてください。
+7. 運転手の言語、連絡方法、車両番号と運転手情報はいつ連絡されますか。</div>
+</div>
+</div>
+<h3 style="margin-top:15px">付款前的 8 項核對</h3>
+<div class="checklist">
+<label class="check-item" data-task="transfer-door"><input class="task-check" type="checkbox"/><span><b>端點正確</b><span>日光民宿門口 → Richmond Hotel Narita 門口。</span></span></label>
+<label class="check-item" data-task="transfer-total"><input class="task-check" type="checkbox"/><span><b>全包總價</b><span>高速、燃油、稅、停車、跨區與車型費均寫清楚。</span></span></label>
+<label class="check-item" data-task="transfer-car"><input class="task-check" type="checkbox"/><span><b>車型保證</b><span>Hiace Grand Cabin，而非「同級車視調度」。</span></span></label>
+<label class="check-item" data-task="transfer-luggage"><input class="task-check" type="checkbox"/><span><b>行李承載</b><span>最終件數書面確認，不占乘客座位。</span></span></label>
+<label class="check-item" data-task="transfer-tires"><input class="task-check" type="checkbox"/><span><b>冬季設備</b><span>11 月下旬輪胎／防滑設備與雪況處理。</span></span></label>
+<label class="check-item" data-task="transfer-break"><input class="task-check" type="checkbox"/><span><b>途中休息</b><span>可否停一次洗手間；不能停就先讓全員知道。</span></span></label>
+<label class="check-item" data-task="transfer-cancel"><input class="task-check" type="checkbox"/><span><b>取消與延誤</b><span>取消、改期、等待、封路與天候規則。</span></span></label>
+<label class="check-item" data-task="transfer-proof"><input class="task-check" type="checkbox"/><span><b>保存證據</b><span>客服對話、端點、車型、總價與條款截圖。</span></span></label>
+</div>
+<div class="alert yellow" style="margin-top:12px"><strong>11/14：</strong>把最終行李件數回報業者。<strong>11/20：</strong>再確認上車時間與端點。<strong>11/27：</strong>取得司機姓名、車牌與聯絡方式。</div>
+</div>
+<div class="page-num">06</div>
+</section>
+<section class="page" data-footer="VJW、成田住宿與機場接駁｜訂單編號與 PIN 不放在公開清單" id="forms">
+<div class="content">
+<h2>VJW、成田住宿與機場接駁</h2>
+<div class="two-col">
+<article class="card blue-card">
+<div class="card-head"><h3>Visit Japan Web</h3><span class="status blue">每人完成</span></div>
+<p><strong>建議填寫：</strong>11/10–11/15；<strong>最終確認：</strong>11/20。</p>
+<ul>
+<li>每位旅客各自準備護照、Email、航班與第一晚住宿資料。</li>
+<li>完成使用者資料、入境預定、入境審查與海關申報。</li>
+<li>出發前確認 QR 可正常顯示並保留離線畫面；護照正本仍要隨身。</li>
+</ul>
+<div class="link-row"><a class="link-btn maple" href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" rel="noopener" target="_blank">Visit Japan Web 官方</a><a class="link-btn" href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/guide/" rel="noopener" target="_blank">官方使用方法</a></div>
+</article>
+<article class="card amber-card">
+<div class="card-head"><h3>Richmond Hotel Narita</h3><span class="status">已訂後確認</span></div>
+<p><strong>建議確認日：</strong>11/14。</p>
+<ul>
+<li>3 間房的住客姓名、入住日期與付款／取消條款。</li>
+<li>不要把訂單號、PIN 或房門資訊放進群組公開版；另存私人備忘。</li>
+<li>11/28 Check-in 時，確認全體 7 人於 11/29 統一搭乘 08:20 飯店接駁。</li>
+</ul>
+<div class="link-row"><a class="link-btn maple" href="https://richmondhotel.jp/narita/" rel="noopener" target="_blank">飯店官方</a><a class="link-btn" href="https://richmondhotel.jp/narita/access/" rel="noopener" target="_blank">交通與接駁資訊</a></div>
+</article>
+</div>
+<article class="card feature" style="margin-top:12px">
+<div class="card-head"><div><h3>11/28 Check-in 確認｜11/29 全員統一機場接駁</h3><p class="note">以較早航班 Group A＋C 的報到需求為基準，全體一起出發</p></div><span class="status">現場確認</span></div>
+<div class="fact-grid">
+<div class="fact"><b>全體 7 人</b><span>11/29 08:20 飯店統一出發</span></div>
+<div class="fact"><b>成田 T2</b><span>預計約 08:40 抵達</span></div>
+<div class="fact"><b>11/28 Check-in</b><span>一次確認座位、行李與搭乘方式</span></div>
+</div>
+<p>全體旅客統一搭乘 08:20 班次；Group B 會較早抵達機場。11 月時刻仍可能變動，因此 11/28 Check-in 時請櫃檯確認最新班次、是否需要登記，以及 7 人與全部行李是否可同車。</p>
+</article>
+</div>
+<div class="page-num">07</div>
+</section>
+<script>
+(function(){
+  const STORAGE_PREFIX='maple2026_';
+  const checks=[...document.querySelectorAll('.task-check')];
+  function taskKey(el){
+    const host=el.closest('[data-task]');
+    return STORAGE_PREFIX+(host?.dataset.task||Math.random().toString(36));
+  }
+  function update(){
+    let done=0;
+    checks.forEach(el=>{
+      const host=el.closest('[data-task]');
+      if(el.checked){done++;host?.classList.add('completed')}else{host?.classList.remove('completed')}
+    });
+    const total=checks.length;
+    const pct=total?Math.round(done/total*100):0;
+    const txt=document.getElementById('progressText'); if(txt)txt.textContent=`${done} / ${total}（${pct}%）`;
+    const bar=document.getElementById('progressBar'); if(bar)bar.style.width=pct+'%';
+    const nav=document.getElementById('navProgress'); if(nav)nav.textContent=`完成 ${done} / ${total}（${pct}%）`;
+  }
+  let storage=null;
+  try{
+    const probe=STORAGE_PREFIX+'probe';
+    window.localStorage.setItem(probe,'1');
+    window.localStorage.removeItem(probe);
+    storage=window.localStorage;
+  }catch(e){ storage=null; }
+  checks.forEach(el=>{
+    const key=taskKey(el);
+    el.checked=storage ? storage.getItem(key)==='1' : false;
+    el.addEventListener('change',()=>{
+      if(storage){ try{ storage.setItem(key,el.checked?'1':'0'); }catch(e){} }
+      update();
+    });
+  });
+  document.getElementById('resetTasks')?.addEventListener('click',()=>{
+    if(!confirm('確定要清除全部勾選紀錄嗎？'))return;
+    checks.forEach(el=>{
+      el.checked=false;
+      if(storage){ try{ storage.removeItem(taskKey(el)); }catch(e){} }
+    });
+    update();
+  });
+  update();
+
+  document.querySelectorAll('.copy-btn').forEach(btn=>btn.addEventListener('click',async()=>{
+    const el=document.getElementById(btn.dataset.copy); if(!el)return;
+    try{await navigator.clipboard.writeText(el.innerText);btn.textContent='已複製 ✓';setTimeout(()=>btn.textContent='複製',1600)}
+    catch(e){alert('瀏覽器未允許剪貼簿，請手動選取文字。')}
+  }));
+
+  function escICS(s){return String(s).replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;')}
+  document.querySelectorAll('.calendar-btn').forEach(btn=>btn.addEventListener('click',()=>{
+    const date=btn.dataset.date?.replaceAll('-',''); if(!date)return;
+    const title=btn.dataset.title||'楓葉之旅行前事項';
+    const time=btn.dataset.time;
+    let dt='';
+    if(time){
+      const mins=Number(time.slice(0,2))*60+Number(time.slice(3))+30;
+      const hh=String(Math.floor(mins/60)%24).padStart(2,'0');
+      const mm=String(mins%60).padStart(2,'0');
+      dt=`DTSTART;TZID=Asia/Taipei:${date}T${time.replace(':','')}00\r\nDTEND;TZID=Asia/Taipei:${date}T${hh}${mm}00`;
+    }else{const d=new Date(btn.dataset.date+'T00:00:00');d.setDate(d.getDate()+1);const end=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('');dt=`DTSTART;VALUE=DATE:${date}\r\nDTEND;VALUE=DATE:${end}`}
+    const ics=`BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Maple Journey 2026//ZH-TW\r\nCALSCALE:GREGORIAN\r\nBEGIN:VEVENT\r\nUID:${Date.now()}@maple2026\r\nDTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'')}\r\n${dt}\r\nSUMMARY:${escICS(title)}\r\nDESCRIPTION:${escICS('2026 東京・日光・成田楓葉之旅行前預約事項')}\r\nEND:VEVENT\r\nEND:VCALENDAR`;
+    const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=title.replace(/[\\/:*?"<>|]/g,'_')+'.ics';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  }));
+
+  const nav=document.getElementById('screenNav');
+  document.getElementById('navToggle')?.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+  const anchors=[...nav.querySelectorAll('a[href^="#"]')];
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){anchors.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id))}})
+  },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+  anchors.forEach(a=>{const el=document.querySelector(a.getAttribute('href'));if(el)observer.observe(el)});
+})();
+</script>
+</body>
+</html>
