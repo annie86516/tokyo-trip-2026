@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="成田機場第 2 航廈伴手禮圖文指南：安檢前後採買動線、熱門甜點與現場確認提醒。">
+  <meta name="theme-color" content="#173b34">
+  <title>成田機場伴手禮推薦清單</title>
+  <style>
+    :root {
+      --ink: #173b34;
+      --ink-2: #47645d;
+      --paper: #f7f2e9;
+      --paper-2: #fffdf8;
+      --line: #ded5c5;
+      --orange: #df6c3e;
+      --green: #2f6e5e;
+      --shadow: 0 18px 50px rgba(34, 48, 42, .11);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 14% 5%, rgba(223, 108, 62, .10), transparent 27rem),
+        radial-gradient(circle at 88% 16%, rgba(194, 144, 69, .13), transparent 25rem),
+        var(--paper);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    img { max-width: 100%; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 30;
+      border-bottom: 1px solid rgba(222, 213, 197, .82);
+      background: rgba(247, 242, 233, .88); backdrop-filter: blur(14px);
+    }
+    .topbar-inner { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 900; letter-spacing: .02em; }
+    .brand-mark { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: var(--ink); box-shadow: inset 0 0 0 5px rgba(255,255,255,.13); }
+    .nav { display: flex; align-items: center; gap: 8px; }
+    .nav a { text-decoration: none; color: var(--ink-2); font-size: 14px; font-weight: 800; padding: 8px 11px; border-radius: 999px; }
+    .nav a:hover { color: var(--ink); background: #fff; }
+
+    .hero { padding: 62px 0 42px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: 42px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 17px; color: var(--orange); font-size: 13px; font-weight: 950; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; background: currentColor; }
+    h1 { margin: 0; max-width: 760px; font-family: Georgia, "Noto Serif TC", serif; font-size: clamp(42px, 7vw, 84px); line-height: .98; letter-spacing: -.045em; }
+    .hero-copy { margin: 24px 0 0; max-width: 700px; font-size: clamp(17px, 2vw, 20px); color: var(--ink-2); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 27px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 18px; border: 1px solid var(--ink); border-radius: 999px; text-decoration: none; font-weight: 900; cursor: pointer; background: var(--ink); color: #fff; }
+    .btn.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+    .btn:hover { transform: translateY(-1px); }
+
+    .hero-board { position: relative; min-height: 430px; overflow: hidden; border-radius: 36px; background: linear-gradient(150deg, #173b34 0 58%, #df6c3e 58% 100%); color: #fff; box-shadow: var(--shadow); isolation: isolate; }
+    .hero-board::before, .hero-board::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.23); border-radius: 50%; z-index: -1; }
+    .hero-board::before { width: 310px; height: 310px; right: -75px; top: -90px; }
+    .hero-board::after { width: 220px; height: 220px; left: -90px; bottom: -90px; }
+    .board-plane { position: absolute; right: 27px; top: 20px; font-size: 58px; transform: rotate(-13deg); filter: drop-shadow(0 12px 16px rgba(0,0,0,.22)); }
+    .board-content { padding: 52px 40px 32px; }
+    .board-label { margin: 0; font-size: 13px; letter-spacing: .16em; font-weight: 900; opacity: .72; }
+    .board-title { margin: 12px 0 27px; font-family: Georgia, serif; font-size: 32px; line-height: 1.15; }
+    .route-step { display: grid; grid-template-columns: 40px 1fr; gap: 13px; align-items: start; margin-top: 18px; }
+    .route-no { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.38); border-radius: 50%; font-weight: 900; }
+    .route-step strong { display: block; font-size: 17px; }
+    .route-step span { font-size: 13px; opacity: .77; }
+    .board-note { position: absolute; left: 36px; right: 36px; bottom: 28px; padding-top: 17px; border-top: 1px solid rgba(255,255,255,.25); font-size: 13px; opacity: .82; }
+
+    .notice { margin: 10px auto 48px; padding: 20px 24px; border: 1px solid #e5c7af; border-left: 6px solid var(--orange); border-radius: 18px; background: #fff8ef; display: grid; grid-template-columns: auto 1fr; gap: 15px; }
+    .notice-icon { font-size: 25px; }
+    .notice strong { display: block; margin-bottom: 3px; }
+    .notice p { margin: 0; color: #6d5848; }
+
+    .section { padding: 46px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+    .kicker { margin: 0 0 6px; color: var(--orange); font-size: 13px; font-weight: 950; letter-spacing: .14em; }
+    h2 { margin: 0; font-family: Georgia, "Noto Serif TC", serif; font-size: clamp(30px, 4vw, 46px); line-height: 1.1; }
+    .section-intro { max-width: 570px; margin: 0; color: var(--ink-2); }
+
+    .priority-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .priority { position: relative; padding: 22px 18px 19px; min-height: 172px; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: var(--paper-2); }
+    .priority-no { position: absolute; right: 12px; top: 0; font-family: Georgia, serif; font-size: 64px; line-height: 1; color: rgba(23,59,52,.08); }
+    .priority .emoji { font-size: 27px; }
+    .priority h3 { margin: 14px 0 7px; font-size: 17px; line-height: 1.3; }
+    .priority p { margin: 0; font-size: 13px; color: var(--ink-2); }
+
+    .filters { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; margin: 24px 0; padding: 13px; border-radius: 19px; border: 1px solid var(--line); background: rgba(255,255,255,.72); position: sticky; top: 78px; z-index: 20; backdrop-filter: blur(10px); }
+    .filter-group { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter { border: 1px solid transparent; border-radius: 999px; padding: 9px 13px; background: transparent; color: var(--ink-2); cursor: pointer; font-size: 14px; font-weight: 900; }
+    .filter.active { background: var(--ink); color: #fff; }
+    .search { position: relative; min-width: 260px; }
+    .search input { width: 100%; border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px 10px 39px; background: #fff; color: var(--ink); outline: none; }
+    .search::before { content: "⌕"; position: absolute; left: 14px; top: 7px; color: var(--ink-2); font-size: 21px; }
+
+    .zone-heading { display: flex; align-items: center; gap: 14px; margin: 37px 0 16px; }
+    .zone-heading span { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: var(--ink); color: #fff; font-weight: 950; }
+    .zone-heading h3 { margin: 0; font-size: 24px; }
+    .zone-heading p { margin: 2px 0 0; color: var(--ink-2); font-size: 14px; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .card { display: flex; flex-direction: column; overflow: hidden; min-width: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2); box-shadow: 0 9px 28px rgba(38, 45, 41, .06); transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .card.hidden { display: none; }
+    .photo { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: linear-gradient(135deg, #dde6df, #f2d2b6); }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+    .card:hover .photo img { transform: scale(1.035); }
+    .photo-fallback::after { content: "成田伴手禮"; position: absolute; inset: 0; display: grid; place-items: center; font: 900 22px Georgia, serif; color: rgba(23,59,52,.55); }
+    .badge-row { position: absolute; left: 13px; right: 13px; top: 13px; display: flex; justify-content: space-between; gap: 8px; pointer-events: none; z-index: 2; }
+    .badge { display: inline-flex; align-items: center; gap: 5px; padding: 6px 9px; border-radius: 999px; color: #fff; background: rgba(23,59,52,.92); font-size: 11px; font-weight: 950; letter-spacing: .02em; box-shadow: 0 3px 12px rgba(0,0,0,.12); }
+    .badge.warn { margin-left: auto; background: rgba(173,75,58,.94); }
+    .card-body { display: flex; flex-direction: column; flex: 1; padding: 20px; }
+    .card-title { margin: 0; font-size: 21px; line-height: 1.25; }
+    .jp { margin: 5px 0 0; color: var(--ink-2); font-size: 12px; letter-spacing: .03em; }
+    .taste { margin: 14px 0 16px; color: #435c55; font-size: 14px; }
+    .meta { display: grid; gap: 8px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+    .meta-row { display: grid; grid-template-columns: 64px 1fr; gap: 8px; font-size: 13px; }
+    .meta-row b { color: var(--orange); }
+    .status-note { margin: 13px 0 0; padding: 10px 12px; border-radius: 12px; background: #f2eee5; color: #675f51; font-size: 12px; }
+    .pick { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 15px; padding-top: 13px; border-top: 1px dashed var(--line); font-size: 13px; font-weight: 900; }
+    .check { width: 24px; height: 24px; border: 2px solid var(--line); border-radius: 8px; background: #fff; color: #fff; cursor: pointer; display: grid; place-items: center; }
+    .check.checked { border-color: var(--green); background: var(--green); }
+    .check.checked::after { content: "✓"; font-weight: 950; }
+
+    .shopping-plan { display: grid; grid-template-columns: 1.05fr .95fr; gap: 20px; }
+    .plan-panel { padding: 27px; border: 1px solid var(--line); border-radius: 24px; background: var(--paper-2); }
+    .plan-panel.dark { color: #fff; border-color: var(--ink); background: var(--ink); }
+    .plan-panel h3 { margin: 0 0 16px; font-size: 24px; }
+    .timeline { display: grid; gap: 15px; }
+    .timeline-item { display: grid; grid-template-columns: 76px 1fr; gap: 14px; }
+    .timeline-time { font-weight: 950; color: var(--orange); }
+    .timeline-item strong { display: block; }
+    .timeline-item p { margin: 3px 0 0; color: var(--ink-2); font-size: 13px; }
+    .dark .timeline-time { color: #efbd79; }
+    .dark .timeline-item p { color: rgba(255,255,255,.68); }
+    .tips { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .tips li { display: grid; grid-template-columns: 28px 1fr; gap: 9px; align-items: start; }
+    .tips li::before { content: "✓"; width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.12); color: #efbd79; font-weight: 950; }
+    .sources { padding: 32px 0 68px; }
+    .source-box { padding: 22px 24px; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 12px; }
+    .source-box strong { color: var(--ink); }
+    .source-links { display: flex; flex-wrap: wrap; gap: 7px 14px; margin-top: 9px; }
+    .source-links a { text-underline-offset: 3px; }
+    .footer { padding: 24px 0 36px; text-align: center; color: var(--ink-2); font-size: 12px; }
+    .empty { display: none; padding: 36px; text-align: center; border: 1px dashed var(--line); border-radius: 20px; color: var(--ink-2); }
+
+    @media (max-width: 980px) {
+      .hero-grid, .shopping-plan { grid-template-columns: 1fr; }
+      .hero-board { min-height: 400px; }
+      .priority-grid { grid-template-columns: repeat(3, 1fr); }
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 24px, 1180px); }
+      .nav { display: none; }
+      .hero { padding: 42px 0 28px; }
+      .hero-grid { gap: 26px; }
+      .hero-board { min-height: 390px; border-radius: 27px; }
+      .board-content { padding: 43px 25px 26px; }
+      .board-note { left: 25px; right: 25px; }
+      .section { padding: 33px 0; }
+      .section-head { align-items: start; flex-direction: column; }
+      .priority-grid, .cards { grid-template-columns: 1fr; }
+      .priority-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 7px; }
+      .priority { min-width: 240px; scroll-snap-align: start; }
+      .filters { top: 70px; grid-template-columns: 1fr; }
+      .search { min-width: 0; }
+      .zone-heading { align-items: start; }
+      .notice { padding: 17px; }
+      .timeline-item { grid-template-columns: 66px 1fr; }
+    }
+    @media print {
+      .topbar, .hero-actions, .filters, .pick { display: none !important; }
+      body { background: #fff; }
+      .hero { padding-top: 20px; }
+      .hero-board { min-height: 330px; box-shadow: none; }
+      .card { break-inside: avoid; box-shadow: none; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 20px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand"><span class="brand-mark">成</span><span>成田 T2 伴手禮指南</span></div>
+      <nav class="nav" aria-label="頁面導覽">
+        <a href="#priority">必買排行</a><a href="#gifts">完整清單</a><a href="#route">採買動線</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Narita Terminal 2 · 2026 Update</p>
+          <h1>成田機場<br>伴手禮推薦清單</h1>
+          <p class="hero-copy">先在 4F 安檢前買齊專櫃與 ANA FESTA 商品，再到 3F 安檢後的 Fa‑So‑La 補齊免稅限定款。頁面已將舊資訊與期間限定品另外標示。</p>
+          <div class="hero-actions"><a class="btn" href="#gifts">開始挑選 <span aria-hidden="true">↓</span></a><button class="btn secondary" type="button" onclick="window.print()">列印／存成 PDF</button></div>
+        </div>
+        <aside class="hero-board" aria-label="建議採買順序">
+          <span class="board-plane" aria-hidden="true">✈</span>
+          <div class="board-content">
+            <p class="board-label">BEST BUYING ROUTE</p><h2 class="board-title">兩站完成採買</h2>
+            <div class="route-step"><span class="route-no">1</span><div><strong>T2 本館 4F · 安檢前</strong><span>PRESS BUTTER SAND、ANA FESTA、其他禮品店</span></div></div>
+            <div class="route-step"><span class="route-no">2</span><div><strong>T2 本館 3F · 安檢後</strong><span>Fa‑So‑La TAX FREE AKIHABARA，07:00–22:00</span></div></div>
+          </div>
+          <p class="board-note">建議預留 45–60 分鐘；熱門、季節與活動商品可能提早售完。</p>
+        </aside>
+      </div>
+    </section>
+
+    <div class="wrap notice" role="note">
+      <span class="notice-icon" aria-hidden="true">⚠️</span>
+      <div><strong>重要更新：第 2 航廈「東京食賓館」已結束營業</strong><p>官方社群公告其於 2026/03/08 閉店。因此「まめや金澤萬久在 T2 東京食賓館」等舊攻略不可直接照用；本頁已移到「現場確認」區。</p></div>
+    </div>
+
+    <section class="section" id="priority">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">QUICK PICKS</p><h2>時間不夠，先買這 5 款</h2></div><p class="section-intro">兼顧品牌辨識度、攜帶便利與目前櫃位可確認性；若要分送同事，以個別包裝款為優先。</p></div>
+        <div class="priority-grid">
+          <article class="priority"><span class="priority-no">1</span><span class="emoji">🧈</span><h3>PRESS BUTTER SAND</h3><p>安檢前專店，奶油與焦糖層次穩定。</p></article>
+          <article class="priority"><span class="priority-no">2</span><span class="emoji">🍵</span><h3>抹茶巧克力夾心</h3><p>Fa‑So‑La 國際線限定，適合送海外朋友。</p></article>
+          <article class="priority"><span class="priority-no">3</span><span class="emoji">🦐</span><h3>桂新堂蝦仙貝</h3><p>不嗜甜者首選，日式辨識度很高。</p></article>
+          <article class="priority"><span class="priority-no">4</span><span class="emoji">💚</span><h3>PISTA &amp; TOKYO</h3><p>開心果香濃、包裝醒目，送禮安全牌。</p></article>
+          <article class="priority"><span class="priority-no">5</span><span class="emoji">🔥</span><h3>烤棉花糖塔 S’more</h3><p>ANA FESTA 限定，甜點特色鮮明。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gifts">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">FULL GUIDE</p><h2>完整圖文清單</h2></div><p class="section-intro">可依安檢前後篩選，勾選想買的商品；勾選內容會保留在目前瀏覽器中。</p></div>
+        <div class="filters" aria-label="商品篩選">
+          <div class="filter-group"><button class="filter active" type="button" data-filter="all">全部</button><button class="filter" type="button" data-filter="before">安檢前</button><button class="filter" type="button" data-filter="after">安檢後</button><button class="filter" type="button" data-filter="check">需現場確認</button><button class="filter" type="button" data-filter="extra">加碼推薦</button></div>
+          <label class="search"><input id="searchInput" type="search" placeholder="搜尋品牌或口味" aria-label="搜尋品牌或口味"></label>
+        </div>
+
+        <div class="zone-heading" data-zone-title="before"><span>4F</span><div><h3>安檢前｜先買專店與 ANA FESTA</h3><p>買完才進安檢，避免之後無法回頭。</p></div></div>
+        <div class="cards">
+          <article class="card" data-zone="before" data-search="press butter sand 焦糖 奶油 夾心 餅乾">
+            <div class="photo"><img src="https://mhksg2020.blob.core.windows.net/cmsstorage/sogo/media/freshmart/consignment/japanese/pbs/caramel/90692739_0.jpg" alt="PRESS BUTTER SAND 奶油夾心餅乾禮盒" loading="lazy"><div class="badge-row"><span class="badge">安檢前 · 已確認</span></div></div>
+            <div class="card-body"><h3 class="card-title">PRESS BUTTER SAND</h3><p class="jp">焦糖奶油夾心餅乾</p><p class="taste">酥脆盒形餅乾夾入奶油霜與焦糖醬，口感俐落、甜度偏中高，最適合喜歡濃郁奶油香的人。</p><div class="meta"><div class="meta-row"><b>位置</b><span>T2 本館 4F，安檢前專店</span></div><div class="meta-row"><b>時間</b><span>07:30–21:00</span></div><div class="meta-row"><b>參考價</b><span>原味 5 入 ¥1,215；巧克力 5 入 ¥1,404</span></div></div><div class="pick"><span>加入購買清單</span><button class="check" data-pick="press-butter" aria-label="加入 PRESS BUTTER SAND"></button></div></div>
+          </article>
+          <article class="card" data-zone="before" data-search="ana festa s'more smore 烤棉花糖塔 巧克力">
+            <div class="photo"><img src="https://img01.jalannews.jp/img/2019/02/20190208_narita_08.jpg" alt="ANA FESTA 烤棉花糖塔 S’more" loading="lazy"><div class="badge-row"><span class="badge">安檢前 · ANA 限定</span></div></div>
+            <div class="card-body"><h3 class="card-title">烤棉花糖塔 S’more</h3><p class="jp">焼マシュマロ・タルト スモア</p><p class="taste">自製棉花糖、比利時巧克力與全麥塔皮三層組合；微波數秒後會有更柔軟的牽絲口感。</p><div class="meta"><div class="meta-row"><b>位置</b><span>ANA FESTA 成田 T2 大廳禮品店，4F 安檢前</span></div><div class="meta-row"><b>時間</b><span>08:00–20:00</span></div><div class="meta-row"><b>參考價</b><span>4 入 ¥885；8 入 ¥1,656</span></div></div><div class="pick"><span>加入購買清單</span><button class="check" data-pick="smore" aria-label="加入 S’more"></button></div></div>
+          </article>
+          <article class="card" data-zone="before" data-search="le feuilles 巧克力 奶油 千層酥 millefeuille">
+            <div class="photo"><img src="https://prcdn.freetls.fastly.net/release_image/160741/12/160741-12-a699c26a7282d6b0d27b8aff74d5b0bf-1138x961.png?auto=webp&amp;bg-color=fff&amp;fit=bounds&amp;format=jpeg&amp;height=1350&amp;quality=85%2C65&amp;width=1950" alt="LE FEUILLES 巧克力奶油千層酥" loading="lazy"><div class="badge-row"><span class="badge">安檢前 · 資訊已修正</span></div></div>
+            <div class="card-body"><h3 class="card-title">LE FEUILLES</h3><p class="jp">ショコラバターミルフィーユ</p><p class="taste">目前官方可確認的是「巧克力奶油千層酥」：巧克力與奶油雙層風味、約 300 層酥皮，兼有酥脆與砂糖顆粒感。</p><div class="meta"><div class="meta-row"><b>位置</b><span>ANA FESTA 成田 T2 大廳禮品店，4F 安檢前</span></div><div class="meta-row"><b>時間</b><span>08:00–20:00</span></div><div class="meta-row"><b>參考價</b><span>10 枚 ¥864；20 枚 ¥1,728</span></div></div><p class="status-note">原清單寫成 3F 安檢後；官方現行商品頁顯示在 ANA FESTA 成田2大樓大廳店。</p><div class="pick"><span>加入購買清單</span><button class="check" data-pick="le-feuilles" aria-label="加入 LE FEUILLES"></button></div></div>
+          </article>
+        </div>
+
+        <div class="zone-heading" data-zone-title="after"><span>3F</span><div><h3>安檢後｜Fa‑So‑La 免稅伴手禮</h3><p>T2 本館 3F「Fa‑So‑La TAX FREE AKIHABARA」，目前營業時間 07:00–22:00。</p></div></div>
+        <div class="cards">
+          <article class="card" data-zone="after" data-search="pista tokyo 開心果 奶油 夾心 餅乾">
+            <div class="photo"><img src="https://prcdn.freetls.fastly.net/release_image/13125/902/13125-902-2a821e03ffb5751b42be870fe2d80459-2024x2700.jpg?auto=webp&amp;bg-color=fff&amp;fit=bounds&amp;format=jpeg&amp;height=1350&amp;quality=85%2C65&amp;width=1950" alt="PISTA & TOKYO 開心果夾心餅乾" loading="lazy"><div class="badge-row"><span class="badge">安檢後 · 品牌已確認</span></div></div>
+            <div class="card-body"><h3 class="card-title">PISTA &amp; TOKYO</h3><p class="jp">開心果奶油夾心餅乾</p><p class="taste">綠色開心果奶油存在感強，視覺辨識度高；適合送給喜歡堅果與濃郁甜點的人。</p><div class="meta"><div class="meta-row"><b>位置</b><span>Fa‑So‑La TAX FREE AKIHABARA</span></div><div class="meta-row"><b>時間</b><span>07:00–22:00</span></div><div class="meta-row"><b>提醒</b><span>熱門口味與盒數依當日庫存</span></div></div><div class="pick"><span>加入購買清單</span><button class="check" data-pick="pista" aria-label="加入 PISTA & TOKYO"></button></div></div>
+          </article>
+          <article class="card" data-zone="after" data-search="桂新堂 蝦仙貝 海老 えびせんべい 鹹">
+            <div class="photo"><img src="https://shop.r10s.jp/tu-retail/cabinet/image3/keisindou-004.jpg" alt="桂新堂蝦仙貝禮盒" loading="lazy"><div class="badge-row"><span class="badge">安檢後 · 品牌已確認</span></div></div>
+            <div class="card-body"><h3 class="card-title">桂新堂 蝦仙貝</h3><p class="jp">海老づくし／えびせんべい</p><p class="taste">蝦香鮮明、甜度低，是整份清單中最適合不嗜甜者與長輩的選擇；個別包裝也方便分送。</p><div class="meta"><div class="meta-row"><b>位置</b><span>Fa‑So‑La TAX FREE AKIHABARA</span></div><div class="meta-row"><b>時間</b><span>07:00–22:00</span></div><div class="meta-row"><b>提醒</b><span>原清單所列 08:00–20:00 並非目前此店時間</span></div></div><div class="pick"><span>加入購買清單</span><button class="check" data-pick="keishindo" aria-label="加入桂新堂"></button></div></div>
+          </article>
+          <article class="card" data-zone="after" data-search="東京 banana ばな奈 巧克力 香蕉 蛋糕">
+            <div class="photo"><img src="https://cat-press.com/wp/wp-content/uploads/2022/11/5.png" alt="東京ばな奈巧克力香蕉蛋糕" loading="lazy"><div class="badge-row"><span class="badge">安檢後 · 品牌已確認</span></div></div>
+            <div class="card-body"><h3 class="card-title">東京ばな奈</h3><p class="jp">巧克力香蕉等輪替口味</p><p class="taste">柔軟海綿蛋糕與香蕉卡士達是最經典的東京伴手禮；巧克力香蕉等造型或季節口味需看當日供應。</p><div class="meta"><div class="meta-row"><b>位置</b><span>Fa‑So‑La TAX FREE AKIHABARA</span></div><div class="meta-row"><b>時間</b><span>07:00–22:00</span></div><div class="meta-row"><b>提醒</b><span>品牌可確認，指定巧克力香蕉款可能輪替</span></div></div><div class="pick"><span>加入購買清單</span><button class="check" data-pick="tokyo-banana" aria-label="加入東京ばな奈"></button></div></div>
+          </article>
+          <article class="card" data-zone="after" data-search="東京 banana 伊藤久右衛門 抹茶 蛋糕 巧克力 夾心">
+            <div class="photo"><img src="https://storage.googleapis.com/p_64187c91529751506337b4e8/07e91449-fde5-4407-b06b-3a6261a1d9d1/%EF%BC%92.webp" alt="東京ばな奈與伊藤久右衛門聯名抹茶蛋糕" loading="lazy"><div class="badge-row"><span class="badge">Fa‑So‑La 限定</span></div></div>
+            <div class="card-body"><h3 class="card-title">東京ばな奈 × 伊藤久右衛門</h3><p class="jp">お抹茶ケーキ／お抹茶ショコラサンド</p><p class="taste">宇治抹茶同時揉入蛋糕體與內餡；聯名系列另有抹茶巧克力夾心餅，適合想要「日本感」更強的送禮對象。</p><div class="meta"><div class="meta-row"><b>位置</b><span>成田機場 Fa‑So‑La 店鋪</span></div><div class="meta-row"><b>時間</b><span>T2 主店 07:00–22:00</span></div><div class="meta-row"><b>提醒</b><span>蛋糕與巧克力夾心餅為兩種不同商品</span></div></div><div class="pick"><span>加入購買清單</span><button class="check" data-pick="matcha-banana" aria-label="加入東京ばな奈抹茶聯名"></button></div></div>
+          </article>
+          <article class="card" data-zone="after" data-search="sugar butter tree 米 麥 抹茶 巧克力 夾心 餅乾">
+            <div class="photo"><img src="https://www.sugarbuttertree.jp/common/images/lineup/kometomugi/img_kometomugi_01.png" alt="Sugar Butter Tree 米與麥抹茶巧克力夾心餅乾" loading="lazy"><div class="badge-row"><span class="badge">國際線限定</span></div></div>
+            <div class="card-body"><h3 class="card-title">Sugar Butter Tree</h3><p class="jp">米與麥的抹茶巧克力夾心餅乾</p><p class="taste">米、黑麥與燕麥製成的穀物脆餅，夾入石臼研磨抹茶巧克力，酥脆、茶香明顯且方便分送。</p><div class="meta"><div class="meta-row"><b>位置</b><span>成田國際線登機門內販售店（安檢後）</span></div><div class="meta-row"><b>參考價</b><span>10 入 ¥864；16 入約 ¥1,566</span></div><div class="meta-row"><b>提醒</b><span>結帳需出示登機證</span></div></div><div class="pick"><span>加入購買清單</span><button class="check" data-pick="sugar-butter" aria-label="加入 Sugar Butter Tree"></button></div></div>
+          </article>
+        </div>
+
+        <div class="zone-heading" data-zone-title="extra"><span>+</span><div><h3>加碼推薦｜目前 T2 Fa‑So‑La 品牌清單可確認</h3><p>若原清單商品缺貨，可直接改買這兩款，不必另外繞路。</p></div></div>
+        <div class="cards">
+          <article class="card" data-zone="extra" data-search="new york perfect cheese 起司 奶油 夾心 餅乾 加碼">
+            <div class="photo"><img src="https://tblg.k-img.com/restaurant/images/Rvw/266507/640x640_rect_9e9f3b443a70b416df25d7e62eabc365.jpg" alt="NEWYORK PERFECT CHEESE 起司夾心餅" loading="lazy"><div class="badge-row"><span class="badge">加碼 · 品牌已確認</span></div></div>
+            <div class="card-body"><h3 class="card-title">NEWYORK PERFECT CHEESE</h3><p class="jp">起司奶油脆餅</p><p class="taste">薄脆貓舌餅、奶油與起司風味層次鮮明，甜鹹平衡；金黑包裝很有送禮感，也是排隊熱門品。</p><div class="meta"><div class="meta-row"><b>位置</b><span>Fa‑So‑La TAX FREE AKIHABARA</span></div><div class="meta-row"><b>時間</b><span>07:00–22:00</span></div><div class="meta-row"><b>建議</b><span>看到想要的盒數可先拿，熱門時段可能售完</span></div></div><div class="pick"><span>加入購買清單</span><button class="check" data-pick="ny-cheese" aria-label="加入 NEWYORK PERFECT CHEESE"></button></div></div>
+          </article>
+          <article class="card" data-zone="extra" data-search="butter butler 奶油 費南雪 加碼">
+            <div class="photo"><img src="https://sucreyshopping.jp/img/goods/S/bb02102_s.jpg" alt="Butter Butler 奶油費南雪禮盒" loading="lazy"><div class="badge-row"><span class="badge">加碼 · 品牌已確認</span></div></div>
+            <div class="card-body"><h3 class="card-title">Butter Butler</h3><p class="jp">バターバトラー</p><p class="taste">主打奶油費南雪與奶油香氣，口味易懂、接受度高；若 PRESS BUTTER SAND 排隊或售罄，可作為同類型替代。</p><div class="meta"><div class="meta-row"><b>位置</b><span>Fa‑So‑La TAX FREE AKIHABARA</span></div><div class="meta-row"><b>時間</b><span>07:00–22:00</span></div><div class="meta-row"><b>適合</b><span>家人、同事、喜歡濃郁奶油甜點者</span></div></div><div class="pick"><span>加入購買清單</span><button class="check" data-pick="butter-butler" aria-label="加入 Butter Butler"></button></div></div>
+          </article>
+        </div>
+
+        <div class="zone-heading" data-zone-title="check"><span>?</span><div><h3>期間限定／櫃位需現場確認</h3><p>商品本身值得買，但原始販售資訊可能是舊活動、期間限定，或指定店已閉店。</p></div></div>
+        <div class="cards">
+          <article class="card" data-zone="check" data-search="chaori ya 岡田謹製茶織屋 抹茶 焙茶 巧克力">
+            <div class="photo photo-fallback"><div class="badge-row"><span class="badge">新品牌</span><span class="badge warn">確認活動櫃</span></div></div>
+            <div class="card-body"><h3 class="card-title">岡田謹製茶織屋</h3><p class="jp">CHAORI‑YA｜グラン抹茶／グランほうじ茶</p><p class="taste">國產茶葉、巧克力、米香與玄米構成的和洋菓子；茶香突出，盒裝質感佳，適合喜歡抹茶或焙茶的人。</p><div class="meta"><div class="meta-row"><b>原資訊</b><span>第 2 航廈國際線活動櫃</span></div><div class="meta-row"><b>參考價</b><span>6 枚 ¥1,620；綜合 12 枚 ¥3,240</span></div><div class="meta-row"><b>狀態</b><span>官方可確認曾有成田國際線活動販售，但目前固定櫃位未明示</span></div></div><p class="status-note">若在 Fa‑So‑La 活動區看到可優先買；不要把它當成一定有貨的常設櫃。</p><div class="pick"><span>加入候補清單</span><button class="check" data-pick="chaori" aria-label="加入岡田謹製茶織屋"></button></div></div>
+          </article>
+          <article class="card" data-zone="check" data-search="まめや 金澤萬久 mameya 富士山 金箔 蜂蜜 蛋糕 金かすてら">
+            <div class="photo"><img src="https://blog.omiyage-nippon.jp/wp-content/uploads/2023/03/P1004907-1024x731.jpg" alt="まめや金澤萬久富士山金箔蜂蜜蛋糕" loading="lazy"><div class="badge-row"><span class="badge">成田特色</span><span class="badge warn">舊櫃位已關</span></div></div>
+            <div class="card-body"><h3 class="card-title">まめや金澤萬久</h3><p class="jp">富士山金箔蜂蜜蛋糕／金かすてら</p><p class="taste">整面金箔搭配富士山切割造型，視覺最吸睛，送正式禮物很有份量。</p><div class="meta"><div class="meta-row"><b>原位置</b><span>T2 4F 東京食賓館</span></div><div class="meta-row"><b>問題</b><span>該店已於 2026/03/08 閉店</span></div><div class="meta-row"><b>建議</b><span>先問 T2 4F 的 JAL PLAZA／ANA FESTA，或查其他航廈當日庫存</span></div></div><div class="pick"><span>加入候補清單</span><button class="check" data-pick="mameya" aria-label="加入金澤萬久"></button></div></div>
+          </article>
+          <article class="card" data-zone="check" data-search="h selection solmelty 鹽味 焦糖 巧克力 夾心 餅乾">
+            <div class="photo"><img src="https://shopping.jreast.co.jp/media/shop/S063/product/S063-L0034-00007/type/1" alt="H. Solmelty Sand 鹽味焦糖夾心餅乾" loading="lazy"><div class="badge-row"><span class="badge">甜鹹系</span><span class="badge warn">櫃位確認</span></div></div>
+            <div class="card-body"><h3 class="card-title">H. SELECTION</h3><p class="jp">H. ソルメルティサンド</p><p class="taste">鹽焦糖餅乾混入薄脆片，再夾濃郁焦糖巧克力，甜鹹平衡、黑金包裝俐落。</p><div class="meta"><div class="meta-row"><b>參考價</b><span>8 入約 ¥929</span></div><div class="meta-row"><b>原資訊</b><span>T2 3F 安檢後</span></div><div class="meta-row"><b>狀態</b><span>目前 Fa‑So‑La 官方 T2 品牌頁未列出此品牌，需現場確認</span></div></div><div class="pick"><span>加入候補清單</span><button class="check" data-pick="h-selection" aria-label="加入 H. SELECTION"></button></div></div>
+          </article>
+          <article class="card" data-zone="check" data-search="抹茶千歲 matcha chitose 築地ちとせ 抹茶 餅乾">
+            <div class="photo"><img src="https://pbs.twimg.com/media/GTYIp1MagAAuut0.jpg" alt="抹茶千歲機場販售櫃位" loading="lazy"><div class="badge-row"><span class="badge">抹茶系</span><span class="badge warn">活動紀錄</span></div></div>
+            <div class="card-body"><h3 class="card-title">抹茶千歲</h3><p class="jp">MATCHA CHITOSE／抹茶ちとせ</p><p class="taste">抹茶餅乾與抹茶巧克力風味明顯，視覺與包裝都偏精品路線。</p><div class="meta"><div class="meta-row"><b>過往紀錄</b><span>曾於 T2 Fa‑So‑La TAX FREE AKIHABARA 期間限定販售</span></div><div class="meta-row"><b>狀態</b><span>可查到的是 2024 年活動，無法當作目前固定供應</span></div><div class="meta-row"><b>替代</b><span>東京ばな奈 × 伊藤久右衛門、米與麥抹茶夾心</span></div></div><div class="pick"><span>加入候補清單</span><button class="check" data-pick="matcha-chitose" aria-label="加入抹茶千歲"></button></div></div>
+          </article>
+          <article class="card" data-zone="check" data-search="butter no itoko バターのいとこ 奶油 表兄弟 地瓜 成田限定">
+            <div class="photo"><img src="https://prcdn.freetls.fastly.net/release_image/86049/48/86049-48-983a1beab340c2707df961b2db930f41-1999x1333.jpg?auto=webp&amp;bg-color=fff&amp;fit=bounds&amp;format=jpeg&amp;height=1350&amp;quality=85%2C65&amp;width=1950" alt="成田限定地瓜口味 Butter no Itoko" loading="lazy"><div class="badge-row"><span class="badge">成田限定口味</span><span class="badge warn">店況確認</span></div></div>
+            <div class="card-body"><h3 class="card-title">BUTTER NO ITOKO</h3><p class="jp">バターのいとこ 成田限定さつまいも</p><p class="taste">奶油薄餅夾奶油霜與脫脂乳果醬，呈現「鬆、沙、滑」三種口感；成田限定地瓜味使用千葉金蜜芋。</p><div class="meta"><div class="meta-row"><b>過往位置</b><span>GOOD NEWS NARITA／T3 東京食賓館</span></div><div class="meta-row"><b>問題</b><span>T2 曾為快閃，STAR SWEETS NARITA 目前官方店搜未明示</span></div><div class="meta-row"><b>建議</b><span>若願意走到 T3，可先確認東京食賓館是否有當日庫存</span></div></div><div class="pick"><span>加入候補清單</span><button class="check" data-pick="butter-itoko" aria-label="加入 BUTTER NO ITOKO"></button></div></div>
+          </article>
+          <article class="card" data-zone="check" data-search="銀座 たまや 玉屋 lemonade tamago 檸檬 汽水 蛋糕 レモネードたまご">
+            <div class="photo"><img src="https://i.omiyage-nippon.jp/upimgs/082de4e4b80f6c2568948f516c3ae596273e48f2m.jpg" alt="銀座たまや檸檬口味東京蛋" loading="lazy"><div class="badge-row"><span class="badge">夏季檸檬</span><span class="badge warn">名稱已修正</span></div></div>
+            <div class="card-body"><h3 class="card-title">銀座たまや</h3><p class="jp">レモネードたまご</p><p class="taste">原清單的「檸檬汽水蛋糕」較可能是季節商品「檸檬水東京蛋」：蜂蜜檸檬餡、蛋糕體與外層巧克力組合。</p><div class="meta"><div class="meta-row"><b>類型</b><span>季節限定和洋菓子</span></div><div class="meta-row"><b>原資訊</b><span>Fa‑So‑La 免稅店</span></div><div class="meta-row"><b>狀態</b><span>指定商品與 T2 當日庫存需現場確認</span></div></div><div class="pick"><span>加入候補清單</span><button class="check" data-pick="ginza-tamaya" aria-label="加入銀座たまや"></button></div></div>
+          </article>
+        </div>
+        <p class="empty" id="emptyState">找不到符合條件的商品，請換一個關鍵字。</p>
+      </div>
+    </section>
+
+    <section class="section" id="route">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">SHOPPING PLAN</p><h2>建議採買動線</h2></div><p class="section-intro">把安檢前商品先買完，才不會進入管制區後發現無法折返。</p></div>
+        <div class="shopping-plan">
+          <article class="plan-panel"><h3>預留 45–60 分鐘</h3><div class="timeline">
+            <div class="timeline-item"><span class="timeline-time">0–15 分</span><div><strong>PRESS BUTTER SAND</strong><p>T2 本館 4F；先買熱門專店商品。</p></div></div>
+            <div class="timeline-item"><span class="timeline-time">15–30 分</span><div><strong>ANA FESTA／4F 禮品店</strong><p>買 S’more、LE FEUILLES，並詢問金澤萬久等候補品。</p></div></div>
+            <div class="timeline-item"><span class="timeline-time">30–60 分</span><div><strong>完成安檢後到 Fa‑So‑La</strong><p>集中購買 PISTA、桂新堂、東京ばな奈與免稅抹茶系列。</p></div></div>
+          </div></article>
+          <article class="plan-panel dark"><h3>購買前小提醒</h3><ul class="tips"><li><span>免稅店結帳先準備護照與登機證。</span></li><li><span>熱門與季節商品可能提前售完；看到確定要買的盒數可先拿。</span></li><li><span>巧克力、奶油與棉花糖商品夏季避免長時間高溫曝曬。</span></li><li><span>送同事優先挑「個別包裝」；送長輩可選桂新堂等鹹食。</span></li><li><span>營業時間與庫存可能依航班調整，出發當天以店面公告為準。</span></li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sources"><div class="wrap source-box"><strong>資料查核：</strong>店鋪與品牌資訊以 2026/08/13 可查到的官方頁面為主；產品圖片僅作辨識與行前參考，商品包裝、價格及販售狀況可能變動。<div class="source-links"><a href="https://www.narita-airport.jp/ja/shop/shop-search/t2_press_butter_sand/" target="_blank" rel="noreferrer">成田機場｜PRESS BUTTER SAND</a><a href="https://www.narita-airport.jp/ja/shop/shop-search/t2mn04_t000ag/" target="_blank" rel="noreferrer">成田機場｜ANA FESTA T2</a><a href="https://www.fasola.jp/shopDetail.aspx?whCd=3210" target="_blank" rel="noreferrer">Fa‑So‑La｜T2 AKIHABARA</a><a href="https://www.anafesta.com/airports/nrt/23_0358/" target="_blank" rel="noreferrer">ANA FESTA｜S’more</a><a href="https://www.anafesta.com/airports/nrt/25_0186/" target="_blank" rel="noreferrer">ANA FESTA｜LE FEUILLES</a><a href="https://chaoriya.jp/" target="_blank" rel="noreferrer">CHAORI‑YA 官方網站</a></div></div><footer class="footer">成田機場伴手禮推薦清單 · Terminal 2 Edition</footer></section>
+  </main>
+
+  <script>
+    (() => {
+      const cards = [...document.querySelectorAll('.card')];
+      const filters = [...document.querySelectorAll('.filter')];
+      const search = document.getElementById('searchInput');
+      const empty = document.getElementById('emptyState');
+      let active = 'all';
+      const render = () => {
+        const keyword = search.value.trim().toLowerCase();
+        let visible = 0;
+        cards.forEach(card => {
+          const zoneOK = active === 'all' || card.dataset.zone === active;
+          const textOK = !keyword || card.dataset.search.toLowerCase().includes(keyword) || card.innerText.toLowerCase().includes(keyword);
+          const show = zoneOK && textOK;
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        empty.style.display = visible ? 'none' : 'block';
+        document.querySelectorAll('[data-zone-title]').forEach(title => {
+          const zone = title.dataset.zoneTitle;
+          const zoneHasVisible = cards.some(c => c.dataset.zone === zone && !c.classList.contains('hidden'));
+          title.style.display = zoneHasVisible ? 'flex' : 'none';
+        });
+      };
+      filters.forEach(button => button.addEventListener('click', () => {
+        active = button.dataset.filter;
+        filters.forEach(item => item.classList.toggle('active', item === button));
+        render();
+      }));
+      search.addEventListener('input', render);
+      let stored = {};
+      try { stored = JSON.parse(localStorage.getItem('naritaGiftPicks') || '{}'); } catch (_) {}
+      document.querySelectorAll('.check').forEach(button => {
+        const key = button.dataset.pick;
+        button.classList.toggle('checked', Boolean(stored[key]));
+        button.setAttribute('aria-pressed', stored[key] ? 'true' : 'false');
+        button.addEventListener('click', () => {
+          stored[key] = !stored[key];
+          button.classList.toggle('checked', stored[key]);
+          button.setAttribute('aria-pressed', stored[key] ? 'true' : 'false');
+          try { localStorage.setItem('naritaGiftPicks', JSON.stringify(stored)); } catch (_) {}
+        });
+      });
+      document.querySelectorAll('.photo img').forEach(img => {
+        img.addEventListener('error', () => { img.style.display = 'none'; img.parentElement.classList.add('photo-fallback'); });
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>
