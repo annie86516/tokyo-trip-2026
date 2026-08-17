@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">CAFÉ</title><desc id="desc">咖啡・甜點・布丁的日式料理主題插畫</desc>
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff8e9"/><stop offset="0.58" stop-color="#f4dfc2"/><stop offset="1" stop-color="#d7e3d4"/>
+  </linearGradient>
+  <linearGradient id="lacquer" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5b1c16"/><stop offset="1" stop-color="#1f1716"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9df8a"/><stop offset="1" stop-color="#c88c28"/></linearGradient>
+  <pattern id="waves" width="90" height="45" patternUnits="userSpaceOnUse">
+    <path d="M0 45 Q22.5 0 45 45 Q67.5 0 90 45" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="4"/>
+  </pattern>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#5b3729" flood-opacity=".22"/></filter>
+</defs>
+<rect width="1600" height="900" rx="58" fill="url(#bg)"/>
+<rect width="1600" height="900" rx="58" fill="url(#waves)" opacity=".6"/>
+<circle cx="1260" cy="200" r="290" fill="#fff" opacity=".32"/>
+
+<g opacity=".78" transform="translate(125 105) rotate(-12)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#b84a37"/>
+  <path d="M0 70v70" stroke="#7d352b" stroke-width="10" stroke-linecap="round"/>
+</g>
+<g opacity=".42" transform="translate(1450 760) scale(.72) rotate(18)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#d69238"/>
+</g>
+<g transform="translate(115 595)">
+  <text x="0" y="0" font-family="serif" font-size="86" font-weight="700" fill="#8f4b3f" letter-spacing="4">CAFÉ</text>
+  <text x="4" y="68" font-family="Georgia,serif" font-size="31" fill="#55443b" letter-spacing="3">TOKYO · NIKKO · NARITA 2026</text>
+  <path d="M0 100h560" stroke="#8f4b3f" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+</g>
+<g filter="url(#shadow)">
+<g transform="translate(850 130)">
+  <ellipse cx="340" cy="605" rx="380" ry="70" fill="#7a4939" opacity=".22"/>
+  <ellipse cx="245" cy="490" rx="205" ry="65" fill="#f7f1e8"/>
+  <path d="M90 245h310v210q0 70-155 70T90 455Z" fill="#fffdf6" stroke="#8f5d4c" stroke-width="12"/>
+  <path d="M402 300q160-20 160 95t-155 90" fill="none" stroke="#8f5d4c" stroke-width="28"/>
+  <ellipse cx="245" cy="245" rx="155" ry="55" fill="#7e4b32"/>
+  <path d="M155 260q90-85 180 0" fill="none" stroke="#f5e5cc" stroke-width="12" opacity=".7"/>
+  <g transform="translate(520 260)"><rect width="225" height="225" rx="30" fill="#f6f0e2"/><path d="M35 185q20-130 78-145q70 5 78 145Z" fill="#e8a95e"/><ellipse cx="113" cy="45" rx="70" ry="30" fill="#c47c30"/><path d="M55 95q60 38 116 0" fill="none" stroke="#fff1c5" stroke-width="11"/></g>
+  <g transform="translate(500 60)"><path d="M0 155q60-125 170-90q95 32 105 145H0Z" fill="#f3d9bb"/><path d="M25 155q50-85 125-72q62 9 91 72" fill="none" stroke="#d38678" stroke-width="23"/><circle cx="165" cy="54" r="25" fill="#b63a3b"/></g>
+</g></g>
+</svg>

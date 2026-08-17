@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">TOKYO FOOD</title><desc id="desc">2026 東京・日光・成田美食攻略的日式料理主題插畫</desc>
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff8e9"/><stop offset="0.58" stop-color="#f4dfc2"/><stop offset="1" stop-color="#d7e3d4"/>
+  </linearGradient>
+  <linearGradient id="lacquer" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5b1c16"/><stop offset="1" stop-color="#1f1716"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9df8a"/><stop offset="1" stop-color="#c88c28"/></linearGradient>
+  <pattern id="waves" width="90" height="45" patternUnits="userSpaceOnUse">
+    <path d="M0 45 Q22.5 0 45 45 Q67.5 0 90 45" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="4"/>
+  </pattern>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#5b3729" flood-opacity=".22"/></filter>
+</defs>
+<rect width="1600" height="900" rx="58" fill="url(#bg)"/>
+<rect width="1600" height="900" rx="58" fill="url(#waves)" opacity=".6"/>
+<circle cx="1260" cy="200" r="290" fill="#fff" opacity=".32"/>
+
+<g opacity=".78" transform="translate(125 105) rotate(-12)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#b84a37"/>
+  <path d="M0 70v70" stroke="#7d352b" stroke-width="10" stroke-linecap="round"/>
+</g>
+<g opacity=".42" transform="translate(1450 760) scale(.72) rotate(18)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#d69238"/>
+</g>
+<g transform="translate(115 595)">
+  <text x="0" y="0" font-family="serif" font-size="86" font-weight="700" fill="#a84635" letter-spacing="4">TOKYO FOOD</text>
+  <text x="4" y="68" font-family="Georgia,serif" font-size="31" fill="#55443b" letter-spacing="3">TOKYO · NIKKO · NARITA 2026</text>
+  <path d="M0 100h560" stroke="#a84635" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+</g>
+<g filter="url(#shadow)">
+<g transform="translate(760 80)">
+  <circle cx="425" cy="275" r="235" fill="#b94838" opacity=".92"/>
+  <path d="M85 610h700" stroke="#38483f" stroke-width="25" stroke-linecap="round"/>
+  <g fill="#38483f"><rect x="120" y="360" width="90" height="250"/><rect x="225" y="300" width="115" height="310"/><rect x="360" y="225" width="100" height="385"/><rect x="480" y="330" width="125" height="280"/><rect x="625" y="270" width="95" height="340"/></g>
+  <path d="M410 610V95M355 185h110M375 145h70M390 105h40" stroke="#2e3e38" stroke-width="22" stroke-linecap="round"/>
+  <ellipse cx="150" cy="565" rx="115" ry="55" fill="#f5f0e6"/><g transform="translate(65 510)"><rect x="0" y="25" width="90" height="38" rx="18" fill="#fff8df"/><path d="M5 28q40-40 80 0v30H5Z" fill="#ed6d5c"/><rect x="95" y="25" width="90" height="38" rx="18" fill="#fff8df"/><path d="M100 28q40-40 80 0v30h-80Z" fill="#f2a25d"/></g>
+  <g transform="translate(610 465)"><path d="M0 70q10 120 135 125q125-5 135-125Z" fill="#3f6253"/><ellipse cx="135" cy="70" rx="135" ry="65" fill="#d9bd7f"/><g fill="none" stroke="#fff0bd" stroke-width="15"><path d="M35 70q50-45 100 0t100 0"/><path d="M45 100q45-35 90 0t85 0"/></g></g>
+</g></g>
+</svg>

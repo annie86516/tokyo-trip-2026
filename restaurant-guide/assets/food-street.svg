@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">STREET</title><desc id="desc">東京・日光小吃的日式料理主題插畫</desc>
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff8e9"/><stop offset="0.58" stop-color="#f4dfc2"/><stop offset="1" stop-color="#d7e3d4"/>
+  </linearGradient>
+  <linearGradient id="lacquer" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5b1c16"/><stop offset="1" stop-color="#1f1716"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9df8a"/><stop offset="1" stop-color="#c88c28"/></linearGradient>
+  <pattern id="waves" width="90" height="45" patternUnits="userSpaceOnUse">
+    <path d="M0 45 Q22.5 0 45 45 Q67.5 0 90 45" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="4"/>
+  </pattern>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#5b3729" flood-opacity=".22"/></filter>
+</defs>
+<rect width="1600" height="900" rx="58" fill="url(#bg)"/>
+<rect width="1600" height="900" rx="58" fill="url(#waves)" opacity=".6"/>
+<circle cx="1260" cy="200" r="290" fill="#fff" opacity=".32"/>
+
+<g opacity=".78" transform="translate(125 105) rotate(-12)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#b84a37"/>
+  <path d="M0 70v70" stroke="#7d352b" stroke-width="10" stroke-linecap="round"/>
+</g>
+<g opacity=".42" transform="translate(1450 760) scale(.72) rotate(18)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#d69238"/>
+</g>
+<g transform="translate(115 595)">
+  <text x="0" y="0" font-family="serif" font-size="86" font-weight="700" fill="#a74735" letter-spacing="4">STREET</text>
+  <text x="4" y="68" font-family="Georgia,serif" font-size="31" fill="#55443b" letter-spacing="3">TOKYO · NIKKO · NARITA 2026</text>
+  <path d="M0 100h560" stroke="#a74735" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+</g>
+<g filter="url(#shadow)">
+<g transform="translate(820 130)">
+  <rect x="40" y="210" width="690" height="370" rx="55" fill="#b94535"/>
+  <rect x="80" y="245" width="610" height="290" rx="38" fill="#f8e7c7"/>
+  <g transform="translate(110 285)">
+    <g fill="#d98342" stroke="#9a4c2d" stroke-width="7"><circle cx="80" cy="80" r="62"/><circle cx="225" cy="80" r="62"/><circle cx="370" cy="80" r="62"/><circle cx="515" cy="80" r="62"/></g>
+    <g fill="#fff2d0"><path d="M35 65q45-45 90 0"/><path d="M180 65q45-45 90 0"/><path d="M325 65q45-45 90 0"/><path d="M470 65q45-45 90 0"/></g>
+    <g stroke="#f7e0b7" stroke-width="7"><path d="M43 100l75-45M188 100l75-45M333 100l75-45M478 100l75-45"/></g>
+  </g>
+  <g transform="translate(220 55)"><path d="M0 180q25-150 135-150t135 150Z" fill="#d5ad6a"/><path d="M28 168q28-105 107-105t107 105Z" fill="#f2dfae"/><circle cx="135" cy="125" r="12" fill="#b83f37"/></g>
+  <g transform="translate(520 45)"><rect x="70" y="0" width="18" height="230" rx="9" fill="#6f472d"/><path d="M10 90q68-70 138 0q-15 105-69 105T10 90Z" fill="#e2b25d"/><path d="M30 100q50-40 98 0" fill="none" stroke="#f7e2a8" stroke-width="12"/></g>
+</g></g>
+</svg>

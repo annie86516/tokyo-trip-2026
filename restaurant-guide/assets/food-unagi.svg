@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">UNAGI</title><desc id="desc">成田鰻魚飯的日式料理主題插畫</desc>
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff8e9"/><stop offset="0.58" stop-color="#f4dfc2"/><stop offset="1" stop-color="#d7e3d4"/>
+  </linearGradient>
+  <linearGradient id="lacquer" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5b1c16"/><stop offset="1" stop-color="#1f1716"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9df8a"/><stop offset="1" stop-color="#c88c28"/></linearGradient>
+  <pattern id="waves" width="90" height="45" patternUnits="userSpaceOnUse">
+    <path d="M0 45 Q22.5 0 45 45 Q67.5 0 90 45" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="4"/>
+  </pattern>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#5b3729" flood-opacity=".22"/></filter>
+</defs>
+<rect width="1600" height="900" rx="58" fill="url(#bg)"/>
+<rect width="1600" height="900" rx="58" fill="url(#waves)" opacity=".6"/>
+<circle cx="1260" cy="200" r="290" fill="#fff" opacity=".32"/>
+
+<g opacity=".78" transform="translate(125 105) rotate(-12)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#b84a37"/>
+  <path d="M0 70v70" stroke="#7d352b" stroke-width="10" stroke-linecap="round"/>
+</g>
+<g opacity=".42" transform="translate(1450 760) scale(.72) rotate(18)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#d69238"/>
+</g>
+<g transform="translate(115 595)">
+  <text x="0" y="0" font-family="serif" font-size="86" font-weight="700" fill="#7a3528" letter-spacing="4">UNAGI</text>
+  <text x="4" y="68" font-family="Georgia,serif" font-size="31" fill="#55443b" letter-spacing="3">TOKYO · NIKKO · NARITA 2026</text>
+  <path d="M0 100h560" stroke="#7a3528" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+</g>
+<g filter="url(#shadow)">
+<g transform="translate(805 145)">
+  <ellipse cx="385" cy="575" rx="400" ry="70" fill="#6a3e2c" opacity=".22"/>
+  <rect x="40" y="220" width="710" height="350" rx="52" fill="#3a1717"/>
+  <rect x="75" y="255" width="640" height="280" rx="38" fill="#f7e7bd"/>
+  <g fill="#9d4a2f" stroke="#6e2d22" stroke-width="10">
+    <rect x="125" y="300" width="520" height="82" rx="28" transform="rotate(-2 385 341)"/>
+    <rect x="105" y="395" width="555" height="82" rx="28" transform="rotate(2 382 436)"/>
+  </g>
+  <g stroke="#d58c50" stroke-width="9" opacity=".8"><path d="M175 305l55 70M270 300l55 75M365 298l55 75M460 296l55 72M555 295l55 70"/><path d="M160 400l55 70M255 398l55 72M350 397l55 72M445 397l55 72M540 398l55 70"/></g>
+  <g transform="translate(560 60)"><path d="M0 150h160v145q0 50-80 50T0 295Z" fill="#4d6b4d"/><ellipse cx="80" cy="150" rx="80" ry="37" fill="#8ca16a"/><path d="M25 150q55-45 110 0" fill="none" stroke="#dce6b7" stroke-width="13"/></g>
+  <g transform="translate(150 60)"><ellipse cx="80" cy="115" rx="85" ry="55" fill="#f5efe2"/><path d="M20 115q60-65 120 0" fill="none" stroke="#d7b36e" stroke-width="18"/></g>
+</g></g>
+</svg>

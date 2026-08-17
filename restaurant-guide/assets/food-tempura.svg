@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">TEMPURA</title><desc id="desc">天麩羅・天丼的日式料理主題插畫</desc>
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff8e9"/><stop offset="0.58" stop-color="#f4dfc2"/><stop offset="1" stop-color="#d7e3d4"/>
+  </linearGradient>
+  <linearGradient id="lacquer" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5b1c16"/><stop offset="1" stop-color="#1f1716"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9df8a"/><stop offset="1" stop-color="#c88c28"/></linearGradient>
+  <pattern id="waves" width="90" height="45" patternUnits="userSpaceOnUse">
+    <path d="M0 45 Q22.5 0 45 45 Q67.5 0 90 45" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="4"/>
+  </pattern>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#5b3729" flood-opacity=".22"/></filter>
+</defs>
+<rect width="1600" height="900" rx="58" fill="url(#bg)"/>
+<rect width="1600" height="900" rx="58" fill="url(#waves)" opacity=".6"/>
+<circle cx="1260" cy="200" r="290" fill="#fff" opacity=".32"/>
+
+<g opacity=".78" transform="translate(125 105) rotate(-12)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#b84a37"/>
+  <path d="M0 70v70" stroke="#7d352b" stroke-width="10" stroke-linecap="round"/>
+</g>
+<g opacity=".42" transform="translate(1450 760) scale(.72) rotate(18)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#d69238"/>
+</g>
+<g transform="translate(115 595)">
+  <text x="0" y="0" font-family="serif" font-size="86" font-weight="700" fill="#a35b24" letter-spacing="4">TEMPURA</text>
+  <text x="4" y="68" font-family="Georgia,serif" font-size="31" fill="#55443b" letter-spacing="3">TOKYO · NIKKO · NARITA 2026</text>
+  <path d="M0 100h560" stroke="#a35b24" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+</g>
+<g filter="url(#shadow)">
+<g transform="translate(825 120)">
+  <path d="M60 325Q90 620 370 635Q650 620 680 325Z" fill="#653822"/>
+  <ellipse cx="370" cy="320" rx="310" ry="150" fill="#fff2d5"/>
+  <g transform="translate(100 80) rotate(-12)"><path d="M25 400q70-310 170-300q75 18 50 110q-35 98-145 225Z" fill="#e79a42"/><path d="M160 95q70-62 105-5q-35 45-86 56" fill="#ef6e4f"/><path d="M55 360q70-150 135-220" fill="none" stroke="#f8df91" stroke-width="20" stroke-linecap="round"/></g>
+  <g transform="translate(355 120) rotate(7)"><path d="M20 390q65-290 160-285q82 15 52 108q-38 105-145 220Z" fill="#e9a34e"/><path d="M152 102q75-58 107 0q-38 42-90 50" fill="#ef7352"/><path d="M50 350q65-145 130-215" fill="none" stroke="#f9e3a4" stroke-width="20" stroke-linecap="round"/></g>
+  <g fill="#e2b44d"><ellipse cx="565" cy="350" rx="80" ry="48" transform="rotate(-18 565 350)"/><ellipse cx="250" cy="380" rx="78" ry="45" transform="rotate(18 250 380)"/></g>
+  <g fill="#63945a"><path d="M520 255q70-80 135-10q-25 100-105 92Z"/><path d="M185 255q75-80 137-10q-25 100-105 92Z"/></g>
+</g></g>
+</svg>

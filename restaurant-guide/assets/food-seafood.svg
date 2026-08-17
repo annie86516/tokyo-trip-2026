@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">SEAFOOD</title><desc id="desc">海鮮丼・鮮魚的日式料理主題插畫</desc>
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff8e9"/><stop offset="0.58" stop-color="#f4dfc2"/><stop offset="1" stop-color="#d7e3d4"/>
+  </linearGradient>
+  <linearGradient id="lacquer" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5b1c16"/><stop offset="1" stop-color="#1f1716"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9df8a"/><stop offset="1" stop-color="#c88c28"/></linearGradient>
+  <pattern id="waves" width="90" height="45" patternUnits="userSpaceOnUse">
+    <path d="M0 45 Q22.5 0 45 45 Q67.5 0 90 45" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="4"/>
+  </pattern>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#5b3729" flood-opacity=".22"/></filter>
+</defs>
+<rect width="1600" height="900" rx="58" fill="url(#bg)"/>
+<rect width="1600" height="900" rx="58" fill="url(#waves)" opacity=".6"/>
+<circle cx="1260" cy="200" r="290" fill="#fff" opacity=".32"/>
+
+<g opacity=".78" transform="translate(125 105) rotate(-12)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#b84a37"/>
+  <path d="M0 70v70" stroke="#7d352b" stroke-width="10" stroke-linecap="round"/>
+</g>
+<g opacity=".42" transform="translate(1450 760) scale(.72) rotate(18)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#d69238"/>
+</g>
+<g transform="translate(115 595)">
+  <text x="0" y="0" font-family="serif" font-size="86" font-weight="700" fill="#2f7182" letter-spacing="4">SEAFOOD</text>
+  <text x="4" y="68" font-family="Georgia,serif" font-size="31" fill="#55443b" letter-spacing="3">TOKYO · NIKKO · NARITA 2026</text>
+  <path d="M0 100h560" stroke="#2f7182" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+</g>
+<g filter="url(#shadow)">
+<g transform="translate(825 130)">
+  <path d="M50 305Q75 610 370 625Q665 610 690 305Z" fill="#315f70"/>
+  <ellipse cx="370" cy="300" rx="320" ry="165" fill="#f7f1e5"/>
+  <ellipse cx="370" cy="315" rx="285" ry="125" fill="#fff9e9"/>
+  <g transform="translate(150 195) rotate(-12)"><rect width="220" height="80" rx="38" fill="#ef725f"/><path d="M35 12l30 57M85 5l30 64M135 6l30 62" stroke="#ffd1bd" stroke-width="11"/></g>
+  <g transform="translate(360 205) rotate(8)"><rect width="225" height="82" rx="38" fill="#c6414c"/></g>
+  <g transform="translate(240 315) rotate(4)"><rect width="210" height="72" rx="34" fill="#f2b36d"/><path d="M45 8l28 57M90 6l28 57M135 7l28 55" stroke="#fff1c8" stroke-width="10"/></g>
+  <g fill="#dc7b33"><circle cx="510" cy="370" r="22"/><circle cx="548" cy="355" r="22"/><circle cx="585" cy="378" r="22"/><circle cx="545" cy="397" r="22"/></g>
+  <path d="M115 370q70-110 135 0q-70 90-135 0" fill="#8bae61"/><path d="M125 370q55-55 115 0" fill="none" stroke="#dce8b8" stroke-width="12"/>
+  <rect x="335" y="420" width="72" height="65" rx="16" fill="#f2d76c"/>
+</g></g>
+</svg>

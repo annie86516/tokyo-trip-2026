@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">NOODLES</title><desc id="desc">拉麵・烏龍・蕎麥的日式料理主題插畫</desc>
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff8e9"/><stop offset="0.58" stop-color="#f4dfc2"/><stop offset="1" stop-color="#d7e3d4"/>
+  </linearGradient>
+  <linearGradient id="lacquer" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5b1c16"/><stop offset="1" stop-color="#1f1716"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9df8a"/><stop offset="1" stop-color="#c88c28"/></linearGradient>
+  <pattern id="waves" width="90" height="45" patternUnits="userSpaceOnUse">
+    <path d="M0 45 Q22.5 0 45 45 Q67.5 0 90 45" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="4"/>
+  </pattern>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#5b3729" flood-opacity=".22"/></filter>
+</defs>
+<rect width="1600" height="900" rx="58" fill="url(#bg)"/>
+<rect width="1600" height="900" rx="58" fill="url(#waves)" opacity=".6"/>
+<circle cx="1260" cy="200" r="290" fill="#fff" opacity=".32"/>
+
+<g opacity=".78" transform="translate(125 105) rotate(-12)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#b84a37"/>
+  <path d="M0 70v70" stroke="#7d352b" stroke-width="10" stroke-linecap="round"/>
+</g>
+<g opacity=".42" transform="translate(1450 760) scale(.72) rotate(18)">
+  <path d="M0-64 15-26 48-42 35-8 74 0 35 15 50 52 13 33 0 78-13 33-50 52-35 15-74 0-35-8-48-42-15-26Z" fill="#d69238"/>
+</g>
+<g transform="translate(115 595)">
+  <text x="0" y="0" font-family="serif" font-size="86" font-weight="700" fill="#8e3e31" letter-spacing="4">NOODLES</text>
+  <text x="4" y="68" font-family="Georgia,serif" font-size="31" fill="#55443b" letter-spacing="3">TOKYO · NIKKO · NARITA 2026</text>
+  <path d="M0 100h560" stroke="#8e3e31" stroke-width="8" stroke-linecap="round" opacity=".65"/>
+</g>
+<g filter="url(#shadow)">
+<g transform="translate(850 120)">
+  <path d="M20 275Q50 570 360 580Q670 570 700 275Z" fill="url(#lacquer)"/>
+  <ellipse cx="360" cy="270" rx="340" ry="170" fill="#f4efe3"/>
+  <ellipse cx="360" cy="280" rx="306" ry="135" fill="#c98f54"/>
+  <g fill="none" stroke="#f6d88a" stroke-width="15" stroke-linecap="round">
+    <path d="M120 270q120-95 235 0t230 0"/><path d="M105 310q135-90 260 0t245 0"/><path d="M145 350q120-72 220 0t210 0"/>
+  </g>
+  <circle cx="250" cy="230" r="72" fill="#fff4d9"/><circle cx="250" cy="230" r="34" fill="#e4a72f"/>
+  <ellipse cx="470" cy="225" rx="115" ry="62" fill="#b65e46" transform="rotate(-8 470 225)"/>
+  <g stroke="#4e8d55" stroke-width="18" stroke-linecap="round"><path d="M530 330l90-92"/><path d="M560 350l80-70"/><path d="M500 350l60-85"/></g>
+  <g transform="translate(625 65) rotate(12)"><rect width="22" height="350" rx="11" fill="#7d312c"/><rect x="54" width="22" height="350" rx="11" fill="#7d312c"/></g>
+</g></g>
+</svg>

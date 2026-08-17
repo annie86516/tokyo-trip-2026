@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"/>
@@ -289,7 +288,54 @@ samp {
   font-family: var(--all-kai-font) !important;
 }
 </style>
-</head>
+<style id="github-site-links-style">
+/* GitHub Pages 導覽列：2026-08-17 */
+.github-site-links {
+  position: fixed;
+  right: 14px;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  z-index: 10020;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+  max-width: calc(100vw - 28px);
+  font-family: "DFKai-SB", "標楷體", "Microsoft JhengHei", sans-serif;
+}
+.github-site-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid rgba(75, 77, 67, .18);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, .96);
+  color: #40534b !important;
+  box-shadow: 0 6px 20px rgba(50, 45, 35, .16);
+  font-size: 12.5px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-decoration: none !important;
+  white-space: nowrap;
+  backdrop-filter: blur(7px);
+}
+.github-site-links a.restaurant {
+  border-color: rgba(169, 70, 50, .26);
+  background: rgba(169, 70, 50, .96);
+  color: #fff !important;
+}
+.github-site-links a:hover,
+.github-site-links a:focus-visible {
+  transform: translateY(-1px);
+  outline: 3px solid rgba(207, 126, 104, .22);
+  outline-offset: 2px;
+}
+@media (max-width: 540px) {
+  .github-site-links { right: 9px; bottom: max(9px, env(safe-area-inset-bottom)); gap: 5px; }
+  .github-site-links a { padding: 7px 9px; font-size: 11.5px; }
+}
+@media print { .github-site-links { display: none !important; } }
+</style></head>
 <body><!-- Updated 2026-08-13: cancelled Jojoen; replaced DAY 3 dinner planning with Shusai Soba Shodai; verified major ticket, bus pass, restaurant and Richmond shuttle facts; public-data consistency review completed. -->
 <button class="nav-toggle" id="navToggle">☰ 楓葉之旅</button>
 <nav aria-label="頁面目錄" class="screen-nav" id="screenNav">
@@ -731,5 +777,5 @@ samp {
   anchors.forEach(a=>{const el=document.querySelector(a.getAttribute('href'));if(el)observer.observe(el)});
 })();
 </script>
-</body>
+<nav aria-label="網站快捷連結" class="github-site-links"><a href="../index.html">← 完整行程</a><a class="restaurant" href="../restaurant-guide/index.html">🍽️ 餐廳攻略</a></nav></body>
 </html>

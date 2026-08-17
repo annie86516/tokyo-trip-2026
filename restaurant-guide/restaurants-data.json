@@ -1,0 +1,2817 @@
+[
+  {
+    "id": "01-monjayaki-chico",
+    "day": 1,
+    "slot": "午餐",
+    "status": "planned",
+    "priority": "A",
+    "name_zh": "文字燒 CHICO",
+    "name_ja": "もんじゃ焼き CHICO",
+    "type": "文字燒／鐵板海鮮",
+    "area": "本所吾妻橋",
+    "verdict": "抵達東京後最有「下町感」的第一餐；7 人務必訂位，首點招牌鹽味文字燒。",
+    "hours": "週二～五 17:00–23:00；週六、日、國定假日 11:30–23:00；週一休。",
+    "hours_note": "11/21 是星期六，可吃午餐；若入境或交通延誤，下午仍有充足彈性。",
+    "address": "東京都墨田區吾妻橋3-6-16",
+    "access": "都營淺草線「本所吾妻橋」站步行約 1 分鐘；東京晴空塔站約 3 分鐘。",
+    "budget": "約 ¥1,500–3,500／人（依海鮮與酒水而定）",
+    "reservation": "7 人建議事先網路或電話預約；用餐抓 75–90 分鐘。",
+    "queue": "週六午餐熱門；若無訂位，建議 11:20 前抵達或改 14:00 後。",
+    "timing": "行李放妥後直接前往；理想入店 13:30–14:30。若超過 15:30 才到，份量宜控制，避免影響晚餐。",
+    "beef_level": "需確認",
+    "no_beef": "主打魚介高湯與海鮮，可點海鮮文字燒；仍要確認配料、醬汁與共用鐵板是否能接受。避開牛筋、牛肉加料。",
+    "dishes": [
+      {
+        "name": "元祖鹽文字燒「生海苔蝦仁鹽味」",
+        "why": "創業秘製魚介高湯的代表作，比一般醬油味更能吃出海鮮與海苔香。",
+        "order": "全桌先點 1 份試味道"
+      },
+      {
+        "name": "海鮮の極み",
+        "why": "海鮮料更豪華，適合 7 人分食；但價位較高。",
+        "order": "1 份共享即可"
+      },
+      {
+        "name": "鬆軟山藥大阪燒",
+        "why": "和文字燒口感不同，可讓第一次吃的人比較。",
+        "order": "1–2 份共享"
+      },
+      {
+        "name": "醬汁炒麵",
+        "why": "適合收尾與補充澱粉，也較容易被全團接受。",
+        "order": "最後視食量追加"
+      }
+    ],
+    "group_plan": [
+      "先點 2 種文字燒＋1 份大阪燒，再觀察份量，不要一開始點滿整桌。",
+      "請店員示範第一份；之後由熟悉的人負責煎，避免 7 人同時動手。",
+      "不吃牛肉者坐在同一側，先煎海鮮／無牛品項，再處理含肉品項。"
+    ],
+    "pitfalls": [
+      "文字燒份量看似小，但麵糊與起司很有飽足感。",
+      "熱門海鮮可能依進貨變動。",
+      "共用鐵板不適合對牛肉交叉接觸極嚴格者。"
+    ],
+    "phrases": [
+      "牛肉と牛脂を使わないもんじゃはありますか？（有不使用牛肉與牛油的文字燒嗎？）",
+      "最初の一枚だけ、焼き方を教えてください。（第一份可以教我們怎麼煎嗎？）"
+    ],
+    "official": "https://chico-monja.jp/",
+    "reservation_url": "https://chico-monja.jp/",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E3%82%82%E3%82%93%E3%81%98%E3%82%83%E7%84%BC%E3%81%8D+CHICO+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E5%90%BE%E5%A6%BB%E6%A9%8B3-6-16",
+    "day_date": "2026/11/21（六）",
+    "day_route": "本所吾妻橋・淺草・丸之內",
+    "sources": [
+      {
+        "label": "CHICO 官方網站",
+        "url": "https://chico-monja.jp/",
+        "note": "菜單、營業時間、地址與訂位"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": "DAY 1 餐飲安排"
+      }
+    ],
+    "image": "food-grill.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "文字燒 CHICO",
+    "signature": "元祖鹽文字燒「生海苔蝦仁鹽味」",
+    "tabelog": "https://tabelog.com/tokyo/A1312/A131203/13137603/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/192766/6d434ae3ce700925bc04c804f686b8a3.jpg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/240943/640x640_rect_d711dd95fe6aa4a26050fed40465e860.jpg",
+    "store_source": "https://tabelog.com/tokyo/A1312/A131203/13137603/dtlphotolst/smp2/",
+    "dish_source": "https://tabelog.com/tokyo/A1312/A131203/13137603/",
+    "store_caption": "文字燒 CHICO 店面實景",
+    "dish_caption": "元祖鹽文字燒調理實拍"
+  },
+  {
+    "id": "02-pain-maison",
+    "day": 1,
+    "slot": "點心",
+    "status": "snack",
+    "priority": "A",
+    "name_zh": "鹽麵包屋 Pain Maison",
+    "name_ja": "塩パン屋 パン・メゾン すみだ浅草通り店",
+    "type": "麵包店／外帶",
+    "area": "吾妻橋",
+    "verdict": "便宜、快速、代表性高；建議每人先買原味鹽麵包，再挑一個夾餡款。",
+    "hours": "通常 08:30–19:00；星期二休。",
+    "hours_note": "公開資料曾出現 07:30 或 08:30 開店差異；DAY 1 為下午造訪，不影響行程，但仍以官方當日公告為準。",
+    "address": "東京都墨田區吾妻橋2-4-1 サンクエトワール 1F",
+    "access": "本所吾妻橋站步行約 2–3 分鐘，從 CHICO 步行可達。",
+    "budget": "約 ¥300–1,000／人",
+    "reservation": "不可預約；排隊購買、以外帶為主。",
+    "queue": "出爐時段容易排隊，但流動快；熱門口味可能暫時缺貨，等下一爐即可。",
+    "timing": "CHICO 後散步順買；若已吃很飽，原味買回民宿當隔日備用早餐。最好當天吃。",
+    "beef_level": "較安心",
+    "no_beef": "原味鹽麵包通常不含牛肉，但奶油為乳製品；夾火腿、肉醬或熟食款需逐一確認。",
+    "dishes": [
+      {
+        "name": "元祖鹽麵包",
+        "why": "外層酥、內部有奶油融化形成的空洞，是最能理解店家特色的一款。",
+        "order": "每人 1 個"
+      },
+      {
+        "name": "牛奶／奶油夾心鹽麵包",
+        "why": "甜鹹平衡，適合當甜點。",
+        "order": "2 人分食 1 個即可"
+      },
+      {
+        "name": "紅豆奶油／季節夾餡款",
+        "why": "日本風味明顯，但較有飽足感。",
+        "order": "視現場品項挑選"
+      },
+      {
+        "name": "蝦味或起司等鹹口味",
+        "why": "適合不想吃甜食者。",
+        "order": "先確認是否含肉製品"
+      }
+    ],
+    "group_plan": [
+      "一人排隊，其餘人在附近不妨礙店面的地方等候。",
+      "原味可統一買 7 個，再自由加購特色款。",
+      "不要在鄰店門口邊走邊吃；依現場指示使用指定區域。"
+    ],
+    "pitfalls": [
+      "剛出爐最好吃，隔夜口感明顯下降。",
+      "奶油量高，晚餐前不要一次吃太多。",
+      "營業時間資訊略有差異。"
+    ],
+    "phrases": [
+      "焼きたての塩パンは、次は何時ごろですか？（下一爐現烤鹽麵包大約幾點？）",
+      "これは肉が入っていますか？（這個有含肉嗎？）"
+    ],
+    "official": "https://shiopan-maison.com/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%A1%A9%E3%83%91%E3%83%B3%E5%B1%8B+%E3%83%91%E3%83%B3%E3%83%BB%E3%83%A1%E3%82%BE%E3%83%B3+%E3%81%99%E3%81%BF%E3%81%A0%E6%B5%85%E8%8D%89%E9%80%9A%E3%82%8A%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E5%90%BE%E5%A6%BB%E6%A9%8B2-4-1+%E3%82%B5%E3%83%B3%E3%82%AF%E3%82%A8%E3%83%88%E3%83%AF%E3%83%BC%E3%83%AB+1F",
+    "day_date": "2026/11/21（六）",
+    "day_route": "本所吾妻橋・淺草・丸之內",
+    "sources": [
+      {
+        "label": "Pain Maison 官方網站",
+        "url": "https://shiopan-maison.com/",
+        "note": "品牌與店舖資訊"
+      },
+      {
+        "label": "店舖資料",
+        "url": "https://autoreserve.com/en/restaurants/2Hbc6Lw7NUhNdoJo61eY",
+        "note": "營業時間與地址"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-bakery.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "鹽麵包屋 Pain Maison",
+    "signature": "元祖鹽麵包",
+    "tabelog": "https://tabelog.com/tokyo/A1312/A131203/13218249/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/248082/640x640_rect_fc1d729a99a1217ced75baec25fae531.jpg",
+    "dish_photo": "https://d1som9eclaj1c0.cloudfront.net/upload_picture/S1645111246206_1.JPG",
+    "store_source": "https://tabelog.com/tokyo/A1312/A131203/13218249/",
+    "dish_source": "https://job.inshokuten.com/kanto/work/detail/32115",
+    "store_caption": "Pain Maison 墨田淺草通店店面",
+    "dish_caption": "招牌元祖鹽麵包"
+  },
+  {
+    "id": "03-torikizoku-asakusa",
+    "day": 1,
+    "slot": "晚餐",
+    "status": "planned",
+    "priority": "A",
+    "name_zh": "鳥貴族 淺草店",
+    "name_ja": "鳥貴族 浅草店",
+    "type": "平價串燒居酒屋",
+    "area": "淺草",
+    "verdict": "適合不同航班抵達後的 7 人會合餐；價格好控管，但週六晚間一定要訂位。",
+    "hours": "週一～四、日約 15:00–23:00；週五、六約 15:00–翌 04:30。",
+    "hours_note": "DAY 1 為星期六，20:45 後仍可用餐；訂位時請再次確認最後點餐時間。",
+    "address": "東京都台東區淺草1-1-17 増田ビル 3F",
+    "access": "淺草站與雷門附近，抵達後容易集合。",
+    "budget": "約 ¥2,000–3,500／人",
+    "reservation": "7 人建議預約 21:00 左右；Group B 入境延誤時，由先到者先向店家說明。",
+    "queue": "週六 20:00–22:00 是高峰；未訂位可能被拆成兩桌或等待。",
+    "timing": "大隊人馬 20:45 集合後步行前往。訂位可抓 21:00，並預留航班或入境延誤的聯絡機制。",
+    "beef_level": "較安心",
+    "no_beef": "主體為雞肉串燒；仍需留意醬汁、炸物共用油與期間限定料理。若只是「不吃牛肉」而非嚴格過敏，選擇很多。",
+    "dishes": [
+      {
+        "name": "もも貴族焼（たれ）",
+        "why": "品牌代表款；官方照片對應醬汁口味，雞腿與蔥段份量有辨識度。",
+        "order": "每 2 人 1 盤"
+      },
+      {
+        "name": "もも貴族焼（塩）",
+        "why": "想比較雞肉本味時可與醬汁口味各點一盤。",
+        "order": "全桌比較用"
+      },
+      {
+        "name": "つくね起司／月見肉丸",
+        "why": "口感較嫩，適合不習慣內臟者。",
+        "order": "1–2 盤共享"
+      },
+      {
+        "name": "釜飯",
+        "why": "現點現煮時間較久，應在第一輪就下單。",
+        "order": "2–3 人共享 1 份"
+      }
+    ],
+    "group_plan": [
+      "第一輪先點串燒、炸物、沙拉與釜飯；飲料分開點。",
+      "指定一人統整點餐，避免重複下單。",
+      "若分兩桌，先約好結帳方式與 22:30 左右離店時間。"
+    ],
+    "pitfalls": [
+      "釜飯需等待，不要最後才點。",
+      "居酒屋座位通常較緊湊，大件行李先放民宿。",
+      "期間限定菜色與均一價格可能調整。"
+    ],
+    "phrases": [
+      "7名で予約しています。（我們有預約 7 位。）",
+      "牛肉を使っていない料理を教えてください。（請告訴我不含牛肉的料理。）"
+    ],
+    "official": "https://map.torikizoku.co.jp/detail/216/",
+    "reservation_url": "https://map.torikizoku.co.jp/detail/216/",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E9%B3%A5%E8%B2%B4%E6%97%8F+%E6%B5%85%E8%8D%89%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E6%B7%BA%E8%8D%891-1-17+%E5%A2%97%E7%94%B0%E3%83%93%E3%83%AB+3F",
+    "day_date": "2026/11/21（六）",
+    "day_route": "本所吾妻橋・淺草・丸之內",
+    "sources": [
+      {
+        "label": "鳥貴族淺草店官方頁",
+        "url": "https://map.torikizoku.co.jp/detail/216/",
+        "note": "營業時間、座位與預約"
+      },
+      {
+        "label": "鳥貴族官方菜單",
+        "url": "https://torikizoku.co.jp/menu/",
+        "note": "現行菜單與過敏原資訊"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-grill.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "鳥貴族 淺草店",
+    "signature": "もも貴族焼（たれ）",
+    "tabelog": "https://tabelog.com/tokyo/A1311/A131102/13123768/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/71665/640x640_rect_71665025.jpg",
+    "dish_photo": "https://torikizoku.co.jp/assets/uploads/2024/03/momo_kizokuyaki_tare.jpg",
+    "store_source": "https://tabelog.com/tokyo/A1311/A131102/13123768/dtlrvwlst/",
+    "dish_source": "https://torikizoku.co.jp/menu/",
+    "store_caption": "鳥貴族淺草店入口實景",
+    "dish_caption": "官方菜單實拍：もも貴族焼（たれ）"
+  },
+  {
+    "id": "04-nukumuku",
+    "day": 2,
+    "slot": "早餐",
+    "status": "planned",
+    "priority": "B",
+    "name_zh": "nukumuku 三軒茶屋",
+    "name_ja": "nukumuku",
+    "type": "手作麵包／咖啡",
+    "area": "三軒茶屋",
+    "verdict": "適合進豪德寺前補充早餐；重點是 1 樓選麵包，時間有限就不要等 2 樓正餐。",
+    "hours": "官方頁面目前出現不同版本：1F 約 08:00–19:00／20:00；2F 咖啡約 09:30–18:00／19:00。",
+    "hours_note": "另有 2026 在地資料顯示 07:00 開始。11 月行前請以官方 Instagram 當週公告為準。星期日通常營業。",
+    "address": "東京都世田谷區太子堂5-29-3",
+    "access": "三軒茶屋站步行約 10 分鐘，再轉往世田谷線。",
+    "budget": "約 ¥700–2,000／人",
+    "reservation": "買麵包不需預約；2F 座位若人多會拖慢行程。",
+    "queue": "早上品項較齊；10 點後觀光客與在地客增加。",
+    "timing": "08:00 左右抵達，抓 30–40 分鐘。若 1F 尚未開門，直接改車站附近早餐，不要影響豪德寺時程。",
+    "beef_level": "需確認",
+    "no_beef": "甜麵包與部分素麵包容易選；熟食、漢堡、肉料理需詢問。也要注意奶、蛋與豬肉。",
+    "dishes": [
+      {
+        "name": "當日出爐招牌麵包",
+        "why": "品項變化大，直接問店員「今天最推薦」。",
+        "order": "每人 1–2 個"
+      },
+      {
+        "name": "自家製餡／卡士達甜麵包",
+        "why": "店家強調自製內餡，適合早餐。",
+        "order": "挑 1 個共享"
+      },
+      {
+        "name": "三明治／帕尼尼",
+        "why": "需要較完整早餐的人可選，但等待時間較長。",
+        "order": "時間充裕再點"
+      },
+      {
+        "name": "法式吐司",
+        "why": "2F 咖啡代表性餐點，但不適合趕行程。",
+        "order": "僅早起且無排隊時"
+      }
+    ],
+    "group_plan": [
+      "7 人分兩批進店選購，避免擋住狹窄動線。",
+      "先在門外決定外帶或內用；不要到櫃檯才討論。",
+      "每人自付最快，或由一人統一付款後記錄。"
+    ],
+    "pitfalls": [
+      "官網不同頁面的營業時間不一致。",
+      "離車站約 10 分鐘，需把步行算進去。",
+      "2F 內用可能讓整體停留超過 1 小時。"
+    ],
+    "phrases": [
+      "今日の一番おすすめのパンはどれですか？（今天最推薦哪一款麵包？）",
+      "牛肉が入っていないパンを教えてください。（請告訴我不含牛肉的麵包。）"
+    ],
+    "official": "https://nukumuku.jp/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=nukumuku+%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8D%80%E5%A4%AA%E5%AD%90%E5%A0%825-29-3",
+    "day_date": "2026/11/22（日）",
+    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
+    "sources": [
+      {
+        "label": "nukumuku 官方網站",
+        "url": "https://nukumuku.jp/",
+        "note": "產品與基本資訊"
+      },
+      {
+        "label": "官方交通／營業頁",
+        "url": "https://nukumuku.jp/location",
+        "note": "地址與營業時間版本"
+      },
+      {
+        "label": "2026 在地報導",
+        "url": "https://san-tatsu.jp/spots/510157/",
+        "note": "近期營業資訊"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-bakery.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "nukumuku 三軒茶屋",
+    "signature": "當日出爐招牌麵包",
+    "tabelog": null,
+    "store_photo": "https://san-tatsu.jp/assets/uploads/2026/02/19174455/1771490693-f1fe538df97c2ca4455d9ab9f8e28a18.jpg",
+    "dish_photo": "https://san-tatsu.jp/assets/uploads/2026/02/19174353/1771490631-6dc16f7fb0db8ad1140e0431600dc348.jpg",
+    "store_source": "https://san-tatsu.jp/articles/510100/",
+    "dish_source": "https://san-tatsu.jp/articles/510100/",
+    "store_caption": "nukumuku 三軒茶屋店面",
+    "dish_caption": "nukumuku 三軒茶屋店內人氣麵包陳列實拍"
+  },
+  {
+    "id": "05-rarasand",
+    "day": 2,
+    "slot": "點心備選",
+    "status": "snack",
+    "priority": "B",
+    "name_zh": "RARASAND 招福貓甜點咖啡",
+    "name_ja": "RARASAND",
+    "type": "貓咪造型甜點／咖啡",
+    "area": "豪德寺",
+    "verdict": "造型與豪德寺主題最連貫；重點是招福燒，不必為了完整咖啡時段久候。",
+    "hours": "近期公開資料約 10:00–17:00／18:00；店休與臨時變更以 Instagram 為準。",
+    "hours_note": "過往資料曾顯示營業至 22:00，但 2026 更新資料較早收店，請勿採用舊時間。",
+    "address": "東京都世田谷區豪德寺1-8-5",
+    "access": "小田急豪德寺站或世田谷線山下站步行約 3 分鐘。",
+    "budget": "約 ¥500–1,500／人",
+    "reservation": "通常現場購買；店面不大，不適合 7 人長時間佔位。",
+    "queue": "豪德寺觀光高峰會排隊；造型甜點可能售完。",
+    "timing": "參拜後回到車站方向順買，停留 15–30 分鐘；若隊伍過長就改 IRON COFFEE。",
+    "beef_level": "較安心",
+    "no_beef": "甜點本身通常不含牛肉，但含奶蛋；若對明膠或製程嚴格，仍需詢問。",
+    "dishes": [
+      {
+        "name": "招福焼（招福貓造型）",
+        "why": "店家人氣代表商品；定番紅豆、牛奶卡士達與季節口味可依現場選擇。",
+        "order": "每人或兩人 1 個"
+      },
+      {
+        "name": "招福焼－紅豆",
+        "why": "最傳統、最符合豪德寺主題。",
+        "order": "紅豆愛好者優先"
+      },
+      {
+        "name": "招福焼－牛奶卡士達",
+        "why": "甜味較柔和，適合不愛紅豆者。",
+        "order": "與紅豆口味對半分享"
+      },
+      {
+        "name": "Baby Castella",
+        "why": "方便多人分食與帶走。",
+        "order": "全團 1 袋"
+      }
+    ],
+    "group_plan": [
+      "由 1–2 人排隊購買，其餘人先逛商店街。",
+      "先決定每種口味數量，避免櫃檯前逐人選。",
+      "拍照後盡快移動，不在店門口形成團體阻塞。"
+    ],
+    "pitfalls": [
+      "營業時間變動較頻繁。",
+      "座位少，7 人不保證能同時入內。",
+      "熱門造型甜點可能提早賣完。"
+    ],
+    "phrases": [
+      "招福焼は、今どの味がありますか？（招福燒現在有哪些口味？）",
+      "持ち帰りでお願いします。（請幫我外帶。）"
+    ],
+    "official": "https://www.instagram.com/rarasand_gotokuji/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=RARASAND+%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8D%80%E8%B1%AA%E5%BE%B7%E5%AF%BA1-8-5",
+    "day_date": "2026/11/22（日）",
+    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
+    "sources": [
+      {
+        "label": "2026 店舖更新資料",
+        "url": "https://www.corner.inc/place/p1Q9eVfjJycA",
+        "note": "近期時段與店舖資訊"
+      },
+      {
+        "label": "2026 在地介紹",
+        "url": "https://setagaya.goguynet.jp/2026/03/15/rarasand/",
+        "note": "招福燒與 Baby Castella"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-cafe.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "RARASAND 招福貓甜點咖啡",
+    "signature": "招福焼（招福貓造型）",
+    "tabelog": "https://tabelog.com/tokyo/A1318/A131813/13260285/",
+    "store_photo": "https://setagaya.goguynet.jp/wp-content/uploads/sites/145/2026/03/IMG_3702.jpeg",
+    "dish_photo": "https://setagaya.goguynet.jp/wp-content/uploads/sites/145/2026/03/IMG_3700.jpeg",
+    "store_source": "https://setagaya.goguynet.jp/2026/03/15/rarasand/",
+    "dish_source": "https://setagaya.goguynet.jp/2026/03/15/rarasand/",
+    "store_caption": "RARASAND 豪德寺店面（2026 店舖實景）",
+    "dish_caption": "招牌招福焼（招福貓造型；定番紅豆、牛奶卡士達等口味）"
+  },
+  {
+    "id": "06-iron-coffee",
+    "day": 2,
+    "slot": "咖啡備選",
+    "status": "optional",
+    "priority": "B",
+    "name_zh": "IRON COFFEE 豪德寺",
+    "name_ja": "IRON COFFEE",
+    "type": "精品咖啡／烘焙點心",
+    "area": "豪德寺",
+    "verdict": "比 RARASAND 更適合真正想喝好咖啡的人；週日 09:00 開，可作早餐後第二站。",
+    "hours": "平日 08:30–18:00；週末 09:00–18:00；星期三休。",
+    "hours_note": "以官方 2026 可查頁面為準；臨時店休仍請看社群。",
+    "address": "東京都世田谷區豪德寺1-18-9",
+    "access": "豪德寺站步行約 3 分鐘。",
+    "budget": "約 ¥500–1,200／人",
+    "reservation": "不需預約；店小，7 人較適合外帶。",
+    "queue": "尖峰可能要等手沖；趕路時點濃縮咖啡或牛奶咖啡較快。",
+    "timing": "豪德寺參拜前後皆可；建議外帶，停留 15–25 分鐘。",
+    "beef_level": "較安心",
+    "no_beef": "咖啡與一般烘焙甜點無牛肉疑慮；需注意牛奶、奶油、蛋與堅果。",
+    "dishes": [
+      {
+        "name": "咖啡拿鐵（人氣第一）",
+        "why": "奶香與濃縮咖啡平衡，最適合第一次造訪與外帶。",
+        "order": "第一選擇"
+      },
+      {
+        "name": "當日手沖單品",
+        "why": "能喝出店家主打的果香型精品咖啡。",
+        "order": "咖啡愛好者"
+      },
+      {
+        "name": "濃縮咖啡",
+        "why": "快速補充咖啡因，不影響後續午餐。",
+        "order": "短停留首選"
+      },
+      {
+        "name": "Cookie／當日烘焙點心",
+        "why": "適合與咖啡搭配，但先看早餐食量。",
+        "order": "多人共享"
+      }
+    ],
+    "group_plan": [
+      "7 人分開點單但統一外帶，避免佔滿店內。",
+      "先問當日豆款風味，再依喜歡酸香或厚重選擇。",
+      "與 RARASAND 二選一，不必兩間都久坐。"
+    ],
+    "pitfalls": [
+      "手沖需要時間。",
+      "座位不適合大團體。",
+      "與美登利壽司抽號時間要銜接。"
+    ],
+    "phrases": [
+      "酸味が少なめのコーヒーはどれですか？（哪一款咖啡酸味較低？）",
+      "テイクアウトで7杯お願いします。（請做 7 杯外帶。）"
+    ],
+    "official": "https://iron-coffee.com/about/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=IRON+COFFEE+%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8D%80%E8%B1%AA%E5%BE%B7%E5%AF%BA1-18-9",
+    "day_date": "2026/11/22（日）",
+    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
+    "sources": [
+      {
+        "label": "IRON COFFEE 官方資訊",
+        "url": "https://iron-coffee.com/about/",
+        "note": "營業時間、地址與品牌說明"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-cafe.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "IRON COFFEE 豪德寺",
+    "signature": "咖啡拿鐵（人氣第一）",
+    "tabelog": "https://tabelog.com/tokyo/A1318/A131813/13199308/",
+    "store_photo": "https://img.hanako.tokyo/2024/07/06221808/DSC5668-768x512.jpg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/131219/640x640_rect_131219715.jpg",
+    "store_source": "https://hanako.tokyo/food/441019/",
+    "dish_source": "https://tabelog.com/tokyo/A1318/A131813/13199308/dtlrvwlst/B427348403/",
+    "store_caption": "IRON COFFEE 豪德寺店面",
+    "dish_caption": "IRON COFFEE 人氣咖啡拿鐵實拍"
+  },
+  {
+    "id": "07-sushi-midori-umeoka",
+    "day": 2,
+    "slot": "午餐",
+    "status": "planned",
+    "priority": "S",
+    "name_zh": "梅丘壽司美登利 總本店",
+    "name_ja": "梅丘寿司の美登利 総本店",
+    "type": "人氣壽司",
+    "area": "梅丘",
+    "verdict": "DAY 2 的核心餐廳；星期日不要只提早 30 分鐘，建議 09:40–10:00 就派代表操作發券機。",
+    "hours": "平日 11:00–14:30、17:00–21:00；週六、日、國定假日 11:00–21:00（L.O.20:30）。",
+    "hours_note": "店頭順番受付通常 10:00 開始；11/22 是星期日，不要期待臨時訂位。",
+    "address": "東京都世田谷區梅丘1-20-7",
+    "access": "小田急線梅丘站附近；從豪德寺一站即可到。",
+    "budget": "約 ¥2,500–5,000／人",
+    "reservation": "週日以現場取號為主；7 人可能拆成 2 桌，接受拆桌可大幅縮短等待。",
+    "queue": "週日高風險等待 1–3 小時；發券後依號碼回店，不要離太遠。",
+    "timing": "代表 09:40 左右先到；其他人完成豪德寺後會合。目標 11:00–12:30 入店，後續新宿購物才不會被壓縮。",
+    "beef_level": "較安心",
+    "no_beef": "壽司本體容易避開牛肉；味噌湯、煮物、炙燒醬與期間限定仍要確認是否用牛肉／牛脂。",
+    "dishes": [
+      {
+        "name": "元祖穴子一本付",
+        "why": "品牌名物，整條穴子視覺與口感都具代表性。",
+        "order": "2–3 人共享 1 份"
+      },
+      {
+        "name": "美登利名物握り／店長推薦握り",
+        "why": "一次涵蓋鮪魚、白身、貝類等主力魚種，最省點餐時間。",
+        "order": "每人 1 套或兩套共享"
+      },
+      {
+        "name": "本鮪魚組合",
+        "why": "喜歡鮪魚者可比較赤身、中腹與大腹。",
+        "order": "先確認當日價格"
+      },
+      {
+        "name": "季節單品",
+        "why": "11 月可能有秋冬旬魚；直接問當日推薦。",
+        "order": "每人加點 1–2 貫"
+      }
+    ],
+    "group_plan": [
+      "取號時就選「可拆桌／可吧台」，不要堅持 7 人同桌。",
+      "先以套餐快速下單，再追加單貫，避免每人研究菜單太久。",
+      "不吃牛肉者可與大家同店，無需分流。"
+    ],
+    "pitfalls": [
+      "原行程寫「無法預約」過度簡化；平日有部分預約枠，但本次星期日仍以發券為主。",
+      "過號可能需重新安排。",
+      "若超過 13:30 還未入店，應啟動備案，否則新宿行程會被吃掉。"
+    ],
+    "phrases": [
+      "7名ですが、2つの席に分かれても大丈夫です。（我們 7 位，分成兩桌也可以。）",
+      "本日のおすすめの白身魚は何ですか？（今天推薦的白身魚是什麼？）"
+    ],
+    "official": "https://www.sushinomidori.co.jp/shops/honkan/",
+    "reservation_url": "https://www.sushinomidori.co.jp/shops/honkan/",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8D%80%E6%A2%85%E4%B8%981-20-7",
+    "day_date": "2026/11/22（日）",
+    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
+    "sources": [
+      {
+        "label": "美登利總本店官方頁",
+        "url": "https://www.sushinomidori.co.jp/shops/honkan/",
+        "note": "營業時間、地址與取號規則"
+      },
+      {
+        "label": "美登利店舖總覽",
+        "url": "https://www.sushinomidori.co.jp/shop-list/",
+        "note": "總本店現行資訊"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-sushi.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "梅丘壽司美登利 總本店",
+    "signature": "元祖穴子一本付",
+    "tabelog": "https://tabelog.com/tokyo/A1318/A131812/13001480/",
+    "store_photo": "https://town.mec-h.com/mh-kyodo/wp-content/uploads/2021/05/300345_midorizusi.jpg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/167070/640x640_rect_bb997eb68b4672dafe02f09c184ea8a3.jpg",
+    "store_source": "https://town.mec-h.com/mh-kyodo/54",
+    "dish_source": "https://tabelog.com/tokyo/A1318/A131812/13001480/",
+    "store_caption": "梅丘壽司美登利總本店店面",
+    "dish_caption": "元祖穴子一本付握壽司組合"
+  },
+  {
+    "id": "08-kameya-shinjuku",
+    "day": 2,
+    "slot": "原排晚餐",
+    "status": "warning",
+    "priority": "X",
+    "name_zh": "かめや 新宿店",
+    "name_ja": "そば処 かめや 新宿店",
+    "type": "立食蕎麥麵",
+    "area": "新宿思出橫丁",
+    "verdict": "本次日期是星期日，店家固定休息；不能把它當 11/22 晚餐。",
+    "hours": "週一約 06:00–24:00；週二～五多為 24 小時；週六營業至深夜；星期日休。",
+    "hours_note": "11/22/2026 是星期日，因此本頁只作「行程修正」與改日參考。",
+    "address": "東京都新宿區西新宿1-2-10（思出橫丁）",
+    "access": "JR 新宿站西口步行約 2 分鐘。",
+    "budget": "約 ¥500–1,000／人",
+    "reservation": "不可預約；約 8 個吧台座位，不適合 7 人同時用餐。",
+    "queue": "即使營業時也常排隊，座位翻桌快。",
+    "timing": "請從 DAY 2 晚餐移除。若旅程其他非星期日晚上想吃，可安排一人或小組快速用餐。",
+    "beef_level": "需確認",
+    "no_beef": "蕎麥麵高湯以魚介為主的可能性高，但仍應詢問；天婦羅共用油與配料需視嚴格程度。",
+    "dishes": [
+      {
+        "name": "天玉そば（天婦羅溫泉蛋蕎麥麵）",
+        "why": "公認招牌，也是最有「かめや」特色的一碗。",
+        "order": "改日造訪再點"
+      },
+      {
+        "name": "冷やし天玉そば",
+        "why": "想保留炸衣酥脆口感時可選。",
+        "order": "夏季較適合"
+      },
+      {
+        "name": "わかめ玉子そば",
+        "why": "較清爽，適合宵夜或早餐。",
+        "order": "不想吃炸物者"
+      }
+    ],
+    "group_plan": [
+      "11/22 晚餐改選可容納 7 人的新宿店家。",
+      "可優先查「つるとんたん UDON NOODLE Brasserie 新宿店」等週日營業、可坐桌的烏龍麵餐廳。",
+      "若仍想逛思出橫丁，只把它當散步，不要現場才找 7 人座位。"
+    ],
+    "pitfalls": [
+      "最重要：星期日休息。",
+      "只有少量吧台座位。",
+      "現金與點餐方式較傳統，團體不易操作。"
+    ],
+    "phrases": [
+      "今日は定休日ですか？（今天是公休日嗎？）",
+      "天玉そばを一つお願いします。（請給我一碗天玉蕎麥麵。）"
+    ],
+    "official": "https://shinjuku-omoide.com/shop/kameya",
+    "reservation_url": "",
+    "alert": "⚠ 2026/11/22 是星期日，かめや新宿店固定休息。請勿照原行程前往。",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E3%81%9D%E3%81%B0%E5%87%A6+%E3%81%8B%E3%82%81%E3%82%84+%E6%96%B0%E5%AE%BF%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E8%A5%BF%E6%96%B0%E5%AE%BF1-2-10%EF%BC%88%E6%80%9D%E5%87%BA%E6%A9%AB%E4%B8%81%EF%BC%89",
+    "day_date": "2026/11/22（日）",
+    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
+    "sources": [
+      {
+        "label": "楽天ぐるなび店舖頁",
+        "url": "https://gurunavi.com/en/gjvw505/rst/",
+        "note": "星期日休息、地址與座位"
+      },
+      {
+        "label": "2026 近期報導",
+        "url": "https://getnews.jp/archives/3717801",
+        "note": "招牌天玉蕎麥麵"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": "原排晚餐，需修正"
+      }
+    ],
+    "image": "food-noodles.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "かめや 新宿店",
+    "signature": "天玉そば（天婦羅溫泉蛋蕎麥麵）",
+    "tabelog": "https://tabelog.com/tokyo/A1304/A130401/13006720/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/305037/640x640_rect_d05d2a272354eeb1a317b8ef9ee685f8.jpg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/75427/640x640_rect_75427735.jpg",
+    "store_source": "https://tabelog.com/tokyo/A1304/A130401/13006720/dtlphotolst/4/smp2/",
+    "dish_source": "https://tabelog.com/tokyo/A1304/A130401/13006720/dtlrvwlst/B37383307/",
+    "store_caption": "かめや新宿店店面實景",
+    "dish_caption": "招牌元祖天玉蕎麥麵"
+  },
+  {
+    "id": "09-noguchi-sengyoten",
+    "day": 3,
+    "slot": "午餐備選",
+    "status": "optional",
+    "priority": "A",
+    "name_zh": "野口鮮魚店",
+    "name_ja": "小さな魚がし 野口鮮魚店",
+    "type": "豪華海鮮丼",
+    "area": "本所吾妻橋",
+    "verdict": "海鮮份量與視覺都很強，但等待時間不可控；僅適合早起的小組，不要讓它耽誤 14:00 全員會合。",
+    "hours": "約 11:30–14:30（L.O.14:00）、16:00–19:00（L.O.18:30）；星期三休，另有不定休。",
+    "hours_note": "食材售罄可能提早結束。11/23 為國定假日，人潮高。",
+    "address": "東京都墨田區東駒形4-6-9 リバーハイツワコー 1F",
+    "access": "本所吾妻橋站步行約 4 分鐘。",
+    "budget": "約 ¥1,500–3,500／人",
+    "reservation": "通常不可預約；以排隊為主。",
+    "queue": "假日可能等待 60–120 分鐘，開店前就可能排隊。",
+    "timing": "只有 Group A/B 早上行程很順、且 10:45 前可到店排隊時才執行；12:45 尚未入店就放棄。",
+    "beef_level": "較安心",
+    "no_beef": "核心是海鮮丼，對不吃牛肉者友善；仍要確認味噌湯、炸油與醬汁。",
+    "dishes": [
+      {
+        "name": "朝一築地丼",
+        "why": "人氣與食材多樣性兼具，最適合第一次來。",
+        "order": "第一選擇"
+      },
+      {
+        "name": "上／特上海鮮ちらし",
+        "why": "配料分布較好入口，份量也容易控制。",
+        "order": "不想吃超大份者"
+      },
+      {
+        "name": "築地鮪屋 帝王丼",
+        "why": "限量、鮪魚取向強，視當日供應。",
+        "order": "看到有再點"
+      },
+      {
+        "name": "魚屋のフライ定食",
+        "why": "同行者不吃生食時的替代。",
+        "order": "先確認當日魚種"
+      }
+    ],
+    "group_plan": [
+      "不建議 7 人全員排；可由 2–4 人小組執行。",
+      "先決定每人餐點，入座即點，縮短停留。",
+      "吃不完不要勉強，豪華丼份量大。"
+    ],
+    "pitfalls": [
+      "排隊與售罄風險高。",
+      "DAY 3 有 14:00 會合硬時間。",
+      "超大份海鮮丼可能影響晚間燒肉食量。"
+    ],
+    "phrases": [
+      "14時までに店を出たいのですが、待ち時間はどのくらいですか？（我們想 14:00 前離開，大概要等多久？）",
+      "ご飯を少なめにできますか？（飯可以少一點嗎？）"
+    ],
+    "official": "https://www.hotpepper.jp/strJ000844668/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E3%81%95%E3%81%AA%E9%AD%9A%E3%81%8C%E3%81%97+%E9%87%8E%E5%8F%A3%E9%AE%AE%E9%AD%9A%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E6%9D%B1%E9%A7%92%E5%BD%A24-6-9+%E3%83%AA%E3%83%90%E3%83%BC%E3%83%8F%E3%82%A4%E3%83%84%E3%83%AF%E3%82%B3%E3%83%BC+1F",
+    "day_date": "2026/11/23（一・日本國定假日）",
+    "day_route": "谷根千・押上・晴空塔",
+    "sources": [
+      {
+        "label": "Hot Pepper 店舖資訊",
+        "url": "https://www.hotpepper.jp/strJ000844668/map/",
+        "note": "營業時段、地址與最後點餐"
+      },
+      {
+        "label": "2026 菜單頁",
+        "url": "https://tabelog.com/tokyo/A1312/A131203/13103727/dtlmenu/",
+        "note": "代表餐點"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-seafood.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "野口鮮魚店",
+    "signature": "朝一築地丼",
+    "tabelog": "https://tabelog.com/tokyo/A1312/A131203/13103727/",
+    "store_photo": "https://sumida.goguynet.jp/wp-content/uploads/sites/60/2020/05/631D8E37-3679-4764-8FFF-7B4ACBED19BE.jpeg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/324735/640x640_rect_724d35974a1347f3567507b92781de58.jpg",
+    "store_source": "https://sumida.goguynet.jp/2020/05/03/noguchisengyo-takeout/",
+    "dish_source": "https://tabelog.com/tokyo/A1312/A131203/13103727/dtlrvwlst/B515740270/",
+    "store_caption": "野口鮮魚店店面實景",
+    "dish_caption": "招牌朝一築地丼"
+  },
+  {
+    "id": "10-akimp-pudding",
+    "day": 3,
+    "slot": "甜點",
+    "status": "snack",
+    "priority": "B",
+    "name_zh": "akim'p 布丁",
+    "name_ja": "akim'p",
+    "type": "布丁／茶",
+    "area": "押上・業平",
+    "verdict": "小而精緻的布丁店；焦糖布蕾表演感強，但 12 席不適合 7 人同時久坐。",
+    "hours": "約 11:00–18:00（L.O.17:30）；臨時店休以社群為準。",
+    "hours_note": "近期資料於 2026/7 更新；11 月仍應再查。",
+    "address": "東京都墨田區業平4-8-7 1F",
+    "access": "押上站周邊，晴空塔步行可達。",
+    "budget": "約 ¥700–1,500／人",
+    "reservation": "座位約 12 席；以現場為主，7 人可能拆批或外帶。",
+    "queue": "週末與國定假日可能等待 20–30 分鐘。",
+    "timing": "上午散步時經過可吃；若接近 13:30，優先回民宿迎接 Group C，不要為布丁遲到。",
+    "beef_level": "較安心",
+    "no_beef": "布丁通常不含牛肉，但含奶蛋；若在意明膠或焦糖原料，請確認。",
+    "dishes": [
+      {
+        "name": "Crème brûlée pudding",
+        "why": "桌邊炙燒焦糖，口感與拍照效果最好。",
+        "order": "第一選擇"
+      },
+      {
+        "name": "Caramel pudding",
+        "why": "苦甜焦糖更能平衡蛋奶濃郁感。",
+        "order": "喜歡經典者"
+      },
+      {
+        "name": "Rare-cheese style pudding",
+        "why": "口感較輕、帶乳酪酸香。",
+        "order": "多人分食比較"
+      },
+      {
+        "name": "茶飲",
+        "why": "能解布丁甜膩。",
+        "order": "至少 2 人點無糖茶"
+      }
+    ],
+    "group_plan": [
+      "先問能否 7 人分兩批入座；不行就外帶。",
+      "每 2 人共享 1–2 種布丁，避免晚餐前太飽。",
+      "由一人拍照即可，不要每份都延長桌邊時間。"
+    ],
+    "pitfalls": [
+      "店小、座位少。",
+      "國定假日等待變長。",
+      "布丁售完可能提前結束。"
+    ],
+    "phrases": [
+      "7名ですが、別々に座っても大丈夫です。（我們 7 位，分開坐也可以。）",
+      "一番人気のプリンはどれですか？（最受歡迎的布丁是哪一個？）"
+    ],
+    "official": "https://www.instagram.com/akimp_pudding/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=akim%27p+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E6%A5%AD%E5%B9%B34-8-7+1F",
+    "day_date": "2026/11/23（一・日本國定假日）",
+    "day_route": "谷根千・押上・晴空塔",
+    "sources": [
+      {
+        "label": "2026 店舖更新資料",
+        "url": "https://www.corner.inc/place/ptHGUc4xcmWp",
+        "note": "營業時間、座位與代表品項"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-cafe.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "akim'p 布丁",
+    "signature": "Crème brûlée pudding",
+    "tabelog": "https://tabelog.com/tokyo/A1312/A131203/13290160/",
+    "store_photo": "https://rakurakusuisui.com/wp-content/uploads/2023/10/img_3549-1.jpg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/324070/640x640_rect_7d543e3fea90a2c9c4ef91aece952be6.jpg",
+    "store_source": "https://rakurakusuisui.com/2023/10/18/akimp/",
+    "dish_source": "https://tabelog.com/tokyo/A1312/A131203/13290160/dtlrvwlst/B515501213/",
+    "store_caption": "akim'p 布丁與紅茶店面",
+    "dish_caption": "現場炙燒 Crème brûlée pudding"
+  },
+  {
+    "id": "12-triton-solamachi",
+    "day": 3,
+    "slot": "晚餐",
+    "status": "no_beef",
+    "priority": "S",
+    "name_zh": "回轉壽司 Triton 東京 Solamachi 店",
+    "name_ja": "回転寿し トリトン 東京ソラマチ店",
+    "type": "北海道系回轉壽司",
+    "area": "東京 Solamachi 6F",
+    "verdict": "晴空塔行程中最方便的無牛晚餐選擇；先拿整理券比選餐更重要。",
+    "hours": "11:00–22:00（L.O.21:30）。",
+    "hours_note": "不接受一般訂位，以店頭發券機取號；用餐限時資訊以現場為準。",
+    "address": "東京都墨田區押上1-1-2 東京 Solamachi 6F",
+    "access": "東京 Solamachi 6F；逛完晴空塔與商場後可直接前往。",
+    "budget": "約 ¥2,500–5,000／人",
+    "reservation": "不可預約；購物時先至店頭取號。",
+    "queue": "假日可能等待 1–2 小時；取號後留意叫號。",
+    "timing": "建議 16:30–17:00 先取號，再繼續採購。若號碼太早，可詢問是否能延後；不要等到 18:00 才拿。",
+    "beef_level": "較安心",
+    "no_beef": "壽司選擇多，對不吃牛肉者友善；仍需確認湯品、炙燒醬、肉類軍艦與共用設備。",
+    "dishes": [
+      {
+        "name": "北海道產／當日推薦握壽司",
+        "why": "先看推薦牌，優先點白身魚、扇貝與當日北海道魚種。",
+        "order": "第一輪先點"
+      },
+      {
+        "name": "活北寄貝／扇貝類",
+        "why": "北海道系回轉壽司的強項。",
+        "order": "依當日供應"
+      },
+      {
+        "name": "鮭魚卵軍艦",
+        "why": "適合想吃濃郁口味者。",
+        "order": "1–2 貫"
+      },
+      {
+        "name": "玉子燒／茶碗蒸",
+        "why": "不吃生食或想收尾時使用。",
+        "order": "視食量追加"
+      }
+    ],
+    "group_plan": [
+      "至少 1 位團員陪同不吃牛肉者較安心；兩人取號比單人入座更容易安排。",
+      "先點店內推薦與貝類，再補常見魚種。",
+      "取號前先約好商場內的固定集合點，避免人多時互相找不到。"
+    ],
+    "pitfalls": [
+      "不拿整理券就很難準時吃。",
+      "錯過叫號需依現場規則重新安排。",
+      "商場樓層多，取號後要留意叫號與回店時間。"
+    ],
+    "phrases": [
+      "牛肉、牛脂、牛骨スープを使っていないメニューを教えてください。（請告訴我不含牛肉、牛油、牛骨湯的餐點。）",
+      "今の待ち時間はどのくらいですか？（目前大概要等多久？）"
+    ],
+    "official": "https://toriton-kita1.jp/shop/soramachi/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%9B%9E%E8%BB%A2%E5%AF%BF%E3%81%97+%E3%83%88%E3%83%AA%E3%83%88%E3%83%B3+%E6%9D%B1%E4%BA%AC%E3%82%BD%E3%83%A9%E3%83%9E%E3%83%81%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E6%8A%BC%E4%B8%8A1-1-2+%E6%9D%B1%E4%BA%AC+Solamachi+6F",
+    "day_date": "2026/11/23（一・日本國定假日）",
+    "day_route": "谷根千・押上・晴空塔",
+    "sources": [
+      {
+        "label": "Triton 官方分店頁",
+        "url": "https://toriton-kita1.jp/shop/soramachi/",
+        "note": "營業時間與不可預約"
+      },
+      {
+        "label": "Solamachi 官方店舖頁",
+        "url": "https://www.tokyo-solamachi.jp/shop/detail/295/",
+        "note": "L.O.、取號與設備"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-sushi.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "回轉壽司 Triton 東京 Solamachi 店",
+    "signature": "北海道產／當日推薦握壽司",
+    "tabelog": "https://tabelog.com/tokyo/A1312/A131203/13141243/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/245097/640x640_rect_eb12a9ba7ffde431a70a11bce8f41caa.jpg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/96174/640x640_rect_96174040.jpg",
+    "store_source": "https://tabelog.com/tokyo/A1312/A131203/13141243/",
+    "dish_source": "https://tabelog.com/tokyo/A1312/A131203/13141243/dtlrvwlst/B398191926/",
+    "store_caption": "Triton 東京 Solamachi 店入口",
+    "dish_caption": "Triton 實拍：北海道系握壽司（白身魚、扇貝、鮭魚卵）"
+  },
+  {
+    "id": "13-number-sugar",
+    "day": 4,
+    "slot": "伴手禮／點心",
+    "status": "snack",
+    "priority": "A",
+    "name_zh": "NUMBER SUGAR 表參道本店",
+    "name_ja": "NUMBER SUGAR 表参道本店",
+    "type": "手工焦糖／伴手禮",
+    "area": "表參道・Cat Street",
+    "verdict": "體積小、好攜帶、送禮辨識度高；建議直接買綜合盒，不必逐顆研究太久。",
+    "hours": "通常 11:00–19:00；售完可能提早結束。",
+    "hours_note": "官方會公告臨時休業與縮短營業；11 月行前查看 INFORMATION。",
+    "address": "東京都澀谷區神宮前5-11-11 1F",
+    "access": "明治神宮前站、表參道站步行約 5 分鐘；在 Cat Street 附近。",
+    "budget": "約 ¥1,000–4,000／人（依盒裝數量）",
+    "reservation": "不可預約；外帶。",
+    "queue": "熱門時段排隊但移動快；禮盒可能售完。",
+    "timing": "建議 11:00 左右先買，再前往麵散。買完立即收進不受壓的袋子。",
+    "beef_level": "較安心",
+    "no_beef": "焦糖不含肉類，但含奶；部分口味可能含酒、堅果或其他過敏原。",
+    "dishes": [
+      {
+        "name": "綜合數字焦糖盒",
+        "why": "一次取得多種編號口味，最適合送禮與多人試吃。",
+        "order": "優先買 8／12 入"
+      },
+      {
+        "name": "No.2 Salt",
+        "why": "海鹽能拉出焦糖層次，接受度高。",
+        "order": "單顆加買"
+      },
+      {
+        "name": "Almond",
+        "why": "堅果香與口感更有變化。",
+        "order": "注意堅果過敏"
+      },
+      {
+        "name": "Rum／酒香口味",
+        "why": "大人味明顯，送禮前先確認對方接受酒香。",
+        "order": "少量即可"
+      }
+    ],
+    "group_plan": [
+      "先統計要送幾人，避免現場重算。",
+      "團員可合買一盒當旅途中試吃。",
+      "保留收據與品項卡，回台後比較容易分送。"
+    ],
+    "pitfalls": [
+      "容易因氣溫變軟，勿放陽光直曬處。",
+      "部分口味含酒或堅果。",
+      "商品售完會提早收店。"
+    ],
+    "phrases": [
+      "一番人気の詰め合わせはどれですか？（最受歡迎的綜合盒是哪一款？）",
+      "お酒が入っていないものを教えてください。（請告訴我不含酒的口味。）"
+    ],
+    "official": "https://www.numbersugar.jp/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=NUMBER+SUGAR+%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%BE%80%E8%B0%B7%E5%8D%80%E7%A5%9E%E5%AE%AE%E5%89%8D5-11-11+1F",
+    "day_date": "2026/11/24（二）",
+    "day_route": "神宮外苑・表參道・澀谷・新宿",
+    "sources": [
+      {
+        "label": "NUMBER SUGAR 官方公告",
+        "url": "https://www.numbersugar.jp/information",
+        "note": "臨時營業與店休"
+      },
+      {
+        "label": "近期店舖資料",
+        "url": "https://tabelog.com/tw/tokyo/A1306/A130601/13166958/",
+        "note": "地址與一般營業時間"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-cafe.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "NUMBER SUGAR 表參道本店",
+    "signature": "綜合數字焦糖盒",
+    "tabelog": "https://tabelog.com/tokyo/A1306/A130601/13166958/",
+    "store_photo": "https://image.co-trip.jp/content/14renewal_images_l/423645/sectionImage_1_1_20191125124721725.jpg",
+    "dish_photo": "https://img.bigfang.tw/2023/02/1675396142-61f16dbf9261488e1cb5e63a519fa40d.jpg",
+    "store_source": "https://co-trip.jp/article/423645",
+    "dish_source": "https://www.bigfang.tw/blog/post/number-sugar-omotesando",
+    "store_caption": "NUMBER SUGAR 表參道本店店面",
+    "dish_caption": "NUMBER SUGAR 手工數字焦糖"
+  },
+  {
+    "id": "14-menchirashi",
+    "day": 4,
+    "slot": "午餐",
+    "status": "planned",
+    "priority": "S",
+    "name_zh": "麵散",
+    "name_ja": "麺散",
+    "type": "現打烏龍麵",
+    "area": "原宿",
+    "verdict": "培根奶油烏龍麵值得吃，但本次是星期二，通常只營業到傍晚，必須排午餐。",
+    "hours": "一般日約 11:30–22:00；星期二常見短時段約 11:30–17:00。",
+    "hours_note": "營業時間依官方 Instagram／現場公告變動；DAY 4 是星期二，切勿把它延後成晚餐。",
+    "address": "東京都澀谷區神宮前6-13-7",
+    "access": "明治神宮前站步行約 5 分鐘；Cat Street 一帶。",
+    "budget": "約 ¥1,000–2,500／人",
+    "reservation": "以現場排隊為主；7 人可能分批入座。",
+    "queue": "開店後很快排隊；平日也可能等 30–60 分鐘。",
+    "timing": "11:10–11:20 到隊伍最理想；吃完再走澀谷行程。若 12:30 才到，必須重新評估澀谷 SKY 時間。",
+    "beef_level": "需確認",
+    "no_beef": "招牌培根款含豬肉，不含牛肉的可能性高；但高湯、油脂與期間限定配料需確認。對嚴格無牛者，請直接問「牛骨、牛脂」是否使用。",
+    "dishes": [
+      {
+        "name": "カルボナーラ釜たまうどん／培根奶油烏龍麵",
+        "why": "原行程指定、也是最具記憶點的濃郁款。",
+        "order": "兩人共享再搭清爽款"
+      },
+      {
+        "name": "明太子釜玉／季節釜玉",
+        "why": "比奶油款帶鹹鮮感，適合比較。",
+        "order": "依當日菜單"
+      },
+      {
+        "name": "基本かけ／ぶっかけ烏龍麵",
+        "why": "能真正吃出麵體彈性。",
+        "order": "不愛濃醬者"
+      },
+      {
+        "name": "天婦羅單品",
+        "why": "現場挑選，讓 7 人共享。",
+        "order": "不要一次拿太多"
+      }
+    ],
+    "group_plan": [
+      "可接受拆成 3＋4 人入座。",
+      "每人先點一碗主食，再共享少量天婦羅。",
+      "不吃牛肉者下單前先確認高湯與油脂，不只看表面配料。"
+    ],
+    "pitfalls": [
+      "星期二提前結束營業。",
+      "排隊會壓縮澀谷 SKY 前的購物時間。",
+      "濃郁款份量足，之後章魚燒只需少量。"
+    ],
+    "phrases": [
+      "牛骨スープや牛脂は使っていますか？（有使用牛骨湯或牛油嗎？）",
+      "カルボナーラうどんと、さっぱりしたうどんを一つずつお願いします。（請給我們一碗奶油烏龍和一碗清爽口味。）"
+    ],
+    "official": "https://www.instagram.com/menchirashi/",
+    "reservation_url": "",
+    "alert": "⚠ 11/24 是星期二。麵散星期二通常提早於傍晚結束，請固定安排午餐。",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E9%BA%BA%E6%95%A3+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%BE%80%E8%B0%B7%E5%8D%80%E7%A5%9E%E5%AE%AE%E5%89%8D6-13-7",
+    "day_date": "2026/11/24（二）",
+    "day_route": "神宮外苑・表參道・澀谷・新宿",
+    "sources": [
+      {
+        "label": "麵散營業資訊參考",
+        "url": "https://tabidan.tokyo/menchirashi/",
+        "note": "星期二短營業與排隊經驗"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-noodles.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "麵散",
+    "signature": "カルボナーラ釜たまうどん／培根奶油烏龍麵",
+    "tabelog": "https://tabelog.com/tokyo/A1306/A130601/13225567/",
+    "store_photo": "https://magazine.tabelog.com/wp-content/uploads/2018/10/mensan001.jpg",
+    "dish_photo": "https://cdn.sarah30.com/reviews/photos/000/884/339/x_large/321b9fb25a8fb4fcb865a212de26c83d1db68af4.jpg",
+    "store_source": "https://magazine.tabelog.com/articles/55657",
+    "dish_source": "https://sarah30.com/menus/2489098",
+    "store_caption": "麵散原宿店面",
+    "dish_caption": "麵散招牌培根奶油卡邦尼釜玉烏龍麵"
+  },
+  {
+    "id": "15-waratako",
+    "day": 4,
+    "slot": "加碼點心",
+    "status": "snack",
+    "priority": "B",
+    "name_zh": "笑たこ 原宿表參道店",
+    "name_ja": "笑たこ 原宿表参道店",
+    "type": "章魚燒",
+    "area": "原宿・表參道",
+    "verdict": "適合多人分一盒、快速補一口；不要每人一份，會影響晚餐。",
+    "hours": "約 11:00–20:00。",
+    "hours_note": "季節活動或商圈狀況可能縮時。",
+    "address": "東京都澀谷區神宮前5-11-3",
+    "access": "Cat Street／表參道一帶，與 NUMBER SUGAR、麵散順路。",
+    "budget": "約 ¥500–1,200／人",
+    "reservation": "現場購買；不需預約。",
+    "queue": "排隊通常比正餐短；現烤需等數分鐘。",
+    "timing": "午餐後若仍有食量，約 14:00–15:00 全團買 1–2 盒分享。",
+    "beef_level": "需確認",
+    "no_beef": "章魚燒表面看似無牛，但高湯、醬汁、油脂需詢問；也含章魚、蛋、麵粉。",
+    "dishes": [
+      {
+        "name": "鹽蔥美乃滋章魚燒",
+        "why": "人氣口味，蔥香與美乃滋能凸顯外酥內軟的章魚燒。",
+        "order": "全團先點 1 盒"
+      },
+      {
+        "name": "基本醬汁章魚燒",
+        "why": "用來比較麵糊、醬汁與章魚本身。",
+        "order": "想比較再追加"
+      }
+    ],
+    "group_plan": [
+      "全團合買 1–2 盒，在不妨礙人流的位置分享。",
+      "先放涼一點再入口，避免燙傷。",
+      "垃圾依店家規定回收，不帶著走到無垃圾桶處。"
+    ],
+    "pitfalls": [
+      "內餡很燙。",
+      "高湯原料未必完全無牛。",
+      "邊走邊吃在繁忙街區不方便。"
+    ],
+    "phrases": [
+      "一番おすすめの味はどれですか？（最推薦哪個口味？）",
+      "牛肉や牛脂は入っていますか？（有牛肉或牛油嗎？）"
+    ],
+    "official": "https://waratako.com/news/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E7%AC%91%E3%81%9F%E3%81%93+%E5%8E%9F%E5%AE%BF%E8%A1%A8%E5%8F%82%E9%81%93%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%BE%80%E8%B0%B7%E5%8D%80%E7%A5%9E%E5%AE%AE%E5%89%8D5-11-3",
+    "day_date": "2026/11/24（二）",
+    "day_route": "神宮外苑・表參道・澀谷・新宿",
+    "sources": [
+      {
+        "label": "笑たこ官方資訊",
+        "url": "https://waratako.com/news/",
+        "note": "原宿表參道店地址與營業時間"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-street.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "笑たこ 原宿表參道店",
+    "signature": "鹽蔥美乃滋章魚燒",
+    "tabelog": "https://tabelog.com/tokyo/A1306/A130601/13074452/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/112481/640x640_rect_112481745.jpg",
+    "dish_photo": "https://cdn.hamoni.jp/hamoni/posts/gttF9myBW6iMJco4bWpm/0.jpeg",
+    "store_source": "https://tabelog.com/tokyo/A1306/A130601/13074452/",
+    "dish_source": "https://app.hamoni.jp/shop/saPRVwIPxkNJYcSCDP9D",
+    "store_caption": "笑たこ原宿表參道店店面",
+    "dish_caption": "人氣鹽蔥美乃滋章魚燒"
+  },
+  {
+    "id": "16-harbs-lumine-est",
+    "day": 4,
+    "slot": "下午茶備選",
+    "status": "optional",
+    "priority": "B",
+    "name_zh": "HARBS LUMINE EST 新宿店",
+    "name_ja": "HARBS ルミネエスト新宿店",
+    "type": "大切片蛋糕／咖啡",
+    "area": "新宿站",
+    "verdict": "蛋糕份量大，適合 2 人分一片；若晚餐已訂牛舌或海老丸，HARBS 只作候補，不宜排完整下午茶。",
+    "hours": "內用 11:00–20:00；餐點 L.O.19:00、蛋糕飲料 L.O.19:30；外帶至約 21:00。",
+    "hours_note": "依 LUMINE EST 休館與節日調整。",
+    "address": "東京都新宿區新宿3-38-1 LUMINE EST B2F",
+    "access": "JR 新宿站直結。",
+    "budget": "約 ¥1,200–3,000／人",
+    "reservation": "通常不接受一般訂位；排隊入店。",
+    "queue": "平日也可能排隊，尤其午餐與 15:00 後。",
+    "timing": "只在澀谷行程提前、且晚餐前至少 2 小時時安排；否則改外帶蛋糕。",
+    "beef_level": "較安心",
+    "no_beef": "蛋糕通常無牛肉，但含奶、蛋、酒、堅果等；義大利麵部分有肉醬。",
+    "dishes": [
+      {
+        "name": "Mille Crepes 水果千層",
+        "why": "HARBS 最具代表性的水果與鮮奶油層次。",
+        "order": "2 人共享 1 片"
+      },
+      {
+        "name": "季節水果蛋糕",
+        "why": "11 月依當期水果變動。",
+        "order": "看展示櫃決定"
+      },
+      {
+        "name": "巧克力系蛋糕",
+        "why": "甜度與份量高，適合多人分食。",
+        "order": "搭無糖茶或咖啡"
+      },
+      {
+        "name": "當日義大利麵",
+        "why": "只有需要完整晚餐前餐點時考慮。",
+        "order": "本行程通常不建議"
+      }
+    ],
+    "group_plan": [
+      "7 人不一定能同桌，接受分桌。",
+      "以 3–4 片蛋糕共享即可。",
+      "先問每片能否分盤，再決定數量。"
+    ],
+    "pitfalls": [
+      "蛋糕很大，容易低估飽足感。",
+      "排隊時間可能超過吃蛋糕本身。",
+      "晚餐已排重口味主餐。"
+    ],
+    "phrases": [
+      "ケーキをシェアしたいので、取り皿をいただけますか？（我們想分享蛋糕，可以給小盤子嗎？）",
+      "アルコールが入っていないケーキはどれですか？（哪些蛋糕不含酒？）"
+    ],
+    "official": "https://www.harbs.co.jp/en/shop_kanto/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=HARBS+%E3%83%AB%E3%83%9F%E3%83%8D%E3%82%A8%E3%82%B9%E3%83%88%E6%96%B0%E5%AE%BF%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%96%B0%E5%AE%BF3-38-1+LUMINE+EST+B2F",
+    "day_date": "2026/11/24（二）",
+    "day_route": "神宮外苑・表參道・澀谷・新宿",
+    "sources": [
+      {
+        "label": "HARBS 官方關東店舖頁",
+        "url": "https://www.harbs.co.jp/en/shop_kanto/",
+        "note": "LUMINE EST 店營業時段與 L.O."
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-cafe.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "HARBS LUMINE EST 新宿店",
+    "signature": "Mille Crepes 水果千層",
+    "tabelog": "https://tabelog.com/tokyo/A1304/A130401/13043578/",
+    "store_photo": "https://media.triple.guide/triple-cms/c_limit%2Cf_auto%2Ch_1024%2Cw_1024/d549cfe0-642b-4b83-95ec-e466c7f76b2b.jpeg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/331401/640x640_rect_7350711c773a1a4e751620e3102675ca.jpg",
+    "store_source": "https://triple.guide/restaurants/d1f665e5-5119-4552-a30a-7778a118d2f3",
+    "dish_source": "https://s.tabelog.com/en/tokyo/A1314/A131403/13313600/",
+    "store_caption": "HARBS LUMINE EST 新宿店入口",
+    "dish_caption": "HARBS 招牌水果千層蛋糕 Mille Crepes"
+  },
+  {
+    "id": "17-gyutan-lemon",
+    "day": 4,
+    "slot": "晚餐",
+    "status": "beef",
+    "priority": "S",
+    "name_zh": "牛舌的檸檬 新宿總本店",
+    "name_ja": "新宿焼肉 牛たんの檸檬 総本店",
+    "type": "厚切牛舌定食",
+    "area": "西新宿",
+    "verdict": "牛肉組的另一個核心餐廳；6 人以上不要只靠線上，提早電話確認座位與套餐。",
+    "hours": "午餐約 11:30–15:00；晚餐週日～四約 17:00–22:00，週五、六約至 22:30。",
+    "hours_note": "各平台的 L.O. 分鐘略有差異；訂位頁與電話確認為準。",
+    "address": "東京都新宿區西新宿7-16-12 YSビル B1F",
+    "access": "新宿西口／西武新宿站步行約 6–10 分鐘。",
+    "budget": "約 ¥3,000–6,000／人",
+    "reservation": "吃牛肉團若 6 人，建議電話 03-6279-3997；熱門時段可能提前數週滿位。",
+    "queue": "無訂位晚餐可能長時間排隊；地下店面不要錯過入口。",
+    "timing": "建議訂 18:30 或 19:00。澀谷 SKY 結束後移動時需抓 35–50 分鐘與找路時間。",
+    "beef_level": "不適合",
+    "no_beef": "幾乎整套定食包含牛舌、牛舌湯、牛舌咖哩與肉味噌；不吃牛肉者應完全分流至海老丸，不要只換主菜。",
+    "dishes": [
+      {
+        "name": "名物「極み」厚切牛舌牛排定食",
+        "why": "使用牛舌較柔嫩部位，是品牌招牌。",
+        "order": "第一次必點"
+      },
+      {
+        "name": "極み＋A5 和牛組合",
+        "why": "可一次比較厚切牛舌與和牛，但價位與油脂更高。",
+        "order": "兩人共享或食量大者"
+      },
+      {
+        "name": "羽釜飯",
+        "why": "與牛舌搭配是完整體驗，剛上桌先吃原味。",
+        "order": "標準套餐已含"
+      },
+      {
+        "name": "檸檬飲料",
+        "why": "能中和炭烤與油脂。",
+        "order": "不飲酒者可點檸檬汽水"
+      }
+    ],
+    "group_plan": [
+      "6 人先統一選套餐層級，減少桌邊猶豫。",
+      "不要每人都加價升級魚卵蛋黃飯，先看整體食量。",
+      "與海老丸組設定 20:30–21:00 新宿會合點。"
+    ],
+    "pitfalls": [
+      "不吃牛肉者無法靠刪主菜解決。",
+      "熱門店、訂位常滿。",
+      "套餐配菜也大量含牛肉成分。"
+    ],
+    "phrases": [
+      "6名で予約したいです。テーブルを分けても大丈夫です。（想預約 6 位，分桌也可以。）",
+      "「極み」定食をお願いします。（請給我招牌極み定食。）"
+    ],
+    "official": "https://www.gyutan-lemon.com/",
+    "reservation_url": "https://www.tablecheck.com/ja/gyutannolemon",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%AE%BF%E7%84%BC%E8%82%89+%E7%89%9B%E3%81%9F%E3%82%93%E3%81%AE%E6%AA%B8%E6%AA%AC+%E7%B7%8F%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E8%A5%BF%E6%96%B0%E5%AE%BF7-16-12+YS%E3%83%93%E3%83%AB+B1F",
+    "day_date": "2026/11/24（二）",
+    "day_route": "神宮外苑・表參道・澀谷・新宿",
+    "sources": [
+      {
+        "label": "牛舌的檸檬官方網站",
+        "url": "https://www.gyutan-lemon.com/",
+        "note": "品牌與分店"
+      },
+      {
+        "label": "TableCheck 店舖頁",
+        "url": "https://www.tablecheck.com/ja/gyutannolemon",
+        "note": "地址、電話與訂位"
+      },
+      {
+        "label": "近期營業資訊",
+        "url": "https://jp.openrice.com/en/tokyo-kanto/r-shinjuku-yakiniku-gyutan-no-lemon-shinjuku-yakiniku-r684343",
+        "note": "曜日別營業時間"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-grill.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "牛舌的檸檬 新宿總本店",
+    "signature": "名物「極み」厚切牛舌牛排定食",
+    "tabelog": "https://tabelog.com/tokyo/A1304/A130401/13264721/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/294663/640x640_rect_3a8314ff9e977dfea4df13b6c6ee04eb.jpg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/285070/640x640_rect_c4d8b22e0ae6816adc74a6b5534d27f3.jpg",
+    "store_source": "https://tabelog.com/tokyo/A1304/A130401/13264721/",
+    "dish_source": "https://tabelog.com/tokyo/A1304/A130401/13264721/dtlrvwlst/B500999383/",
+    "store_caption": "牛舌的檸檬新宿總本店入口",
+    "dish_caption": "名物「極み」厚切牛舌定食"
+  },
+  {
+    "id": "18-ebimaru-ramen",
+    "day": 4,
+    "slot": "晚餐",
+    "status": "no_beef",
+    "priority": "S",
+    "name_zh": "海老丸拉麵",
+    "name_ja": "海老丸らーめん",
+    "type": "法式龍蝦拉麵",
+    "area": "神保町",
+    "verdict": "不吃牛肉者的特色分流首選；點「元祖海老丸＋定番燉飯」才能完整體驗。",
+    "hours": "平日 11:30–15:00、18:00–22:30（L.O.22:00）；週末與國定假日約 11:30–20:00。",
+    "hours_note": "不定休，出發前看官方公告；本次為星期二晚餐。",
+    "address": "東京都千代田區西神田2-1-13",
+    "access": "神保町站 A4 出口附近；從澀谷可搭半藏門線，餐後再搭都營新宿線到新宿。",
+    "budget": "約 ¥2,000–4,000／人",
+    "reservation": "可查看 FastPass／官方預約方式；尖峰建議先處理。",
+    "queue": "晚餐開店前後可能排隊；分流人數少反而較容易入店。",
+    "timing": "18:00 前後抵達最穩。吃完約 19:15–19:45 前往新宿與牛舌組會合。",
+    "beef_level": "需確認",
+    "no_beef": "標準龍蝦湯以龍蝦為主，配料常見豬肉／雞肉；店內另有牛肉料理。下單時仍須明確確認湯底、油脂與期間限定不含牛肉、牛骨、牛脂。",
+    "dishes": [
+      {
+        "name": "元祖海老丸らーめん",
+        "why": "龍蝦濃湯與法式技法是店家核心。",
+        "order": "第一選擇"
+      },
+      {
+        "name": "海老丸定番リゾット",
+        "why": "把剩餘湯底轉成燉飯，是完整收尾。",
+        "order": "兩人可共享 1 份"
+      },
+      {
+        "name": "季節限定海鮮拉麵",
+        "why": "創意強，但第一次仍優先元祖。",
+        "order": "看到有興趣再改"
+      },
+      {
+        "name": "無酒精飲品／葡萄酒",
+        "why": "法式風格搭配；趕路時不必加。",
+        "order": "視時間"
+      }
+    ],
+    "group_plan": [
+      "不吃牛肉者最好至少 2 人同行。",
+      "先向店員說明「牛肉、牛骨、牛脂都不吃」，再選主餐。",
+      "燉飯最後才追加，以免吃不完。"
+    ],
+    "pitfalls": [
+      "不能只看拉麵名稱判斷無牛。",
+      "店內有牛肉料理，嚴格過敏需特別說明。",
+      "從神保町再到新宿需預留交通。"
+    ],
+    "phrases": [
+      "牛肉、牛骨スープ、牛脂を食べられません。このラーメンは大丈夫ですか？（我不能吃牛肉、牛骨湯、牛油，這碗可以嗎？）",
+      "残ったスープでリゾットをお願いします。（請用剩下的湯做燉飯。）"
+    ],
+    "official": "https://ebimaru.com/",
+    "reservation_url": "https://ebimaru.com/",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%B5%B7%E8%80%81%E4%B8%B8%E3%82%89%E3%83%BC%E3%82%81%E3%82%93+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8D%80%E8%A5%BF%E7%A5%9E%E7%94%B02-1-13",
+    "day_date": "2026/11/24（二）",
+    "day_route": "神宮外苑・表參道・澀谷・新宿",
+    "sources": [
+      {
+        "label": "海老丸官方網站",
+        "url": "https://ebimaru.com/",
+        "note": "概念與公告"
+      },
+      {
+        "label": "官方交通／營業頁",
+        "url": "https://ebimaru.com/access.html",
+        "note": "曜日別時段、地址與電話"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-noodles.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "海老丸拉麵",
+    "signature": "元祖海老丸らーめん",
+    "tabelog": "https://tabelog.com/tokyo/A1310/A131003/13212911/",
+    "store_photo": "https://san-tatsu.jp/assets/uploads/2021/07/09152755/ebimaru2.jpg",
+    "dish_photo": "https://item-shopping.c.yimg.jp/i/n/takumen_1246",
+    "store_source": "https://san-tatsu.jp/articles/114196/",
+    "dish_source": "https://store.shopping.yahoo.co.jp/takumen/1246.html",
+    "store_caption": "海老丸拉麵神保町店面",
+    "dish_caption": "元祖海老丸拉麵（龍蝦濃湯）"
+  },
+  {
+    "id": "19-muuya",
+    "day": 5,
+    "slot": "早餐",
+    "status": "planned",
+    "priority": "A",
+    "name_zh": "MŪYA 吐司咖啡廳",
+    "name_ja": "むうや",
+    "type": "吐司／咖啡",
+    "area": "東京 Mizumachi",
+    "verdict": "地點漂亮、早餐節奏容易控制；重點吃招牌「ムー」吐司，不需要點太多。",
+    "hours": "08:00–18:00（L.O.17:00）；不定休。",
+    "hours_note": "以東京 Mizumachi 官方店舖頁為準。",
+    "address": "東京都墨田區向島1-2-12 TOKYO mizumachi W07",
+    "access": "隅田公園與 Mizumachi，從本所吾妻橋／淺草散步可達。",
+    "budget": "約 ¥800–2,000／人",
+    "reservation": "早餐通常現場；共 28 席，7 人可能分桌。",
+    "queue": "週末較熱門；本次星期三相對穩定。",
+    "timing": "08:00–08:40 用餐，之後直接進入今戶神社與淺草行程。",
+    "beef_level": "需確認",
+    "no_beef": "原味吐司與甜口味容易選；鹹食三明治、熱壓吐司可能含肉或肉醬。",
+    "dishes": [
+      {
+        "name": "招牌方形吐司「ムー」",
+        "why": "店名與品牌核心，先吃原味口感。",
+        "order": "每 2 人共享 1 份"
+      },
+      {
+        "name": "奶油／蜂蜜吐司",
+        "why": "簡單凸顯麵包香。",
+        "order": "甜口味首選"
+      },
+      {
+        "name": "當日三明治",
+        "why": "需要較完整早餐者可選。",
+        "order": "先確認肉類"
+      },
+      {
+        "name": "咖啡",
+        "why": "與吐司搭配，外帶也方便。",
+        "order": "依個人"
+      }
+    ],
+    "group_plan": [
+      "願意分成 3＋4 人座位。",
+      "先點基本吐司，再視食量加甜口味。",
+      "早餐不超過 40 分鐘，留胃給淺草小吃。"
+    ],
+    "pitfalls": [
+      "不定休。",
+      "鹹食配料需確認是否含牛。",
+      "吃太飽會影響花月堂、壽壽喜園與龜十。"
+    ],
+    "phrases": [
+      "「ムー」のおすすめの食べ方は何ですか？（招牌ムー吐司推薦怎麼吃？）",
+      "牛肉が入っていないサンドイッチはありますか？（有不含牛肉的三明治嗎？）"
+    ],
+    "official": "https://www.tokyo-mizumachi.jp/shop/30",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E3%82%80%E3%81%86%E3%82%84+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E5%90%91%E5%B3%B61-2-12+TOKYO+mizumachi+W07",
+    "day_date": "2026/11/25（三）",
+    "day_route": "淺草・上野",
+    "sources": [
+      {
+        "label": "TOKYO mizumachi 官方店舖頁",
+        "url": "https://www.tokyo-mizumachi.jp/shop/30",
+        "note": "營業時間、地址、座位與店舖介紹"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-bakery.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "MŪYA 吐司咖啡廳",
+    "signature": "招牌方形吐司「ムー」",
+    "tabelog": "https://tabelog.com/tokyo/A1311/A131102/13245721/",
+    "store_photo": "https://image.co-trip.jp/content/14renewal_images_l/705143/sectionImage_1_1_20251016172516305.jpg",
+    "dish_photo": "https://www.fashion-press.net/img/news/59643/58Q.jpg",
+    "store_source": "https://co-trip.jp/article/705143",
+    "dish_source": "https://www.fashion-press.net/news/gallery/59643/1110214",
+    "store_caption": "MŪYA 東京 Mizumachi 店面",
+    "dish_caption": "招牌方形吐司「ムー」"
+  },
+  {
+    "id": "20-asakusa-kagetsudo",
+    "day": 5,
+    "slot": "小吃",
+    "status": "snack",
+    "priority": "A",
+    "name_zh": "淺草花月堂 本店",
+    "name_ja": "浅草花月堂 本店",
+    "type": "巨型菠蘿麵包",
+    "area": "淺草寺周邊",
+    "verdict": "剛出爐最有價值；全團 2–3 個共享即可，不要為拍照買過量。",
+    "hours": "本店約 09:00–16:30；售完可能提早結束。",
+    "hours_note": "部分分店週末延長；本行程以本店當日公告為準。",
+    "address": "東京都台東區淺草2-7-13 附近（請以官方地圖定位本店）",
+    "access": "淺草寺、花屋敷周邊。",
+    "budget": "約 ¥300–800／人",
+    "reservation": "不可預約；現場排隊。",
+    "queue": "中午後人多，且有售罄風險。",
+    "timing": "09:30–11:00 之間經過就買；不要留到傍晚。",
+    "beef_level": "較安心",
+    "no_beef": "菠蘿麵包通常無肉，但含奶、蛋、小麥；冰淇淋夾餡另有乳製品。",
+    "dishes": [
+      {
+        "name": "ジャンボめろんぱん／巨型菠蘿麵包",
+        "why": "招牌，重點是剛出爐外酥內鬆。",
+        "order": "2–3 人共享 1 個"
+      },
+      {
+        "name": "冰淇淋夾菠蘿麵包",
+        "why": "甜度與份量高，天冷未必需要。",
+        "order": "全團 1 個拍照即可"
+      },
+      {
+        "name": "季節飲品",
+        "why": "可配麵包，但淺草還有很多甜點。",
+        "order": "非必要"
+      }
+    ],
+    "group_plan": [
+      "派一人排隊，其他人在不擋路處等待。",
+      "先買 3 個原味分食，覺得好吃再加。",
+      "拍照完成就到指定區域吃，不在店門口停留。"
+    ],
+    "pitfalls": [
+      "容易買太多。",
+      "售完會提早結束。",
+      "剛出爐內部熱氣大，撕開再分。"
+    ],
+    "phrases": [
+      "焼きたてはどれですか？（哪一些是剛出爐的？）",
+      "三つ、持ち帰りでお願いします。（請給我三個外帶。）"
+    ],
+    "official": "https://asakusa-kagetudo.com/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E8%8A%B1%E6%9C%88%E5%A0%82+%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E6%B7%BA%E8%8D%892-7-13+%E9%99%84%E8%BF%91%EF%BC%88%E8%AB%8B%E4%BB%A5%E5%AE%98%E6%96%B9%E5%9C%B0%E5%9C%96%E5%AE%9A%E4%BD%8D%E6%9C%AC%E5%BA%97%EF%BC%89",
+    "day_date": "2026/11/25（三）",
+    "day_route": "淺草・上野",
+    "sources": [
+      {
+        "label": "淺草花月堂官方網站",
+        "url": "https://asakusa-kagetudo.com/",
+        "note": "分店與產品"
+      },
+      {
+        "label": "淺草商店聯合會",
+        "url": "https://asakusa-shoren.jp/en/stores/1435/",
+        "note": "近期營業時間"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-bakery.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "淺草花月堂 本店",
+    "signature": "ジャンボめろんぱん／巨型菠蘿麵包",
+    "tabelog": "https://tabelog.com/tokyo/A1311/A131102/13183985/",
+    "store_photo": "https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2015/12/000491_15_12_2015_2.jpg",
+    "dish_photo": "https://img01.jalannews.jp/img/2021/01/20200118_AsakusaMelonpan02.jpg",
+    "store_source": "https://tokyocheapo.com/food-and-drink/sweets/melon-pan-asakusa-kagetsudo/",
+    "dish_source": "https://www.jalan.net/news/article/525352/",
+    "store_caption": "淺草花月堂本店與排隊店面實景",
+    "dish_caption": "招牌巨型菠蘿麵包（ジャンボめろんぱん）"
+  },
+  {
+    "id": "21-suzukien",
+    "day": 5,
+    "slot": "甜點",
+    "status": "snack",
+    "priority": "S",
+    "name_zh": "壽壽喜園 淺草本店",
+    "name_ja": "壽々喜園 浅草本店",
+    "type": "抹茶冰淇淋／日本茶",
+    "area": "淺草寺北側",
+    "verdict": "淺草甜點中最值得保留的一站；建議 No.7 與較淡口味各一球對比。",
+    "hours": "11:00–17:00；不定休／臨時縮時。",
+    "hours_note": "官方會為盤點、花火大會等縮短營業；11 月行前查看最新公告。",
+    "address": "東京都台東區淺草3-4-3",
+    "access": "淺草寺觀音裏一帶，淺草站步行約 7–10 分鐘。",
+    "budget": "約 ¥700–1,500／人",
+    "reservation": "不可預約；繁忙時可能發整理券。",
+    "queue": "中午後排隊明顯；2F 有以站立為主的飲食空間。",
+    "timing": "11:00 開店前後先吃最穩；不要排在龜十後面太晚。",
+    "beef_level": "較安心",
+    "no_beef": "抹茶冰淇淋無牛肉，但含乳製品；抹茶團子等另需確認原料。",
+    "dishes": [
+      {
+        "name": "抹茶 Gelato No.7",
+        "why": "最高濃度、苦旨味最強，是店家辨識度來源。",
+        "order": "至少買 1 球全團試"
+      },
+      {
+        "name": "抹茶 No.3／No.4",
+        "why": "甜味與茶香平衡，較多人能接受。",
+        "order": "與 No.7 對比"
+      },
+      {
+        "name": "焙茶 Gelato",
+        "why": "烘焙香明顯，可中和濃抹茶。",
+        "order": "第二杯／雙球"
+      },
+      {
+        "name": "玄米茶或其他茶口味",
+        "why": "多人體驗時增加差異。",
+        "order": "看現場"
+      }
+    ],
+    "group_plan": [
+      "先決定 3–4 種口味，買雙球杯互相比較。",
+      "No.7 不必每人都買，苦味很強。",
+      "依店家規定在 2F 或指定區域食用，禁止邊走邊吃。"
+    ],
+    "pitfalls": [
+      "No.7 不等於人人都覺得最好吃。",
+      "高峰可能發整理券。",
+      "店家明確要求不要在鄰店前食用。"
+    ],
+    "phrases": [
+      "No.7と、食べやすい濃さを一つずつお願いします。（請給我 No.7 和一個較容易入口的濃度。）",
+      "二階で食べてもいいですか？（可以到二樓吃嗎？）"
+    ],
+    "official": "https://www.tocha.co.jp/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%A3%BD%E3%80%85%E5%96%9C%E5%9C%92+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E6%B7%BA%E8%8D%893-4-3",
+    "day_date": "2026/11/25（三）",
+    "day_route": "淺草・上野",
+    "sources": [
+      {
+        "label": "壽壽喜園營運公司官方頁",
+        "url": "https://www.tocha.co.jp/",
+        "note": "2026 公告與店舖資訊"
+      },
+      {
+        "label": "官方網店／產品",
+        "url": "https://www.suzukien.tokyo/",
+        "note": "茶與抹茶產品"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-wagashi.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "壽壽喜園 淺草本店",
+    "signature": "抹茶 Gelato No.7",
+    "tabelog": "https://tabelog.com/tokyo/A1311/A131102/13153620/",
+    "store_photo": "https://livedoor.blogimg.jp/daisuke55795579/imgs/e/e/ee4e5a15-s.jpg",
+    "dish_photo": "https://stat.ameba.jp/user_images/20250823/23/mine1989s/cb/5b/j/o1080144015657672143.jpg",
+    "store_source": "https://daisuke55795579.livedoor.blog/archives/1073877434.html",
+    "dish_source": "https://ameblo.jp/mine1989s/entry-12924768424.html",
+    "store_caption": "壽壽喜園淺草本店店面實景",
+    "dish_caption": "最濃抹茶 Gelato No.7"
+  },
+  {
+    "id": "22-kameju",
+    "day": 5,
+    "slot": "伴手禮／甜點",
+    "status": "snack",
+    "priority": "S",
+    "name_zh": "龜十 銅鑼燒",
+    "name_ja": "御菓子司 亀十",
+    "type": "和菓子／銅鑼燒",
+    "area": "雷門",
+    "verdict": "要吃就早上先買；傍晚容易售完，排隊 30–60 分鐘要預先納入。",
+    "hours": "10:00–19:00；不定休。",
+    "hours_note": "熱門商品售完不等於店鋪立即關門。",
+    "address": "東京都台東區雷門2-18-11",
+    "access": "雷門對面附近，淺草站步行很近。",
+    "budget": "約 ¥500–2,000／人",
+    "reservation": "一般旅客以現場排隊購買；大量購買需另詢問。",
+    "queue": "常態排隊 30–60 分鐘，假日更久。",
+    "timing": "DAY 5 一早先派代表在 09:40–10:00 排隊，買完再進入其他景點。",
+    "beef_level": "較安心",
+    "no_beef": "銅鑼燒無牛肉，但含蛋、小麥；白餡／黑餡可依喜好。",
+    "dishes": [
+      {
+        "name": "どら焼き 黒あん／黑餡",
+        "why": "最經典，鬆軟餅皮與紅豆餡是核心。",
+        "order": "每人 1 個或兩人 1 個"
+      },
+      {
+        "name": "どら焼き 白あん／白餡",
+        "why": "甜味與豆香不同，適合與黑餡比較。",
+        "order": "全團買 2–3 個"
+      },
+      {
+        "name": "松風",
+        "why": "另一款傳統和菓子，可當伴手禮。",
+        "order": "有餘裕再買"
+      }
+    ],
+    "group_plan": [
+      "1–2 人排隊，其他人先在雷門周邊拍照。",
+      "先統計黑餡、白餡數量。",
+      "銅鑼燒怕壓，另外放袋中。"
+    ],
+    "pitfalls": [
+      "排隊會和淺草寺早晨黃金時間衝突。",
+      "傍晚可能完售。",
+      "保存期限較短，送禮日期要算。"
+    ],
+    "phrases": [
+      "黒あんを七つ、白あんを三つお願いします。（黑餡 7 個、白餡 3 個。）",
+      "消費期限はいつまでですか？（保存期限到什麼時候？）"
+    ],
+    "official": "https://asakusa-shoren.jp/stores/624/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%BE%A1%E8%8F%93%E5%AD%90%E5%8F%B8+%E4%BA%80%E5%8D%81+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E9%9B%B7%E9%96%802-18-11",
+    "day_date": "2026/11/25（三）",
+    "day_route": "淺草・上野",
+    "sources": [
+      {
+        "label": "淺草商店聯合會－龜十",
+        "url": "https://asakusa-shoren.jp/stores/624/",
+        "note": "營業時間、地址與名物"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-wagashi.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "龜十 銅鑼燒",
+    "signature": "どら焼き 黒あん／黑餡",
+    "tabelog": "https://tabelog.com/tokyo/A1311/A131102/13003655/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/238791/4a36e42362736c3b6018885f3a02e238.jpg",
+    "dish_photo": "https://assets.st-note.com/img/1730107544-L2fXS3hkxGzCowqvAE0s7Wpa.jpg?fit=bounds&height=2000&quality=85&width=2000",
+    "store_source": "https://tabelog.com/tokyo/A1311/A131102/13003655/dtlphotolst/smp2/",
+    "dish_source": "https://note.com/koharu_25/n/nf7aa2b1d5d11",
+    "store_caption": "龜十淺草店面實景",
+    "dish_caption": "招牌黑餡銅鑼燒剖面"
+  },
+  {
+    "id": "23-chinya",
+    "day": 5,
+    "slot": "午餐",
+    "status": "beef",
+    "priority": "S",
+    "name_zh": "Chinya 黑毛和牛壽喜燒",
+    "name_ja": "ちんや 浅草本店",
+    "type": "老舖壽喜燒",
+    "area": "淺草",
+    "verdict": "牛肉組的傳統大餐；6 人應提早訂位，午餐選套餐比現場單點更有效率。",
+    "hours": "平日 11:00–15:00、16:30–21:30；週末國定假日 11:00–21:30（L.O.約 20:00）。",
+    "hours_note": "本次星期三為平日，有午休空檔。",
+    "address": "東京都台東區花川戶2-16-1",
+    "access": "淺草站、淺草寺東側步行可達。",
+    "budget": "午餐約 ¥8,800 起；高階套餐可超過 ¥10,000–20,000／人",
+    "reservation": "吃牛肉組約 6 人，建議用官方 TableCheck／電話提早訂位；可詢問包廂或同桌。",
+    "queue": "有訂位仍應準時；套餐用餐抓 90–120 分鐘。",
+    "timing": "建議 12:00–12:30 入店；不吃牛肉者同步前往秋光，13:45–14:00 在淺草指定點會合。",
+    "beef_level": "不適合",
+    "no_beef": "壽喜燒、割下、醬汁與烹調核心都是牛肉；不吃牛肉者應完全分流。",
+    "dishes": [
+      {
+        "name": "黑毛和牛壽喜燒套餐",
+        "why": "最能代表百年壽喜燒老舖。",
+        "order": "依預算選肉等級"
+      },
+      {
+        "name": "午間套餐「楓」等",
+        "why": "午餐價格相對容易控制，配套完整。",
+        "order": "訂位時先確認當期內容"
+      },
+      {
+        "name": "追加蔬菜／豆腐",
+        "why": "吸收壽喜燒醬汁，能平衡肉量。",
+        "order": "全桌追加"
+      },
+      {
+        "name": "收尾飯／麵",
+        "why": "依店家套餐安排，不要一開始就吃太多白飯。",
+        "order": "最後再決定"
+      }
+    ],
+    "group_plan": [
+      "訂位前先確定牛肉組實際人數與預算。",
+      "統一套餐可大幅縮短點餐與出菜差異。",
+      "與秋光組約定固定會合地點，不臨時跨店找人。"
+    ],
+    "pitfalls": [
+      "價位高，需先取得團員共識。",
+      "午間與晚間菜單／價格不同。",
+      "不吃牛肉者不適合同店硬找替代。"
+    ],
+    "phrases": [
+      "6名で、すき焼きのランチコースを予約したいです。（想預約 6 位的壽喜燒午餐套餐。）",
+      "予算は一人一万円前後です。（每人預算約一萬日圓。）"
+    ],
+    "official": "https://chinya.co.jp/location/",
+    "reservation_url": "https://chinya.co.jp/location/",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E3%81%A1%E3%82%93%E3%82%84+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E8%8A%B1%E5%B7%9D%E6%88%B62-16-1",
+    "day_date": "2026/11/25（三）",
+    "day_route": "淺草・上野",
+    "sources": [
+      {
+        "label": "Chinya 官方店舖頁",
+        "url": "https://chinya.co.jp/location/",
+        "note": "營業時間、地址與預約"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-grill.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "Chinya 黑毛和牛壽喜燒",
+    "signature": "黑毛和牛壽喜燒套餐",
+    "tabelog": "https://tabelog.com/tokyo/A1311/A131102/13268750/",
+    "store_photo": "https://prcdn.freetls.fastly.net/release_image/18232/1039/18232-1039-ccfc415fbe9464e6e7a75a66b532c3b8-3900x2600.jpg?auto=webp&fit=bounds&format=jpeg&height=1350&quality=85%2C65&width=1950",
+    "dish_photo": "https://assets.st-note.com/img/1705282078049-hHw8eUaZzl.jpg?fit=bounds&height=2000&quality=85&width=2000",
+    "store_source": "https://prtimes.jp/main/html/rd/p/000001039.000018232.html",
+    "dish_source": "https://note.com/honno_hitotoki/n/nbba3fd866034",
+    "store_caption": "Chinya 淺草本店夜間店面實景",
+    "dish_caption": "黑毛和牛壽喜燒下鍋實拍"
+  },
+  {
+    "id": "24-akimitsu-asakusa",
+    "day": 5,
+    "slot": "午餐",
+    "status": "no_beef",
+    "priority": "S",
+    "name_zh": "天麩羅 秋光 淺草本店",
+    "name_ja": "天麩羅 秋光 浅草本店",
+    "type": "天丼／天婦羅",
+    "area": "淺草花屋敷旁",
+    "verdict": "不吃牛肉者與 Chinya 牛肉組分流最順；穴子與海鮮天丼是首選。",
+    "hours": "官方不同頁面顯示約 10:30–21:00／21:30，L.O.約 20:00–21:00。",
+    "hours_note": "營業時間資訊略有差異，11 月行前以官方預約頁為準。",
+    "address": "東京都台東區淺草2-15-1",
+    "access": "花屋敷、淺草寺西側，與 Chinya 皆在淺草區但步行仍需時間。",
+    "budget": "約 ¥1,500–4,000／人",
+    "reservation": "可線上預約；分流人數少仍建議訂 12:00 左右。",
+    "queue": "觀光時段會排隊；有訂位可避免與 Chinya 組錯開太久。",
+    "timing": "與 Chinya 同步 12:00–12:30 開吃，餐後 13:45–14:00 會合。",
+    "beef_level": "需確認",
+    "no_beef": "核心為海鮮與蔬菜天婦羅，但天汁、期間品、共用炸油仍要確認不含牛肉／牛骨／牛脂。",
+    "dishes": [
+      {
+        "name": "穴子天丼",
+        "why": "整條穴子有代表性，海鮮取向明確。",
+        "order": "第一選擇"
+      },
+      {
+        "name": "五代目天丼／綜合天丼",
+        "why": "一次吃到蝦、魚、蔬菜等多種食材。",
+        "order": "食量大者"
+      },
+      {
+        "name": "季節蔬菜天婦羅",
+        "why": "平衡炸物與海鮮，適合共享。",
+        "order": "加點 1 份"
+      },
+      {
+        "name": "天婦羅單品",
+        "why": "想控制飯量可改單點。",
+        "order": "與同行者共享"
+      }
+    ],
+    "group_plan": [
+      "不吃牛肉者至少 2 人同行。",
+      "下單前先確認天汁與炸油，不只確認食材本身。",
+      "與 Chinya 組約固定時間與地點會合。"
+    ],
+    "pitfalls": [
+      "官方時段資訊有 30 分鐘差異。",
+      "炸物份量大。",
+      "若是嚴重牛肉過敏，共用炸油仍有風險。"
+    ],
+    "phrases": [
+      "牛肉、牛骨、牛脂を使っていない天丼はありますか？（有完全不使用牛肉、牛骨、牛油的天丼嗎？）",
+      "天つゆにも牛肉の成分は入っていませんか？（天婦羅醬汁也不含牛肉成分嗎？）"
+    ],
+    "official": "https://akimitsu.tokyo/asakusa/shopinfo-asakusa/",
+    "reservation_url": "https://akimichu1005.owst.jp/",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E9%BA%A9%E7%BE%85+%E7%A7%8B%E5%85%89+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E6%B7%BA%E8%8D%892-15-1",
+    "day_date": "2026/11/25（三）",
+    "day_route": "淺草・上野",
+    "sources": [
+      {
+        "label": "秋光官方店舖頁",
+        "url": "https://akimitsu.tokyo/asakusa/shopinfo-asakusa/",
+        "note": "營業時間與店舖資訊"
+      },
+      {
+        "label": "官方預約頁",
+        "url": "https://akimichu1005.owst.jp/",
+        "note": "較晚 L.O. 版本與線上預約"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-tempura.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "天麩羅 秋光 淺草本店",
+    "signature": "穴子天丼",
+    "tabelog": "https://tabelog.com/tokyo/A1311/A131102/13244823/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/232118/640x640_rect_69a1837a7e5e5d3889c6df9da8061b34.jpg",
+    "dish_photo": "https://stat.ameba.jp/user_images/20200317/21/yokosiroisi/e9/ef/j/o1080108014729616872.jpg?caw=800",
+    "store_source": "https://tabelog.com/tokyo/A1311/A131102/13244823/",
+    "dish_source": "https://ameblo.jp/yokosiroisi/entry-12582877863.html",
+    "store_caption": "天麩羅秋光淺草本店店面實景",
+    "dish_caption": "招牌五代目天丼與整尾穴子天婦羅"
+  },
+  {
+    "id": "25-asakusa-yokocho",
+    "day": 5,
+    "slot": "晚餐備選",
+    "status": "optional",
+    "priority": "B",
+    "name_zh": "淺草橫町",
+    "name_ja": "浅草横町",
+    "type": "室內美食橫町／居酒屋群",
+    "area": "淺草 ROX 周邊",
+    "verdict": "優點是 7 人可依口味分店、氣氛熱鬧；缺點是「橫町」不是單一餐廳，營業與訂位要看各店。",
+    "hours": "各店不同；多數約 11:00／12:00–22:00／23:00。",
+    "hours_note": "必須點進各店頁面確認，不能只看商場總時間。",
+    "address": "東京都台東區淺草2-6-7 東京樂天地淺草ビル 4F",
+    "access": "筑波快線淺草站很近，淺草寺西側。",
+    "budget": "約 ¥2,000–4,000／人",
+    "reservation": "各店分別受理；7 人若要同桌，應先選定店家而不是現場隨機。",
+    "queue": "熱門店週三晚間仍可能等位；活動日更熱鬧。",
+    "timing": "DAY 5 午餐較重，晚餐可延後至 19:00 並以小菜、串燒為主。",
+    "beef_level": "需確認",
+    "no_beef": "同樓有不同店家，容易避開牛肉，但每店醬汁與共用設備不同。可優先找雞肉、海鮮、蔬菜品項。",
+    "dishes": [
+      {
+        "name": "雷もんじゃ－下町文字燒",
+        "why": "官方主打的淺草流作法，不築土手、將材料直接攤平煎製。",
+        "order": "全桌共享"
+      },
+      {
+        "name": "各店原創文字燒",
+        "why": "淺草橫町內不同店舖皆有特色口味。",
+        "order": "依現場菜單追加"
+      }
+    ],
+    "group_plan": [
+      "先在官網選 1 家主店並訂位；不要 7 人到現場才投票。",
+      "也可分 3＋4 人各吃不同店，再約時間會合。",
+      "不吃牛肉者先看菜單與店員確認。"
+    ],
+    "pitfalls": [
+      "不是單一餐廳。",
+      "音樂與表演可能較吵。",
+      "各店最後點餐與付款規則不同。"
+    ],
+    "phrases": [
+      "7名で一緒に座れますか？（7 位可以坐在一起嗎？）",
+      "牛肉を使わない料理が多いお店はどこですか？（哪一家不含牛肉的料理比較多？）"
+    ],
+    "official": "https://asakusayokocho.com/",
+    "reservation_url": "https://asakusayokocho.com/",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E6%A8%AA%E7%94%BA+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E6%B7%BA%E8%8D%892-6-7+%E6%9D%B1%E4%BA%AC%E6%A8%82%E5%A4%A9%E5%9C%B0%E6%B7%BA%E8%8D%89%E3%83%93%E3%83%AB+4F",
+    "day_date": "2026/11/25（三）",
+    "day_route": "淺草・上野",
+    "sources": [
+      {
+        "label": "淺草橫町官方網站",
+        "url": "https://asakusayokocho.com/",
+        "note": "店家列表與活動"
+      },
+      {
+        "label": "雷もんじゃ官方店舖頁",
+        "url": "https://asakusayokocho.com/shops04",
+        "note": "代表店營業與菜單"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-izakaya.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "淺草橫町",
+    "signature": "雷もんじゃ－下町文字燒",
+    "tabelog": null,
+    "store_photo": "https://ak-d.tripcdn.com/images/1i66j2234849466tdC4B5.jpg?proc=source%2Ftrip",
+    "dish_photo": "https://prcdn.freetls.fastly.net/release_image/20469/111/20469-111-79ad9a1cfa0112245fd99dbfb17b1c5c-1159x883.jpg?auto=webp&fit=bounds&format=jpeg&height=900&width=1350",
+    "store_source": "https://jp.trip.com/moments/detail/tokyo-294-14339019/",
+    "dish_source": "https://prtimes.jp/main/html/rd/p/000000111.000020469.html",
+    "store_caption": "淺草橫町室內美食橫町實景",
+    "dish_caption": "雷もんじゃ官方實拍：下町もんじゃ"
+  },
+  {
+    "id": "26-goen-cafe-spaciax",
+    "day": 6,
+    "slot": "列車餐飲",
+    "status": "recommended",
+    "priority": "A",
+    "name_zh": "GOEN CAFÉ SPACIA X",
+    "name_ja": "GOEN CAFÉ SPACIA X",
+    "type": "觀光列車咖啡吧",
+    "area": "SPACIA X 1 號車",
+    "verdict": "你們若成功訂到 6 號車 Cockpit Suite，可免整理券使用咖啡吧，是很值得保留的列車體驗。",
+    "hours": "隨 SPACIA X 列車運行；販售時間與商品依班次、售罄狀況調整。",
+    "hours_note": "一般乘客常需整理券；Cockpit Suite 乘客依官方規則可免整理券使用。",
+    "address": "SPACIA X 列車內 1 號車 Cockpit Lounge／Cafe Counter",
+    "access": "從 6 號車 Cockpit Suite 穿越列車前往 1 號車，需留意服務時段與車內走動。",
+    "budget": "約 ¥500–2,000／人",
+    "reservation": "咖啡吧本身不另訂位；前提是先取得 SPACIA X 車票與包廂。",
+    "queue": "熱門商品可能排隊與售罄；剛發車時最忙。",
+    "timing": "上車安置行李 15–20 分鐘後，由 1–2 人先去確認販售情況，避免全團一起穿越車廂。",
+    "beef_level": "需確認",
+    "no_beef": "飲料容易選；輕食、便當、甜點需逐項看標示。",
+    "dishes": [
+      {
+        "name": "SPACIA X 原創手沖咖啡",
+        "why": "最能配合列車窗景與車內咖啡吧體驗。",
+        "order": "咖啡愛好者第一選擇"
+      },
+      {
+        "name": "酒粕奶油夾心餅／限定小點",
+        "why": "照片中對應的列車限定搭配，方便在座位享用。",
+        "order": "全團共享"
+      },
+      {
+        "name": "日光／栃木在地飲品",
+        "why": "比一般連鎖飲品更有旅程感。",
+        "order": "每人依喜好"
+      },
+      {
+        "name": "精釀啤酒／酒類",
+        "why": "適合不需開車者，但上午班不必勉強。",
+        "order": "少量"
+      }
+    ],
+    "group_plan": [
+      "派 1–2 人代表先去看菜單與排隊。",
+      "在群組拍菜單，其他人在包廂回覆品項。",
+      "一次帶回 7 份需注意托盤與列車晃動，可分兩趟。"
+    ],
+    "pitfalls": [
+      "列車限定品可能售罄。",
+      "車廂距離長。",
+      "不要錯過抵達前整理行李時間。"
+    ],
+    "phrases": [
+      "コックピットスイートの乗客です。整理券は必要ですか？（我們是 Cockpit Suite 乘客，需要整理券嗎？）",
+      "この列車限定の商品はどれですか？（哪一項是本列車限定？）"
+    ],
+    "official": "https://www.tobu.co.jp/spaciax/en/cafe/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=GOEN+CAF%C3%89+SPACIA+X+SPACIA+X+%E5%88%97%E8%BB%8A%E5%85%A7+1+%E8%99%9F%E8%BB%8A+Cockpit+Lounge%EF%BC%8FCafe+Counter",
+    "day_date": "2026/11/26（四）",
+    "day_route": "SPACIA X・日光",
+    "sources": [
+      {
+        "label": "東武 SPACIA X 官方咖啡頁",
+        "url": "https://www.tobu.co.jp/spaciax/en/cafe/",
+        "note": "使用規則與 Cafe 資訊"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": "DAY 6 SPACIA X"
+      }
+    ],
+    "image": "food-cafe.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "GOEN CAFÉ SPACIA X",
+    "signature": "SPACIA X 原創手沖咖啡＋酒粕奶油夾心餅",
+    "tabelog": null,
+    "store_photo": "https://news.walkerplus.com/article/1185848/12809950_615.jpg",
+    "dish_photo": "https://prcdn.freetls.fastly.net/release_image/64591/263/64591-263-6ce0a5e74dc65d15c342539c7b9bae5a-3900x2600.jpg?auto=webp&fit=bounds&format=jpeg&height=1350&quality=85%2C65&width=1950",
+    "store_source": "https://theme.walkerplus.com/tobu/article/1185848/image12809950.html",
+    "dish_source": "https://prtimes.jp/main/html/rd/p/000000263.000064591.html",
+    "store_caption": "SPACIA X 車內 GOEN CAFÉ 櫃台實景",
+    "dish_caption": "SPACIA X 原創手沖咖啡與酒粕奶油夾心餅"
+  },
+  {
+    "id": "27-nikko-sakaeya",
+    "day": 6,
+    "slot": "抵達點心",
+    "status": "planned",
+    "priority": "S",
+    "name_zh": "日光さかえや 炸湯波饅頭",
+    "name_ja": "日光さかえや 揚げゆばまんじゅう本舗",
+    "type": "日光名物點心",
+    "area": "東武日光站前",
+    "verdict": "下車 30 秒就能吃到的日光代表點心；現炸一顆即可，留胃給正餐。",
+    "hours": "09:30–17:00；不定休。",
+    "hours_note": "可能因天候或售罄調整。",
+    "address": "栃木縣日光市松原町10-1",
+    "access": "東武日光站步行約 30 秒。",
+    "budget": "約 ¥300–1,000／人",
+    "reservation": "不需預約；現場排隊。",
+    "queue": "列車到站後可能瞬間排隊；移動快。",
+    "timing": "抵達後先讓 1 人看守行李，其他人分批購買；停留 15–20 分鐘。",
+    "beef_level": "較安心",
+    "no_beef": "湯波饅頭通常無牛肉，但含大豆、小麥與油炸製程；若嚴格過敏，確認共用油。",
+    "dishes": [
+      {
+        "name": "現炸揚げゆばまんじゅう",
+        "why": "外層酥鹹、內餡甜，是鹹甜對比的日光名物。",
+        "order": "每人 1 個"
+      },
+      {
+        "name": "日光天然冰 × 草莓刨冰",
+        "why": "季節性強，11 月通常不一定供應。",
+        "order": "有供應再評估"
+      },
+      {
+        "name": "伴手禮盒",
+        "why": "想帶回台灣需先看保存期限與包裝。",
+        "order": "不要太早大量買"
+      }
+    ],
+    "group_plan": [
+      "一人留守 7 人行李。",
+      "先買現炸單顆，不要一開始買大量盒裝。",
+      "吃完立即往住宿或景點移動。"
+    ],
+    "pitfalls": [
+      "剛炸很燙。",
+      "11 月刨冰可能沒有。",
+      "不定休。"
+    ],
+    "phrases": [
+      "揚げたてを七つお願いします。（請給我 7 個現炸的。）",
+      "今日、いちごのかき氷はありますか？（今天有草莓刨冰嗎？）"
+    ],
+    "official": "https://www.nikko-kankou.org/product/362",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E3%81%95%E3%81%8B%E3%81%88%E3%82%84+%E6%8F%9A%E3%81%92%E3%82%86%E3%81%B0%E3%81%BE%E3%82%93%E3%81%98%E3%82%85%E3%81%86%E6%9C%AC%E8%88%97+%E6%A0%83%E6%9C%A8%E7%B8%A3%E6%97%A5%E5%85%89%E5%B8%82%E6%9D%BE%E5%8E%9F%E7%94%BA10-1",
+    "day_date": "2026/11/26（四）",
+    "day_route": "SPACIA X・日光",
+    "sources": [
+      {
+        "label": "日光市觀光協會官方頁",
+        "url": "https://www.nikko-kankou.org/product/362",
+        "note": "營業時間、地址與推薦品"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-street.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "日光さかえや 炸湯波饅頭",
+    "signature": "現炸揚げゆばまんじゅう",
+    "tabelog": "https://tabelog.com/tochigi/A0903/A090301/9003450/",
+    "store_photo": "https://monomiyusan-nahibi.com/wp-content/uploads/2019/05/GR000304LP-860x573.jpg",
+    "dish_photo": "https://stat.ameba.jp/user_images/20240510/15/kanrieiyoushi-25/85/32/j/o1080144015436903289.jpg",
+    "store_source": "https://monomiyusan-nahibi.com/sakaeya/",
+    "dish_source": "https://ameblo.jp/kanrieiyoushi-25/entry-12851599631.html",
+    "store_caption": "日光さかえや店面與現炸櫃台",
+    "dish_caption": "招牌現炸揚げゆばまんじゅう"
+  },
+  {
+    "id": "28-san-field-nikko",
+    "day": 7,
+    "slot": "午餐推薦",
+    "status": "recommended",
+    "priority": "S",
+    "name_zh": "さんフィールド 湯波御膳",
+    "name_ja": "さんフィールド",
+    "type": "傳統日光湯波料理",
+    "area": "鉢石町・東照宮路線",
+    "verdict": "DAY 7 原行程只寫「日光傳統餐館」，這間是最穩妥的具體化：星期五營業、湯波御膳完整、位置順路。",
+    "hours": "11:00–17:00（L.O.約 17:00）；星期四休。",
+    "hours_note": "旺季可能提早結束或調整，請電話確認 7 人座位。",
+    "address": "栃木縣日光市下鉢石町818",
+    "access": "「鉢石町」巴士站附近；從東武日光站搭世界遺產巴士約 6 分鐘。",
+    "budget": "約 ¥2,200–3,500／人",
+    "reservation": "7 人建議先電話 0288-53-4758；有停車場但本行程以巴士為主。",
+    "queue": "午餐高峰可能候位；比 ZEN 的復業狀態更可控。",
+    "timing": "若上午先奧日光、下午回世界遺產區，建議 13:00–13:30 午餐；不要拖到 16:00 後才找餐廳。",
+    "beef_level": "較安心",
+    "no_beef": "湯波御膳以豆製品與和食為主，通常容易避牛；仍需確認高湯、煮物與小鉢是否含牛肉／牛骨。",
+    "dishes": [
+      {
+        "name": "ゆば御膳／湯波御膳",
+        "why": "一次吃到刺身湯波、煮湯波等多種做法，是最完整的日光體驗。",
+        "order": "每人 1 套"
+      },
+      {
+        "name": "ゆばの御刺身",
+        "why": "口感最能吃出日光水質與豆香。",
+        "order": "全桌加 1–2 份"
+      },
+      {
+        "name": "湯波甜點／小鉢",
+        "why": "依套餐內容變動。",
+        "order": "不需另外大量加點"
+      }
+    ],
+    "group_plan": [
+      "電話直接說 7 人、星期五、預計到店時間。",
+      "不吃牛肉者訂位時一併說明，請店家標記。",
+      "餐後再進東照宮區，避免反向折返。"
+    ],
+    "pitfalls": [
+      "原行程先衝奧日光，巴士回程可能延誤。",
+      "店家旺季可能提早收餐。",
+      "日光 11 月下午很早天黑。"
+    ],
+    "phrases": [
+      "11月27日に7名で、ゆば御膳を予約できますか？（11/27 可預約 7 位湯波御膳嗎？）",
+      "一人は牛肉を食べません。だしにも牛肉を使わない料理をお願いします。（一人不吃牛肉，高湯也請不要用牛肉。）"
+    ],
+    "official": "http://www.mes005.com/nikko-yuba.html",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E3%81%95%E3%82%93%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E3%83%89+%E6%A0%83%E6%9C%A8%E7%B8%A3%E6%97%A5%E5%85%89%E5%B8%82%E4%B8%8B%E9%89%A2%E7%9F%B3%E7%94%BA818",
+    "day_date": "2026/11/27（五）",
+    "day_route": "奧日光・世界遺產區",
+    "sources": [
+      {
+        "label": "栃木縣觀光官方頁",
+        "url": "https://www.tochigiji.or.jp/spot/s7403",
+        "note": "營業時間、休息日、價格與交通"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": "將「日光當地傳統餐館」具體化"
+      }
+    ],
+    "image": "food-yuba.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "さんフィールド 湯波御膳",
+    "signature": "ゆば御膳／湯波御膳",
+    "tabelog": "https://tabelog.com/tochigi/A0903/A090301/9002034/",
+    "store_photo": "https://image.space.rakuten.co.jp/d/strg/ctrl/9/666e5dc60eeae55f9b160f10bf736b8bf19b8707.73.2.9.2.jpeg",
+    "dish_photo": "https://images.miil.me/j/1e4791ae-f325-11ef-848f-062113fc9af7.orig.jpg",
+    "store_source": "https://plaza.rakuten.co.jp/salserina/diary/201706060000/",
+    "dish_source": "https://www.hotpepper.jp/strJ000321147/",
+    "store_caption": "さんフィールド日光店面實景",
+    "dish_caption": "店家招牌湯波御膳完整實拍"
+  },
+  {
+    "id": "29-nikko-yubamaki-zen",
+    "day": 7,
+    "slot": "高階晚餐備選",
+    "status": "conditional",
+    "priority": "B",
+    "name_zh": "日光湯波巻 全 ZEN",
+    "name_ja": "日光湯波巻 全 ZEN",
+    "type": "創意湯波料理／預約晚餐",
+    "area": "上鉢石町",
+    "verdict": "官方菜單頁顯示已於 2026/7/1 恢復營業，但採部分菜單；11/27 晚餐與 7 人接待仍須直接確認，因此保留為條件式備選。",
+    "hours": "官方已於 2026/7/1 恢復營業並調整部分菜單；過往午餐約 11:00–15:00、晚餐約 17:00–20:30且需完全預約，現行時段須向店家確認。",
+    "hours_note": "官方 2026/5 曾公告手術休業；午餐頁現已明載 7/1 復業並調整部分內容。旅程在 11 月，仍要確認 11/27 是否供應晚餐及當日菜單。",
+    "address": "栃木縣日光市上鉢石町1007",
+    "access": "東武／JR 日光站步行約 17 分鐘，位於世界遺產區往返路線。",
+    "budget": "午餐約 ¥2,000 起；晚餐約 ¥5,000–10,000／人",
+    "reservation": "晚餐過往採完全預約；先取得店家對 11/27、7 人與現行套餐的明確回覆，再決定是否取代其他餐廳。",
+    "queue": "不適用；關鍵是現行晚餐是否開放、部分菜單內容與能否接待 7 人。",
+    "timing": "僅在店家確認 11/27 晚餐、現行菜單與 7 人訂位後，才取代其他 DAY 7 餐廳。",
+    "beef_level": "需確認",
+    "no_beef": "湯波主題有利，但套餐可能有肉類、高湯或季節食材；訂位時必須書面確認。",
+    "dishes": [
+      {
+        "name": "日光湯波巻",
+        "why": "以湯波包裹食材，是店名代表料理。",
+        "order": "依現行部分菜單確認"
+      },
+      {
+        "name": "湯波創意套餐",
+        "why": "較能體驗主廚技法。",
+        "order": "晚餐預約時確認"
+      },
+      {
+        "name": "季節小鉢",
+        "why": "內容可能受現行部分菜單與季節供應影響。",
+        "order": "不要依舊菜單預設"
+      }
+    ],
+    "group_plan": [
+      "10 月先查官方最新營業公告與預約頁。",
+      "確認 7 人、11/27 晚餐、現行菜單與無牛需求後再決定。",
+      "同時保留 さんフィールド／明治之館備案，直到店家書面或電話確認成功。"
+    ],
+    "pitfalls": [
+      "官方雖已標示 7/1 復業，但不代表 11/27 晚餐一定開放。",
+      "現階段採部分調整後菜單，不宜照舊菜單點餐。",
+      "晚餐過往為完全預約制，臨時不能靠現場。"
+    ],
+    "phrases": [
+      "11月27日は夕食営業の予定ですか？（11/27 預計有晚餐營業嗎？）",
+      "現在のメニューで、7名の夕食予約はできますか？（依目前菜單，可預約 7 人晚餐嗎？）"
+    ],
+    "official": "https://nikko-zen.co.jp/",
+    "reservation_url": "https://nikko-zen.co.jp/",
+    "alert": "⚠ 官方午餐頁已標示 2026/7/1 復業，但採部分調整後菜單；11/27 晚餐與 7 人接待仍須直接確認。",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%B9%AF%E6%B3%A2%E5%B7%BB+%E5%85%A8+ZEN+%E6%A0%83%E6%9C%A8%E7%B8%A3%E6%97%A5%E5%85%89%E5%B8%82%E4%B8%8A%E9%89%A2%E7%9F%B3%E7%94%BA1007",
+    "day_date": "2026/11/27（五）",
+    "day_route": "奧日光・世界遺產區",
+    "sources": [
+      {
+        "label": "ZEN 官方復業後午餐頁",
+        "url": "https://nikko-zen.co.jp/lunch/",
+        "note": "官方明載 2026/7/1 恢復營業並調整部分內容"
+      },
+      {
+        "label": "ZEN 官方休業／復業公告",
+        "url": "https://nikko-zen.co.jp/%E3%80%90%E9%87%8D%E8%A6%81%E3%80%91%E4%BC%91%E6%A5%AD%E3%81%8A%E3%82%88%E3%81%B3%E5%96%B6%E6%A5%AD%E5%86%8D%E9%96%8B%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/",
+        "note": "2026/5 店主手術與原復業計畫"
+      },
+      {
+        "label": "原營業資料",
+        "url": "https://four.travel/restaurant/%E6%97%A5%E5%85%89%E6%B9%AF%E6%B3%A2%E5%B7%BB-%E5%85%A8-zen/",
+        "note": "過往時段與晚餐完全預約制；現行請再確認"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-yuba.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "日光湯波巻 全 ZEN",
+    "signature": "日光湯波巻",
+    "tabelog": "https://tabelog.com/tochigi/A0903/A090301/9015090/",
+    "store_photo": "https://i0.wp.com/nearbytokyo.com/upl/2023/02/nearby-tokyo-nikko-yuba-restaurant-zen-outside-01.jpg?fit=768%2C639&ssl=1",
+    "dish_photo": "https://rimage.gnst.jp/rest/img/4cbduavy0000/s_0n70.jpg?t=1667202460",
+    "store_source": "https://nearbytokyo.com/6-places-central-nikko/",
+    "dish_source": "https://r.gnavi.co.jp/4cbduavy0000/photo/menu/",
+    "store_caption": "日光湯波巻全ZEN木造店面實景",
+    "dish_caption": "招牌日光湯波巻御膳"
+  },
+  {
+    "id": "30-meiji-no-yakata",
+    "day": 7,
+    "slot": "歷史洋食備選",
+    "status": "recommended",
+    "priority": "A",
+    "name_zh": "明治之館",
+    "name_ja": "西洋料理 明治の館",
+    "type": "歷史洋館／日式西洋料理",
+    "area": "日光山內",
+    "verdict": "若不想把 DAY 7 全押在湯波料理，這是景觀、建築與餐點兼具的可靠備案；招牌是蛋包飯與起司蛋糕。",
+    "hours": "依季節營業日曆調整；一般午間至傍晚營業，11 月需查官方當月 schedule。",
+    "hours_note": "官方網站會按季發布営業スケジュール，不應用夏季時段推估 11 月。",
+    "address": "栃木縣日光市山內2339-1",
+    "access": "東照宮、輪王寺等世界遺產區附近。",
+    "budget": "約 ¥2,500–6,000／人",
+    "reservation": "7 人建議事先電話 0288-53-3751；確認當日營業與座位。",
+    "queue": "觀光季午餐可能候位。",
+    "timing": "適合安排 13:30 左右午餐；若午後才回市區，先電話確認最後入店。",
+    "beef_level": "需確認",
+    "no_beef": "菜單同時有牛肉、豬肉、雞肉與海鮮。蛋包飯的多蜜醬可能含牛肉基底，對無牛者不一定安全；可詢問蝦通心粉焗烤、虹鱒等是否完全無牛。",
+    "dishes": [
+      {
+        "name": "オムレツライス／蛋包飯",
+        "why": "官方明確標示最受歡迎；多蜜醬濃厚。",
+        "order": "吃牛肉者首選"
+      },
+      {
+        "name": "虹鱒のムニエル",
+        "why": "在地魚料理，較有栃木特色。",
+        "order": "無牛者先確認醬汁"
+      },
+      {
+        "name": "エビマカロニグラタン",
+        "why": "海鮮與奶醬取向，接受度高。",
+        "order": "先確認高湯"
+      },
+      {
+        "name": "チーズケーキ ニルバーナ",
+        "why": "品牌代表甜點，餐後共享。",
+        "order": "2–3 人 1 份"
+      }
+    ],
+    "group_plan": [
+      "先看 11 月營業日曆再訂位。",
+      "無牛者不要直接假設蛋包飯安全，要問多蜜醬底。",
+      "全團可各點主餐、共享 2–3 份 Nirvana 起司蛋糕。"
+    ],
+    "pitfalls": [
+      "11 月時段尚需官方月曆確認。",
+      "招牌蛋包飯的醬汁可能含牛肉基底。",
+      "洋食份量較重。"
+    ],
+    "phrases": [
+      "デミグラスソースに牛肉や牛骨を使っていますか？（多蜜醬有使用牛肉或牛骨嗎？）",
+      "11月27日は営業していますか？7名で予約できますか？（11/27 有營業嗎？可預約 7 位嗎？）"
+    ],
+    "official": "https://www.meiji-yakata.com/ja/meiji/",
+    "reservation_url": "https://www.meiji-yakata.com/ja/meiji/",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E6%B4%8B%E6%96%99%E7%90%86+%E6%98%8E%E6%B2%BB%E3%81%AE%E9%A4%A8+%E6%A0%83%E6%9C%A8%E7%B8%A3%E6%97%A5%E5%85%89%E5%B8%82%E5%B1%B1%E5%85%A72339-1",
+    "day_date": "2026/11/27（五）",
+    "day_route": "奧日光・世界遺產區",
+    "sources": [
+      {
+        "label": "明治之館官方頁",
+        "url": "https://www.meiji-yakata.com/ja/meiji/",
+        "note": "建築、公告與招牌餐點"
+      },
+      {
+        "label": "官方菜單",
+        "url": "https://www.meiji-yakata.com/en/meiji/menu_price.html",
+        "note": "現行餐點與價格"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-western.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "明治之館",
+    "signature": "オムレツライス／蛋包飯",
+    "tabelog": "https://tabelog.com/tochigi/A0903/A090301/9000107/",
+    "store_photo": "https://stat.ameba.jp/user_images/20241114/22/yamajuntabearuki/21/7d/j/o1080080915510058801.jpg",
+    "dish_photo": "https://ak-d.tripcdn.com/images/1i66q22159wuwdxb42262_W_640_0_R5_Q80.jpg?proc=source%2Ftrip",
+    "store_source": "https://ameblo.jp/yamajuntabearuki/entry-12873888168.html",
+    "dish_source": "https://jp.trip.com/moments/detail/nikko-56719-12383102",
+    "store_caption": "日光明治之館石造洋館外觀實景",
+    "dish_caption": "招牌オムレツライス（蛋包飯）"
+  },
+  {
+    "id": "31-kawatoyo-honten",
+    "day": 8,
+    "slot": "午餐",
+    "status": "planned",
+    "priority": "S",
+    "name_zh": "川豐 本店",
+    "name_ja": "川豊 本店",
+    "type": "百年鰻魚飯",
+    "area": "成田山表參道",
+    "verdict": "DAY 8 的第一選擇；10:00 開門，抵達成田後第一件事應先抽號／排隊，再逛表參道。",
+    "hours": "通常 10:00–17:00（L.O.）；無固定休但有時期性不定休。",
+    "hours_note": "7–8 月延長不適用 11 月；11/28 以 17:00 L.O. 規劃。",
+    "address": "千葉縣成田市仲町386",
+    "access": "JR／京成成田站步行約 11–12 分鐘，成田山表參道中段。",
+    "budget": "約 ¥3,000–6,000／人",
+    "reservation": "本店以現場候位為主；抵達後先取號。",
+    "queue": "週六常等 60–90 分鐘，旺時更久。",
+    "timing": "包車抵達後先讓 1–2 人下車取號，其餘人處理行李／停車。等待期間逛附近，但不要離太遠。",
+    "beef_level": "較安心",
+    "no_beef": "鰻魚飯本身無牛肉，但醬汁與配菜仍可確認；對一般不吃牛肉者通常友善。",
+    "dishes": [
+      {
+        "name": "上うな重／上鰻重",
+        "why": "鰻魚份量與價格較平衡，第一次最推薦。",
+        "order": "每人 1 份"
+      },
+      {
+        "name": "特上うな重",
+        "why": "食量大、想吃更完整鰻魚者。",
+        "order": "先看價格與份量"
+      },
+      {
+        "name": "肝吸い／鰻肝湯",
+        "why": "與鰻重搭配的傳統組合。",
+        "order": "能接受內臟者"
+      },
+      {
+        "name": "鰻魚單品",
+        "why": "多人可共享，但主餐已很足。",
+        "order": "非必要"
+      }
+    ],
+    "group_plan": [
+      "先取號，後逛街；指定一人盯叫號。",
+      "7 人可能分桌，接受 3＋4 人。",
+      "先決定上鰻重或特上，入座即點。"
+    ],
+    "pitfalls": [
+      "等待時間是最大風險。",
+      "沒有專用停車場。",
+      "鰻魚處理與燒烤需時間，入座後也不是立即上桌。"
+    ],
+    "phrases": [
+      "7名ですが、席が分かれても大丈夫です。（我們 7 位，分桌也可以。）",
+      "待ち時間はどのくらいですか？番号を取った後、近くを見てもいいですか？（大概要等多久？取號後可以在附近逛嗎？）"
+    ],
+    "official": "https://www.unagi-kawatoyo.com/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%B7%9D%E8%B1%8A+%E6%9C%AC%E5%BA%97+%E5%8D%83%E8%91%89%E7%B8%A3%E6%88%90%E7%94%B0%E5%B8%82%E4%BB%B2%E7%94%BA386",
+    "day_date": "2026/11/28（六）",
+    "day_route": "成田山表參道",
+    "sources": [
+      {
+        "label": "川豐本店官方交通／營業頁",
+        "url": "https://www.unagi-kawatoyo.com/access/",
+        "note": "營業時間、地址與交通"
+      },
+      {
+        "label": "成田觀光協會",
+        "url": "https://www.nrtk.jp/mypage/00002.html",
+        "note": "店舖特色與基本資訊"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-unagi.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "川豐 本店",
+    "signature": "上うな重／上鰻重",
+    "tabelog": "https://tabelog.com/chiba/A1204/A120401/12000709/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/66312/640x640_rect_66312891.jpg",
+    "dish_photo": "https://atp.jp/chiba/kawatoyo/1.jpg",
+    "store_source": "https://tabelog.com/chiba/A1204/A120401/12000709/",
+    "dish_source": "https://atp.jp/chiba/kawatoyo/",
+    "store_caption": "川豐本店木造三層店面與現場烤鰻櫃台",
+    "dish_caption": "招牌上うな重（上鰻重）"
+  },
+  {
+    "id": "32-narita-edokko-sushi",
+    "day": 8,
+    "slot": "午餐備選",
+    "status": "optional",
+    "priority": "A",
+    "name_zh": "成田江戶人壽司 參道本店",
+    "name_ja": "成田江戸ッ子寿司 参道本店",
+    "type": "壽司／日式料理",
+    "area": "成田站・表參道",
+    "verdict": "川豐等待太久時的最佳替代；有較多座位與包廂，7 人比排鰻魚更容易控制時間。",
+    "hours": "約 11:00–21:30（L.O.21:00）；不定休。",
+    "hours_note": "11 月行前確認臨時店休。",
+    "address": "千葉縣成田市花崎町536-10",
+    "access": "京成成田／JR 成田站與表參道路線。",
+    "budget": "約 ¥2,000–5,000／人",
+    "reservation": "可詢問預約；約 75 席並有包廂資訊，7 人較有機會同桌。",
+    "queue": "通常比川豐可控，但週六午餐仍會忙。",
+    "timing": "若川豐預估等待超過 90 分鐘，且後續入住／整理行李時間緊，就直接切換此店。",
+    "beef_level": "較安心",
+    "no_beef": "壽司容易避牛；仍確認湯品、煮物與炙燒醬。",
+    "dishes": [
+      {
+        "name": "上握り／特上握り",
+        "why": "最省時間的完整選擇。",
+        "order": "每人一套"
+      },
+      {
+        "name": "成田／房總當日魚種",
+        "why": "問店員當日推薦，增加在地感。",
+        "order": "單貫追加"
+      },
+      {
+        "name": "穴子",
+        "why": "成田／江戶前壽司常見代表。",
+        "order": "每人 1 貫"
+      },
+      {
+        "name": "茶碗蒸／烤魚",
+        "why": "不吃生食者的替代。",
+        "order": "依需求"
+      }
+    ],
+    "group_plan": [
+      "把它設成川豐的明確 Plan B，不要兩邊都排。",
+      "電話詢問 7 人座位可節省現場時間。",
+      "套餐先下單，再追加單貫。"
+    ],
+    "pitfalls": [
+      "不定休。",
+      "若先等川豐太久才放棄，兩邊午餐高峰都會遇到。",
+      "壽司價格依魚種變動。"
+    ],
+    "phrases": [
+      "7名で今から入れますか？（我們 7 位現在可以入座嗎？）",
+      "成田で今日おすすめの魚は何ですか？（今天成田推薦的魚是什麼？）"
+    ],
+    "official": "https://naritaedokko.gorp.jp/",
+    "reservation_url": "https://naritaedokko.gorp.jp/",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%B1%9F%E6%88%B8%E3%83%83%E5%AD%90%E5%AF%BF%E5%8F%B8+%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97+%E5%8D%83%E8%91%89%E7%B8%A3%E6%88%90%E7%94%B0%E5%B8%82%E8%8A%B1%E5%B4%8E%E7%94%BA536-10",
+    "day_date": "2026/11/28（六）",
+    "day_route": "成田山表參道",
+    "sources": [
+      {
+        "label": "成田江戶人壽司官方／Gurunavi頁",
+        "url": "https://naritaedokko.gorp.jp/",
+        "note": "營業時間、座位與地址"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-sushi.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "成田江戶人壽司 參道本店",
+    "signature": "上握り／特上握り",
+    "tabelog": "https://tabelog.com/chiba/A1204/A120401/12000177/",
+    "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/165601/640x640_rect_3b230ac23ac01260f750bbc6a5bc6c2f.jpg",
+    "dish_photo": "https://tblg.k-img.com/restaurant/images/Rvw/350438/640x640_rect_00730fc246cb35409732ce61f0d43e70.jpg",
+    "store_source": "https://tabelog.com/chiba/A1204/A120401/12000177/dtlphotolst/4/smp2/",
+    "dish_source": "https://tabelog.com/chiba/A1204/A120401/12000177/",
+    "store_caption": "成田江戶人壽司參道本店入口實景",
+    "dish_caption": "上握り／特上握り壽司拼盤實拍"
+  },
+  {
+    "id": "33-nagomi-yoneya",
+    "day": 8,
+    "slot": "伴手禮",
+    "status": "snack",
+    "priority": "A",
+    "name_zh": "なごみの米屋 總本店",
+    "name_ja": "なごみの米屋 總本店",
+    "type": "羊羹／和菓子／伴手禮",
+    "area": "成田山表參道",
+    "verdict": "成田最後採買的穩定選擇；栗羊羹送長輩，花生最中送同事，先看保存期限再買。",
+    "hours": "08:00–18:00。",
+    "hours_note": "附設羊羹資料館與休息區的開放時間可能不同。",
+    "address": "千葉縣成田市上町500",
+    "access": "JR／京成成田站步行約 7–10 分鐘，表參道上。",
+    "budget": "約 ¥1,000–5,000／人",
+    "reservation": "一般購物不需預約；大量或指定包裝可先詢問。",
+    "queue": "週六下午結帳可能排隊，但通常可控。",
+    "timing": "午餐後往新勝寺方向散步時購買；重物與禮盒可在回程再取，先問是否能寄放。",
+    "beef_level": "較安心",
+    "no_beef": "和菓子無牛肉，但含豆、花生、小麥、蛋或乳製品者依品項不同。",
+    "dishes": [
+      {
+        "name": "栗羊羹",
+        "why": "品牌歷史代表，保存與送禮性佳。",
+        "order": "長輩／正式送禮"
+      },
+      {
+        "name": "ぴーなっつ最中／花生最中",
+        "why": "千葉特色鮮明、造型討喜。",
+        "order": "同事／朋友"
+      },
+      {
+        "name": "ぴーなっつ饅頭／其他花生菓子",
+        "why": "可與最中搭配成綜合盒。",
+        "order": "看保存期限"
+      },
+      {
+        "name": "季節大福／生菓子",
+        "why": "適合旅途中吃，不適合長途攜帶。",
+        "order": "少量現吃"
+      }
+    ],
+    "group_plan": [
+      "先列送禮對象與數量。",
+      "重禮盒最後再拿，避免整段表參道提著走。",
+      "拍下保存期限與過敏原標示，回台分送時不混淆。"
+    ],
+    "pitfalls": [
+      "花生過敏要特別注意。",
+      "生菓子保存期短。",
+      "大量購買會增加行李重量。"
+    ],
+    "phrases": [
+      "台湾へ持ち帰りやすい、日持ちする商品はどれですか？（哪一些保存較久、適合帶回台灣？）",
+      "ピーナッツが入っていない商品を教えてください。（請告訴我不含花生的產品。）"
+    ],
+    "official": "https://www.nagomi-yoneya.co.jp/",
+    "reservation_url": "",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=%E3%81%AA%E3%81%94%E3%81%BF%E3%81%AE%E7%B1%B3%E5%B1%8B+%E7%B8%BD%E6%9C%AC%E5%BA%97+%E5%8D%83%E8%91%89%E7%B8%A3%E6%88%90%E7%94%B0%E5%B8%82%E4%B8%8A%E7%94%BA500",
+    "day_date": "2026/11/28（六）",
+    "day_route": "成田山表參道",
+    "sources": [
+      {
+        "label": "成田市觀光協會－米屋",
+        "url": "https://www.nrtk.jp/enjoy/attraction/14.html",
+        "note": "營業時間與代表產品"
+      },
+      {
+        "label": "總本店資料",
+        "url": "https://www.nrtk.jp/mypage/00031.html",
+        "note": "地址、設施與付款"
+      },
+      {
+        "label": "原始東京行程",
+        "url": "../index.html",
+        "note": ""
+      }
+    ],
+    "image": "food-wagashi.svg",
+    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
+    "name": "なごみの米屋 總本店",
+    "signature": "栗羊羹",
+    "tabelog": null,
+    "store_photo": "https://www.nrtk.jp/shared/images/data/31/main_image_web_2.jpg?_=1694498182",
+    "dish_photo": "https://www.nrtk.jp/shared/images/data/31/like1_image_web_2.jpg?_=1694498182",
+    "store_source": "https://www.nrtk.jp/mypage/00031.html",
+    "dish_source": "https://www.nrtk.jp/mypage/00031.html",
+    "store_caption": "なごみの米屋總本店正面店舖（成田市觀光協會）",
+    "dish_caption": "總本店代表銘菓：栗羊羹"
+  }
+]

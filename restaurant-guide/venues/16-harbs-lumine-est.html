@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="HARBS LUMINE EST 新宿店店面、招牌餐點、營業時間、預約與點餐攻略。" name="description"/>
+<title>HARBS LUMINE EST 新宿店｜2026 東京餐廳攻略</title>
+<style>
+:root{
+  --ink:#2d2926;
+  --muted:#706a64;
+  --paper:#fffdf8;
+  --paper-2:#f9f3e8;
+  --line:#ded3c5;
+  --maple:#a94d38;
+  --maple-dark:#713527;
+  --gold:#c8913e;
+  --sage:#61715a;
+  --blue:#3e7388;
+  --red-soft:#f8e6df;
+  --gold-soft:#fff1d7;
+  --sage-soft:#eaf1e5;
+  --blue-soft:#e8f1f4;
+  --shadow:0 12px 36px rgba(55,42,32,.10);
+  --radius:22px;
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  overflow-x:hidden;
+  color:var(--ink);
+  background:#ece7df;
+  font-family:"DFKai-SB","BiauKai","標楷體","KaiTi","STKaiti",serif;
+  font-size:17px;
+  line-height:1.72;
+  -webkit-text-size-adjust:100%;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue);text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+button,input{font:inherit}
+.wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
+.sitebar{
+  position:sticky;top:0;z-index:30;
+  background:rgba(255,253,248,.94);
+  border-bottom:1px solid rgba(128,104,82,.18);
+  backdrop-filter:blur(12px);
+}
+.sitebar-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--maple-dark);font-weight:900;letter-spacing:.04em}
+.brand-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--red-soft);font-family:serif}
+.nav-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  border:1px solid #d2c5b6;border-radius:999px;padding:7px 12px;
+  background:#fff;color:#4f4944;font-size:14px;font-weight:850;line-height:1.2;
+  text-decoration:none;white-space:normal;text-align:center;
+}
+.btn:hover{filter:brightness(.98);text-decoration:none}
+.btn.primary{background:var(--maple);border-color:var(--maple);color:#fff}
+.btn.sage{background:var(--sage);border-color:var(--sage);color:#fff}
+.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.hero-home{
+  position:relative;isolation:isolate;
+  background:
+    radial-gradient(circle at 86% 16%,rgba(201,145,62,.27),transparent 34%),
+    radial-gradient(circle at 6% 88%,rgba(97,113,90,.22),transparent 36%),
+    linear-gradient(135deg,#f5e2d6 0%,#fffdf8 52%,#e8efe3 100%);
+  border-bottom:1px solid #d9d0c3;
+}
+.hero-home-inner{padding:64px 0 54px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);gap:30px;align-items:center}
+.eyebrow{font-size:14px;letter-spacing:.18em;color:var(--maple);font-weight:900;text-transform:uppercase}
+h1,h2,h3,h4{margin-top:0;overflow-wrap:anywhere}
+h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c31;letter-spacing:.02em}
+.lead{font-size:20px;line-height:1.68;color:#5c5149;margin:0 0 20px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 10px;font-size:13px;font-weight:850;border:1px solid}
+.badge.red{background:var(--red-soft);border-color:#e1b7aa;color:#813c31}
+.badge.gold{background:var(--gold-soft);border-color:#e6c982;color:#70551d}
+.badge.sage{background:var(--sage-soft);border-color:#bed0b4;color:#435c40}
+.badge.blue{background:var(--blue-soft);border-color:#bed4dd;color:#315f71}
+.hero-collage{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:190px 190px;gap:10px}
+.hero-collage figure{margin:0;overflow:hidden;border-radius:24px;border:5px solid rgba(255,255,255,.75);box-shadow:var(--shadow);background:#eee5d8}
+.hero-collage figure:first-child{grid-row:1/3}
+.hero-collage img{width:100%;height:100%;object-fit:cover}
+.notice{margin:22px 0;border-radius:18px;padding:13px 15px;background:#fff8df;border:1px solid #e4ca80;color:#654f23;line-height:1.6}
+.notice strong{color:#704529}
+.main{padding:34px 0 64px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 0 18px;flex-wrap:wrap}
+.section-head h2{font-size:30px;line-height:1.25;margin:0;color:#354331}
+.section-head p{margin:0;color:var(--muted);font-size:15px}
+.filterbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+.filterbar button{border:1px solid #d8cbbb;background:#fff;border-radius:999px;padding:7px 13px;cursor:pointer;color:#554e47;font-weight:850}
+.filterbar button.active{background:var(--maple);border-color:var(--maple);color:#fff}
+.day-section{margin:38px 0 0}
+.day-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.day-title .day-num{flex:0 0 auto;background:var(--maple);color:#fff;border-radius:14px;padding:8px 12px;font-weight:950;line-height:1.1}
+.day-title h2{font-size:26px;margin:0;color:#3b4938}
+.day-title::after{content:"";height:1px;background:#d5cbbf;flex:1}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.venue-card{display:flex;flex-direction:column;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:var(--paper);box-shadow:0 5px 20px rgba(52,43,35,.055);color:inherit;text-decoration:none;transition:.18s transform,.18s box-shadow}
+.venue-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);text-decoration:none}
+.card-photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eee5d8}
+.card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.venue-card:hover .card-photo img{transform:scale(1.025)}
+.card-photo .photo-label{position:absolute;left:10px;bottom:10px;max-width:calc(100% - 20px);border-radius:999px;padding:5px 9px;background:rgba(31,27,24,.78);color:#fff;font-size:12px;font-weight:800;line-height:1.25;overflow-wrap:anywhere}
+.card-body{display:flex;flex-direction:column;flex:1;padding:15px 16px 17px}
+.card-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+.card-body h3{font-size:21px;line-height:1.35;margin:0 0 3px;color:#713527}
+.card-body .jp{font-size:13px;color:#80776f;margin:0 0 9px}
+.card-body .verdict{font-size:15px;line-height:1.58;margin:0;color:#514d48;flex:1}
+.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:13px;padding-top:11px;border-top:1px solid #e8dfd3;color:#756d65;font-size:13px;flex-wrap:wrap}
+.empty{display:none;padding:28px;border-radius:18px;background:#fff;border:1px solid var(--line);text-align:center;color:var(--muted)}
+/* venue page */
+.venue-main{padding:30px 0 66px}
+.venue-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);gap:24px;align-items:stretch;margin-bottom:22px}
+.hero-copy{border-radius:26px;padding:30px;background:linear-gradient(145deg,#fffaf2,#f4eee5);border:1px solid #dcd0c2;box-shadow:var(--shadow)}
+.hero-copy h1{font-size:clamp(32px,4vw,48px);color:#713527;margin:8px 0 3px}
+.hero-copy .jp-name{font-size:17px;color:#7c736b;margin-bottom:14px}
+.hero-copy .verdict{font-size:19px;line-height:1.68;margin:13px 0;color:#4b4945}
+.hero-photo{margin:0;overflow:hidden;border-radius:26px;background:#e9e1d6;border:1px solid #d8cdbf;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.hero-photo .media{aspect-ratio:4/3;overflow:hidden;flex:1}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo figcaption{padding:10px 13px;background:#2f2925;color:#fff;font-size:13px;line-height:1.45;overflow-wrap:anywhere}
+.photo-panel{border-radius:26px;padding:20px;background:#fff;border:1px solid var(--line);box-shadow:0 5px 20px rgba(52,43,35,.05);margin:0 0 22px}
+.photo-panel h2{font-size:25px;margin:0 0 6px;color:#3e4b3c}
+.photo-panel .intro{font-size:14px;color:var(--muted);margin:0 0 14px}
+.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.photo-figure{margin:0;border-radius:20px;overflow:hidden;border:1px solid #d8cdbf;background:#f8f3eb}
+.photo-figure .media{aspect-ratio:4/3;overflow:hidden;background:#ece3d8}
+.photo-figure img{width:100%;height:100%;object-fit:cover}
+.photo-figure.store-photo img{object-fit:contain;padding:8px;background:#eee7dc}
+.photo-figure figcaption{padding:12px 14px;line-height:1.5}
+.photo-figure b{display:block;font-size:17px;color:#713527;margin-bottom:3px}
+.photo-figure span{display:block;color:#625e59;font-size:14px}
+.photo-source{display:inline-block;margin-top:6px;font-size:13px;font-weight:800}
+.photo-disclaimer{font-size:12px;color:#7a746e;margin:11px 2px 0}
+.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 22px}
+.quick{border-radius:18px;padding:13px 14px;background:#fff;border:1px solid var(--line);box-shadow:0 3px 14px rgba(54,44,36,.04)}
+.quick b{display:block;color:#42533f;font-size:14px;margin-bottom:3px}
+.quick span{display:block;color:#5f5a55;font-size:14px;line-height:1.52;overflow-wrap:anywhere}
+.content-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+.panel{border-radius:22px;background:#fff;border:1px solid var(--line);padding:19px 20px;margin:0 0 18px;box-shadow:0 4px 18px rgba(52,43,35,.045);overflow:hidden}
+.panel h2{font-size:24px;line-height:1.3;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid #e3dbd0;color:#3e4b3c}
+.panel h3{font-size:19px;color:#713527;margin:16px 0 6px}
+.panel p{margin:5px 0 10px}
+.panel ul{margin:7px 0 0;padding-left:1.25em}
+.panel li{margin:6px 0}
+.dish-list{display:grid;gap:11px}
+.dish{border-radius:17px;padding:13px 14px;background:#fbf7f0;border:1px solid #e6dacb}
+.dish-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dish h3{margin:0;font-size:18px;line-height:1.4;color:#743729}
+.order-tag{flex:0 0 auto;border-radius:999px;background:var(--gold-soft);border:1px solid #e3c67b;color:#6e531b;padding:4px 8px;font-size:12px;font-weight:850;line-height:1.25}
+.dish p{font-size:14px;color:#625d57;margin:6px 0 0}
+.alert{border-radius:16px;padding:11px 13px;margin:9px 0;border:1px solid}
+.alert.red{background:#fff0eb;border-color:#e6b6aa;color:#74382e}
+.alert.gold{background:#fff7df;border-color:#e4cc88;color:#665021}
+.alert.sage{background:#eef5e9;border-color:#bed0b6;color:#415a3f}
+.phrase{border-radius:15px;padding:11px 13px;background:#f2f3ef;border:1px solid #d9ddd3;margin:8px 0;font-size:15px;overflow-wrap:anywhere}
+.source-list{list-style:none!important;padding:0!important;margin:0!important;display:grid;gap:8px}
+.source-list li{padding:10px 12px;border-radius:14px;background:#f8f4ec;border:1px solid #e3dacd;margin:0!important}
+.source-list a{font-weight:900}
+.source-list span{display:block;font-size:13px;color:#6d6862;margin-top:2px}
+.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.footer{border-top:1px solid #d7cec2;padding:23px 0 35px;color:#777069;background:#f4efe8;font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(max-width:980px){
+  .hero-home-inner,.venue-hero{grid-template-columns:1fr}
+  .hero-collage{grid-template-rows:170px 170px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  body{font-size:16px;background:var(--paper)}
+  .wrap{width:min(100% - 22px,1180px)}
+  .sitebar-inner{min-height:58px}
+  .brand span:last-child{max-width:220px}
+  .nav-actions{width:100%;display:grid;grid-template-columns:1fr 1fr}
+  .nav-actions .btn{width:100%}
+  .hero-home-inner{padding:38px 0 34px;gap:22px}
+  h1{font-size:36px}
+  .lead{font-size:17px}
+  .hero-collage{grid-template-columns:1fr 1fr;grid-template-rows:160px 120px}
+  .hero-collage figure:first-child{grid-row:auto;grid-column:1/3}
+  .main,.venue-main{padding-top:24px}
+  .cards,.photo-grid,.content-grid{grid-template-columns:1fr}
+  .quick-grid{grid-template-columns:1fr}
+  .hero-copy{padding:22px 18px}
+  .venue-hero{gap:14px}
+  .photo-panel,.panel{padding:16px}
+  .section-head h2{font-size:26px}
+  .day-title h2{font-size:22px}
+  .card-body h3{font-size:20px}
+  .photo-figure .media,.hero-photo .media{aspect-ratio:4/3}
+}
+@media(max-width:420px){
+  .wrap{width:min(100% - 16px,1180px)}
+  .sitebar-inner{padding:8px 0}
+  .brand{font-size:15px}
+  .brand-mark{width:30px;height:30px}
+  .nav-actions{grid-template-columns:1fr}
+  .hero-collage{grid-template-rows:145px 105px}
+  .hero-copy h1{font-size:31px}
+  .badges{gap:6px}
+  .badge{font-size:12px}
+}
+@media print{
+  body{background:#fff;font-size:12px}
+  .sitebar,.filterbar,.footer{display:none!important}
+  .wrap{width:100%;max-width:none}
+  .main,.venue-main{padding:0}
+  .venue-card,.panel,.photo-panel,.quick,.hero-copy,.hero-photo{box-shadow:none;break-inside:avoid}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="wrap sitebar-inner">
+<a class="brand" href="../index.html"><span class="brand-mark">食</span><span>回到餐廳總覽</span></a>
+<div class="nav-actions"><a class="btn blue" href="../../index.html">← 完整行程</a><a class="btn" href="15-waratako.html" rel="noopener noreferrer" target="_blank">← 上一間</a><a class="btn" href="17-gyutan-lemon.html" rel="noopener noreferrer" target="_blank">下一間 →</a><button class="btn" onclick="window.print()" type="button">列印本頁</button></div>
+</div></header>
+<main class="venue-main"><div class="wrap">
+<section class="venue-hero">
+<div class="hero-copy">
+<div class="eyebrow">DAY 4 · 下午茶備選 · 新宿站</div>
+<div class="badges"><span class="badge sage">B｜順路可吃</span><span class="badge blue">彈性備選</span><span class="badge blue">大切片蛋糕／咖啡</span></div>
+<h1>HARBS LUMINE EST 新宿店</h1>
+<div class="jp-name">HARBS ルミネエスト新宿店</div>
+<p class="verdict">蛋糕份量大，適合 2 人分一片；若晚餐已訂牛舌或海老丸，HARBS 只作候補，不宜排完整下午茶。</p>
+<div class="action-row">
+<a class="btn blue" href="https://www.google.com/maps/search/?api=1&amp;query=HARBS+%E3%83%AB%E3%83%9F%E3%83%8D%E3%82%A8%E3%82%B9%E3%83%88%E6%96%B0%E5%AE%BF%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%96%B0%E5%AE%BF3-38-1+LUMINE+EST+B2F" rel="noopener noreferrer" target="_blank">Google Maps</a>
+<a class="btn sage" href="https://www.harbs.co.jp/en/shop_kanto/" rel="noopener noreferrer" target="_blank">官方／店舖頁</a>
+</div>
+</div>
+<figure class="hero-photo">
+<div class="media"><img alt="HARBS 招牌水果千層蛋糕 Mille Crepes" decoding="async" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='../assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/331401/640x640_rect_7350711c773a1a4e751620e3102675ca.jpg"/></div>
+<figcaption>首頁與本頁主圖：指定招牌｜Mille Crepes 水果千層</figcaption>
+</figure>
+</section>
+<section class="photo-panel">
+<h2>該店店面實景與指定招牌餐點</h2>
+<p class="intro">不再使用整頁截圖或同類型示意照片。以下照片皆逐店對應，並附原始來源頁。</p>
+<div class="photo-grid">
+<figure class="photo-figure store-photo">
+<div class="media"><img alt="HARBS LUMINE EST 新宿店入口" class="store-img" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='../assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://media.triple.guide/triple-cms/c_limit%2Cf_auto%2Ch_1024%2Cw_1024/d549cfe0-642b-4b83-95ec-e466c7f76b2b.jpeg"/></div>
+<figcaption><b>餐廳店面實景</b><span>HARBS LUMINE EST 新宿店入口</span><a class="photo-source" href="https://triple.guide/restaurants/d1f665e5-5119-4552-a30a-7778a118d2f3" rel="noopener noreferrer" target="_blank">查看店面照片來源</a></figcaption>
+</figure>
+<figure class="photo-figure">
+<div class="media"><img alt="HARBS 招牌水果千層蛋糕 Mille Crepes" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='../assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/331401/640x640_rect_7350711c773a1a4e751620e3102675ca.jpg"/></div>
+<figcaption><b>指定招牌餐點</b><span>指定品項：Mille Crepes 水果千層<br/>HARBS 招牌水果千層蛋糕 Mille Crepes</span><a class="photo-source" href="https://s.tabelog.com/en/tokyo/A1314/A131403/13313600/" rel="noopener noreferrer" target="_blank">查看餐點照片來源</a></figcaption>
+</figure>
+</div>
+<p class="photo-disclaimer">照片用於行前辨識與餐點選擇；菜色、價格、擺盤、外觀及供應狀況可能調整，仍以到店當日為準。</p>
+</section>
+<section class="quick-grid">
+<div class="quick"><b>建議造訪</b><span>DAY 4｜2026/11/24（二）<br/>下午茶備選</span></div>
+<div class="quick"><b>營業時間</b><span>內用 11:00–20:00；餐點 L.O.19:00、蛋糕飲料 L.O.19:30；外帶至約 21:00。</span></div>
+<div class="quick"><b>預算</b><span>約 ¥1,200–3,000／人</span></div>
+<div class="quick"><b>地址／交通</b><span>東京都新宿區新宿3-38-1 LUMINE EST B2F<br/>JR 新宿站直結。</span></div>
+</section>
+<div class="content-grid">
+<div>
+<section class="panel"><h2>必點餐點與點法</h2><div class="dish-list">
+<div class="dish">
+<div class="dish-top"><h3>1. Mille Crepes 水果千層</h3><span class="order-tag">2 人共享 1 片</span></div>
+<p>HARBS 最具代表性的水果與鮮奶油層次。</p>
+</div>
+<div class="dish">
+<div class="dish-top"><h3>2. 季節水果蛋糕</h3><span class="order-tag">看展示櫃決定</span></div>
+<p>11 月依當期水果變動。</p>
+</div>
+<div class="dish">
+<div class="dish-top"><h3>3. 巧克力系蛋糕</h3><span class="order-tag">搭無糖茶或咖啡</span></div>
+<p>甜度與份量高，適合多人分食。</p>
+</div>
+<div class="dish">
+<div class="dish-top"><h3>4. 當日義大利麵</h3><span class="order-tag">本行程通常不建議</span></div>
+<p>只有需要完整晚餐前餐點時考慮。</p>
+</div></div></section>
+<section class="panel"><h2>放進行程的實戰排法</h2>
+<h3>時間安排</h3><p>只在澀谷行程提前、且晚餐前至少 2 小時時安排；否則改外帶蛋糕。</p>
+<h3>預約</h3><p>通常不接受一般訂位；排隊入店。</p>
+<h3>排隊判斷</h3><p>平日也可能排隊，尤其午餐與 15:00 後。</p>
+<h3>7 人團體策略</h3><ul><li>7 人不一定能同桌，接受分桌。</li><li>以 3–4 片蛋糕共享即可。</li><li>先問每片能否分盤，再決定數量。</li></ul>
+</section>
+</div>
+<div>
+<section class="panel"><h2>營業與行程提醒</h2><div class="alert gold"><strong>營業：</strong>內用 11:00–20:00；餐點 L.O.19:00、蛋糕飲料 L.O.19:30；外帶至約 21:00。</div><div class="alert red"><strong>本次提醒：</strong>依 LUMINE EST 休館與節日調整。</div><p><strong>當日路線：</strong>神宮外苑・表參道・澀谷・新宿</p></section>
+<section class="panel"><h2>不吃牛肉者判斷</h2><div class="alert sage"><strong>風險標示：</strong>較安心</div><p>蛋糕通常無牛肉，但含奶、蛋、酒、堅果等；義大利麵部分有肉醬。</p><h3>容易踩雷</h3><ul><li>蛋糕很大，容易低估飽足感。</li><li>排隊時間可能超過吃蛋糕本身。</li><li>晚餐已排重口味主餐。</li></ul></section>
+<section class="panel"><h2>給店員看的日文</h2><div class="phrase">ケーキをシェアしたいので、取り皿をいただけますか？（我們想分享蛋糕，可以給小盤子嗎？）</div><div class="phrase">アルコールが入っていないケーキはどれですか？（哪些蛋糕不含酒？）</div></section>
+<section class="panel"><h2>資料與照片來源</h2><ul class="source-list"><li><a href="https://triple.guide/restaurants/d1f665e5-5119-4552-a30a-7778a118d2f3" rel="noopener noreferrer" target="_blank">店面照片來源</a><span>HARBS LUMINE EST 新宿店入口</span></li><li><a href="https://s.tabelog.com/en/tokyo/A1314/A131403/13313600/" rel="noopener noreferrer" target="_blank">招牌餐點照片來源</a><span>HARBS 招牌水果千層蛋糕 Mille Crepes</span></li><li><a href="https://www.harbs.co.jp/en/shop_kanto/" rel="noopener noreferrer" target="_blank">HARBS 官方關東店舖頁</a><span>LUMINE EST 店營業時段與 L.O.</span></li><li><a href="../../index.html" rel="noopener noreferrer" target="_blank">原始東京行程</a></li></ul><p class="photo-disclaimer">營業時間、菜單與預約規則請在出發前 7–14 天再次確認。</p></section>
+</div>
+</div>
+</div></main>
+<footer class="footer"><div class="wrap footer-inner"><span>HARBS LUMINE EST 新宿店</span><span>DAY 4・2026/11/24（二）</span></div></footer>
+</body>
+</html>

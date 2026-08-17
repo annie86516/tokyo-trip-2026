@@ -2,8 +2,8 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="color-scheme" content="light"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
 <title>2026 楓葉之旅｜日光巴士完整搭乘攻略・詳細分析重整版</title>
 <style>
 @page { size: A4 portrait; margin: 0; }
@@ -42,374 +42,410 @@ table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(
 @media(max-width:860px){main{padding-left:8px;padding-right:8px}.page{width:100%;height:auto;min-height:auto;padding:24px 20px;border-radius:18px}.page::before,.page::after{display:none}.grid2,.grid3,.grid4,.method-grid,.platform-wrap{grid-template-columns:1fr}.quick-order{grid-template-columns:1fr 1fr}.decision-flow{grid-template-columns:1fr}.decision-arrow{transform:rotate(90deg)}.route-strip{grid-template-columns:1fr}.route-stop::after{display:none}.checklist{grid-template-columns:1fr}.stop-strip{grid-template-columns:repeat(2,1fr)}}
 @media print{body{background:#fff}.side-nav,#navToggle{display:none!important}main{margin:0;padding:0}.page{box-shadow:none;margin:0;width:210mm;height:297mm;min-height:297mm;border-radius:0}a{color:#2f7188}}
 </style>
-</head>
+<style id="github-site-links-style">
+/* GitHub Pages 導覽列：2026-08-17 */
+.github-site-links {
+  position: fixed;
+  right: 14px;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  z-index: 10020;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+  max-width: calc(100vw - 28px);
+  font-family: "DFKai-SB", "標楷體", "Microsoft JhengHei", sans-serif;
+}
+.github-site-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid rgba(75, 77, 67, .18);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, .96);
+  color: #40534b !important;
+  box-shadow: 0 6px 20px rgba(50, 45, 35, .16);
+  font-size: 12.5px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-decoration: none !important;
+  white-space: nowrap;
+  backdrop-filter: blur(7px);
+}
+.github-site-links a.restaurant {
+  border-color: rgba(169, 70, 50, .26);
+  background: rgba(169, 70, 50, .96);
+  color: #fff !important;
+}
+.github-site-links a:hover,
+.github-site-links a:focus-visible {
+  transform: translateY(-1px);
+  outline: 3px solid rgba(207, 126, 104, .22);
+  outline-offset: 2px;
+}
+@media (max-width: 540px) {
+  .github-site-links { right: 9px; bottom: max(9px, env(safe-area-inset-bottom)); gap: 5px; }
+  .github-site-links a { padding: 7px 9px; font-size: 11.5px; }
+}
+@media print { .github-site-links { display: none !important; } }
+</style></head>
 <body>
-<button id="navToggle" type="button" aria-label="開啟目錄">☰ 目錄</button>
-<nav class="side-nav" id="sideNav" aria-label="日光巴士攻略目錄">
-  <div class="nav-brand"><small>DETAILED NIKKO BUS GUIDE</small><strong>楓葉之旅</strong><span>2026/11/27｜先判斷票券，再選方案，再學搭車</span></div>
-  <div class="nav-label">依建議閱讀順序</div>
-  <a href="#overview"><span class="nav-icon">總</span><span>結論與閱讀順序</span></a>
-  <a href="#ticket-analysis"><span class="nav-icon">析</span><span>先分析是否購買車票</span></a>
-  <a href="#ticket-purchase"><span class="nav-icon">買</span><span>購票、啟用與退款</span></a>
-  <a href="#plan-a"><span class="nav-icon">A</span><span>DAY 7 主行程</span></a>
-  <a href="#plan-a-return"><span class="nav-icon">返</span><span>主行程下山與社寺</span></a>
-  <a href="#plan-b"><span class="nav-icon">B</span><span>天候不佳備案</span></a>
-  <a href="#boarding"><span class="nav-icon">乘</span><span>上車、下車共通流程</span></a>
-  <a href="#payment"><span class="nav-icon">付</span><span>付款方式完整操作</span></a>
-  <a href="#platform"><span class="nav-icon">站</span><span>站牌、月台與車種</span></a>
-  <a href="#schedule"><span class="nav-icon">時</span><span>班次與 7 人實戰</span></a>
-  <a href="#backup"><span class="nav-icon">救</span><span>異常處理與日文</span></a>
-  <a href="#resources"><span class="nav-icon">官</span><span>官方工具與最終清單</span></a>
-  <div class="nav-label">快速開啟</div>
-  <a href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" target="_blank" rel="noopener"><span class="nav-icon">票</span><span>官方 Free Pass ↗</span></a>
-  <a href="https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408=" target="_blank" rel="noopener"><span class="nav-icon">表</span><span>2026 官方時刻表 ↗</span></a>
-  <a href="https://tobu-bus-nikko.mobustation.jp/" target="_blank" rel="noopener"><span class="nav-icon">即</span><span>巴士即時位置 ↗</span></a>
-  <div class="nav-tools"><button type="button" onclick="window.print()">列印／PDF</button><button type="button" id="resetChecks">重設勾選</button></div>
+<button aria-label="開啟目錄" id="navToggle" type="button">☰ 目錄</button>
+<nav aria-label="日光巴士攻略目錄" class="side-nav" id="sideNav">
+<div class="nav-brand"><small>DETAILED NIKKO BUS GUIDE</small><strong>楓葉之旅</strong><span>2026/11/27｜先判斷票券，再選方案，再學搭車</span></div>
+<div class="nav-label">依建議閱讀順序</div>
+<a href="#overview"><span class="nav-icon">總</span><span>結論與閱讀順序</span></a>
+<a href="#ticket-analysis"><span class="nav-icon">析</span><span>先分析是否購買車票</span></a>
+<a href="#ticket-purchase"><span class="nav-icon">買</span><span>購票、啟用與退款</span></a>
+<a href="#plan-a"><span class="nav-icon">A</span><span>DAY 7 主行程</span></a>
+<a href="#plan-a-return"><span class="nav-icon">返</span><span>主行程下山與社寺</span></a>
+<a href="#plan-b"><span class="nav-icon">B</span><span>天候不佳備案</span></a>
+<a href="#boarding"><span class="nav-icon">乘</span><span>上車、下車共通流程</span></a>
+<a href="#payment"><span class="nav-icon">付</span><span>付款方式完整操作</span></a>
+<a href="#platform"><span class="nav-icon">站</span><span>站牌、月台與車種</span></a>
+<a href="#schedule"><span class="nav-icon">時</span><span>班次與 7 人實戰</span></a>
+<a href="#backup"><span class="nav-icon">救</span><span>異常處理與日文</span></a>
+<a href="#resources"><span class="nav-icon">官</span><span>官方工具與最終清單</span></a>
+<div class="nav-label">快速開啟</div>
+<a href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" rel="noopener" target="_blank"><span class="nav-icon">票</span><span>官方 Free Pass ↗</span></a>
+<a href="https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408=" rel="noopener" target="_blank"><span class="nav-icon">表</span><span>2026 官方時刻表 ↗</span></a>
+<a href="https://tobu-bus-nikko.mobustation.jp/" rel="noopener" target="_blank"><span class="nav-icon">即</span><span>巴士即時位置 ↗</span></a>
+<div class="nav-tools"><button onclick="window.print()" type="button">列印／PDF</button><button id="resetChecks" type="button">重設勾選</button></div>
 </nav>
 <main>
-<section class="page" id="overview" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 01">
+<section class="page" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 01" id="overview">
 <div class="page-content">
-  <div class="hero">
-    <div class="kicker">2026 楓葉之旅｜日光巴士詳細分析重整版</div>
-    <h1>日光巴士完整搭乘攻略</h1>
-    <p class="hero-sub">適用日期：2026/11/27（五）｜7 位成人｜東武日光站 → 中禪寺溫泉／華嚴瀑布 → 西參道入口／世界遺產區</p>
-    <div class="meta-row"><span class="pill">① 先決定票券</span><span class="pill">② 再選 DAY 7 方案</span><span class="pill">③ 再學上下車付款</span><span class="pill">④ 最後看站牌與備案</span></div>
-  </div>
-  <div class="verdict-banner">
-    <div class="verdict-badge">建議<br/>購買</div>
-    <div><h3>只要會上中禪寺湖，就買「中禪寺溫泉 Free Pass」</h3><p>主行程與「上山後縮短」備案都建議買；只有在出發前已確定完全不上山、只遊世界遺產區時，才不要買或不要啟用這張票。</p></div>
-  </div>
-  <div class="quick-order">
-    <div class="order-step"><b>1</b><span>10/27 起先買數位票，但不要提前按「開始使用」。</span></div>
-    <div class="order-step"><b>2</b><span>11/27 早上依天候與巴士運行，選主行程或備案。</span></div>
-    <div class="order-step"><b>3</b><span>上山方案才啟用中禪寺 Free Pass；不上山就改世界遺產票或 IC。</span></div>
-    <div class="order-step"><b>4</b><span>全團先開好 QR，依月台與車頭代碼排隊，不要臨上車才找票。</span></div>
-  </div>
-  <div class="grid2">
-    <div class="card green"><h3>方案 A｜主行程</h3><p><strong>華嚴瀑布＋中禪寺湖短走＋世界遺產。</strong></p><p>首選 08:35 上山；下山以 12:55 或 13:15 為理想，13:35 為最後可接受的主線。</p></div>
-    <div class="card gold"><h3>方案 B｜天候不佳備案</h3><p><strong>道路仍通行：</strong>照樣上山，但只看華嚴瀑布上層／短停，10:50 或 11:20 提早下山。</p><p><strong>道路受阻：</strong>完全不上山，改世界遺產區完整行程。</p></div>
-  </div>
-  <h3>出發前先完成</h3>
-  <div class="checklist">
-    <label class="check-item"><input type="checkbox" data-check="buy"><span><b>10/27 起完成數位票購買</b><span>使用日選 11/27；先不啟用。</span></span></label>
-    <label class="check-item"><input type="checkbox" data-check="qr"><span><b>確認每張 QR 可切換顯示</b><span>至少分散於多支手機，不要只靠一支。</span></span></label>
-    <label class="check-item"><input type="checkbox" data-check="timetable"><span><b>官方時刻表存入手機</b><span>不要只依 Google Maps。</span></span></label>
-    <label class="check-item"><input type="checkbox" data-check="weather"><span><b>11/26 晚上查天候與運行</b><span>11/27 早上再確認一次。</span></span></label>
-  </div>
+<div class="hero">
+<div class="kicker">2026 楓葉之旅｜日光巴士詳細分析重整版</div>
+<h1>日光巴士完整搭乘攻略</h1>
+<p class="hero-sub">適用日期：2026/11/27（五）｜7 位成人｜東武日光站 → 中禪寺溫泉／華嚴瀑布 → 西參道入口／世界遺產區</p>
+<div class="meta-row"><span class="pill">① 先決定票券</span><span class="pill">② 再選 DAY 7 方案</span><span class="pill">③ 再學上下車付款</span><span class="pill">④ 最後看站牌與備案</span></div>
+</div>
+<div class="verdict-banner">
+<div class="verdict-badge">建議<br/>購買</div>
+<div><h3>只要會上中禪寺湖，就買「中禪寺溫泉 Free Pass」</h3><p>主行程與「上山後縮短」備案都建議買；只有在出發前已確定完全不上山、只遊世界遺產區時，才不要買或不要啟用這張票。</p></div>
+</div>
+<div class="quick-order">
+<div class="order-step"><b>1</b><span>10/27 起先買數位票，但不要提前按「開始使用」。</span></div>
+<div class="order-step"><b>2</b><span>11/27 早上依天候與巴士運行，選主行程或備案。</span></div>
+<div class="order-step"><b>3</b><span>上山方案才啟用中禪寺 Free Pass；不上山就改世界遺產票或 IC。</span></div>
+<div class="order-step"><b>4</b><span>全團先開好 QR，依月台與車頭代碼排隊，不要臨上車才找票。</span></div>
+</div>
+<div class="grid2">
+<div class="card green"><h3>方案 A｜主行程</h3><p><strong>華嚴瀑布＋中禪寺湖短走＋世界遺產。</strong></p><p>首選 08:35 上山；下山以 12:55 或 13:15 為理想，13:35 為最後可接受的主線。</p></div>
+<div class="card gold"><h3>方案 B｜天候不佳備案</h3><p><strong>道路仍通行：</strong>照樣上山，但只看華嚴瀑布上層／短停，10:50 或 11:20 提早下山。</p><p><strong>道路受阻：</strong>完全不上山，改世界遺產區完整行程。</p></div>
+</div>
+<h3>出發前先完成</h3>
+<div class="checklist">
+<label class="check-item"><input data-check="buy" type="checkbox"/><span><b>10/27 起完成數位票購買</b><span>使用日選 11/27；先不啟用。</span></span></label>
+<label class="check-item"><input data-check="qr" type="checkbox"/><span><b>確認每張 QR 可切換顯示</b><span>至少分散於多支手機，不要只靠一支。</span></span></label>
+<label class="check-item"><input data-check="timetable" type="checkbox"/><span><b>官方時刻表存入手機</b><span>不要只依 Google Maps。</span></span></label>
+<label class="check-item"><input data-check="weather" type="checkbox"/><span><b>11/26 晚上查天候與運行</b><span>11/27 早上再確認一次。</span></span></label>
+</div>
 </div>
 </section>
-
-<section class="page compact" id="ticket-analysis" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 02">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 02" id="ticket-analysis">
 <div class="page-content">
-  <h2>第一步｜先分析是否購買車票</h2>
-  <div class="card red"><h3>結論：主行程應購買「中禪寺溫泉 Free Pass」</h3><p>成人目前 <strong>¥2,300／人、2 日有效</strong>。本行程至少包含「東武日光站 → 中禪寺溫泉」與「中禪寺溫泉 → 西參道入口」兩段；若社寺結束後再搭世界遺產巴士回站，節省會更明顯。</p></div>
-  <h3>依 DAY 7 實際走法比較</h3>
-  <table>
-    <thead><tr><th>情境</th><th>逐次付費估算／人</th><th>適合票券</th><th>判斷</th></tr></thead>
-    <tbody>
-      <tr class="recommended"><td><strong>方案 A 主行程</strong><br/>日光站→中禪寺→西參道</td><td><span class="money">約 ¥2,400</span><br/><span class="small-note">¥1,250＋約 ¥1,150</span></td><td><strong>中禪寺溫泉 Free Pass ¥2,300</strong></td><td class="yes">買票，至少省約 ¥100</td></tr>
-      <tr class="recommended"><td><strong>主行程＋社寺後再搭巴士回站</strong></td><td><span class="money">約 ¥2,750</span><br/><span class="small-note">再加世界遺產區段最高約 ¥350</span></td><td><strong>中禪寺溫泉 Free Pass ¥2,300</strong></td><td class="yes">買票，約省 ¥450</td></tr>
-      <tr class="backup-row"><td><strong>方案 B1</strong><br/>天候差但仍上山，提早下山</td><td><span class="money">仍約 ¥2,400 以上</span></td><td><strong>中禪寺溫泉 Free Pass ¥2,300</strong></td><td class="yes">仍應買</td></tr>
-      <tr><td><strong>方案 B2</strong><br/>完全不上山，只走世界遺產</td><td><span class="money">一趟 ¥350；來回約 ¥700</span></td><td>一趟用 IC；搭 2 次以上可買<strong>世界遺產巡迴券 ¥600</strong></td><td class="no">不要啟用中禪寺票</td></tr>
-    </tbody>
-  </table>
-  <div class="grid3">
-    <div class="card green"><h3>7 人主行程</h3><div class="big-number">¥16,100</div><p>7 張 Free Pass 總額。</p></div>
-    <div class="card gold"><h3>逐次付費最低估算</h3><div class="big-number">約 ¥16,800</div><p>7 人只算上山＋下至西參道。</p></div>
-    <div class="card blue"><h3>若再搭回車站</h3><div class="big-number">約 ¥19,250</div><p>7 人估計可比 Free Pass 多支出約 ¥3,150。</p></div>
-  </div>
-  <div class="callout"><strong>為什麼不買 ¥600 世界遺產巡迴券再加單程票？</strong> 因為它不涵蓋中禪寺湖區；主行程的長距離上、下山才是主要費用。¥600 票只適合「確定完全不上山」的方案 B2。</div>
-  <div class="callout blue"><strong>運賃提醒：</strong>東武日光站至中禪寺溫泉官方普通運賃為 ¥1,250；中禪寺溫泉至西參道入口在目前運賃搜尋約 ¥1,150。11 月出發前仍應再用官方運賃搜尋確認。</div>
-  <div class="action-row"><a class="action-btn maple" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" target="_blank" rel="noopener">官方票價與適用區間 ↗</a><a class="action-btn" href="https://transfer-cloud.navitime.biz/tobubus?feature=fareCertificate" target="_blank" rel="noopener">官方運賃搜尋 ↗</a></div>
+<h2>第一步｜先分析是否購買車票</h2>
+<div class="card red"><h3>結論：主行程應購買「中禪寺溫泉 Free Pass」</h3><p>成人目前 <strong>¥2,300／人、2 日有效</strong>。本行程至少包含「東武日光站 → 中禪寺溫泉」與「中禪寺溫泉 → 西參道入口」兩段；若社寺結束後再搭世界遺產巴士回站，節省會更明顯。</p></div>
+<h3>依 DAY 7 實際走法比較</h3>
+<table>
+<thead><tr><th>情境</th><th>逐次付費估算／人</th><th>適合票券</th><th>判斷</th></tr></thead>
+<tbody>
+<tr class="recommended"><td><strong>方案 A 主行程</strong><br/>日光站→中禪寺→西參道</td><td><span class="money">約 ¥2,400</span><br/><span class="small-note">¥1,250＋約 ¥1,150</span></td><td><strong>中禪寺溫泉 Free Pass ¥2,300</strong></td><td class="yes">買票，至少省約 ¥100</td></tr>
+<tr class="recommended"><td><strong>主行程＋社寺後再搭巴士回站</strong></td><td><span class="money">約 ¥2,750</span><br/><span class="small-note">再加世界遺產區段最高約 ¥350</span></td><td><strong>中禪寺溫泉 Free Pass ¥2,300</strong></td><td class="yes">買票，約省 ¥450</td></tr>
+<tr class="backup-row"><td><strong>方案 B1</strong><br/>天候差但仍上山，提早下山</td><td><span class="money">仍約 ¥2,400 以上</span></td><td><strong>中禪寺溫泉 Free Pass ¥2,300</strong></td><td class="yes">仍應買</td></tr>
+<tr><td><strong>方案 B2</strong><br/>完全不上山，只走世界遺產</td><td><span class="money">一趟 ¥350；來回約 ¥700</span></td><td>一趟用 IC；搭 2 次以上可買<strong>世界遺產巡迴券 ¥600</strong></td><td class="no">不要啟用中禪寺票</td></tr>
+</tbody>
+</table>
+<div class="grid3">
+<div class="card green"><h3>7 人主行程</h3><div class="big-number">¥16,100</div><p>7 張 Free Pass 總額。</p></div>
+<div class="card gold"><h3>逐次付費最低估算</h3><div class="big-number">約 ¥16,800</div><p>7 人只算上山＋下至西參道。</p></div>
+<div class="card blue"><h3>若再搭回車站</h3><div class="big-number">約 ¥19,250</div><p>7 人估計可比 Free Pass 多支出約 ¥3,150。</p></div>
+</div>
+<div class="callout"><strong>為什麼不買 ¥600 世界遺產巡迴券再加單程票？</strong> 因為它不涵蓋中禪寺湖區；主行程的長距離上、下山才是主要費用。¥600 票只適合「確定完全不上山」的方案 B2。</div>
+<div class="callout blue"><strong>運賃提醒：</strong>東武日光站至中禪寺溫泉官方普通運賃為 ¥1,250；中禪寺溫泉至西參道入口在目前運賃搜尋約 ¥1,150。11 月出發前仍應再用官方運賃搜尋確認。</div>
+<div class="action-row"><a class="action-btn maple" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" rel="noopener" target="_blank">官方票價與適用區間 ↗</a><a class="action-btn" href="https://transfer-cloud.navitime.biz/tobubus?feature=fareCertificate" rel="noopener" target="_blank">官方運賃搜尋 ↗</a></div>
 </div>
 </section>
-
-<section class="page compact" id="ticket-purchase" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 03">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 03" id="ticket-purchase">
 <div class="page-content">
-  <h2>第二步｜購票、啟用、退款與 7 人管理</h2>
-  <div class="grid2">
-    <div class="card green"><h3>數位票｜本團首選</h3><ol class="steps"><li>10/27 起進入 NIKKO MaaS，指定使用日 11/27。</li><li>完成會員登入與付款，確認票券出現在清單中。</li><li><strong>先不要按「開始使用／チケットを使う」。</strong></li><li>11/27 早上決定上山後，再啟用並開啟「巴士乘車 QR」。</li><li>上車掃一次、下車再掃一次。</li></ol></div>
-    <div class="card gold"><h3>紙本票｜只作備案</h3><ol class="steps"><li>到東武日光站 Tourist Center 購買。</li><li>官方目前營業時間為 08:20–16:20。</li><li>本團想搭 08:35，開門後只有約 15 分鐘，7 人排隊買票風險太高。</li><li>紙票每人一張；依車門型式，上／下車向司機清楚出示。</li></ol></div>
-  </div>
-  <h3>為什麼「先買、晚啟用」最適合本團？</h3>
-  <div class="decision-flow">
-    <div class="decision-node">10/27 起<br/>先完成購買</div><div class="decision-arrow">→</div>
-    <div class="decision-node back">11/27 早上<br/>判斷天候／運行</div><div class="decision-arrow">→</div>
-    <div class="decision-node main">上山才啟用<br/>不上山就退款／改票</div>
-  </div>
-  <div class="callout green"><strong>NIKKO MaaS 的彈性：</strong>官方目前說明，使用期間內且「尚未開始使用」可在網站辦理退款；一旦開始使用就不能退款。因此早上做完方案判斷再啟用最安全。</div>
-  <h3>7 人票券管理建議</h3>
-  <table>
-    <thead><tr><th>做法</th><th>優點</th><th>風險／處理</th></tr></thead>
-    <tbody>
-      <tr class="recommended"><td><strong>每人各自持票</strong></td><td>掃碼最快；手機故障不會影響全團</td><td>需先教會每人開 QR；由 1 人保留購票明細</td></tr>
-      <tr><td><strong>分散到 2–3 支手機</strong></td><td>較容易統一管理</td><td>出發前要實測能否快速切換多張票，排隊時先開好</td></tr>
-      <tr class="danger-row"><td><strong>7 張全放一支手機</strong></td><td>表面上集中</td><td>最慢且單點故障；不建議</td></tr>
-    </tbody>
-  </table>
-  <div class="callout red"><strong>不要把截圖當正式票券。</strong>保留截圖只作購買紀錄；實際掃碼應使用票券頁當下顯示的 QR。手機亮度調高，深色模式先關閉。</div>
-  <div class="action-row"><a class="action-btn maple" href="https://www.tobu-maas.jp/lp/nikko-maas" target="_blank" rel="noopener">NIKKO MaaS ↗</a><a class="action-btn green" href="https://ticket.jorudan.co.jp/tobu-bus-nikko/en/" target="_blank" rel="noopener">Jorudan 手機票 ↗</a><a class="action-btn" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" target="_blank" rel="noopener">官方購票說明 ↗</a></div>
+<h2>第二步｜購票、啟用、退款與 7 人管理</h2>
+<div class="grid2">
+<div class="card green"><h3>數位票｜本團首選</h3><ol class="steps"><li>10/27 起進入 NIKKO MaaS，指定使用日 11/27。</li><li>完成會員登入與付款，確認票券出現在清單中。</li><li><strong>先不要按「開始使用／チケットを使う」。</strong></li><li>11/27 早上決定上山後，再啟用並開啟「巴士乘車 QR」。</li><li>上車掃一次、下車再掃一次。</li></ol></div>
+<div class="card gold"><h3>紙本票｜只作備案</h3><ol class="steps"><li>到東武日光站 Tourist Center 購買。</li><li>官方目前營業時間為 08:20–16:20。</li><li>本團想搭 08:35，開門後只有約 15 分鐘，7 人排隊買票風險太高。</li><li>紙票每人一張；依車門型式，上／下車向司機清楚出示。</li></ol></div>
+</div>
+<h3>為什麼「先買、晚啟用」最適合本團？</h3>
+<div class="decision-flow">
+<div class="decision-node">10/27 起<br/>先完成購買</div><div class="decision-arrow">→</div>
+<div class="decision-node back">11/27 早上<br/>判斷天候／運行</div><div class="decision-arrow">→</div>
+<div class="decision-node main">上山才啟用<br/>不上山就退款／改票</div>
+</div>
+<div class="callout green"><strong>NIKKO MaaS 的彈性：</strong>官方目前說明，使用期間內且「尚未開始使用」可在網站辦理退款；一旦開始使用就不能退款。因此早上做完方案判斷再啟用最安全。</div>
+<h3>7 人票券管理建議</h3>
+<table>
+<thead><tr><th>做法</th><th>優點</th><th>風險／處理</th></tr></thead>
+<tbody>
+<tr class="recommended"><td><strong>每人各自持票</strong></td><td>掃碼最快；手機故障不會影響全團</td><td>需先教會每人開 QR；由 1 人保留購票明細</td></tr>
+<tr><td><strong>分散到 2–3 支手機</strong></td><td>較容易統一管理</td><td>出發前要實測能否快速切換多張票，排隊時先開好</td></tr>
+<tr class="danger-row"><td><strong>7 張全放一支手機</strong></td><td>表面上集中</td><td>最慢且單點故障；不建議</td></tr>
+</tbody>
+</table>
+<div class="callout red"><strong>不要把截圖當正式票券。</strong>保留截圖只作購買紀錄；實際掃碼應使用票券頁當下顯示的 QR。手機亮度調高，深色模式先關閉。</div>
+<div class="action-row"><a class="action-btn maple" href="https://www.tobu-maas.jp/lp/nikko-maas" rel="noopener" target="_blank">NIKKO MaaS ↗</a><a class="action-btn green" href="https://ticket.jorudan.co.jp/tobu-bus-nikko/en/" rel="noopener" target="_blank">Jorudan 手機票 ↗</a><a class="action-btn" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" rel="noopener" target="_blank">官方購票說明 ↗</a></div>
 </div>
 </section>
-
-<section class="page compact" id="plan-a" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 04">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 04" id="plan-a">
 <div class="page-content">
-  <h2>第三步｜DAY 7 方案 A：華嚴瀑布＋中禪寺湖＋世界遺產（主行程）</h2>
-  <div class="route-strip"><div class="route-stop"><b>民宿</b><span>提早出門</span></div><div class="route-stop"><b>2C／2A</b><span>東武日光站</span></div><div class="route-stop"><b>26</b><span>中禪寺溫泉</span></div><div class="route-stop"><b>9</b><span>西參道入口</span></div><div class="route-stop"><b>社寺</b><span>世界遺產區</span></div></div>
-  <div class="timeline">
-    <div class="time-row"><div class="time">07:50 前</div><div class="time-copy"><b>離開民宿</b><p>目標 08:10 前到東武日光站。7 人同行建議至少提早 20–25 分鐘排隊，避免只能分批上車。</p></div></div>
-    <div class="time-row"><div class="time">08:35</div><div class="time-copy"><b>首選：2C 月台／C 系統</b><p>08:35 東武日光站出發，09:20 抵達 26 中禪寺溫泉。</p></div></div>
-    <div class="time-row"><div class="time">08:45</div><div class="time-copy"><b>備選：2A 月台／YK 系統</b><p>08:45 出發，09:30 抵達；錯過首選立即轉排，不要在站內重新討論。</p></div></div>
-    <div class="time-row"><div class="time">09:20–10:25</div><div class="time-copy"><b>華嚴瀑布</b><p>巴士總站步行約 5 分鐘。先看免費上層觀景區；天候與排隊許可再搭觀瀑電梯。11 月仍是 08:00–17:00 營業期，但惡劣天候可能停駛。</p></div></div>
-    <div class="time-row"><div class="time">10:25–11:35</div><div class="time-copy"><b>中禪寺湖核心區短走</b><p>只走總站周邊湖畔、鳥居或咖啡休息；不延伸龍頭瀑布、戰場之原、湯元，也不搭季節已結束的半月山線。</p></div></div>
-    <div class="time-row"><div class="time">11:35–12:25</div><div class="time-copy"><b>午餐／回到 26B 月台</b><p>12:30 前應回到總站排隊。當天有積雪、低溫或巴士延誤時，直接取消湖畔延伸。</p></div></div>
-  </div>
-  <div class="callout"><strong>最重要的時間控制：</strong>若希望下午不只看東照宮，應優先搭 12:55 或 13:15 下山。13:35 是主行程最後可接受班次；13:55 之後只能大幅縮短社寺。</div>
-  <div class="grid2">
-    <div class="card green"><h3>主行程保留</h3><ul class="tight-list"><li>華嚴瀑布</li><li>中禪寺湖總站周邊短走</li><li>日光東照宮</li><li>二荒山神社</li></ul></div>
-    <div class="card red"><h3>主行程不加碼</h3><ul class="tight-list"><li>龍頭瀑布／戰場之原／湯元</li><li>半月山與大使館別墅區長線</li><li>午餐排隊超過 30 分鐘的店</li><li>13:35 後仍想塞滿三社一寺</li></ul></div>
-  </div>
-  <div class="action-row"><a class="action-btn maple" href="https://www.google.com/maps/dir/?api=1&origin=1-chome-687-1+Inarimachi+Nikko&destination=Tobu-Nikko+Station&travelmode=walking" target="_blank" rel="noopener">民宿 → 東武日光站 ↗</a><a class="action-btn" href="https://www.google.com/maps/dir/?api=1&origin=Chuzenji+Onsen+Bus+Terminal&destination=Kegon+Falls&travelmode=walking" target="_blank" rel="noopener">中禪寺總站 → 華嚴瀑布 ↗</a></div>
+<h2>第三步｜DAY 7 方案 A：華嚴瀑布＋中禪寺湖＋世界遺產（主行程）</h2>
+<div class="route-strip"><div class="route-stop"><b>民宿</b><span>提早出門</span></div><div class="route-stop"><b>2C／2A</b><span>東武日光站</span></div><div class="route-stop"><b>26</b><span>中禪寺溫泉</span></div><div class="route-stop"><b>9</b><span>西參道入口</span></div><div class="route-stop"><b>社寺</b><span>世界遺產區</span></div></div>
+<div class="timeline">
+<div class="time-row"><div class="time">07:50 前</div><div class="time-copy"><b>離開民宿</b><p>目標 08:10 前到東武日光站。7 人同行建議至少提早 20–25 分鐘排隊，避免只能分批上車。</p></div></div>
+<div class="time-row"><div class="time">08:35</div><div class="time-copy"><b>首選：2C 月台／C 系統</b><p>08:35 東武日光站出發，09:20 抵達 26 中禪寺溫泉。</p></div></div>
+<div class="time-row"><div class="time">08:45</div><div class="time-copy"><b>備選：2A 月台／YK 系統</b><p>08:45 出發，09:30 抵達；錯過首選立即轉排，不要在站內重新討論。</p></div></div>
+<div class="time-row"><div class="time">09:20–10:25</div><div class="time-copy"><b>華嚴瀑布</b><p>巴士總站步行約 5 分鐘。先看免費上層觀景區；天候與排隊許可再搭觀瀑電梯。11 月仍是 08:00–17:00 營業期，但惡劣天候可能停駛。</p></div></div>
+<div class="time-row"><div class="time">10:25–11:35</div><div class="time-copy"><b>中禪寺湖核心區短走</b><p>只走總站周邊湖畔、鳥居或咖啡休息；不延伸龍頭瀑布、戰場之原、湯元，也不搭季節已結束的半月山線。</p></div></div>
+<div class="time-row"><div class="time">11:35–12:25</div><div class="time-copy"><b>午餐／回到 26B 月台</b><p>12:30 前應回到總站排隊。當天有積雪、低溫或巴士延誤時，直接取消湖畔延伸。</p></div></div>
+</div>
+<div class="callout"><strong>最重要的時間控制：</strong>若希望下午不只看東照宮，應優先搭 12:55 或 13:15 下山。13:35 是主行程最後可接受班次；13:55 之後只能大幅縮短社寺。</div>
+<div class="grid2">
+<div class="card green"><h3>主行程保留</h3><ul class="tight-list"><li>華嚴瀑布</li><li>中禪寺湖總站周邊短走</li><li>日光東照宮</li><li>二荒山神社</li></ul></div>
+<div class="card red"><h3>主行程不加碼</h3><ul class="tight-list"><li>龍頭瀑布／戰場之原／湯元</li><li>半月山與大使館別墅區長線</li><li>午餐排隊超過 30 分鐘的店</li><li>13:35 後仍想塞滿三社一寺</li></ul></div>
+</div>
+<div class="action-row"><a class="action-btn maple" href="https://www.google.com/maps/dir/?api=1&amp;origin=1-chome-687-1+Inarimachi+Nikko&amp;destination=Tobu-Nikko+Station&amp;travelmode=walking" rel="noopener" target="_blank">民宿 → 東武日光站 ↗</a><a class="action-btn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Chuzenji+Onsen+Bus+Terminal&amp;destination=Kegon+Falls&amp;travelmode=walking" rel="noopener" target="_blank">中禪寺總站 → 華嚴瀑布 ↗</a></div>
 </div>
 </section>
-
-<section class="page compact" id="plan-a-return" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 05">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 05" id="plan-a-return">
 <div class="page-content">
-  <h2>方案 A 下半段｜下山班次與世界遺產取捨</h2>
-  <h3>26B 中禪寺溫泉 → 9 西參道入口</h3>
-  <table>
-    <thead><tr><th>建議</th><th>中禪寺出發</th><th>西參道抵達</th><th>下午可完成程度</th></tr></thead>
-    <tbody>
-      <tr class="recommended"><td><strong>最穩妥</strong></td><td>12:55｜C</td><td>13:22</td><td>東照宮＋二荒山＋輪王寺三佛堂／大猷院擇一</td></tr>
-      <tr class="recommended"><td><strong>主行程首選</strong></td><td>13:15｜YK</td><td>13:42</td><td>東照宮＋二荒山；第三處只看剩餘時間</td></tr>
-      <tr class="backup-row"><td><strong>最後可接受</strong></td><td>13:35｜YK</td><td>14:02</td><td>東照宮優先＋二荒山外圍；不要再排完整第三處</td></tr>
-      <tr><td><strong>已明顯延誤</strong></td><td>13:55｜C</td><td>14:22</td><td>只保留東照宮；其餘視閉門時間</td></tr>
-      <tr class="danger-row"><td><strong>不要搭</strong></td><td>14:45｜EX</td><td>不停西參道</td><td>直接回東武日光站，會錯過世界遺產入口</td></tr>
-    </tbody>
-  </table>
-  <div class="callout blue"><strong>下山要到 26B：</strong>中禪寺溫泉的日光站方向與急行均由 26B 一帶上車；26A 是往湯元，26C 是湖畔／季節線。現場仍以柱號與電子看板為準。</div>
-  <h3>依抵達時間決定社寺，不要固定硬塞</h3>
-  <div class="grid3">
-    <div class="card green"><h3>13:22 抵達</h3><p><strong>東照宮 → 二荒山 → 三佛堂或大猷院擇一。</strong></p><p class="small-note">是唯一較有餘裕的版本。</p></div>
-    <div class="card gold"><h3>13:42 抵達</h3><p><strong>東照宮 → 二荒山。</strong></p><p class="small-note">第三處只在 15:15 前仍有時間時進入。</p></div>
-    <div class="card red"><h3>14:02 後抵達</h3><p><strong>東照宮一處優先。</strong></p><p class="small-note">二荒山以外部參拜或短停為主。</p></div>
-  </div>
-  <div class="callout"><strong>冬季閉門壓力：</strong>輪王寺 11–3 月為 08:00–16:00，受付通常於閉門前 30 分鐘結束；二荒山神社冬季亦約 16:00 閉門。行程請用「15:30 前完成最後入場」作保守基準。</div>
-  <h3>回民宿方式</h3>
-  <div class="grid2"><div class="card blue"><h3>體力足夠</h3><p>從社寺區經神橋、鉢石町方向步行回東武日光站／民宿，沿途可拍神橋外觀。</p></div><div class="card green"><h3>體力不足</h3><p>在 85 大猷院・二荒山神社前或世界遺產區站牌搭 W 巴士回東武日光站；中禪寺 Free Pass 可搭。</p></div></div>
-  <div class="action-row"><a class="action-btn green" href="https://www.google.com/maps/dir/?api=1&origin=Nishisando+Iriguchi&destination=Rinnoji+Taiyuin&travelmode=walking&waypoints=Nikko+Toshogu%7CNikko+Futarasan+Shrine" target="_blank" rel="noopener">西參道 → 東照宮 → 二荒山／大猷院 ↗</a><a class="action-btn" href="https://www.rinnoji.or.jp/information.html" target="_blank" rel="noopener">輪王寺拝觀時間 ↗</a></div>
+<h2>方案 A 下半段｜下山班次與世界遺產取捨</h2>
+<h3>26B 中禪寺溫泉 → 9 西參道入口</h3>
+<table>
+<thead><tr><th>建議</th><th>中禪寺出發</th><th>西參道抵達</th><th>下午可完成程度</th></tr></thead>
+<tbody>
+<tr class="recommended"><td><strong>最穩妥</strong></td><td>12:55｜C</td><td>13:22</td><td>東照宮＋二荒山＋輪王寺三佛堂／大猷院擇一</td></tr>
+<tr class="recommended"><td><strong>主行程首選</strong></td><td>13:15｜YK</td><td>13:42</td><td>東照宮＋二荒山；第三處只看剩餘時間</td></tr>
+<tr class="backup-row"><td><strong>最後可接受</strong></td><td>13:35｜YK</td><td>14:02</td><td>東照宮優先＋二荒山外圍；不要再排完整第三處</td></tr>
+<tr><td><strong>已明顯延誤</strong></td><td>13:55｜C</td><td>14:22</td><td>只保留東照宮；其餘視閉門時間</td></tr>
+<tr class="danger-row"><td><strong>不要搭</strong></td><td>14:45｜EX</td><td>不停西參道</td><td>直接回東武日光站，會錯過世界遺產入口</td></tr>
+</tbody>
+</table>
+<div class="callout blue"><strong>下山要到 26B：</strong>中禪寺溫泉的日光站方向與急行均由 26B 一帶上車；26A 是往湯元，26C 是湖畔／季節線。現場仍以柱號與電子看板為準。</div>
+<h3>依抵達時間決定社寺，不要固定硬塞</h3>
+<div class="grid3">
+<div class="card green"><h3>13:22 抵達</h3><p><strong>東照宮 → 二荒山 → 三佛堂或大猷院擇一。</strong></p><p class="small-note">是唯一較有餘裕的版本。</p></div>
+<div class="card gold"><h3>13:42 抵達</h3><p><strong>東照宮 → 二荒山。</strong></p><p class="small-note">第三處只在 15:15 前仍有時間時進入。</p></div>
+<div class="card red"><h3>14:02 後抵達</h3><p><strong>東照宮一處優先。</strong></p><p class="small-note">二荒山以外部參拜或短停為主。</p></div>
+</div>
+<div class="callout"><strong>冬季閉門壓力：</strong>輪王寺 11–3 月為 08:00–16:00，受付通常於閉門前 30 分鐘結束；二荒山神社冬季亦約 16:00 閉門。行程請用「15:30 前完成最後入場」作保守基準。</div>
+<h3>回民宿方式</h3>
+<div class="grid2"><div class="card blue"><h3>體力足夠</h3><p>從社寺區經神橋、鉢石町方向步行回東武日光站／民宿，沿途可拍神橋外觀。</p></div><div class="card green"><h3>體力不足</h3><p>在 85 大猷院・二荒山神社前或世界遺產區站牌搭 W 巴士回東武日光站；中禪寺 Free Pass 可搭。</p></div></div>
+<div class="action-row"><a class="action-btn green" href="https://www.google.com/maps/dir/?api=1&amp;origin=Nishisando+Iriguchi&amp;destination=Rinnoji+Taiyuin&amp;travelmode=walking&amp;waypoints=Nikko+Toshogu%7CNikko+Futarasan+Shrine" rel="noopener" target="_blank">西參道 → 東照宮 → 二荒山／大猷院 ↗</a><a class="action-btn" href="https://www.rinnoji.or.jp/information.html" rel="noopener" target="_blank">輪王寺拝觀時間 ↗</a></div>
 </div>
 </section>
-
-<section class="page compact" id="plan-b" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 06">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 06" id="plan-b">
 <div class="page-content">
-  <h2>DAY 7 方案 B｜天候不佳備案：分成「仍可上山」與「完全不上山」</h2>
-  <div class="decision-flow">
-    <div class="decision-node">06:45–07:00<br/>查天候與運行</div><div class="decision-arrow">→</div>
-    <div class="decision-node back">道路通行／巴士運行<br/>只是雨雪或能見度差</div><div class="decision-arrow">→</div>
-    <div class="decision-node main">B1 上山短縮版<br/>提早回世界遺產</div>
-  </div>
-  <div class="decision-flow">
-    <div class="decision-node">若有停駛／封路／強風<br/>或團員不適合山路</div><div class="decision-arrow">→</div>
-    <div class="decision-node stop">B2 完全不上山</div><div class="decision-arrow">→</div>
-    <div class="decision-node">世界遺產區完整行程<br/>改用 IC 或 ¥600 票</div>
-  </div>
-  <div class="grid2">
-    <div class="card gold">
-      <h3>B1｜上山短縮版</h3>
-      <div class="timeline">
-        <div class="time-row"><div class="time">08:35／08:45</div><div class="time-copy"><b>仍搭正常上山班次</b><p>因為道路仍通行，只是景觀與步行條件較差。</p></div></div>
-        <div class="time-row"><div class="time">09:20–10:25</div><div class="time-copy"><b>華嚴瀑布短停</b><p>先看上層；電梯停駛或視野差就不等待，取消湖畔長走。</p></div></div>
-        <div class="time-row"><div class="time">10:50</div><div class="time-copy"><b>提早下山首選</b><p>約 11:17 抵達西參道入口。</p></div></div>
-        <div class="time-row"><div class="time">11:20</div><div class="time-copy"><b>提早下山備選</b><p>約 11:47 抵達西參道入口。</p></div></div>
-      </div>
-      <p><strong>票券：</strong>仍使用中禪寺溫泉 Free Pass。</p>
-    </div>
-    <div class="card red">
-      <h3>B2｜完全不上山</h3>
-      <ol class="steps"><li>不要啟用中禪寺 Free Pass；若數位票尚未使用，先依官方規則退款。</li><li>從東武日光站 2B 搭 W 世界遺產巴士，或步行至神橋／輪王寺。</li><li>預計依序安排：輪王寺三佛堂 → 東照宮 → 二荒山 → 大猷院 → 神橋。</li><li>若只搭一次巴士，用 IC／信用卡約 ¥350；若搭 2 次以上，買世界遺產巡迴券 ¥600。</li></ol>
-      <p><strong>優點：</strong>不受山路、能見度與暈車影響，反而能完整看社寺。</p>
-    </div>
-  </div>
-  <h3>什麼狀況要直接用 B2？</h3>
-  <table>
-    <thead><tr><th>訊號</th><th>判斷</th><th>處理</th></tr></thead>
-    <tbody>
-      <tr><td>官方公告停駛／道路封閉</td><td class="no">直接 B2</td><td>不上山，不在站內等待「也許會恢復」</td></tr>
-      <tr><td>積雪、結冰、強風；多位團員易暈車</td><td class="warn-text">優先 B2</td><td>以安全與全團舒適為先</td></tr>
-      <tr><td>只是小雨、低雲，但巴士正常</td><td class="yes">可 B1</td><td>上山短停、10:50／11:20 提早下山</td></tr>
-      <tr><td>華嚴瀑布電梯停駛，但道路正常</td><td class="yes">可 B1</td><td>看上層觀景區，不等待恢復</td></tr>
-    </tbody>
-  </table>
-  <div class="callout red"><strong>不要在已啟用票券後才改主意。</strong>最晚在第一趟巴士上車前完成方案決定；數位票一旦開始使用，官方不受理退款。</div>
-  <div class="action-row"><a class="action-btn gold" href="https://www.tobu-bus.com/pc/area/nikko/" target="_blank" rel="noopener">日光區最新運行公告 ↗</a><a class="action-btn" href="https://tobu-bus-nikko.mobustation.jp/" target="_blank" rel="noopener">即時位置 ↗</a><a class="action-btn maple" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" target="_blank" rel="noopener">世界遺產巡迴券資訊 ↗</a></div>
+<h2>DAY 7 方案 B｜天候不佳備案：分成「仍可上山」與「完全不上山」</h2>
+<div class="decision-flow">
+<div class="decision-node">06:45–07:00<br/>查天候與運行</div><div class="decision-arrow">→</div>
+<div class="decision-node back">道路通行／巴士運行<br/>只是雨雪或能見度差</div><div class="decision-arrow">→</div>
+<div class="decision-node main">B1 上山短縮版<br/>提早回世界遺產</div>
+</div>
+<div class="decision-flow">
+<div class="decision-node">若有停駛／封路／強風<br/>或團員不適合山路</div><div class="decision-arrow">→</div>
+<div class="decision-node stop">B2 完全不上山</div><div class="decision-arrow">→</div>
+<div class="decision-node">世界遺產區完整行程<br/>改用 IC 或 ¥600 票</div>
+</div>
+<div class="grid2">
+<div class="card gold">
+<h3>B1｜上山短縮版</h3>
+<div class="timeline">
+<div class="time-row"><div class="time">08:35／08:45</div><div class="time-copy"><b>仍搭正常上山班次</b><p>因為道路仍通行，只是景觀與步行條件較差。</p></div></div>
+<div class="time-row"><div class="time">09:20–10:25</div><div class="time-copy"><b>華嚴瀑布短停</b><p>先看上層；電梯停駛或視野差就不等待，取消湖畔長走。</p></div></div>
+<div class="time-row"><div class="time">10:50</div><div class="time-copy"><b>提早下山首選</b><p>約 11:17 抵達西參道入口。</p></div></div>
+<div class="time-row"><div class="time">11:20</div><div class="time-copy"><b>提早下山備選</b><p>約 11:47 抵達西參道入口。</p></div></div>
+</div>
+<p><strong>票券：</strong>仍使用中禪寺溫泉 Free Pass。</p>
+</div>
+<div class="card red">
+<h3>B2｜完全不上山</h3>
+<ol class="steps"><li>不要啟用中禪寺 Free Pass；若數位票尚未使用，先依官方規則退款。</li><li>從東武日光站 2B 搭 W 世界遺產巴士，或步行至神橋／輪王寺。</li><li>預計依序安排：輪王寺三佛堂 → 東照宮 → 二荒山 → 大猷院 → 神橋。</li><li>若只搭一次巴士，用 IC／信用卡約 ¥350；若搭 2 次以上，買世界遺產巡迴券 ¥600。</li></ol>
+<p><strong>優點：</strong>不受山路、能見度與暈車影響，反而能完整看社寺。</p>
+</div>
+</div>
+<h3>什麼狀況要直接用 B2？</h3>
+<table>
+<thead><tr><th>訊號</th><th>判斷</th><th>處理</th></tr></thead>
+<tbody>
+<tr><td>官方公告停駛／道路封閉</td><td class="no">直接 B2</td><td>不上山，不在站內等待「也許會恢復」</td></tr>
+<tr><td>積雪、結冰、強風；多位團員易暈車</td><td class="warn-text">優先 B2</td><td>以安全與全團舒適為先</td></tr>
+<tr><td>只是小雨、低雲，但巴士正常</td><td class="yes">可 B1</td><td>上山短停、10:50／11:20 提早下山</td></tr>
+<tr><td>華嚴瀑布電梯停駛，但道路正常</td><td class="yes">可 B1</td><td>看上層觀景區，不等待恢復</td></tr>
+</tbody>
+</table>
+<div class="callout red"><strong>不要在已啟用票券後才改主意。</strong>最晚在第一趟巴士上車前完成方案決定；數位票一旦開始使用，官方不受理退款。</div>
+<div class="action-row"><a class="action-btn gold" href="https://www.tobu-bus.com/pc/area/nikko/" rel="noopener" target="_blank">日光區最新運行公告 ↗</a><a class="action-btn" href="https://tobu-bus-nikko.mobustation.jp/" rel="noopener" target="_blank">即時位置 ↗</a><a class="action-btn maple" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" rel="noopener" target="_blank">世界遺產巡迴券資訊 ↗</a></div>
 </div>
 </section>
-
-<section class="page compact" id="boarding" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 07">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 07" id="boarding">
 <div class="page-content">
-  <h2>第四步｜上車、下車的共通完整流程</h2>
-  <div class="callout blue"><strong>先不要死背車門：</strong>大型巴士通常「前門上、前門下」；中型巴士通常「中門上、前門下」。到現場跟著箭頭與前一位乘客，但一定要在上車口完成自己的「起點紀錄」。</div>
-  <div class="route-strip"><div class="route-stop"><b>排隊前</b><span>票／卡先拿好</span></div><div class="route-stop"><b>上車</b><span>掃 QR／感應／取券</span></div><div class="route-stop"><b>車內</b><span>看站號與螢幕</span></div><div class="route-stop"><b>按鈴</b><span>目的站顯示時</span></div><div class="route-stop"><b>下車</b><span>再掃／付款</span></div></div>
-  <div class="grid2">
-    <div class="method"><h3>上車前 2 分鐘</h3><ol class="steps"><li>確認月台、車頭代碼、目的地三者都正確。</li><li>QR 票先開到掃碼畫面；IC／信用卡先從錢包取出。</li><li>全團排成連續隊伍，指定最後一人負責數人數。</li><li>大型背包先拿到身前，避免卡住車門。</li></ol></div>
-    <div class="method"><h3>上車當下</h3><ol class="steps"><li>每位旅客各自掃 QR／感應卡；現金旅客各取一張整理券。</li><li>聽到成功音或看到顯示後再往車內移動。</li><li>失敗者先靠旁邊詢問，不要讓 7 人全部堵在門口。</li><li>全員上車後，最後一人向司機點頭確認。</li></ol></div>
-    <div class="method"><h3>車內途中</h3><ol class="steps"><li>用車內螢幕確認停留所編號，不只看中文／英文名稱。</li><li>山路彎多，容易暈車者坐前段並提前服藥。</li><li>下車前 1–2 站開始整理物品。</li><li>目的站出現在「下一站」時按鈴。</li></ol></div>
-    <div class="method"><h3>下車當下</h3><ol class="steps"><li>QR 再掃一次；IC／信用卡用同一張卡再感應。</li><li>紙票依車型向司機出示；現金投入整理券與車資。</li><li>下車後先走離車門，再集合清點 7 人。</li><li>確認無手機、票券、雨傘遺留在座位。</li></ol></div>
-  </div>
-  <h3>本團兩次最重要的下車</h3>
-  <div class="stop-strip"><div class="stop"><b>26</b><span>中禪寺溫泉<br/>上午下車</span></div><div class="stop"><b>9</b><span>西參道入口<br/>下午下車</span></div><div class="stop"><b>7</b><span>神橋<br/>回程備用</span></div><div class="stop"><b>85</b><span>大猷院・二荒山神社前</span></div><div class="stop"><b>2</b><span>東武日光站</span></div></div>
-  <div class="callout"><strong>按鈴時機：</strong>車內螢幕顯示「次は 26 中禅寺温泉」或「次は 9 西参道入口」時按。不要等巴士已經駛入站才起身。</div>
+<h2>第四步｜上車、下車的共通完整流程</h2>
+<div class="callout blue"><strong>先不要死背車門：</strong>大型巴士通常「前門上、前門下」；中型巴士通常「中門上、前門下」。到現場跟著箭頭與前一位乘客，但一定要在上車口完成自己的「起點紀錄」。</div>
+<div class="route-strip"><div class="route-stop"><b>排隊前</b><span>票／卡先拿好</span></div><div class="route-stop"><b>上車</b><span>掃 QR／感應／取券</span></div><div class="route-stop"><b>車內</b><span>看站號與螢幕</span></div><div class="route-stop"><b>按鈴</b><span>目的站顯示時</span></div><div class="route-stop"><b>下車</b><span>再掃／付款</span></div></div>
+<div class="grid2">
+<div class="method"><h3>上車前 2 分鐘</h3><ol class="steps"><li>確認月台、車頭代碼、目的地三者都正確。</li><li>QR 票先開到掃碼畫面；IC／信用卡先從錢包取出。</li><li>全團排成連續隊伍，指定最後一人負責數人數。</li><li>大型背包先拿到身前，避免卡住車門。</li></ol></div>
+<div class="method"><h3>上車當下</h3><ol class="steps"><li>每位旅客各自掃 QR／感應卡；現金旅客各取一張整理券。</li><li>聽到成功音或看到顯示後再往車內移動。</li><li>失敗者先靠旁邊詢問，不要讓 7 人全部堵在門口。</li><li>全員上車後，最後一人向司機點頭確認。</li></ol></div>
+<div class="method"><h3>車內途中</h3><ol class="steps"><li>用車內螢幕確認停留所編號，不只看中文／英文名稱。</li><li>山路彎多，容易暈車者坐前段並提前服藥。</li><li>下車前 1–2 站開始整理物品。</li><li>目的站出現在「下一站」時按鈴。</li></ol></div>
+<div class="method"><h3>下車當下</h3><ol class="steps"><li>QR 再掃一次；IC／信用卡用同一張卡再感應。</li><li>紙票依車型向司機出示；現金投入整理券與車資。</li><li>下車後先走離車門，再集合清點 7 人。</li><li>確認無手機、票券、雨傘遺留在座位。</li></ol></div>
+</div>
+<h3>本團兩次最重要的下車</h3>
+<div class="stop-strip"><div class="stop"><b>26</b><span>中禪寺溫泉<br/>上午下車</span></div><div class="stop"><b>9</b><span>西參道入口<br/>下午下車</span></div><div class="stop"><b>7</b><span>神橋<br/>回程備用</span></div><div class="stop"><b>85</b><span>大猷院・二荒山神社前</span></div><div class="stop"><b>2</b><span>東武日光站</span></div></div>
+<div class="callout"><strong>按鈴時機：</strong>車內螢幕顯示「次は 26 中禅寺温泉」或「次は 9 西参道入口」時按。不要等巴士已經駛入站才起身。</div>
 </div>
 </section>
-
-<section class="page compact" id="payment" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 08">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 08" id="payment">
 <div class="page-content">
-  <h2>付款方式完整操作｜QR、紙票、IC、信用卡、現金</h2>
-  <div class="method-grid">
-    <div class="method"><h3>📱 數位 Free Pass QR｜本團推薦</h3><ol class="steps"><li>上車前開啟「巴士乘車用 QR」。</li><li>上車在 QR Reader 掃一次，等成功音。</li><li>到站前按鈴。</li><li>下車在運賃箱旁 QR Reader 再掃一次。</li></ol><p class="small-note">亮度調高；不要把 QR 放在深色畫面或防窺片最暗角度。</p></div>
-    <div class="method"><h3>🎫 紙本 Free Pass</h3><ol class="steps"><li>每人各持一張，不要由一人拿整疊。</li><li>前門上車時，依司機指示出示。</li><li>中門上車的車型，通常於下車時出示。</li><li>日期與適用區域要清楚可見。</li></ol></div>
-    <div class="method"><h3>💳 Suica／PASMO</h3><ol class="steps"><li>上車在 IC Reader 感應一次。</li><li>螢幕會顯示起點整理券號與餘額。</li><li>到站前按鈴。</li><li>下車用同一張 IC 卡再感應一次。</li></ol><p class="small-note">餘額不足時，可付差額現金或請司機協助加值。</p></div>
-    <div class="method"><h3>💳 信用卡感應</h3><ol class="steps"><li>上車使用指定的 contactless Reader 感應。</li><li>到站前按鈴。</li><li>下車用<strong>同一張卡／同一裝置</strong>再感應。</li><li>不要上車刷實體卡、下車改手機錢包。</li></ol></div>
-    <div class="method"><h3>💴 現金｜最後備案</h3><ol class="steps"><li>上車每人各取一張整理券。</li><li>看車內螢幕：整理券號對應下一站車資。</li><li>下車先把整理券投入運賃箱。</li><li>顯示金額後投入現金，取回找零。</li></ol></div>
-    <div class="method"><h3>⚠️ 掃碼／感應失敗</h3><ol class="steps"><li>先離開門口讓其他人通過。</li><li>提高螢幕亮度、重新整理票券頁或改用行動網路。</li><li>仍失敗時向司機出示購票紀錄並詢問。</li><li>必要時先用 IC／信用卡付費，保留紀錄再處理。</li></ol></div>
-  </div>
-  <div class="callout blue"><strong>不可混用：</strong>同一趟旅程的上、下車必須使用同一支付媒介。IC 卡與信用卡都要「進一次、出一次」；只感應下車會無法判定起點。</div>
-  <div class="callout"><strong>現金補充：</strong>2026 官方時刻表標示車內可使用 1 萬、5 千、2 千日圓紙鈔且會找零，但 7 人團體仍不建議臨時改用現金，以免下車耗時。</div>
-  <div class="action-row"><a class="action-btn maple" href="https://www.tobu-bus.com/pc/area/nikko/guide.html" target="_blank" rel="noopener">官方乘車方法圖解 ↗</a></div>
+<h2>付款方式完整操作｜QR、紙票、IC、信用卡、現金</h2>
+<div class="method-grid">
+<div class="method"><h3>📱 數位 Free Pass QR｜本團推薦</h3><ol class="steps"><li>上車前開啟「巴士乘車用 QR」。</li><li>上車在 QR Reader 掃一次，等成功音。</li><li>到站前按鈴。</li><li>下車在運賃箱旁 QR Reader 再掃一次。</li></ol><p class="small-note">亮度調高；不要把 QR 放在深色畫面或防窺片最暗角度。</p></div>
+<div class="method"><h3>🎫 紙本 Free Pass</h3><ol class="steps"><li>每人各持一張，不要由一人拿整疊。</li><li>前門上車時，依司機指示出示。</li><li>中門上車的車型，通常於下車時出示。</li><li>日期與適用區域要清楚可見。</li></ol></div>
+<div class="method"><h3>💳 Suica／PASMO</h3><ol class="steps"><li>上車在 IC Reader 感應一次。</li><li>螢幕會顯示起點整理券號與餘額。</li><li>到站前按鈴。</li><li>下車用同一張 IC 卡再感應一次。</li></ol><p class="small-note">餘額不足時，可付差額現金或請司機協助加值。</p></div>
+<div class="method"><h3>💳 信用卡感應</h3><ol class="steps"><li>上車使用指定的 contactless Reader 感應。</li><li>到站前按鈴。</li><li>下車用<strong>同一張卡／同一裝置</strong>再感應。</li><li>不要上車刷實體卡、下車改手機錢包。</li></ol></div>
+<div class="method"><h3>💴 現金｜最後備案</h3><ol class="steps"><li>上車每人各取一張整理券。</li><li>看車內螢幕：整理券號對應下一站車資。</li><li>下車先把整理券投入運賃箱。</li><li>顯示金額後投入現金，取回找零。</li></ol></div>
+<div class="method"><h3>⚠️ 掃碼／感應失敗</h3><ol class="steps"><li>先離開門口讓其他人通過。</li><li>提高螢幕亮度、重新整理票券頁或改用行動網路。</li><li>仍失敗時向司機出示購票紀錄並詢問。</li><li>必要時先用 IC／信用卡付費，保留紀錄再處理。</li></ol></div>
+</div>
+<div class="callout blue"><strong>不可混用：</strong>同一趟旅程的上、下車必須使用同一支付媒介。IC 卡與信用卡都要「進一次、出一次」；只感應下車會無法判定起點。</div>
+<div class="callout"><strong>現金補充：</strong>2026 官方時刻表標示車內可使用 1 萬、5 千、2 千日圓紙鈔且會找零，但 7 人團體仍不建議臨時改用現金，以免下車耗時。</div>
+<div class="action-row"><a class="action-btn maple" href="https://www.tobu-bus.com/pc/area/nikko/guide.html" rel="noopener" target="_blank">官方乘車方法圖解 ↗</a></div>
 </div>
 </section>
-
-<section class="page compact" id="platform" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 09">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 09" id="platform">
 <div class="page-content">
-  <h2>其他重要資訊①｜東武日光站月台、車種代碼與中禪寺站位</h2>
-  <div class="platform-wrap">
-    <div class="platform-diagram"><h3>東武日光站前｜2 號乘車區</h3><div class="platform-row"><div class="platform good">2A<br/><small>Y／YK</small></div><div class="platform world">2B<br/><small>W</small></div><div class="platform good">2C<br/><small>C／M／SP</small></div><div class="platform other">2D<br/><small>K／T／SL</small></div><div class="platform good">2E<br/><small>EX</small></div></div><div class="station-box">東武日光站站房</div><p class="small-note">先看月台，再看車頭系統代碼，最後看目的地；三項一致才上車。</p></div>
-    <div class="card red"><h3>本團真正會用的</h3><p><span class="route-code">C</span> 中禪寺溫泉行</p><p><span class="route-code">Y</span> 湯元行，經中禪寺</p><p><span class="route-code">YK</span> 光德／湯元行，經中禪寺</p><p><span class="route-code ex">EX</span> 急行中禪寺行</p><p><span class="route-code no">W</span> 只繞世界遺產，不上山</p></div>
-  </div>
-  <table>
-    <thead><tr><th>月台</th><th>看到的代碼</th><th>本團用途</th><th>判斷</th></tr></thead>
-    <tbody>
-      <tr><td><strong>2A</strong></td><td>Y／YK</td><td>08:45、09:05 等上山車，可到中禪寺</td><td class="yes">可搭</td></tr>
-      <tr><td><strong>2C</strong></td><td>C／M／SP</td><td>只有 C 是中禪寺；M、SP 不到湖區</td><td class="warn-text">一定看代碼</td></tr>
-      <tr><td><strong>2E</strong></td><td>EX</td><td>上山急行可搭，停站較少</td><td class="yes">可搭</td></tr>
-      <tr><td><strong>2B</strong></td><td>W</td><td>方案 B2 世界遺產巡迴</td><td class="yes">不上山才搭</td></tr>
-      <tr><td><strong>2D</strong></td><td>K／T／SL</td><td>霧降、鬼怒川等其他方向</td><td class="no">非本行程</td></tr>
-    </tbody>
-  </table>
-  <h3>中禪寺溫泉總站的 26A／26B／26C</h3>
-  <div class="grid3">
-    <div class="card red"><h3>26A</h3><p><strong>往湯元方向。</strong>本團下山時不要排這裡。</p></div>
-    <div class="card green"><h3>26B</h3><p><strong>往日光站方向與急行。</strong>本團下山主要排隊位置。</p></div>
-    <div class="card blue"><h3>26C</h3><p><strong>立木觀音／遊覽船／半月山季節線。</strong>11/27 半月山線已不在官方 10/1–11/8 運行期。</p></div>
-  </div>
-  <div class="callout red"><strong>EX 急行的雙重差異：</strong>上山時 EX 可直達中禪寺；下山時 EX 會直達東武日光站，不停西參道入口。因此想去世界遺產區時，看到 EX 要特別小心。</div>
-  <div class="action-row"><a class="action-btn" href="https://www.tobu-bus.com/pc/assets/pdf/nikko_rosen_summer.pdf?20260408=" target="_blank" rel="noopener">官方路線圖與月台圖 ↗</a><a class="action-btn maple" href="https://www.google.com/maps/search/?api=1&query=Tobu-Nikko+Station" target="_blank" rel="noopener">東武日光站地圖 ↗</a></div>
+<h2>其他重要資訊①｜東武日光站月台、車種代碼與中禪寺站位</h2>
+<div class="platform-wrap">
+<div class="platform-diagram"><h3>東武日光站前｜2 號乘車區</h3><div class="platform-row"><div class="platform good">2A<br/><small>Y／YK</small></div><div class="platform world">2B<br/><small>W</small></div><div class="platform good">2C<br/><small>C／M／SP</small></div><div class="platform other">2D<br/><small>K／T／SL</small></div><div class="platform good">2E<br/><small>EX</small></div></div><div class="station-box">東武日光站站房</div><p class="small-note">先看月台，再看車頭系統代碼，最後看目的地；三項一致才上車。</p></div>
+<div class="card red"><h3>本團真正會用的</h3><p><span class="route-code">C</span> 中禪寺溫泉行</p><p><span class="route-code">Y</span> 湯元行，經中禪寺</p><p><span class="route-code">YK</span> 光德／湯元行，經中禪寺</p><p><span class="route-code ex">EX</span> 急行中禪寺行</p><p><span class="route-code no">W</span> 只繞世界遺產，不上山</p></div>
+</div>
+<table>
+<thead><tr><th>月台</th><th>看到的代碼</th><th>本團用途</th><th>判斷</th></tr></thead>
+<tbody>
+<tr><td><strong>2A</strong></td><td>Y／YK</td><td>08:45、09:05 等上山車，可到中禪寺</td><td class="yes">可搭</td></tr>
+<tr><td><strong>2C</strong></td><td>C／M／SP</td><td>只有 C 是中禪寺；M、SP 不到湖區</td><td class="warn-text">一定看代碼</td></tr>
+<tr><td><strong>2E</strong></td><td>EX</td><td>上山急行可搭，停站較少</td><td class="yes">可搭</td></tr>
+<tr><td><strong>2B</strong></td><td>W</td><td>方案 B2 世界遺產巡迴</td><td class="yes">不上山才搭</td></tr>
+<tr><td><strong>2D</strong></td><td>K／T／SL</td><td>霧降、鬼怒川等其他方向</td><td class="no">非本行程</td></tr>
+</tbody>
+</table>
+<h3>中禪寺溫泉總站的 26A／26B／26C</h3>
+<div class="grid3">
+<div class="card red"><h3>26A</h3><p><strong>往湯元方向。</strong>本團下山時不要排這裡。</p></div>
+<div class="card green"><h3>26B</h3><p><strong>往日光站方向與急行。</strong>本團下山主要排隊位置。</p></div>
+<div class="card blue"><h3>26C</h3><p><strong>立木觀音／遊覽船／半月山季節線。</strong>11/27 半月山線已不在官方 10/1–11/8 運行期。</p></div>
+</div>
+<div class="callout red"><strong>EX 急行的雙重差異：</strong>上山時 EX 可直達中禪寺；下山時 EX 會直達東武日光站，不停西參道入口。因此想去世界遺產區時，看到 EX 要特別小心。</div>
+<div class="action-row"><a class="action-btn" href="https://www.tobu-bus.com/pc/assets/pdf/nikko_rosen_summer.pdf?20260408=" rel="noopener" target="_blank">官方路線圖與月台圖 ↗</a><a class="action-btn maple" href="https://www.google.com/maps/search/?api=1&amp;query=Tobu-Nikko+Station" rel="noopener" target="_blank">東武日光站地圖 ↗</a></div>
 </div>
 </section>
-
-<section class="page compact" id="schedule" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 10">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 10" id="schedule">
 <div class="page-content">
-  <h2>其他重要資訊②｜2026 班次與 7 人團體現場執行</h2>
-  <div class="grid2">
-    <div><h3>上山｜東武日光站 → 26 中禪寺溫泉</h3><table><thead><tr><th>順位</th><th>月台／代碼</th><th>出發</th><th>抵達</th></tr></thead><tbody><tr class="recommended"><td>首選</td><td>2C／C</td><td>08:35</td><td>09:20</td></tr><tr class="backup-row"><td>備選</td><td>2A／YK</td><td>08:45</td><td>09:30</td></tr><tr><td>再備</td><td>2A／YK</td><td>09:05</td><td>09:50</td></tr><tr><td>延誤急行</td><td>2E／EX</td><td>09:55</td><td>10:40</td></tr></tbody></table></div>
-    <div><h3>下山｜26B 中禪寺 → 9 西參道</h3><table><thead><tr><th>順位</th><th>代碼</th><th>出發</th><th>抵達</th></tr></thead><tbody><tr class="recommended"><td>最穩</td><td>C</td><td>12:55</td><td>13:22</td></tr><tr class="recommended"><td>首選</td><td>YK</td><td>13:15</td><td>13:42</td></tr><tr class="backup-row"><td>備選</td><td>YK</td><td>13:35</td><td>14:02</td></tr><tr><td>最晚主線</td><td>C</td><td>13:55</td><td>14:22</td></tr></tbody></table></div>
-  </div>
-  <h3>7 人團體：站內分工</h3>
-  <div class="grid4">
-    <div class="card blue"><h3>領隊</h3><p>看官方時刻表與即時位置，最後決定班次。</p></div>
-    <div class="card green"><h3>票券員</h3><p>排隊前巡一次 QR／紙票是否已準備。</p></div>
-    <div class="card gold"><h3>前導員</h3><p>確認月台、車頭代碼、目的地，先詢問司機。</p></div>
-    <div class="card red"><h3>壓隊員</h3><p>最後上／下車，清點 7 人與隨身物。</p></div>
-  </div>
-  <h3>排隊與滿車策略</h3>
-  <table>
-    <thead><tr><th>時間點</th><th>動作</th><th>理由</th></tr></thead>
-    <tbody>
-      <tr><td>08:10 前</td><td>全員抵達月台附近，先上廁所後再排隊</td><td>7 人一起上車需要更長排隊緩衝</td></tr>
-      <tr><td>08:15</td><td>票券全部開好；不要排隊中才登入</td><td>避免掃碼延遲與後方旅客壓力</td></tr>
-      <tr><td>車到前</td><td>領隊看車頭代碼，前導員問「是否到中禪寺」</td><td>2C 也有不到中禪寺的 M／SP</td></tr>
-      <tr><td>若剩座位不足</td><td>全團不拆散，改搭 08:45 或下一班</td><td>山區訊號與集合不穩，分車風險高</td></tr>
-      <tr><td>下山前 20 分鐘</td><td>回 26B 看即時位置並排隊</td><td>不要等發車時間才從湖畔走回來</td></tr>
-    </tbody>
-  </table>
-  <div class="callout"><strong>時間表有效範圍：</strong>目前採用東武巴士 2026/4/1–11/30 官方時刻表。11/27 為星期五，但臨時交通管制、積雪與道路壅塞仍可能影響，當日以站牌／公告／即時位置為準。</div>
-  <div class="action-row"><a class="action-btn maple" href="https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408=" target="_blank" rel="noopener">2026 官方時刻表 PDF ↗</a><a class="action-btn gold" href="https://tobu-bus-nikko.mobustation.jp/" target="_blank" rel="noopener">即時位置 ↗</a></div>
+<h2>其他重要資訊②｜2026 班次與 7 人團體現場執行</h2>
+<div class="grid2">
+<div><h3>上山｜東武日光站 → 26 中禪寺溫泉</h3><table><thead><tr><th>順位</th><th>月台／代碼</th><th>出發</th><th>抵達</th></tr></thead><tbody><tr class="recommended"><td>首選</td><td>2C／C</td><td>08:35</td><td>09:20</td></tr><tr class="backup-row"><td>備選</td><td>2A／YK</td><td>08:45</td><td>09:30</td></tr><tr><td>再備</td><td>2A／YK</td><td>09:05</td><td>09:50</td></tr><tr><td>延誤急行</td><td>2E／EX</td><td>09:55</td><td>10:40</td></tr></tbody></table></div>
+<div><h3>下山｜26B 中禪寺 → 9 西參道</h3><table><thead><tr><th>順位</th><th>代碼</th><th>出發</th><th>抵達</th></tr></thead><tbody><tr class="recommended"><td>最穩</td><td>C</td><td>12:55</td><td>13:22</td></tr><tr class="recommended"><td>首選</td><td>YK</td><td>13:15</td><td>13:42</td></tr><tr class="backup-row"><td>備選</td><td>YK</td><td>13:35</td><td>14:02</td></tr><tr><td>最晚主線</td><td>C</td><td>13:55</td><td>14:22</td></tr></tbody></table></div>
+</div>
+<h3>7 人團體：站內分工</h3>
+<div class="grid4">
+<div class="card blue"><h3>領隊</h3><p>看官方時刻表與即時位置，最後決定班次。</p></div>
+<div class="card green"><h3>票券員</h3><p>排隊前巡一次 QR／紙票是否已準備。</p></div>
+<div class="card gold"><h3>前導員</h3><p>確認月台、車頭代碼、目的地，先詢問司機。</p></div>
+<div class="card red"><h3>壓隊員</h3><p>最後上／下車，清點 7 人與隨身物。</p></div>
+</div>
+<h3>排隊與滿車策略</h3>
+<table>
+<thead><tr><th>時間點</th><th>動作</th><th>理由</th></tr></thead>
+<tbody>
+<tr><td>08:10 前</td><td>全員抵達月台附近，先上廁所後再排隊</td><td>7 人一起上車需要更長排隊緩衝</td></tr>
+<tr><td>08:15</td><td>票券全部開好；不要排隊中才登入</td><td>避免掃碼延遲與後方旅客壓力</td></tr>
+<tr><td>車到前</td><td>領隊看車頭代碼，前導員問「是否到中禪寺」</td><td>2C 也有不到中禪寺的 M／SP</td></tr>
+<tr><td>若剩座位不足</td><td>全團不拆散，改搭 08:45 或下一班</td><td>山區訊號與集合不穩，分車風險高</td></tr>
+<tr><td>下山前 20 分鐘</td><td>回 26B 看即時位置並排隊</td><td>不要等發車時間才從湖畔走回來</td></tr>
+</tbody>
+</table>
+<div class="callout"><strong>時間表有效範圍：</strong>目前採用東武巴士 2026/4/1–11/30 官方時刻表。11/27 為星期五，但臨時交通管制、積雪與道路壅塞仍可能影響，當日以站牌／公告／即時位置為準。</div>
+<div class="action-row"><a class="action-btn maple" href="https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408=" rel="noopener" target="_blank">2026 官方時刻表 PDF ↗</a><a class="action-btn gold" href="https://tobu-bus-nikko.mobustation.jp/" rel="noopener" target="_blank">即時位置 ↗</a></div>
 </div>
 </section>
-
-<section class="page compact" id="backup" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 11">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 11" id="backup">
 <div class="page-content">
-  <h2>其他重要資訊③｜延誤、手機、暈車與可直接出示的日文</h2>
-  <table>
-    <thead><tr><th>狀況</th><th>立即處理</th><th>不要做</th></tr></thead>
-    <tbody>
-      <tr><td>QR 打不開</td><td>切換行動網路、提高亮度、重新登入；讓其他人先過</td><td>7 人全部堵在車門口</td></tr>
-      <tr><td>手機沒電</td><td>立即接行動電源；若無法顯示，向司機詢問並準備 IC</td><td>把所有票集中在同一支手機</td></tr>
-      <tr><td>巴士滿載</td><td>全團改下一班並縮短湖畔時間</td><td>部分人上車、部分人留站</td></tr>
-      <tr><td>嚴重暈車</td><td>前段座位、提前服藥、備水與袋；必要時 B2</td><td>硬撐延伸到湯元／戰場之原</td></tr>
-      <tr><td>下山延誤</td><td>抵達西參道後只保留東照宮＋二荒山</td><td>仍硬塞三佛堂、大猷院、神橋全部</td></tr>
-      <tr><td>誤搭 EX 回站</td><td>到東武日光站後改搭 W 或一般巴士去社寺</td><td>要求司機臨時停西參道</td></tr>
-    </tbody>
-  </table>
-  <h3>可直接出示給司機的日文</h3>
-  <div class="grid2">
-    <div>
-      <div class="jp-box"><div class="jp">このバスは中禅寺温泉に行きますか。</div><div class="zh">這班巴士會到中禪寺溫泉嗎？</div></div>
-      <div class="jp-box"><div class="jp">西参道入口に停まりますか。</div><div class="zh">這班車會停西參道入口嗎？</div></div>
-      <div class="jp-box"><div class="jp">このバスは西参道入口に停まらない急行ですか。</div><div class="zh">這班是不到西參道入口的急行車嗎？</div></div>
-      <div class="jp-box"><div class="jp">7人全員が乗ります。少しお待ちください。</div><div class="zh">我們 7 人都要上車，請稍等一下。</div></div>
-    </div>
-    <div>
-      <div class="jp-box"><div class="jp">中禅寺温泉で降ります。</div><div class="zh">我要在中禪寺溫泉下車。</div></div>
-      <div class="jp-box"><div class="jp">西参道入口で降りたいです。</div><div class="zh">我想在西參道入口下車。</div></div>
-      <div class="jp-box"><div class="jp">QRコードが表示できません。どうすればいいですか。</div><div class="zh">QR Code 無法顯示，請問該怎麼處理？</div></div>
-      <div class="jp-box"><div class="jp">今日は通常どおり運行していますか。</div><div class="zh">今天有正常行駛嗎？</div></div>
-    </div>
-  </div>
-  <div class="callout blue"><strong>查車順序：</strong>官方運行公告 → 巴士即時位置 → 官方時刻表 → Google Maps。Google Maps 只作輔助，不作山區臨時改道與停駛的唯一依據。</div>
-  <div class="callout red"><strong>團體安全底線：</strong>下雪或結冰時，不以「票已買」為理由勉強上山。未啟用的數位票可依官方規則處理；安全比票價更重要。</div>
+<h2>其他重要資訊③｜延誤、手機、暈車與可直接出示的日文</h2>
+<table>
+<thead><tr><th>狀況</th><th>立即處理</th><th>不要做</th></tr></thead>
+<tbody>
+<tr><td>QR 打不開</td><td>切換行動網路、提高亮度、重新登入；讓其他人先過</td><td>7 人全部堵在車門口</td></tr>
+<tr><td>手機沒電</td><td>立即接行動電源；若無法顯示，向司機詢問並準備 IC</td><td>把所有票集中在同一支手機</td></tr>
+<tr><td>巴士滿載</td><td>全團改下一班並縮短湖畔時間</td><td>部分人上車、部分人留站</td></tr>
+<tr><td>嚴重暈車</td><td>前段座位、提前服藥、備水與袋；必要時 B2</td><td>硬撐延伸到湯元／戰場之原</td></tr>
+<tr><td>下山延誤</td><td>抵達西參道後只保留東照宮＋二荒山</td><td>仍硬塞三佛堂、大猷院、神橋全部</td></tr>
+<tr><td>誤搭 EX 回站</td><td>到東武日光站後改搭 W 或一般巴士去社寺</td><td>要求司機臨時停西參道</td></tr>
+</tbody>
+</table>
+<h3>可直接出示給司機的日文</h3>
+<div class="grid2">
+<div>
+<div class="jp-box"><div class="jp">このバスは中禅寺温泉に行きますか。</div><div class="zh">這班巴士會到中禪寺溫泉嗎？</div></div>
+<div class="jp-box"><div class="jp">西参道入口に停まりますか。</div><div class="zh">這班車會停西參道入口嗎？</div></div>
+<div class="jp-box"><div class="jp">このバスは西参道入口に停まらない急行ですか。</div><div class="zh">這班是不到西參道入口的急行車嗎？</div></div>
+<div class="jp-box"><div class="jp">7人全員が乗ります。少しお待ちください。</div><div class="zh">我們 7 人都要上車，請稍等一下。</div></div>
+</div>
+<div>
+<div class="jp-box"><div class="jp">中禅寺温泉で降ります。</div><div class="zh">我要在中禪寺溫泉下車。</div></div>
+<div class="jp-box"><div class="jp">西参道入口で降りたいです。</div><div class="zh">我想在西參道入口下車。</div></div>
+<div class="jp-box"><div class="jp">QRコードが表示できません。どうすればいいですか。</div><div class="zh">QR Code 無法顯示，請問該怎麼處理？</div></div>
+<div class="jp-box"><div class="jp">今日は通常どおり運行していますか。</div><div class="zh">今天有正常行駛嗎？</div></div>
+</div>
+</div>
+<div class="callout blue"><strong>查車順序：</strong>官方運行公告 → 巴士即時位置 → 官方時刻表 → Google Maps。Google Maps 只作輔助，不作山區臨時改道與停駛的唯一依據。</div>
+<div class="callout red"><strong>團體安全底線：</strong>下雪或結冰時，不以「票已買」為理由勉強上山。未啟用的數位票可依官方規則處理；安全比票價更重要。</div>
 </div>
 </section>
-
-<section class="page compact" id="resources" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 12">
+<section class="page compact" data-footer="NIKKO BUS DETAILED GUIDE 2026 · 12" id="resources">
 <div class="page-content">
-  <h2>官方工具、資料來源與 11/27 最終執行清單</h2>
-  <h3>當天建議收藏的官方頁面</h3>
-  <div class="action-row">
-    <a class="action-btn maple" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" target="_blank" rel="noopener">Free Pass 票價／購買／退款 ↗</a>
-    <a class="action-btn green" href="https://www.tobu-maas.jp/lp/nikko-maas" target="_blank" rel="noopener">NIKKO MaaS ↗</a>
-    <a class="action-btn" href="https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408=" target="_blank" rel="noopener">2026 時刻表 PDF ↗</a>
-    <a class="action-btn" href="https://www.tobu-bus.com/pc/assets/pdf/nikko_rosen_summer.pdf?20260408=" target="_blank" rel="noopener">路線／月台／站號圖 ↗</a>
-    <a class="action-btn gold" href="https://tobu-bus-nikko.mobustation.jp/" target="_blank" rel="noopener">巴士即時位置 ↗</a>
-    <a class="action-btn" href="https://www.tobu-bus.com/pc/area/nikko/guide.html" target="_blank" rel="noopener">上下車與付款圖解 ↗</a>
-    <a class="action-btn maple" href="https://www.tobu-bus.com/pc/area/nikko/" target="_blank" rel="noopener">日光區最新公告 ↗</a>
-    <a class="action-btn green" href="https://www.tobu-bus.com/pc/assets/pdf/world_heritage_summer.pdf" target="_blank" rel="noopener">世界遺產巴士改道日曆 ↗</a>
-  </div>
-  <h3>11/26 晚上</h3>
-  <div class="checklist">
-    <label class="check-item"><input type="checkbox" data-check="night-weather"><span><b>查山區天候與道路</b><span>確認是否有雪、結冰、強風。</span></span></label>
-    <label class="check-item"><input type="checkbox" data-check="night-op"><span><b>查東武巴士運行公告</b><span>注意臨時停駛與改道。</span></span></label>
-    <label class="check-item"><input type="checkbox" data-check="night-pass"><span><b>票券仍未啟用</b><span>保留隔天改 B2 的彈性。</span></span></label>
-    <label class="check-item"><input type="checkbox" data-check="night-pack"><span><b>藥品／行動電源／雨具</b><span>暈車藥與保暖層放隨身包。</span></span></label>
-  </div>
-  <h3>11/27 早上 06:45–08:15</h3>
-  <div class="checklist">
-    <label class="check-item"><input type="checkbox" data-check="morning-plan"><span><b>決定 A／B1／B2</b><span>再決定是否啟用中禪寺票。</span></span></label>
-    <label class="check-item"><input type="checkbox" data-check="morning-live"><span><b>確認第一班車即時位置</b><span>首選 08:35，備選 08:45。</span></span></label>
-    <label class="check-item"><input type="checkbox" data-check="morning-qr"><span><b>7 人票券全部可顯示</b><span>亮度、網路、電量確認。</span></span></label>
-    <label class="check-item"><input type="checkbox" data-check="morning-role"><span><b>四個角色已分工</b><span>領隊、票券、前導、壓隊。</span></span></label>
-  </div>
-  <h3>本攻略的官方依據</h3>
-  <ul class="source-list">
-    <li>東武巴士日光 Free Pass：中禪寺溫泉票成人 ¥2,300、2 日有效；NIKKO MaaS 使用日前 1 個月開賣，使用前可退款，開始使用後不可退款。</li>
-    <li>東武巴士 2026/4/1–11/30 時刻表：本攻略所列上山、下山班次、EX 不停西參道及停留所編號。</li>
-    <li>東武巴士乘車方法：QR、IC、信用卡、紙票與現金的上／下車流程；大型車前上前下、中型車中上前下。</li>
-    <li>東武巴士路線圖：2A–2E 月台、26A–26C 站位、世界遺產巴士與 Free Pass 適用區間。</li>
-    <li>輪王寺、二荒山神社、日光觀光協會：11 月社寺閉門時段與華嚴瀑布電梯營業／天候停駛提醒。</li>
-  </ul>
-  <div class="callout"><strong>最終一句話：</strong>正常上山就買 ¥2,300 Free Pass，08:35／08:45 上山，12:55／13:15 下山；天候差就 10:50／11:20 提早回；道路不安全則完全不上山，改世界遺產區。</div>
-  <p class="footer-note">整理日期：2026/08/03。票價、班次、開放時間及交通管制可能變動，請於 2026/11/26 晚上與 11/27 出發前再次查官方頁面。</p>
+<h2>官方工具、資料來源與 11/27 最終執行清單</h2>
+<h3>當天建議收藏的官方頁面</h3>
+<div class="action-row">
+<a class="action-btn maple" href="https://www.tobu-bus.com/pc/service/ticket/nikko.html" rel="noopener" target="_blank">Free Pass 票價／購買／退款 ↗</a>
+<a class="action-btn green" href="https://www.tobu-maas.jp/lp/nikko-maas" rel="noopener" target="_blank">NIKKO MaaS ↗</a>
+<a class="action-btn" href="https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408=" rel="noopener" target="_blank">2026 時刻表 PDF ↗</a>
+<a class="action-btn" href="https://www.tobu-bus.com/pc/assets/pdf/nikko_rosen_summer.pdf?20260408=" rel="noopener" target="_blank">路線／月台／站號圖 ↗</a>
+<a class="action-btn gold" href="https://tobu-bus-nikko.mobustation.jp/" rel="noopener" target="_blank">巴士即時位置 ↗</a>
+<a class="action-btn" href="https://www.tobu-bus.com/pc/area/nikko/guide.html" rel="noopener" target="_blank">上下車與付款圖解 ↗</a>
+<a class="action-btn maple" href="https://www.tobu-bus.com/pc/area/nikko/" rel="noopener" target="_blank">日光區最新公告 ↗</a>
+<a class="action-btn green" href="https://www.tobu-bus.com/pc/assets/pdf/world_heritage_summer.pdf" rel="noopener" target="_blank">世界遺產巴士改道日曆 ↗</a>
+</div>
+<h3>11/26 晚上</h3>
+<div class="checklist">
+<label class="check-item"><input data-check="night-weather" type="checkbox"/><span><b>查山區天候與道路</b><span>確認是否有雪、結冰、強風。</span></span></label>
+<label class="check-item"><input data-check="night-op" type="checkbox"/><span><b>查東武巴士運行公告</b><span>注意臨時停駛與改道。</span></span></label>
+<label class="check-item"><input data-check="night-pass" type="checkbox"/><span><b>票券仍未啟用</b><span>保留隔天改 B2 的彈性。</span></span></label>
+<label class="check-item"><input data-check="night-pack" type="checkbox"/><span><b>藥品／行動電源／雨具</b><span>暈車藥與保暖層放隨身包。</span></span></label>
+</div>
+<h3>11/27 早上 06:45–08:15</h3>
+<div class="checklist">
+<label class="check-item"><input data-check="morning-plan" type="checkbox"/><span><b>決定 A／B1／B2</b><span>再決定是否啟用中禪寺票。</span></span></label>
+<label class="check-item"><input data-check="morning-live" type="checkbox"/><span><b>確認第一班車即時位置</b><span>首選 08:35，備選 08:45。</span></span></label>
+<label class="check-item"><input data-check="morning-qr" type="checkbox"/><span><b>7 人票券全部可顯示</b><span>亮度、網路、電量確認。</span></span></label>
+<label class="check-item"><input data-check="morning-role" type="checkbox"/><span><b>四個角色已分工</b><span>領隊、票券、前導、壓隊。</span></span></label>
+</div>
+<h3>本攻略的官方依據</h3>
+<ul class="source-list">
+<li>東武巴士日光 Free Pass：中禪寺溫泉票成人 ¥2,300、2 日有效；NIKKO MaaS 使用日前 1 個月開賣，使用前可退款，開始使用後不可退款。</li>
+<li>東武巴士 2026/4/1–11/30 時刻表：本攻略所列上山、下山班次、EX 不停西參道及停留所編號。</li>
+<li>東武巴士乘車方法：QR、IC、信用卡、紙票與現金的上／下車流程；大型車前上前下、中型車中上前下。</li>
+<li>東武巴士路線圖：2A–2E 月台、26A–26C 站位、世界遺產巴士與 Free Pass 適用區間。</li>
+<li>輪王寺、二荒山神社、日光觀光協會：11 月社寺閉門時段與華嚴瀑布電梯營業／天候停駛提醒。</li>
+</ul>
+<div class="callout"><strong>最終一句話：</strong>正常上山就買 ¥2,300 Free Pass，08:35／08:45 上山，12:55／13:15 下山；天候差就 10:50／11:20 提早回；道路不安全則完全不上山，改世界遺產區。</div>
+<p class="footer-note">整理日期：2026/08/03。票價、班次、開放時間及交通管制可能變動，請於 2026/11/26 晚上與 11/27 出發前再次查官方頁面。</p>
 </div>
 </section>
 </main>
@@ -428,5 +464,5 @@ table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(
   sections.forEach(s=>obs.observe(s));
 })();
 </script>
-</body>
+<nav aria-label="網站快捷連結" class="github-site-links"><a href="../index.html">← 完整行程</a><a class="restaurant" href="../restaurant-guide/index.html">🍽️ 餐廳攻略</a></nav></body>
 </html>

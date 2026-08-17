@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="32 間餐廳的真實店面、指定招牌餐點、營業時間與點餐攻略。" name="description"/>
+<title>2026 東京・日光・成田｜餐廳實拍攻略</title>
+<style>
+:root{
+  --ink:#2d2926;
+  --muted:#706a64;
+  --paper:#fffdf8;
+  --paper-2:#f9f3e8;
+  --line:#ded3c5;
+  --maple:#a94d38;
+  --maple-dark:#713527;
+  --gold:#c8913e;
+  --sage:#61715a;
+  --blue:#3e7388;
+  --red-soft:#f8e6df;
+  --gold-soft:#fff1d7;
+  --sage-soft:#eaf1e5;
+  --blue-soft:#e8f1f4;
+  --shadow:0 12px 36px rgba(55,42,32,.10);
+  --radius:22px;
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  overflow-x:hidden;
+  color:var(--ink);
+  background:#ece7df;
+  font-family:"DFKai-SB","BiauKai","標楷體","KaiTi","STKaiti",serif;
+  font-size:17px;
+  line-height:1.72;
+  -webkit-text-size-adjust:100%;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue);text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+button,input{font:inherit}
+.wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
+.sitebar{
+  position:sticky;top:0;z-index:30;
+  background:rgba(255,253,248,.94);
+  border-bottom:1px solid rgba(128,104,82,.18);
+  backdrop-filter:blur(12px);
+}
+.sitebar-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--maple-dark);font-weight:900;letter-spacing:.04em}
+.brand-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--red-soft);font-family:serif}
+.nav-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  border:1px solid #d2c5b6;border-radius:999px;padding:7px 12px;
+  background:#fff;color:#4f4944;font-size:14px;font-weight:850;line-height:1.2;
+  text-decoration:none;white-space:normal;text-align:center;
+}
+.btn:hover{filter:brightness(.98);text-decoration:none}
+.btn.primary{background:var(--maple);border-color:var(--maple);color:#fff}
+.btn.sage{background:var(--sage);border-color:var(--sage);color:#fff}
+.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.hero-home{
+  position:relative;isolation:isolate;
+  background:
+    radial-gradient(circle at 86% 16%,rgba(201,145,62,.27),transparent 34%),
+    radial-gradient(circle at 6% 88%,rgba(97,113,90,.22),transparent 36%),
+    linear-gradient(135deg,#f5e2d6 0%,#fffdf8 52%,#e8efe3 100%);
+  border-bottom:1px solid #d9d0c3;
+}
+.hero-home-inner{padding:64px 0 54px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);gap:30px;align-items:center}
+.eyebrow{font-size:14px;letter-spacing:.18em;color:var(--maple);font-weight:900;text-transform:uppercase}
+h1,h2,h3,h4{margin-top:0;overflow-wrap:anywhere}
+h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c31;letter-spacing:.02em}
+.lead{font-size:20px;line-height:1.68;color:#5c5149;margin:0 0 20px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 10px;font-size:13px;font-weight:850;border:1px solid}
+.badge.red{background:var(--red-soft);border-color:#e1b7aa;color:#813c31}
+.badge.gold{background:var(--gold-soft);border-color:#e6c982;color:#70551d}
+.badge.sage{background:var(--sage-soft);border-color:#bed0b4;color:#435c40}
+.badge.blue{background:var(--blue-soft);border-color:#bed4dd;color:#315f71}
+.hero-collage{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:190px 190px;gap:10px}
+.hero-collage figure{margin:0;overflow:hidden;border-radius:24px;border:5px solid rgba(255,255,255,.75);box-shadow:var(--shadow);background:#eee5d8}
+.hero-collage figure:first-child{grid-row:1/3}
+.hero-collage img{width:100%;height:100%;object-fit:cover}
+.notice{margin:22px 0;border-radius:18px;padding:13px 15px;background:#fff8df;border:1px solid #e4ca80;color:#654f23;line-height:1.6}
+.notice strong{color:#704529}
+.main{padding:34px 0 64px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 0 18px;flex-wrap:wrap}
+.section-head h2{font-size:30px;line-height:1.25;margin:0;color:#354331}
+.section-head p{margin:0;color:var(--muted);font-size:15px}
+.filterbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+.filterbar button{border:1px solid #d8cbbb;background:#fff;border-radius:999px;padding:7px 13px;cursor:pointer;color:#554e47;font-weight:850}
+.filterbar button.active{background:var(--maple);border-color:var(--maple);color:#fff}
+.day-section{margin:38px 0 0}
+.day-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.day-title .day-num{flex:0 0 auto;background:var(--maple);color:#fff;border-radius:14px;padding:8px 12px;font-weight:950;line-height:1.1}
+.day-title h2{font-size:26px;margin:0;color:#3b4938}
+.day-title::after{content:"";height:1px;background:#d5cbbf;flex:1}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.venue-card{display:flex;flex-direction:column;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:var(--paper);box-shadow:0 5px 20px rgba(52,43,35,.055);color:inherit;text-decoration:none;transition:.18s transform,.18s box-shadow}
+.venue-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);text-decoration:none}
+.card-photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eee5d8}
+.card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.venue-card:hover .card-photo img{transform:scale(1.025)}
+.card-photo .photo-label{position:absolute;left:10px;bottom:10px;max-width:calc(100% - 20px);border-radius:999px;padding:5px 9px;background:rgba(31,27,24,.78);color:#fff;font-size:12px;font-weight:800;line-height:1.25;overflow-wrap:anywhere}
+.card-body{display:flex;flex-direction:column;flex:1;padding:15px 16px 17px}
+.card-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+.card-body h3{font-size:21px;line-height:1.35;margin:0 0 3px;color:#713527}
+.card-body .jp{font-size:13px;color:#80776f;margin:0 0 9px}
+.card-body .verdict{font-size:15px;line-height:1.58;margin:0;color:#514d48;flex:1}
+.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:13px;padding-top:11px;border-top:1px solid #e8dfd3;color:#756d65;font-size:13px;flex-wrap:wrap}
+.empty{display:none;padding:28px;border-radius:18px;background:#fff;border:1px solid var(--line);text-align:center;color:var(--muted)}
+/* venue page */
+.venue-main{padding:30px 0 66px}
+.venue-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);gap:24px;align-items:stretch;margin-bottom:22px}
+.hero-copy{border-radius:26px;padding:30px;background:linear-gradient(145deg,#fffaf2,#f4eee5);border:1px solid #dcd0c2;box-shadow:var(--shadow)}
+.hero-copy h1{font-size:clamp(32px,4vw,48px);color:#713527;margin:8px 0 3px}
+.hero-copy .jp-name{font-size:17px;color:#7c736b;margin-bottom:14px}
+.hero-copy .verdict{font-size:19px;line-height:1.68;margin:13px 0;color:#4b4945}
+.hero-photo{margin:0;overflow:hidden;border-radius:26px;background:#e9e1d6;border:1px solid #d8cdbf;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.hero-photo .media{aspect-ratio:4/3;overflow:hidden;flex:1}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo figcaption{padding:10px 13px;background:#2f2925;color:#fff;font-size:13px;line-height:1.45;overflow-wrap:anywhere}
+.photo-panel{border-radius:26px;padding:20px;background:#fff;border:1px solid var(--line);box-shadow:0 5px 20px rgba(52,43,35,.05);margin:0 0 22px}
+.photo-panel h2{font-size:25px;margin:0 0 6px;color:#3e4b3c}
+.photo-panel .intro{font-size:14px;color:var(--muted);margin:0 0 14px}
+.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.photo-figure{margin:0;border-radius:20px;overflow:hidden;border:1px solid #d8cdbf;background:#f8f3eb}
+.photo-figure .media{aspect-ratio:4/3;overflow:hidden;background:#ece3d8}
+.photo-figure img{width:100%;height:100%;object-fit:cover}
+.photo-figure.store-photo img{object-fit:contain;padding:8px;background:#eee7dc}
+.photo-figure figcaption{padding:12px 14px;line-height:1.5}
+.photo-figure b{display:block;font-size:17px;color:#713527;margin-bottom:3px}
+.photo-figure span{display:block;color:#625e59;font-size:14px}
+.photo-source{display:inline-block;margin-top:6px;font-size:13px;font-weight:800}
+.photo-disclaimer{font-size:12px;color:#7a746e;margin:11px 2px 0}
+.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 22px}
+.quick{border-radius:18px;padding:13px 14px;background:#fff;border:1px solid var(--line);box-shadow:0 3px 14px rgba(54,44,36,.04)}
+.quick b{display:block;color:#42533f;font-size:14px;margin-bottom:3px}
+.quick span{display:block;color:#5f5a55;font-size:14px;line-height:1.52;overflow-wrap:anywhere}
+.content-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+.panel{border-radius:22px;background:#fff;border:1px solid var(--line);padding:19px 20px;margin:0 0 18px;box-shadow:0 4px 18px rgba(52,43,35,.045);overflow:hidden}
+.panel h2{font-size:24px;line-height:1.3;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid #e3dbd0;color:#3e4b3c}
+.panel h3{font-size:19px;color:#713527;margin:16px 0 6px}
+.panel p{margin:5px 0 10px}
+.panel ul{margin:7px 0 0;padding-left:1.25em}
+.panel li{margin:6px 0}
+.dish-list{display:grid;gap:11px}
+.dish{border-radius:17px;padding:13px 14px;background:#fbf7f0;border:1px solid #e6dacb}
+.dish-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dish h3{margin:0;font-size:18px;line-height:1.4;color:#743729}
+.order-tag{flex:0 0 auto;border-radius:999px;background:var(--gold-soft);border:1px solid #e3c67b;color:#6e531b;padding:4px 8px;font-size:12px;font-weight:850;line-height:1.25}
+.dish p{font-size:14px;color:#625d57;margin:6px 0 0}
+.alert{border-radius:16px;padding:11px 13px;margin:9px 0;border:1px solid}
+.alert.red{background:#fff0eb;border-color:#e6b6aa;color:#74382e}
+.alert.gold{background:#fff7df;border-color:#e4cc88;color:#665021}
+.alert.sage{background:#eef5e9;border-color:#bed0b6;color:#415a3f}
+.phrase{border-radius:15px;padding:11px 13px;background:#f2f3ef;border:1px solid #d9ddd3;margin:8px 0;font-size:15px;overflow-wrap:anywhere}
+.source-list{list-style:none!important;padding:0!important;margin:0!important;display:grid;gap:8px}
+.source-list li{padding:10px 12px;border-radius:14px;background:#f8f4ec;border:1px solid #e3dacd;margin:0!important}
+.source-list a{font-weight:900}
+.source-list span{display:block;font-size:13px;color:#6d6862;margin-top:2px}
+.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.footer{border-top:1px solid #d7cec2;padding:23px 0 35px;color:#777069;background:#f4efe8;font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(max-width:980px){
+  .hero-home-inner,.venue-hero{grid-template-columns:1fr}
+  .hero-collage{grid-template-rows:170px 170px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  body{font-size:16px;background:var(--paper)}
+  .wrap{width:min(100% - 22px,1180px)}
+  .sitebar-inner{min-height:58px}
+  .brand span:last-child{max-width:220px}
+  .nav-actions{width:100%;display:grid;grid-template-columns:1fr 1fr}
+  .nav-actions .btn{width:100%}
+  .hero-home-inner{padding:38px 0 34px;gap:22px}
+  h1{font-size:36px}
+  .lead{font-size:17px}
+  .hero-collage{grid-template-columns:1fr 1fr;grid-template-rows:160px 120px}
+  .hero-collage figure:first-child{grid-row:auto;grid-column:1/3}
+  .main,.venue-main{padding-top:24px}
+  .cards,.photo-grid,.content-grid{grid-template-columns:1fr}
+  .quick-grid{grid-template-columns:1fr}
+  .hero-copy{padding:22px 18px}
+  .venue-hero{gap:14px}
+  .photo-panel,.panel{padding:16px}
+  .section-head h2{font-size:26px}
+  .day-title h2{font-size:22px}
+  .card-body h3{font-size:20px}
+  .photo-figure .media,.hero-photo .media{aspect-ratio:4/3}
+}
+@media(max-width:420px){
+  .wrap{width:min(100% - 16px,1180px)}
+  .sitebar-inner{padding:8px 0}
+  .brand{font-size:15px}
+  .brand-mark{width:30px;height:30px}
+  .nav-actions{grid-template-columns:1fr}
+  .hero-collage{grid-template-rows:145px 105px}
+  .hero-copy h1{font-size:31px}
+  .badges{gap:6px}
+  .badge{font-size:12px}
+}
+@media print{
+  body{background:#fff;font-size:12px}
+  .sitebar,.filterbar,.footer{display:none!important}
+  .wrap{width:100%;max-width:none}
+  .main,.venue-main{padding:0}
+  .venue-card,.panel,.photo-panel,.quick,.hero-copy,.hero-photo{box-shadow:none;break-inside:avoid}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="wrap sitebar-inner">
+<a class="brand" href="index.html"><span class="brand-mark">食</span><span>東京・日光餐廳實拍攻略</span></a>
+<div class="nav-actions"><a class="btn blue" href="../index.html">← 返回完整行程</a><button class="btn" onclick="window.print()" type="button">列印總覽</button></div>
+</div></header>
+<section class="hero-home"><div class="wrap hero-home-inner">
+<div>
+<div class="eyebrow">TOKYO · NIKKO · NARITA 2026</div>
+<h1>每間店都已對應<br/>店面實景與招牌餐點</h1>
+<p class="lead">依 9 天 8 夜行程整理 32 個餐飲點。首頁縮圖全部改用該店招牌餐點實拍；進入獨立頁面即可查看逐店對應的店面實景、指定餐點、營業時間、排隊與點餐攻略。</p>
+<div class="badges"><span class="badge red">32 間獨立 HTML</span><span class="badge gold">標楷體版面</span><span class="badge sage">真實店面照片</span><span class="badge blue">指定餐點照片</span></div>
+<div class="notice"><strong>照片說明：</strong>圖片取自店家官方頁面、官方新聞稿或公開餐廳介紹頁；每張照片下方均保留來源連結。實際菜色、擺盤與店面可能隨時間調整。</div>
+</div>
+<div class="hero-collage"><figure><img alt="元祖穴子一本付握壽司組合" decoding="async" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='assets/food-sushi.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/167070/640x640_rect_bb997eb68b4672dafe02f09c184ea8a3.jpg"/></figure><figure><img alt="Triton 實拍：北海道系握壽司（白身魚、扇貝、鮭魚卵）" decoding="async" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='assets/food-sushi.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/96174/640x640_rect_96174040.jpg"/></figure><figure><img alt="麵散招牌培根奶油卡邦尼釜玉烏龍麵" decoding="async" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='assets/food-noodles.svg';" referrerpolicy="no-referrer" src="https://cdn.sarah30.com/reviews/photos/000/884/339/x_large/321b9fb25a8fb4fcb865a212de26c83d1db68af4.jpg"/></figure></div>
+</div></section>
+<main class="main"><div class="wrap">
+<div class="section-head"><div><h2>依行程日期查看餐廳</h2><p>點選卡片開啟該餐廳完整攻略</p></div><div><strong id="resultCount">32</strong> 間</div></div>
+<div aria-label="餐廳篩選" class="filterbar" role="group">
+<button class="active" data-filter="all" type="button">全部</button>
+<button data-filter="day-1" type="button">DAY 1</button><button data-filter="day-2" type="button">DAY 2</button><button data-filter="day-3" type="button">DAY 3</button><button data-filter="day-4" type="button">DAY 4</button><button data-filter="day-5" type="button">DAY 5</button><button data-filter="day-6" type="button">DAY 6</button><button data-filter="day-7" type="button">DAY 7</button><button data-filter="day-8" type="button">DAY 8</button>
+<button data-filter="priority-S" type="button">S 級必吃</button>
+</div>
+<div class="empty" id="emptyState">沒有符合條件的餐廳。</div>
+<section class="day-section" data-day-section="1">
+<div class="day-title"><span class="day-num">DAY 1</span><h2>2026/11/21（六）｜本所吾妻橋・淺草・丸之內</h2></div>
+<div class="cards">
+<a class="venue-card" data-day="1" data-priority="A" href="venues/01-monjayaki-chico.html">
+<div class="card-photo">
+<img alt="元祖鹽文字燒調理實拍" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-grill.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/240943/640x640_rect_d711dd95fe6aa4a26050fed40465e860.jpg"/>
+<span class="photo-label">招牌｜元祖鹽文字燒「生海苔蝦仁鹽味」</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">行程正式安排</span>
+</div>
+<h3>文字燒 CHICO</h3>
+<div class="jp">もんじゃ焼き CHICO</div>
+<p class="verdict">抵達東京後最有「下町感」的第一餐；7 人務必訂位，首點招牌鹽味文字燒。</p>
+<div class="card-bottom"><span>DAY 1・午餐</span><span>本所吾妻橋</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="1" data-priority="A" href="venues/02-pain-maison.html">
+<div class="card-photo">
+<img alt="招牌元祖鹽麵包" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-bakery.svg';" referrerpolicy="no-referrer" src="https://d1som9eclaj1c0.cloudfront.net/upload_picture/S1645111246206_1.JPG"/>
+<span class="photo-label">招牌｜元祖鹽麵包</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">順路小吃</span>
+</div>
+<h3>鹽麵包屋 Pain Maison</h3>
+<div class="jp">塩パン屋 パン・メゾン すみだ浅草通り店</div>
+<p class="verdict">便宜、快速、代表性高；建議每人先買原味鹽麵包，再挑一個夾餡款。</p>
+<div class="card-bottom"><span>DAY 1・點心</span><span>吾妻橋</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="1" data-priority="A" href="venues/03-torikizoku-asakusa.html">
+<div class="card-photo">
+<img alt="官方菜單實拍：もも貴族焼（たれ）" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-grill.svg';" referrerpolicy="no-referrer" src="https://torikizoku.co.jp/assets/uploads/2024/03/momo_kizokuyaki_tare.jpg"/>
+<span class="photo-label">招牌｜もも貴族焼（たれ）</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">行程正式安排</span>
+</div>
+<h3>鳥貴族 淺草店</h3>
+<div class="jp">鳥貴族 浅草店</div>
+<p class="verdict">適合不同航班抵達後的 7 人會合餐；價格好控管，但週六晚間一定要訂位。</p>
+<div class="card-bottom"><span>DAY 1・晚餐</span><span>淺草</span></div>
+</div>
+</a></div>
+</section>
+<section class="day-section" data-day-section="2">
+<div class="day-title"><span class="day-num">DAY 2</span><h2>2026/11/22（日）｜三軒茶屋・豪德寺・梅丘・新宿</h2></div>
+<div class="cards">
+<a class="venue-card" data-day="2" data-priority="B" href="venues/04-nukumuku.html">
+<div class="card-photo">
+<img alt="nukumuku 三軒茶屋店內人氣麵包陳列實拍" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-bakery.svg';" referrerpolicy="no-referrer" src="https://san-tatsu.jp/assets/uploads/2026/02/19174353/1771490631-6dc16f7fb0db8ad1140e0431600dc348.jpg"/>
+<span class="photo-label">招牌｜當日出爐招牌麵包</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge sage">B｜順路可吃</span>
+<span class="badge blue">行程正式安排</span>
+</div>
+<h3>nukumuku 三軒茶屋</h3>
+<div class="jp">nukumuku</div>
+<p class="verdict">適合進豪德寺前補充早餐；重點是 1 樓選麵包，時間有限就不要等 2 樓正餐。</p>
+<div class="card-bottom"><span>DAY 2・早餐</span><span>三軒茶屋</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="2" data-priority="B" href="venues/05-rarasand.html">
+<div class="card-photo">
+<img alt="招牌招福焼（招福貓造型；定番紅豆、牛奶卡士達等口味）" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://setagaya.goguynet.jp/wp-content/uploads/sites/145/2026/03/IMG_3700.jpeg"/>
+<span class="photo-label">招牌｜招福焼（招福貓造型）</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge sage">B｜順路可吃</span>
+<span class="badge blue">順路小吃</span>
+</div>
+<h3>RARASAND 招福貓甜點咖啡</h3>
+<div class="jp">RARASAND</div>
+<p class="verdict">造型與豪德寺主題最連貫；重點是招福燒，不必為了完整咖啡時段久候。</p>
+<div class="card-bottom"><span>DAY 2・點心備選</span><span>豪德寺</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="2" data-priority="B" href="venues/06-iron-coffee.html">
+<div class="card-photo">
+<img alt="IRON COFFEE 人氣咖啡拿鐵實拍" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/131219/640x640_rect_131219715.jpg"/>
+<span class="photo-label">招牌｜咖啡拿鐵（人氣第一）</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge sage">B｜順路可吃</span>
+<span class="badge blue">彈性備選</span>
+</div>
+<h3>IRON COFFEE 豪德寺</h3>
+<div class="jp">IRON COFFEE</div>
+<p class="verdict">比 RARASAND 更適合真正想喝好咖啡的人；週日 09:00 開，可作早餐後第二站。</p>
+<div class="card-bottom"><span>DAY 2・咖啡備選</span><span>豪德寺</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="2" data-priority="S" href="venues/07-sushi-midori-umeoka.html">
+<div class="card-photo">
+<img alt="元祖穴子一本付握壽司組合" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-sushi.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/167070/640x640_rect_bb997eb68b4672dafe02f09c184ea8a3.jpg"/>
+<span class="photo-label">招牌｜元祖穴子一本付</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">行程正式安排</span>
+</div>
+<h3>梅丘壽司美登利 總本店</h3>
+<div class="jp">梅丘寿司の美登利 総本店</div>
+<p class="verdict">DAY 2 的核心餐廳；星期日不要只提早 30 分鐘，建議 09:40–10:00 就派代表操作發券機。</p>
+<div class="card-bottom"><span>DAY 2・午餐</span><span>梅丘</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="2" data-priority="X" href="venues/08-kameya-shinjuku.html">
+<div class="card-photo">
+<img alt="招牌元祖天玉蕎麥麵" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-noodles.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/75427/640x640_rect_75427735.jpg"/>
+<span class="photo-label">招牌｜天玉そば（天婦羅溫泉蛋蕎麥麵）</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge blue">X｜本次不適用</span>
+<span class="badge blue">營業異動</span>
+</div>
+<h3>かめや 新宿店</h3>
+<div class="jp">そば処 かめや 新宿店</div>
+<p class="verdict">本次日期是星期日，店家固定休息；不能把它當 11/22 晚餐。</p>
+<div class="card-bottom"><span>DAY 2・原排晚餐</span><span>新宿思出橫丁</span></div>
+</div>
+</a></div>
+</section>
+<section class="day-section" data-day-section="3">
+<div class="day-title"><span class="day-num">DAY 3</span><h2>2026/11/23（一・日本國定假日）｜谷根千・押上・晴空塔</h2></div>
+<div class="cards">
+<a class="venue-card" data-day="3" data-priority="A" href="venues/09-noguchi-sengyoten.html">
+<div class="card-photo">
+<img alt="招牌朝一築地丼" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-seafood.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/324735/640x640_rect_724d35974a1347f3567507b92781de58.jpg"/>
+<span class="photo-label">招牌｜朝一築地丼</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">彈性備選</span>
+</div>
+<h3>野口鮮魚店</h3>
+<div class="jp">小さな魚がし 野口鮮魚店</div>
+<p class="verdict">海鮮份量與視覺都很強，但等待時間不可控；僅適合早起的小組，不要讓它耽誤 14:00 全員會合。</p>
+<div class="card-bottom"><span>DAY 3・午餐備選</span><span>本所吾妻橋</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="3" data-priority="B" href="venues/10-akimp-pudding.html">
+<div class="card-photo">
+<img alt="現場炙燒 Crème brûlée pudding" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/324070/640x640_rect_7d543e3fea90a2c9c4ef91aece952be6.jpg"/>
+<span class="photo-label">招牌｜Crème brûlée pudding</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge sage">B｜順路可吃</span>
+<span class="badge blue">順路小吃</span>
+</div>
+<h3>akim'p 布丁</h3>
+<div class="jp">akim'p</div>
+<p class="verdict">小而精緻的布丁店；焦糖布蕾表演感強，但 12 席不適合 7 人同時久坐。</p>
+<div class="card-bottom"><span>DAY 3・甜點</span><span>押上・業平</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="3" data-priority="S" href="venues/12-triton-solamachi.html">
+<div class="card-photo">
+<img alt="Triton 實拍：北海道系握壽司（白身魚、扇貝、鮭魚卵）" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-sushi.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/96174/640x640_rect_96174040.jpg"/>
+<span class="photo-label">招牌｜北海道產／當日推薦握壽司</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">不吃牛肉首選</span>
+</div>
+<h3>回轉壽司 Triton 東京 Solamachi 店</h3>
+<div class="jp">回転寿し トリトン 東京ソラマチ店</div>
+<p class="verdict">晴空塔行程中最方便的無牛晚餐選擇；先拿整理券比選餐更重要。</p>
+<div class="card-bottom"><span>DAY 3・晚餐</span><span>東京 Solamachi 6F</span></div>
+</div>
+</a></div>
+</section>
+<section class="day-section" data-day-section="4">
+<div class="day-title"><span class="day-num">DAY 4</span><h2>2026/11/24（二）｜神宮外苑・表參道・澀谷・新宿</h2></div>
+<div class="cards">
+<a class="venue-card" data-day="4" data-priority="A" href="venues/13-number-sugar.html">
+<div class="card-photo">
+<img alt="NUMBER SUGAR 手工數字焦糖" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://img.bigfang.tw/2023/02/1675396142-61f16dbf9261488e1cb5e63a519fa40d.jpg"/>
+<span class="photo-label">招牌｜綜合數字焦糖盒</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">順路小吃</span>
+</div>
+<h3>NUMBER SUGAR 表參道本店</h3>
+<div class="jp">NUMBER SUGAR 表参道本店</div>
+<p class="verdict">體積小、好攜帶、送禮辨識度高；建議直接買綜合盒，不必逐顆研究太久。</p>
+<div class="card-bottom"><span>DAY 4・伴手禮／點心</span><span>表參道・Cat Street</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="4" data-priority="S" href="venues/14-menchirashi.html">
+<div class="card-photo">
+<img alt="麵散招牌培根奶油卡邦尼釜玉烏龍麵" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-noodles.svg';" referrerpolicy="no-referrer" src="https://cdn.sarah30.com/reviews/photos/000/884/339/x_large/321b9fb25a8fb4fcb865a212de26c83d1db68af4.jpg"/>
+<span class="photo-label">招牌｜カルボナーラ釜たまうどん／培根奶油烏龍麵</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">行程正式安排</span>
+</div>
+<h3>麵散</h3>
+<div class="jp">麺散</div>
+<p class="verdict">培根奶油烏龍麵值得吃，但本次是星期二，通常只營業到傍晚，必須排午餐。</p>
+<div class="card-bottom"><span>DAY 4・午餐</span><span>原宿</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="4" data-priority="B" href="venues/15-waratako.html">
+<div class="card-photo">
+<img alt="人氣鹽蔥美乃滋章魚燒" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-street.svg';" referrerpolicy="no-referrer" src="https://cdn.hamoni.jp/hamoni/posts/gttF9myBW6iMJco4bWpm/0.jpeg"/>
+<span class="photo-label">招牌｜鹽蔥美乃滋章魚燒</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge sage">B｜順路可吃</span>
+<span class="badge blue">順路小吃</span>
+</div>
+<h3>笑たこ 原宿表參道店</h3>
+<div class="jp">笑たこ 原宿表参道店</div>
+<p class="verdict">適合多人分一盒、快速補一口；不要每人一份，會影響晚餐。</p>
+<div class="card-bottom"><span>DAY 4・加碼點心</span><span>原宿・表參道</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="4" data-priority="B" href="venues/16-harbs-lumine-est.html">
+<div class="card-photo">
+<img alt="HARBS 招牌水果千層蛋糕 Mille Crepes" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/331401/640x640_rect_7350711c773a1a4e751620e3102675ca.jpg"/>
+<span class="photo-label">招牌｜Mille Crepes 水果千層</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge sage">B｜順路可吃</span>
+<span class="badge blue">彈性備選</span>
+</div>
+<h3>HARBS LUMINE EST 新宿店</h3>
+<div class="jp">HARBS ルミネエスト新宿店</div>
+<p class="verdict">蛋糕份量大，適合 2 人分一片；若晚餐已訂牛舌或海老丸，HARBS 只作候補，不宜排完整下午茶。</p>
+<div class="card-bottom"><span>DAY 4・下午茶備選</span><span>新宿站</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="4" data-priority="S" href="venues/17-gyutan-lemon.html">
+<div class="card-photo">
+<img alt="名物「極み」厚切牛舌定食" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-grill.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/285070/640x640_rect_c4d8b22e0ae6816adc74a6b5534d27f3.jpg"/>
+<span class="photo-label">招牌｜名物「極み」厚切牛舌牛排定食</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">牛肉組</span>
+</div>
+<h3>牛舌的檸檬 新宿總本店</h3>
+<div class="jp">新宿焼肉 牛たんの檸檬 総本店</div>
+<p class="verdict">牛肉組的另一個核心餐廳；6 人以上不要只靠線上，提早電話確認座位與套餐。</p>
+<div class="card-bottom"><span>DAY 4・晚餐</span><span>西新宿</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="4" data-priority="S" href="venues/18-ebimaru-ramen.html">
+<div class="card-photo">
+<img alt="元祖海老丸拉麵（龍蝦濃湯）" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-noodles.svg';" referrerpolicy="no-referrer" src="https://item-shopping.c.yimg.jp/i/n/takumen_1246"/>
+<span class="photo-label">招牌｜元祖海老丸らーめん</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">不吃牛肉首選</span>
+</div>
+<h3>海老丸拉麵</h3>
+<div class="jp">海老丸らーめん</div>
+<p class="verdict">不吃牛肉者的特色分流首選；點「元祖海老丸＋定番燉飯」才能完整體驗。</p>
+<div class="card-bottom"><span>DAY 4・晚餐</span><span>神保町</span></div>
+</div>
+</a></div>
+</section>
+<section class="day-section" data-day-section="5">
+<div class="day-title"><span class="day-num">DAY 5</span><h2>2026/11/25（三）｜淺草・上野</h2></div>
+<div class="cards">
+<a class="venue-card" data-day="5" data-priority="A" href="venues/19-muuya.html">
+<div class="card-photo">
+<img alt="招牌方形吐司「ムー」" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-bakery.svg';" referrerpolicy="no-referrer" src="https://www.fashion-press.net/img/news/59643/58Q.jpg"/>
+<span class="photo-label">招牌｜招牌方形吐司「ムー」</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">行程正式安排</span>
+</div>
+<h3>MŪYA 吐司咖啡廳</h3>
+<div class="jp">むうや</div>
+<p class="verdict">地點漂亮、早餐節奏容易控制；重點吃招牌「ムー」吐司，不需要點太多。</p>
+<div class="card-bottom"><span>DAY 5・早餐</span><span>東京 Mizumachi</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="5" data-priority="A" href="venues/20-asakusa-kagetsudo.html">
+<div class="card-photo">
+<img alt="招牌巨型菠蘿麵包（ジャンボめろんぱん）" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-bakery.svg';" referrerpolicy="no-referrer" src="https://img01.jalannews.jp/img/2021/01/20200118_AsakusaMelonpan02.jpg"/>
+<span class="photo-label">招牌｜ジャンボめろんぱん／巨型菠蘿麵包</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">順路小吃</span>
+</div>
+<h3>淺草花月堂 本店</h3>
+<div class="jp">浅草花月堂 本店</div>
+<p class="verdict">剛出爐最有價值；全團 2–3 個共享即可，不要為拍照買過量。</p>
+<div class="card-bottom"><span>DAY 5・小吃</span><span>淺草寺周邊</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="5" data-priority="S" href="venues/21-suzukien.html">
+<div class="card-photo">
+<img alt="最濃抹茶 Gelato No.7" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-wagashi.svg';" referrerpolicy="no-referrer" src="https://stat.ameba.jp/user_images/20250823/23/mine1989s/cb/5b/j/o1080144015657672143.jpg"/>
+<span class="photo-label">招牌｜抹茶 Gelato No.7</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">順路小吃</span>
+</div>
+<h3>壽壽喜園 淺草本店</h3>
+<div class="jp">壽々喜園 浅草本店</div>
+<p class="verdict">淺草甜點中最值得保留的一站；建議 No.7 與較淡口味各一球對比。</p>
+<div class="card-bottom"><span>DAY 5・甜點</span><span>淺草寺北側</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="5" data-priority="S" href="venues/22-kameju.html">
+<div class="card-photo">
+<img alt="招牌黑餡銅鑼燒剖面" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-wagashi.svg';" referrerpolicy="no-referrer" src="https://assets.st-note.com/img/1730107544-L2fXS3hkxGzCowqvAE0s7Wpa.jpg?fit=bounds&amp;height=2000&amp;quality=85&amp;width=2000"/>
+<span class="photo-label">招牌｜どら焼き 黒あん／黑餡</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">順路小吃</span>
+</div>
+<h3>龜十 銅鑼燒</h3>
+<div class="jp">御菓子司 亀十</div>
+<p class="verdict">要吃就早上先買；傍晚容易售完，排隊 30–60 分鐘要預先納入。</p>
+<div class="card-bottom"><span>DAY 5・伴手禮／甜點</span><span>雷門</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="5" data-priority="S" href="venues/23-chinya.html">
+<div class="card-photo">
+<img alt="黑毛和牛壽喜燒下鍋實拍" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-grill.svg';" referrerpolicy="no-referrer" src="https://assets.st-note.com/img/1705282078049-hHw8eUaZzl.jpg?fit=bounds&amp;height=2000&amp;quality=85&amp;width=2000"/>
+<span class="photo-label">招牌｜黑毛和牛壽喜燒套餐</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">牛肉組</span>
+</div>
+<h3>Chinya 黑毛和牛壽喜燒</h3>
+<div class="jp">ちんや 浅草本店</div>
+<p class="verdict">牛肉組的傳統大餐；6 人應提早訂位，午餐選套餐比現場單點更有效率。</p>
+<div class="card-bottom"><span>DAY 5・午餐</span><span>淺草</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="5" data-priority="S" href="venues/24-akimitsu-asakusa.html">
+<div class="card-photo">
+<img alt="招牌五代目天丼與整尾穴子天婦羅" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-tempura.svg';" referrerpolicy="no-referrer" src="https://stat.ameba.jp/user_images/20200317/21/yokosiroisi/e9/ef/j/o1080108014729616872.jpg?caw=800"/>
+<span class="photo-label">招牌｜穴子天丼</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">不吃牛肉首選</span>
+</div>
+<h3>天麩羅 秋光 淺草本店</h3>
+<div class="jp">天麩羅 秋光 浅草本店</div>
+<p class="verdict">不吃牛肉者與 Chinya 牛肉組分流最順；穴子與海鮮天丼是首選。</p>
+<div class="card-bottom"><span>DAY 5・午餐</span><span>淺草花屋敷旁</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="5" data-priority="B" href="venues/25-asakusa-yokocho.html">
+<div class="card-photo">
+<img alt="雷もんじゃ官方實拍：下町もんじゃ" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-izakaya.svg';" referrerpolicy="no-referrer" src="https://prcdn.freetls.fastly.net/release_image/20469/111/20469-111-79ad9a1cfa0112245fd99dbfb17b1c5c-1159x883.jpg?auto=webp&amp;fit=bounds&amp;format=jpeg&amp;height=900&amp;width=1350"/>
+<span class="photo-label">招牌｜雷もんじゃ－下町文字燒</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge sage">B｜順路可吃</span>
+<span class="badge blue">彈性備選</span>
+</div>
+<h3>淺草橫町</h3>
+<div class="jp">浅草横町</div>
+<p class="verdict">優點是 7 人可依口味分店、氣氛熱鬧；缺點是「橫町」不是單一餐廳，營業與訂位要看各店。</p>
+<div class="card-bottom"><span>DAY 5・晚餐備選</span><span>淺草 ROX 周邊</span></div>
+</div>
+</a></div>
+</section>
+<section class="day-section" data-day-section="6">
+<div class="day-title"><span class="day-num">DAY 6</span><h2>2026/11/26（四）｜SPACIA X・日光</h2></div>
+<div class="cards">
+<a class="venue-card" data-day="6" data-priority="A" href="venues/26-goen-cafe-spaciax.html">
+<div class="card-photo">
+<img alt="SPACIA X 原創手沖咖啡與酒粕奶油夾心餅" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://prcdn.freetls.fastly.net/release_image/64591/263/64591-263-6ce0a5e74dc65d15c342539c7b9bae5a-3900x2600.jpg?auto=webp&amp;fit=bounds&amp;format=jpeg&amp;height=1350&amp;quality=85%2C65&amp;width=1950"/>
+<span class="photo-label">招牌｜SPACIA X 原創手沖咖啡＋酒粕奶油夾心餅</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">推薦安排</span>
+</div>
+<h3>GOEN CAFÉ SPACIA X</h3>
+<div class="jp">GOEN CAFÉ SPACIA X</div>
+<p class="verdict">你們若成功訂到 6 號車 Cockpit Suite，可免整理券使用咖啡吧，是很值得保留的列車體驗。</p>
+<div class="card-bottom"><span>DAY 6・列車餐飲</span><span>SPACIA X 1 號車</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="6" data-priority="S" href="venues/27-nikko-sakaeya.html">
+<div class="card-photo">
+<img alt="招牌現炸揚げゆばまんじゅう" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-street.svg';" referrerpolicy="no-referrer" src="https://stat.ameba.jp/user_images/20240510/15/kanrieiyoushi-25/85/32/j/o1080144015436903289.jpg"/>
+<span class="photo-label">招牌｜現炸揚げゆばまんじゅう</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">行程正式安排</span>
+</div>
+<h3>日光さかえや 炸湯波饅頭</h3>
+<div class="jp">日光さかえや 揚げゆばまんじゅう本舗</div>
+<p class="verdict">下車 30 秒就能吃到的日光代表點心；現炸一顆即可，留胃給正餐。</p>
+<div class="card-bottom"><span>DAY 6・抵達點心</span><span>東武日光站前</span></div>
+</div>
+</a></div>
+</section>
+<section class="day-section" data-day-section="7">
+<div class="day-title"><span class="day-num">DAY 7</span><h2>2026/11/27（五）｜奧日光・世界遺產區</h2></div>
+<div class="cards">
+<a class="venue-card" data-day="7" data-priority="S" href="venues/28-san-field-nikko.html">
+<div class="card-photo">
+<img alt="店家招牌湯波御膳完整實拍" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-yuba.svg';" referrerpolicy="no-referrer" src="https://images.miil.me/j/1e4791ae-f325-11ef-848f-062113fc9af7.orig.jpg"/>
+<span class="photo-label">招牌｜ゆば御膳／湯波御膳</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">推薦安排</span>
+</div>
+<h3>さんフィールド 湯波御膳</h3>
+<div class="jp">さんフィールド</div>
+<p class="verdict">DAY 7 原行程只寫「日光傳統餐館」，這間是最穩妥的具體化：星期五營業、湯波御膳完整、位置順路。</p>
+<div class="card-bottom"><span>DAY 7・午餐推薦</span><span>鉢石町・東照宮路線</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="7" data-priority="B" href="venues/29-nikko-yubamaki-zen.html">
+<div class="card-photo">
+<img alt="招牌日光湯波巻御膳" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-yuba.svg';" referrerpolicy="no-referrer" src="https://rimage.gnst.jp/rest/img/4cbduavy0000/s_0n70.jpg?t=1667202460"/>
+<span class="photo-label">招牌｜日光湯波巻</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge sage">B｜順路可吃</span>
+<span class="badge blue">條件式備選</span>
+</div>
+<h3>日光湯波巻 全 ZEN</h3>
+<div class="jp">日光湯波巻 全 ZEN</div>
+<p class="verdict">官方菜單頁顯示已於 2026/7/1 恢復營業，但採部分菜單；11/27 晚餐與 7 人接待仍須直接確認，因此保留為條件式備選。</p>
+<div class="card-bottom"><span>DAY 7・高階晚餐備選</span><span>上鉢石町</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="7" data-priority="A" href="venues/30-meiji-no-yakata.html">
+<div class="card-photo">
+<img alt="招牌オムレツライス（蛋包飯）" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-western.svg';" referrerpolicy="no-referrer" src="https://ak-d.tripcdn.com/images/1i66q22159wuwdxb42262_W_640_0_R5_Q80.jpg?proc=source%2Ftrip"/>
+<span class="photo-label">招牌｜オムレツライス／蛋包飯</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">推薦安排</span>
+</div>
+<h3>明治之館</h3>
+<div class="jp">西洋料理 明治の館</div>
+<p class="verdict">若不想把 DAY 7 全押在湯波料理，這是景觀、建築與餐點兼具的可靠備案；招牌是蛋包飯與起司蛋糕。</p>
+<div class="card-bottom"><span>DAY 7・歷史洋食備選</span><span>日光山內</span></div>
+</div>
+</a></div>
+</section>
+<section class="day-section" data-day-section="8">
+<div class="day-title"><span class="day-num">DAY 8</span><h2>2026/11/28（六）｜成田山表參道</h2></div>
+<div class="cards">
+<a class="venue-card" data-day="8" data-priority="S" href="venues/31-kawatoyo-honten.html">
+<div class="card-photo">
+<img alt="招牌上うな重（上鰻重）" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-unagi.svg';" referrerpolicy="no-referrer" src="https://atp.jp/chiba/kawatoyo/1.jpg"/>
+<span class="photo-label">招牌｜上うな重／上鰻重</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge red">S｜值得專程安排</span>
+<span class="badge blue">行程正式安排</span>
+</div>
+<h3>川豐 本店</h3>
+<div class="jp">川豊 本店</div>
+<p class="verdict">DAY 8 的第一選擇；10:00 開門，抵達成田後第一件事應先抽號／排隊，再逛表參道。</p>
+<div class="card-bottom"><span>DAY 8・午餐</span><span>成田山表參道</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="8" data-priority="A" href="venues/32-narita-edokko-sushi.html">
+<div class="card-photo">
+<img alt="上握り／特上握り壽司拼盤實拍" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-sushi.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/350438/640x640_rect_00730fc246cb35409732ce61f0d43e70.jpg"/>
+<span class="photo-label">招牌｜上握り／特上握り</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">彈性備選</span>
+</div>
+<h3>成田江戶人壽司 參道本店</h3>
+<div class="jp">成田江戸ッ子寿司 参道本店</div>
+<p class="verdict">川豐等待太久時的最佳替代；有較多座位與包廂，7 人比排鰻魚更容易控制時間。</p>
+<div class="card-bottom"><span>DAY 8・午餐備選</span><span>成田站・表參道</span></div>
+</div>
+</a>
+<a class="venue-card" data-day="8" data-priority="A" href="venues/33-nagomi-yoneya.html">
+<div class="card-photo">
+<img alt="總本店代表銘菓：栗羊羹" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/food-wagashi.svg';" referrerpolicy="no-referrer" src="https://www.nrtk.jp/shared/images/data/31/like1_image_web_2.jpg?_=1694498182"/>
+<span class="photo-label">招牌｜栗羊羹</span>
+</div>
+<div class="card-body">
+<div class="card-meta">
+<span class="badge gold">A｜推薦安排</span>
+<span class="badge blue">順路小吃</span>
+</div>
+<h3>なごみの米屋 總本店</h3>
+<div class="jp">なごみの米屋 總本店</div>
+<p class="verdict">成田最後採買的穩定選擇；栗羊羹送長輩，花生最中送同事，先看保存期限再買。</p>
+<div class="card-bottom"><span>DAY 8・伴手禮</span><span>成田山表參道</span></div>
+</div>
+</a></div>
+</section>
+</div></main>
+<footer class="footer"><div class="wrap footer-inner"><span>2026 東京・日光・成田餐廳攻略</span><span>照片與營業資訊請於出發前再次確認</span></div></footer>
+<script>
+(() => {
+  const buttons = [...document.querySelectorAll('[data-filter]')];
+  const cards = [...document.querySelectorAll('.venue-card')];
+  const sections = [...document.querySelectorAll('[data-day-section]')];
+  const count = document.getElementById('resultCount');
+  const empty = document.getElementById('emptyState');
+  function apply(value) {
+    let visible = 0;
+    cards.forEach(card => {
+      const show = value === 'all' || value === `day-${card.dataset.day}` || value === `priority-${card.dataset.priority}`;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    sections.forEach(section => { section.hidden = ![...section.querySelectorAll('.venue-card')].some(c => !c.hidden); });
+    count.textContent = visible;
+    empty.style.display = visible ? 'none' : 'block';
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === value));
+  }
+  buttons.forEach(b => b.addEventListener('click', () => apply(b.dataset.filter)));
+})();
+</script>
+</body>
+</html>
