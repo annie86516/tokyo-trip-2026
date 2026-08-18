@@ -12,7 +12,7 @@
 資料：restaurants-data.json 保留每間店的店面照、餐點照、指定品項與來源網址。
 驗證：詳見 VERIFICATION.txt。
 
-查證日期：2026-08-17
+查證日期：2026-08-18
 
 
 【GitHub Pages 整合】
