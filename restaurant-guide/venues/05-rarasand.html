@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"/>
@@ -206,6 +207,39 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
   .badges{gap:6px}
   .badge{font-size:12px}
 }
+/* per-dish-photo:start */
+.dish-list{display:grid;gap:13px}
+.dish{
+  display:grid;grid-template-columns:156px minmax(0,1fr);gap:0;
+  padding:0;overflow:hidden;background:#fbf7f0;border:1px solid #e6dacb;
+}
+.dish-visual{margin:0;min-height:142px;background:#eee5d9;border-right:1px solid #e2d5c6;position:relative;overflow:hidden}
+.dish-visual .dish-media{width:100%;height:100%;min-height:142px;overflow:hidden;display:grid;place-items:center;background:#eee5d9}
+.dish-visual img{width:100%;height:100%;min-height:142px;object-fit:cover;transition:opacity .2s ease}
+.dish-visual.is-loading img{opacity:.55}
+.dish-visual.is-fallback img{object-fit:contain;padding:14px;background:#f3ede4}
+.dish-visual figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 8px 6px;
+  background:linear-gradient(transparent,rgba(38,31,27,.88));color:#fff;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:10.5px;line-height:1.32;
+}
+.dish-photo-label{display:block;font-weight:750;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.dish-photo-source{display:inline-block;margin-top:2px;color:#fff;text-decoration:underline;font-weight:750}
+.dish-photo-source:hover{color:#fff}
+.dish-copy{padding:13px 14px;align-self:center}
+.dish-copy .dish-top{margin:0}
+.dish-copy p{margin-bottom:0}
+@media(max-width:700px){
+  .dish{grid-template-columns:128px minmax(0,1fr)}
+  .dish-visual,.dish-visual .dish-media,.dish-visual img{min-height:132px}
+}
+@media(max-width:480px){
+  .dish{grid-template-columns:1fr}
+  .dish-visual{border-right:0;border-bottom:1px solid #e2d5c6;aspect-ratio:16/9;min-height:0}
+  .dish-visual .dish-media,.dish-visual img{min-height:0;height:100%}
+  .dish-copy{padding:12px 13px 14px}
+}
+/* per-dish-photo:end */
 @media print{
   body{background:#fff;font-size:12px}
   .sitebar,.filterbar,.footer{display:none!important}
@@ -241,8 +275,8 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 </figure>
 </section>
 <section class="photo-panel">
-<h2>該店店面實景與指定招牌餐點</h2>
-<p class="intro">不再使用整頁截圖或同類型示意照片。以下照片皆逐店對應，並附原始來源頁。</p>
+<h2>店面實景與招牌餐點實拍</h2>
+<p class="intro">招牌餐點保留店家實拍；下方「必點餐點」每一道另附圖片，並標示照片來源或料理示意圖。</p>
 <div class="photo-grid">
 <figure class="photo-figure store-photo">
 <div class="media"><img alt="RARASAND 豪德寺店面（2026 店舖實景）" class="store-img" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='../assets/food-cafe.svg';" referrerpolicy="no-referrer" src="https://setagaya.goguynet.jp/wp-content/uploads/sites/145/2026/03/IMG_3702.jpeg"/></div>
@@ -264,22 +298,22 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 <div class="content-grid">
 <div>
 <section class="panel"><h2>必點餐點與點法</h2><div class="dish-list">
-<div class="dish">
+<div class="dish"><figure class="dish-visual"><div class="dish-media"><img alt="招福焼（招福貓造型）餐點照片" data-direct-photo="true" data-fallback="../assets/food-cafe.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://setagaya.goguynet.jp/wp-content/uploads/sites/145/2026/03/IMG_3700.jpeg"/></div><figcaption><span class="dish-photo-label">店家招牌餐點實拍</span><a class="dish-photo-source" href="https://setagaya.goguynet.jp/2026/03/15/rarasand/" rel="noopener noreferrer" target="_blank">查看照片來源</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>1. 招福焼（招福貓造型）</h3><span class="order-tag">每人或兩人 1 個</span></div>
 <p>店家人氣代表商品；定番紅豆、牛奶卡士達與季節口味可依現場選擇。</p>
-</div>
-<div class="dish">
+</div></div>
+<div class="dish"><figure class="dish-visual is-loading is-fallback"><div class="dish-media"><img alt="招福焼－紅豆餐點照片" data-commons-query="imagawayaki red bean" data-fallback="../assets/food-cafe.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/food-cafe.svg"/></div><figcaption><span class="dish-photo-label">載入餐點參考照片…</span><a class="dish-photo-source" data-dynamic="true" hidden="" href="https://commons.wikimedia.org/w/index.php?search=imagawayaki+red+bean&amp;title=Special:MediaSearch&amp;type=image" rel="noopener noreferrer" target="_blank">查看原圖與授權</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>2. 招福焼－紅豆</h3><span class="order-tag">紅豆愛好者優先</span></div>
 <p>最傳統、最符合豪德寺主題。</p>
-</div>
-<div class="dish">
+</div></div>
+<div class="dish"><figure class="dish-visual is-loading is-fallback"><div class="dish-media"><img alt="招福焼－牛奶卡士達餐點照片" data-commons-query="imagawayaki custard" data-fallback="../assets/food-cafe.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/food-cafe.svg"/></div><figcaption><span class="dish-photo-label">載入餐點參考照片…</span><a class="dish-photo-source" data-dynamic="true" hidden="" href="https://commons.wikimedia.org/w/index.php?search=imagawayaki+custard&amp;title=Special:MediaSearch&amp;type=image" rel="noopener noreferrer" target="_blank">查看原圖與授權</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>3. 招福焼－牛奶卡士達</h3><span class="order-tag">與紅豆口味對半分享</span></div>
 <p>甜味較柔和，適合不愛紅豆者。</p>
-</div>
-<div class="dish">
+</div></div>
+<div class="dish"><figure class="dish-visual is-loading is-fallback"><div class="dish-media"><img alt="Baby Castella餐點照片" data-commons-query="baby castella Japanese cake" data-fallback="../assets/food-cafe.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/food-cafe.svg"/></div><figcaption><span class="dish-photo-label">載入餐點參考照片…</span><a class="dish-photo-source" data-dynamic="true" hidden="" href="https://commons.wikimedia.org/w/index.php?search=baby+castella+Japanese+cake&amp;title=Special:MediaSearch&amp;type=image" rel="noopener noreferrer" target="_blank">查看原圖與授權</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>4. Baby Castella</h3><span class="order-tag">全團 1 袋</span></div>
 <p>方便多人分食與帶走。</p>
-</div></div></section>
+</div></div></div></section>
 <section class="panel"><h2>放進行程的實戰排法</h2>
 <h3>時間安排</h3><p>參拜後回到車站方向順買，停留 15–30 分鐘；若隊伍過長就改 IRON COFFEE。</p>
 <h3>預約</h3><p>通常現場購買；店面不大，不適合 7 人長時間佔位。</p>
@@ -291,10 +325,110 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 <section class="panel"><h2>營業與行程提醒</h2><div class="alert gold"><strong>營業：</strong>近期公開資料約 10:00–17:00／18:00；店休與臨時變更以 Instagram 為準。</div><div class="alert red"><strong>本次提醒：</strong>過往資料曾顯示營業至 22:00，但 2026 更新資料較早收店，請勿採用舊時間。</div><p><strong>當日路線：</strong>三軒茶屋・豪德寺・梅丘・新宿</p></section>
 <section class="panel"><h2>不吃牛肉者判斷</h2><div class="alert sage"><strong>風險標示：</strong>較安心</div><p>甜點本身通常不含牛肉，但含奶蛋；若對明膠或製程嚴格，仍需詢問。</p><h3>容易踩雷</h3><ul><li>營業時間變動較頻繁。</li><li>座位少，7 人不保證能同時入內。</li><li>熱門造型甜點可能提早賣完。</li></ul></section>
 <section class="panel"><h2>給店員看的日文</h2><div class="phrase">招福焼は、今どの味がありますか？（招福燒現在有哪些口味？）</div><div class="phrase">持ち帰りでお願いします。（請幫我外帶。）</div></section>
-<section class="panel"><h2>資料與照片來源</h2><ul class="source-list"><li><a href="https://setagaya.goguynet.jp/2026/03/15/rarasand/" rel="noopener noreferrer" target="_blank">店面照片來源</a><span>RARASAND 豪德寺店面（2026 店舖實景）</span></li><li><a href="https://setagaya.goguynet.jp/2026/03/15/rarasand/" rel="noopener noreferrer" target="_blank">招牌餐點照片來源</a><span>招牌招福焼（招福貓造型；定番紅豆、牛奶卡士達等口味）</span></li><li><a href="https://www.corner.inc/place/p1Q9eVfjJycA" rel="noopener noreferrer" target="_blank">2026 店舖更新資料</a><span>近期時段與店舖資訊</span></li><li><a href="https://setagaya.goguynet.jp/2026/03/15/rarasand/" rel="noopener noreferrer" target="_blank">2026 在地介紹</a><span>招福燒與 Baby Castella</span></li><li><a href="../../index.html" rel="noopener noreferrer" target="_blank">原始東京行程</a></li></ul><p class="photo-disclaimer">營業時間、菜單與預約規則請在出發前 7–14 天再次確認。</p></section>
+<section class="panel"><h2>資料與照片來源</h2><ul class="source-list"><li><a href="https://setagaya.goguynet.jp/2026/03/15/rarasand/" rel="noopener noreferrer" target="_blank">店面照片來源</a><span>RARASAND 豪德寺店面（2026 店舖實景）</span></li><li><a href="https://setagaya.goguynet.jp/2026/03/15/rarasand/" rel="noopener noreferrer" target="_blank">招牌餐點照片來源</a><span>招牌招福焼（招福貓造型；定番紅豆、牛奶卡士達等口味）</span></li><li data-dish-photo-note="true"><a href="https://commons.wikimedia.org/" rel="noopener noreferrer" target="_blank">其餘推薦餐點參考照片</a><span>依餐點名稱載入 Wikimedia Commons 授權圖片；每張圖片下方可開啟原圖與授權資訊。</span></li><li><a href="https://www.corner.inc/place/p1Q9eVfjJycA" rel="noopener noreferrer" target="_blank">2026 店舖更新資料</a><span>近期時段與店舖資訊</span></li><li><a href="https://setagaya.goguynet.jp/2026/03/15/rarasand/" rel="noopener noreferrer" target="_blank">2026 在地介紹</a><span>招福燒與 Baby Castella</span></li><li><a href="../../index.html" rel="noopener noreferrer" target="_blank">原始東京行程</a></li></ul><p class="photo-disclaimer">營業時間、菜單與預約規則請在出發前 7–14 天再次確認。</p></section>
 </div>
 </div>
 </div></main>
 <footer class="footer"><div class="wrap footer-inner"><span>RARASAND 招福貓甜點咖啡</span><span>DAY 2・2026/11/22（日）</span></div></footer>
-</body>
+<script id="dish-photo-loader">
+(() => {
+  'use strict';
+  const endpoint = 'https://commons.wikimedia.org/w/api.php';
+
+  const stripHtml = (value = '') => {
+    const box = document.createElement('div');
+    box.innerHTML = value;
+    return (box.textContent || '').replace(/\s+/g, ' ').trim();
+  };
+
+  const setFallback = (img, message = '料理示意圖') => {
+    const figure = img.closest('.dish-visual');
+    if (!figure) return;
+    figure.classList.remove('is-loading');
+    figure.classList.add('is-fallback');
+    const fallback = img.dataset.fallback;
+    if (fallback && img.src !== new URL(fallback, document.baseURI).href) {
+      img.src = fallback;
+    }
+    const label = figure.querySelector('.dish-photo-label');
+    if (label) label.textContent = message;
+    const source = figure.querySelector('.dish-photo-source');
+    if (source && source.dataset.dynamic === 'true') source.hidden = true;
+  };
+
+  const loadCommonsPhoto = async (img) => {
+    const query = img.dataset.commonsQuery;
+    const figure = img.closest('.dish-visual');
+    if (!query || !figure || img.dataset.loaded === 'true') return;
+    img.dataset.loaded = 'true';
+    figure.classList.add('is-loading');
+
+    try {
+      const params = new URLSearchParams({
+        action: 'query', format: 'json', formatversion: '2', origin: '*',
+        generator: 'search', gsrnamespace: '6', gsrlimit: '8',
+        gsrsearch: query,
+        prop: 'imageinfo', iiprop: 'url|extmetadata', iiurlwidth: '760'
+      });
+      const response = await fetch(`${endpoint}?${params.toString()}`, {mode: 'cors'});
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      const pages = data?.query?.pages || [];
+      const usable = pages.find((page) => {
+        const info = page?.imageinfo?.[0];
+        const url = info?.thumburl || info?.url || '';
+        return /\.(?:jpe?g|png|webp)(?:$|\?)/i.test(url);
+      });
+      const info = usable?.imageinfo?.[0];
+      const photoUrl = info?.thumburl || info?.url;
+      if (!photoUrl) throw new Error('No usable image');
+
+      img.onload = () => {
+        figure.classList.remove('is-loading', 'is-fallback');
+      };
+      img.onerror = () => setFallback(img, '料理示意圖（參考照片載入失敗）');
+      img.src = photoUrl;
+
+      const meta = info.extmetadata || {};
+      const license = stripHtml(meta.LicenseShortName?.value || 'Wikimedia Commons');
+      const artistRaw = stripHtml(meta.Artist?.value || meta.Credit?.value || '');
+      const artist = artistRaw.length > 42 ? `${artistRaw.slice(0, 39)}…` : artistRaw;
+      const label = figure.querySelector('.dish-photo-label');
+      if (label) label.textContent = artist ? `餐點參考照片｜${license}｜${artist}` : `餐點參考照片｜${license}`;
+
+      const source = figure.querySelector('.dish-photo-source');
+      if (source) {
+        source.href = info.descriptionurl || `https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(query)}&title=Special:MediaSearch&type=image`;
+        source.textContent = '查看原圖與授權';
+        source.hidden = false;
+      }
+    } catch (error) {
+      setFallback(img, '料理示意圖（未找到合適參考照片）');
+    }
+  };
+
+  const start = () => {
+    document.querySelectorAll('img[data-direct-photo]').forEach((img) => {
+      img.addEventListener('error', () => setFallback(img, '料理示意圖（店家照片載入失敗）'), {once: true});
+    });
+
+    const targets = [...document.querySelectorAll('img[data-commons-query]')];
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(loadCommonsPhoto);
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        loadCommonsPhoto(entry.target);
+      });
+    }, {rootMargin: '500px 0px'});
+    targets.forEach((img) => observer.observe(img));
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once: true});
+  else start();
+})();
+</script></body>
 </html>

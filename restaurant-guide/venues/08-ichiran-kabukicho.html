@@ -207,6 +207,40 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
   .badges{gap:6px}
   .badge{font-size:12px}
 }
+/* per-dish-photo:start */
+.dish-list{display:grid;gap:13px}
+.dish{
+  display:grid;grid-template-columns:156px minmax(0,1fr);gap:0;
+  padding:0;overflow:hidden;background:#fbf7f0;border:1px solid #e6dacb;
+}
+.dish-visual{margin:0;min-height:142px;background:#eee5d9;border-right:1px solid #e2d5c6;position:relative;overflow:hidden}
+.dish-visual .dish-media{width:100%;height:100%;min-height:142px;overflow:hidden;display:grid;place-items:center;background:#eee5d9}
+.dish-visual img{width:100%;height:100%;min-height:142px;object-fit:cover;transition:opacity .2s ease}
+.dish-visual.is-loading img{opacity:.55}
+.dish-visual.is-fallback img{object-fit:contain;padding:14px;background:#f3ede4}
+.dish-visual figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 8px 6px;
+  background:linear-gradient(transparent,rgba(38,31,27,.88));color:#fff;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:10.5px;line-height:1.32;
+}
+.dish-photo-label{display:block;font-weight:750;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.dish-photo-source{display:inline-block;margin-top:2px;color:#fff;text-decoration:underline;font-weight:750}
+.dish-photo-source:hover{color:#fff}
+.dish-copy{padding:13px 14px;align-self:center}
+.dish-copy .dish-top{margin:0}
+.dish-copy p{margin-bottom:0}
+@media(max-width:700px){
+  .dish{grid-template-columns:128px minmax(0,1fr)}
+  .dish-visual,.dish-visual .dish-media,.dish-visual img{min-height:132px}
+}
+@media(max-width:480px){
+  .dish{grid-template-columns:1fr}
+  .dish-visual{border-right:0;border-bottom:1px solid #e2d5c6;aspect-ratio:16/9;min-height:0}
+  .dish-visual .dish-media,.dish-visual img{min-height:0;height:100%}
+  .dish-copy{padding:12px 13px 14px}
+}
+.dish-photo-intro{margin:-2px 0 13px;color:#6b655f;font-size:13px;line-height:1.55}
+/* per-dish-photo:end */
 @media print{
   body{background:#fff;font-size:12px}
   .sitebar,.filterbar,.footer{display:none!important}
@@ -238,20 +272,20 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 <div class="action-row"><a class="btn blue" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%80%E8%98%AD+%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-17-10" rel="noopener noreferrer" target="_blank">Google Maps</a><a class="btn sage" href="https://zh-cht.ichiran.com/shop/tokyo/kabukicho/" rel="noopener noreferrer" target="_blank">官方／店舖頁</a><a class="btn primary" href="https://www.tablecheck.com/ja/ichiran-shinjuku-kabukicho" rel="noopener noreferrer" target="_blank">Fast Pass</a></div>
 </div>
 <figure class="hero-photo">
-<div class="media"><img alt="天然豚骨拉麵" decoding="async" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='../assets/food-noodles.svg';" referrerpolicy="no-referrer" src="https://ichiran.com/shop/img/kabukicho_5.jpg"/></div>
+<div class="media"><img alt="天然豚骨拉麵" decoding="async" fetchpriority="high" loading="eager" onerror="this.onerror=null;this.src='../assets/food-noodles.svg';" referrerpolicy="no-referrer" src="../assets/dish-photos/ichiran-ramen.webp"/></div>
 <figcaption>首頁與本頁主圖：指定招牌｜天然豚骨拉麵</figcaption>
 </figure>
 </section>
 <section class="photo-panel">
-<h2>該店店面實景與指定招牌餐點</h2>
-<p class="intro">以下照片逐店對應並附原始來源頁；若外部圖片無法載入，頁面會改用內建料理示意圖。</p>
+<h2>店面實景與招牌餐點實拍</h2>
+<p class="intro">招牌餐點保留店家實拍；下方「必點餐點」每一道另附圖片，並標示照片來源或料理示意圖。</p>
 <div class="photo-grid">
 <figure class="photo-figure store-photo">
 <div class="media"><img alt="一蘭新宿歌舞伎町店店面實景" class="store-img" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='../assets/food-noodles.svg';" referrerpolicy="no-referrer" src="https://ichiran.com/shop/img/kabukicho_1.jpg"/></div>
 <figcaption><b>餐廳店面實景</b><span>一蘭新宿歌舞伎町店店面實景</span><a class="photo-source" href="https://zh-cht.ichiran.com/shop/tokyo/kabukicho/" rel="noopener noreferrer" target="_blank">查看店面照片來源</a></figcaption>
 </figure>
 <figure class="photo-figure">
-<div class="media"><img alt="天然豚骨拉麵實景" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='../assets/food-noodles.svg';" referrerpolicy="no-referrer" src="https://ichiran.com/shop/img/kabukicho_5.jpg"/></div>
+<div class="media"><img alt="天然豚骨拉麵實景" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='../assets/food-noodles.svg';" referrerpolicy="no-referrer" src="../assets/dish-photos/ichiran-ramen.webp"/></div>
 <figcaption><b>指定招牌餐點</b><span>指定品項：天然豚骨拉麵<br/>天然豚骨拉麵實景</span><a class="photo-source" href="https://zh-cht.ichiran.com/shop/tokyo/kabukicho/" rel="noopener noreferrer" target="_blank">查看餐點照片來源</a></figcaption>
 </figure>
 </div>
@@ -265,7 +299,7 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 </section>
 <div class="content-grid">
 <div>
-<section class="panel"><h2>必點餐點與點法</h2><div class="dish-list"><div class="dish"><div class="dish-top"><h3>1. 天然豚骨拉麵</h3><span class="order-tag">第一次建議先用基本設定</span></div><p>店家核心品項，可自行調整濃淡、油量、蒜、蔥、叉燒、辣度與麵硬度。</p></div><div class="dish"><div class="dish-top"><h3>2. 替玉（加麵）</h3><span class="order-tag">仍有食量再追加</span></div><p>吃完第一碗再決定，避免一開始點太多。</p></div><div class="dish"><div class="dish-top"><h3>3. 半熟鹽味蛋</h3><span class="order-tag">想增加配料者</span></div><p>味道溫和，適合搭配豚骨湯。</p></div><div class="dish"><div class="dish-top"><h3>4. 抹茶杏仁豆腐</h3><span class="order-tag">2 人分食也可以</span></div><p>拉麵後較清爽的收尾。</p></div></div></section>
+<section class="panel"><h2>推薦餐點照片與點法</h2><p class="dish-photo-intro">四項推薦餐點均附照片。拉麵採一蘭官方照片；替玉、半熟鹽味蛋與甜點為一蘭共通品項辨識照，實際擺盤以新宿歌舞伎町店當日供應為準。</p><div class="dish-list"><div class="dish"><figure class="dish-visual"><div class="dish-media"><img alt="天然豚骨拉麵餐點照片" data-direct-photo="true" data-fallback="../assets/food-noodles.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/dish-photos/ichiran-ramen.webp"/></div><figcaption><span class="dish-photo-label">店家招牌餐點實拍</span><a class="dish-photo-source" href="https://zh-cht.ichiran.com/shop/tokyo/kabukicho/" rel="noopener noreferrer" target="_blank">查看照片來源</a></figcaption></figure><div class="dish-copy"><div class="dish-top"><h3>1. 天然豚骨拉麵</h3><span class="order-tag">第一次建議先用基本設定</span></div><p>店家核心品項，可自行調整濃淡、油量、蒜、蔥、叉燒、辣度與麵硬度。</p></div></div><div class="dish"><figure class="dish-visual"><div class="dish-media"><img alt="替玉（加麵）餐點照片" data-direct-photo="true" data-fallback="../assets/food-noodles.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/dish-photos/ichiran-kaedama.jpg"/></div><figcaption><span class="dish-photo-label">一蘭餐點參考實拍</span><a class="dish-photo-source" href="https://men-report.com/archives/693" rel="noopener noreferrer" target="_blank">查看照片來源</a></figcaption></figure><div class="dish-copy"><div class="dish-top"><h3>2. 替玉（加麵）</h3><span class="order-tag">仍有食量再追加</span></div><p>吃完第一碗再決定，避免一開始點太多。</p></div></div><div class="dish"><figure class="dish-visual"><div class="dish-media"><img alt="半熟鹽味蛋餐點照片" data-direct-photo="true" data-fallback="../assets/food-noodles.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/dish-photos/ichiran-soft-boiled-egg.jpg"/></div><figcaption><span class="dish-photo-label">一蘭餐點參考實拍</span><a class="dish-photo-source" href="https://www.mecocute.com/ichiran2/" rel="noopener noreferrer" target="_blank">查看照片來源</a></figcaption></figure><div class="dish-copy"><div class="dish-top"><h3>3. 半熟鹽味蛋</h3><span class="order-tag">想增加配料者</span></div><p>味道溫和，適合搭配豚骨湯。</p></div></div><div class="dish"><figure class="dish-visual"><div class="dish-media"><img alt="抹茶杏仁豆腐餐點照片" data-direct-photo="true" data-fallback="../assets/food-noodles.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/dish-photos/ichiran-matcha-almond-pudding.webp"/></div><figcaption><span class="dish-photo-label">一蘭餐點參考實拍</span><a class="dish-photo-source" href="https://news.livedoor.com/topics/detail/24955961/" rel="noopener noreferrer" target="_blank">查看照片來源</a></figcaption></figure><div class="dish-copy"><div class="dish-top"><h3>4. 抹茶杏仁豆腐</h3><span class="order-tag">2 人分食也可以</span></div><p>拉麵後較清爽的收尾。</p></div></div></div></section>
 <section class="panel">
 <h2>放進行程的實戰排法</h2>
 <h3>時間安排</h3><p>Alpen TOKYO 採買結束後步行前往。若現場預估等待超過 45 分鐘，可改到一蘭新宿中央東口店，或先繼續逛街、稍晚再吃。</p>
@@ -297,5 +331,105 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 </div>
 </div></main>
 <footer class="footer"><div class="wrap footer-inner"><span>一蘭 新宿歌舞伎町店</span><span>DAY 2・2026/11/22（日）</span></div></footer>
-</body>
+<script id="dish-photo-loader">
+(() => {
+  'use strict';
+  const endpoint = 'https://commons.wikimedia.org/w/api.php';
+
+  const stripHtml = (value = '') => {
+    const box = document.createElement('div');
+    box.innerHTML = value;
+    return (box.textContent || '').replace(/\s+/g, ' ').trim();
+  };
+
+  const setFallback = (img, message = '料理示意圖') => {
+    const figure = img.closest('.dish-visual');
+    if (!figure) return;
+    figure.classList.remove('is-loading');
+    figure.classList.add('is-fallback');
+    const fallback = img.dataset.fallback;
+    if (fallback && img.src !== new URL(fallback, document.baseURI).href) {
+      img.src = fallback;
+    }
+    const label = figure.querySelector('.dish-photo-label');
+    if (label) label.textContent = message;
+    const source = figure.querySelector('.dish-photo-source');
+    if (source && source.dataset.dynamic === 'true') source.hidden = true;
+  };
+
+  const loadCommonsPhoto = async (img) => {
+    const query = img.dataset.commonsQuery;
+    const figure = img.closest('.dish-visual');
+    if (!query || !figure || img.dataset.loaded === 'true') return;
+    img.dataset.loaded = 'true';
+    figure.classList.add('is-loading');
+
+    try {
+      const params = new URLSearchParams({
+        action: 'query', format: 'json', formatversion: '2', origin: '*',
+        generator: 'search', gsrnamespace: '6', gsrlimit: '8',
+        gsrsearch: query,
+        prop: 'imageinfo', iiprop: 'url|extmetadata', iiurlwidth: '760'
+      });
+      const response = await fetch(`${endpoint}?${params.toString()}`, {mode: 'cors'});
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      const pages = data?.query?.pages || [];
+      const usable = pages.find((page) => {
+        const info = page?.imageinfo?.[0];
+        const url = info?.thumburl || info?.url || '';
+        return /\.(?:jpe?g|png|webp)(?:$|\?)/i.test(url);
+      });
+      const info = usable?.imageinfo?.[0];
+      const photoUrl = info?.thumburl || info?.url;
+      if (!photoUrl) throw new Error('No usable image');
+
+      img.onload = () => {
+        figure.classList.remove('is-loading', 'is-fallback');
+      };
+      img.onerror = () => setFallback(img, '料理示意圖（參考照片載入失敗）');
+      img.src = photoUrl;
+
+      const meta = info.extmetadata || {};
+      const license = stripHtml(meta.LicenseShortName?.value || 'Wikimedia Commons');
+      const artistRaw = stripHtml(meta.Artist?.value || meta.Credit?.value || '');
+      const artist = artistRaw.length > 42 ? `${artistRaw.slice(0, 39)}…` : artistRaw;
+      const label = figure.querySelector('.dish-photo-label');
+      if (label) label.textContent = artist ? `餐點參考照片｜${license}｜${artist}` : `餐點參考照片｜${license}`;
+
+      const source = figure.querySelector('.dish-photo-source');
+      if (source) {
+        source.href = info.descriptionurl || `https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(query)}&title=Special:MediaSearch&type=image`;
+        source.textContent = '查看原圖與授權';
+        source.hidden = false;
+      }
+    } catch (error) {
+      setFallback(img, '料理示意圖（未找到合適參考照片）');
+    }
+  };
+
+  const start = () => {
+    document.querySelectorAll('img[data-direct-photo]').forEach((img) => {
+      img.addEventListener('error', () => setFallback(img, '料理示意圖（店家照片載入失敗）'), {once: true});
+    });
+
+    const targets = [...document.querySelectorAll('img[data-commons-query]')];
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(loadCommonsPhoto);
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        loadCommonsPhoto(entry.target);
+      });
+    }, {rootMargin: '500px 0px'});
+    targets.forEach((img) => observer.observe(img));
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once: true});
+  else start();
+})();
+</script></body>
 </html>

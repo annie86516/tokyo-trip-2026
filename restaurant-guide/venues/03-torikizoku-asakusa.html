@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"/>
@@ -206,6 +207,39 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
   .badges{gap:6px}
   .badge{font-size:12px}
 }
+/* per-dish-photo:start */
+.dish-list{display:grid;gap:13px}
+.dish{
+  display:grid;grid-template-columns:156px minmax(0,1fr);gap:0;
+  padding:0;overflow:hidden;background:#fbf7f0;border:1px solid #e6dacb;
+}
+.dish-visual{margin:0;min-height:142px;background:#eee5d9;border-right:1px solid #e2d5c6;position:relative;overflow:hidden}
+.dish-visual .dish-media{width:100%;height:100%;min-height:142px;overflow:hidden;display:grid;place-items:center;background:#eee5d9}
+.dish-visual img{width:100%;height:100%;min-height:142px;object-fit:cover;transition:opacity .2s ease}
+.dish-visual.is-loading img{opacity:.55}
+.dish-visual.is-fallback img{object-fit:contain;padding:14px;background:#f3ede4}
+.dish-visual figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 8px 6px;
+  background:linear-gradient(transparent,rgba(38,31,27,.88));color:#fff;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:10.5px;line-height:1.32;
+}
+.dish-photo-label{display:block;font-weight:750;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.dish-photo-source{display:inline-block;margin-top:2px;color:#fff;text-decoration:underline;font-weight:750}
+.dish-photo-source:hover{color:#fff}
+.dish-copy{padding:13px 14px;align-self:center}
+.dish-copy .dish-top{margin:0}
+.dish-copy p{margin-bottom:0}
+@media(max-width:700px){
+  .dish{grid-template-columns:128px minmax(0,1fr)}
+  .dish-visual,.dish-visual .dish-media,.dish-visual img{min-height:132px}
+}
+@media(max-width:480px){
+  .dish{grid-template-columns:1fr}
+  .dish-visual{border-right:0;border-bottom:1px solid #e2d5c6;aspect-ratio:16/9;min-height:0}
+  .dish-visual .dish-media,.dish-visual img{min-height:0;height:100%}
+  .dish-copy{padding:12px 13px 14px}
+}
+/* per-dish-photo:end */
 @media print{
   body{background:#fff;font-size:12px}
   .sitebar,.filterbar,.footer{display:none!important}
@@ -242,8 +276,8 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 </figure>
 </section>
 <section class="photo-panel">
-<h2>該店店面實景與指定招牌餐點</h2>
-<p class="intro">不再使用整頁截圖或同類型示意照片。以下照片皆逐店對應，並附原始來源頁。</p>
+<h2>店面實景與招牌餐點實拍</h2>
+<p class="intro">招牌餐點保留店家實拍；下方「必點餐點」每一道另附圖片，並標示照片來源或料理示意圖。</p>
 <div class="photo-grid">
 <figure class="photo-figure store-photo">
 <div class="media"><img alt="鳥貴族淺草店入口實景" class="store-img" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='../assets/food-grill.svg';" referrerpolicy="no-referrer" src="https://tblg.k-img.com/restaurant/images/Rvw/71665/640x640_rect_71665025.jpg"/></div>
@@ -265,22 +299,22 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 <div class="content-grid">
 <div>
 <section class="panel"><h2>必點餐點與點法</h2><div class="dish-list">
-<div class="dish">
+<div class="dish"><figure class="dish-visual"><div class="dish-media"><img alt="もも貴族焼（たれ）餐點照片" data-direct-photo="true" data-fallback="../assets/food-grill.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://torikizoku.co.jp/assets/uploads/2024/03/momo_kizokuyaki_tare.jpg"/></div><figcaption><span class="dish-photo-label">店家招牌餐點實拍</span><a class="dish-photo-source" href="https://torikizoku.co.jp/menu/" rel="noopener noreferrer" target="_blank">查看照片來源</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>1. もも貴族焼（たれ）</h3><span class="order-tag">每 2 人 1 盤</span></div>
 <p>品牌代表款；官方照片對應醬汁口味，雞腿與蔥段份量有辨識度。</p>
-</div>
-<div class="dish">
+</div></div>
+<div class="dish"><figure class="dish-visual is-loading is-fallback"><div class="dish-media"><img alt="もも貴族焼（塩）餐點照片" data-commons-query="yakitori chicken thigh salt" data-fallback="../assets/food-grill.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/food-grill.svg"/></div><figcaption><span class="dish-photo-label">載入餐點參考照片…</span><a class="dish-photo-source" data-dynamic="true" hidden="" href="https://commons.wikimedia.org/w/index.php?search=yakitori+chicken+thigh+salt&amp;title=Special:MediaSearch&amp;type=image" rel="noopener noreferrer" target="_blank">查看原圖與授權</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>2. もも貴族焼（塩）</h3><span class="order-tag">全桌比較用</span></div>
 <p>想比較雞肉本味時可與醬汁口味各點一盤。</p>
-</div>
-<div class="dish">
+</div></div>
+<div class="dish"><figure class="dish-visual is-loading is-fallback"><div class="dish-media"><img alt="つくね起司／月見肉丸餐點照片" data-commons-query="tsukune Japanese chicken meatball" data-fallback="../assets/food-grill.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/food-grill.svg"/></div><figcaption><span class="dish-photo-label">載入餐點參考照片…</span><a class="dish-photo-source" data-dynamic="true" hidden="" href="https://commons.wikimedia.org/w/index.php?search=tsukune+Japanese+chicken+meatball&amp;title=Special:MediaSearch&amp;type=image" rel="noopener noreferrer" target="_blank">查看原圖與授權</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>3. つくね起司／月見肉丸</h3><span class="order-tag">1–2 盤共享</span></div>
 <p>口感較嫩，適合不習慣內臟者。</p>
-</div>
-<div class="dish">
+</div></div>
+<div class="dish"><figure class="dish-visual is-loading is-fallback"><div class="dish-media"><img alt="釜飯餐點照片" data-commons-query="kamameshi Japanese rice" data-fallback="../assets/food-grill.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/food-grill.svg"/></div><figcaption><span class="dish-photo-label">載入餐點參考照片…</span><a class="dish-photo-source" data-dynamic="true" hidden="" href="https://commons.wikimedia.org/w/index.php?search=kamameshi+Japanese+rice&amp;title=Special:MediaSearch&amp;type=image" rel="noopener noreferrer" target="_blank">查看原圖與授權</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>4. 釜飯</h3><span class="order-tag">2–3 人共享 1 份</span></div>
 <p>現點現煮時間較久，應在第一輪就下單。</p>
-</div></div></section>
+</div></div></div></section>
 <section class="panel"><h2>放進行程的實戰排法</h2>
 <h3>時間安排</h3><p>大隊人馬 20:45 集合後步行前往。訂位可抓 21:00，並預留航班或入境延誤的聯絡機制。</p>
 <h3>預約</h3><p>7 人建議預約 21:00 左右；Group B 入境延誤時，由先到者先向店家說明。</p>
@@ -292,10 +326,110 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 <section class="panel"><h2>營業與行程提醒</h2><div class="alert gold"><strong>營業：</strong>週一～四、日約 15:00–23:00；週五、六約 15:00–翌 04:30。</div><div class="alert red"><strong>本次提醒：</strong>DAY 1 為星期六，20:45 後仍可用餐；訂位時請再次確認最後點餐時間。</div><p><strong>當日路線：</strong>本所吾妻橋・淺草・丸之內</p></section>
 <section class="panel"><h2>不吃牛肉者判斷</h2><div class="alert sage"><strong>風險標示：</strong>較安心</div><p>主體為雞肉串燒；仍需留意醬汁、炸物共用油與期間限定料理。若只是「不吃牛肉」而非嚴格過敏，選擇很多。</p><h3>容易踩雷</h3><ul><li>釜飯需等待，不要最後才點。</li><li>居酒屋座位通常較緊湊，大件行李先放民宿。</li><li>期間限定菜色與均一價格可能調整。</li></ul></section>
 <section class="panel"><h2>給店員看的日文</h2><div class="phrase">7名で予約しています。（我們有預約 7 位。）</div><div class="phrase">牛肉を使っていない料理を教えてください。（請告訴我不含牛肉的料理。）</div></section>
-<section class="panel"><h2>資料與照片來源</h2><ul class="source-list"><li><a href="https://tabelog.com/tokyo/A1311/A131102/13123768/dtlrvwlst/" rel="noopener noreferrer" target="_blank">店面照片來源</a><span>鳥貴族淺草店入口實景</span></li><li><a href="https://torikizoku.co.jp/menu/" rel="noopener noreferrer" target="_blank">招牌餐點照片來源</a><span>官方菜單實拍：もも貴族焼（たれ）</span></li><li><a href="https://map.torikizoku.co.jp/detail/216/" rel="noopener noreferrer" target="_blank">鳥貴族淺草店官方頁</a><span>營業時間、座位與預約</span></li><li><a href="https://torikizoku.co.jp/menu/" rel="noopener noreferrer" target="_blank">鳥貴族官方菜單</a><span>現行菜單與過敏原資訊</span></li><li><a href="../../index.html" rel="noopener noreferrer" target="_blank">原始東京行程</a></li></ul><p class="photo-disclaimer">營業時間、菜單與預約規則請在出發前 7–14 天再次確認。</p></section>
+<section class="panel"><h2>資料與照片來源</h2><ul class="source-list"><li><a href="https://tabelog.com/tokyo/A1311/A131102/13123768/dtlrvwlst/" rel="noopener noreferrer" target="_blank">店面照片來源</a><span>鳥貴族淺草店入口實景</span></li><li><a href="https://torikizoku.co.jp/menu/" rel="noopener noreferrer" target="_blank">招牌餐點照片來源</a><span>官方菜單實拍：もも貴族焼（たれ）</span></li><li data-dish-photo-note="true"><a href="https://commons.wikimedia.org/" rel="noopener noreferrer" target="_blank">其餘推薦餐點參考照片</a><span>依餐點名稱載入 Wikimedia Commons 授權圖片；每張圖片下方可開啟原圖與授權資訊。</span></li><li><a href="https://map.torikizoku.co.jp/detail/216/" rel="noopener noreferrer" target="_blank">鳥貴族淺草店官方頁</a><span>營業時間、座位與預約</span></li><li><a href="https://torikizoku.co.jp/menu/" rel="noopener noreferrer" target="_blank">鳥貴族官方菜單</a><span>現行菜單與過敏原資訊</span></li><li><a href="../../index.html" rel="noopener noreferrer" target="_blank">原始東京行程</a></li></ul><p class="photo-disclaimer">營業時間、菜單與預約規則請在出發前 7–14 天再次確認。</p></section>
 </div>
 </div>
 </div></main>
 <footer class="footer"><div class="wrap footer-inner"><span>鳥貴族 淺草店</span><span>DAY 1・2026/11/21（六）</span></div></footer>
-</body>
+<script id="dish-photo-loader">
+(() => {
+  'use strict';
+  const endpoint = 'https://commons.wikimedia.org/w/api.php';
+
+  const stripHtml = (value = '') => {
+    const box = document.createElement('div');
+    box.innerHTML = value;
+    return (box.textContent || '').replace(/\s+/g, ' ').trim();
+  };
+
+  const setFallback = (img, message = '料理示意圖') => {
+    const figure = img.closest('.dish-visual');
+    if (!figure) return;
+    figure.classList.remove('is-loading');
+    figure.classList.add('is-fallback');
+    const fallback = img.dataset.fallback;
+    if (fallback && img.src !== new URL(fallback, document.baseURI).href) {
+      img.src = fallback;
+    }
+    const label = figure.querySelector('.dish-photo-label');
+    if (label) label.textContent = message;
+    const source = figure.querySelector('.dish-photo-source');
+    if (source && source.dataset.dynamic === 'true') source.hidden = true;
+  };
+
+  const loadCommonsPhoto = async (img) => {
+    const query = img.dataset.commonsQuery;
+    const figure = img.closest('.dish-visual');
+    if (!query || !figure || img.dataset.loaded === 'true') return;
+    img.dataset.loaded = 'true';
+    figure.classList.add('is-loading');
+
+    try {
+      const params = new URLSearchParams({
+        action: 'query', format: 'json', formatversion: '2', origin: '*',
+        generator: 'search', gsrnamespace: '6', gsrlimit: '8',
+        gsrsearch: query,
+        prop: 'imageinfo', iiprop: 'url|extmetadata', iiurlwidth: '760'
+      });
+      const response = await fetch(`${endpoint}?${params.toString()}`, {mode: 'cors'});
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      const pages = data?.query?.pages || [];
+      const usable = pages.find((page) => {
+        const info = page?.imageinfo?.[0];
+        const url = info?.thumburl || info?.url || '';
+        return /\.(?:jpe?g|png|webp)(?:$|\?)/i.test(url);
+      });
+      const info = usable?.imageinfo?.[0];
+      const photoUrl = info?.thumburl || info?.url;
+      if (!photoUrl) throw new Error('No usable image');
+
+      img.onload = () => {
+        figure.classList.remove('is-loading', 'is-fallback');
+      };
+      img.onerror = () => setFallback(img, '料理示意圖（參考照片載入失敗）');
+      img.src = photoUrl;
+
+      const meta = info.extmetadata || {};
+      const license = stripHtml(meta.LicenseShortName?.value || 'Wikimedia Commons');
+      const artistRaw = stripHtml(meta.Artist?.value || meta.Credit?.value || '');
+      const artist = artistRaw.length > 42 ? `${artistRaw.slice(0, 39)}…` : artistRaw;
+      const label = figure.querySelector('.dish-photo-label');
+      if (label) label.textContent = artist ? `餐點參考照片｜${license}｜${artist}` : `餐點參考照片｜${license}`;
+
+      const source = figure.querySelector('.dish-photo-source');
+      if (source) {
+        source.href = info.descriptionurl || `https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(query)}&title=Special:MediaSearch&type=image`;
+        source.textContent = '查看原圖與授權';
+        source.hidden = false;
+      }
+    } catch (error) {
+      setFallback(img, '料理示意圖（未找到合適參考照片）');
+    }
+  };
+
+  const start = () => {
+    document.querySelectorAll('img[data-direct-photo]').forEach((img) => {
+      img.addEventListener('error', () => setFallback(img, '料理示意圖（店家照片載入失敗）'), {once: true});
+    });
+
+    const targets = [...document.querySelectorAll('img[data-commons-query]')];
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(loadCommonsPhoto);
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        loadCommonsPhoto(entry.target);
+      });
+    }, {rootMargin: '500px 0px'});
+    targets.forEach((img) => observer.observe(img));
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once: true});
+  else start();
+})();
+</script></body>
 </html>

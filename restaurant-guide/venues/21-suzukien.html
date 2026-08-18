@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"/>
@@ -206,6 +207,39 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
   .badges{gap:6px}
   .badge{font-size:12px}
 }
+/* per-dish-photo:start */
+.dish-list{display:grid;gap:13px}
+.dish{
+  display:grid;grid-template-columns:156px minmax(0,1fr);gap:0;
+  padding:0;overflow:hidden;background:#fbf7f0;border:1px solid #e6dacb;
+}
+.dish-visual{margin:0;min-height:142px;background:#eee5d9;border-right:1px solid #e2d5c6;position:relative;overflow:hidden}
+.dish-visual .dish-media{width:100%;height:100%;min-height:142px;overflow:hidden;display:grid;place-items:center;background:#eee5d9}
+.dish-visual img{width:100%;height:100%;min-height:142px;object-fit:cover;transition:opacity .2s ease}
+.dish-visual.is-loading img{opacity:.55}
+.dish-visual.is-fallback img{object-fit:contain;padding:14px;background:#f3ede4}
+.dish-visual figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 8px 6px;
+  background:linear-gradient(transparent,rgba(38,31,27,.88));color:#fff;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:10.5px;line-height:1.32;
+}
+.dish-photo-label{display:block;font-weight:750;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.dish-photo-source{display:inline-block;margin-top:2px;color:#fff;text-decoration:underline;font-weight:750}
+.dish-photo-source:hover{color:#fff}
+.dish-copy{padding:13px 14px;align-self:center}
+.dish-copy .dish-top{margin:0}
+.dish-copy p{margin-bottom:0}
+@media(max-width:700px){
+  .dish{grid-template-columns:128px minmax(0,1fr)}
+  .dish-visual,.dish-visual .dish-media,.dish-visual img{min-height:132px}
+}
+@media(max-width:480px){
+  .dish{grid-template-columns:1fr}
+  .dish-visual{border-right:0;border-bottom:1px solid #e2d5c6;aspect-ratio:16/9;min-height:0}
+  .dish-visual .dish-media,.dish-visual img{min-height:0;height:100%}
+  .dish-copy{padding:12px 13px 14px}
+}
+/* per-dish-photo:end */
 @media print{
   body{background:#fff;font-size:12px}
   .sitebar,.filterbar,.footer{display:none!important}
@@ -241,8 +275,8 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 </figure>
 </section>
 <section class="photo-panel">
-<h2>該店店面實景與指定招牌餐點</h2>
-<p class="intro">不再使用整頁截圖或同類型示意照片。以下照片皆逐店對應，並附原始來源頁。</p>
+<h2>店面實景與招牌餐點實拍</h2>
+<p class="intro">招牌餐點保留店家實拍；下方「必點餐點」每一道另附圖片，並標示照片來源或料理示意圖。</p>
 <div class="photo-grid">
 <figure class="photo-figure store-photo">
 <div class="media"><img alt="壽壽喜園淺草本店店面實景" class="store-img" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='../assets/food-wagashi.svg';" referrerpolicy="no-referrer" src="https://livedoor.blogimg.jp/daisuke55795579/imgs/e/e/ee4e5a15-s.jpg"/></div>
@@ -264,22 +298,22 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 <div class="content-grid">
 <div>
 <section class="panel"><h2>必點餐點與點法</h2><div class="dish-list">
-<div class="dish">
+<div class="dish"><figure class="dish-visual"><div class="dish-media"><img alt="抹茶 Gelato No.7餐點照片" data-direct-photo="true" data-fallback="../assets/food-wagashi.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://stat.ameba.jp/user_images/20250823/23/mine1989s/cb/5b/j/o1080144015657672143.jpg"/></div><figcaption><span class="dish-photo-label">店家招牌餐點實拍</span><a class="dish-photo-source" href="https://ameblo.jp/mine1989s/entry-12924768424.html" rel="noopener noreferrer" target="_blank">查看照片來源</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>1. 抹茶 Gelato No.7</h3><span class="order-tag">至少買 1 球全團試</span></div>
 <p>最高濃度、苦旨味最強，是店家辨識度來源。</p>
-</div>
-<div class="dish">
+</div></div>
+<div class="dish"><figure class="dish-visual is-loading is-fallback"><div class="dish-media"><img alt="抹茶 No.3／No.4餐點照片" data-commons-query="matcha ice cream" data-fallback="../assets/food-wagashi.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/food-wagashi.svg"/></div><figcaption><span class="dish-photo-label">載入餐點參考照片…</span><a class="dish-photo-source" data-dynamic="true" hidden="" href="https://commons.wikimedia.org/w/index.php?search=matcha+ice+cream&amp;title=Special:MediaSearch&amp;type=image" rel="noopener noreferrer" target="_blank">查看原圖與授權</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>2. 抹茶 No.3／No.4</h3><span class="order-tag">與 No.7 對比</span></div>
 <p>甜味與茶香平衡，較多人能接受。</p>
-</div>
-<div class="dish">
+</div></div>
+<div class="dish"><figure class="dish-visual is-loading is-fallback"><div class="dish-media"><img alt="焙茶 Gelato餐點照片" data-commons-query="hojicha ice cream" data-fallback="../assets/food-wagashi.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/food-wagashi.svg"/></div><figcaption><span class="dish-photo-label">載入餐點參考照片…</span><a class="dish-photo-source" data-dynamic="true" hidden="" href="https://commons.wikimedia.org/w/index.php?search=hojicha+ice+cream&amp;title=Special:MediaSearch&amp;type=image" rel="noopener noreferrer" target="_blank">查看原圖與授權</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>3. 焙茶 Gelato</h3><span class="order-tag">第二杯／雙球</span></div>
 <p>烘焙香明顯，可中和濃抹茶。</p>
-</div>
-<div class="dish">
+</div></div>
+<div class="dish"><figure class="dish-visual is-loading is-fallback"><div class="dish-media"><img alt="玄米茶或其他茶口味餐點照片" data-commons-query="genmaicha ice cream" data-fallback="../assets/food-wagashi.svg" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="../assets/food-wagashi.svg"/></div><figcaption><span class="dish-photo-label">載入餐點參考照片…</span><a class="dish-photo-source" data-dynamic="true" hidden="" href="https://commons.wikimedia.org/w/index.php?search=genmaicha+ice+cream&amp;title=Special:MediaSearch&amp;type=image" rel="noopener noreferrer" target="_blank">查看原圖與授權</a></figcaption></figure><div class="dish-copy">
 <div class="dish-top"><h3>4. 玄米茶或其他茶口味</h3><span class="order-tag">看現場</span></div>
 <p>多人體驗時增加差異。</p>
-</div></div></section>
+</div></div></div></section>
 <section class="panel"><h2>放進行程的實戰排法</h2>
 <h3>時間安排</h3><p>11:00 開店前後先吃最穩；不要排在龜十後面太晚。</p>
 <h3>預約</h3><p>不可預約；繁忙時可能發整理券。</p>
@@ -291,10 +325,110 @@ h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c
 <section class="panel"><h2>營業與行程提醒</h2><div class="alert gold"><strong>營業：</strong>11:00–17:00；不定休／臨時縮時。</div><div class="alert red"><strong>本次提醒：</strong>官方會為盤點、花火大會等縮短營業；11 月行前查看最新公告。</div><p><strong>當日路線：</strong>淺草・上野</p></section>
 <section class="panel"><h2>不吃牛肉者判斷</h2><div class="alert sage"><strong>風險標示：</strong>較安心</div><p>抹茶冰淇淋無牛肉，但含乳製品；抹茶團子等另需確認原料。</p><h3>容易踩雷</h3><ul><li>No.7 不等於人人都覺得最好吃。</li><li>高峰可能發整理券。</li><li>店家明確要求不要在鄰店前食用。</li></ul></section>
 <section class="panel"><h2>給店員看的日文</h2><div class="phrase">No.7と、食べやすい濃さを一つずつお願いします。（請給我 No.7 和一個較容易入口的濃度。）</div><div class="phrase">二階で食べてもいいですか？（可以到二樓吃嗎？）</div></section>
-<section class="panel"><h2>資料與照片來源</h2><ul class="source-list"><li><a href="https://daisuke55795579.livedoor.blog/archives/1073877434.html" rel="noopener noreferrer" target="_blank">店面照片來源</a><span>壽壽喜園淺草本店店面實景</span></li><li><a href="https://ameblo.jp/mine1989s/entry-12924768424.html" rel="noopener noreferrer" target="_blank">招牌餐點照片來源</a><span>最濃抹茶 Gelato No.7</span></li><li><a href="https://www.tocha.co.jp/" rel="noopener noreferrer" target="_blank">壽壽喜園營運公司官方頁</a><span>2026 公告與店舖資訊</span></li><li><a href="https://www.suzukien.tokyo/" rel="noopener noreferrer" target="_blank">官方網店／產品</a><span>茶與抹茶產品</span></li><li><a href="../../index.html" rel="noopener noreferrer" target="_blank">原始東京行程</a></li></ul><p class="photo-disclaimer">營業時間、菜單與預約規則請在出發前 7–14 天再次確認。</p></section>
+<section class="panel"><h2>資料與照片來源</h2><ul class="source-list"><li><a href="https://daisuke55795579.livedoor.blog/archives/1073877434.html" rel="noopener noreferrer" target="_blank">店面照片來源</a><span>壽壽喜園淺草本店店面實景</span></li><li><a href="https://ameblo.jp/mine1989s/entry-12924768424.html" rel="noopener noreferrer" target="_blank">招牌餐點照片來源</a><span>最濃抹茶 Gelato No.7</span></li><li data-dish-photo-note="true"><a href="https://commons.wikimedia.org/" rel="noopener noreferrer" target="_blank">其餘推薦餐點參考照片</a><span>依餐點名稱載入 Wikimedia Commons 授權圖片；每張圖片下方可開啟原圖與授權資訊。</span></li><li><a href="https://www.tocha.co.jp/" rel="noopener noreferrer" target="_blank">壽壽喜園營運公司官方頁</a><span>2026 公告與店舖資訊</span></li><li><a href="https://www.suzukien.tokyo/" rel="noopener noreferrer" target="_blank">官方網店／產品</a><span>茶與抹茶產品</span></li><li><a href="../../index.html" rel="noopener noreferrer" target="_blank">原始東京行程</a></li></ul><p class="photo-disclaimer">營業時間、菜單與預約規則請在出發前 7–14 天再次確認。</p></section>
 </div>
 </div>
 </div></main>
 <footer class="footer"><div class="wrap footer-inner"><span>壽壽喜園 淺草本店</span><span>DAY 5・2026/11/25（三）</span></div></footer>
-</body>
+<script id="dish-photo-loader">
+(() => {
+  'use strict';
+  const endpoint = 'https://commons.wikimedia.org/w/api.php';
+
+  const stripHtml = (value = '') => {
+    const box = document.createElement('div');
+    box.innerHTML = value;
+    return (box.textContent || '').replace(/\s+/g, ' ').trim();
+  };
+
+  const setFallback = (img, message = '料理示意圖') => {
+    const figure = img.closest('.dish-visual');
+    if (!figure) return;
+    figure.classList.remove('is-loading');
+    figure.classList.add('is-fallback');
+    const fallback = img.dataset.fallback;
+    if (fallback && img.src !== new URL(fallback, document.baseURI).href) {
+      img.src = fallback;
+    }
+    const label = figure.querySelector('.dish-photo-label');
+    if (label) label.textContent = message;
+    const source = figure.querySelector('.dish-photo-source');
+    if (source && source.dataset.dynamic === 'true') source.hidden = true;
+  };
+
+  const loadCommonsPhoto = async (img) => {
+    const query = img.dataset.commonsQuery;
+    const figure = img.closest('.dish-visual');
+    if (!query || !figure || img.dataset.loaded === 'true') return;
+    img.dataset.loaded = 'true';
+    figure.classList.add('is-loading');
+
+    try {
+      const params = new URLSearchParams({
+        action: 'query', format: 'json', formatversion: '2', origin: '*',
+        generator: 'search', gsrnamespace: '6', gsrlimit: '8',
+        gsrsearch: query,
+        prop: 'imageinfo', iiprop: 'url|extmetadata', iiurlwidth: '760'
+      });
+      const response = await fetch(`${endpoint}?${params.toString()}`, {mode: 'cors'});
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      const pages = data?.query?.pages || [];
+      const usable = pages.find((page) => {
+        const info = page?.imageinfo?.[0];
+        const url = info?.thumburl || info?.url || '';
+        return /\.(?:jpe?g|png|webp)(?:$|\?)/i.test(url);
+      });
+      const info = usable?.imageinfo?.[0];
+      const photoUrl = info?.thumburl || info?.url;
+      if (!photoUrl) throw new Error('No usable image');
+
+      img.onload = () => {
+        figure.classList.remove('is-loading', 'is-fallback');
+      };
+      img.onerror = () => setFallback(img, '料理示意圖（參考照片載入失敗）');
+      img.src = photoUrl;
+
+      const meta = info.extmetadata || {};
+      const license = stripHtml(meta.LicenseShortName?.value || 'Wikimedia Commons');
+      const artistRaw = stripHtml(meta.Artist?.value || meta.Credit?.value || '');
+      const artist = artistRaw.length > 42 ? `${artistRaw.slice(0, 39)}…` : artistRaw;
+      const label = figure.querySelector('.dish-photo-label');
+      if (label) label.textContent = artist ? `餐點參考照片｜${license}｜${artist}` : `餐點參考照片｜${license}`;
+
+      const source = figure.querySelector('.dish-photo-source');
+      if (source) {
+        source.href = info.descriptionurl || `https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(query)}&title=Special:MediaSearch&type=image`;
+        source.textContent = '查看原圖與授權';
+        source.hidden = false;
+      }
+    } catch (error) {
+      setFallback(img, '料理示意圖（未找到合適參考照片）');
+    }
+  };
+
+  const start = () => {
+    document.querySelectorAll('img[data-direct-photo]').forEach((img) => {
+      img.addEventListener('error', () => setFallback(img, '料理示意圖（店家照片載入失敗）'), {once: true});
+    });
+
+    const targets = [...document.querySelectorAll('img[data-commons-query]')];
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(loadCommonsPhoto);
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        loadCommonsPhoto(entry.target);
+      });
+    }, {rootMargin: '500px 0px'});
+    targets.forEach((img) => observer.observe(img));
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once: true});
+  else start();
+})();
+</script></body>
 </html>

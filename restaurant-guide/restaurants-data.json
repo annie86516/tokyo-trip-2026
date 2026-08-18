@@ -24,22 +24,35 @@
       {
         "name": "元祖鹽文字燒「生海苔蝦仁鹽味」",
         "why": "創業秘製魚介高湯的代表作，比一般醬油味更能吃出海鮮與海苔香。",
-        "order": "全桌先點 1 份試味道"
+        "order": "全桌先點 1 份試味道",
+        "photo_mode": "restaurant",
+        "photo_url": "https://tblg.k-img.com/restaurant/images/Rvw/240943/640x640_rect_d711dd95fe6aa4a26050fed40465e860.jpg",
+        "photo_source": "https://tabelog.com/tokyo/A1312/A131203/13137603/",
+        "photo_query": "seafood monjayaki Japanese food"
       },
       {
         "name": "海鮮の極み",
         "why": "海鮮料更豪華，適合 7 人分食；但價位較高。",
-        "order": "1 份共享即可"
+        "order": "1 份共享即可",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "seafood monjayaki"
       },
       {
         "name": "鬆軟山藥大阪燒",
         "why": "和文字燒口感不同，可讓第一次吃的人比較。",
-        "order": "1–2 份共享"
+        "order": "1–2 份共享",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "okonomiyaki Japanese pancake"
       },
       {
         "name": "醬汁炒麵",
         "why": "適合收尾與補充澱粉，也較容易被全團接受。",
-        "order": "最後視食量追加"
+        "order": "最後視食量追加",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "yakisoba Japanese noodles"
       }
     ],
     "group_plan": [
@@ -110,22 +123,35 @@
       {
         "name": "元祖鹽麵包",
         "why": "外層酥、內部有奶油融化形成的空洞，是最能理解店家特色的一款。",
-        "order": "每人 1 個"
+        "order": "每人 1 個",
+        "photo_mode": "restaurant",
+        "photo_url": "https://d1som9eclaj1c0.cloudfront.net/upload_picture/S1645111246206_1.JPG",
+        "photo_source": "https://job.inshokuten.com/kanto/work/detail/32115",
+        "photo_query": "shio pan Japanese salt bread"
       },
       {
         "name": "牛奶／奶油夾心鹽麵包",
         "why": "甜鹹平衡，適合當甜點。",
-        "order": "2 人分食 1 個即可"
+        "order": "2 人分食 1 個即可",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "cream bun Japanese bread"
       },
       {
         "name": "紅豆奶油／季節夾餡款",
         "why": "日本風味明顯，但較有飽足感。",
-        "order": "視現場品項挑選"
+        "order": "視現場品項挑選",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "anpan butter Japanese bread"
       },
       {
         "name": "蝦味或起司等鹹口味",
         "why": "適合不想吃甜食者。",
-        "order": "先確認是否含肉製品"
+        "order": "先確認是否含肉製品",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "cheese bread Japanese bakery"
       }
     ],
     "group_plan": [
@@ -201,22 +227,35 @@
       {
         "name": "もも貴族焼（たれ）",
         "why": "品牌代表款；官方照片對應醬汁口味，雞腿與蔥段份量有辨識度。",
-        "order": "每 2 人 1 盤"
+        "order": "每 2 人 1 盤",
+        "photo_mode": "restaurant",
+        "photo_url": "https://torikizoku.co.jp/assets/uploads/2024/03/momo_kizokuyaki_tare.jpg",
+        "photo_source": "https://torikizoku.co.jp/menu/",
+        "photo_query": "yakitori chicken thigh tare"
       },
       {
         "name": "もも貴族焼（塩）",
         "why": "想比較雞肉本味時可與醬汁口味各點一盤。",
-        "order": "全桌比較用"
+        "order": "全桌比較用",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "yakitori chicken thigh salt"
       },
       {
         "name": "つくね起司／月見肉丸",
         "why": "口感較嫩，適合不習慣內臟者。",
-        "order": "1–2 盤共享"
+        "order": "1–2 盤共享",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "tsukune Japanese chicken meatball"
       },
       {
         "name": "釜飯",
         "why": "現點現煮時間較久，應在第一輪就下單。",
-        "order": "2–3 人共享 1 份"
+        "order": "2–3 人共享 1 份",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "kamameshi Japanese rice"
       }
     ],
     "group_plan": [
@@ -292,22 +331,35 @@
       {
         "name": "當日出爐招牌麵包",
         "why": "品項變化大，直接問店員「今天最推薦」。",
-        "order": "每人 1–2 個"
+        "order": "每人 1–2 個",
+        "photo_mode": "restaurant",
+        "photo_url": "https://san-tatsu.jp/assets/uploads/2026/02/19174353/1771490631-6dc16f7fb0db8ad1140e0431600dc348.jpg",
+        "photo_source": "https://san-tatsu.jp/articles/510100/",
+        "photo_query": "Japanese bakery bread assortment"
       },
       {
         "name": "自家製餡／卡士達甜麵包",
         "why": "店家強調自製內餡，適合早餐。",
-        "order": "挑 1 個共享"
+        "order": "挑 1 個共享",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "custard bun Japanese bread"
       },
       {
         "name": "三明治／帕尼尼",
         "why": "需要較完整早餐的人可選，但等待時間較長。",
-        "order": "時間充裕再點"
+        "order": "時間充裕再點",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "panini sandwich"
       },
       {
         "name": "法式吐司",
         "why": "2F 咖啡代表性餐點，但不適合趕行程。",
-        "order": "僅早起且無排隊時"
+        "order": "僅早起且無排隊時",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "French toast"
       }
     ],
     "group_plan": [
@@ -388,22 +440,35 @@
       {
         "name": "招福焼（招福貓造型）",
         "why": "店家人氣代表商品；定番紅豆、牛奶卡士達與季節口味可依現場選擇。",
-        "order": "每人或兩人 1 個"
+        "order": "每人或兩人 1 個",
+        "photo_mode": "restaurant",
+        "photo_url": "https://setagaya.goguynet.jp/wp-content/uploads/sites/145/2026/03/IMG_3700.jpeg",
+        "photo_source": "https://setagaya.goguynet.jp/2026/03/15/rarasand/",
+        "photo_query": "maneki neko shaped cake Japanese"
       },
       {
         "name": "招福焼－紅豆",
         "why": "最傳統、最符合豪德寺主題。",
-        "order": "紅豆愛好者優先"
+        "order": "紅豆愛好者優先",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "imagawayaki red bean"
       },
       {
         "name": "招福焼－牛奶卡士達",
         "why": "甜味較柔和，適合不愛紅豆者。",
-        "order": "與紅豆口味對半分享"
+        "order": "與紅豆口味對半分享",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "imagawayaki custard"
       },
       {
         "name": "Baby Castella",
         "why": "方便多人分食與帶走。",
-        "order": "全團 1 袋"
+        "order": "全團 1 袋",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "baby castella Japanese cake"
       }
     ],
     "group_plan": [
@@ -479,22 +544,35 @@
       {
         "name": "咖啡拿鐵（人氣第一）",
         "why": "奶香與濃縮咖啡平衡，最適合第一次造訪與外帶。",
-        "order": "第一選擇"
+        "order": "第一選擇",
+        "photo_mode": "restaurant",
+        "photo_url": "https://tblg.k-img.com/restaurant/images/Rvw/131219/640x640_rect_131219715.jpg",
+        "photo_source": "https://tabelog.com/tokyo/A1318/A131813/13199308/dtlrvwlst/B427348403/",
+        "photo_query": "cafe latte coffee"
       },
       {
         "name": "當日手沖單品",
         "why": "能喝出店家主打的果香型精品咖啡。",
-        "order": "咖啡愛好者"
+        "order": "咖啡愛好者",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "pour over coffee"
       },
       {
         "name": "濃縮咖啡",
         "why": "快速補充咖啡因，不影響後續午餐。",
-        "order": "短停留首選"
+        "order": "短停留首選",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "espresso coffee"
       },
       {
         "name": "Cookie／當日烘焙點心",
         "why": "適合與咖啡搭配，但先看早餐食量。",
-        "order": "多人共享"
+        "order": "多人共享",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "cookie bakery pastry"
       }
     ],
     "group_plan": [
@@ -565,22 +643,35 @@
       {
         "name": "元祖穴子一本付",
         "why": "品牌名物，整條穴子視覺與口感都具代表性。",
-        "order": "2–3 人共享 1 份"
+        "order": "2–3 人共享 1 份",
+        "photo_mode": "restaurant",
+        "photo_url": "https://tblg.k-img.com/restaurant/images/Rvw/167070/640x640_rect_bb997eb68b4672dafe02f09c184ea8a3.jpg",
+        "photo_source": "https://tabelog.com/tokyo/A1318/A131812/13001480/",
+        "photo_query": "anago sushi nigiri"
       },
       {
         "name": "美登利名物握り／店長推薦握り",
         "why": "一次涵蓋鮪魚、白身、貝類等主力魚種，最省點餐時間。",
-        "order": "每人 1 套或兩套共享"
+        "order": "每人 1 套或兩套共享",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "nigiri sushi platter Japanese"
       },
       {
         "name": "本鮪魚組合",
         "why": "喜歡鮪魚者可比較赤身、中腹與大腹。",
-        "order": "先確認當日價格"
+        "order": "先確認當日價格",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "tuna sushi nigiri"
       },
       {
         "name": "季節單品",
         "why": "11 月可能有秋冬旬魚；直接問當日推薦。",
-        "order": "每人加點 1–2 貫"
+        "order": "每人加點 1–2 貫",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "seasonal sushi Japanese"
       }
     ],
     "group_plan": [
@@ -656,22 +747,38 @@
       {
         "name": "天然豚骨拉麵",
         "why": "店家核心品項，可自行調整濃淡、油量、蒜、蔥、叉燒、辣度與麵硬度。",
-        "order": "第一次建議先用基本設定"
+        "order": "第一次建議先用基本設定",
+        "photo_mode": "restaurant-local",
+        "photo_url": "assets/dish-photos/ichiran-ramen.webp",
+        "photo_source": "https://zh-cht.ichiran.com/shop/tokyo/kabukicho/",
+        "photo_note": "一蘭官方天然豚骨拉麵照片"
       },
       {
         "name": "替玉（加麵）",
         "why": "吃完第一碗再決定，避免一開始點太多。",
-        "order": "仍有食量再追加"
+        "order": "仍有食量再追加",
+        "photo_mode": "restaurant-local",
+        "photo_source": "https://men-report.com/archives/693",
+        "photo_url": "assets/dish-photos/ichiran-kaedama.jpg",
+        "photo_note": "一蘭池袋店菜單實拍中的替玉照片"
       },
       {
         "name": "半熟鹽味蛋",
         "why": "味道溫和，適合搭配豚骨湯。",
-        "order": "想增加配料者"
+        "order": "想增加配料者",
+        "photo_mode": "restaurant-local",
+        "photo_source": "https://www.mecocute.com/ichiran2/",
+        "photo_url": "assets/dish-photos/ichiran-soft-boiled-egg.jpg",
+        "photo_note": "一蘭池袋店菜單實拍中的半熟鹽味蛋照片"
       },
       {
         "name": "抹茶杏仁豆腐",
         "why": "拉麵後較清爽的收尾。",
-        "order": "2 人分食也可以"
+        "order": "2 人分食也可以",
+        "photo_mode": "restaurant-local",
+        "photo_source": "https://news.livedoor.com/topics/detail/24955961/",
+        "photo_url": "assets/dish-photos/ichiran-matcha-almond-pudding.webp",
+        "photo_note": "一蘭池袋店抹茶杏仁豆腐實拍"
       }
     ],
     "group_plan": [
@@ -721,7 +828,8 @@
     "store_source": "https://zh-cht.ichiran.com/shop/tokyo/kabukicho/",
     "dish_source": "https://zh-cht.ichiran.com/shop/tokyo/kabukicho/",
     "store_caption": "一蘭新宿歌舞伎町店店面實景",
-    "dish_caption": "天然豚骨拉麵實景"
+    "dish_caption": "天然豚骨拉麵實景",
+    "dish_photo_local": "assets/dish-photos/ichiran-ramen.webp"
   },
   {
     "id": "09-noguchi-sengyoten",
@@ -748,22 +856,38 @@
       {
         "name": "朝一築地丼",
         "why": "人氣與食材多樣性兼具，最適合第一次來。",
-        "order": "第一選擇"
+        "order": "第一選擇",
+        "photo_mode": "restaurant-local",
+        "photo_url": "assets/dish-photos/noguchi-asaichi-tsukiji-don.jpg",
+        "photo_source": "https://tabelog.com/tokyo/A1312/A131203/13103727/dtlrvwlst/B515740270/",
+        "photo_note": "朝一築地丼訪客實拍"
       },
       {
         "name": "上／特上海鮮ちらし",
         "why": "配料分布較好入口，份量也容易控制。",
-        "order": "不想吃超大份者"
+        "order": "不想吃超大份者",
+        "photo_mode": "restaurant-local",
+        "photo_source": "https://tabelog.com/tokyo/A1312/A131203/13103727/dtlrvwlst/B486365247/",
+        "photo_url": "assets/dish-photos/noguchi-jokaisen-chirashi.jpg",
+        "photo_note": "海鮮上ちらし訪客實拍"
       },
       {
         "name": "築地鮪屋 帝王丼",
         "why": "限量、鮪魚取向強，視當日供應。",
-        "order": "看到有再點"
+        "order": "看到有再點",
+        "photo_mode": "restaurant-local",
+        "photo_source": "https://kurofune.hatenablog.jp/entry/2025/11/23/000000",
+        "photo_url": "assets/dish-photos/noguchi-maguro-teio-don.jpg",
+        "photo_note": "鮪帝王丼訪客實拍"
       },
       {
         "name": "魚屋のフライ定食",
         "why": "同行者不吃生食時的替代。",
-        "order": "先確認當日魚種"
+        "order": "先確認當日魚種",
+        "photo_mode": "restaurant-local",
+        "photo_source": "https://tabelog.com/tokyo/A1312/A131203/13103727/dtlrvwlst/B245543210/?type=0",
+        "photo_url": "assets/dish-photos/noguchi-fry-set.jpg",
+        "photo_note": "魚屋のフライ定食訪客實拍"
       }
     ],
     "group_plan": [
@@ -813,7 +937,8 @@
     "store_source": "https://sumida.goguynet.jp/2020/05/03/noguchisengyo-takeout/",
     "dish_source": "https://tabelog.com/tokyo/A1312/A131203/13103727/dtlrvwlst/B515740270/",
     "store_caption": "野口鮮魚店店面實景",
-    "dish_caption": "招牌朝一築地丼"
+    "dish_caption": "招牌朝一築地丼",
+    "dish_photo_local": "assets/dish-photos/noguchi-asaichi-tsukiji-don.jpg"
   },
   {
     "id": "10-akimp-pudding",
@@ -840,22 +965,35 @@
       {
         "name": "Crème brûlée pudding",
         "why": "桌邊炙燒焦糖，口感與拍照效果最好。",
-        "order": "第一選擇"
+        "order": "第一選擇",
+        "photo_mode": "restaurant",
+        "photo_url": "https://tblg.k-img.com/restaurant/images/Rvw/324070/640x640_rect_7d543e3fea90a2c9c4ef91aece952be6.jpg",
+        "photo_source": "https://tabelog.com/tokyo/A1312/A131203/13290160/dtlrvwlst/B515501213/",
+        "photo_query": "creme brulee pudding"
       },
       {
         "name": "Caramel pudding",
         "why": "苦甜焦糖更能平衡蛋奶濃郁感。",
-        "order": "喜歡經典者"
+        "order": "喜歡經典者",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "caramel pudding"
       },
       {
         "name": "Rare-cheese style pudding",
         "why": "口感較輕、帶乳酪酸香。",
-        "order": "多人分食比較"
+        "order": "多人分食比較",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "cheesecake pudding dessert"
       },
       {
         "name": "茶飲",
         "why": "能解布丁甜膩。",
-        "order": "至少 2 人點無糖茶"
+        "order": "至少 2 人點無糖茶",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Japanese tea drink"
       }
     ],
     "group_plan": [
@@ -926,22 +1064,35 @@
       {
         "name": "北海道產／當日推薦握壽司",
         "why": "先看推薦牌，優先點白身魚、扇貝與當日北海道魚種。",
-        "order": "第一輪先點"
+        "order": "第一輪先點",
+        "photo_mode": "restaurant",
+        "photo_url": "https://tblg.k-img.com/restaurant/images/Rvw/96174/640x640_rect_96174040.jpg",
+        "photo_source": "https://tabelog.com/tokyo/A1312/A131203/13141243/dtlrvwlst/B398191926/",
+        "photo_query": "Hokkaido nigiri sushi"
       },
       {
         "name": "活北寄貝／扇貝類",
         "why": "北海道系回轉壽司的強項。",
-        "order": "依當日供應"
+        "order": "依當日供應",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "surf clam scallop sushi"
       },
       {
         "name": "鮭魚卵軍艦",
         "why": "適合想吃濃郁口味者。",
-        "order": "1–2 貫"
+        "order": "1–2 貫",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "ikura gunkan sushi"
       },
       {
         "name": "玉子燒／茶碗蒸",
         "why": "不吃生食或想收尾時使用。",
-        "order": "視食量追加"
+        "order": "視食量追加",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "tamagoyaki chawanmushi Japanese"
       }
     ],
     "group_plan": [
@@ -1017,22 +1168,35 @@
       {
         "name": "綜合數字焦糖盒",
         "why": "一次取得多種編號口味，最適合送禮與多人試吃。",
-        "order": "優先買 8／12 入"
+        "order": "優先買 8／12 入",
+        "photo_mode": "restaurant",
+        "photo_url": "https://img.bigfang.tw/2023/02/1675396142-61f16dbf9261488e1cb5e63a519fa40d.jpg",
+        "photo_source": "https://www.bigfang.tw/blog/post/number-sugar-omotesando",
+        "photo_query": "Japanese caramel candy assortment"
       },
       {
         "name": "No.2 Salt",
         "why": "海鹽能拉出焦糖層次，接受度高。",
-        "order": "單顆加買"
+        "order": "單顆加買",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "salt caramel candy"
       },
       {
         "name": "Almond",
         "why": "堅果香與口感更有變化。",
-        "order": "注意堅果過敏"
+        "order": "注意堅果過敏",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "almond caramel candy"
       },
       {
         "name": "Rum／酒香口味",
         "why": "大人味明顯，送禮前先確認對方接受酒香。",
-        "order": "少量即可"
+        "order": "少量即可",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "rum caramel candy"
       }
     ],
     "group_plan": [
@@ -1108,22 +1272,35 @@
       {
         "name": "カルボナーラ釜たまうどん／培根奶油烏龍麵",
         "why": "原行程指定、也是最具記憶點的濃郁款。",
-        "order": "兩人共享再搭清爽款"
+        "order": "兩人共享再搭清爽款",
+        "photo_mode": "restaurant",
+        "photo_url": "https://cdn.sarah30.com/reviews/photos/000/884/339/x_large/321b9fb25a8fb4fcb865a212de26c83d1db68af4.jpg",
+        "photo_source": "https://sarah30.com/menus/2489098",
+        "photo_query": "carbonara udon Japanese"
       },
       {
         "name": "明太子釜玉／季節釜玉",
         "why": "比奶油款帶鹹鮮感，適合比較。",
-        "order": "依當日菜單"
+        "order": "依當日菜單",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "mentaiko udon Japanese"
       },
       {
         "name": "基本かけ／ぶっかけ烏龍麵",
         "why": "能真正吃出麵體彈性。",
-        "order": "不愛濃醬者"
+        "order": "不愛濃醬者",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "bukkake udon Japanese"
       },
       {
         "name": "天婦羅單品",
         "why": "現場挑選，讓 7 人共享。",
-        "order": "不要一次拿太多"
+        "order": "不要一次拿太多",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "tempura Japanese food"
       }
     ],
     "group_plan": [
@@ -1195,12 +1372,19 @@
       {
         "name": "鹽蔥美乃滋章魚燒",
         "why": "人氣口味，蔥香與美乃滋能凸顯外酥內軟的章魚燒。",
-        "order": "全團先點 1 盒"
+        "order": "全團先點 1 盒",
+        "photo_mode": "restaurant",
+        "photo_url": "https://cdn.hamoni.jp/hamoni/posts/gttF9myBW6iMJco4bWpm/0.jpeg",
+        "photo_source": "https://app.hamoni.jp/shop/saPRVwIPxkNJYcSCDP9D",
+        "photo_query": "takoyaki mayonnaise green onion"
       },
       {
         "name": "基本醬汁章魚燒",
         "why": "用來比較麵糊、醬汁與章魚本身。",
-        "order": "想比較再追加"
+        "order": "想比較再追加",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "takoyaki Japanese food"
       }
     ],
     "group_plan": [
@@ -1271,22 +1455,35 @@
       {
         "name": "Mille Crepes 水果千層",
         "why": "HARBS 最具代表性的水果與鮮奶油層次。",
-        "order": "2 人共享 1 片"
+        "order": "2 人共享 1 片",
+        "photo_mode": "restaurant",
+        "photo_url": "https://tblg.k-img.com/restaurant/images/Rvw/331401/640x640_rect_7350711c773a1a4e751620e3102675ca.jpg",
+        "photo_source": "https://s.tabelog.com/en/tokyo/A1314/A131403/13313600/",
+        "photo_query": "mille crepe cake fruit"
       },
       {
         "name": "季節水果蛋糕",
         "why": "11 月依當期水果變動。",
-        "order": "看展示櫃決定"
+        "order": "看展示櫃決定",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Japanese fruit cake"
       },
       {
         "name": "巧克力系蛋糕",
         "why": "甜度與份量高，適合多人分食。",
-        "order": "搭無糖茶或咖啡"
+        "order": "搭無糖茶或咖啡",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "chocolate cake slice"
       },
       {
         "name": "當日義大利麵",
         "why": "只有需要完整晚餐前餐點時考慮。",
-        "order": "本行程通常不建議"
+        "order": "本行程通常不建議",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Italian pasta plate"
       }
     ],
     "group_plan": [
@@ -1357,22 +1554,35 @@
       {
         "name": "名物「極み」厚切牛舌牛排定食",
         "why": "使用牛舌較柔嫩部位，是品牌招牌。",
-        "order": "第一次必點"
+        "order": "第一次必點",
+        "photo_mode": "restaurant",
+        "photo_url": "https://tblg.k-img.com/restaurant/images/Rvw/285070/640x640_rect_c4d8b22e0ae6816adc74a6b5534d27f3.jpg",
+        "photo_source": "https://tabelog.com/tokyo/A1304/A130401/13264721/dtlrvwlst/B500999383/",
+        "photo_query": "gyutan beef tongue set meal"
       },
       {
         "name": "極み＋A5 和牛組合",
         "why": "可一次比較厚切牛舌與和牛，但價位與油脂更高。",
-        "order": "兩人共享或食量大者"
+        "order": "兩人共享或食量大者",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "wagyu beef steak Japanese"
       },
       {
         "name": "羽釜飯",
         "why": "與牛舌搭配是完整體驗，剛上桌先吃原味。",
-        "order": "標準套餐已含"
+        "order": "標準套餐已含",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "kamameshi rice Japanese"
       },
       {
         "name": "檸檬飲料",
         "why": "能中和炭烤與油脂。",
-        "order": "不飲酒者可點檸檬汽水"
+        "order": "不飲酒者可點檸檬汽水",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "lemon soda drink"
       }
     ],
     "group_plan": [
@@ -1453,22 +1663,35 @@
       {
         "name": "元祖海老丸らーめん",
         "why": "龍蝦濃湯與法式技法是店家核心。",
-        "order": "第一選擇"
+        "order": "第一選擇",
+        "photo_mode": "restaurant",
+        "photo_url": "https://item-shopping.c.yimg.jp/i/n/takumen_1246",
+        "photo_source": "https://store.shopping.yahoo.co.jp/takumen/1246.html",
+        "photo_query": "shrimp ramen Japanese"
       },
       {
         "name": "海老丸定番リゾット",
         "why": "把剩餘湯底轉成燉飯，是完整收尾。",
-        "order": "兩人可共享 1 份"
+        "order": "兩人可共享 1 份",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "risotto Italian rice"
       },
       {
         "name": "季節限定海鮮拉麵",
         "why": "創意強，但第一次仍優先元祖。",
-        "order": "看到有興趣再改"
+        "order": "看到有興趣再改",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "seafood ramen Japanese"
       },
       {
         "name": "無酒精飲品／葡萄酒",
         "why": "法式風格搭配；趕路時不必加。",
-        "order": "視時間"
+        "order": "視時間",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "wine glass beverage"
       }
     ],
     "group_plan": [
@@ -1544,22 +1767,35 @@
       {
         "name": "招牌方形吐司「ムー」",
         "why": "店名與品牌核心，先吃原味口感。",
-        "order": "每 2 人共享 1 份"
+        "order": "每 2 人共享 1 份",
+        "photo_mode": "restaurant",
+        "photo_url": "https://www.fashion-press.net/img/news/59643/58Q.jpg",
+        "photo_source": "https://www.fashion-press.net/news/gallery/59643/1110214",
+        "photo_query": "Japanese shokupan bread"
       },
       {
         "name": "奶油／蜂蜜吐司",
         "why": "簡單凸顯麵包香。",
-        "order": "甜口味首選"
+        "order": "甜口味首選",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "butter honey toast"
       },
       {
         "name": "當日三明治",
         "why": "需要較完整早餐者可選。",
-        "order": "先確認肉類"
+        "order": "先確認肉類",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Japanese sandwich"
       },
       {
         "name": "咖啡",
         "why": "與吐司搭配，外帶也方便。",
-        "order": "依個人"
+        "order": "依個人",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "coffee cup cafe"
       }
     ],
     "group_plan": [
@@ -1630,17 +1866,27 @@
       {
         "name": "ジャンボめろんぱん／巨型菠蘿麵包",
         "why": "招牌，重點是剛出爐外酥內鬆。",
-        "order": "2–3 人共享 1 個"
+        "order": "2–3 人共享 1 個",
+        "photo_mode": "restaurant",
+        "photo_url": "https://img01.jalannews.jp/img/2021/01/20200118_AsakusaMelonpan02.jpg",
+        "photo_source": "https://www.jalan.net/news/article/525352/",
+        "photo_query": "melonpan Japanese bread"
       },
       {
         "name": "冰淇淋夾菠蘿麵包",
         "why": "甜度與份量高，天冷未必需要。",
-        "order": "全團 1 個拍照即可"
+        "order": "全團 1 個拍照即可",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "ice cream melonpan"
       },
       {
         "name": "季節飲品",
         "why": "可配麵包，但淺草還有很多甜點。",
-        "order": "非必要"
+        "order": "非必要",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Japanese soft drink"
       }
     ],
     "group_plan": [
@@ -1716,22 +1962,35 @@
       {
         "name": "抹茶 Gelato No.7",
         "why": "最高濃度、苦旨味最強，是店家辨識度來源。",
-        "order": "至少買 1 球全團試"
+        "order": "至少買 1 球全團試",
+        "photo_mode": "restaurant",
+        "photo_url": "https://stat.ameba.jp/user_images/20250823/23/mine1989s/cb/5b/j/o1080144015657672143.jpg",
+        "photo_source": "https://ameblo.jp/mine1989s/entry-12924768424.html",
+        "photo_query": "matcha gelato Japanese"
       },
       {
         "name": "抹茶 No.3／No.4",
         "why": "甜味與茶香平衡，較多人能接受。",
-        "order": "與 No.7 對比"
+        "order": "與 No.7 對比",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "matcha ice cream"
       },
       {
         "name": "焙茶 Gelato",
         "why": "烘焙香明顯，可中和濃抹茶。",
-        "order": "第二杯／雙球"
+        "order": "第二杯／雙球",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "hojicha ice cream"
       },
       {
         "name": "玄米茶或其他茶口味",
         "why": "多人體驗時增加差異。",
-        "order": "看現場"
+        "order": "看現場",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "genmaicha ice cream"
       }
     ],
     "group_plan": [
@@ -1807,17 +2066,27 @@
       {
         "name": "どら焼き 黒あん／黑餡",
         "why": "最經典，鬆軟餅皮與紅豆餡是核心。",
-        "order": "每人 1 個或兩人 1 個"
+        "order": "每人 1 個或兩人 1 個",
+        "photo_mode": "restaurant",
+        "photo_url": "https://assets.st-note.com/img/1730107544-L2fXS3hkxGzCowqvAE0s7Wpa.jpg?fit=bounds&height=2000&quality=85&width=2000",
+        "photo_source": "https://note.com/koharu_25/n/nf7aa2b1d5d11",
+        "photo_query": "dorayaki red bean"
       },
       {
         "name": "どら焼き 白あん／白餡",
         "why": "甜味與豆香不同，適合與黑餡比較。",
-        "order": "全團買 2–3 個"
+        "order": "全團買 2–3 個",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "dorayaki white bean"
       },
       {
         "name": "松風",
         "why": "另一款傳統和菓子，可當伴手禮。",
-        "order": "有餘裕再買"
+        "order": "有餘裕再買",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "matsukaze Japanese wagashi cake"
       }
     ],
     "group_plan": [
@@ -1888,22 +2157,35 @@
       {
         "name": "黑毛和牛壽喜燒套餐",
         "why": "最能代表百年壽喜燒老舖。",
-        "order": "依預算選肉等級"
+        "order": "依預算選肉等級",
+        "photo_mode": "restaurant",
+        "photo_url": "https://assets.st-note.com/img/1705282078049-hHw8eUaZzl.jpg?fit=bounds&height=2000&quality=85&width=2000",
+        "photo_source": "https://note.com/honno_hitotoki/n/nbba3fd866034",
+        "photo_query": "sukiyaki Japanese beef"
       },
       {
         "name": "午間套餐「楓」等",
         "why": "午餐價格相對容易控制，配套完整。",
-        "order": "訂位時先確認當期內容"
+        "order": "訂位時先確認當期內容",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Japanese lunch set meal"
       },
       {
         "name": "追加蔬菜／豆腐",
         "why": "吸收壽喜燒醬汁，能平衡肉量。",
-        "order": "全桌追加"
+        "order": "全桌追加",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "sukiyaki vegetables tofu"
       },
       {
         "name": "收尾飯／麵",
         "why": "依店家套餐安排，不要一開始就吃太多白飯。",
-        "order": "最後再決定"
+        "order": "最後再決定",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "udon noodles rice Japanese meal"
       }
     ],
     "group_plan": [
@@ -1974,22 +2256,35 @@
       {
         "name": "穴子天丼",
         "why": "整條穴子有代表性，海鮮取向明確。",
-        "order": "第一選擇"
+        "order": "第一選擇",
+        "photo_mode": "restaurant",
+        "photo_url": "https://stat.ameba.jp/user_images/20200317/21/yokosiroisi/e9/ef/j/o1080108014729616872.jpg?caw=800",
+        "photo_source": "https://ameblo.jp/yokosiroisi/entry-12582877863.html",
+        "photo_query": "anago tendon tempura rice bowl"
       },
       {
         "name": "五代目天丼／綜合天丼",
         "why": "一次吃到蝦、魚、蔬菜等多種食材。",
-        "order": "食量大者"
+        "order": "食量大者",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "tendon Japanese tempura rice bowl"
       },
       {
         "name": "季節蔬菜天婦羅",
         "why": "平衡炸物與海鮮，適合共享。",
-        "order": "加點 1 份"
+        "order": "加點 1 份",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "vegetable tempura"
       },
       {
         "name": "天婦羅單品",
         "why": "想控制飯量可改單點。",
-        "order": "與同行者共享"
+        "order": "與同行者共享",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "tempura Japanese food"
       }
     ],
     "group_plan": [
@@ -2065,12 +2360,19 @@
       {
         "name": "雷もんじゃ－下町文字燒",
         "why": "官方主打的淺草流作法，不築土手、將材料直接攤平煎製。",
-        "order": "全桌共享"
+        "order": "全桌共享",
+        "photo_mode": "restaurant",
+        "photo_url": "https://prcdn.freetls.fastly.net/release_image/20469/111/20469-111-79ad9a1cfa0112245fd99dbfb17b1c5c-1159x883.jpg?auto=webp&fit=bounds&format=jpeg&height=900&width=1350",
+        "photo_source": "https://prtimes.jp/main/html/rd/p/000000111.000020469.html",
+        "photo_query": "monjayaki Japanese food"
       },
       {
         "name": "各店原創文字燒",
         "why": "淺草橫町內不同店舖皆有特色口味。",
-        "order": "依現場菜單追加"
+        "order": "依現場菜單追加",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "monjayaki Japanese restaurant"
       }
     ],
     "group_plan": [
@@ -2146,22 +2448,35 @@
       {
         "name": "SPACIA X 原創手沖咖啡",
         "why": "最能配合列車窗景與車內咖啡吧體驗。",
-        "order": "咖啡愛好者第一選擇"
+        "order": "咖啡愛好者第一選擇",
+        "photo_mode": "restaurant",
+        "photo_url": "https://prcdn.freetls.fastly.net/release_image/64591/263/64591-263-6ce0a5e74dc65d15c342539c7b9bae5a-3900x2600.jpg?auto=webp&fit=bounds&format=jpeg&height=1350&quality=85%2C65&width=1950",
+        "photo_source": "https://prtimes.jp/main/html/rd/p/000000263.000064591.html",
+        "photo_query": "pour over coffee"
       },
       {
         "name": "酒粕奶油夾心餅／限定小點",
         "why": "照片中對應的列車限定搭配，方便在座位享用。",
-        "order": "全團共享"
+        "order": "全團共享",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "sake lees cookie Japanese"
       },
       {
         "name": "日光／栃木在地飲品",
         "why": "比一般連鎖飲品更有旅程感。",
-        "order": "每人依喜好"
+        "order": "每人依喜好",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Tochigi fruit juice Japanese"
       },
       {
         "name": "精釀啤酒／酒類",
         "why": "適合不需開車者，但上午班不必勉強。",
-        "order": "少量"
+        "order": "少量",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Japanese craft beer"
       }
     ],
     "group_plan": [
@@ -2232,17 +2547,27 @@
       {
         "name": "現炸揚げゆばまんじゅう",
         "why": "外層酥鹹、內餡甜，是鹹甜對比的日光名物。",
-        "order": "每人 1 個"
+        "order": "每人 1 個",
+        "photo_mode": "restaurant",
+        "photo_url": "https://stat.ameba.jp/user_images/20240510/15/kanrieiyoushi-25/85/32/j/o1080144015436903289.jpg",
+        "photo_source": "https://ameblo.jp/kanrieiyoushi-25/entry-12851599631.html",
+        "photo_query": "fried yuba manju Japanese"
       },
       {
         "name": "日光天然冰 × 草莓刨冰",
         "why": "季節性強，11 月通常不一定供應。",
-        "order": "有供應再評估"
+        "order": "有供應再評估",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "strawberry kakigori shaved ice"
       },
       {
         "name": "伴手禮盒",
         "why": "想帶回台灣需先看保存期限與包裝。",
-        "order": "不要太早大量買"
+        "order": "不要太早大量買",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Japanese sweets gift box"
       }
     ],
     "group_plan": [
@@ -2313,17 +2638,27 @@
       {
         "name": "ゆば御膳／湯波御膳",
         "why": "一次吃到刺身湯波、煮湯波等多種做法，是最完整的日光體驗。",
-        "order": "每人 1 套"
+        "order": "每人 1 套",
+        "photo_mode": "restaurant",
+        "photo_url": "https://images.miil.me/j/1e4791ae-f325-11ef-848f-062113fc9af7.orig.jpg",
+        "photo_source": "https://www.hotpepper.jp/strJ000321147/",
+        "photo_query": "yuba set meal Japanese"
       },
       {
         "name": "ゆばの御刺身",
         "why": "口感最能吃出日光水質與豆香。",
-        "order": "全桌加 1–2 份"
+        "order": "全桌加 1–2 份",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "yuba sashimi Japanese"
       },
       {
         "name": "湯波甜點／小鉢",
         "why": "依套餐內容變動。",
-        "order": "不需另外大量加點"
+        "order": "不需另外大量加點",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "yuba dessert Japanese"
       }
     ],
     "group_plan": [
@@ -2394,17 +2729,27 @@
       {
         "name": "日光湯波巻",
         "why": "以湯波包裹食材，是店名代表料理。",
-        "order": "依現行部分菜單確認"
+        "order": "依現行部分菜單確認",
+        "photo_mode": "restaurant",
+        "photo_url": "https://rimage.gnst.jp/rest/img/4cbduavy0000/s_0n70.jpg?t=1667202460",
+        "photo_source": "https://r.gnavi.co.jp/4cbduavy0000/photo/menu/",
+        "photo_query": "yuba sushi roll Japanese"
       },
       {
         "name": "湯波創意套餐",
         "why": "較能體驗主廚技法。",
-        "order": "晚餐預約時確認"
+        "order": "晚餐預約時確認",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "yuba Japanese meal"
       },
       {
         "name": "季節小鉢",
         "why": "內容可能受現行部分菜單與季節供應影響。",
-        "order": "不要依舊菜單預設"
+        "order": "不要依舊菜單預設",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Japanese side dishes kobachi"
       }
     ],
     "group_plan": [
@@ -2486,22 +2831,35 @@
       {
         "name": "オムレツライス／蛋包飯",
         "why": "官方明確標示最受歡迎；多蜜醬濃厚。",
-        "order": "吃牛肉者首選"
+        "order": "吃牛肉者首選",
+        "photo_mode": "restaurant",
+        "photo_url": "https://ak-d.tripcdn.com/images/1i66q22159wuwdxb42262_W_640_0_R5_Q80.jpg?proc=source%2Ftrip",
+        "photo_source": "https://jp.trip.com/moments/detail/nikko-56719-12383102",
+        "photo_query": "omurice Japanese"
       },
       {
         "name": "虹鱒のムニエル",
         "why": "在地魚料理，較有栃木特色。",
-        "order": "無牛者先確認醬汁"
+        "order": "無牛者先確認醬汁",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "trout meuniere"
       },
       {
         "name": "エビマカロニグラタン",
         "why": "海鮮與奶醬取向，接受度高。",
-        "order": "先確認高湯"
+        "order": "先確認高湯",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "shrimp macaroni gratin"
       },
       {
         "name": "チーズケーキ ニルバーナ",
         "why": "品牌代表甜點，餐後共享。",
-        "order": "2–3 人 1 份"
+        "order": "2–3 人 1 份",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "cheesecake slice"
       }
     ],
     "group_plan": [
@@ -2577,22 +2935,35 @@
       {
         "name": "上うな重／上鰻重",
         "why": "鰻魚份量與價格較平衡，第一次最推薦。",
-        "order": "每人 1 份"
+        "order": "每人 1 份",
+        "photo_mode": "restaurant",
+        "photo_url": "https://atp.jp/chiba/kawatoyo/1.jpg",
+        "photo_source": "https://atp.jp/chiba/kawatoyo/",
+        "photo_query": "unaju grilled eel rice"
       },
       {
         "name": "特上うな重",
         "why": "食量大、想吃更完整鰻魚者。",
-        "order": "先看價格與份量"
+        "order": "先看價格與份量",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "deluxe unaju Japanese eel"
       },
       {
         "name": "肝吸い／鰻肝湯",
         "why": "與鰻重搭配的傳統組合。",
-        "order": "能接受內臟者"
+        "order": "能接受內臟者",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "eel liver soup Japanese"
       },
       {
         "name": "鰻魚單品",
         "why": "多人可共享，但主餐已很足。",
-        "order": "非必要"
+        "order": "非必要",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "grilled eel kabayaki"
       }
     ],
     "group_plan": [
@@ -2668,22 +3039,35 @@
       {
         "name": "上握り／特上握り",
         "why": "最省時間的完整選擇。",
-        "order": "每人一套"
+        "order": "每人一套",
+        "photo_mode": "restaurant",
+        "photo_url": "https://tblg.k-img.com/restaurant/images/Rvw/350438/640x640_rect_00730fc246cb35409732ce61f0d43e70.jpg",
+        "photo_source": "https://tabelog.com/chiba/A1204/A120401/12000177/",
+        "photo_query": "nigiri sushi platter"
       },
       {
         "name": "成田／房總當日魚種",
         "why": "問店員當日推薦，增加在地感。",
-        "order": "單貫追加"
+        "order": "單貫追加",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "Japanese local fish sushi"
       },
       {
         "name": "穴子",
         "why": "成田／江戶前壽司常見代表。",
-        "order": "每人 1 貫"
+        "order": "每人 1 貫",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "anago sushi nigiri"
       },
       {
         "name": "茶碗蒸／烤魚",
         "why": "不吃生食者的替代。",
-        "order": "依需求"
+        "order": "依需求",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "chawanmushi grilled fish Japanese"
       }
     ],
     "group_plan": [
@@ -2754,22 +3138,35 @@
       {
         "name": "栗羊羹",
         "why": "品牌歷史代表，保存與送禮性佳。",
-        "order": "長輩／正式送禮"
+        "order": "長輩／正式送禮",
+        "photo_mode": "restaurant",
+        "photo_url": "https://www.nrtk.jp/shared/images/data/31/like1_image_web_2.jpg?_=1694498182",
+        "photo_source": "https://www.nrtk.jp/mypage/00031.html",
+        "photo_query": "kuri yokan chestnut Japanese"
       },
       {
         "name": "ぴーなっつ最中／花生最中",
         "why": "千葉特色鮮明、造型討喜。",
-        "order": "同事／朋友"
+        "order": "同事／朋友",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "peanut monaka Japanese sweet"
       },
       {
         "name": "ぴーなっつ饅頭／其他花生菓子",
         "why": "可與最中搭配成綜合盒。",
-        "order": "看保存期限"
+        "order": "看保存期限",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "peanut manju Japanese sweet"
       },
       {
         "name": "季節大福／生菓子",
         "why": "適合旅途中吃，不適合長途攜帶。",
-        "order": "少量現吃"
+        "order": "少量現吃",
+        "photo_mode": "commons-search",
+        "photo_source": "https://commons.wikimedia.org/",
+        "photo_query": "daifuku wagashi Japanese"
       }
     ],
     "group_plan": [
