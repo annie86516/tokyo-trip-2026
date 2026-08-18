@@ -29,7 +29,7 @@ restaurant-guide/venues/    32 個獨立餐廳攻略
 1. Clone annie86516/tokyo-trip-2026。
 2. 將「本資料夾裡面的內容」複製到 repository 根目錄，允許覆蓋 index.html、site-one～site-four。
 3. 確認 restaurant-guide 資料夾位於 repository 根目錄，而不是多包一層。
-4. Commit：整合餐廳實拍攻略與主行程連結
+4. Commit：更新 DAY 1 野口鮮魚店與 DAY 2 一蘭晚餐
 5. Push origin。
 
 上傳後網址
