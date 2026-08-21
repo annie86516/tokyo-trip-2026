@@ -4422,6 +4422,51 @@ body .page-sheet.daily-route-detail-page > .container > h2 .detail-title-text{
   }
 }
 
+
+/* === Mobile title alignment fix: 2026-08-21 === */
+@media screen and (max-width: 820px) {
+  /* Preserve the existing A4/mobile scaling; only lift page titles. */
+  body .page-sheet:not(.cover-sheet) {
+    padding-top: 9.5mm !important;
+  }
+
+  body .page-sheet.day-page-sheet {
+    padding-top: 10.2mm !important;
+  }
+
+  body .page-sheet.daily-route-detail-page {
+    padding-top: 9.5mm !important;
+  }
+
+  body .page-sheet:not(.cover-sheet):not(.day-page-sheet) > .container > h2 {
+    min-height: 36px !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    padding-top: 0 !important;
+    padding-bottom: 7px !important;
+  }
+
+  body .page-sheet.daily-route-detail-page > .container > h2 {
+    min-height: 46px !important;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .day-page-sheet .day-eyebrow {
+    margin-top: 0 !important;
+    margin-bottom: 2px !important;
+  }
+
+  .day-page-sheet .day-header {
+    padding-top: 3px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .day-page-sheet .day-heading-copy {
+    padding-top: 0 !important;
+  }
+}
+
 </style>
 <style id="restaurant-guide-integration-style">
 /* 餐廳攻略整合連結：2026-08-17 */
