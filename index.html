@@ -4422,63 +4422,6 @@ body .page-sheet.daily-route-detail-page > .container > h2 .detail-title-text{
   }
 }
 
-
-/* === Mobile page top alignment fix v2: 2026-08-21 === */
-@media screen and (max-width: 820px) {
-  /* Keep the original A4 dimensions/scaling. Correct only the vertical starting point. */
-  body .page-sheet:not(.cover-sheet) {
-    padding-top: 8.5mm !important;
-  }
-
-  /* Ordinary guide / appendix / hotel / policy / summary pages:
-     move the whole content block upward together, not just the H2. */
-  body .page-sheet:not(.cover-sheet):not(.day-page-sheet):not(.daily-route-detail-page) > .container {
-    position: relative !important;
-    top: -10mm !important;
-  }
-
-  /* Route-detail pages use a taller heading, so use a smaller lift. */
-  body .page-sheet.daily-route-detail-page > .container {
-    position: relative !important;
-    top: -5mm !important;
-  }
-
-  /* Daily itinerary pages already have a dedicated header system. */
-  body .page-sheet.day-page-sheet {
-    padding-top: 9.5mm !important;
-  }
-  .day-page-sheet .day-eyebrow {
-    margin-top: 0 !important;
-    margin-bottom: 2px !important;
-  }
-  .day-page-sheet .day-header {
-    padding-top: 2px !important;
-    padding-bottom: 4px !important;
-  }
-  .day-page-sheet .day-heading-copy {
-    padding-top: 0 !important;
-  }
-
-  /* Normalize page-title boxes after the container shift. */
-  body .page-sheet:not(.cover-sheet):not(.day-page-sheet) > .container > h2 {
-    min-height: 34px !important;
-    margin-top: 0 !important;
-    margin-bottom: 10px !important;
-    padding-top: 0 !important;
-    padding-bottom: 7px !important;
-  }
-  body .page-sheet.daily-route-detail-page > .container > h2 {
-    min-height: 44px !important;
-    margin-bottom: 8px !important;
-  }
-
-  /* The two postal return appendix pages were the clearest outliers on phones. */
-  #japan-post-domestic-1 > .container,
-  #japan-post-domestic-2 > .container {
-    top: -13mm !important;
-  }
-}
-
 </style>
 <style id="restaurant-guide-integration-style">
 /* 餐廳攻略整合連結：2026-08-17 */
@@ -4598,34 +4541,6 @@ body .page-sheet.daily-route-detail-page > .container > h2 .detail-title-text{
   color: #111 !important;
 }
 </style>
-
-<style id="mobile-page-top-alignment-v3">
-/* 2026-08-21 v3：依使用者回饋，手機版以「每日簡略行程」作為基準，
-   將各頁主要內容整體再上移 5mm；不改桌機版與原本縮放。 */
-@media screen and (max-width: 820px) {
-  body .page-sheet:not(.cover-sheet):not(.day-page-sheet):not(.daily-route-detail-page) > .container {
-    position: relative !important;
-    top: -5mm !important;
-  }
-
-  body .page-sheet.daily-route-detail-page > .container {
-    position: relative !important;
-    top: -5mm !important;
-  }
-
-  body .page-sheet.day-page-sheet > .container {
-    position: relative !important;
-    top: -5mm !important;
-  }
-
-  /* 附錄頁一併統一回到相同基準。 */
-  #japan-post-domestic-1 > .container,
-  #japan-post-domestic-2 > .container {
-    top: -5mm !important;
-  }
-}
-</style>
-
 </head>
 <body>
 <nav aria-hidden="true" aria-label="頁面左側楓葉之旅目錄" class="is-closed" id="side-toc">
@@ -5592,5 +5507,101 @@ TEL：011-726-1235</div></div>
   window.addEventListener('beforeprint', unwrapAll);
   window.addEventListener('afterprint', fitPages);
 })();
-</script></body>
+</script>
+<style id="mobile-title-baseline-align-v5-style">
+@media screen and (max-width: 820px) {
+  /* 航班頁因標題需下移，縮短區段間空白以維持 A4 頁底內容完整。 */
+  #flight-info #narita-honjo-guide {
+    margin-top: 10px !important;
+    padding-top: 9.5px !important;
+  }
+}
+</style>
+<script id="mobile-title-baseline-align-v5">
+/* 手機版：以「每日簡略行程」DAY 2 的主標題位置為基準，
+   其他頁面標題統一對齊到該位置往上 5 mm；每日簡略行程本身維持不動。 */
+(function () {
+  const BREAKPOINT = 820;
+  const MM_TO_CSS_PX = 96 / 25.4;
+  const TARGET_UP_MM = 5;
+  let timer = null;
+
+  function directContainer(page) {
+    return Array.from(page.children).find(el => el.classList && el.classList.contains('container')) || null;
+  }
+
+  function pageTitleAnchor(page) {
+    const container = directContainer(page);
+    if (!container) return null;
+    return container.querySelector(':scope > h2') || container.querySelector('h2');
+  }
+
+  function unscaledTopInPage(page, element) {
+    const pageRect = page.getBoundingClientRect();
+    const elementRect = element.getBoundingClientRect();
+    const scale = page.offsetWidth ? pageRect.width / page.offsetWidth : 1;
+    return (elementRect.top - pageRect.top) / (scale || 1);
+  }
+
+  function clearOwnOffsets() {
+    document.querySelectorAll('.page-sheet > .container[data-mobile-title-aligned="1"]').forEach(container => {
+      container.style.removeProperty('top');
+      container.removeAttribute('data-mobile-title-aligned');
+    });
+  }
+
+  function alignMobileTitles() {
+    clearOwnOffsets();
+    if (window.innerWidth >= BREAKPOINT) return;
+
+    const referencePage = document.querySelector('#day2.page-sheet.day-page-sheet') ||
+                          document.querySelector('.page-sheet.day-page-sheet');
+    const referenceTitle = referencePage &&
+                          (referencePage.querySelector('.day-title') || referencePage.querySelector('.day-header'));
+    if (!referencePage || !referenceTitle) return;
+
+    const targetTop = unscaledTopInPage(referencePage, referenceTitle) - TARGET_UP_MM * MM_TO_CSS_PX;
+
+    document.querySelectorAll('.page-sheet:not(.cover-sheet):not(.day-page-sheet)').forEach(page => {
+      const container = directContainer(page);
+      const title = pageTitleAnchor(page);
+      if (!container || !title) return;
+
+      const currentTop = unscaledTopInPage(page, title);
+      const shift = targetTop - currentTop;
+      container.style.setProperty('top', `${shift.toFixed(3)}px`, 'important');
+      container.setAttribute('data-mobile-title-aligned', '1');
+    });
+  }
+
+  function scheduleAlign(delay) {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(alignMobileTitles, delay == null ? 140 : delay);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => scheduleAlign(160), { once: true });
+  } else {
+    scheduleAlign(160);
+  }
+
+  window.addEventListener('load', () => {
+    scheduleAlign(180);
+    window.setTimeout(alignMobileTitles, 520);
+    window.setTimeout(alignMobileTitles, 1000);
+  });
+  window.addEventListener('resize', () => scheduleAlign(180), { passive: true });
+  window.addEventListener('orientationchange', () => scheduleAlign(220), { passive: true });
+  window.addEventListener('beforeprint', clearOwnOffsets);
+  window.addEventListener('afterprint', () => scheduleAlign(120));
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => scheduleAlign(80)).catch(() => {});
+  }
+
+  window.alignMobilePageTitles = alignMobileTitles;
+})();
+</script>
+
+</body>
 </html>
