@@ -4598,6 +4598,34 @@ body .page-sheet.daily-route-detail-page > .container > h2 .detail-title-text{
   color: #111 !important;
 }
 </style>
+
+<style id="mobile-page-top-alignment-v3">
+/* 2026-08-21 v3：依使用者回饋，手機版以「每日簡略行程」作為基準，
+   將各頁主要內容整體再上移 5mm；不改桌機版與原本縮放。 */
+@media screen and (max-width: 820px) {
+  body .page-sheet:not(.cover-sheet):not(.day-page-sheet):not(.daily-route-detail-page) > .container {
+    position: relative !important;
+    top: -5mm !important;
+  }
+
+  body .page-sheet.daily-route-detail-page > .container {
+    position: relative !important;
+    top: -5mm !important;
+  }
+
+  body .page-sheet.day-page-sheet > .container {
+    position: relative !important;
+    top: -5mm !important;
+  }
+
+  /* 附錄頁一併統一回到相同基準。 */
+  #japan-post-domestic-1 > .container,
+  #japan-post-domestic-2 > .container {
+    top: -5mm !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <nav aria-hidden="true" aria-label="頁面左側楓葉之旅目錄" class="is-closed" id="side-toc">
