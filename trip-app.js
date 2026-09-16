@@ -27,7 +27,7 @@
   const state = {
     group: GROUPS.includes(initialGroup) ? initialGroup : 'A',
     day: Number(params.get('day') || saved.day) || 1,
-    view: ['days', 'flights', 'stays', 'money', 'guide'].includes(params.get('view')) ? params.get('view') : 'days',
+    view: ['days', 'flights', 'stays', 'money', 'reserve', 'restaurants', 'guide'].includes(params.get('view')) ? params.get('view') : 'days',
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
   };
   const firstDay = () => state.group === 'C' ? 3 : 1;
@@ -114,7 +114,12 @@
       [...el.attributes].forEach(attr => {
         if (!['href','src','alt','title','target','rel','colspan','rowspan'].includes(attr.name)) el.removeAttribute(attr.name);
       });
-      if (el.tagName === 'A' && el.getAttribute('target') === '_blank') el.setAttribute('rel','noopener noreferrer');
+      if (el.tagName === 'A') {
+        const href = el.getAttribute('href') || '';
+        if (href.includes('site-one/index.html')) { el.setAttribute('href','./?view=reserve'); el.removeAttribute('target'); }
+        else if (/restaurant-guide\/?index\.html/.test(href)) { el.setAttribute('href','./?view=restaurants'); el.removeAttribute('target'); }
+        else if (el.getAttribute('target') === '_blank') el.setAttribute('rel','noopener noreferrer');
+      }
       if (el.tagName === 'IMG') { el.loading = 'lazy'; el.decoding = 'async'; }
     });
     clone.querySelectorAll('table').forEach(table => table.replaceWith(tableCards(table)));
@@ -136,18 +141,21 @@
         <div class="brand"><strong>楓葉之旅<span class="brand-year">2026</span></strong><small>JAPAN / AUTUMN</small></div>
         <button class="utility" type="button" data-action="install">${icon('add')}<span>加入主畫面</span></button>
       </div>
-      <div class="groups" role="group" aria-label="選擇旅行組別">${GROUPS.map(g=>`<button type="button" data-group="${g}" aria-pressed="false">${g} 組</button>`).join('')}</div>
-      <p class="group-context"></p>
+      <nav class="section-nav" aria-label="主要導覽">
+        <button type="button" data-view="days">${icon('calendar')}<span>每日行程</span></button>
+        <button type="button" data-view="flights">${icon('plane')}<span>航班交通</span></button>
+        <button type="button" data-view="stays">${icon('bed')}<span>住宿</span></button>
+        <button type="button" data-view="money">${icon('wallet')}<span>分帳</span></button>
+        <button type="button" data-view="reserve">${icon('ticket')}<span>行前預約</span></button>
+        <button type="button" data-view="restaurants">${icon('pin')}<span>餐廳攻略</span></button>
+        <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
+      </nav>
     </div></header>
     <main class="main" id="main"></main>
-    <nav class="bottom-nav" aria-label="主要導覽">
-      <button type="button" data-view="days">${icon('calendar')}<span>每日行程</span></button>
-      <button type="button" data-view="flights">${icon('plane')}<span>航班交通</span></button>
-      <button type="button" data-view="stays">${icon('bed')}<span>住宿</span></button>
-      <button type="button" data-view="money">${icon('wallet')}<span>分帳</span></button>
-      <a class="nav-link" href="./site-one/index.html">${icon('ticket')}<span>行前預約</span></a>
-      <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
-    </nav>
+    <aside class="group-dock" aria-label="航班組別">
+      <div class="groups" role="group" aria-label="選擇旅行組別">${GROUPS.map(g=>`<button type="button" data-group="${g}" aria-pressed="false">${g} 組</button>`).join('')}</div>
+      <p class="group-context"></p>
+    </aside>
     <div class="sr-only" role="status" aria-live="polite" id="announcement"></div>
     <dialog aria-labelledby="install-title"><button type="button" class="dialog-close" data-action="close-install" aria-label="關閉安裝說明">×</button>
       <h2 id="install-title">把旅程放進手機</h2><p>加入主畫面後，就能像 App 一樣開啟；組別會記在這支手機上。</p>
@@ -254,7 +262,13 @@
     return `<div class="eyebrow">OUR STAYS</div><h1>這趟旅程住哪裡</h1><p class="intro">東京、日光、成田的住宿資料集中在這裡，點開查看詳細資訊。</p>${['stay-tokyo','stay-nikko','stay-narita'].map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`;
   }
   function moneyView() {
-    return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">輸入名字加入旅行帳本，記錄誰先付款、每個人要分擔多少。</p><div class="money-app" aria-live="polite"></div>`;
+    return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">直接新增同行者姓名，記錄誰先付款、每個人要分擔多少；所有人會看到同一份資料。</p><div class="money-app" aria-live="polite"></div>`;
+  }
+  function reserve() {
+    return `<div class="eyebrow">BEFORE THE TRIP</div><h1>行前預約</h1><p class="intro">預約日期、熱門票券、餐廳、接送與 Visit Japan Web 集中在同一個版面。</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理行前預約資料…</section></div>`;
+  }
+  function restaurants() {
+    return `<div class="eyebrow">TOKYO FOOD GUIDE</div><h1>餐廳攻略</h1><p class="intro">依行程日期查看店面、招牌餐點、營業與候位提醒。</p><div class="supplement-root" data-supplement="restaurants"><section class="panel supplement-loading">正在整理餐廳攻略…</section></div>`;
   }
   function guide() {
     const sections = [
@@ -263,7 +277,70 @@
       ['餐飲整理',['restaurant-main','restaurant-alternative','restaurant-snacks']],
       ['退稅與寄件',['tax-vjw','japan-post-domestic-1']]
     ];
-    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅途資料隨身帶</h1><p class="intro">${state.group} 組適用資料與大家共用的旅行筆記。</p><div class="resource-links"><a href="./site-one/index.html">預約與票券 ↗</a><a href="./restaurant-guide/index.html">所有餐廳實拍攻略 ↗</a></div>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
+    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅途資料隨身帶</h1><p class="intro">大家共用的打包、住宿、退稅與寄件筆記。</p><div class="resource-links"><button type="button" data-view="reserve">預約與票券</button><button type="button" data-view="restaurants">餐廳攻略</button></div>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
+  }
+
+  function cleanRemote(node, baseUrl) {
+    node.querySelectorAll('script,style,nav,button,form,.page-num,.screen-only,.filterbar').forEach(el=>el.remove());
+    node.querySelectorAll('table').forEach(table=>table.replaceWith(tableCards(table)));
+    [node,...node.querySelectorAll('*')].forEach(el=>{
+      if(el.tagName==='A') {
+        const href=el.getAttribute('href');
+        if(href && !href.startsWith('#') && !href.startsWith('javascript:')) el.setAttribute('href',new URL(href,baseUrl).href);
+        if(el.getAttribute('target')==='_blank') el.setAttribute('rel','noopener noreferrer');
+      }
+      if(el.tagName==='IMG') {
+        const src=el.getAttribute('src');
+        if(src) el.setAttribute('src',new URL(src,baseUrl).href);
+        el.loading='lazy';el.decoding='async';
+      }
+      [...el.attributes].forEach(attr=>{
+        if(!['href','src','alt','title','target','rel','colspan','rowspan','loading','decoding'].includes(attr.name))el.removeAttribute(attr.name);
+      });
+    });
+    return node;
+  }
+
+  async function hydrateSupplement(kind) {
+    const target=main.querySelector(`[data-supplement="${kind}"]`);
+    if(!target)return;
+    const path=kind==='reserve'?'./site-one/index.html':'./restaurant-guide/index.html';
+    const baseUrl=new URL(path,document.baseURI);
+    try {
+      const response=await fetch(baseUrl.href,{cache:'no-cache'});
+      if(!response.ok)throw new Error('資料讀取失敗');
+      const doc=new DOMParser().parseFromString(await response.text(),'text/html');
+      target.innerHTML='';
+      if(kind==='reserve') {
+        [...doc.querySelectorAll('section.page')].filter(section=>section.id!=='cover').forEach((section,index)=>{
+          const content=(section.querySelector('.content')||section).cloneNode(true);
+          const heading=content.querySelector('h2');
+          const title=heading?.textContent.trim()||`行前資料 ${index+1}`;
+          heading?.remove();
+          cleanRemote(content,baseUrl);
+          const details=document.createElement('details');
+          details.className='supplement-section';details.open=index===0;
+          details.innerHTML=`<summary>${escape(title)}</summary><div class="document supplement-document"></div>`;
+          details.querySelector('.supplement-document').append(...content.childNodes);
+          target.append(details);
+        });
+      } else {
+        [...doc.querySelectorAll('section.day-section')].forEach((section,index)=>{
+          const heading=section.querySelector('h2')?.textContent.trim()||`第 ${index+1} 天餐廳`;
+          const details=document.createElement('details');details.className='supplement-section';details.open=index===0;
+          details.innerHTML=`<summary>${escape(heading)}</summary><div class="supplement-grid"></div>`;
+          const grid=details.querySelector('.supplement-grid');
+          [...section.querySelectorAll('.cards > *')].forEach(card=>{
+            const article=document.createElement('article');article.className='supplement-card';
+            const clone=cleanRemote(card.cloneNode(true),baseUrl);article.append(clone);grid.append(article);
+          });
+          target.append(details);
+        });
+      }
+      if(!target.children.length)throw new Error('找不到可顯示的資料');
+    } catch(error) {
+      target.innerHTML=`<section class="panel supplement-error"><h2>暫時無法載入</h2><p>${escape(error.message||'請稍後再試')}</p><a href="${baseUrl.href}">開啟原始資料頁 ↗</a></section>`;
+    }
   }
   function statusText() {
     if (!navigator.onLine) return offlineReady ? '離線閱讀中 · 地圖與外部連結需連線' : '目前離線 · 本次顯示已載入的行程';
@@ -273,13 +350,17 @@
   function render(scroll = false) {
     clampDay(); detailSources = new Map();
     main.dataset.view = state.view;
+    const grouped = state.view === 'days' || state.view === 'flights';
+    shell.classList.toggle('has-group-dock',grouped);
+    root.querySelector('.group-dock').hidden = !grouped;
     root.querySelectorAll('[data-group]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.group===state.group)));
     root.querySelectorAll('[data-view]').forEach(button=>{
       if(button.dataset.view===state.view) button.setAttribute('aria-current','page'); else button.removeAttribute('aria-current');
     });
     const row = flightRow(departures,state.group);
     root.querySelector('.group-context').textContent = `${state.group} 組 · ${row.cells[3].textContent.trim()} · ${row.cells[1].textContent.trim()}`;
-    main.innerHTML = (state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='money'?moneyView():guide())+`<p class="status" role="status">${statusText()}</p>`;
+    const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():guide();
+    main.innerHTML = content+`<p class="status" role="status">${statusText()}</p>`;
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
         el.querySelector('.document').innerHTML=readable(detailSources.get(el.dataset.detail),{omitTitle:true});
@@ -297,6 +378,7 @@
     }
     if(state.view === 'money' && window.TripMoney) window.TripMoney.mount(main.querySelector('.money-app'));
     else if(window.TripMoney) window.TripMoney.unmount();
+    if(state.view === 'reserve' || state.view === 'restaurants') hydrateSupplement(state.view);
   }
   root.addEventListener('click',async event=>{
     const button = event.target.closest('button'); if(!button) return;
