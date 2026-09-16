@@ -1,9 +1,9 @@
 const CACHE_PREFIX = 'tokyo-trip-2026-';
-const CACHE_NAME = CACHE_PREFIX + 'mobile-v12';
+const CACHE_NAME = CACHE_PREFIX + 'mobile-v13';
 const BASE = new URL('./', self.location.href);
 const INDEX = new URL('index.html', BASE).href;
 const APP_FILES = ['index.html','trip-app.js','trip-app.css','trip-weather.js','trip-money.js','manifest.webmanifest',
-  'trip-icon.svg','trip-icon-180.png','trip-icon-192.png','trip-icon-512.png','site-one/index.html','restaurant-guide/index.html'];
+  'trip-icon.svg','trip-icon-180.png','trip-icon-192.png','trip-icon-512.png','stay-tokyo.jpg','stay-nikko.jpg','stay-narita.jpg','site-one/index.html','restaurant-guide/index.html'];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {

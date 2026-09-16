@@ -193,7 +193,7 @@ details[open]>summary{background:var(--soft)}
 
 /* Main pages now sit above; A/B/C stays at the bottom only where groups matter. */
 .shell{padding-bottom:34px}
-.shell.has-group-dock{padding-bottom:calc(118px + env(safe-area-inset-bottom))}
+.shell.has-group-dock,.shell.has-stay-dock{padding-bottom:calc(118px + env(safe-area-inset-bottom))}
 .header-inner{display:block!important;max-width:1120px}
 .brand-row{margin-bottom:9px!important}
 .section-nav{display:flex;gap:6px;overflow-x:auto;padding:3px 1px 5px;scrollbar-width:none;overscroll-behavior-inline:contain}
@@ -207,6 +207,17 @@ details[open]>summary{background:var(--soft)}
 .group-dock .groups button{color:#edf1f3;min-height:40px}
 .group-dock .groups button[aria-pressed=true]{background:#fff;color:var(--vermilion);box-shadow:none}
 .group-dock .group-context{margin:4px 2px 0;color:#dbe2e6;text-align:center;font-size:11px;line-height:1.45}
+.stay-dock{position:fixed;z-index:14;left:50%;bottom:12px;transform:translateX(-50%);display:grid;grid-template-columns:repeat(3,1fr);gap:5px;width:calc(100% - 24px);max-width:460px;padding:7px;border:1px solid rgba(255,255,255,.68);border-radius:18px;background:rgba(38,59,73,.96);box-shadow:0 9px 32px rgba(23,38,49,.24);backdrop-filter:blur(16px)}
+.stay-dock[hidden]{display:none!important}
+.stay-dock button{min-height:46px;border:0;border-radius:11px;background:transparent;color:#edf1f3;font:inherit;font-size:15px;font-weight:700}
+.stay-dock button[aria-pressed=true]{background:#fff;color:var(--vermilion)}
+.stay-focus{max-width:820px;border:1px solid var(--line);border-radius:var(--surface-radius);background:rgba(255,255,255,.96);overflow:hidden;box-shadow:0 6px 22px rgba(38,52,61,.08)}
+.stay-cover{position:relative;margin:0;background:#e7e1d9;aspect-ratio:16/8;overflow:hidden}
+.stay-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.stay-cover figcaption{position:absolute;left:14px;bottom:13px;padding:6px 10px;border-radius:8px;background:rgba(30,42,49,.78);color:#fff;font-size:14px;backdrop-filter:blur(8px)}
+.stay-cover figcaption a{color:#fff;font-weight:700;text-underline-offset:3px}
+.stay-document{padding:20px 22px 24px}
+.stay-document>div>.container,.stay-document .hotel-card{padding:0}
 .resource-links button{min-height:58px;border:1px solid var(--line);border-radius:var(--surface-radius);background:#fff;color:#273e4e;padding:16px;font:inherit;font-size:15px;font-weight:700;box-shadow:inset 0 3px #273e4e,0 4px 14px rgba(38,52,61,.05)}
 
 /* Unified in-app layouts for reservations and restaurants. */
@@ -266,4 +277,4 @@ details[open]>summary{background:var(--soft)}
   .supplement-document .task{grid-template-columns:auto minmax(0,1fr)}
   .supplement-document .task-date,.supplement-document .task-title,.supplement-document .task-desc,.supplement-document .task-tools{grid-column:2}
 }
-@media print{.section-nav,.group-dock{display:none!important}}
+@media print{.section-nav,.group-dock,.stay-dock{display:none!important}}

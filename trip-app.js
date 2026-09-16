@@ -6,6 +6,12 @@
   const pages = [...document.querySelectorAll('.page-sheet')];
   if (!$('#day1') || !$('#flight-info')) return;
   const GROUPS = ['A', 'B', 'C'];
+  const STAY_KEYS = ['tokyo','nikko','narita'];
+  const STAY_INFO = {
+    tokyo:{label:'東京',id:'stay-tokyo',image:'./stay-tokyo.jpg',alt:'東京本所吾妻橋包棟民宿的客廳與用餐空間',source:'https://www.airbnb.com/rooms/1661217093593003826'},
+    nikko:{label:'日光',id:'stay-nikko',image:'./stay-nikko.jpg',alt:'日光山景包棟民宿的和室空間',source:'https://www.airbnb.com/rooms/52815877'},
+    narita:{label:'成田',id:'stay-narita',image:'./stay-narita.jpg',alt:'成田里士滿飯店外觀',source:'https://richmondhotel.jp/narita/'}
+  };
   const icon = name => {
     const paths = {
       calendar:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18M7 15h2m4 0h2m-8 3h2"/>',
@@ -24,9 +30,11 @@
   try { saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch {}
   const params = new URL(location.href).searchParams;
   const initialGroup = params.get('group') || saved.group;
+  const initialStay = params.get('stay') || saved.stay;
   const state = {
     group: GROUPS.includes(initialGroup) ? initialGroup : 'A',
     day: Number(params.get('day') || saved.day) || 1,
+    stay: STAY_KEYS.includes(initialStay) ? initialStay : 'tokyo',
     view: ['days', 'flights', 'stays', 'money', 'reserve', 'restaurants', 'guide'].includes(params.get('view')) ? params.get('view') : 'days',
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
   };
@@ -157,6 +165,7 @@
       <div class="groups" role="group" aria-label="選擇旅行組別">${GROUPS.map(g=>`<button type="button" data-group="${g}" aria-pressed="false">${g} 組</button>`).join('')}</div>
       <p class="group-context"></p>
     </aside>
+    <nav class="stay-dock" aria-label="選擇住宿地點">${STAY_KEYS.map(key=>`<button type="button" data-stay="${key}" aria-pressed="false">${STAY_INFO[key].label}</button>`).join('')}</nav>
     <div class="sr-only" role="status" aria-live="polite" id="announcement"></div>
     <dialog aria-labelledby="install-title"><button type="button" class="dialog-close" data-action="close-install" aria-label="關閉安裝說明">×</button>
       <h2 id="install-title">把旅程放進手機</h2><p>加入主畫面後，就能像 App 一樣開啟；組別會記在這支手機上。</p>
@@ -181,6 +190,7 @@
     url.searchParams.set('group',state.group);
     url.searchParams.set('day',String(state.day));
     url.searchParams.set('view',state.view);
+    if(state.view==='stays')url.searchParams.set('stay',state.stay);else url.searchParams.delete('stay');
     history.replaceState(null,'',url);
   }
   function detail(title,source,key) {
@@ -260,7 +270,8 @@
     return `<div class="eyebrow">MY FLIGHTS</div><h1>${state.group} 組航班與交通</h1><p class="intro">只顯示本組班機與機場接駁資訊。</p>${flightPanel(departures,'去程')}${flightPanel(returns,'回程')}<div class="note">第 9 天原訂全體 08:20 搭飯店接駁前往成田 T2；免稅品攜出確認須在托運前完成。</div><h2 class="section-label">成田 → 本所吾妻橋</h2><div class="document">${readable(wrap)}${readable($('.narita-prev-fare-wrap'))}</div><div class="resource-links"><a href="./site-four/index.html">Skyliner 購票與青砥轉乘圖解 ↗</a><a href="./?view=reserve">行前預約與票券 ↗</a></div>`;
   }
   function stays() {
-    return `<div class="eyebrow">OUR STAYS</div><h1>這趟旅程住哪裡</h1><p class="intro">東京、日光、成田的住宿地址、日期與入住提醒集中在這裡。錯誤房源照片已先移除，避免認錯住宿。</p>${['stay-tokyo','stay-nikko','stay-narita'].map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`;
+    const stay=STAY_INFO[state.stay], source=$('#'+stay.id);
+    return `<div class="eyebrow">OUR STAYS</div><h1>${stay.label}住宿</h1><p class="intro">使用下方按鈕切換東京、日光與成田。</p><article class="stay-focus"><figure class="stay-cover"><img src="${stay.image}" alt="${stay.alt}" fetchpriority="high"><figcaption>${stay.alt} · <a href="${stay.source}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a></figcaption></figure><div class="document stay-document">${readable(source,{omitTitle:true})}</div></article>`;
   }
   function moneyView() {
     return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">直接新增同行者姓名，記錄誰先付款、每個人要分擔多少；所有人會看到同一份資料。</p><div class="money-app" aria-live="polite"></div>`;
@@ -372,9 +383,13 @@
     clampDay(); detailSources = new Map();
     main.dataset.view = state.view;
     const grouped = state.view === 'days' || state.view === 'flights';
+    const staying = state.view === 'stays';
     shell.classList.toggle('has-group-dock',grouped);
+    shell.classList.toggle('has-stay-dock',staying);
     root.querySelector('.group-dock').hidden = !grouped;
+    root.querySelector('.stay-dock').hidden = !staying;
     root.querySelectorAll('[data-group]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.group===state.group)));
+    root.querySelectorAll('[data-stay]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.stay===state.stay)));
     root.querySelectorAll('[data-view]').forEach(button=>{
       if(button.dataset.view===state.view) button.setAttribute('aria-current','page'); else button.removeAttribute('aria-current');
     });
@@ -407,6 +422,7 @@
       state.group=button.dataset.group; render();
       root.querySelector('#announcement').textContent=`已切換為 ${state.group} 組，顯示本組與共同行程。`;
     } else if(button.dataset.day) { state.day=Number(button.dataset.day); render(true); }
+    else if(button.dataset.stay) { state.stay=button.dataset.stay; render(true); }
     else if(button.dataset.view) { state.view=button.dataset.view; render(true); }
     else if(button.dataset.route) { state.routes[state.group]=button.dataset.route; const y=window.scrollY; render(); window.scrollTo(0,y); }
     else if(button.dataset.reserveCopy) {
@@ -428,7 +444,7 @@
     const match = id.match(/^day(\d+)/);
     if(match) { state.day=Number(match[1]); state.view='days'; }
     else if(id==='flight-info' || id==='narita-honjo-guide') state.view='flights';
-    else if(['stay-tokyo','stay-nikko','stay-narita'].includes(id)) state.view='stays';
+    else if(['stay-tokyo','stay-nikko','stay-narita'].includes(id)) { state.view='stays'; state.stay=id.replace('stay-',''); }
     else if($('#'+CSS.escape(id))) state.view='guide';
     render();
     const details = root.querySelector(`details[data-detail="${CSS.escape(id)}"]`);
