@@ -12,6 +12,7 @@
       plane:'<path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/>',
       bed:'<path d="M3 18v3m18-3v3M3 18h18V9H3v9ZM5 9V4h14v5M7 9V7h3v2m4 0V7h3v2M3 14h18"/>',
       ticket:'<path d="M4 4h16v5a3 3 0 0 0 0 6v5H4v-5a3 3 0 0 0 0-6V4Zm10 0v3m0 3v4m0 3v3"/>',
+      wallet:'<path d="M4 6h15a2 2 0 0 1 2 2v11H4a2 2 0 0 1-2-2V6h2Zm0 0V4h13v2m0 6h4v4h-4a2 2 0 0 1 0-4Z"/>',
       book:'<path d="M12 5v16m0-16C8 2 4 3 2 4v16c3-1 6-1 10 1 4-2 7-2 10-1V4c-2-1-6-2-10 1Z"/>',
       pin:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
       add:'<rect x="5" y="2" width="14" height="20" rx="3"/><path d="M9 10h6m-3-3v6m-1 5h2"/>'
@@ -26,7 +27,7 @@
   const state = {
     group: GROUPS.includes(initialGroup) ? initialGroup : 'A',
     day: Number(params.get('day') || saved.day) || 1,
-    view: ['days', 'flights', 'stays', 'guide'].includes(params.get('view')) ? params.get('view') : 'days',
+    view: ['days', 'flights', 'stays', 'money', 'guide'].includes(params.get('view')) ? params.get('view') : 'days',
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
   };
   const firstDay = () => state.group === 'C' ? 3 : 1;
@@ -143,6 +144,7 @@
       <button type="button" data-view="days">${icon('calendar')}<span>每日行程</span></button>
       <button type="button" data-view="flights">${icon('plane')}<span>航班交通</span></button>
       <button type="button" data-view="stays">${icon('bed')}<span>住宿</span></button>
+      <button type="button" data-view="money">${icon('wallet')}<span>分帳</span></button>
       <a class="nav-link" href="./site-one/index.html">${icon('ticket')}<span>行前預約</span></a>
       <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
     </nav>
@@ -251,6 +253,9 @@
   function stays() {
     return `<div class="eyebrow">OUR STAYS</div><h1>這趟旅程住哪裡</h1><p class="intro">東京、日光、成田的住宿資料集中在這裡，點開查看詳細資訊。</p>${['stay-tokyo','stay-nikko','stay-narita'].map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`;
   }
+  function moneyView() {
+    return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">輸入名字加入旅行帳本，記錄誰先付款、每個人要分擔多少。</p><div class="money-app" aria-live="polite"></div>`;
+  }
   function guide() {
     const sections = [
       ['行前準備',['packing-list-1','packing-list-2']],
@@ -274,7 +279,7 @@
     });
     const row = flightRow(departures,state.group);
     root.querySelector('.group-context').textContent = `${state.group} 組 · ${row.cells[3].textContent.trim()} · ${row.cells[1].textContent.trim()}`;
-    main.innerHTML = (state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():guide())+`<p class="status" role="status">${statusText()}</p>`;
+    main.innerHTML = (state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='money'?moneyView():guide())+`<p class="status" role="status">${statusText()}</p>`;
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
         el.querySelector('.document').innerHTML=readable(detailSources.get(el.dataset.detail),{omitTitle:true});
@@ -290,6 +295,8 @@
       if(window.TripWeather) window.TripWeather.render(weather,state.day);
       else weather.textContent = '天氣服務暫時無法載入，行程仍可正常閱讀。';
     }
+    if(state.view === 'money' && window.TripMoney) window.TripMoney.mount(main.querySelector('.money-app'));
+    else if(window.TripMoney) window.TripMoney.unmount();
   }
   root.addEventListener('click',async event=>{
     const button = event.target.closest('button'); if(!button) return;
