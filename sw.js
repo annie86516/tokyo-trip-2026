@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'tokyo-trip-2026-';
-const CACHE_NAME = CACHE_PREFIX + 'mobile-v2';
+const CACHE_NAME = CACHE_PREFIX + 'mobile-v3';
 const BASE = new URL('./', self.location.href);
 const INDEX = new URL('index.html', BASE).href;
 const APP_FILES = ['index.html','trip-app.js','trip-app.css','manifest.webmanifest',
@@ -10,7 +10,7 @@ self.addEventListener('install', event => {
     const cache = await caches.open(CACHE_NAME);
     await cache.addAll(APP_FILES.map(path => new Request(new URL(path, BASE), {cache:'reload'})));
     const html = await (await cache.match(INDEX)).text();
-    const images = [...new Set(html.match(/images\/[a-f0-9]{20}\.(?:png|jpg|webp)/g) || [])];
+    const images = [...new Set(html.match(/trip-image-[a-f0-9]{20}\.(?:png|jpg|webp)/g) || [])];
     await cache.addAll(images.map(path => new URL(path, BASE).href));
     await self.skipWaiting();
   })());
@@ -29,7 +29,7 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET' || url.origin !== BASE.origin || !url.pathname.startsWith(BASE.pathname)) return;
   const isHome = url.pathname === BASE.pathname || url.pathname === new URL(INDEX).pathname;
   const key = isHome ? INDEX : request;
-  const immutableImage = /^images\/[a-f0-9]{20}\./.test(url.pathname.slice(BASE.pathname.length));
+  const immutableImage = /^trip-image-[a-f0-9]{20}\./.test(url.pathname.slice(BASE.pathname.length));
   if (immutableImage) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE_NAME);
