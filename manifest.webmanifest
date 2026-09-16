@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "2026 楓葉之旅｜東京・日光・成田",
+  "short_name": "楓葉之旅",
+  "description": "A、B、C 組專屬行程、航班與旅途資料",
+  "lang": "zh-Hant-TW",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#934d3b",
+  "icons": [
+    {"src":"trip-icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"trip-icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
