@@ -91,8 +91,37 @@ dialog{width:calc(100% - 32px);max-width:440px;border:1px solid var(--line);bord
   --font-kai:"BiauKai","DFKai-SB","標楷體","KaiTi","STKaiti",serif;
   --surface-radius:16px;
   --surface-padding:18px;
+  --indigo:#263b49;
+  --vermilion:#aa3f32;
+  --kincha:#b4864b;
   font-family:var(--font-kai);
+  background-color:#f3eadf;
+  background-image:
+    radial-gradient(circle at 8% 9%,rgba(170,63,50,.18) 0,rgba(170,63,50,.07) 17rem,transparent 34rem),
+    radial-gradient(circle at 94% 26%,rgba(180,134,75,.20) 0,rgba(180,134,75,.07) 15rem,transparent 31rem),
+    linear-gradient(45deg,rgba(38,59,73,.024) 25%,transparent 25%,transparent 75%,rgba(38,59,73,.024) 75%),
+    linear-gradient(45deg,rgba(38,59,73,.024) 25%,transparent 25%,transparent 75%,rgba(38,59,73,.024) 75%),
+    repeating-linear-gradient(112deg,rgba(93,72,53,.026) 0,rgba(93,72,53,.026) 1px,transparent 1px,transparent 9px),
+    linear-gradient(155deg,#fffaf2 0%,#f7eee2 48%,#eee2d5 100%);
+  background-size:auto,auto,28px 28px,28px 28px,auto,auto;
+  background-position:0 0,0 0,0 0,14px 14px,0 0,0 0;
+  background-attachment:fixed;
 }
+.shell{background:transparent}
+.app-header{background:rgba(255,251,246,.94);border-bottom-color:rgba(167,46,65,.16);box-shadow:0 5px 24px rgba(73,42,32,.06)}
+.app-header{border-top-color:var(--vermilion)}
+.groups{background:rgba(255,255,255,.58);border:1px solid rgba(167,46,65,.08)}
+.day-button,.route,.timeline>li,.panel,details,.flight-ticket,.resource-links a{
+  background:rgba(255,255,255,.94);
+}
+.main[data-view="days"] .itinerary-layout,.main[data-view="flights"],.main[data-view="stays"],.main[data-view="guide"]{
+  position:relative;
+}
+.eyebrow{display:inline-flex;align-items:center;min-height:28px;padding:2px 9px;border:1px solid rgba(170,63,50,.38);border-radius:3px;background:rgba(255,250,245,.72);color:var(--vermilion);letter-spacing:.13em}
+.section-label::before{background:var(--vermilion)}
+.groups button[aria-pressed=true]{background:var(--vermilion)}
+.day-button[aria-pressed=true]{background:var(--indigo);border-color:var(--indigo)}
+.bottom-nav{background:rgba(38,59,73,.96)}
 .shell,.shell *,button,input,textarea,select,summary,dialog{
   font-family:var(--font-kai)!important;
 }
@@ -128,4 +157,18 @@ details[open]>summary{background:var(--soft)}
   :host{--surface-padding:16px}
   .main[data-view="flights"],.main[data-view="stays"],.main[data-view="guide"]{padding-left:16px;padding-right:16px}
   .document p,.document li,.document dd{font-size:16px}
+}
+@media(max-width:700px){
+  :host{
+    background-image:
+      radial-gradient(circle at 4% 8%,rgba(170,63,50,.15) 0,transparent 18rem),
+      radial-gradient(circle at 98% 38%,rgba(180,134,75,.16) 0,transparent 17rem),
+      linear-gradient(45deg,rgba(38,59,73,.022) 25%,transparent 25%,transparent 75%,rgba(38,59,73,.022) 75%),
+      linear-gradient(45deg,rgba(38,59,73,.022) 25%,transparent 25%,transparent 75%,rgba(38,59,73,.022) 75%),
+      repeating-linear-gradient(112deg,rgba(93,72,53,.022) 0,rgba(93,72,53,.022) 1px,transparent 1px,transparent 9px),
+      linear-gradient(155deg,#fffaf2 0%,#f5ebdf 58%,#eee2d5 100%);
+    background-size:auto,auto,28px 28px,28px 28px,auto,auto;
+    background-position:0 0,0 0,0 0,14px 14px,0 0,0 0;
+    background-attachment:scroll;
+  }
 }
