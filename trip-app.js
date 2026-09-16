@@ -6,6 +6,16 @@
   const pages = [...document.querySelectorAll('.page-sheet')];
   if (!$('#day1') || !$('#flight-info')) return;
   const GROUPS = ['A', 'B', 'C'];
+  const icon = name => {
+    const paths = {
+      calendar:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18M7 15h2m4 0h2m-8 3h2"/>',
+      plane:'<path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/>',
+      book:'<path d="M12 5v16m0-16C8 2 4 3 2 4v16c3-1 6-1 10 1 4-2 7-2 10-1V4c-2-1-6-2-10 1Z"/>',
+      pin:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+      add:'<rect x="5" y="2" width="14" height="20" rx="3"/><path d="M9 10h6m-3-3v6m-1 5h2"/>'
+    };
+    return `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.pin}</svg>`;
+  };
   const STORE = 'tokyo-trip-2026.preferences.v1';
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch {}
@@ -120,17 +130,17 @@
   shell.innerHTML = `
     <header class="app-header"><div class="header-inner">
       <div class="brand-row"><img class="brand-icon" src="./trip-icon-192.png" alt=""/>
-        <div class="brand"><strong>楓葉之旅</strong><small>TOKYO · NIKKO · NARITA 2026</small></div>
-        <button class="utility" type="button" data-action="install">加入主畫面</button>
+        <div class="brand"><strong>楓葉之旅<span class="brand-year">2026</span></strong><small>JAPAN / AUTUMN</small></div>
+        <button class="utility" type="button" data-action="install">${icon('add')}<span>加入主畫面</span></button>
       </div>
       <div class="groups" role="group" aria-label="選擇旅行組別">${GROUPS.map(g=>`<button type="button" data-group="${g}" aria-pressed="false">${g} 組</button>`).join('')}</div>
       <p class="group-context"></p>
     </div></header>
     <main class="main" id="main"></main>
     <nav class="bottom-nav" aria-label="主要導覽">
-      <button type="button" data-view="days"><span aria-hidden="true">▤</span>每日行程</button>
-      <button type="button" data-view="flights"><span aria-hidden="true">✈</span>航班交通</button>
-      <button type="button" data-view="guide"><span aria-hidden="true">▧</span>旅行資料</button>
+      <button type="button" data-view="days">${icon('calendar')}<span>每日行程</span></button>
+      <button type="button" data-view="flights">${icon('plane')}<span>航班交通</span></button>
+      <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
     </nav>
     <div class="sr-only" role="status" aria-live="polite" id="announcement"></div>
     <dialog aria-labelledby="install-title"><button type="button" class="dialog-close" data-action="close-install" aria-label="關閉安裝說明">×</button>
@@ -162,7 +172,7 @@
     detailSources.set(key,source);
     return `<details data-detail="${escape(key)}"><summary>${escape(title)}</summary><div class="document"></div></details>`;
   }
-  function list(items) { return `<ol class="timeline">${items.map((html,i)=>`<li><span class="step" aria-hidden="true">${String(i+1).padStart(2,'0')}</span>${html}</li>`).join('')}</ol>`; }
+  function list(items) { return `<ol class="timeline">${items.map((html,i)=>`<li><span class="step" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="stop-content">${html}</div></li>`).join('')}</ol>`; }
   function groupArrival() {
     const row = flightRow(departures,state.group);
     return `<strong>抵達成田：</strong>${row.cells[2].innerHTML}。${row.cells[3].innerHTML}`;
@@ -212,19 +222,20 @@
       items.push(`<strong>${state.group} 組回程：</strong>${row.cells[3].innerHTML}<br/>${row.cells[1].innerHTML} → ${row.cells[2].innerHTML}`);
     }
     const date = source.querySelector('.day-date').textContent;
-    return `<div class="eyebrow">${state.group} 組的旅程</div><p class="intro">${state.group==='C'?'11/23 出發・7 天 6 夜':'11/21 出發・9 天 8 夜'} · 共同活動已包含在內</p>
-      <nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:10-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>11/${20+n}</b></button>`).join('')}</nav>
-      <section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}"/>` : ''}<div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1></div></section>
-      <div class="route"><span class="route-label">TODAY'S ROUTE · 今日路線</span>${route}</div>
-      <h2 class="section-label">今日安排</h2>${list(items)}${custom}
+    return `<div class="journey-heading"><div><div class="eyebrow">NOVEMBER IN JAPAN</div><p class="journey-title">${state.group} 組的秋日旅程</p></div><span class="trip-duration">${state.group==='C'?'7 天 6 夜':'9 天 8 夜'}</span></div>
+      <p class="intro journey-intro">${state.group==='C'?'11.23':'11.21'} — 11.29<span>本組行程與共同活動</span></p>
+      <nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:10-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-label="第 ${n} 天，11 月 ${20+n} 日" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>${20+n}</b><small>11月・${['六','日','一','二','三','四','五','六','日'][n-1]}</small></button>`).join('')}</nav>
+      <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
+      <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div></aside>
+      <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${list(items)}${custom}
       ${source.querySelector('.ueno-recovery-card') ? detail('逛街後休息｜上野足湯與按摩',source.querySelector('.ueno-recovery-card'),'ueno') : ''}
       ${source.querySelector('.day-alert-grid') ? `<div class="document">${readable(source.querySelector('.day-alert-grid'))}</div>` : ''}
       ${extras.length?'<h2 class="section-label">交通細節與餐飲</h2>':''}${extras.map((el,i)=>detail(el.querySelector('h2,.day-title')?.textContent || '補充資料',el,`day-${state.day}-${i}`)).join('')}
-      <div class="day-footer"><button type="button" data-day="${state.day-1}" ${state.day===firstDay()?'disabled':''}>← 前一天</button><button type="button" data-day="${state.day+1}" ${state.day===9?'disabled':''}>後一天 →</button></div>`;
+      <div class="day-footer"><button type="button" data-day="${state.day-1}" ${state.day===firstDay()?'disabled':''}>← 前一天</button><span>DAY ${String(state.day).padStart(2,'0')} / 09</span><button type="button" data-day="${state.day+1}" ${state.day===9?'disabled':''}>後一天 →</button></div></section></div>`;
   }
   function flightPanel(table,title) {
     const row = flightRow(table,state.group);
-    return `<section class="panel"><span class="pill">${escape(title)} · ${state.group} 組</span><div class="flight"><div>${row.cells[1].innerHTML}</div><span class="arrow" aria-hidden="true">→</span><div>${row.cells[2].innerHTML}</div></div><p><strong>${row.cells[3].innerHTML}</strong></p>${row.cells[4]?`<p class="intro">原行程預留抵達機場時間：${row.cells[4].innerHTML}</p>`:''}</section>`;
+    return `<section class="panel flight-ticket"><div class="ticket-header"><span class="pill">${escape(title)} · ${state.group} 組</span><span>BOARDING PASS</span></div><div class="flight"><div>${row.cells[1].innerHTML}</div><span class="arrow" aria-hidden="true">${icon('plane')}</span><div>${row.cells[2].innerHTML}</div></div><div class="ticket-footer"><strong>${row.cells[3].innerHTML}</strong>${row.cells[4]?`<p class="intro">原行程預留抵達機場時間：${row.cells[4].innerHTML}</p>`:''}</div></section>`;
   }
   function flights() {
     const rail = $('.narita-combined-table').cloneNode(true);
@@ -303,7 +314,7 @@
   // Show the enhanced view only once its stylesheet loaded successfully.
   sheet.onload=()=>{
     const reset=document.createElement('style');
-    reset.textContent='html.trip-app-ready,html.trip-app-ready body{width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#faf7f2!important;overflow-x:clip!important}html.trip-app-ready body>*:not(#trip-app):not(script):not(style){display:none!important}#trip-app{display:block!important}';
+    reset.textContent='html.trip-app-ready,html.trip-app-ready body{width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#f6f7f9!important;overflow-x:clip!important}html.trip-app-ready body>*:not(#trip-app):not(script):not(style){display:none!important}#trip-app{display:block!important}';
     document.head.append(reset);
     document.documentElement.classList.add('trip-app-ready');
     document.documentElement.classList.remove('mobile-page-fit');
