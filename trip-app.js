@@ -159,6 +159,23 @@
   let offlineReady = false;
   let offlineFailed = false;
   let detailSources = new Map();
+  let bookReader = null;
+  let bookFrame = 0;
+  function mountBook() {
+    cancelAnimationFrame(bookFrame);
+    if(state.view !== 'days' || !document.documentElement.classList.contains('trip-app-ready')) return;
+    bookFrame = requestAnimationFrame(() => {
+      if(!window.TripBook || !window.St?.PageFlip || state.view !== 'days') return;
+      try {
+        bookReader ||= new window.TripBook();
+        bookReader.mount(main, {group:state.group, day:state.day, route:state.routes[state.group] || 'all'});
+      } catch(error) {
+        main.querySelector('.itinerary-layout')?.classList.remove('book-original');
+        main.querySelector('.book-reader')?.remove();
+        console.warn('Book view unavailable; using the full itinerary.', error);
+      }
+    });
+  }
 
   function persist() {
     try { localStorage.setItem(STORE,JSON.stringify(state)); } catch {}
@@ -276,6 +293,7 @@
     if (scroll) window.scrollTo({top:0,behavior:'instant'});
     const active = main.querySelector('.day-button[aria-pressed=true]');
     if(active) active.parentElement.scrollLeft=Math.max(0,active.offsetLeft-active.parentElement.offsetLeft-110);
+    mountBook();
   }
   root.addEventListener('click',async event=>{
     const button = event.target.closest('button'); if(!button) return;
@@ -319,6 +337,7 @@
     document.documentElement.classList.add('trip-app-ready');
     document.documentElement.classList.remove('mobile-page-fit');
     applyHash();
+    mountBook();
   };
   sheet.onerror=()=>host.remove();
   render();

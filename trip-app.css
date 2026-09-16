@@ -24,6 +24,46 @@ dialog{width:calc(100% - 32px);max-width:440px;border:1px solid var(--line);bord
 @media(max-width:360px){.app-header{padding-left:14px;padding-right:14px}.brand strong{font-size:19px}.brand-year{display:none}.brand small{font-size:9px}.brand-icon{width:34px;height:34px}.utility{font-size:11px;padding:7px}.utility .icon{display:none}.main{padding:22px 14px}.journey-title{font-size:24px}.trip-duration{font-size:11px;padding:4px 7px}.hero-copy h1{font-size:27px}.hero{min-height:235px}.timeline{padding-left:31px}.timeline>li{padding:15px}.step{left:-32px;width:24px;height:24px}.timeline>li::before{left:-21px}.table-card>div{grid-template-columns:66px minmax(0,1fr)}.resource-links{grid-template-columns:1fr}.day-footer button{font-size:12px;padding:9px 11px}.day-footer>span{font-size:10px}}
 @media(prefers-reduced-motion:no-preference){button,a,summary{transition:background .18s ease,color .18s ease,box-shadow .18s ease}.hero img{animation:photo-reveal .4s ease-out}@keyframes photo-reveal{from{opacity:.6}to{opacity:1}}}
 @media(hover:hover){.groups button:not([aria-pressed=true]):hover,.day-button:not([aria-pressed=true]):hover{background:#f5e9ed}.utility:hover,summary:hover,.day-footer button:not(:disabled):hover{background:#f9edf0}.bottom-nav button:hover{background:#ffffff16}}
+/* Paper reader: the library's structural styles live here inside Shadow DOM. */
+.stf__parent{position:relative;display:block;box-sizing:border-box;transform:translateZ(0);touch-action:pan-y;margin:auto}
+.stf__wrapper{position:relative;width:100%;box-sizing:border-box}
+.stf__block{position:absolute;width:100%;height:100%;box-sizing:border-box;perspective:2000px}
+.stf__item{display:none;position:absolute;transform-style:preserve-3d}
+.stf__outerShadow,.stf__innerShadow,.stf__hardShadow,.stf__hardInnerShadow{position:absolute;left:0;top:0;pointer-events:none}
+.book-reader{margin:4px 0 30px;min-width:0;outline-offset:6px}
+.book-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 2px 14px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.book-chapter{font-size:14px;color:var(--accent);font-weight:700}
+.book-desk{position:relative;isolation:isolate;box-shadow:0 16px 30px #25343e1a;border-radius:4px;background:#d9d4c9;margin:0 auto 20px;max-width:1000px}
+.paper-book{min-width:0!important}
+.paper-page{background:#fffdf7;color:#30343b;border:1px solid #e1dacb;overflow:hidden;box-shadow:inset 4px 0 12px #8a786a0a}
+.paper-page.--left{background:linear-gradient(to right,#fffdf7 94%,#e8e2d6)}
+.paper-page.--right{background:linear-gradient(to right,#e8e2d6,#fffdf7 6%)}
+.paper-inner{height:100%;display:flex;flex-direction:column;padding:20px 22px;gap:14px}
+.paper-head,.paper-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;line-height:1.5;color:#756b63;flex-shrink:0}
+.paper-head{padding-bottom:10px;border-bottom:1px solid #e3dcd0}
+.paper-head>span:first-child{color:var(--accent);font-weight:700}
+.paper-foot{justify-content:center;padding-top:10px;border-top:1px solid #e3dcd0}
+.paper-body{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;font-size:16px;line-height:1.85;touch-action:pan-y}
+.paper-body>.route{margin:0 0 18px;background:none;padding:0;border:0;font-size:16px}
+.paper-body .route-label{flex-wrap:wrap}.paper-body .route-label>span{font-size:12px}
+.paper-body>.timeline{padding-left:32px;display:block;margin:0 0 20px}
+.paper-body .timeline>li{padding:0 0 14px;border:0;border-radius:0;background:none;box-shadow:none;border-bottom:1px solid #e9e2d6;font-size:16px}
+.paper-body .step{top:3px;left:-32px;width:24px;height:24px;font-size:12px}
+.paper-body .timeline>li::before{display:none}.paper-body .stop-content strong{font-size:17px}
+.paper-body .hero{height:calc(100% - 46px);min-height:0;aspect-ratio:auto;border-radius:3px;box-shadow:none;margin:0}
+.paper-body .hero-copy{left:18px;right:18px;bottom:22px}.paper-body .hero-copy h1{font-size:28px}
+.paper-cover .paper-body{overflow:hidden}.paper-cover-note{text-align:center;font-family:var(--serif);font-size:14px;color:#746359;margin:12px 0 0}
+.paper-overflow::after{content:'— 本頁完 —';display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:14px}
+.paper-measure{position:absolute;left:0;top:0;visibility:hidden;pointer-events:none}
+.paper-measure .paper-page{height:100%;width:100%;display:block;position:relative}
+.book-controls{display:flex;align-items:center;justify-content:center;gap:16px}
+.book-controls button{min-height:46px;padding:9px 16px;border:1px solid #d7ccc1;border-radius:8px;background:#fffdf7;color:#743a3f;font-size:14px}
+.book-controls button:disabled{opacity:.4;cursor:default}.book-counter{min-width:85px;text-align:center;font-size:14px;color:#554a46;font-variant-numeric:tabular-nums}
+.book-hint{max-width:650px;margin:14px auto 0;text-align:center;color:var(--muted);font-size:12px}
+.itinerary-layout.book-original{display:block;max-width:850px;margin:auto}
+.book-original>.day-overview,.book-original>.day-plan>.timeline,.book-original>.day-plan>.section-label:first-child{display:none}
+@media(max-width:380px){.paper-inner{padding:15px;gap:10px}.paper-head{font-size:12px}.paper-body .hero-copy h1{font-size:25px}.book-controls{gap:8px}.book-controls button{padding:9px 10px}.book-counter{min-width:72px}.paper-body .route-label>span{display:none}}
+@media print{.book-reader{display:none}.itinerary-layout.book-original{display:block}.book-original>.day-overview,.book-original>.day-plan>.timeline,.book-original>.day-plan>.section-label:first-child{display:block}}
 /* Keep supporting labels readable without depending on downloaded fonts. */
 .brand small,.day-button span,.day-button small,.route-label>span,.section-sub,.ticket-header>span:last-child,.day-footer>span,.day-stamp,.step{font-size:12px}
 .utility,.group-context,.trip-duration,.route-select button,.bottom-nav button{font-size:14px}
