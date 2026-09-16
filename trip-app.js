@@ -84,6 +84,7 @@
     if (!source) return '';
     const clone = source.cloneNode(true);
     clone.querySelectorAll('script,style,.maple-page-background,.day-eyebrow,.day-number,.day-item-icon,.day-credit').forEach(el => el.remove());
+    if (source.id?.startsWith('stay-')) clone.querySelectorAll('.hotel-hero').forEach(el=>el.remove());
     clone.querySelectorAll('.return-address').forEach(el => {
       const address=document.createElement('address'); address.textContent=el.textContent; el.replaceWith(address);
     });
@@ -145,10 +146,10 @@
         <button type="button" data-view="days">${icon('calendar')}<span>每日行程</span></button>
         <button type="button" data-view="flights">${icon('plane')}<span>航班交通</span></button>
         <button type="button" data-view="stays">${icon('bed')}<span>住宿</span></button>
-        <button type="button" data-view="money">${icon('wallet')}<span>分帳</span></button>
         <button type="button" data-view="reserve">${icon('ticket')}<span>行前預約</span></button>
         <button type="button" data-view="restaurants">${icon('pin')}<span>餐廳攻略</span></button>
         <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
+        <button type="button" data-view="money">${icon('wallet')}<span>分帳</span></button>
       </nav>
     </div></header>
     <main class="main" id="main"></main>
@@ -256,10 +257,10 @@
     const rail = $('.narita-combined-table').cloneNode(true);
     rail.querySelectorAll('tbody').forEach(body=>{ if(!body.classList.contains('group-'+state.group.toLowerCase())) body.remove(); });
     const wrap = document.createElement('div'); wrap.append(rail);
-    return `<div class="eyebrow">MY FLIGHTS</div><h1>${state.group} 組航班與交通</h1><p class="intro">只顯示本組班機與機場接駁資訊。</p>${flightPanel(departures,'去程')}${flightPanel(returns,'回程')}<div class="note">第 9 天原訂全體 08:20 搭飯店接駁前往成田 T2；免稅品攜出確認須在托運前完成。</div><h2 class="section-label">成田 → 本所吾妻橋</h2><div class="document">${readable(wrap)}${readable($('.narita-prev-fare-wrap'))}</div><div class="resource-links"><a href="./site-four/index.html">Skyliner 購票與青砥轉乘圖解 ↗</a><a href="./site-one/index.html">行前預約與票券 ↗</a></div>`;
+    return `<div class="eyebrow">MY FLIGHTS</div><h1>${state.group} 組航班與交通</h1><p class="intro">只顯示本組班機與機場接駁資訊。</p>${flightPanel(departures,'去程')}${flightPanel(returns,'回程')}<div class="note">第 9 天原訂全體 08:20 搭飯店接駁前往成田 T2；免稅品攜出確認須在托運前完成。</div><h2 class="section-label">成田 → 本所吾妻橋</h2><div class="document">${readable(wrap)}${readable($('.narita-prev-fare-wrap'))}</div><div class="resource-links"><a href="./site-four/index.html">Skyliner 購票與青砥轉乘圖解 ↗</a><a href="./?view=reserve">行前預約與票券 ↗</a></div>`;
   }
   function stays() {
-    return `<div class="eyebrow">OUR STAYS</div><h1>這趟旅程住哪裡</h1><p class="intro">東京、日光、成田的住宿資料集中在這裡，點開查看詳細資訊。</p>${['stay-tokyo','stay-nikko','stay-narita'].map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`;
+    return `<div class="eyebrow">OUR STAYS</div><h1>這趟旅程住哪裡</h1><p class="intro">東京、日光、成田的住宿地址、日期與入住提醒集中在這裡。錯誤房源照片已先移除，避免認錯住宿。</p>${['stay-tokyo','stay-nikko','stay-narita'].map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`;
   }
   function moneyView() {
     return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">直接新增同行者姓名，記錄誰先付款、每個人要分擔多少；所有人會看到同一份資料。</p><div class="money-app" aria-live="polite"></div>`;
@@ -273,20 +274,32 @@
   function guide() {
     const sections = [
       ['行前準備',['packing-list-1','packing-list-2']],
-      ['住宿',['stay-tokyo','stay-nikko','stay-narita']],
-      ['餐飲整理',['restaurant-main','restaurant-alternative','restaurant-snacks']],
       ['退稅與寄件',['tax-vjw','japan-post-domestic-1']]
     ];
-    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅途資料隨身帶</h1><p class="intro">大家共用的打包、住宿、退稅與寄件筆記。</p><div class="resource-links"><button type="button" data-view="reserve">預約與票券</button><button type="button" data-view="restaurants">餐廳攻略</button></div>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
+    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">這裡只保留行李準備、退稅與寄件等共用筆記。</p>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
   }
 
   function cleanRemote(node, baseUrl) {
-    node.querySelectorAll('script,style,nav,button,form,.page-num,.screen-only,.filterbar').forEach(el=>el.remove());
+    node.querySelectorAll('button.calendar-btn').forEach(button=>{
+      const date=button.dataset.date||'', title=button.dataset.title||'旅行提醒', time=button.dataset.time||'';
+      if(!date)return button.remove();
+      const compact=date.replaceAll('-','');
+      const nextDate=new Date(`${date}T00:00:00+08:00`);nextDate.setDate(nextDate.getDate()+1);
+      const next=`${nextDate.getFullYear()}${String(nextDate.getMonth()+1).padStart(2,'0')}${String(nextDate.getDate()).padStart(2,'0')}`;
+      const dates=time?`${compact}T${time.replace(':','')}00/${compact}T${String(Number(time.slice(0,2))+1).padStart(2,'0')}${time.slice(3)}00`:`${compact}/${next}`;
+      const link=document.createElement('a');link.className='reserve-calendar';link.target='_blank';link.rel='noopener noreferrer';link.textContent='加入行事曆';
+      link.href=`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${dates}&ctz=Asia%2FTaipei`;
+      button.replaceWith(link);
+    });
+    node.querySelectorAll('button.copy-btn[data-copy]').forEach(button=>{button.dataset.reserveCopy=button.dataset.copy;button.removeAttribute('data-copy');});
+    node.querySelectorAll('script,style,nav,button:not(.copy-btn),form,.page-num,.screen-only,.filterbar,input:not(.task-check),textarea,select').forEach(el=>el.remove());
     node.querySelectorAll('table').forEach(table=>table.replaceWith(tableCards(table)));
     [node,...node.querySelectorAll('*')].forEach(el=>{
       if(el.tagName==='A') {
         const href=el.getAttribute('href');
-        if(href && !href.startsWith('#') && !href.startsWith('javascript:')) el.setAttribute('href',new URL(href,baseUrl).href);
+        if(href?.startsWith('#') && baseUrl.pathname.includes('/site-one/')) {
+          const url=new URL(location.href);url.hash='';url.searchParams.set('view','reserve');url.searchParams.set('section',href.slice(1));el.setAttribute('href',url.href);
+        } else if(href && !href.startsWith('javascript:')) el.setAttribute('href',new URL(href,baseUrl).href);
         if(el.getAttribute('target')==='_blank') el.setAttribute('rel','noopener noreferrer');
       }
       if(el.tagName==='IMG') {
@@ -295,7 +308,7 @@
         el.loading='lazy';el.decoding='async';
       }
       [...el.attributes].forEach(attr=>{
-        if(!['href','src','alt','title','target','rel','colspan','rowspan','loading','decoding'].includes(attr.name))el.removeAttribute(attr.name);
+        if(!['href','src','alt','title','target','rel','colspan','rowspan','loading','decoding','class','id','type','checked','disabled','data-task','data-reserve-copy'].includes(attr.name))el.removeAttribute(attr.name);
       });
     });
     return node;
@@ -312,6 +325,7 @@
       const doc=new DOMParser().parseFromString(await response.text(),'text/html');
       target.innerHTML='';
       if(kind==='reserve') {
+        const wanted=new URL(location.href).searchParams.get('section');
         [...doc.querySelectorAll('section.page')].filter(section=>section.id!=='cover').forEach((section,index)=>{
           const content=(section.querySelector('.content')||section).cloneNode(true);
           const heading=content.querySelector('h2');
@@ -319,10 +333,17 @@
           heading?.remove();
           cleanRemote(content,baseUrl);
           const details=document.createElement('details');
-          details.className='supplement-section';details.open=index===0;
+          details.className='supplement-section';details.id=`reserve-${section.id||index}`;details.open=index===0||wanted===section.id;
           details.innerHTML=`<summary>${escape(title)}</summary><div class="document supplement-document"></div>`;
           details.querySelector('.supplement-document').append(...content.childNodes);
           target.append(details);
+        });
+        let completed={};try{completed=JSON.parse(localStorage.getItem('tokyo-trip-2026.reserve-tasks')||'{}')||{};}catch{}
+        target.querySelectorAll('.task[data-task]').forEach(task=>{const check=task.querySelector('.task-check');if(check)check.checked=Boolean(completed[task.dataset.task]);});
+        target.addEventListener('change',event=>{
+          const check=event.target.closest('.task-check');if(!check)return;const task=check.closest('.task[data-task]');if(!task)return;
+          let saved={};try{saved=JSON.parse(localStorage.getItem('tokyo-trip-2026.reserve-tasks')||'{}')||{};}catch{}
+          saved[task.dataset.task]=check.checked;localStorage.setItem('tokyo-trip-2026.reserve-tasks',JSON.stringify(saved));
         });
       } else {
         [...doc.querySelectorAll('section.day-section')].forEach((section,index)=>{
@@ -388,6 +409,11 @@
     } else if(button.dataset.day) { state.day=Number(button.dataset.day); render(true); }
     else if(button.dataset.view) { state.view=button.dataset.view; render(true); }
     else if(button.dataset.route) { state.routes[state.group]=button.dataset.route; const y=window.scrollY; render(); window.scrollTo(0,y); }
+    else if(button.dataset.reserveCopy) {
+      const template=main.querySelector(`#${CSS.escape(button.dataset.reserveCopy)}`);if(!template)return;
+      try{await navigator.clipboard.writeText(template.textContent.trim());button.textContent='已複製';setTimeout(()=>{if(button.isConnected)button.textContent='複製';},1800);}
+      catch{root.querySelector('#announcement').textContent='無法自動複製，請長按文字後複製。';}
+    }
     else if(button.dataset.action==='install') { root.querySelector('dialog').showModal(); }
     else if(button.dataset.action==='close-install') root.querySelector('dialog').close();
     else if(button.dataset.action==='native-install' && pendingInstall) {

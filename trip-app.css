@@ -224,6 +224,24 @@ details[open]>summary{background:var(--soft)}
 .supplement-card h3{margin:8px 0 5px;font-size:18px}
 .supplement-card p{font-size:14px;line-height:1.7}
 .supplement-card>a{display:block;text-decoration:none;color:inherit}
+.supplement-document .alert{padding:14px;border-left:4px solid var(--kincha);border-radius:0 10px 10px 0;background:#fff8e8}
+.supplement-document .month-combined{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:0;background:transparent}
+.supplement-document .month-column{display:grid;align-content:start;gap:9px}
+.supplement-document .month-head{padding:9px 12px;border-radius:9px;background:var(--indigo);color:#fff;font-weight:700;text-align:center}
+.supplement-document .task{display:grid;grid-template-columns:auto 82px minmax(0,1fr);gap:5px 10px;align-items:start;padding:13px;border:1px solid var(--line);border-radius:11px;background:#fff;cursor:pointer}
+.supplement-document .task-check{grid-row:1 / span 4;width:20px;height:20px;margin-top:2px;accent-color:var(--vermilion)}
+.supplement-document .task-date{grid-column:2;color:var(--vermilion);font-weight:700}
+.supplement-document .task-title{grid-column:3;font-weight:700;color:#2c3e49}
+.supplement-document .task-desc,.supplement-document .task-tools{grid-column:2 / -1;font-size:14px;line-height:1.7}
+.supplement-document .task:has(.task-check:checked){opacity:.58;background:#f2f3f3}
+.supplement-document .task:has(.task-check:checked) .task-title{text-decoration:line-through}
+.supplement-document .task-tools,.supplement-document .link-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:5px}
+.supplement-document .task-tools a,.supplement-document .link-row a,.supplement-document .reserve-calendar{display:inline-flex;align-items:center;min-height:38px;padding:7px 10px;border:1px solid #d6dde0;border-radius:8px;background:#fff;color:var(--indigo);font-size:13px;text-decoration:none}
+.supplement-document .card{padding:16px;border:1px solid var(--line);border-radius:12px;background:#fff;margin:12px 0}
+.supplement-document .fact-grid,.supplement-document .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.supplement-document .fact{padding:11px;border-radius:9px;background:#f7f2ea}
+.supplement-document .template{white-space:pre-wrap;padding:15px;border:1px dashed #cbbba9;border-radius:10px;background:#fffdf9;font-size:15px;line-height:1.8;overflow-wrap:anywhere}
+.supplement-document .copy-btn{min-height:40px;margin:8px 0;border:0;border-radius:8px;padding:8px 14px;background:var(--vermilion);color:#fff;font:inherit;font-weight:700}
 
 /* One-step shared traveler list. */
 .money-add-person{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;margin:15px 0 12px}
@@ -240,9 +258,12 @@ details[open]>summary{background:var(--soft)}
   .section-nav button{min-width:82px;flex-direction:column;gap:2px;font-size:12px;padding:6px 8px}
   .section-nav .icon{width:17px;height:17px}
   .supplement-grid{grid-template-columns:1fr;padding:14px}
+  .supplement-document .month-combined,.supplement-document .fact-grid,.supplement-document .two-col{grid-template-columns:1fr}
 }
 @media(max-width:420px){
   .main[data-view="reserve"],.main[data-view="restaurants"],.main[data-view="money"]{padding-left:16px;padding-right:16px}
   .money-add-person{grid-template-columns:1fr}.money-add-person button{width:100%}
+  .supplement-document .task{grid-template-columns:auto minmax(0,1fr)}
+  .supplement-document .task-date,.supplement-document .task-title,.supplement-document .task-desc,.supplement-document .task-tools{grid-column:2}
 }
 @media print{.section-nav,.group-dock{display:none!important}}
