@@ -274,7 +274,7 @@
     return `<div class="eyebrow">OUR STAYS</div><h1>${stay.label}住宿</h1><p class="intro">使用下方按鈕切換東京、日光與成田。</p><article class="stay-focus"><figure class="stay-cover"><img src="${stay.image}" alt="${stay.alt}" fetchpriority="high"><figcaption>${stay.alt} · <a href="${stay.source}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a></figcaption></figure><div class="document stay-document">${readable(source,{omitTitle:true})}</div></article>`;
   }
   function moneyView() {
-    return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">直接新增同行者姓名，記錄誰先付款、每個人要分擔多少；所有人會看到同一份資料。</p><div class="money-app" aria-live="polite"></div>`;
+    return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">選擇自己的姓名後，可查看個人與全部項目、記錄代墊與分擔金額，日圓會依當日參考匯率換算成台幣。</p><div class="money-app"></div>`;
   }
   function reserve() {
     return `<div class="eyebrow">BEFORE THE TRIP</div><h1>行前預約</h1><p class="intro">預約日期、熱門票券、餐廳、接送與 Visit Japan Web 集中在同一個版面。</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理行前預約資料…</section></div>`;
