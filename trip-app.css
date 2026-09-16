@@ -24,7 +24,16 @@ dialog{width:calc(100% - 32px);max-width:440px;border:1px solid var(--line);bord
 @media(max-width:360px){.app-header{padding-left:14px;padding-right:14px}.brand strong{font-size:19px}.brand-year{display:none}.brand small{font-size:9px}.brand-icon{width:34px;height:34px}.utility{font-size:11px;padding:7px}.utility .icon{display:none}.main{padding:22px 14px}.journey-title{font-size:24px}.trip-duration{font-size:11px;padding:4px 7px}.hero-copy h1{font-size:27px}.hero{min-height:235px}.timeline{padding-left:31px}.timeline>li{padding:15px}.step{left:-32px;width:24px;height:24px}.timeline>li::before{left:-21px}.table-card>div{grid-template-columns:66px minmax(0,1fr)}.resource-links{grid-template-columns:1fr}.day-footer button{font-size:12px;padding:9px 11px}.day-footer>span{font-size:10px}}
 @media(prefers-reduced-motion:no-preference){button,a,summary{transition:background .18s ease,color .18s ease,box-shadow .18s ease}.hero img{animation:photo-reveal .4s ease-out}@keyframes photo-reveal{from{opacity:.6}to{opacity:1}}}
 @media(hover:hover){.groups button:not([aria-pressed=true]):hover,.day-button:not([aria-pressed=true]):hover{background:#f5e9ed}.utility:hover,summary:hover,.day-footer button:not(:disabled):hover{background:#f9edf0}.bottom-nav button:hover{background:#ffffff16}}
-/* Paper reader: the library's structural styles live here inside Shadow DOM. */
+/* At-a-glance destination weather; never manufacture distant-future forecasts. */
+.weather-section{margin:0 0 24px;padding:18px;background:#edf4f8;border:1px solid #d6e3ec;border-radius:16px}
+.weather-heading{display:flex;justify-content:space-between;gap:12px;margin-bottom:12px;align-items:center}
+.weather-label{color:#30495c;font-weight:750;font-size:15px}.weather-date{font-size:12px;color:#5e7485}
+.weather-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.weather-card{display:flex;gap:12px;align-items:center;min-width:0}.weather-symbol{width:38px;flex-shrink:0;color:#497895;font-size:30px;text-align:center;line-height:1.2}.weather-content{flex:1;min-width:0}
+.weather-place{font-weight:750;color:#2d4355;font-size:17px}.weather-message{font-size:14px;color:#405969;margin-top:3px;line-height:1.6}.weather-updated{font-size:12px;color:#627685;margin-top:5px}
+.weather-value{font:600 24px/1.3 Georgia,serif;white-space:nowrap;color:#294454}.weather-credit{font-size:12px;line-height:1.6;color:#637788;margin:12px 0 0}.weather-credit a{color:#456c88}
+@media(max-width:420px){.weather-section{padding:15px}.weather-symbol{width:24px;font-size:25px}.weather-card{gap:9px;flex-wrap:wrap}.weather-value{font-size:21px}.weather-place{font-size:16px}.hero{min-height:205px;aspect-ratio:1.65}.hero-copy h1{font-size:27px}}
+/* Earlier paper-reader assets are retained for rollback but no longer loaded. */
 .stf__parent{position:relative;display:block;box-sizing:border-box;transform:translateZ(0);touch-action:pan-y;margin:auto}
 .stf__wrapper{position:relative;width:100%;box-sizing:border-box}
 .stf__block{position:absolute;width:100%;height:100%;box-sizing:border-box;perspective:2000px}

@@ -159,23 +159,6 @@
   let offlineReady = false;
   let offlineFailed = false;
   let detailSources = new Map();
-  let bookReader = null;
-  let bookFrame = 0;
-  function mountBook() {
-    cancelAnimationFrame(bookFrame);
-    if(state.view !== 'days' || !document.documentElement.classList.contains('trip-app-ready')) return;
-    bookFrame = requestAnimationFrame(() => {
-      if(!window.TripBook || !window.St?.PageFlip || state.view !== 'days') return;
-      try {
-        bookReader ||= new window.TripBook();
-        bookReader.mount(main, {group:state.group, day:state.day, route:state.routes[state.group] || 'all'});
-      } catch(error) {
-        main.querySelector('.itinerary-layout')?.classList.remove('book-original');
-        main.querySelector('.book-reader')?.remove();
-        console.warn('Book view unavailable; using the full itinerary.', error);
-      }
-    });
-  }
 
   function persist() {
     try { localStorage.setItem(STORE,JSON.stringify(state)); } catch {}
@@ -242,6 +225,7 @@
     return `<div class="journey-heading"><div><div class="eyebrow">NOVEMBER IN JAPAN</div><p class="journey-title">${state.group} 組的秋日旅程</p></div><span class="trip-duration">${state.group==='C'?'7 天 6 夜':'9 天 8 夜'}</span></div>
       <p class="intro journey-intro">${state.group==='C'?'11.23':'11.21'} — 11.29<span>本組行程與共同活動</span></p>
       <nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:10-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-label="第 ${n} 天，11 月 ${20+n} 日" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>${20+n}</b><small>11月・${['六','日','一','二','三','四','五','六','日'][n-1]}</small></button>`).join('')}</nav>
+      <section class="weather-section" aria-label="當日行程天氣"><p>天氣資料載入中；尚未提供的預報不會以目前天氣代替。</p></section>
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
       <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div></aside>
       <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${list(items)}${custom}
@@ -293,7 +277,11 @@
     if (scroll) window.scrollTo({top:0,behavior:'instant'});
     const active = main.querySelector('.day-button[aria-pressed=true]');
     if(active) active.parentElement.scrollLeft=Math.max(0,active.offsetLeft-active.parentElement.offsetLeft-110);
-    mountBook();
+    if(state.view === 'days') {
+      const weather = main.querySelector('.weather-section');
+      if(window.TripWeather) window.TripWeather.render(weather,state.day);
+      else weather.textContent = '天氣服務暫時無法載入，行程仍可正常閱讀。';
+    }
   }
   root.addEventListener('click',async event=>{
     const button = event.target.closest('button'); if(!button) return;
@@ -337,7 +325,6 @@
     document.documentElement.classList.add('trip-app-ready');
     document.documentElement.classList.remove('mobile-page-fit');
     applyHash();
-    mountBook();
   };
   sheet.onerror=()=>host.remove();
   render();
