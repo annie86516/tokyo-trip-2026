@@ -14,7 +14,8 @@
   let ledger = null;
   let poller = null;
   let currentName = localStorage.getItem(MEMBER_KEY) || '';
-  let itemFilter = 'mine';
+  let editingExpenseId = '';
+  let settlementVisible = false;
   let fxRequest = null;
   let fx = {rate:null, updatedAt:null, nextUpdate:null, status:'idle', cached:false};
 
@@ -84,7 +85,7 @@
     return `<section class="money-card money-signin">
       <span class="money-kicker">WHO ARE YOU?</span>
       <h2>選擇你的姓名</h2>
-      <p>不需要邀請碼。選好後，這台裝置會記住你，並顯示「我的項目」。</p>
+      <p>不需要邀請碼。選好後，這台裝置會記住你，並預選為新增花費的付款人。</p>
       ${members.length?`<div class="money-person-picker" role="list" aria-label="選擇同行者">${members.map(person=>`<button type="button" data-money-action="sign-in" data-name="${esc(person.name)}">${esc(person.name)}</button>`).join('')}</div>`:'<div class="money-empty"><strong>還沒有同行者</strong><p>請先在下方加入第一個姓名。</p></div>'}
       <form class="money-add-person" data-money-form="member"><label><span class="sr-only">新增姓名</span><input name="name" maxlength="12" autocomplete="name" placeholder="輸入新姓名" required></label><button class="money-primary">＋ 新增並登入</button></form>
     </section><p class="money-message" role="status">請選擇姓名</p>`;
@@ -95,7 +96,7 @@
     const result = [];
     ['JPY','TWD'].forEach(currency => {
       const balances = members.map(()=>0);
-      (ledger.debts || []).filter(debt=>!debt.settled && currencyOf(debt.note)===currency).forEach(debt=>{
+      (ledger.debts || []).filter(debt=>currencyOf(debt.note)===currency).forEach(debt=>{
         if (balances[debt.debtorIndex] === undefined || balances[debt.creditorIndex] === undefined) return;
         balances[debt.debtorIndex] -= Number(debt.amount) || 0;
         balances[debt.creditorIndex] += Number(debt.amount) || 0;
@@ -118,7 +119,7 @@
   function twdSettlements() {
     const members=ledger.room.members||[],balances=members.map(()=>0);
     let missingRate=false;
-    (ledger.debts||[]).filter(debt=>!debt.settled).forEach(debt=>{
+    (ledger.debts||[]).forEach(debt=>{
       let amount=Number(debt.amount)||0;
       if(currencyOf(debt.note)==='JPY'){
         const rate=fxRateOf(debt.note);
@@ -166,7 +167,6 @@
     });
     return [...groups.values()].map(group=>{
       if (!group.total) group.total=group.debts.reduce((sum,debt)=>sum+(Number(debt.amount)||0),0);
-      group.settled=group.debts.every(debt=>debt.settled);
       group.memberIndexes=[...new Set([group.payerIndex,...group.debts.map(debt=>Number(debt.debtorIndex))])];
       return group;
     }).reverse();
@@ -183,81 +183,98 @@
     return `將自動取得當日參考匯率，也可以改成實際刷卡／換匯匯率 · ${source}`;
   }
 
-  function expenseForm(current) {
-    const members=people();
+  function groupShareMap(group) {
+    const shares=new Map();
+    group.debts.forEach(debt=>{
+      const index=Number(debt.debtorIndex),amount=Number(debt.amount)||0;
+      shares.set(index,(shares.get(index)||0)+amount);
+    });
+    const payerShare=Math.max(0,(Number(group.total)||0)-[...shares.values()].reduce((sum,amount)=>sum+amount,0));
+    if(payerShare>0)shares.set(group.payerIndex,(shares.get(group.payerIndex)||0)+payerShare);
+    return shares;
+  }
+
+  function expenseForm(current, groups) {
+    const members=people(),editing=groups.find(group=>group.id===editingExpenseId)||null;
     if(!members.length) return '<section class="money-card money-empty money-no-people"><strong>先新增同行者姓名</strong><p>名單中有人之後，就可以開始記錄誰先付款、大家各自分擔多少。</p></section>';
-    return `<details class="money-card expense-editor"><summary>＋ 新增一筆共同花費</summary><form data-money-form="expense">
-      <div class="money-grid-two"><label>項目<input name="title" maxlength="80" placeholder="例如：晚餐、計程車、住宿" required></label><label>幣別<select name="currency"><option value="JPY">JPY 日圓</option><option value="TWD">TWD 台幣</option></select></label></div>
-      <div class="money-grid-two"><label>誰先付款<select name="payer">${members.map(person=>`<option value="${person.index}" ${person.index===current.index?'selected':''}>${esc(person.name)}</option>`).join('')}</select></label><label>總金額<input name="total" type="number" min="1" step="1" inputmode="numeric" placeholder="例如 12000" required></label></div>
-      <section class="money-fx-panel">
-        <div class="money-fx-grid"><label>日圓換台幣匯率（1 JPY）<input name="fxRate" type="number" min="0.000001" step="0.000001" inputmode="decimal" value="${fx.rate?fx.rate.toFixed(6):''}" placeholder="例如 0.205207" required></label><button type="button" data-money-action="refresh-rate">更新當日匯率</button></div>
+    const shareMap=editing?groupShareMap(editing):new Map();
+    const currency=editing?.currency||'JPY',payerIndex=editing?.payerIndex??current.index;
+    const rate=editing?.rate||fx.rate||null;
+    return `<details class="money-card expense-editor" ${editing?'open':''}><summary>${editing?`✎ 編輯「${esc(editing.title)}」`:'＋ 新增一筆共同花費'}</summary><form data-money-form="expense"${editing?` data-expense-id="${esc(editing.id)}"`:''}>
+      <div class="money-grid-two"><label>項目<input name="title" maxlength="80" value="${editing?esc(editing.title):''}" placeholder="例如：晚餐、計程車、住宿" required></label><label>幣別<select name="currency"><option value="JPY" ${currency==='JPY'?'selected':''}>JPY 日圓</option><option value="TWD" ${currency==='TWD'?'selected':''}>TWD 台幣</option></select></label></div>
+      <div class="money-grid-two"><label>誰先付款<select name="payer">${members.map(person=>`<option value="${person.index}" ${person.index===payerIndex?'selected':''}>${esc(person.name)}</option>`).join('')}</select></label><label>總金額<input name="total" type="number" min="1" step="1" inputmode="numeric" value="${editing?editing.total:''}" placeholder="例如 12000" required></label></div>
+      <section class="money-fx-panel" ${currency==='TWD'?'hidden':''}>
+        <div class="money-fx-grid"><label>日圓換台幣匯率（1 JPY）<input name="fxRate" type="number" min="0.000001" step="0.000001" inputmode="decimal" value="${rate?Number(rate).toFixed(6):''}" placeholder="例如 0.205207" ${editing&&editing.rate?'data-manual="1"':''} ${currency==='JPY'?'required':''}></label><button type="button" data-money-action="refresh-rate">更新當日匯率</button></div>
         <p class="money-fx-status">${fxStatusMarkup()}</p>
       </section>
-      <fieldset><legend>哪些人一起分擔</legend><div class="money-checks">${members.map(person=>`<label><input type="checkbox" name="participant" value="${person.index}" checked><span>${esc(person.name)}</span></label>`).join('')}</div></fieldset>
-      <fieldset><legend>分擔方式</legend><div class="money-modes"><label><input type="radio" name="mode" value="equal" checked> 平均分攤</label><label><input type="radio" name="mode" value="custom"> 自訂每人金額</label></div></fieldset>
-      <div class="money-custom" hidden>${members.map(person=>`<label data-share-row="${person.index}"><span>${esc(person.name)}</span><input name="share-${person.index}" type="number" min="0" step="1" inputmode="numeric" value="0"></label>`).join('')}</div>
-      <div class="money-split-preview">填入總金額後，這裡會顯示每人應分擔的金額。</div><label>備註<textarea name="note" maxlength="120" placeholder="選填，例如：Day 5 淺草午餐"></textarea></label>
-      <div class="money-form-actions"><button type="button" data-money-action="cancel-expense">取消</button><button class="money-primary">儲存分帳</button></div>
+      <fieldset><legend>哪些人一起分擔</legend><div class="money-checks">${members.map(person=>`<label><input type="checkbox" name="participant" value="${person.index}" ${editing?(shareMap.has(person.index)?'checked':''):'checked'}><span>${esc(person.name)}</span></label>`).join('')}</div></fieldset>
+      <fieldset><legend>分擔方式</legend><div class="money-modes"><label><input type="radio" name="mode" value="equal" ${editing?'':'checked'}> 平均分攤</label><label><input type="radio" name="mode" value="custom" ${editing?'checked':''}> 自訂每人金額</label></div></fieldset>
+      <div class="money-custom" ${editing?'':'hidden'}>${members.map(person=>`<label data-share-row="${person.index}"><span>${esc(person.name)}</span><input name="share-${person.index}" type="number" min="0" step="1" inputmode="numeric" value="${shareMap.get(person.index)||0}"></label>`).join('')}</div>
+      <div class="money-split-preview">填入總金額後，這裡會顯示每人應分擔的金額。</div><label>備註<textarea name="note" maxlength="120" placeholder="選填，例如：Day 5 淺草午餐">${editing?esc(editing.detail):''}</textarea></label>
+      <div class="money-form-actions"><button type="button" data-money-action="cancel-expense">${editing?'取消編輯':'取消'}</button><button class="money-primary">${editing?'儲存修改':'儲存分帳'}</button></div>
     </form></details>`;
   }
 
   function memberListMarkup(current) {
     const members=people();
-    return `<section class="money-card money-members"><div class="money-section-head"><div><span class="money-kicker">TRAVELERS</span><h3>同行者名單（共 ${members.length} 人）</h3></div><button data-money-action="refresh">同步</button></div>
+    return `<section class="money-card money-members"><div class="money-member-head"><div><span class="money-kicker">TRAVELERS</span><h2>同行者名單（共 ${members.length} 人）</h2><p>目前使用：<strong>${esc(current.name)}</strong></p></div><div class="money-member-tools"><button type="button" data-money-action="switch-person">切換姓名</button><button type="button" data-money-action="refresh">同步</button></div></div>
       <form class="money-add-person" data-money-form="member"><label><span class="sr-only">新增姓名</span><input name="name" maxlength="12" autocomplete="name" placeholder="輸入新姓名" required></label><button class="money-primary">＋ 新增姓名</button></form>
-      <div class="money-member-list">${members.map(person=>`<div class="money-member-item"><span>${esc(person.name)}${person.index===current.index?'<b>我</b>':''}</span><button type="button" class="money-member-remove" data-money-action="delete-member" data-member-index="${person.index}" aria-label="刪除成員 ${esc(person.name)}">刪除</button></div>`).join('')}</div>
+      <div class="money-member-list">${members.map(person=>`<div class="money-member-item"><span>${esc(person.name)}${person.index===current.index?'<b>目前使用</b>':''}</span><button type="button" class="money-member-remove" data-money-action="delete-member" data-member-index="${person.index}" aria-label="刪除成員 ${esc(person.name)}">刪除</button></div>`).join('')}</div>
       <p>只能刪除尚未有任何分帳或行程紀錄的成員；刪除時會要求管理密碼。</p>
     </section>`;
   }
 
-  function expenseListMarkup(groups, current, allMembers) {
-    const mine=groups.filter(group=>group.memberIndexes.includes(current.index));
-    const shown=itemFilter==='mine'?mine:groups;
+  function expenseListMarkup(groups, allMembers) {
     return `<section class="money-records">
-      <div class="money-section-head"><div><span class="money-kicker">EXPENSES</span><h3>已登錄項目</h3></div><span class="money-count">${groups.length} 項</span></div>
-      <div class="money-view-tabs" role="group" aria-label="篩選分帳項目"><button type="button" data-money-action="filter-items" data-filter="mine" aria-pressed="${itemFilter==='mine'}">我的項目（${mine.length}）</button><button type="button" data-money-action="filter-items" data-filter="all" aria-pressed="${itemFilter==='all'}">全部項目（${groups.length}）</button></div>
-      ${shown.length?`<div class="money-expense-list">${shown.map(group=>{
-        const payer=allMembers[group.payerIndex]||'成員';
+      <div class="money-section-head"><div><span class="money-kicker">ALL EXPENSES</span><h3>全部項目</h3></div><span class="money-count">${groups.length} 項</span></div>
+      ${groups.length?`<div class="money-expense-list">${groups.map(group=>{
+        const payer=allMembers[group.payerIndex]||'成員',shares=groupShareMap(group);
         const converted=group.currency==='JPY'&&group.rate?money(twdValue(group.total,group.rate),'TWD'):'';
-        return `<article class="money-expense ${group.settled?'is-paid':''}">
-          <header class="money-expense-head"><div><span>${group.settled?'已結清':'待付款'}</span><h4>${esc(group.title)}</h4></div><div><strong>${money(group.total,group.currency)}</strong>${converted?`<small>約 ${converted}</small>`:''}</div></header>
-          <p class="money-expense-meta">${esc(payer)} 先付款${group.currency==='JPY'&&group.rate?` · 匯率 ${rateText(group.rate)}`:''}</p>
+        return `<article class="money-expense">
+          <header class="money-expense-head"><div><h4>${esc(group.title)}</h4><span>${esc(payer)} 先付款</span></div><div><strong>${money(group.total,group.currency)}</strong>${converted?`<small>約 ${converted}</small>`:''}</div></header>
+          <p class="money-expense-meta">${group.currency==='JPY'&&group.rate?`使用匯率 ${rateText(group.rate)}`:'台幣項目'}</p>
           ${group.detail?`<p class="money-expense-note">${esc(group.detail)}</p>`:''}
-          <div class="money-share-list">${group.debts.map(debt=>{
-            const debtor=allMembers[debt.debtorIndex]||'成員';
-            const approx=group.currency==='JPY'&&group.rate?money(twdValue(debt.amount,group.rate),'TWD'):'';
-            return `<div class="money-share-row ${debt.settled?'is-paid':''}"><label><input type="checkbox" data-money-action="toggle" data-id="${esc(debt.id)}" ${debt.settled?'checked':''}><span>${debt.settled?'已付':'待付'}</span></label><p><strong>${esc(debtor)}</strong> 付給 ${esc(payer)}</p><b>${money(debt.amount,group.currency)}${approx?`<small>約 ${approx}</small>`:''}</b><button type="button" class="money-delete" data-money-action="delete" data-id="${esc(debt.id)}" aria-label="刪除 ${esc(debtor)} 的這筆分帳">刪除</button></div>`;
+          <div class="money-expense-actions"><button type="button" data-money-action="edit-expense" data-expense-id="${esc(group.id)}">編輯</button><button type="button" class="money-delete" data-money-action="delete-expense" data-expense-id="${esc(group.id)}">刪除項目</button></div>
+          <div class="money-share-list">${[...shares.entries()].map(([index,amount])=>{
+            const participant=allMembers[index]||'成員';
+            const approx=group.currency==='JPY'&&group.rate?money(twdValue(amount,group.rate),'TWD'):'';
+            return `<div class="money-share-row"><p><strong>${esc(participant)}</strong><span>分擔</span></p><b>${money(amount,group.currency)}${approx?`<small>約 ${approx}</small>`:''}</b></div>`;
           }).join('')}</div>
         </article>`;
-      }).join('')}</div>`:`<div class="money-empty"><strong>${itemFilter==='mine'?'目前沒有你的分帳項目':'目前還沒有分帳項目'}</strong><p>${itemFilter==='mine'&&groups.length?'可切換到「全部項目」查看其他人的紀錄。':'新增共同花費後，會在這裡顯示完整項目與每人的分擔金額。'}</p></div>`}
+      }).join('')}</div>`:'<div class="money-empty"><strong>目前還沒有分帳項目</strong><p>新增共同花費後，全部項目與每人的分擔金額會顯示在這裡。</p></div>'}
     </section>`;
+  }
+
+  function settlementMarkup(allMembers) {
+    if(!settlementVisible) return `<section class="money-card money-settlement"><div><span class="money-kicker">SETTLEMENT</span><h3>誰付給誰</h3><p>需要結算時再按下計算，系統會把全部已登錄項目合併成最少的付款筆數。</p></div><button type="button" class="money-primary money-calculate" data-money-action="calculate-settlement" aria-expanded="false" aria-controls="money-settlement-result">計算誰付給誰</button></section>`;
+    const convertedSettlement=twdSettlements(),transfers=convertedSettlement.missingRate?settlements():convertedSettlement.items;
+    return `<section class="money-card money-settlement money-settlement-result" id="money-settlement-result"><div class="money-section-head"><div><span class="money-kicker">SETTLEMENT RESULT</span><h3>誰付給誰${convertedSettlement.missingRate?'（分幣別）':'（台幣結算）'}</h3></div><button type="button" data-money-action="hide-settlement">收起結果</button></div>${transfers.length?`<div class="money-transfers">${transfers.map(item=>`<div><strong>${esc(allMembers[item.from]||'成員')}</strong><span>付給</span><strong>${esc(allMembers[item.to]||'成員')}</strong><b>${money(item.amount,item.currency)}</b></div>`).join('')}</div>`:'<div class="money-clear">✓ 目前沒有需要互相付款的金額</div>'}<p class="money-settlement-note">${convertedSettlement.missingRate?'部分舊日圓紀錄沒有保存匯率，因此暫時分幣別顯示。':'日圓項目依各筆儲存的匯率換算，再與台幣項目合併計算。'}</p></section>`;
   }
 
   function ledgerMarkup() {
     const current=currentPerson();
     if(!current) return signInMarkup();
-    const allMembers=ledger.room.members || [], debts=ledger.debts || [], groups=expenseGroups(), convertedSettlement=twdSettlements();
-    const transfers=convertedSettlement.missingRate?settlements():convertedSettlement.items;
-    const outstanding=debts.filter(debt=>!debt.settled).reduce((totals,debt)=>{const currency=currencyOf(debt.note);totals[currency]+=Number(debt.amount)||0;return totals;},{JPY:0,TWD:0});
+    const allMembers=ledger.room.members || [],groups=expenseGroups();
     const totals=groups.reduce((sum,group)=>{sum[group.currency]+=Number(group.total)||0;if(group.currency==='JPY'&&group.rate)sum.converted+=twdValue(group.total,group.rate);return sum;},{JPY:0,TWD:0,converted:0});
     return `<div class="money-ledger">
-      <section class="money-card money-identity"><div><span class="money-kicker">SIGNED IN</span><h2>目前登入：${esc(current.name)}</h2><p>這個姓名只記在此裝置，用來顯示你的項目與預選付款人。</p></div><button type="button" data-money-action="switch-person">切換姓名</button></section>
-      <div class="money-stats">
-        <div><span>同行成員</span><strong>${people().length} 人</strong></div>
+      ${memberListMarkup(current)}
+      <div class="money-stats money-stats-simple">
         <div><span>已登錄項目</span><strong>${groups.length} 項</strong></div>
         <div><span>全部總額</span><strong>${money(totals.JPY,'JPY')}</strong><small>台幣支出 ${money(totals.TWD,'TWD')}${totals.converted?` · 換算合計 ${money(totals.TWD+totals.converted,'TWD')}`:''}</small></div>
-        <div><span>未結清代墊</span><strong>${money(outstanding.JPY,'JPY')}</strong><small>${money(outstanding.TWD,'TWD')}</small></div>
       </div>
       <p class="money-rate-note">日圓換算使用每日參考匯率，實際刷卡或換匯時可自行修改。資料來源：<a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer">ExchangeRate-API</a></p>
-      ${expenseForm(current)}
-      ${expenseListMarkup(groups,current,allMembers)}
-      <section class="money-card money-settlement"><div class="money-section-head"><div><span class="money-kicker">SETTLEMENT</span><h3>目前誰該付誰${convertedSettlement.missingRate?'（分幣別）':'（台幣結算）'}</h3></div></div>${transfers.length?`<div class="money-transfers">${transfers.map(item=>`<div><strong>${esc(allMembers[item.from]||'成員')}</strong><span>付給</span><strong>${esc(allMembers[item.to]||'成員')}</strong><b>${money(item.amount,item.currency)}</b></div>`).join('')}</div>`:'<div class="money-clear">✓ 目前沒有未結清款項</div>'}<p class="money-settlement-note">${convertedSettlement.missingRate?'部分舊日圓紀錄沒有保存匯率，因此暫時分幣別顯示。':'日圓款項依各筆儲存的匯率換算，再與台幣款項合併結算。'}</p></section>
-      ${memberListMarkup(current)}
+      ${expenseForm(current,groups)}
+      ${expenseListMarkup(groups,allMembers)}
+      ${settlementMarkup(allMembers)}
       <p class="money-message" role="status">資料已同步</p>
     </div>`;
   }
 
-  function renderLedger(){if(host&&ledger)host.innerHTML=ledgerMarkup();}
+  function renderLedger(){
+    if(!host||!ledger)return;
+    host.innerHTML=ledgerMarkup();
+    host.querySelectorAll('[data-money-form="expense"]').forEach(updateSplitPreview);
+  }
 
   function selectedShares(form, strict=false) {
     const total=Math.round(Number(form.elements.total.value)||0);
@@ -350,6 +367,92 @@
     },15000);
   }
 
+  function expenseDraft(form, expenseId) {
+    const payer=Number(form.elements.payer.value),{total,shares}=selectedShares(form,true);
+    if(!shares.length)throw new Error('請至少選擇一位分擔者');
+    const currency=form.elements.currency.value,title=form.elements.title.value.trim(),extra=form.elements.note.value.trim();
+    const rate=currency==='JPY'?Number(form.elements.fxRate.value):null;
+    if(!title)throw new Error('請輸入項目名稱');
+    if(currency==='JPY'&&(!Number.isFinite(rate)||rate<=0))throw new Error('請輸入有效的日圓換台幣匯率');
+    const debtShares=shares.filter(item=>item.index!==payer&&item.amount>0);
+    if(!debtShares.length)throw new Error('目前沒有其他人需要分擔，請再確認付款人與成員');
+    const metadata=`[${currency}][EXP:${expenseId}]${currency==='JPY'?`[FX:${rate.toFixed(6)}]`:''}[TOTAL:${total}]`;
+    const converted=currency==='JPY'?` · 約 ${money(twdValue(total,rate),'TWD')}`:'';
+    const note=`${metadata} ${title} · 總額 ${money(total,currency)}${currency==='JPY'?` · 匯率 ${rateText(rate)}${converted}`:''}${extra?' · '+extra:''}`.slice(0,280);
+    return{expenseId,payer,total,shares,debtShares,currency,title,rate,note};
+  }
+
+  async function saveExpenseRows(draft) {
+    for(const share of draft.debtShares){
+      ledger=await rpc('save_ticket_debt_v2',{p_code:ROOM_CODE,p_pin:PIN,p_payload:{debtorIndex:share.index,creditorIndex:draft.payer,amount:share.amount,eventId:null,note:draft.note}});
+    }
+  }
+
+  async function deleteDebtRows(rows) {
+    const deleted=[];
+    for(const debt of rows){
+      ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'delete_debt',p_payload:{id:debt.id}});
+      deleted.push(debt);
+    }
+    return deleted;
+  }
+
+  async function cleanupExpense(expenseId) {
+    const rows=(ledger?.debts||[]).filter(debt=>expenseIdOf(debt)===expenseId);
+    for(const debt of rows){
+      try{ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'delete_debt',p_payload:{id:debt.id}});}catch{}
+    }
+  }
+
+  async function restoreDebtRows(rows) {
+    for(const debt of rows){
+      ledger=await rpc('save_ticket_debt_v2',{p_code:ROOM_CODE,p_pin:PIN,p_payload:{debtorIndex:Number(debt.debtorIndex),creditorIndex:Number(debt.creditorIndex),amount:Number(debt.amount),eventId:debt.eventId||null,note:debt.note||''}});
+    }
+  }
+
+  async function replaceExpense(oldGroup, draft) {
+    try{
+      await saveExpenseRows(draft);
+    }catch(error){
+      try{await loadLedger();}catch{}
+      await cleanupExpense(draft.expenseId);
+      throw error;
+    }
+    const deleted=[];
+    try{
+      for(const debt of oldGroup.debts){
+        ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'delete_debt',p_payload:{id:debt.id}});
+        deleted.push(debt);
+      }
+    }catch(error){
+      let restored=true;
+      try{await restoreDebtRows(deleted);}catch{restored=false;}
+      if(restored)await cleanupExpense(draft.expenseId);
+      await loadLedger();
+      throw new Error(restored?'修改時連線中斷，原項目已保留，請再試一次':'修改時連線中斷，資料可能重複，請先按同步後再檢查');
+    }
+  }
+
+  async function removeExpense(group) {
+    const deleted=[];
+    try{
+      for(const debt of group.debts){
+        ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'delete_debt',p_payload:{id:debt.id}});
+        deleted.push(debt);
+      }
+    }catch(error){
+      try{
+        await restoreDebtRows(deleted);
+        await loadLedger();
+        throw new Error('刪除時連線中斷，原項目已還原，請再試一次');
+      }catch(restoreError){
+        if(restoreError.message.startsWith('刪除時'))throw restoreError;
+        await loadLedger();
+        throw new Error('刪除時連線中斷，請先同步並檢查項目');
+      }
+    }
+  }
+
   async function handleSubmit(event){
     const form=event.target.closest('[data-money-form]');
     if(!form)return;
@@ -371,20 +474,18 @@
           setMessage(`已新增並登入「${name}」`);
         }
       }else if(form.dataset.moneyForm==='expense'){
-        const payer=Number(form.elements.payer.value),{total,shares}=selectedShares(form,true);
-        if(!shares.length)throw new Error('請至少選擇一位分擔者');
-        const currency=form.elements.currency.value,title=form.elements.title.value.trim(),extra=form.elements.note.value.trim();
-        const rate=currency==='JPY'?Number(form.elements.fxRate.value):null;
-        if(currency==='JPY'&&(!Number.isFinite(rate)||rate<=0))throw new Error('請輸入有效的日圓換台幣匯率');
-        const debtShares=shares.filter(item=>item.index!==payer&&item.amount>0);
-        if(!debtShares.length)throw new Error('目前沒有其他人需要分擔，請再確認付款人與成員');
-        const expenseId=`${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;
-        const metadata=`[${currency}][EXP:${expenseId}]${currency==='JPY'?`[FX:${rate.toFixed(6)}]`:''}[TOTAL:${total}]`;
-        const converted=currency==='JPY'?` · 約 ${money(twdValue(total,rate),'TWD')}`:'';
-        const note=`${metadata} ${title} · 總額 ${money(total,currency)}${currency==='JPY'?` · 匯率 ${rateText(rate)}${converted}`:''}${extra?' · '+extra:''}`.slice(0,280);
-        for(const share of debtShares)ledger=await rpc('save_ticket_debt_v2',{p_code:ROOM_CODE,p_pin:PIN,p_payload:{debtorIndex:share.index,creditorIndex:payer,amount:share.amount,eventId:null,note}});
+        const oldExpenseId=form.dataset.expenseId||'',oldGroup=oldExpenseId?expenseGroups().find(group=>group.id===oldExpenseId):null;
+        if(oldExpenseId&&!oldGroup)throw new Error('找不到要編輯的項目，請先同步後再試');
+        const newExpenseId=`${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;
+        const draft=expenseDraft(form,newExpenseId);
+        if(oldGroup)await replaceExpense(oldGroup,draft);
+        else{
+          try{await saveExpenseRows(draft);}catch(error){try{await loadLedger();}catch{}await cleanupExpense(newExpenseId);throw error;}
+        }
+        editingExpenseId='';
+        settlementVisible=false;
         renderLedger();
-        setMessage('分帳已儲存，已保留這筆消費使用的匯率');
+        setMessage(oldGroup?'項目已完整更新':'分帳已儲存，已保留這筆消費使用的匯率');
       }
     }catch(error){
       setMessage(error.message||'無法儲存，請稍後再試',true);
@@ -411,18 +512,42 @@
         loadFxRate().catch(()=>{});
       }else if(action==='sign-in'){
         rememberPerson(button.dataset.name);
-        itemFilter='mine';
+        editingExpenseId='';
+        settlementVisible=false;
         renderLedger();
         setMessage(`已登入「${currentName}」`);
       }else if(action==='switch-person'){
         rememberPerson('');
-        itemFilter='mine';
-        renderLedger();
-      }else if(action==='filter-items'){
-        itemFilter=button.dataset.filter==='all'?'all':'mine';
+        editingExpenseId='';
+        settlementVisible=false;
         renderLedger();
       }else if(action==='cancel-expense'){
-        button.closest('details').open=false;
+        if(editingExpenseId){editingExpenseId='';renderLedger();}
+        else button.closest('details').open=false;
+      }else if(action==='edit-expense'){
+        const group=expenseGroups().find(item=>item.id===button.dataset.expenseId);
+        if(!group)throw new Error('找不到這個項目，請先同步');
+        editingExpenseId=group.id;
+        settlementVisible=false;
+        renderLedger();
+        requestAnimationFrame(()=>host?.querySelector('.expense-editor')?.scrollIntoView({behavior:'smooth',block:'start'}));
+      }else if(action==='delete-expense'){
+        const group=expenseGroups().find(item=>item.id===button.dataset.expenseId);
+        if(!group)throw new Error('找不到這個項目，請先同步');
+        if(!confirm(`確定刪除「${group.title}」整筆項目？`))return;
+        button.disabled=true;
+        await removeExpense(group);
+        if(editingExpenseId===group.id)editingExpenseId='';
+        settlementVisible=false;
+        renderLedger();
+        setMessage('整筆項目已刪除');
+      }else if(action==='calculate-settlement'){
+        settlementVisible=true;
+        renderLedger();
+        requestAnimationFrame(()=>host?.querySelector('#money-settlement-result')?.scrollIntoView({behavior:'smooth',block:'nearest'}));
+      }else if(action==='hide-settlement'){
+        settlementVisible=false;
+        renderLedger();
       }else if(action==='refresh'){
         button.disabled=true;
         await loadLedger(true);
@@ -432,11 +557,6 @@
         if(form?.elements.fxRate)delete form.elements.fxRate.dataset.manual;
         await loadFxRate(true);
         setMessage(fx.cached?'目前無法連線，已套用先前儲存的匯率':'已更新當日參考匯率');
-      }else if(action==='delete'){
-        if(!confirm('確定刪除這筆分帳紀錄？'))return;
-        ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'delete_debt',p_payload:{id:button.dataset.id}});
-        renderLedger();
-        setMessage('分帳紀錄已刪除');
       }else if(action==='delete-member'){
         const index=Number(button.dataset.memberIndex),person=people().find(item=>item.index===index);
         if(!person)throw new Error('找不到這位同行者');
@@ -463,16 +583,6 @@
     if(form&&event.target.matches('[name="total"],[name="currency"],[name="mode"],[name="participant"],[name^="share-"],[name="fxRate"]')){
       if(event.target.name==='fxRate')event.target.dataset.manual='1';
       updateSplitPreview(form);
-    }
-    if(event.target.dataset.moneyAction==='toggle'){
-      try{
-        ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'toggle_debt',p_payload:{id:event.target.dataset.id,settled:event.target.checked}});
-        renderLedger();
-        setMessage(event.target.checked?'已標記為付清':'已改為待付款');
-      }catch(error){
-        event.target.checked=!event.target.checked;
-        setMessage(error.message||'無法更新',true);
-      }
     }
   }
 

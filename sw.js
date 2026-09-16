@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'tokyo-trip-2026-';
-const CACHE_NAME = CACHE_PREFIX + 'mobile-v14';
+const CACHE_NAME = CACHE_PREFIX + 'mobile-v15';
 const BASE = new URL('./', self.location.href);
 const INDEX = new URL('index.html', BASE).href;
 const APP_FILES = ['index.html','trip-app.js','trip-app.css','trip-weather.js','trip-money.js','manifest.webmanifest',

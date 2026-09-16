@@ -291,36 +291,40 @@ details[open]>summary{background:var(--soft)}
 .money-split-preview small{color:var(--muted);font-weight:400}
 .money-count{padding:5px 10px;border-radius:999px;background:#f2eadf;color:#655244;font-size:14px;font-weight:700}
 .money-settlement-note{margin:12px 0 0;color:var(--muted);font-size:13px;line-height:1.65}
-.money-view-tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin:14px 0;padding:5px;border-radius:12px;background:rgba(38,59,73,.1)}
-.money-view-tabs button{min-height:44px;border:0;border-radius:9px;background:transparent;color:var(--indigo);font:inherit;font-size:14px;font-weight:700}
-.money-view-tabs button[aria-pressed=true]{background:var(--indigo);color:#fff;box-shadow:0 2px 8px rgba(38,59,73,.18)}
 .money-expense-list{display:grid;gap:12px;margin-top:12px}
 .money-expense{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 4px 14px rgba(38,52,61,.05)}
-.money-expense.is-paid{opacity:.72}
 .money-expense-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:16px 17px 10px}
-.money-expense-head>div:first-child>span{display:inline-block;margin-bottom:4px;color:var(--vermilion);font-size:12px;font-weight:700}
-.money-expense.is-paid .money-expense-head>div:first-child>span{color:#647a68}
+.money-expense-head>div:first-child>span{display:inline-block;margin-top:5px;color:var(--vermilion);font-size:13px;font-weight:700}
 .money-expense-head h4{margin:0;color:var(--indigo);font-size:18px}
 .money-expense-head>div:last-child{display:grid;text-align:right}
 .money-expense-head strong{color:var(--vermilion);font-size:19px;white-space:nowrap}
 .money-expense-head small{color:var(--muted);font-size:12px}
 .money-expense-meta,.money-expense-note{margin:0;padding:0 17px;color:var(--muted);font-size:13px;line-height:1.6!important}
 .money-expense-note{padding-top:4px;color:#55636c}
+.money-expense-actions{display:flex;justify-content:flex-end;gap:8px;padding:10px 13px 12px}
+.money-expense-actions button{min-height:44px;border:1px solid #d5dce0;border-radius:9px;background:#fff;color:var(--indigo);padding:8px 14px;font:inherit;font-size:14px;font-weight:700}
+.money-expense-actions .money-delete{color:#9a3438;border-color:#e3c9c8;background:#fff7f6}
 .money-share-list{display:grid;gap:1px;margin-top:13px;border-top:1px solid var(--line);background:var(--line)}
-.money-share-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:11px 13px;background:#fff}
-.money-share-row.is-paid{background:#f5f7f5;color:#657269}
-.money-share-row>label{display:grid;justify-items:center;gap:2px;color:var(--muted);font-size:12px}
-.money-share-row input{width:19px;height:19px;accent-color:var(--vermilion)}
-.money-share-row p{margin:0;line-height:1.45}
+.money-share-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 16px;background:#fff}
+.money-share-row p{display:flex;align-items:baseline;gap:8px;margin:0;line-height:1.45}
+.money-share-row p span{color:var(--muted);font-size:13px}
 .money-share-row>b{display:grid;color:var(--vermilion);text-align:right;white-space:nowrap}
 .money-share-row>b small{color:var(--muted);font-size:11px;font-weight:400}
-.money-share-row .money-delete{grid-column:auto;grid-row:auto}
 .money-member-list{display:grid!important;gap:8px!important}
+.money-members{border-top:3px solid var(--vermilion)}
+.money-member-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.money-member-head h2{margin:0}
+.money-member-head p{margin:5px 0 0!important;color:var(--muted)}
+.money-member-tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.money-member-tools button{min-height:44px;border:1px solid #d5dce0;border-radius:9px;background:#fff;color:var(--indigo);padding:8px 13px;font:inherit;font-size:14px;font-weight:700;white-space:nowrap}
 .money-member-item{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:5px 6px 5px 12px;border:1px solid #e2d5ca;border-radius:10px;background:#fffaf5}
 .money-member-item>span{display:flex!important;align-items:center;gap:7px;padding:0!important;border:0!important;background:transparent!important;color:#463a32!important;font-size:16px!important;font-weight:700}
 .money-member-item>span b{padding:2px 7px;border-radius:999px;background:var(--vermilion);color:#fff;font-size:12px}
 .money-member-remove{min-width:58px;min-height:44px;border:1px solid #e3c9c8;border-radius:8px;background:#fff7f6;color:#9a3438;font:inherit;font-size:13px;font-weight:700}
-.money-member-remove:focus-visible,.money-delete:focus-visible,.money-identity>button:focus-visible,.money-fx-grid>button:focus-visible{outline:3px solid rgba(170,63,50,.2);outline-offset:2px}
+.money-member-remove:focus-visible,.money-delete:focus-visible,.money-expense-actions button:focus-visible,.money-member-tools button:focus-visible,.money-fx-grid>button:focus-visible,.money-calculate:focus-visible{outline:3px solid rgba(170,63,50,.2);outline-offset:2px}
+.money-stats-simple{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr)}
+.money-settlement>p,.money-settlement>div>p{margin:7px 0 16px;color:var(--muted)}
+.money-calculate{width:100%;min-height:50px;margin-top:4px;font-size:16px}
 
 @media(max-width:650px){
   .section-nav button{min-width:82px;flex-direction:column;gap:2px;font-size:12px;padding:6px 8px}
@@ -332,12 +336,11 @@ details[open]>summary{background:var(--soft)}
   .main[data-view="reserve"],.main[data-view="restaurants"],.main[data-view="money"]{padding-left:16px;padding-right:16px}
   .money-add-person{grid-template-columns:1fr}.money-add-person button{width:100%}
   .money-person-picker,.money-fx-grid,.money-split-preview{grid-template-columns:1fr}
-  .money-identity{align-items:flex-start;flex-direction:column}
-  .money-identity>button,.money-fx-grid>button{width:100%}
+  .money-member-head{flex-direction:column}.money-member-tools{width:100%;justify-content:stretch}.money-member-tools button{flex:1}
+  .money-fx-grid>button{width:100%}
+  .money-stats-simple{grid-template-columns:1fr}
   .money-expense-head{align-items:flex-start}
-  .money-share-row{grid-template-columns:auto minmax(0,1fr) auto}
-  .money-share-row>b{grid-column:2;text-align:left}
-  .money-share-row .money-delete{grid-column:3;grid-row:1/3}
+  .money-expense-actions{display:grid;grid-template-columns:1fr 1fr}.money-expense-actions button{width:100%}
   .supplement-document .task{grid-template-columns:auto minmax(0,1fr)}
   .supplement-document .task-date,.supplement-document .task-title,.supplement-document .task-desc,.supplement-document .task-tools{grid-column:2}
 }
