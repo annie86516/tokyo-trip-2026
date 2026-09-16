@@ -84,3 +84,48 @@ dialog{width:calc(100% - 32px);max-width:440px;border:1px solid var(--line);bord
 .journey-intro span{font-size:13px}.brand small{letter-spacing:.08em}.day-button{flex-basis:76px}.day-rail{min-width:0}.brand strong{flex-wrap:wrap}.brand-year{font-size:12px}
 @media(max-width:420px){.utility{flex-direction:column;font-size:12px;gap:2px;padding:6px 9px}.utility .icon{width:16px;height:16px}.brand-year{display:none}.group-context{font-size:12px}.journey-title{font-size:25px}.trip-duration{font-size:12px}.journey-intro{flex-wrap:wrap}.route-label>span{font-size:12px;letter-spacing:0}.day-footer{flex-wrap:wrap}.day-footer>span{font-size:12px}}
 @media print{.app-header,.bottom-nav,.day-rail,.day-footer,.utility{display:none}.shell{padding:0}.main{max-width:100%;padding:0}.itinerary-layout{display:block}.day-overview{position:static}.hero{min-height:180px;max-height:200px;aspect-ratio:auto}.timeline{display:block}.timeline>li{margin-bottom:12px}details,.timeline>li,.panel{break-inside:avoid}.route{margin-bottom:20px}}
+
+/* One visual language across every view. BiauKai is 標楷體 on Apple devices;
+   DFKai-SB is the Windows name, with Kai-style fallbacks elsewhere. */
+:host{
+  --font-kai:"BiauKai","DFKai-SB","標楷體","KaiTi","STKaiti",serif;
+  --surface-radius:16px;
+  --surface-padding:18px;
+  font-family:var(--font-kai);
+}
+.shell,.shell *,button,input,textarea,select,summary,dialog{
+  font-family:var(--font-kai)!important;
+}
+.brand-year,.day-button b,.day-stamp b,.step,.weather-value,summary::after{
+  font-family:var(--font-kai)!important;
+}
+.main[data-view="flights"],.main[data-view="stays"],.main[data-view="guide"]{
+  max-width:960px;
+}
+.main[data-view="flights"]>h1,.main[data-view="stays"]>h1,.main[data-view="guide"]>h1{
+  margin-bottom:8px;
+}
+.route,.timeline>li,.panel,details,.weather-section,.flight-ticket,.resource-links a,.table-card{
+  border:1px solid var(--line);
+  border-radius:var(--surface-radius);
+  box-shadow:0 4px 14px rgba(38,52,61,.05);
+}
+.route,.timeline>li,.panel,.document,.weather-section{
+  padding:var(--surface-padding);
+}
+details{margin:12px 0;background:#fff}
+summary{min-height:60px;padding:17px 48px 17px var(--surface-padding);font-size:16px;line-height:1.65}
+details[open]>summary{background:var(--soft)}
+.document{line-height:1.85}
+.document h2,.document h3,.document h4{color:#293a43;line-height:1.55}
+.document p,.document li,.document dd{font-size:16px;line-height:1.85}
+.table-cards{gap:14px}.table-card{padding:16px;background:#fafbfc}
+.resource-links{gap:14px}.resource-links a{padding:18px;color:#273e4e;box-shadow:inset 0 3px #273e4e,0 4px 14px rgba(38,52,61,.05)}
+.flight-ticket{border-top:3px solid var(--accent)}
+.weather-section{background:#edf4f8;border-color:#d6e3ec}
+.bottom-nav button[aria-current=page]{font-weight:700}
+@media(max-width:420px){
+  :host{--surface-padding:16px}
+  .main[data-view="flights"],.main[data-view="stays"],.main[data-view="guide"]{padding-left:16px;padding-right:16px}
+  .document p,.document li,.document dd{font-size:16px}
+}

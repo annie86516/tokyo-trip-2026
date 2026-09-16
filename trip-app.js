@@ -267,6 +267,7 @@
   }
   function render(scroll = false) {
     clampDay(); detailSources = new Map();
+    main.dataset.view = state.view;
     root.querySelectorAll('[data-group]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.group===state.group)));
     root.querySelectorAll('[data-view]').forEach(button=>{
       if(button.dataset.view===state.view) button.setAttribute('aria-current','page'); else button.removeAttribute('aria-current');
