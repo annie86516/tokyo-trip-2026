@@ -281,7 +281,7 @@
     const date = source.querySelector('.day-date').textContent;
     return `<div class="journey-heading"><div><div class="eyebrow">NOVEMBER IN JAPAN</div><p class="journey-title">${state.group} 組的秋日旅程</p></div><span class="trip-duration">${state.group==='C'?'7 天 6 夜':'9 天 8 夜'}</span></div>
       <p class="intro journey-intro">${state.group==='C'?'11.23':'11.21'} — 11.29<span>本組行程與共同活動</span></p>
-      <nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:10-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-label="第 ${n} 天，11 月 ${20+n} 日" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>${20+n}</b><small>11月・${['六','日','一','二','三','四','五','六','日'][n-1]}</small></button>`).join('')}</nav>
+      ${dayNavigation()}
       <section class="weather-section" aria-label="當日行程天氣"><p>天氣資料載入中；尚未提供的預報不會以目前天氣代替。</p></section>
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
       <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div></aside>
@@ -311,8 +311,11 @@
   function reserve() {
     return `<div class="eyebrow">BEFORE THE TRIP</div><h1>行前預約</h1><p class="intro">預約日期、熱門票券、餐廳、接送與 Visit Japan Web 集中在同一個版面。</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理行前預約資料…</section></div>`;
   }
+  function dayNavigation() {
+    return `<nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:10-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-label="第 ${n} 天，11 月 ${20+n} 日" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>${20+n}</b><small>11月・${['六','日','一','二','三','四','五','六','日'][n-1]}</small></button>`).join('')}</nav>`;
+  }
   function restaurants() {
-    return `<div class="eyebrow">TOKYO FOOD GUIDE</div><h1>餐廳攻略</h1><p class="intro">依行程日期查看店面、招牌餐點、營業與候位提醒。</p><div class="supplement-root" data-supplement="restaurants"><section class="panel supplement-loading">正在整理餐廳攻略…</section></div>`;
+    return `<div class="eyebrow">TOKYO FOOD GUIDE</div><h1>餐廳攻略</h1><p class="intro">選擇日期，查看當天的店面、招牌餐點、營業與候位提醒。</p>${dayNavigation()}<div class="supplement-root" data-supplement="restaurants"><section class="panel supplement-loading">正在整理餐廳攻略…</section></div>`;
   }
   function guide() {
     const sections = [
@@ -360,12 +363,14 @@
   async function hydrateSupplement(kind) {
     const target=main.querySelector(`[data-supplement="${kind}"]`);
     if(!target)return;
+    const selectedDay=state.day;
     const path=kind==='reserve'?'./site-one/index.html':'./restaurant-guide/index.html';
     const baseUrl=new URL(path,document.baseURI);
     try {
       const response=await fetch(baseUrl.href,{cache:'no-cache'});
       if(!response.ok)throw new Error('資料讀取失敗');
       const doc=new DOMParser().parseFromString(await response.text(),'text/html');
+      if(!target.isConnected)return;
       target.innerHTML='';
       if(kind==='reserve') {
         const wanted=new URL(location.href).searchParams.get('section');
@@ -389,9 +394,9 @@
           saved[task.dataset.task]=check.checked;localStorage.setItem('tokyo-trip-2026.reserve-tasks',JSON.stringify(saved));
         });
       } else {
-        [...doc.querySelectorAll('section.day-section')].forEach((section,index)=>{
+        [...doc.querySelectorAll('section.day-section')].filter(section=>Number(section.dataset.daySection)===selectedDay).forEach((section,index)=>{
           const heading=section.querySelector('h2')?.textContent.trim()||`第 ${index+1} 天餐廳`;
-          const details=document.createElement('details');details.className='supplement-section';details.open=index===0;
+          const details=document.createElement('details');details.className='supplement-section';details.open=true;
           details.innerHTML=`<summary>${escape(heading)}</summary><div class="supplement-grid"></div>`;
           const grid=details.querySelector('.supplement-grid');
           [...section.querySelectorAll('.cards > *')].forEach(card=>{
@@ -400,6 +405,9 @@
           });
           target.append(details);
         });
+      }
+      if(!target.children.length && kind==='restaurants') {
+        target.innerHTML=`<section class="panel"><h2>第 ${selectedDay} 天餐廳攻略</h2><p>這一天尚未收錄餐廳攻略，可切換其他日期查看。</p></section>`;
       }
       if(!target.children.length)throw new Error('找不到可顯示的資料');
     } catch(error) {
