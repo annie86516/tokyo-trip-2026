@@ -138,6 +138,32 @@
   const host = document.createElement('div');
   host.id = 'trip-app';
   const root = host.attachShadow({mode:'open'});
+  // Image errors do not bubble; capture also covers cards inserted after fetch.
+  root.addEventListener('error', event => {
+    const img=event.target;
+    if(img.tagName!=='IMG')return;
+    const fallback=img.dataset.imageFallback;
+    if(fallback && !img.dataset.fallbackTried) {
+      img.dataset.fallbackTried='true';
+      img.alt='照片暫時無法載入，以下為餐點示意圖';
+      const note=document.createElement('p');
+      note.className='image-load-note';
+      note.textContent='照片暫時無法載入・餐點示意圖';
+      img.after(note);
+      img.src=fallback;
+    } else {
+      img.hidden=true;
+      if(img.dataset.fallbackTried && img.nextElementSibling?.className==='image-load-note') {
+        img.nextElementSibling.textContent='照片暫時無法載入';
+      }
+      if(!img.dataset.fallbackTried && img.alt) {
+        const note=document.createElement('p');
+        note.className='image-load-note';
+        note.textContent='照片暫時無法載入：'+img.alt;
+        img.after(note);
+      }
+    }
+  }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
   sheet.href = new URL('./trip-app.css', document.baseURI).href;
@@ -350,11 +376,19 @@
       }
       if(el.tagName==='IMG') {
         const src=el.getAttribute('src');
+        // Read only the known static fallback path; never execute inline code.
+        const fallback=el.getAttribute('onerror')?.match(/this\.src\s*=\s*['"]([^'"]+)['"]/)?.[1];
+        if(fallback) {
+          const url=new URL(fallback,baseUrl);
+          if(url.origin===baseUrl.origin)el.dataset.imageFallback=url.href;
+        }
+        // Keep the source page's no-referrer policy for external photo hosts.
+        el.setAttribute('referrerpolicy','no-referrer');
         if(src) el.setAttribute('src',new URL(src,baseUrl).href);
         el.loading='lazy';el.decoding='async';
       }
       [...el.attributes].forEach(attr=>{
-        if(!['href','src','alt','title','target','rel','colspan','rowspan','loading','decoding','class','id','type','checked','disabled','data-task','data-reserve-copy'].includes(attr.name))el.removeAttribute(attr.name);
+        if(!['href','src','alt','title','target','rel','colspan','rowspan','loading','decoding','referrerpolicy','data-image-fallback','class','id','type','checked','disabled','data-task','data-reserve-copy'].includes(attr.name))el.removeAttribute(attr.name);
       });
     });
     return node;
