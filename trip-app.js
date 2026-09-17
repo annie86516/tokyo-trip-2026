@@ -227,7 +227,7 @@
     return `<ol class="timeline">${items.map((html,i)=>{
       const slot=times[i];
       const time=slot?`<div class="schedule-time${slot.fixed?' is-fixed':''}"><span>${escape(slot.label)}</span><b>${escape(slot.time)}</b></div>`:'';
-      return `<li><div class="stop-content">${time}${html}</div></li>`;
+      return `<li><span class="step" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="stop-content">${time}${html}</div></li>`;
     }).join('')}</ol>`;
   }
   function groupArrival() {
