@@ -197,7 +197,39 @@
     detailSources.set(key,source);
     return `<details data-detail="${escape(key)}"><summary>${escape(title)}</summary><div class="document"></div></details>`;
   }
-  function list(items) { return `<ol class="timeline">${items.map((html,i)=>`<li><span class="step" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="stop-content">${html}</div></li>`).join('')}</ol>`; }
+  // Suggestions are local Japan times, not reservations. Fixed entries come
+  // from the existing itinerary; unbooked services remain explicitly pending.
+  function dailyTimes() {
+    const suggested = time => ({time, label:'建議時間'});
+    const fixed = (time, label='固定時間') => ({time, label, fixed:true});
+    if (state.day === 1 && state.group === 'B') return [
+      fixed('18:30','航班抵達'), fixed('20:23','預定班次・依出關調整'),
+      suggested('21:15–21:30'), suggested('21:30 後'), suggested('依抵達時間調整')
+    ];
+    if (state.day === 3 && state.group === 'C') return [
+      fixed('12:10','航班抵達'), suggested('13:00–15:00'),
+      suggested('17:00–18:30'), suggested('18:30–19:00')
+    ];
+    return {
+      1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),suggested('20:45 起')],
+      2:[suggested('08:00–08:45'),suggested('09:15–10:15'),suggested('10:15–10:45'),suggested('11:00–12:30'),suggested('13:30–18:00'),suggested('18:00–19:00')],
+      3:[suggested('08:30–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
+      4:[suggested('08:30–09:15'),suggested('09:15–10:30'),suggested('11:00–14:15'),suggested('14:15–14:45'),fixed('15:20 報到／15:40 入場','SKY 行程指定時間・依票券確認'),suggested('17:00–20:00'),suggested('20:00–20:30')],
+      5:[suggested('08:00–09:00'),suggested('09:15–11:00'),suggested('11:00–12:00'),suggested('12:00–13:30'),suggested('14:00–17:30'),suggested('17:30–19:30')],
+      6:[fixed('09:03 或 10:03','候選列車班次・尚待確認'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00–16:30')],
+      7:[suggested('07:00 出發；13:00–13:30 返程'),suggested('14:00–16:00（依末班入場取捨）'),suggested('17:30–18:30')],
+      8:[suggested('12:30–13:00（依交通調整）'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
+      9:[fixed('08:20','飯店接駁・入住時確認席位'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
+    }[state.day] || [];
+  }
+  function list(items) {
+    const times = dailyTimes();
+    return `<ol class="timeline">${items.map((html,i)=>{
+      const slot=times[i];
+      const time=slot?`<div class="schedule-time${slot.fixed?' is-fixed':''}"><span>${escape(slot.label)}</span><b>${escape(slot.time)}</b></div>`:'';
+      return `<li><span class="step" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="stop-content">${time}${html}</div></li>`;
+    }).join('')}</ol>`;
+  }
   function groupArrival() {
     const row = flightRow(departures,state.group);
     return `<strong>抵達成田：</strong>${row.cells[2].innerHTML}。${row.cells[3].innerHTML}`;
@@ -253,7 +285,7 @@
       <section class="weather-section" aria-label="當日行程天氣"><p>天氣資料載入中；尚未提供的預報不會以目前天氣代替。</p></section>
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
       <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div></aside>
-      <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${list(items)}${custom}
+      <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2><p class="schedule-legend">以下皆為日本當地時間。一般字色為建議安排；<span>紅字為航班、班次或行程指定時間</span>，尚待確認者已註明。候位、路況或票券有變動時，以當天確認為準。</p>${list(items)}${custom}
       ${source.querySelector('.ueno-recovery-card') ? detail('逛街後休息｜上野足湯與按摩',source.querySelector('.ueno-recovery-card'),'ueno') : ''}
       ${source.querySelector('.day-alert-grid') ? `<div class="document">${readable(source.querySelector('.day-alert-grid'))}</div>` : ''}
       ${extras.length?'<h2 class="section-label">交通細節與餐飲</h2>':''}${extras.map((el,i)=>detail(el.querySelector('h2,.day-title')?.textContent || '補充資料',el,`day-${state.day}-${i}`)).join('')}
