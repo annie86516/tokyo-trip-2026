@@ -351,5 +351,18 @@ details[open]>summary{background:var(--soft)}
 input,select,textarea{font-size:16px!important}
 .schedule-legend{font-size:12px;line-height:1.7;color:var(--muted);margin:-6px 0 16px}
 .schedule-legend span,.schedule-time.is-fixed{color:#b42332}
-.schedule-time{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 9px;margin:0 0 9px;padding-bottom:8px;border-bottom:1px solid var(--line);color:#46505c;line-height:1.5;font-variant-numeric:tabular-nums}
+.schedule-time{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;margin:0 0 5px;padding-bottom:4px;border-bottom:1px solid var(--line);color:#46505c;line-height:1.5;font-variant-numeric:tabular-nums}
 .schedule-time span{font-size:11px}.schedule-time b{font-size:14px;font-weight:700}
+
+/* Compact itinerary cards: spacing only; preserve the current type sizes. */
+.timeline{padding-left:0;gap:9px}
+.timeline>li{padding:12px 14px}
+.timeline>li::before{display:none}
+.day-plan details{margin:8px 0}
+.day-plan summary{min-height:44px;padding:11px 38px 11px 12px}
+.day-plan .document{padding:12px}
+.day-plan .table-cards{gap:8px;margin:8px 0}
+.day-plan .table-card{padding:9px 11px}
+.day-plan .table-card>div{padding:4px 0;gap:8px}
+.day-plan .table-card dt{padding-top:0}
+.day-plan .table-card p{margin:4px 0}

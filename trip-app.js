@@ -77,7 +77,7 @@
         const card = document.createElement('dl');
         card.className = 'table-card';
         columns.forEach((html,index) => {
-          if (!html) return;
+          if (!html || /^(序|序號|順序)$/.test(headers[index] || '')) return;
           const field = document.createElement('div');
           field.innerHTML = `<dt>${escape(headers[index] || (index ? '內容' : '項目'))}</dt><dd>${html}</dd>`;
           card.append(field);
@@ -212,12 +212,12 @@
     ];
     return {
       1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),suggested('20:45 起')],
-      2:[suggested('08:00–08:45'),suggested('09:15–10:15'),suggested('10:15–10:45'),suggested('11:00–12:30'),suggested('13:30–18:00'),suggested('18:00–19:00')],
-      3:[suggested('08:30–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
-      4:[suggested('08:30–09:15'),suggested('09:15–10:30'),suggested('11:00–14:15'),suggested('14:15–14:45'),fixed('15:20 報到／15:40 入場','SKY 行程指定時間・依票券確認'),suggested('17:00–20:00'),suggested('20:00–20:30')],
-      5:[suggested('08:00–09:00'),suggested('09:15–11:00'),suggested('11:00–12:00'),suggested('12:00–13:30'),suggested('14:00–17:30'),suggested('17:30–19:30')],
+      2:[suggested('09:00–09:45'),suggested('10:15–11:15'),suggested('11:15–11:45'),suggested('12:00–13:30'),suggested('14:30–18:00'),suggested('18:00–19:00')],
+      3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
+      4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:15–14:15'),suggested('14:15–14:45'),fixed('15:20 報到／15:40 入場','SKY 行程指定時間・依票券確認'),suggested('17:00–20:00'),suggested('20:00–20:30')],
+      5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–12:15'),suggested('12:30–14:00'),suggested('14:30–17:30'),suggested('17:30–19:30')],
       6:[fixed('09:03 或 10:03','候選列車班次・尚待確認'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00–16:30')],
-      7:[suggested('07:00 出發；13:00–13:30 返程'),suggested('14:00–16:00（依末班入場取捨）'),suggested('17:30–18:30')],
+      7:[suggested('09:00 出發；13:00–13:30 返程'),suggested('14:00–16:00（依末班入場取捨）'),suggested('17:30–18:30')],
       8:[suggested('12:30–13:00（依交通調整）'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
       9:[fixed('08:20','飯店接駁・入住時確認席位'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
     }[state.day] || [];
@@ -227,7 +227,7 @@
     return `<ol class="timeline">${items.map((html,i)=>{
       const slot=times[i];
       const time=slot?`<div class="schedule-time${slot.fixed?' is-fixed':''}"><span>${escape(slot.label)}</span><b>${escape(slot.time)}</b></div>`:'';
-      return `<li><span class="step" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="stop-content">${time}${html}</div></li>`;
+      return `<li><div class="stop-content">${time}${html}</div></li>`;
     }).join('')}</ol>`;
   }
   function groupArrival() {
