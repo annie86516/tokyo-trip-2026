@@ -58,7 +58,9 @@ dialog{width:calc(100% - 32px);max-width:440px;border:1px solid var(--line);bord
 .paper-body>.timeline{padding-left:32px;display:block;margin:0 0 20px}
 .paper-body .timeline>li{padding:0 0 14px;border:0;border-radius:0;background:none;box-shadow:none;border-bottom:1px solid #e9e2d6;font-size:14px}
 .paper-body .step{top:3px;left:-32px;width:24px;height:24px;font-size:10px}
-.paper-body .timeline>li::before{display:none}.paper-body .stop-content strong{font-size:15px}
+.paper-body .timeline>li::before{top:25px;bottom:-27px}
+.timeline .step{top:12px}
+@media(max-width:360px){.timeline{padding-left:31px}}.paper-body .stop-content strong{font-size:15px}
 .paper-body .hero{height:calc(100% - 46px);min-height:0;aspect-ratio:auto;border-radius:3px;box-shadow:none;margin:0}
 .paper-body .hero-copy{left:18px;right:18px;bottom:22px}.paper-body .hero-copy h1{font-size:23px}
 .paper-cover .paper-body{overflow:hidden}.paper-cover-note{text-align:center;font-family:var(--serif);font-size:12px;color:#746359;margin:12px 0 0}
@@ -355,7 +357,7 @@ input,select,textarea{font-size:16px!important}
 .schedule-time span{font-size:11px}.schedule-time b{font-size:14px;font-weight:700}
 
 /* Compact itinerary cards: spacing only; preserve the current type sizes. */
-.timeline{padding-left:0;gap:9px}
+.timeline{padding-left:38px;gap:9px}
 .timeline>li{padding:12px 14px}
 .timeline>li::before{display:none}
 .day-plan details{margin:8px 0}
