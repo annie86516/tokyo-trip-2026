@@ -39,7 +39,7 @@
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
   };
   const firstDay = () => state.group === 'C' ? 3 : 1;
-  function clampDay() { state.day = Math.max(firstDay(), Math.min(9, Math.floor(state.day) || firstDay())); }
+  function clampDay() { state.day = Math.max(firstDay(), Math.min(state.view==='restaurants'?8:9, Math.floor(state.day) || firstDay())); }
   clampDay();
   const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const departures = [...$('#flight-info').querySelectorAll(':scope > .container > table')][0];
@@ -337,11 +337,11 @@
   function reserve() {
     return `<div class="eyebrow">BEFORE THE TRIP</div><h1>行前預約</h1><p class="intro">預約日期、熱門票券、餐廳、接送與 Visit Japan Web 集中在同一個版面。</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理行前預約資料…</section></div>`;
   }
-  function dayNavigation() {
-    return `<nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:10-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-label="第 ${n} 天，11 月 ${20+n} 日" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>${20+n}</b><small>11月・${['六','日','一','二','三','四','五','六','日'][n-1]}</small></button>`).join('')}</nav>`;
+  function dayNavigation(lastDay = 9) {
+    return `<nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:lastDay+1-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-label="第 ${n} 天，11 月 ${20+n} 日" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>${20+n}</b><small>11月・${['六','日','一','二','三','四','五','六','日'][n-1]}</small></button>`).join('')}</nav>`;
   }
   function restaurants() {
-    return `<div class="eyebrow">TOKYO FOOD GUIDE</div><h1>餐廳攻略</h1><p class="intro">選擇日期，查看當天的店面、招牌餐點、營業與候位提醒。</p>${dayNavigation()}<div class="supplement-root" data-supplement="restaurants"><section class="panel supplement-loading">正在整理餐廳攻略…</section></div>`;
+    return `<div class="eyebrow">TOKYO FOOD GUIDE</div><h1>餐廳攻略</h1><p class="intro">選擇日期，查看當天的店面、招牌餐點、營業與候位提醒。</p>${dayNavigation(8)}<div class="supplement-root" data-supplement="restaurants"><section class="panel supplement-loading">正在整理餐廳攻略…</section></div>`;
   }
   function guide() {
     const sections = [
