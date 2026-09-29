@@ -1040,16 +1040,64 @@
     "dish_caption": "現場炙燒 Crème brûlée pudding"
   },
   {
-    "id": "12-triton-solamachi",
+    "id": "34-daitouen",
     "day": 3,
     "slot": "晚餐",
-    "status": "no_beef",
+    "status": "beef",
     "priority": "S",
+    "name_zh": "大東縁",
+    "name_ja": "焼肉 大東縁",
+    "type": "燒肉",
+    "area": "本所吾妻橋",
+    "verdict": "11/23 晚餐；C 組放行李後到餐廳會合，餐後再前往晴空塔。",
+    "hours": "12:00–23:00；週四休。",
+    "hours_note": "國定假日營業與團體座位請電話確認。",
+    "address": "東京都墨田區吾妻橋2-2-5 相川ビル2F",
+    "access": "都營淺草線本所吾妻橋站 A1 出口旁。",
+    "budget": "依現場菜單與實際點餐。",
+    "reservation": "官網建議午餐、晚餐盡量預約；電話 03-3623-4129。",
+    "queue": "先確認實際用餐人數與是否可同桌；尚未代表已完成訂位。",
+    "timing": "原建議晚餐 17:30–18:30，須依餐廳訂位結果確認。",
+    "beef_level": "需先確認",
+    "no_beef": "同行有不吃牛肉者；可吃的主餐、醬汁與共用烤網須事前向店家確認。",
+    "dishes": [],
+    "group_plan": [
+      "A、B 組下午晴空塔自由活動後到餐廳集合。",
+      "C 組先放行李，再到大東縁會合。",
+      "餐後一起前往晴空塔；確切集合時間在群組確認。"
+    ],
+    "pitfalls": [
+      "11/23 為國定假日，不能只依平日營業表判斷。",
+      "不吃牛肉者餐點尚待店家確認。"
+    ],
+    "phrases": [],
+    "official": "https://daitouen.net/map.html",
+    "reservation_url": "tel:+81336234129",
+    "map_url": "https://maps.app.goo.gl/KTH72UYA1GzS5AFs8",
+    "day_date": "2026/11/23（一・日本國定假日）",
+    "day_route": "谷根千／京島・向島・晴空塔・本所吾妻橋",
+    "sources": [
+      {
+        "title": "官方店舖資訊",
+        "url": "https://daitouen.net/map.html"
+      }
+    ],
+    "image": "food-grill.svg",
+    "image_note": "料理示意圖，非店家實景或實拍餐點。",
+    "signature": "燒肉，依店家當日菜單選擇",
+    "verified_at": "2026-09-29"
+  },
+  {
+    "id": "12-triton-solamachi",
+    "day": 3,
+    "slot": "彈性備選",
+    "status": "no_beef",
+    "priority": "B",
     "name_zh": "回轉壽司 Triton 東京 Solamachi 店",
     "name_ja": "回転寿し トリトン 東京ソラマチ店",
     "type": "北海道系回轉壽司",
     "area": "東京 Solamachi 6F",
-    "verdict": "晴空塔行程中最方便的無牛晚餐選擇；先拿整理券比選餐更重要。",
+    "verdict": "晴空塔自由活動的壽司備選；11/23 正式晚餐已改為大東縁。",
     "hours": "11:00–22:00（L.O.21:30）。",
     "hours_note": "不接受一般訂位，以店頭發券機取號；用餐限時資訊以現場為準。",
     "address": "東京都墨田區押上1-1-2 東京 Solamachi 6F",
@@ -2133,103 +2181,65 @@
     "dish_caption": "招牌黑餡銅鑼燒剖面"
   },
   {
-    "id": "23-chinya",
+    "id": "35-gyutan-lemon-asakusa",
     "day": 5,
     "slot": "午餐",
     "status": "beef",
     "priority": "S",
-    "name_zh": "Chinya 黑毛和牛壽喜燒",
-    "name_ja": "ちんや 浅草本店",
-    "type": "老舖壽喜燒",
+    "name_zh": "牛たんの檸檬 淺草店",
+    "name_ja": "牛たんの檸檬 浅草店",
+    "type": "厚切牛舌定食",
     "area": "淺草",
-    "verdict": "牛肉組的傳統大餐；6 人應提早訂位，午餐選套餐比現場單點更有效率。",
-    "hours": "平日 11:00–15:00、16:30–21:30；週末國定假日 11:00–21:30（L.O.約 20:00）。",
-    "hours_note": "本次星期三為平日，有午休空檔。",
-    "address": "東京都台東區花川戶2-16-1",
-    "access": "淺草站、淺草寺東側步行可達。",
-    "budget": "午餐約 ¥8,800 起；高階套餐可超過 ¥10,000–20,000／人",
-    "reservation": "吃牛肉組約 6 人，建議用官方 TableCheck／電話提早訂位；可詢問包廂或同桌。",
-    "queue": "有訂位仍應準時；套餐用餐抓 90–120 分鐘。",
-    "timing": "建議 12:00–12:30 入店；不吃牛肉者同步前往秋光，13:45–14:00 在淺草指定點會合。",
+    "verdict": "11/25 吃牛肉者午餐；不吃牛肉者可選天麩羅秋光，餐後再會合。",
+    "hours": "午餐 11:30–15:00（L.O.14:30）；晚餐 17:00–21:30（L.O.21:00）。",
+    "hours_note": "營業與可預約時段以店家最新公告、訂位頁為準。",
+    "address": "東京都台東區淺草2-9-13 TACT浅草2F",
+    "access": "TX 淺草站附近、淺草寺西側；與秋光同在淺草區。",
+    "budget": "依實際套餐及訂位頁價格。",
+    "reservation": "使用淺草店 TableCheck；5 人以上須直接聯絡店家，電話 03-6284-7266。",
+    "queue": "官網有線上訂位；無預約座位依當日情況，務必準時抵達。",
+    "timing": "先確認兩邊實際人數與用餐時段，再約好餐後會合點。",
     "beef_level": "不適合",
-    "no_beef": "壽喜燒、割下、醬汁與烹調核心都是牛肉；不吃牛肉者應完全分流。",
+    "no_beef": "牛舌主餐及配菜可能含牛肉成分，不吃牛肉者分開到秋光等餐廳用餐。",
     "dishes": [
       {
-        "name": "黑毛和牛壽喜燒套餐",
-        "why": "最能代表百年壽喜燒老舖。",
-        "order": "依預算選肉等級",
-        "photo_mode": "restaurant",
-        "photo_url": "https://assets.st-note.com/img/1705282078049-hHw8eUaZzl.jpg?fit=bounds&height=2000&quality=85&width=2000",
-        "photo_source": "https://note.com/honno_hitotoki/n/nbba3fd866034",
-        "photo_query": "sukiyaki Japanese beef"
-      },
-      {
-        "name": "午間套餐「楓」等",
-        "why": "午餐價格相對容易控制，配套完整。",
-        "order": "訂位時先確認當期內容",
-        "photo_mode": "commons-search",
-        "photo_source": "https://commons.wikimedia.org/",
-        "photo_query": "Japanese lunch set meal"
-      },
-      {
-        "name": "追加蔬菜／豆腐",
-        "why": "吸收壽喜燒醬汁，能平衡肉量。",
-        "order": "全桌追加",
-        "photo_mode": "commons-search",
-        "photo_source": "https://commons.wikimedia.org/",
-        "photo_query": "sukiyaki vegetables tofu"
-      },
-      {
-        "name": "收尾飯／麵",
-        "why": "依店家套餐安排，不要一開始就吃太多白飯。",
-        "order": "最後再決定",
-        "photo_mode": "commons-search",
-        "photo_source": "https://commons.wikimedia.org/",
-        "photo_query": "udon noodles rice Japanese meal"
+        "name": "「極み」厚切牛舌定食",
+        "note": "由店家烤好後供餐；內容與價格依當日菜單。"
       }
     ],
     "group_plan": [
-      "訂位前先確定牛肉組實際人數與預算。",
-      "統一套餐可大幅縮短點餐與出菜差異。",
-      "與秋光組約定固定會合地點，不臨時跨店找人。"
+      "午餐依是否吃牛肉分開，與航班 A／B／C 組無關。",
+      "5 人以上的牛肉組直接電話詢問座位。",
+      "不吃牛肉者可選秋光；兩邊餐後在淺草會合，再一起前往上野。"
     ],
     "pitfalls": [
-      "價位高，需先取得團員共識。",
-      "午間與晚間菜單／價格不同。",
-      "不吃牛肉者不適合同店硬找替代。"
+      "訂位與地圖都要選淺草店；不要選到新宿總本店。",
+      "不吃牛肉者不能只靠移除牛舌主餐判定整份套餐可吃。"
     ],
-    "phrases": [
-      "6名で、すき焼きのランチコースを予約したいです。（想預約 6 位的壽喜燒午餐套餐。）",
-      "予算は一人一万円前後です。（每人預算約一萬日圓。）"
-    ],
-    "official": "https://chinya.co.jp/location/",
-    "reservation_url": "https://chinya.co.jp/location/",
-    "map_url": "https://www.google.com/maps/search/?api=1&query=%E3%81%A1%E3%82%93%E3%82%84+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E8%8A%B1%E5%B7%9D%E6%88%B62-16-1",
+    "phrases": [],
+    "official": "https://www.store-gyutan-lemon.com/",
+    "reservation_url": "https://www.tablecheck.com/ja/beef-lemon/reserve/message",
+    "map_url": "https://maps.app.goo.gl/K4QdwtcbFczYAsTPA",
     "day_date": "2026/11/25（三）",
     "day_route": "淺草・上野",
     "sources": [
       {
-        "label": "Chinya 官方店舖頁",
-        "url": "https://chinya.co.jp/location/",
-        "note": "營業時間、地址與預約"
+        "title": "官方分店資訊",
+        "url": "https://www.store-gyutan-lemon.com/"
       },
       {
-        "label": "原始東京行程",
-        "url": "../index.html",
-        "note": ""
+        "title": "淺草店官方訂位",
+        "url": "https://www.tablecheck.com/ja/beef-lemon/reserve/message"
+      },
+      {
+        "title": "店家刊登營業資訊",
+        "url": "https://tabelog.com/tokyo/A1311/A131102/13302370/"
       }
     ],
     "image": "food-grill.svg",
-    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
-    "name": "Chinya 黑毛和牛壽喜燒",
-    "signature": "黑毛和牛壽喜燒套餐",
-    "tabelog": "https://tabelog.com/tokyo/A1311/A131102/13268750/",
-    "store_photo": "https://prcdn.freetls.fastly.net/release_image/18232/1039/18232-1039-ccfc415fbe9464e6e7a75a66b532c3b8-3900x2600.jpg?auto=webp&fit=bounds&format=jpeg&height=1350&quality=85%2C65&width=1950",
-    "dish_photo": "https://assets.st-note.com/img/1705282078049-hHw8eUaZzl.jpg?fit=bounds&height=2000&quality=85&width=2000",
-    "store_source": "https://prtimes.jp/main/html/rd/p/000001039.000018232.html",
-    "dish_source": "https://note.com/honno_hitotoki/n/nbba3fd866034",
-    "store_caption": "Chinya 淺草本店夜間店面實景",
-    "dish_caption": "黑毛和牛壽喜燒下鍋實拍"
+    "image_note": "料理示意圖，非店家實景或實拍餐點。",
+    "signature": "「極み」厚切牛舌定食",
+    "verified_at": "2026-09-29"
   },
   {
     "id": "24-akimitsu-asakusa",
@@ -2241,15 +2251,15 @@
     "name_ja": "天麩羅 秋光 浅草本店",
     "type": "天丼／天婦羅",
     "area": "淺草花屋敷旁",
-    "verdict": "不吃牛肉者與 Chinya 牛肉組分流最順；穴子與海鮮天丼是首選。",
+    "verdict": "不吃牛肉者與 牛たんの檸檬淺草店 牛肉組分流最順；穴子與海鮮天丼是首選。",
     "hours": "官方不同頁面顯示約 10:30–21:00／21:30，L.O.約 20:00–21:00。",
     "hours_note": "營業時間資訊略有差異，11 月行前以官方預約頁為準。",
     "address": "東京都台東區淺草2-15-1",
-    "access": "花屋敷、淺草寺西側，與 Chinya 皆在淺草區但步行仍需時間。",
+    "access": "花屋敷、淺草寺西側，與 牛たんの檸檬淺草店 皆在淺草區但步行仍需時間。",
     "budget": "約 ¥1,500–4,000／人",
     "reservation": "可線上預約；分流人數少仍建議訂 12:00 左右。",
-    "queue": "觀光時段會排隊；有訂位可避免與 Chinya 組錯開太久。",
-    "timing": "與 Chinya 同步 12:00–12:30 開吃，餐後 13:45–14:00 會合。",
+    "queue": "觀光時段會排隊；有訂位可避免與 牛たんの檸檬淺草店 組錯開太久。",
+    "timing": "與 牛たんの檸檬淺草店 同步 12:00–12:30 開吃，餐後 13:45–14:00 會合。",
     "beef_level": "需確認",
     "no_beef": "核心為海鮮與蔬菜天婦羅，但天汁、期間品、共用炸油仍要確認不含牛肉／牛骨／牛脂。",
     "dishes": [
@@ -2290,7 +2300,7 @@
     "group_plan": [
       "不吃牛肉者至少 2 人同行。",
       "下單前先確認天汁與炸油，不只確認食材本身。",
-      "與 Chinya 組約固定時間與地點會合。"
+      "與 牛たんの檸檬淺草店 組約固定時間與地點會合。"
     ],
     "pitfalls": [
       "官方時段資訊有 30 分鐘差異。",
