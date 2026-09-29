@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta name="description" content="11/23 晚餐；C 組放行李後到餐廳會合，餐後再前往晴空塔。"/>
+<title>大東縁｜東京餐廳攻略</title>
+<style>
+:root{
+  --ink:#2d2926;
+  --muted:#706a64;
+  --paper:#fffdf8;
+  --paper-2:#f9f3e8;
+  --line:#ded3c5;
+  --maple:#a94d38;
+  --maple-dark:#713527;
+  --gold:#c8913e;
+  --sage:#61715a;
+  --blue:#3e7388;
+  --red-soft:#f8e6df;
+  --gold-soft:#fff1d7;
+  --sage-soft:#eaf1e5;
+  --blue-soft:#e8f1f4;
+  --shadow:0 12px 36px rgba(55,42,32,.10);
+  --radius:22px;
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  overflow-x:hidden;
+  color:var(--ink);
+  background:#ece7df;
+  font-family:"DFKai-SB","BiauKai","標楷體","KaiTi","STKaiti",serif;
+  font-size:15px;
+  line-height:1.72;
+  -webkit-text-size-adjust:100%;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue);text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+button,input{font:inherit}
+.wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
+.sitebar{
+  position:sticky;top:0;z-index:30;
+  background:rgba(255,253,248,.94);
+  border-bottom:1px solid rgba(128,104,82,.18);
+  backdrop-filter:blur(12px);
+}
+.sitebar-inner{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--maple-dark);font-weight:900;letter-spacing:.04em}
+.brand-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--red-soft);font-family:serif}
+.nav-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  border:1px solid #d2c5b6;border-radius:999px;padding:7px 12px;
+  background:#fff;color:#4f4944;font-size:12px;font-weight:850;line-height:1.2;
+  text-decoration:none;white-space:normal;text-align:center;
+}
+.btn:hover{filter:brightness(.98);text-decoration:none}
+.btn.primary{background:var(--maple);border-color:var(--maple);color:#fff}
+.btn.sage{background:var(--sage);border-color:var(--sage);color:#fff}
+.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+.hero-home{
+  position:relative;isolation:isolate;
+  background:
+    radial-gradient(circle at 86% 16%,rgba(201,145,62,.27),transparent 34%),
+    radial-gradient(circle at 6% 88%,rgba(97,113,90,.22),transparent 36%),
+    linear-gradient(135deg,#f5e2d6 0%,#fffdf8 52%,#e8efe3 100%);
+  border-bottom:1px solid #d9d0c3;
+}
+.hero-home-inner{padding:64px 0 54px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);gap:30px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--maple);font-weight:900;text-transform:uppercase}
+h1,h2,h3,h4{margin-top:0;overflow-wrap:anywhere}
+h1{font-size:clamp(36px,5vw,60px);line-height:1.2;margin:10px 0 16px;color:#323c31;letter-spacing:.02em}
+.lead{font-size:18px;line-height:1.68;color:#5c5149;margin:0 0 20px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:850;border:1px solid}
+.badge.red{background:var(--red-soft);border-color:#e1b7aa;color:#813c31}
+.badge.gold{background:var(--gold-soft);border-color:#e6c982;color:#70551d}
+.badge.sage{background:var(--sage-soft);border-color:#bed0b4;color:#435c40}
+.badge.blue{background:var(--blue-soft);border-color:#bed4dd;color:#315f71}
+.hero-collage{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:190px 190px;gap:10px}
+.hero-collage figure{margin:0;overflow:hidden;border-radius:24px;border:5px solid rgba(255,255,255,.75);box-shadow:var(--shadow);background:#eee5d8}
+.hero-collage figure:first-child{grid-row:1/3}
+.hero-collage img{width:100%;height:100%;object-fit:cover}
+.notice{margin:22px 0;border-radius:18px;padding:13px 15px;background:#fff8df;border:1px solid #e4ca80;color:#654f23;line-height:1.6}
+.notice strong{color:#704529}
+.main{padding:34px 0 64px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 0 18px;flex-wrap:wrap}
+.section-head h2{font-size:25px;line-height:1.25;margin:0;color:#354331}
+.section-head p{margin:0;color:var(--muted);font-size:13px}
+.filterbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+.filterbar button{border:1px solid #d8cbbb;background:#fff;border-radius:999px;padding:7px 13px;cursor:pointer;color:#554e47;font-weight:850}
+.filterbar button.active{background:var(--maple);border-color:var(--maple);color:#fff}
+.day-section{margin:38px 0 0}
+.day-title{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.day-title .day-num{flex:0 0 auto;background:var(--maple);color:#fff;border-radius:14px;padding:8px 12px;font-weight:950;line-height:1.1}
+.day-title h2{font-size:21px;margin:0;color:#3b4938}
+.day-title::after{content:"";height:1px;background:#d5cbbf;flex:1}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.venue-card{display:flex;flex-direction:column;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:var(--paper);box-shadow:0 5px 20px rgba(52,43,35,.055);color:inherit;text-decoration:none;transition:.18s transform,.18s box-shadow}
+.venue-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);text-decoration:none}
+.card-photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eee5d8}
+.card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+.venue-card:hover .card-photo img{transform:scale(1.025)}
+.card-photo .photo-label{position:absolute;left:10px;bottom:10px;max-width:calc(100% - 20px);border-radius:999px;padding:5px 9px;background:rgba(31,27,24,.78);color:#fff;font-size:10px;font-weight:800;line-height:1.25;overflow-wrap:anywhere}
+.card-body{display:flex;flex-direction:column;flex:1;padding:15px 16px 17px}
+.card-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+.card-body h3{font-size:18px;line-height:1.35;margin:0 0 3px;color:#713527}
+.card-body .jp{font-size:11px;color:#80776f;margin:0 0 9px}
+.card-body .verdict{font-size:13px;line-height:1.58;margin:0;color:#514d48;flex:1}
+.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:13px;padding-top:11px;border-top:1px solid #e8dfd3;color:#756d65;font-size:11px;flex-wrap:wrap}
+.empty{display:none;padding:28px;border-radius:18px;background:#fff;border:1px solid var(--line);text-align:center;color:var(--muted)}
+/* venue page */
+.venue-main{padding:30px 0 66px}
+.venue-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);gap:24px;align-items:stretch;margin-bottom:22px}
+.hero-copy{border-radius:26px;padding:30px;background:linear-gradient(145deg,#fffaf2,#f4eee5);border:1px solid #dcd0c2;box-shadow:var(--shadow)}
+.hero-copy h1{font-size:clamp(32px,4vw,48px);color:#713527;margin:8px 0 3px}
+.hero-copy .jp-name{font-size:15px;color:#7c736b;margin-bottom:14px}
+.hero-copy .verdict{font-size:17px;line-height:1.68;margin:13px 0;color:#4b4945}
+.hero-photo{margin:0;overflow:hidden;border-radius:26px;background:#e9e1d6;border:1px solid #d8cdbf;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.hero-photo .media{aspect-ratio:4/3;overflow:hidden;flex:1}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo figcaption{padding:10px 13px;background:#2f2925;color:#fff;font-size:11px;line-height:1.45;overflow-wrap:anywhere}
+.photo-panel{border-radius:26px;padding:20px;background:#fff;border:1px solid var(--line);box-shadow:0 5px 20px rgba(52,43,35,.05);margin:0 0 22px}
+.photo-panel h2{font-size:20px;margin:0 0 6px;color:#3e4b3c}
+.photo-panel .intro{font-size:12px;color:var(--muted);margin:0 0 14px}
+.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.photo-figure{margin:0;border-radius:20px;overflow:hidden;border:1px solid #d8cdbf;background:#f8f3eb}
+.photo-figure .media{aspect-ratio:4/3;overflow:hidden;background:#ece3d8}
+.photo-figure img{width:100%;height:100%;object-fit:cover}
+.photo-figure.store-photo img{object-fit:contain;padding:8px;background:#eee7dc}
+.photo-figure figcaption{padding:12px 14px;line-height:1.5}
+.photo-figure b{display:block;font-size:15px;color:#713527;margin-bottom:3px}
+.photo-figure span{display:block;color:#625e59;font-size:12px}
+.photo-source{display:inline-block;margin-top:6px;font-size:11px;font-weight:800}
+.photo-disclaimer{font-size:10px;color:#7a746e;margin:11px 2px 0}
+.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 22px}
+.quick{border-radius:18px;padding:13px 14px;background:#fff;border:1px solid var(--line);box-shadow:0 3px 14px rgba(54,44,36,.04)}
+.quick b{display:block;color:#42533f;font-size:12px;margin-bottom:3px}
+.quick span{display:block;color:#5f5a55;font-size:12px;line-height:1.52;overflow-wrap:anywhere}
+.content-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+.panel{border-radius:22px;background:#fff;border:1px solid var(--line);padding:19px 20px;margin:0 0 18px;box-shadow:0 4px 18px rgba(52,43,35,.045);overflow:hidden}
+.panel h2{font-size:20px;line-height:1.3;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid #e3dbd0;color:#3e4b3c}
+.panel h3{font-size:17px;color:#713527;margin:16px 0 6px}
+.panel p{margin:5px 0 10px}
+.panel ul{margin:7px 0 0;padding-left:1.25em}
+.panel li{margin:6px 0}
+.dish-list{display:grid;gap:11px}
+.dish{border-radius:17px;padding:13px 14px;background:#fbf7f0;border:1px solid #e6dacb}
+.dish-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dish h3{margin:0;font-size:16px;line-height:1.4;color:#743729}
+.order-tag{flex:0 0 auto;border-radius:999px;background:var(--gold-soft);border:1px solid #e3c67b;color:#6e531b;padding:4px 8px;font-size:10px;font-weight:850;line-height:1.25}
+.dish p{font-size:12px;color:#625d57;margin:6px 0 0}
+.alert{border-radius:16px;padding:11px 13px;margin:9px 0;border:1px solid}
+.alert.red{background:#fff0eb;border-color:#e6b6aa;color:#74382e}
+.alert.gold{background:#fff7df;border-color:#e4cc88;color:#665021}
+.alert.sage{background:#eef5e9;border-color:#bed0b6;color:#415a3f}
+.phrase{border-radius:15px;padding:11px 13px;background:#f2f3ef;border:1px solid #d9ddd3;margin:8px 0;font-size:13px;overflow-wrap:anywhere}
+.source-list{list-style:none!important;padding:0!important;margin:0!important;display:grid;gap:8px}
+.source-list li{padding:10px 12px;border-radius:14px;background:#f8f4ec;border:1px solid #e3dacd;margin:0!important}
+.source-list a{font-weight:900}
+.source-list span{display:block;font-size:11px;color:#6d6862;margin-top:2px}
+.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.footer{border-top:1px solid #d7cec2;padding:23px 0 35px;color:#777069;background:#f4efe8;font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(max-width:980px){
+  .hero-home-inner,.venue-hero{grid-template-columns:1fr}
+  .hero-collage{grid-template-rows:170px 170px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  body{font-size:14px;background:var(--paper)}
+  .wrap{width:min(100% - 22px,1180px)}
+  .sitebar-inner{min-height:58px}
+  .brand span:last-child{max-width:220px}
+  .nav-actions{width:100%;display:grid;grid-template-columns:1fr 1fr}
+  .nav-actions .btn{width:100%}
+  .hero-home-inner{padding:38px 0 34px;gap:22px}
+  h1{font-size:30px}
+  .lead{font-size:15px}
+  .hero-collage{grid-template-columns:1fr 1fr;grid-template-rows:160px 120px}
+  .hero-collage figure:first-child{grid-row:auto;grid-column:1/3}
+  .main,.venue-main{padding-top:24px}
+  .cards,.photo-grid,.content-grid{grid-template-columns:1fr}
+  .quick-grid{grid-template-columns:1fr}
+  .hero-copy{padding:22px 18px}
+  .venue-hero{gap:14px}
+  .photo-panel,.panel{padding:16px}
+  .section-head h2{font-size:21px}
+  .day-title h2{font-size:19px}
+  .card-body h3{font-size:18px}
+  .photo-figure .media,.hero-photo .media{aspect-ratio:4/3}
+}
+@media(max-width:420px){
+  .wrap{width:min(100% - 16px,1180px)}
+  .sitebar-inner{padding:8px 0}
+  .brand{font-size:13px}
+  .brand-mark{width:30px;height:30px}
+  .nav-actions{grid-template-columns:1fr}
+  .hero-collage{grid-template-rows:145px 105px}
+  .hero-copy h1{font-size:25px}
+  .badges{gap:6px}
+  .badge{font-size:10px}
+}
+/* per-dish-photo:start */
+.dish-list{display:grid;gap:13px}
+.dish{
+  display:grid;grid-template-columns:156px minmax(0,1fr);gap:0;
+  padding:0;overflow:hidden;background:#fbf7f0;border:1px solid #e6dacb;
+}
+.dish-visual{margin:0;min-height:142px;background:#eee5d9;border-right:1px solid #e2d5c6;position:relative;overflow:hidden}
+.dish-visual .dish-media{width:100%;height:100%;min-height:142px;overflow:hidden;display:grid;place-items:center;background:#eee5d9}
+.dish-visual img{width:100%;height:100%;min-height:142px;object-fit:cover;transition:opacity .2s ease}
+.dish-visual.is-loading img{opacity:.55}
+.dish-visual.is-fallback img{object-fit:contain;padding:14px;background:#f3ede4}
+.dish-visual figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 8px 6px;
+  background:linear-gradient(transparent,rgba(38,31,27,.88));color:#fff;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:10px;line-height:1.32;
+}
+.dish-photo-label{display:block;font-weight:750;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.dish-photo-source{display:inline-block;margin-top:2px;color:#fff;text-decoration:underline;font-weight:750}
+.dish-photo-source:hover{color:#fff}
+.dish-copy{padding:13px 14px;align-self:center}
+.dish-copy .dish-top{margin:0}
+.dish-copy p{margin-bottom:0}
+@media(max-width:700px){
+  .dish{grid-template-columns:128px minmax(0,1fr)}
+  .dish-visual,.dish-visual .dish-media,.dish-visual img{min-height:132px}
+}
+@media(max-width:480px){
+  .dish{grid-template-columns:1fr}
+  .dish-visual{border-right:0;border-bottom:1px solid #e2d5c6;aspect-ratio:16/9;min-height:0}
+  .dish-visual .dish-media,.dish-visual img{min-height:0;height:100%}
+  .dish-copy{padding:12px 13px 14px}
+}
+/* per-dish-photo:end */
+@media print{
+  body{background:#fff;font-size:10px}
+  .sitebar,.filterbar,.footer{display:none!important}
+  .wrap{width:100%;max-width:none}
+  .main,.venue-main{padding:0}
+  .venue-card,.panel,.photo-panel,.quick,.hero-copy,.hero-photo{box-shadow:none;break-inside:avoid}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  a{color:inherit}
+}
+body,button,a{font-family:"DFKai-SB","BiauKai","KaiTi",serif}</style>
+</head>
+<body>
+<header class="sitebar"><div class="wrap sitebar-inner"><a class="brand" href="../../?view=restaurants&amp;day=3"><span class="brand-mark">食</span><span>回到當日餐廳攻略</span></a><a class="btn blue" href="../../?view=days&amp;day=3">每日行程</a></div></header>
+<main class="venue-main"><div class="wrap">
+<section class="venue-hero"><div class="hero-copy"><div class="eyebrow">DAY 3 · 晚餐 · 本所吾妻橋</div><h1>大東縁</h1><div class="jp-name">焼肉 大東縁</div><p class="verdict">11/23 晚餐；C 組放行李後到餐廳會合，餐後再前往晴空塔。</p><div class="action-row"><a class="btn blue" href="https://maps.app.goo.gl/KTH72UYA1GzS5AFs8" target="_blank" rel="noopener noreferrer">Google Maps</a><a class="btn sage" href="https://daitouen.net/map.html" target="_blank" rel="noopener noreferrer">官方資訊</a><a class="btn primary" href="tel:+81336234129" target="_blank" rel="noopener noreferrer">預約電話</a></div></div><figure class="hero-photo"><div class="media"><img src="../assets/food-grill.svg" alt="燒肉料理示意圖，非店家實拍"/></div><figcaption>料理示意圖，非店家實景或實拍餐點</figcaption></figure></section>
+<div class="content-grid"><section class="panel"><h2>用餐與交通</h2><p><strong>地址：</strong>東京都墨田區吾妻橋2-2-5 相川ビル2F</p><p>都營淺草線本所吾妻橋站 A1 出口旁。</p><p><strong>營業：</strong>12:00–23:00；週四休。 國定假日營業與團體座位請電話確認。</p><p><strong>餐點：</strong>燒肉，依店家當日菜單選擇</p><p>依現場菜單與實際點餐。</p></section>
+<section class="panel"><h2>訂位與分組</h2><p>官網建議午餐、晚餐盡量預約；電話 03-3623-4129。</p><p>先確認實際用餐人數與是否可同桌；尚未代表已完成訂位。</p><ul><li>A、B 組下午晴空塔自由活動後到餐廳集合。</li><li>C 組先放行李，再到大東縁會合。</li><li>餐後一起前往晴空塔；確切集合時間在群組確認。</li></ul><p><strong>不吃牛肉者：</strong>同行有不吃牛肉者；可吃的主餐、醬汁與共用烤網須事前向店家確認。</p></section></div>
+<section class="panel"><h2>行前確認</h2><ul><li>11/23 為國定假日，不能只依平日營業表判斷。</li><li>不吃牛肉者餐點尚待店家確認。</li></ul><p>資料核對：2026/09/29。已列入行程不代表已完成餐廳訂位。</p><div class="action-row"><a class="btn blue" href="https://maps.app.goo.gl/KTH72UYA1GzS5AFs8" target="_blank" rel="noopener noreferrer">Google Maps</a><a class="btn sage" href="https://daitouen.net/map.html" target="_blank" rel="noopener noreferrer">官方資訊</a><a class="btn primary" href="tel:+81336234129" target="_blank" rel="noopener noreferrer">預約電話</a></div></section>
+</div></main><footer class="footer"><div class="wrap">2026 東京・日光・成田旅行</div></footer></body></html>
+
