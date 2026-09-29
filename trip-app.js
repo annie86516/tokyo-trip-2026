@@ -139,9 +139,26 @@
   host.id = 'trip-app';
   const root = host.attachShadow({mode:'open'});
   // Image errors do not bubble; capture also covers cards inserted after fetch.
+  root.addEventListener('load', event => {
+    const img=event.target;
+    if(img.tagName!=='IMG' || !img.naturalWidth)return;
+    img.hidden=false;
+    if(!img.dataset.fallbackTried && img.nextElementSibling?.className==='image-load-note') {
+      img.nextElementSibling.remove();
+    }
+  }, true);
   root.addEventListener('error', event => {
     const img=event.target;
     if(img.tagName!=='IMG')return;
+    // Ignore a delayed error from an earlier URL if the current image loaded.
+    if(img.complete && img.naturalWidth>0)return;
+    const photoUrl=new URL(img.src,document.baseURI);
+    if(photoUrl.origin===location.origin && !img.dataset.imageRetry && !img.dataset.fallbackTried) {
+      img.dataset.imageRetry='true';
+      photoUrl.searchParams.set('photo_retry','1');
+      setTimeout(()=>{if(img.isConnected)img.src=photoUrl.href;},800);
+      return;
+    }
     const fallback=img.dataset.imageFallback;
     if(fallback && !img.dataset.fallbackTried) {
       img.dataset.fallbackTried='true';
