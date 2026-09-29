@@ -107,11 +107,11 @@
       });
       // Old note described pink paper highlighting, which has no role in this view.
       clone.querySelectorAll('.summary-lead').forEach(el => {
-        if (el.textContent.includes('粉紅色')) el.textContent = '各組一起走行程；餐廳依飲食喜好選擇，第 5 天用餐地點當天決定。';
+        if (el.textContent.includes('粉紅色')) el.textContent = '各組一起走行程；第 5 天午餐分開吃牛たんの檸檬淺草店／天麩羅秋光，餐後會合。';
       });
       if (state.group==='C' && source.id==='restaurant-main') {
         const arrivalMeal=document.createElement('p');
-        arrivalMeal.innerHTML='<strong>第 3 天晚餐：燒肉・大東縁。</strong>民宿放行李後前往，用餐後到晴空塔會合。<a href="https://www.google.com/maps/search/?api=1&amp;query='+encodeURIComponent('燒肉 大東縁 東京')+'" target="_blank" rel="noopener noreferrer">開啟地圖 ↗</a>';
+        arrivalMeal.innerHTML='<strong>第 3 天晚餐：燒肉・大東縁。</strong>民宿放行李後到大東縁與大家會合，用餐後再前往晴空塔。<a href="https://maps.app.goo.gl/KTH72UYA1GzS5AFs8" target="_blank" rel="noopener noreferrer">開啟地圖 ↗</a>';
         clone.querySelector('table')?.before(arrivalMeal);
       }
     }
@@ -234,7 +234,7 @@
     ];
     if (state.day === 3 && state.group === 'C') return [
       fixed('12:10','航班抵達'), suggested('13:00–15:00'),
-      suggested('17:00–18:30'), suggested('18:30–19:00')
+      suggested('17:30–18:30'), suggested('18:30–19:00')
     ];
     return {
       1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),suggested('20:45 起')],
@@ -278,26 +278,26 @@
     if (state.day === 3 && state.group === 'C') {
       title = '抵達東京・燒肉與晴空塔';
       photo = source.querySelectorAll('.day-photo img')[1];
-      route = '成田 T2 → Skyliner、青砥轉乘 → 本所吾妻橋民宿放行李 → 燒肉・大東縁 → 晴空塔與大家會合';
+      route = '成田 T2 → Skyliner、青砥轉乘 → 本所吾妻橋民宿放行李 → 大東縁與大家會合吃晚餐 → 晴空塔';
       items = [groupArrival(), ...[...$('#day3-route-detail-b1').querySelectorAll('.group-c-arrival-row')].map(row=>`<strong>${row.cells[1].textContent}</strong><p>${row.cells[2].textContent}</p><p>${row.cells[3].textContent}</p>`)];
-      items.push('<strong>集合：</strong>吃完燒肉再到晴空塔，出發前在群組確認會合位置。<br/><a href="https://www.google.com/maps/search/?api=1&amp;query='+encodeURIComponent('燒肉 大東縁 東京')+'" target="_blank" rel="noopener noreferrer">燒肉・大東縁地圖 ↗</a>');
+      items.push('<strong>餐後安排：</strong>大東縁用餐結束後，再一起前往晴空塔；依實際用餐進度調整出發時間。<br/><a href="https://maps.app.goo.gl/KTH72UYA1GzS5AFs8" target="_blank" rel="noopener noreferrer">燒肉・大東縁地圖 ↗</a>');
       extras = [];
     } else if (state.day === 3) {
       const selected = ['yanaka','sumida'].includes(state.routes[state.group]) ? state.routes[state.group] : 'all';
-      route = '本所吾妻橋 → 自選谷根千或京島・向島 → 直接前往晴空塔 Solamachi → 酒彩蕎麦 初代晚餐';
+      route = '本所吾妻橋 → 自選谷根千或京島・向島 → 晴空塔 Solamachi → 大東縁晚餐 → 晴空塔夜景';
       items[0] = '<strong>上午自由選線：</strong>谷根千適合老街與神社散步；京島・向島適合麵包、咖啡與輕鬆慢走。最晚 12:15 離開上午路線，直接前往晴空塔。';
       custom = `<h2 class="section-label">上午想走哪一條？</h2><p class="intro">A、B 組都可自由選擇，與航班組別無關。</p><div class="route-select" role="group" aria-label="第 3 天散步路線">${[['all','兩條都看'],['yanaka','谷根千'],['sumida','京島・向島']].map(([key,label])=>`<button type="button" data-route="${key}" aria-pressed="${selected===key}">${label}</button>`).join('')}</div>`;
       extras = extras.filter(el => selected === 'all' || (selected === 'yanaka' ? el.id !== 'day3-route-detail-b1' : el.id !== 'day3-route-detail'));
       if (selected === 'yanaka') extras = extras.map(el=>{
         if(!el.classList.contains('day3-food')) return el;
         const dinner=document.createElement('section');
-        dinner.innerHTML='<h2>酒彩蕎麥晚餐</h2>';
+        dinner.innerHTML='<h2>大東縁晚餐</h2>';
         dinner.append(el.querySelector('.diet-inline-card').cloneNode(true));
         return dinner;
       });
     }
     if (state.day === 5) {
-      custom += '<div class="note"><strong>A～C 組一起走行程。</strong>午餐當天再決定：吃牛肉可選 Chinya 壽喜燒；不吃牛肉可選天麩羅秋光。用餐可分開，餐後約好集合。</div>';
+      custom += '<div class="note"><strong>A～C 組一起走行程。</strong>11/25 午餐分開吃：吃牛肉者去牛たんの檸檬淺草店，不吃牛肉者可選天麩羅秋光。先確認各邊人數與用餐時間，餐後會合繼續走行程。</div>';
     }
     if (state.day === 9) {
       const row = flightRow(returns,state.group);
@@ -312,7 +312,6 @@
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
       <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div></aside>
       <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2><p class="schedule-legend">以下皆為日本當地時間。一般字色為建議安排；<span>紅字為航班、班次或行程指定時間</span>，尚待確認者已註明。候位、路況或票券有變動時，以當天確認為準。</p>${list(items)}${custom}
-      ${source.querySelector('.ueno-recovery-card') ? detail('逛街後休息｜上野足湯與按摩',source.querySelector('.ueno-recovery-card'),'ueno') : ''}
       ${source.querySelector('.day-alert-grid') ? `<div class="document">${readable(source.querySelector('.day-alert-grid'))}</div>` : ''}
       ${extras.length?'<h2 class="section-label">交通細節與餐飲</h2>':''}${extras.map((el,i)=>detail(el.querySelector('h2,.day-title')?.textContent || '補充資料',el,`day-${state.day}-${i}`)).join('')}
       <div class="day-footer"><button type="button" data-day="${state.day-1}" ${state.day===firstDay()?'disabled':''}>← 前一天</button><span>DAY ${String(state.day).padStart(2,'0')} / 09</span><button type="button" data-day="${state.day+1}" ${state.day===9?'disabled':''}>後一天 →</button></div></section></div>`;
