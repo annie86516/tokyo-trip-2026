@@ -314,7 +314,7 @@
       });
     }
     if (state.day === 5) {
-      custom += '<div class="note"><strong>A～C 組一起走行程。</strong>11/25 午餐分開吃：吃牛肉者去牛たんの檸檬淺草店，不吃牛肉者可選天麩羅秋光。先確認各邊人數與用餐時間，餐後會合繼續走行程。</div>';
+      custom += '<div class="note"><strong>A～C 組一起走行程。</strong>11/25 12:00 牛たんの檸檬淺草店已分兩筆訂位，共 5 人（3 人＋2 人；預約號見餐廳攻略）。不吃牛肉者可選天麩羅秋光，訂位與餐後會合點仍待確認；午餐分開吃，餐後會合繼續走行程。</div>';
     }
     if (state.day === 9) {
       const row = flightRow(returns,state.group);
