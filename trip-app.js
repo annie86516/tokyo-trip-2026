@@ -205,7 +205,7 @@
     </div></header>
     <main class="main" id="main"></main>
     <aside class="group-dock" aria-label="航班組別">
-      <div class="groups" role="group" aria-label="選擇旅行組別">${GROUPS.map(g=>`<button type="button" data-group="${g}" aria-pressed="false">${g} 組</button>`).join('')}</div>
+      <div class="groups" role="group" aria-label="選擇旅行組別（全部成人）">${GROUPS.map(g=>`<button type="button" data-group="${g}" aria-pressed="false">${g} 組 · ${g==='A'?3:2} 人</button>`).join('')}</div>
       <p class="group-context"></p>
     </aside>
     <nav class="stay-dock" aria-label="選擇住宿地點">${STAY_KEYS.map(key=>`<button type="button" data-stay="${key}" aria-pressed="false">${STAY_INFO[key].label}</button>`).join('')}</nav>
@@ -254,13 +254,13 @@
       suggested('17:30–18:30'), suggested('18:30–19:00')
     ];
     return {
-      1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),suggested('20:45 起')],
+      1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),suggested('21:10 起')],
       2:[suggested('09:00–09:45'),suggested('10:15–11:15'),suggested('11:15–11:45'),suggested('12:00–13:30'),suggested('14:30–18:00'),suggested('18:00–19:00')],
       3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
       4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:15–14:15'),suggested('14:15–14:45'),fixed('15:20 報到／15:40 入場','SKY 行程指定時間・依票券確認'),suggested('17:00–20:00'),suggested('20:00–20:30')],
       5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–12:15'),suggested('12:30–14:00'),suggested('14:30–17:30'),suggested('17:30–19:30')],
       6:[fixed('09:03 或 10:03','候選列車班次・尚待確認'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00–16:30')],
-      7:[suggested('09:00 出發；13:00–13:30 返程'),suggested('14:00–16:00（依末班入場取捨）'),suggested('17:30–18:30')],
+      7:[suggested('07:50 前出發；湖區午餐；12:55／13:15 候選下山'),suggested('14:00–16:00（依末班入場取捨）'),suggested('17:30–18:30')],
       8:[suggested('12:30–13:00（依交通調整）'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
       9:[fixed('08:20','飯店接駁・入住時確認席位'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
     }[state.day] || [];
