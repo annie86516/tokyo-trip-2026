@@ -1082,10 +1082,28 @@
         "url": "https://daitouen.net/map.html"
       }
     ],
-    "image": "food-grill.svg",
-    "image_note": "料理示意圖，非店家實景或實拍餐點。",
+    "image": "daitouen-jou-karubi.jpg",
+    "image_note": "大東縁官方餐點照片｜上カルビ定食；實際供應依店家當日為準。",
     "signature": "燒肉，依店家當日菜單選擇",
-    "verified_at": "2026-09-29"
+    "verified_at": "2026-09-29",
+    "dish_photo": "assets/daitouen-jou-karubi.jpg",
+    "dish_source": "https://daitouen.net/menu.html",
+    "dish_caption": "大東縁官方餐點照片｜上カルビ定食",
+    "store_photo": null,
+    "store_source": null,
+    "store_caption": null,
+    "photos": [
+      {
+        "path": "assets/daitouen-jou-karubi.jpg",
+        "caption": "燒肉・上カルビ定食",
+        "source": "https://daitouen.net/menu.html"
+      },
+      {
+        "path": "assets/daitouen-tegutan.jpg",
+        "caption": "大東縁特製テグタン",
+        "source": "https://daitouen.net/menu.html"
+      }
+    ]
   },
   {
     "id": "12-triton-solamachi",
@@ -2236,10 +2254,28 @@
         "url": "https://tabelog.com/tokyo/A1311/A131102/13302370/"
       }
     ],
-    "image": "food-grill.svg",
-    "image_note": "料理示意圖，非店家實景或實拍餐點。",
+    "image": "lemon-kiwami-steak.jpg",
+    "image_note": "品牌官方餐點照片｜「極み」厚切牛舌定食；實際供應依店家當日為準。",
     "signature": "「極み」厚切牛舌定食",
-    "verified_at": "2026-09-29"
+    "verified_at": "2026-09-29",
+    "dish_photo": "assets/lemon-kiwami-steak.jpg",
+    "dish_source": "https://www.store-gyutan-lemon.com/",
+    "dish_caption": "品牌官方餐點照片｜「極み」厚切牛舌定食",
+    "store_photo": "assets/lemon-asakusa-exterior.jpg",
+    "store_source": "https://www.store-gyutan-lemon.com/",
+    "store_caption": "牛たんの檸檬淺草店實際外觀",
+    "photos": [
+      {
+        "path": "assets/lemon-asakusa-exterior.jpg",
+        "caption": "淺草店外觀",
+        "source": "https://www.store-gyutan-lemon.com/"
+      },
+      {
+        "path": "assets/lemon-asakusa-interior.png",
+        "caption": "淺草店內部",
+        "source": "https://www.store-gyutan-lemon.com/"
+      }
+    ]
   },
   {
     "id": "24-akimitsu-asakusa",
