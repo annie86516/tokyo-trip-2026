@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-09-29",
+  "note": "Photos from restaurant-owned public websites. Copyright remains with the respective restaurant; no open-license status is claimed. No image editing was applied.",
+  "photos": [
+    {
+      "file": "lemon-kiwami-steak.jpg",
+      "source": "https://www.store-gyutan-lemon.com/",
+      "image": "https://static.wixstatic.com/media/3805f3_37e6996af7934a7280cc40db56540f2f~mv2.jpg",
+      "description": "品牌官方「極み」厚切牛舌定食，非淺草店專屬餐點實拍"
+    },
+    {
+      "file": "lemon-asakusa-exterior.jpg",
+      "source": "https://www.store-gyutan-lemon.com/",
+      "image": "https://static.wixstatic.com/media/3805f3_59d48ff2e0ad40e2913ddbd5c8768c20~mv2.jpg",
+      "description": "官網淺草本店區塊的店面外觀"
+    },
+    {
+      "file": "lemon-asakusa-interior.png",
+      "source": "https://www.store-gyutan-lemon.com/",
+      "image": "https://static.wixstatic.com/media/3805f3_7f52b54f478b4796ae0fce1583e08a59~mv2.png",
+      "description": "官網淺草本店區塊的餐廳內部"
+    },
+    {
+      "file": "daitouen-jou-karubi.jpg",
+      "source": "https://daitouen.net/menu.html",
+      "image": "https://daitouen.net/image/jo_calbe.jpg",
+      "description": "大東縁官方上カルビ定食照片，不代表本次晚餐已訂套餐"
+    },
+    {
+      "file": "daitouen-tegutan.jpg",
+      "source": "https://daitouen.net/menu.html",
+      "image": "https://daitouen.net/image/tegutan_2012.jpg",
+      "description": "大東縁官方特製テグタン歷史餐點照片，供應需確認"
+    }
+  ]
+}
