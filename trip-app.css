@@ -335,7 +335,7 @@ details[open]>summary{background:var(--soft)}
   .supplement-document .month-combined,.supplement-document .fact-grid,.supplement-document .two-col{grid-template-columns:1fr}
 }
 @media(max-width:420px){
-  .main[data-view="reserve"],.main[data-view="restaurants"],.main[data-view="money"]{padding-left:16px;padding-right:16px}
+  .main[data-view="reserve"],.main[data-view="restaurants"],.main[data-view="money"],.main[data-view="coupons"]{padding-left:16px;padding-right:16px}
   .money-add-person{grid-template-columns:1fr}.money-add-person button{width:100%}
   .money-person-picker,.money-fx-grid,.money-split-preview{grid-template-columns:1fr}
   .money-member-head{flex-direction:column}.money-member-tools{width:100%;justify-content:stretch}.money-member-tools button{flex:1}
@@ -355,6 +355,13 @@ input,select,textarea{font-size:16px!important}
 .schedule-legend span,.schedule-time.is-fixed{color:#b42332}
 .schedule-time{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;margin:0 0 5px;padding-bottom:4px;border-bottom:1px solid var(--line);color:#46505c;line-height:1.5;font-variant-numeric:tabular-nums}
 .schedule-time span{font-size:11px}.schedule-time b{font-size:14px;font-weight:700}
+.meal-split-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:9px}
+.meal-split-card{min-width:0;padding:11px;border:1px solid #ead8ce;border-radius:12px;background:#fffaf6}
+.meal-split-booked{border-top:3px solid #aa3f3a}.meal-split-pending{border-top:3px solid #c69a48;background:#fffdf7}
+.meal-split-head{display:flex;align-items:center;justify-content:space-between;gap:7px}.meal-split-head>strong{font-size:12px;color:#34424a}.meal-split-head>span{padding:2px 7px;border-radius:999px;background:#f5e8e1;color:#8e443b;font-size:10px;font-weight:700;white-space:nowrap}
+.meal-split-card h3{margin:6px 0 3px;font-size:14px;line-height:1.5}.meal-split-card h3 a{color:#773c35}.meal-split-card p{margin:4px 0;font-size:11px;line-height:1.6}.meal-split-card>a,.meal-split-links a{display:inline-block;margin-top:3px;font-size:11px;font-weight:700}
+.meal-split-caution{padding:6px 7px;border-radius:8px;background:#fff1d9;color:#73521f}.meal-split-links{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:560px){.meal-split-grid{grid-template-columns:1fr}.meal-split-card{padding:10px}}
 
 /* Compact itinerary cards: spacing only; preserve the current type sizes. */
 .timeline{padding-left:38px;gap:9px}
@@ -368,3 +375,23 @@ input,select,textarea{font-size:16px!important}
 .day-plan .table-card>div{padding:4px 0;gap:8px}
 .day-plan .table-card dt{padding-top:0}
 .day-plan .table-card p{margin:4px 0}
+.main[data-view="coupons"]{max-width:960px}
+.coupon-notice{border-left:4px solid #b42332;background:#fff8f4}
+.coupon-notice h2{margin-bottom:8px;color:#8f2937}
+.coupon-notice a,.coupon-card>a{font-weight:700}
+.coupon-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.coupon-card{margin:0;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.coupon-card h2{margin:10px 0 4px;color:#2b3e4b;font-size:17px}
+.coupon-card p{font-size:12px;line-height:1.75}
+.coupon-top{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.coupon-status{color:#62717a;font-size:10px}
+.coupon-caution{margin-top:auto!important;padding:9px 10px;border-radius:9px;background:#fff7e8;color:#73521f;font-size:11px!important}
+.coupon-footnote{color:var(--muted);font-size:10px;line-height:1.7;margin:14px 2px}
+.coupon-image-link{display:flex;width:100%;justify-content:center;align-items:center;margin:10px 0 2px;padding:8px;border:1px solid #e8e1da;border-radius:12px;background:#fff;overflow:hidden}
+.coupon-art{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;object-position:center top}
+.coupon-image-wide .coupon-art{max-height:none}
+.coupon-extra{margin-top:16px}
+.coupon-links{display:flex;gap:10px;flex-wrap:wrap}
+.coupon-links a{font-weight:700}
+@media(max-width:700px){.coupon-grid{grid-template-columns:1fr}}
+

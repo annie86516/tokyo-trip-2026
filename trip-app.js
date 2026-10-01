@@ -18,6 +18,7 @@
       plane:'<path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/>',
       bed:'<path d="M3 18v3m18-3v3M3 18h18V9H3v9ZM5 9V4h14v5M7 9V7h3v2m4 0V7h3v2M3 14h18"/>',
       ticket:'<path d="M4 4h16v5a3 3 0 0 0 0 6v5H4v-5a3 3 0 0 0 0-6V4Zm10 0v3m0 3v4m0 3v3"/>',
+      coupon:'<path d="m20.5 13.5-7 7L3 10V3h7l10.5 10.5Z"/><circle cx="7.5" cy="7.5" r="1"/>',
       wallet:'<path d="M4 6h15a2 2 0 0 1 2 2v11H4a2 2 0 0 1-2-2V6h2Zm0 0V4h13v2m0 6h4v4h-4a2 2 0 0 1 0-4Z"/>',
       book:'<path d="M12 5v16m0-16C8 2 4 3 2 4v16c3-1 6-1 10 1 4-2 7-2 10-1V4c-2-1-6-2-10 1Z"/>',
       pin:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
@@ -35,7 +36,7 @@
     group: GROUPS.includes(initialGroup) ? initialGroup : 'A',
     day: Number(params.get('day') || saved.day) || 1,
     stay: STAY_KEYS.includes(initialStay) ? initialStay : 'tokyo',
-    view: ['days', 'flights', 'stays', 'money', 'reserve', 'restaurants', 'guide'].includes(params.get('view')) ? params.get('view') : 'days',
+    view: ['days', 'flights', 'stays', 'money', 'reserve', 'restaurants', 'guide', 'coupons'].includes(params.get('view')) ? params.get('view') : 'days',
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
   };
   const firstDay = () => state.group === 'C' ? 3 : 1;
@@ -107,7 +108,7 @@
       });
       // Old note described pink paper highlighting, which has no role in this view.
       clone.querySelectorAll('.summary-lead').forEach(el => {
-        if (el.textContent.includes('粉紅色')) el.textContent = '各組一起走行程；第 5 天午餐分開吃牛たんの檸檬淺草店／天麩羅秋光，餐後會合。';
+        if (el.textContent.includes('粉紅色')) el.textContent = '各組一起走行程；11/25 牛たんの檸檬已訂 5 人，不吃牛的 2 位在麺 みつヰ／秋光候選中擇一，尚未決定；餐後會合。';
       });
       if (state.group==='C' && source.id==='restaurant-main') {
         const arrivalMeal=document.createElement('p');
@@ -200,6 +201,7 @@
         <button type="button" data-view="reserve">${icon('ticket')}<span>行前預約</span></button>
         <button type="button" data-view="restaurants">${icon('pin')}<span>餐廳攻略</span></button>
         <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
+        <button type="button" data-view="coupons">${icon('coupon')}<span>優惠券</span></button>
         <button type="button" data-view="money">${icon('wallet')}<span>分帳</span></button>
       </nav>
     </div></header>
@@ -247,22 +249,22 @@
     const fixed = (time, label='固定時間') => ({time, label, fixed:true});
     if (state.day === 1 && state.group === 'B') return [
       fixed('18:30','航班抵達'), fixed('20:23','預定班次・依出關調整'),
-      suggested('21:15–21:30'), suggested('21:30 後'), suggested('依抵達時間調整')
+      suggested('21:05–21:15 抵達本所吾妻橋'), fixed('21:30 鳥貴族訂位','已訂位'), suggested('若交通延誤請聯絡店家')
     ];
     if (state.day === 3 && state.group === 'C') return [
       fixed('12:10','航班抵達'), suggested('13:00–15:00'),
       suggested('17:30–18:30'), suggested('18:30–19:00')
     ];
     return {
-      1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),suggested('21:10 起')],
+      1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),fixed('21:30 鳥貴族','已訂位')],
       2:[suggested('09:00–09:45'),suggested('10:15–11:15'),suggested('11:15–11:45'),suggested('12:00–13:30'),suggested('14:30–18:00'),suggested('18:00–19:00')],
       3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
       4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:15–14:15'),suggested('14:15–14:45'),suggested('15:00–18:30 澀谷自由活動'),suggested('依集合時間返回民宿')],
-      5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–11:50'),fixed('12:00','已訂位'),suggested('14:30–17:30'),suggested('17:30–19:30')],
+      5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–12:00'),suggested('12:00–14:00（檸檬 5 位已訂；另 2 位候選待選）'),suggested('14:00–15:30 淺草自由活動'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 PATISSERIE TEN&（建議時段）'),suggested('18:30–19:20 HARBS（有位內用／否則外帶）'),suggested('19:20 起 六本木夜間行程')],
       6:[fixed('09:03 或 10:03','候選列車班次・尚待確認'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00–16:30')],
       7:[suggested('07:50 前出發；湖區午餐；12:55／13:15 候選下山'),suggested('14:00–16:00（依末班入場取捨）'),suggested('17:30–18:30')],
       8:[suggested('12:30–13:00（依交通調整）'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
-      9:[fixed('08:20','飯店接駁・入住時確認席位'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
+      9:[fixed('08:20','飯店接駁・前一晚登記'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
     }[state.day] || [];
   }
   function list(items) {
@@ -314,7 +316,11 @@
       });
     }
     if (state.day === 5) {
-      custom += '<div class="note"><strong>A～C 組一起走行程。</strong>11/25 12:00 牛たんの檸檬淺草店已分兩筆訂位，共 5 人（3 人＋2 人；預約號見餐廳攻略）。午餐分開吃，餐後在淺草會合；不吃牛肉者的秋光用餐選項，請先確認營業與入座。淺草散步後回民宿放東西、休息，再一起前往六本木之丘：聖誕市集目前公告 11:00–21:00、櫸樹坂點燈 17:00–22:00。<a href="https://www.christmas.hills-site.com/" target="_blank" rel="noopener noreferrer">活動官方頁</a>；當年度詳細內容公開後再確認。阿美橫丁不去。</div>';
+      const lunchIndex = items.findIndex(html => html.includes('A～C 組午餐') || html.includes('分開用餐'));
+      if (lunchIndex >= 0) items[lunchIndex] = `<strong>11/25 午餐｜分開用餐</strong><div class="meal-split-grid" aria-label="午餐分組">
+        <article class="meal-split-card meal-split-booked"><div class="meal-split-head"><strong>吃牛肉・5 人</strong><span>已訂位</span></div><h3><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">牛たんの檸檬 淺草店</a></h3><p><b>11/25 12:00</b>｜兩筆訂位：3 人＋2 人</p><a href="./restaurant-guide/venues/35-gyutan-lemon-asakusa.html">查看訂位資料與代碼 ↗</a></article>
+        <article class="meal-split-card meal-split-pending"><div class="meal-split-head"><strong>不吃牛肉・2 人</strong><span>待選店</span></div><h3>淺草午餐二選一</h3><p>麺 みつヰ／天麩羅秋光；目前都只是候選，尚未決定或預約。</p><p class="meal-split-caution">下單前向店家確認湯底、醬汁與配料沒有牛肉、牛骨或牛脂。</p><div class="meal-split-links"><a href="https://tabelog.com/tokyo/A1311/A131102/13284327/" target="_blank" rel="noopener noreferrer">麺 みつヰ ↗</a><a href="https://akimitsu.tokyo/asakusa/" target="_blank" rel="noopener noreferrer">天麩羅秋光 ↗</a></div></article>
+      </div>`;
     }
     if (state.day === 9) {
       const row = flightRow(returns,state.group);
@@ -328,7 +334,7 @@
       <section class="weather-section" aria-label="當日行程天氣"><p>天氣資料載入中；尚未提供的預報不會以目前天氣代替。</p></section>
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
       <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div></aside>
-      <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2><p class="schedule-legend">以下皆為日本當地時間。一般字色為建議安排；<span>紅字為航班、班次或行程指定時間</span>，尚待確認者已註明。候位、路況或票券有變動時，以當天確認為準。</p>${list(items)}${custom}
+      <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${list(items)}${custom}
       ${source.querySelector('.day-alert-grid') ? `<div class="document">${readable(source.querySelector('.day-alert-grid'))}</div>` : ''}
       ${extras.length?'<h2 class="section-label">交通細節與餐飲</h2>':''}${extras.map((el,i)=>detail(el.querySelector('h2,.day-title')?.textContent || '補充資料',el,`day-${state.day}-${i}`)).join('')}
       <div class="day-footer"><button type="button" data-day="${state.day-1}" ${state.day===firstDay()?'disabled':''}>← 前一天</button><span>DAY ${String(state.day).padStart(2,'0')} / 09</span><button type="button" data-day="${state.day+1}" ${state.day===9?'disabled':''}>後一天 →</button></div></section></div>`;
@@ -365,6 +371,15 @@
       ['退稅與寄件',['tax-vjw','japan-post-domestic-1']]
     ];
     return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">這裡只保留行李準備、退稅與寄件等共用筆記。</p>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
+  }
+  function coupons() {
+    return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">就像每日行程一樣直接切換；每張卡顯示完整官方券面，點券面可放大。效期有把握的會標出日期，未確認的會註明；結帳請開卡片中的即時官方頁，不要使用截圖。</p>
+      <section class="panel coupon-notice"><h2>先看效期與免稅新制</h2><p>你傳來的 BIC CAMERA「10% TAX FREE＋最高 7% OFF」券到期日是 <strong>2026/10/31</strong>，早於 11/21 出發，因此標示為過期、不列入可用券。日本自 2026/11/1 起改為先付含稅價、出境經海關確認後退稅。山田電機頁明確表示額外 7% 折扣在新制下仍適用；其他店的退稅與折扣併用，請在購買前向店員確認。</p><a href="https://www.gotokyo.org/en/plan/tax-free-shopping/index.html" target="_blank" rel="noopener noreferrer">東京官方免稅新制說明 ↗</a></section>
+      <h2 class="section-label">優惠券完整券面｜效期與注意事項</h2><div class="coupon-grid">
+        <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">家電｜山田電機 LABI</span><span class="coupon-status">有效至 2026/12/31</span></div><a class="coupon-image-link" href="https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png" target="_blank" rel="noopener noreferrer" aria-label="放大查看山田電機完整優惠券"><img class="coupon-art" src="https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png" alt="山田電機 LABI 完整優惠券券面，10%免稅加最高7%折扣" loading="lazy" decoding="async"/></a><h2>退稅＋最高 7% 折扣</h2><p>可到 LABI 澀谷、LABI 新宿西口等指定店。額外 7% 結帳折扣在 11/1 新制後仍適用；退稅改於出境確認後辦理。</p><p class="coupon-caution">Apple、遊戲主機、特價／Outlet 等部分商品不適用額外折扣。請開下方即時券頁出示條碼，並帶護照。</p><a href="https://livejapan.com/public/operation/coupon/yamadadenki/zh-tw.html" target="_blank" rel="noopener noreferrer">開啟即時優惠券與指定店舖 ↗</a></article>
+        <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">家電／伴手禮｜LAOX 樂購仕</span><span class="coupon-status">有效至 2026/12/31</span></div><a class="coupon-image-link" href="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg" target="_blank" rel="noopener noreferrer" aria-label="放大查看 LAOX 樂購仕優惠券完整券面"><img class="coupon-art" src="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg" alt="LAOX 樂購仕完整優惠券券面，滿額享8%折扣與退稅" loading="lazy" decoding="async"/></a><h2>滿 ¥5,000 再折 8%</h2><p>指定商品、指定門市可用；淺草店在適用店舖名單內，適合 11/25 淺草行程順路查看。</p><p class="coupon-caution">不適用遊戲、藥品、特價品等部分商品，且不可和其他折扣併用。新制下退稅方式有變，結帳前請確認 8% 折扣可否搭配。</p><a href="https://livejapan.com/public/operation/coupon/laox/zh-tw.html" target="_blank" rel="noopener noreferrer">開啟優惠券、使用條件與淺草店資料 ↗</a></article>
+        <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">藥妝／零食／雜貨｜唐吉訶德</span><span class="coupon-status">官方即時券・11 月適用待複查</span></div><a class="coupon-image-link" href="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/donki_main.jpg" target="_blank" rel="noopener noreferrer" aria-label="放大查看唐吉訶德官方優惠券完整圖"><img class="coupon-art" src="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/donki_main.jpg" alt="唐吉訶德完整優惠券官方圖片，依消費門檻享額外折扣" loading="lazy" decoding="async"/></a><h2>滿額最高 5%／7% 折扣</h2><p>LIVE JAPAN 頁面列出未稅滿 ¥10,000 可享最高 5%，滿 ¥30,000 最高 7%；東京沿線有淺草、上野、新宿、澀谷、六本木等分店。</p><p class="coupon-caution">此圖僅供查看，不能拿截圖結帳；請連網開啟即時券頁，讓店員掃描動態條碼。酒類、香菸、遊戲主機及部分高價商品排除；11 月新制適用情形請再確認。</p><a href="https://livejapan.com/public/operation/coupon/donki/zh-tw.html" target="_blank" rel="noopener noreferrer">開啟即時優惠券與使用說明 ↗</a></article>
+      </div><p class="coupon-footnote">整理日期：2026/10/1。照片點開可看完整券面；實際使用請連網開官方即時券頁，效期、適用店舖和商品以官方頁／店員當日確認為準。</p>`;
   }
 
   function cleanRemote(node, baseUrl) {
@@ -485,7 +500,7 @@
     });
     const row = flightRow(departures,state.group);
     root.querySelector('.group-context').textContent = `${state.group} 組 · ${row.cells[3].textContent.trim()} · ${row.cells[1].textContent.trim()}`;
-    const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():guide();
+    const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():state.view==='coupons'?coupons():guide();
     main.innerHTML = content+`<p class="status" role="status">${statusText()}</p>`;
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
@@ -566,3 +581,4 @@
     }).catch(()=>{ offlineFailed=true; root.querySelector('.status').textContent=statusText(); });
   } else { offlineFailed=true; root.querySelector('.status').textContent=statusText(); }
 })();
+
