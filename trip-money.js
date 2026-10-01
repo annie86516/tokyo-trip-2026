@@ -2,11 +2,10 @@
   'use strict';
 
   const API_URL = 'https://iykqldpzciqelmrjzlng.supabase.co';
+  // This publishable key is intended for browser use; room credentials stay on the server.
   const API_KEY = 'sb_publishable_hgxM-twdEVzZRztE78Tpqw_rqMnwVL2';
-  const PIN = '000000';
-  const ROOM_CODE = 'D85EE3';
   const SYSTEM_MEMBER = '__系統__';
-  const MEMBER_KEY = `trip_money_member_${ROOM_CODE}`;
+  const MEMBER_KEY = 'trip_money_member_v2';
   const FX_CACHE_KEY = 'trip_money_jpy_twd_rate_v1';
   const FX_API_URL = 'https://open.er-api.com/v6/latest/JPY';
 
@@ -20,30 +19,35 @@
   let fx = {rate:null, updatedAt:null, nextUpdate:null, status:'idle', cached:false};
 
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-  const integer = value => new Intl.NumberFormat('zh-TW', {maximumFractionDigits:0}).format(Number(value) || 0);
-  const money = (value, currency = 'JPY') => `${currency==='TWD'?'NT$':'¥'}${integer(value)}`;
+  const cents = value => Math.round(((Number(value) || 0) + Number.EPSILON) * 100);
+  const fromCents = value => value / 100;
+  const amountText = value => new Intl.NumberFormat('zh-TW', {minimumFractionDigits:2,maximumFractionDigits:2}).format(fromCents(cents(value)));
+  const money = (value, currency = 'JPY') => `${currency==='TWD'?'NT$':'¥'}${amountText(value)}`;
   const rateText = value => Number(value).toLocaleString('zh-TW', {minimumFractionDigits:4,maximumFractionDigits:6});
   const currencyOf = note => /^\[(JPY|TWD)\]/.exec(String(note || ''))?.[1] || 'TWD';
   const fxRateOf = note => {
     const value = Number(/\[FX:([0-9.]+)\]/.exec(String(note || ''))?.[1]);
     return Number.isFinite(value) && value > 0 ? value : null;
   };
+  // Store new debts as integer cents so the shared ledger preserves two decimals even if its amount column is integer.
+  const amountOf = debt => (Number(debt.amount) || 0) / (/\[CENTS:1\]/.test(String(debt.note || '')) ? 100 : 1);
   const expenseIdOf = debt => /\[EXP:([^\]]+)\]/.exec(String(debt.note || ''))?.[1] || `legacy-${debt.creditorIndex}-${currencyOf(debt.note)}-${String(debt.note || '')}`;
   const totalOf = note => {
-    const tagged = Number(/\[TOTAL:([0-9]+)\]/.exec(String(note || ''))?.[1]);
+    const tagged = Number(/\[TOTAL:([0-9]+(?:\.[0-9]{1,2})?)\]/.exec(String(note || ''))?.[1]);
     if (Number.isFinite(tagged) && tagged > 0) return tagged;
-    const legacy = /(?:^|·)\s*總額\s*[^0-9]*([0-9][0-9,]*)/.exec(String(note || ''));
+    const legacy = /(?:^|·)\s*總額\s*[^0-9]*([0-9][0-9,]*(?:\.[0-9]{1,2})?)/.exec(String(note || ''));
     return legacy ? Number(legacy[1].replace(/,/g,'')) : 0;
   };
-  const visibleNote = note => String(note || '旅費').replace(/^\[(JPY|TWD)\](?:\[(?:EXP|FX|TOTAL):[^\]]+\])*\s*/, '');
-  const twdValue = (amount, rate) => Math.round((Number(amount) || 0) * (Number(rate) || 0));
+  const visibleNote = note => String(note || '旅費').replace(/^\[(JPY|TWD)\](?:\[(?:EXP|FX|TOTAL|CENTS):[^\]]+\])*\s*/, '');
+  const twdCents = (amount, rate) => Math.round(cents(amount) * (Number(rate) || 0));
+  const twdValue = (amount, rate) => fromCents(twdCents(amount, rate));
   const sameName = (a,b) => String(a || '').trim().toLocaleLowerCase('zh-TW') === String(b || '').trim().toLocaleLowerCase('zh-TW');
 
   async function rpc(name, args) {
-    const response = await fetch(`${API_URL}/rest/v1/rpc/${name}`, {
+    const response = await fetch(`${API_URL}/rest/v1/rpc/trip_money_gateway`, {
       method:'POST',
       headers:{'Content-Type':'application/json',apikey:API_KEY},
-      body:JSON.stringify(args)
+      body:JSON.stringify({p_operation:name,p_args:args})
     });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(String(data.message || data.error || '帳本連線失敗').replace('邀請碼或密碼不正確','目前無法開啟共同帳本'));
@@ -98,15 +102,15 @@
       const balances = members.map(()=>0);
       (ledger.debts || []).filter(debt=>currencyOf(debt.note)===currency).forEach(debt=>{
         if (balances[debt.debtorIndex] === undefined || balances[debt.creditorIndex] === undefined) return;
-        balances[debt.debtorIndex] -= Number(debt.amount) || 0;
-        balances[debt.creditorIndex] += Number(debt.amount) || 0;
+        balances[debt.debtorIndex] -= cents(amountOf(debt));
+        balances[debt.creditorIndex] += cents(amountOf(debt));
       });
       const owe = balances.map((amount,index)=>({index,amount:-amount})).filter(item=>item.amount>0);
       const receive = balances.map((amount,index)=>({index,amount})).filter(item=>item.amount>0);
       let i=0,j=0;
       while(i<owe.length && j<receive.length) {
         const amount=Math.min(owe[i].amount,receive[j].amount);
-        result.push({from:owe[i].index,to:receive[j].index,amount,currency});
+        result.push({from:owe[i].index,to:receive[j].index,amount:fromCents(amount),currency});
         owe[i].amount-=amount;
         receive[j].amount-=amount;
         if(!owe[i].amount) i++;
@@ -120,11 +124,11 @@
     const members=ledger.room.members||[],balances=members.map(()=>0);
     let missingRate=false;
     (ledger.debts||[]).forEach(debt=>{
-      let amount=Number(debt.amount)||0;
+      let amount=cents(amountOf(debt));
       if(currencyOf(debt.note)==='JPY'){
         const rate=fxRateOf(debt.note);
         if(!rate){missingRate=true;return;}
-        amount=twdValue(amount,rate);
+        amount=twdCents(amountOf(debt),rate);
       }
       if(balances[debt.debtorIndex]===undefined||balances[debt.creditorIndex]===undefined)return;
       balances[debt.debtorIndex]-=amount;
@@ -136,7 +140,7 @@
     let i=0,j=0;
     while(i<owe.length&&j<receive.length){
       const amount=Math.min(owe[i].amount,receive[j].amount);
-      items.push({from:owe[i].index,to:receive[j].index,amount,currency:'TWD'});
+      items.push({from:owe[i].index,to:receive[j].index,amount:fromCents(amount),currency:'TWD'});
       owe[i].amount-=amount;
       receive[j].amount-=amount;
       if(!owe[i].amount)i++;
@@ -166,7 +170,7 @@
       groups.get(id).debts.push(debt);
     });
     return [...groups.values()].map(group=>{
-      if (!group.total) group.total=group.debts.reduce((sum,debt)=>sum+(Number(debt.amount)||0),0);
+      if (!group.total) group.total=fromCents(group.debts.reduce((sum,debt)=>sum+cents(amountOf(debt)),0));
       group.memberIndexes=[...new Set([group.payerIndex,...group.debts.map(debt=>Number(debt.debtorIndex))])];
       return group;
     }).reverse();
@@ -186,12 +190,12 @@
   function groupShareMap(group) {
     const shares=new Map();
     group.debts.forEach(debt=>{
-      const index=Number(debt.debtorIndex),amount=Number(debt.amount)||0;
+      const index=Number(debt.debtorIndex),amount=cents(amountOf(debt));
       shares.set(index,(shares.get(index)||0)+amount);
     });
-    const payerShare=Math.max(0,(Number(group.total)||0)-[...shares.values()].reduce((sum,amount)=>sum+amount,0));
+    const payerShare=Math.max(0,cents(group.total)-[...shares.values()].reduce((sum,amount)=>sum+amount,0));
     if(payerShare>0)shares.set(group.payerIndex,(shares.get(group.payerIndex)||0)+payerShare);
-    return shares;
+    return new Map([...shares].map(([index,amount])=>[index,fromCents(amount)]));
   }
 
   function expenseForm(current, groups) {
@@ -202,14 +206,14 @@
     const rate=editing?.rate||fx.rate||null;
     return `<details class="money-card expense-editor" ${editing?'open':''}><summary>${editing?`✎ 編輯「${esc(editing.title)}」`:'＋ 新增一筆共同花費'}</summary><form data-money-form="expense"${editing?` data-expense-id="${esc(editing.id)}"`:''}>
       <div class="money-grid-two"><label>項目<input name="title" maxlength="80" value="${editing?esc(editing.title):''}" placeholder="例如：晚餐、計程車、住宿" required></label><label>幣別<select name="currency"><option value="JPY" ${currency==='JPY'?'selected':''}>JPY 日圓</option><option value="TWD" ${currency==='TWD'?'selected':''}>TWD 台幣</option></select></label></div>
-      <div class="money-grid-two"><label>誰先付款<select name="payer">${members.map(person=>`<option value="${person.index}" ${person.index===payerIndex?'selected':''}>${esc(person.name)}</option>`).join('')}</select></label><label>總金額<input name="total" type="number" min="1" step="1" inputmode="numeric" value="${editing?editing.total:''}" placeholder="例如 12000" required></label></div>
+      <div class="money-grid-two"><label>誰先付款<select name="payer">${members.map(person=>`<option value="${person.index}" ${person.index===payerIndex?'selected':''}>${esc(person.name)}</option>`).join('')}</select></label><label>總金額<input name="total" type="number" min="0.01" step="0.01" inputmode="decimal" value="${editing?Number(editing.total).toFixed(2):''}" placeholder="例如 12000.00" required></label></div>
       <section class="money-fx-panel" ${currency==='TWD'?'hidden':''}>
         <div class="money-fx-grid"><label>日圓換台幣匯率（1 JPY）<input name="fxRate" type="number" min="0.000001" step="0.000001" inputmode="decimal" value="${rate?Number(rate).toFixed(6):''}" placeholder="例如 0.205207" ${editing&&editing.rate?'data-manual="1"':''} ${currency==='JPY'?'required':''}></label><button type="button" data-money-action="refresh-rate">更新當日匯率</button></div>
         <p class="money-fx-status">${fxStatusMarkup()}</p>
       </section>
       <fieldset><legend>哪些人一起分擔</legend><div class="money-checks">${members.map(person=>`<label><input type="checkbox" name="participant" value="${person.index}" ${editing?(shareMap.has(person.index)?'checked':''):'checked'}><span>${esc(person.name)}</span></label>`).join('')}</div></fieldset>
       <fieldset><legend>分擔方式</legend><div class="money-modes"><label><input type="radio" name="mode" value="equal" ${editing?'':'checked'}> 平均分攤</label><label><input type="radio" name="mode" value="custom" ${editing?'checked':''}> 自訂每人金額</label></div></fieldset>
-      <div class="money-custom" ${editing?'':'hidden'}>${members.map(person=>`<label data-share-row="${person.index}"><span>${esc(person.name)}</span><input name="share-${person.index}" type="number" min="0" step="1" inputmode="numeric" value="${shareMap.get(person.index)||0}"></label>`).join('')}</div>
+      <div class="money-custom" ${editing?'':'hidden'}>${members.map(person=>`<label data-share-row="${person.index}"><span>${esc(person.name)}</span><input name="share-${person.index}" type="number" min="0" step="0.01" inputmode="decimal" value="${Number(shareMap.get(person.index)||0).toFixed(2)}"></label>`).join('')}</div>
       <div class="money-split-preview">填入總金額後，這裡會顯示每人應分擔的金額。</div><label>備註<textarea name="note" maxlength="120" placeholder="選填，例如：Day 5 淺草午餐">${editing?esc(editing.detail):''}</textarea></label>
       <div class="money-form-actions"><button type="button" data-money-action="cancel-expense">${editing?'取消編輯':'取消'}</button><button class="money-primary">${editing?'儲存修改':'儲存分帳'}</button></div>
     </form></details>`;
@@ -255,12 +259,12 @@
     const current=currentPerson();
     if(!current) return signInMarkup();
     const allMembers=ledger.room.members || [],groups=expenseGroups();
-    const totals=groups.reduce((sum,group)=>{sum[group.currency]+=Number(group.total)||0;if(group.currency==='JPY'&&group.rate)sum.converted+=twdValue(group.total,group.rate);return sum;},{JPY:0,TWD:0,converted:0});
+    const totals=groups.reduce((sum,group)=>{sum[group.currency]+=cents(group.total);if(group.currency==='JPY'&&group.rate)sum.converted+=twdCents(group.total,group.rate);return sum;},{JPY:0,TWD:0,converted:0});
     return `<div class="money-ledger">
       ${memberListMarkup(current)}
       <div class="money-stats money-stats-simple">
         <div><span>已登錄項目</span><strong>${groups.length} 項</strong></div>
-        <div><span>全部總額</span><strong>${money(totals.JPY,'JPY')}</strong><small>台幣支出 ${money(totals.TWD,'TWD')}${totals.converted?` · 換算合計 ${money(totals.TWD+totals.converted,'TWD')}`:''}</small></div>
+        <div><span>全部總額</span><strong>${money(fromCents(totals.JPY),'JPY')}</strong><small>台幣支出 ${money(fromCents(totals.TWD),'TWD')}${totals.converted?` · 換算合計 ${money(fromCents(totals.TWD+totals.converted),'TWD')}`:''}</small></div>
       </div>
       <p class="money-rate-note">日圓換算使用每日參考匯率，實際刷卡或換匯時可自行修改。資料來源：<a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer">ExchangeRate-API</a></p>
       ${expenseForm(current,groups)}
@@ -277,15 +281,21 @@
   }
 
   function selectedShares(form, strict=false) {
-    const total=Math.round(Number(form.elements.total.value)||0);
+    const totalValue=Number(form.elements.total.value),totalCents=cents(totalValue);
+    if(strict&&(!form.elements.total.value||!Number.isFinite(totalValue)||totalCents<1||Math.abs(totalValue*100-totalCents)>0.000001))throw new Error('總金額請輸入大於 0、最多兩位小數的金額');
+    const total=fromCents(totalCents);
     const selected=[...form.querySelectorAll('[name="participant"]:checked')].map(input=>Number(input.value));
-    if(!selected.length||total<1)return{total,selected,shares:[]};
+    if(!selected.length||totalCents<1)return{total,selected,shares:[]};
     if(form.elements.mode.value==='equal'){
-      const base=Math.floor(total/selected.length),remainder=total%selected.length;
-      return{total,selected,shares:selected.map((index,position)=>({index,amount:base+(position<remainder?1:0)}))};
+      const base=Math.floor(totalCents/selected.length),remainder=totalCents%selected.length;
+      return{total,selected,shares:selected.map((index,position)=>({index,amount:fromCents(base+(position<remainder?1:0))}))};
     }
-    const shares=selected.map(index=>({index,amount:Math.round(Number(form.elements[`share-${index}`].value)||0)}));
-    if(strict&&shares.reduce((sum,item)=>sum+item.amount,0)!==total)throw new Error('自訂金額加總必須等於總金額');
+    const shares=selected.map(index=>{
+      const input=form.elements[`share-${index}`],value=Number(input.value),shareCents=cents(value);
+      if(strict&&(!input.value||!Number.isFinite(value)||value<0||Math.abs(value*100-shareCents)>0.000001))throw new Error('每人分擔金額最多只能輸入兩位小數');
+      return{index,amount:fromCents(shareCents)};
+    });
+    if(strict&&shares.reduce((sum,item)=>sum+cents(item.amount),0)!==totalCents)throw new Error('自訂金額加總必須等於總金額');
     return{total,selected,shares};
   }
 
@@ -354,7 +364,7 @@
   }
 
   async function loadLedger(showNotice=false){
-    ledger=await rpc('get_ticket_room',{p_code:ROOM_CODE,p_pin:PIN});
+    ledger=await rpc('get_ticket_room',{});
     renderLedger();
     if(showNotice)setMessage('已同步最新分帳資料');
   }
@@ -376,22 +386,22 @@
     if(currency==='JPY'&&(!Number.isFinite(rate)||rate<=0))throw new Error('請輸入有效的日圓換台幣匯率');
     const debtShares=shares.filter(item=>item.index!==payer&&item.amount>0);
     if(!debtShares.length)throw new Error('目前沒有其他人需要分擔，請再確認付款人與成員');
-    const metadata=`[${currency}][EXP:${expenseId}]${currency==='JPY'?`[FX:${rate.toFixed(6)}]`:''}[TOTAL:${total}]`;
-    const converted=currency==='JPY'?` · 約 ${money(twdValue(total,rate),'TWD')}`:'';
-    const note=`${metadata} ${title} · 總額 ${money(total,currency)}${currency==='JPY'?` · 匯率 ${rateText(rate)}${converted}`:''}${extra?' · '+extra:''}`.slice(0,280);
+    const metadata=`[${currency}][EXP:${expenseId}][CENTS:1]${currency==='JPY'?`[FX:${rate.toFixed(6)}]`:''}[TOTAL:${total.toFixed(2)}]`;
+    const note=`${metadata} ${title}${extra?' · '+extra:''}`;
+    if([...note].length>100)throw new Error('項目名稱與備註太長，請縮短後再儲存');
     return{expenseId,payer,total,shares,debtShares,currency,title,rate,note};
   }
 
   async function saveExpenseRows(draft) {
     for(const share of draft.debtShares){
-      ledger=await rpc('save_ticket_debt_v2',{p_code:ROOM_CODE,p_pin:PIN,p_payload:{debtorIndex:share.index,creditorIndex:draft.payer,amount:share.amount,eventId:null,note:draft.note}});
+      ledger=await rpc('save_ticket_debt_v2',{p_payload:{debtorIndex:share.index,creditorIndex:draft.payer,amount:cents(share.amount),eventId:null,note:draft.note}});
     }
   }
 
   async function deleteDebtRows(rows) {
     const deleted=[];
     for(const debt of rows){
-      ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'delete_debt',p_payload:{id:debt.id}});
+      ledger=await rpc('mutate_ticket_room',{p_action:'delete_debt',p_payload:{id:debt.id}});
       deleted.push(debt);
     }
     return deleted;
@@ -400,13 +410,13 @@
   async function cleanupExpense(expenseId) {
     const rows=(ledger?.debts||[]).filter(debt=>expenseIdOf(debt)===expenseId);
     for(const debt of rows){
-      try{ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'delete_debt',p_payload:{id:debt.id}});}catch{}
+      try{ledger=await rpc('mutate_ticket_room',{p_action:'delete_debt',p_payload:{id:debt.id}});}catch{}
     }
   }
 
   async function restoreDebtRows(rows) {
     for(const debt of rows){
-      ledger=await rpc('save_ticket_debt_v2',{p_code:ROOM_CODE,p_pin:PIN,p_payload:{debtorIndex:Number(debt.debtorIndex),creditorIndex:Number(debt.creditorIndex),amount:Number(debt.amount),eventId:debt.eventId||null,note:debt.note||''}});
+      ledger=await rpc('save_ticket_debt_v2',{p_payload:{debtorIndex:Number(debt.debtorIndex),creditorIndex:Number(debt.creditorIndex),amount:Number(debt.amount),eventId:debt.eventId||null,note:debt.note||''}});
     }
   }
 
@@ -421,7 +431,7 @@
     const deleted=[];
     try{
       for(const debt of oldGroup.debts){
-        ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'delete_debt',p_payload:{id:debt.id}});
+        ledger=await rpc('mutate_ticket_room',{p_action:'delete_debt',p_payload:{id:debt.id}});
         deleted.push(debt);
       }
     }catch(error){
@@ -437,7 +447,7 @@
     const deleted=[];
     try{
       for(const debt of group.debts){
-        ledger=await rpc('mutate_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_action:'delete_debt',p_payload:{id:debt.id}});
+        ledger=await rpc('mutate_ticket_room',{p_action:'delete_debt',p_payload:{id:debt.id}});
         deleted.push(debt);
       }
     }catch(error){
@@ -468,7 +478,7 @@
           renderLedger();
           setMessage(`已登入「${currentName}」`);
         }else{
-          ledger=await rpc('join_ticket_room',{p_code:ROOM_CODE,p_pin:PIN,p_name:name});
+          ledger=await rpc('join_ticket_room',{p_name:name});
           rememberPerson(name);
           renderLedger();
           setMessage(`已新增並登入「${name}」`);
@@ -566,7 +576,7 @@
         const password=prompt('為避免誤刪，請輸入共同帳本的管理密碼（不是邀請碼）');
         if(password===null)return;
         button.disabled=true;
-        ledger=await rpc('remove_ticket_member',{p_code:ROOM_CODE,p_pin:PIN,p_admin_password:password,p_member_index:index});
+        ledger=await rpc('remove_ticket_member',{p_admin_password:password,p_member_index:index});
         if(sameName(currentName,person.name))rememberPerson('');
         renderLedger();
         setMessage(`已刪除「${person.name}」`);
