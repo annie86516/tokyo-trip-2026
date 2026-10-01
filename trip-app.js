@@ -131,8 +131,10 @@
         if (href.includes('site-one/index.html')) {
           const context=el.closest('.day-item')?.textContent||'';
           const isBookedDinner=context.includes('鳥貴族');
-          el.setAttribute('href',isBookedDinner?'./?view=bookings&bday=1':'./?view=reserve');
-          if(isBookedDinner)el.textContent='查看已預約資料 ↗';
+          const isBookedTransfer=source.id==='day8-route-detail';
+          const bookingDay=isBookedDinner?1:isBookedTransfer?8:0;
+          el.setAttribute('href',bookingDay?`./?view=bookings&bday=${bookingDay}`:'./?view=reserve');
+          if(bookingDay)el.textContent='查看已預約資料 ↗';
           el.removeAttribute('target');
         }
         else if (/restaurant-guide\/?index\.html/.test(href)) { el.setAttribute('href','./?view=restaurants'); el.removeAttribute('target'); }
