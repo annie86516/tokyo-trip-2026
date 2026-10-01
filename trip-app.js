@@ -314,7 +314,7 @@
       });
     }
     if (state.day === 5) {
-      custom += '<div class="note"><strong>A～C 組一起走行程。</strong>11/25 12:00 牛たんの檸檬淺草店已分兩筆訂位，共 5 人（3 人＋2 人；預約號見餐廳攻略）。不吃牛肉者可選天麩羅秋光，訂位與餐後會合點仍待確認；午餐分開吃，餐後會合繼續走行程。</div>';
+      custom += '<div class="note"><strong>A～C 組一起走行程。</strong>11/25 12:00 牛たんの檸檬淺草店已分兩筆訂位，共 5 人（3 人＋2 人；預約號見餐廳攻略）。午餐分開吃，餐後在淺草會合；不吃牛肉者的秋光用餐選項，請先確認營業與入座。淺草散步後回民宿放東西、休息，再一起前往六本木之丘：聖誕市集目前公告 11:00–21:00、櫸樹坂點燈 17:00–22:00。<a href="https://www.christmas.hills-site.com/" target="_blank" rel="noopener noreferrer">活動官方頁</a>；當年度詳細內容公開後再確認。阿美橫丁不去。</div>';
     }
     if (state.day === 9) {
       const row = flightRow(returns,state.group);
