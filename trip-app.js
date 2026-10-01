@@ -36,7 +36,9 @@
     group: GROUPS.includes(initialGroup) ? initialGroup : 'A',
     day: Number(params.get('day') || saved.day) || 1,
     stay: STAY_KEYS.includes(initialStay) ? initialStay : 'tokyo',
-    view: ['days', 'flights', 'stays', 'money', 'reserve', 'restaurants', 'guide', 'coupons'].includes(params.get('view')) ? params.get('view') : 'days',
+    view: ['days', 'flights', 'stays', 'bookings', 'money', 'reserve', 'restaurants', 'guide', 'coupons', 'vjw'].includes(params.get('view')) ? params.get('view') : 'days',
+    bookingDay: [1,5,8].includes(Number(params.get('bday') || saved.bookingDay)) ? Number(params.get('bday') || saved.bookingDay) : 1,
+    coupon: ['yam','laox','donki'].includes(params.get('cpn') || saved.coupon) ? (params.get('cpn') || saved.coupon) : 'yam',
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
   };
   const firstDay = () => state.group === 'C' ? 3 : 1;
@@ -126,7 +128,13 @@
       });
       if (el.tagName === 'A') {
         const href = el.getAttribute('href') || '';
-        if (href.includes('site-one/index.html')) { el.setAttribute('href','./?view=reserve'); el.removeAttribute('target'); }
+        if (href.includes('site-one/index.html')) {
+          const context=el.closest('.day-item')?.textContent||'';
+          const isBookedDinner=context.includes('鳥貴族');
+          el.setAttribute('href',isBookedDinner?'./?view=bookings&bday=1':'./?view=reserve');
+          if(isBookedDinner)el.textContent='查看已預約資料 ↗';
+          el.removeAttribute('target');
+        }
         else if (/restaurant-guide\/?index\.html/.test(href)) { el.setAttribute('href','./?view=restaurants'); el.removeAttribute('target'); }
         else if (el.getAttribute('target') === '_blank') el.setAttribute('rel','noopener noreferrer');
       }
@@ -184,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261001-route-coupons', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261001-booking-vjw-tabs', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -198,10 +206,12 @@
         <button type="button" data-view="days">${icon('calendar')}<span>每日行程</span></button>
         <button type="button" data-view="flights">${icon('plane')}<span>航班交通</span></button>
         <button type="button" data-view="stays">${icon('bed')}<span>住宿</span></button>
-        <button type="button" data-view="reserve">${icon('ticket')}<span>行前預約</span></button>
+        <button type="button" data-view="bookings">${icon('ticket')}<span>已預約</span></button>
+        <button type="button" data-view="reserve">${icon('calendar')}<span>待處理</span></button>
         <button type="button" data-view="restaurants">${icon('pin')}<span>餐廳攻略</span></button>
         <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
         <button type="button" data-view="coupons">${icon('coupon')}<span>優惠券</span></button>
+        <button type="button" data-view="vjw">${icon('book')}<span>VJW</span></button>
         <button type="button" data-view="money">${icon('wallet')}<span>分帳</span></button>
       </nav>
     </div></header>
@@ -236,6 +246,8 @@
     url.searchParams.set('day',String(state.day));
     url.searchParams.set('view',state.view);
     if(state.view==='stays')url.searchParams.set('stay',state.stay);else url.searchParams.delete('stay');
+    if(state.view==='bookings')url.searchParams.set('bday',String(state.bookingDay));else url.searchParams.delete('bday');
+    if(state.view==='coupons')url.searchParams.set('cpn',state.coupon);else url.searchParams.delete('cpn');
     history.replaceState(null,'',url);
   }
   function detail(title,source,key) {
@@ -249,14 +261,14 @@
     const fixed = (time, label='固定時間') => ({time, label, fixed:true});
     if (state.day === 1 && state.group === 'B') return [
       fixed('18:30','航班抵達'), fixed('20:23','預定班次・依出關調整'),
-      suggested('21:05–21:15 抵達本所吾妻橋'), fixed('21:30 鳥貴族訂位','已訂位'), suggested('若交通延誤請聯絡店家')
+      suggested('21:05–21:15 抵達本所吾妻橋'), fixed('21:10 鳥貴族訂位','已訂位'), suggested('若交通延誤請聯絡店家')
     ];
     if (state.day === 3 && state.group === 'C') return [
       fixed('12:10','航班抵達'), suggested('13:00–15:00'),
       suggested('17:30–18:30'), suggested('18:30–19:00')
     ];
     return {
-      1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),fixed('21:30 鳥貴族','已訂位')],
+      1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),fixed('21:10 鳥貴族','已訂位')],
       2:[suggested('09:00–09:45'),suggested('10:15–11:15'),suggested('11:15–11:45'),suggested('12:00–13:30'),suggested('14:30–18:00'),suggested('18:00–19:00')],
       3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
       4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:15–14:15'),suggested('14:15–14:45 步行往澀谷'),suggested('14:45–15:30 FREAK\'S STORE'),suggested('15:30–18:30 PARCO／唐吉訶德／晚餐自選'),suggested('依集合時間返回民宿')],
@@ -318,7 +330,7 @@
     if (state.day === 5) {
       const lunchIndex = items.findIndex(html => html.includes('A～C 組午餐') || html.includes('分開用餐'));
       if (lunchIndex >= 0) items[lunchIndex] = `<strong>11/25 午餐｜分開用餐</strong><div class="meal-split-grid" aria-label="午餐分組">
-        <article class="meal-split-card meal-split-booked"><div class="meal-split-head"><strong>吃牛肉・5 人</strong><span>已訂位</span></div><h3><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">牛たんの檸檬 淺草店</a></h3><p><b>11/25 12:00</b>｜兩筆訂位：3 人＋2 人</p><a href="./restaurant-guide/venues/35-gyutan-lemon-asakusa.html">查看訂位資料與代碼 ↗</a></article>
+        <article class="meal-split-card meal-split-booked"><div class="meal-split-head"><strong>吃牛肉・5 人</strong><span>已訂位</span></div><h3><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">牛たんの檸檬 淺草店</a></h3><p><b>11/25 12:00</b>｜兩筆訂位：3 人＋2 人</p><a href="./?view=bookings&amp;bday=5">查看已預約資料與代碼 ↗</a></article>
         <article class="meal-split-card meal-split-pending"><div class="meal-split-head"><strong>不吃牛肉・2 人</strong><span>待選店</span></div><h3>淺草午餐二選一</h3><p>麺 みつヰ／天麩羅秋光；目前都只是候選，尚未決定或預約。</p><p class="meal-split-caution">下單前向店家確認湯底、醬汁與配料沒有牛肉、牛骨或牛脂。</p><div class="meal-split-links"><a href="https://tabelog.com/tokyo/A1311/A131102/13284327/" target="_blank" rel="noopener noreferrer">麺 みつヰ ↗</a><a href="https://akimitsu.tokyo/asakusa/" target="_blank" rel="noopener noreferrer">天麩羅秋光 ↗</a></div></article>
       </div>`;
     }
@@ -354,10 +366,20 @@
     return `<div class="eyebrow">OUR STAYS</div><h1>${stay.label}住宿</h1><p class="intro">使用下方按鈕切換東京、日光與成田。</p><article class="stay-focus"><figure class="stay-cover"><img src="${stay.image}" alt="${stay.alt}" fetchpriority="high"><figcaption>${stay.alt} · <a href="${stay.source}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a></figcaption></figure><div class="document stay-document">${readable(source,{omitTitle:true})}</div></article>`;
   }
   function moneyView() {
-    return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">同行名單、全部花費與每人分擔集中整理；需要結算時再按下計算，日圓會依每筆保存的匯率換算成台幣。</p><div class="money-app"></div>`;
+    return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">先選付款者、勾選分擔者，再設定平均或自訂金額；所有紀錄都列在「全部項目」。要結算時再按下計算，查看精簡的轉帳清單；日圓依每筆匯率換算成台幣。</p><div class="money-app"></div>`;
   }
   function reserve() {
-    return `<div class="eyebrow">BEFORE THE TRIP</div><h1>行前預約</h1><p class="intro">預約日期、熱門票券、餐廳、接送與 Visit Japan Web 集中在同一個版面。</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理行前預約資料…</section></div>`;
+    return `<div class="eyebrow">BEFORE THE TRIP</div><h1>待處理事項</h1><p class="intro">只保留還沒完成的餐廳決定、票券與出發前事項；已確認的訂位與接送請看「已預約」，VJW 請看獨立分頁。</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理待處理事項…</section></div>`;
+  }
+  function bookingNavigation() {
+    const days=[{day:1,date:'11/21',label:'鳥貴族'},{day:5,date:'11/25',label:'淺草午餐'},{day:8,date:'11/28',label:'日光接送'}];
+    return `<nav class="day-rail booking-rail" aria-label="選擇已預約日期">${days.map(item=>`<button class="day-button" type="button" data-booking-day="${item.day}" aria-label="${item.date} ${item.label}" aria-pressed="${item.day===state.bookingDay}"><span>DAY ${String(item.day).padStart(2,'0')}</span><b>${item.date.slice(3)}</b><small>${item.label}</small></button>`).join('')}</nav>`;
+  }
+  function bookings() {
+    const content=state.bookingDay===1?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已訂位</span></div><h2>鳥貴族 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>21:10</strong></div><div><span>人數</span><strong>5 位成人</strong></div><div><span>同行</span><strong>A＋B 組</strong></div></div><p>訂位已確認。B 組若因交通延誤，請盡早通知店家；抵達時依訂位確認信報到。</p><a href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" target="_blank" rel="noopener noreferrer">開啟鳥貴族淺草店地圖 ↗</a></article>`
+      :state.bookingDay===5?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 05 · 11/25（三）</span><span class="booking-status">已訂位 · 共 5 人</span></div><h2>牛たんの檸檬 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>12:00</strong></div><div><span>預約一</span><strong>3 人</strong></div><div><span>預約二</span><strong>2 人</strong></div></div><div class="booking-codes"><div><span>3 人訂位代碼</span><strong>M9FTDRY6WV</strong></div><div><span>2 人訂位代碼</span><strong>88C8NLC65V</strong></div></div><p>兩筆各停留 1 小時，分別報上代碼；能否安排相鄰座位依店家現場為準。2 人訂位為禁菸桌。</p><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">開啟淺草店地圖 ↗</a></article>`
+      :`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 08 · 11/28（六）</span><span class="booking-status">已訂妥 · 已付款</span></div><h2>日光民宿 → Richmond Hotel Narita</h2><div class="booking-facts"><div><span>人數</span><strong>7 位成人</strong></div><div><span>車輛</span><strong>Toyota Hiace 10 人座 × 1</strong></div><div><span>日期</span><strong>11/28</strong></div></div><p>已訂妥並完成付款。出發前依業者通知確認實際上車時間、兩端接送位置、行李件數、司機姓名、車牌與聯絡方式。</p><div class="booking-followup"><strong>仍待現場辦理｜11/29 飯店機場接駁</strong><p>全團 7 人預計搭 08:20 班次，約 08:40 抵達成田 T2；這是飯店接駁，尚未登記。11/28 辦理入住後立即替 7 人登記並確認集合位置。</p><a href="https://richmondhotel.jp/narita/access/" target="_blank" rel="noopener noreferrer">Richmond 官方交通與接駁 ↗</a></div></article>`;
+    return `<div class="eyebrow">CONFIRMED BOOKINGS</div><h1>已預約資料</h1><p class="intro">已確認的訂位與已付款接送集中在這裡；選日期即可查看現場要用的資料。</p>${bookingNavigation()}<div class="booking-content">${content}</div>`;
   }
   function dayNavigation(lastDay = 9) {
     return `<nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:lastDay+1-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-label="第 ${n} 天，11 月 ${20+n} 日" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>${20+n}</b><small>11月・${['六','日','一','二','三','四','五','六','日'][n-1]}</small></button>`).join('')}</nav>`;
@@ -372,13 +394,18 @@
     ];
     return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">這裡只保留行李準備、退稅與寄件等共用筆記。</p>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
   }
+  const couponItems = {
+    yam:{short:'LABI',name:'山田電機 LABI',category:'家電',image:'https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png',alt:'山田電機 LABI 完整優惠券券面，10%免稅加最高7%折扣',headline:'退稅＋最高 7% 折扣',expiry:'有效至 2026/12/31',body:'可到指定免稅店使用；LABI 澀谷、LABI 新宿西口等店適用情形，請以即時券頁中的店舖名單為準。',caution:'Apple、遊戲主機、特價／Outlet 等部分商品不適用額外折扣。請開下方即時券頁出示條碼，並帶護照。',url:'https://livejapan.com/public/operation/coupon/yamadadenki/zh-tw.html',link:'開啟即時優惠券與指定店舖 ↗'},
+    laox:{short:'LAOX',name:'LAOX 樂購仕',category:'家電／伴手禮',image:'https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg',alt:'LAOX 樂購仕完整優惠券券面，滿額享8%折扣與退稅',headline:'滿 ¥5,000 再折 8%',expiry:'有效至 2026/12/31',body:'指定商品、指定門市可用；淺草店在適用店舖名單內，適合 11/25 淺草行程順路查看。',caution:'不適用遊戲、藥品、特價品等部分商品，且不可和其他折扣併用。結帳前請確認折扣適用條件。',url:'https://livejapan.com/public/operation/coupon/laox/zh-tw.html',link:'開啟優惠券、使用條件與淺草店資料 ↗'},
+    donki:{short:'唐吉訶德',name:'唐吉訶德',category:'藥妝／零食／雜貨',image:'https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/donki_main.jpg',alt:'唐吉訶德完整優惠券官方圖片，依消費門檻享額外折扣',headline:'滿額最高 5%／7% 折扣',expiry:'官方即時券・出發前複查',body:'LIVE JAPAN 頁面列出未稅滿 ¥10,000 可享最高 5%，滿 ¥30,000 最高 7%；東京沿線有淺草、上野、新宿、澀谷、六本木等分店。',caution:'此圖僅供查看，不能拿截圖結帳；請連網開啟即時券頁，讓店員掃描動態條碼。酒類、香菸、遊戲主機及部分高價商品排除。',url:'https://livejapan.com/public/operation/coupon/donki/zh-tw.html',link:'開啟即時優惠券與使用說明 ↗'}
+  };
   function coupons() {
-    return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">就像每日行程一樣直接切換；每張卡顯示完整官方券面，點券面可放大。效期有把握的會標出日期，未確認的會註明；結帳請開卡片中的即時官方頁，不要使用截圖。</p>
-      <h2 class="section-label">優惠券完整券面｜效期與注意事項</h2><div class="coupon-grid">
-        <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">家電｜山田電機 LABI</span><span class="coupon-status">有效至 2026/12/31</span></div><a class="coupon-image-link" href="https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png" target="_blank" rel="noopener noreferrer" aria-label="放大查看山田電機完整優惠券"><img class="coupon-art" src="https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png" alt="山田電機 LABI 完整優惠券券面，10%免稅加最高7%折扣" loading="lazy" decoding="async"/></a><h2>退稅＋最高 7% 折扣</h2><p>可到 LABI 澀谷、LABI 新宿西口等指定店。額外 7% 結帳折扣在 11/1 新制後仍適用；退稅改於出境確認後辦理。</p><p class="coupon-caution">Apple、遊戲主機、特價／Outlet 等部分商品不適用額外折扣。請開下方即時券頁出示條碼，並帶護照。</p><a href="https://livejapan.com/public/operation/coupon/yamadadenki/zh-tw.html" target="_blank" rel="noopener noreferrer">開啟即時優惠券與指定店舖 ↗</a></article>
-        <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">家電／伴手禮｜LAOX 樂購仕</span><span class="coupon-status">有效至 2026/12/31</span></div><a class="coupon-image-link" href="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg" target="_blank" rel="noopener noreferrer" aria-label="放大查看 LAOX 樂購仕優惠券完整券面"><img class="coupon-art" src="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg" alt="LAOX 樂購仕完整優惠券券面，滿額享8%折扣與退稅" loading="lazy" decoding="async"/></a><h2>滿 ¥5,000 再折 8%</h2><p>指定商品、指定門市可用；淺草店在適用店舖名單內，適合 11/25 淺草行程順路查看。</p><p class="coupon-caution">不適用遊戲、藥品、特價品等部分商品，且不可和其他折扣併用。新制下退稅方式有變，結帳前請確認 8% 折扣可否搭配。</p><a href="https://livejapan.com/public/operation/coupon/laox/zh-tw.html" target="_blank" rel="noopener noreferrer">開啟優惠券、使用條件與淺草店資料 ↗</a></article>
-        <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">藥妝／零食／雜貨｜唐吉訶德</span><span class="coupon-status">官方即時券・11 月適用待複查</span></div><a class="coupon-image-link" href="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/donki_main.jpg" target="_blank" rel="noopener noreferrer" aria-label="放大查看唐吉訶德官方優惠券完整圖"><img class="coupon-art" src="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/donki_main.jpg" alt="唐吉訶德完整優惠券官方圖片，依消費門檻享額外折扣" loading="lazy" decoding="async"/></a><h2>滿額最高 5%／7% 折扣</h2><p>LIVE JAPAN 頁面列出未稅滿 ¥10,000 可享最高 5%，滿 ¥30,000 最高 7%；東京沿線有淺草、上野、新宿、澀谷、六本木等分店。</p><p class="coupon-caution">此圖僅供查看，不能拿截圖結帳；請連網開啟即時券頁，讓店員掃描動態條碼。酒類、香菸、遊戲主機及部分高價商品排除；11 月新制適用情形請再確認。</p><a href="https://livejapan.com/public/operation/coupon/donki/zh-tw.html" target="_blank" rel="noopener noreferrer">開啟即時優惠券與使用說明 ↗</a></article>
-      </div><p class="coupon-footnote">整理日期：2026/10/1。照片點開可看完整券面；實際使用請連網開官方即時券頁，效期、適用店舖和商品以官方頁／店員當日確認為準。</p>`;
+    const item=couponItems[state.coupon];
+    return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">像切換每日行程一樣選擇優惠券；下方直接顯示整張券面，點圖片可放大。結帳請開即時官方券頁，不要只出示截圖。</p><nav class="day-rail coupon-rail" aria-label="選擇優惠券">${Object.entries(couponItems).map(([key,value])=>`<button class="day-button" type="button" data-coupon="${key}" aria-pressed="${key===state.coupon}"><span>優惠券</span><b>${escape(value.short)}</b><small>${escape(value.category)}</small></button>`).join('')}</nav>
+      <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div><a class="coupon-image-link" href="${item.image}" target="_blank" rel="noopener noreferrer" aria-label="放大查看${escape(item.name)}完整優惠券"><img class="coupon-art" src="${item.image}" alt="${escape(item.alt)}" loading="lazy" decoding="async"/></a><h2>${escape(item.headline)}</h2><p>${escape(item.body)}</p><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article><p class="coupon-footnote">整理日期：2026/10/1。效期、適用店舖與商品以即時官方券頁／店員當日確認為準。</p>`;
+  }
+  function vjw() {
+    return `<div class="eyebrow">BEFORE ARRIVAL</div><h1>Visit Japan Web</h1><p class="intro">入境前集中準備的獨立頁面；官方服務用於入境審查與海關申報。</p><section class="panel vjw-card"><div class="booking-card-head"><span class="pill">建議完成：11/10–11/15</span><span class="booking-status">7 位成人</span></div><h2>每位旅客分別準備自己的資料</h2><p>官方已公告「代理輸入」功能於 2025/6/2 終止。為避免現場資料或 QR 碼不齊，全團 7 位請各自確認護照、航班、住宿資料與入境／海關申報內容，並能在手機上開啟自己的 QR 碼。</p><ol class="vjw-steps"><li><b>建立帳號並登入</b><span>使用本人可收信的 Email。</span></li><li><b>登錄使用者資料</b><span>依護照資料填寫，護照正本仍須隨身攜帶。</span></li><li><b>登錄入境預定</b><span>填入抵達航班與日本第一晚住宿。</span></li><li><b>完成入境與海關申報</b><span>出發前再次確認 QR 碼可顯示；不要只依賴截圖。</span></li></ol><p class="booking-followup"><strong>出發前最後檢查｜11/20</strong><br/>確認每位旅客都能登入、資料無誤且 QR 碼可開啟。</p><div class="resource-links"><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" target="_blank" rel="noopener noreferrer">Visit Japan Web 官方服務 ↗</a><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/guide/" target="_blank" rel="noopener noreferrer">官方使用指南 ↗</a></div></section>`;
   }
 
   function cleanRemote(node, baseUrl) {
@@ -438,9 +465,17 @@
       target.innerHTML='';
       if(kind==='reserve') {
         const wanted=new URL(location.href).searchParams.get('section');
-        [...doc.querySelectorAll('section.page')].filter(section=>section.id!=='cover').forEach((section,index)=>{
+        [...doc.querySelectorAll('section.page')].filter(section=>['timeline','tickets','restaurants'].includes(section.id)).forEach((section,index)=>{
           const content=(section.querySelector('.content')||section).cloneNode(true);
           const heading=content.querySelector('h2');
+          if(section.id==='timeline') content.querySelectorAll('[data-task="vjw"],[data-task="driver-info"],[data-task="luggage-final"],[data-task="richmond-shuttle"]').forEach(task=>task.remove());
+          if(section.id==='restaurants') {
+            content.querySelectorAll('.restaurant-grid > article').forEach(card=>{
+              const title=card.querySelector('h3')?.textContent||'';
+              if(title.includes('鳥貴族')||title.includes('牛たんの檸檬'))card.remove();
+            });
+            if(heading)heading.textContent='尚待處理的餐廳安排';
+          }
           const title=heading?.textContent.trim()||`行前資料 ${index+1}`;
           heading?.remove();
           cleanRemote(content,baseUrl);
@@ -499,7 +534,7 @@
     });
     const row = flightRow(departures,state.group);
     root.querySelector('.group-context').textContent = `${state.group} 組 · ${row.cells[3].textContent.trim()} · ${row.cells[1].textContent.trim()}`;
-    const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():state.view==='coupons'?coupons():guide();
+    const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='bookings'?bookings():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():state.view==='coupons'?coupons():state.view==='vjw'?vjw():guide();
     main.innerHTML = content+`<p class="status" role="status">${statusText()}</p>`;
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
@@ -526,6 +561,8 @@
       state.group=button.dataset.group; render();
       root.querySelector('#announcement').textContent=`已切換為 ${state.group} 組，顯示本組與共同行程。`;
     } else if(button.dataset.day) { state.day=Number(button.dataset.day); render(true); }
+    else if(button.dataset.bookingDay) { state.bookingDay=Number(button.dataset.bookingDay); render(true); }
+    else if(button.dataset.coupon) { state.coupon=button.dataset.coupon; render(true); }
     else if(button.dataset.stay) { state.stay=button.dataset.stay; render(true); }
     else if(button.dataset.view) { state.view=button.dataset.view; render(true); }
     else if(button.dataset.route) { state.routes[state.group]=button.dataset.route; const y=window.scrollY; render(); window.scrollTo(0,y); }
