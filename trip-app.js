@@ -184,7 +184,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261001-route-coupons', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -259,8 +259,8 @@
       1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),fixed('21:30 鳥貴族','已訂位')],
       2:[suggested('09:00–09:45'),suggested('10:15–11:15'),suggested('11:15–11:45'),suggested('12:00–13:30'),suggested('14:30–18:00'),suggested('18:00–19:00')],
       3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
-      4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:15–14:15'),suggested('14:15–14:45'),suggested('15:00–18:30 澀谷自由活動'),suggested('依集合時間返回民宿')],
-      5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–12:00'),suggested('12:00–14:00（檸檬 5 位已訂；另 2 位候選待選）'),suggested('14:00–15:30 淺草自由活動'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 PATISSERIE TEN&（建議時段）'),suggested('18:30–19:20 HARBS（有位內用／否則外帶）'),suggested('19:20 起 六本木夜間行程')],
+      4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:15–14:15'),suggested('14:15–14:45 步行往澀谷'),suggested('14:45–15:30 FREAK\'S STORE'),suggested('15:30–18:30 PARCO／唐吉訶德／晚餐自選'),suggested('依集合時間返回民宿')],
+      5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–12:00'),suggested('12:00–14:00（檸檬 5 位已訂；另 2 位候選待選）'),suggested('14:00–15:30 淺草自由活動'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 PATISSERIE TEN&（建議時段）'),suggested('18:30–19:20 HARBS（有位內用／否則外帶）'),suggested('19:20 起 六本木新城聖誕市集・大屋頂廣場')],
       6:[fixed('09:03 或 10:03','候選列車班次・尚待確認'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00–16:30')],
       7:[suggested('07:50 前出發；湖區午餐；12:55／13:15 候選下山'),suggested('14:00–16:00（依末班入場取捨）'),suggested('17:30–18:30')],
       8:[suggested('12:30–13:00（依交通調整）'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
@@ -374,7 +374,6 @@
   }
   function coupons() {
     return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">就像每日行程一樣直接切換；每張卡顯示完整官方券面，點券面可放大。效期有把握的會標出日期，未確認的會註明；結帳請開卡片中的即時官方頁，不要使用截圖。</p>
-      <section class="panel coupon-notice"><h2>先看效期與免稅新制</h2><p>你傳來的 BIC CAMERA「10% TAX FREE＋最高 7% OFF」券到期日是 <strong>2026/10/31</strong>，早於 11/21 出發，因此標示為過期、不列入可用券。日本自 2026/11/1 起改為先付含稅價、出境經海關確認後退稅。山田電機頁明確表示額外 7% 折扣在新制下仍適用；其他店的退稅與折扣併用，請在購買前向店員確認。</p><a href="https://www.gotokyo.org/en/plan/tax-free-shopping/index.html" target="_blank" rel="noopener noreferrer">東京官方免稅新制說明 ↗</a></section>
       <h2 class="section-label">優惠券完整券面｜效期與注意事項</h2><div class="coupon-grid">
         <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">家電｜山田電機 LABI</span><span class="coupon-status">有效至 2026/12/31</span></div><a class="coupon-image-link" href="https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png" target="_blank" rel="noopener noreferrer" aria-label="放大查看山田電機完整優惠券"><img class="coupon-art" src="https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png" alt="山田電機 LABI 完整優惠券券面，10%免稅加最高7%折扣" loading="lazy" decoding="async"/></a><h2>退稅＋最高 7% 折扣</h2><p>可到 LABI 澀谷、LABI 新宿西口等指定店。額外 7% 結帳折扣在 11/1 新制後仍適用；退稅改於出境確認後辦理。</p><p class="coupon-caution">Apple、遊戲主機、特價／Outlet 等部分商品不適用額外折扣。請開下方即時券頁出示條碼，並帶護照。</p><a href="https://livejapan.com/public/operation/coupon/yamadadenki/zh-tw.html" target="_blank" rel="noopener noreferrer">開啟即時優惠券與指定店舖 ↗</a></article>
         <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">家電／伴手禮｜LAOX 樂購仕</span><span class="coupon-status">有效至 2026/12/31</span></div><a class="coupon-image-link" href="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg" target="_blank" rel="noopener noreferrer" aria-label="放大查看 LAOX 樂購仕優惠券完整券面"><img class="coupon-art" src="https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg" alt="LAOX 樂購仕完整優惠券券面，滿額享8%折扣與退稅" loading="lazy" decoding="async"/></a><h2>滿 ¥5,000 再折 8%</h2><p>指定商品、指定門市可用；淺草店在適用店舖名單內，適合 11/25 淺草行程順路查看。</p><p class="coupon-caution">不適用遊戲、藥品、特價品等部分商品，且不可和其他折扣併用。新制下退稅方式有變，結帳前請確認 8% 折扣可否搭配。</p><a href="https://livejapan.com/public/operation/coupon/laox/zh-tw.html" target="_blank" rel="noopener noreferrer">開啟優惠券、使用條件與淺草店資料 ↗</a></article>
@@ -581,4 +580,3 @@
     }).catch(()=>{ offlineFailed=true; root.querySelector('.status').textContent=statusText(); });
   } else { offlineFailed=true; root.querySelector('.status').textContent=statusText(); }
 })();
-

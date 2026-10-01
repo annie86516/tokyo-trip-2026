@@ -376,9 +376,7 @@ input,select,textarea{font-size:16px!important}
 .day-plan .table-card dt{padding-top:0}
 .day-plan .table-card p{margin:4px 0}
 .main[data-view="coupons"]{max-width:960px}
-.coupon-notice{border-left:4px solid #b42332;background:#fff8f4}
-.coupon-notice h2{margin-bottom:8px;color:#8f2937}
-.coupon-notice a,.coupon-card>a{font-weight:700}
+.coupon-card>a{font-weight:700}
 .coupon-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .coupon-card{margin:0;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
 .coupon-card h2{margin:10px 0 4px;color:#2b3e4b;font-size:17px}
@@ -394,4 +392,3 @@ input,select,textarea{font-size:16px!important}
 .coupon-links{display:flex;gap:10px;flex-wrap:wrap}
 .coupon-links a{font-weight:700}
 @media(max-width:700px){.coupon-grid{grid-template-columns:1fr}}
-
