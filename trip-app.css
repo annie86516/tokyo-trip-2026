@@ -410,6 +410,7 @@ input,select,textarea{font-size:16px!important}
 .coupon-caution{margin-top:auto!important;padding:9px 10px;border-radius:9px;background:#fff7e8;color:#73521f;font-size:11px!important}
 .coupon-footnote{color:var(--muted);font-size:10px;line-height:1.7;margin:14px 2px}
 .coupon-image-link{display:flex;width:100%;justify-content:center;align-items:center;margin:10px 0 2px;padding:8px;border:1px solid #e8e1da;border-radius:12px;background:#fff;overflow:hidden}
+.coupon-live-note{width:100%;padding:16px;border:1px solid #e8cbbd;border-radius:12px;background:#fff9f3;color:#6d3b32;font-size:14px!important;line-height:1.8}
 .coupon-art{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;object-position:center top}
 .coupon-image-wide .coupon-art{max-height:none}
 .coupon-extra{margin-top:16px}

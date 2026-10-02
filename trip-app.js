@@ -194,7 +194,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261002-remove-vjw', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261002-itinerary-fixes', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -262,18 +262,18 @@
     const fixed = (time, label='固定時間') => ({time, label, fixed:true});
     if (state.day === 1 && state.group === 'B') return [
       fixed('18:30','航班抵達'), fixed('20:23','預定班次・依出關調整'),
-      suggested('21:05–21:15 抵達本所吾妻橋'), fixed('21:10 鳥貴族訂位','已訂位'), suggested('若交通延誤請聯絡店家')
+      suggested('21:05–21:15 抵達本所吾妻橋'), fixed('21:30 鳥貴族訂位・A 組先入座','已訂位'), suggested('B 組抵達後加入；延誤請聯絡店家')
     ];
     if (state.day === 3 && state.group === 'C') return [
       fixed('12:10','航班抵達'), suggested('13:00–15:00'),
       suggested('17:30–18:30'), suggested('18:30–19:00')
     ];
     return {
-      1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),fixed('21:10 鳥貴族','已訂位')],
+      1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),fixed('21:30 鳥貴族','已訂位')],
       2:[suggested('09:00–09:45'),suggested('10:15–11:15'),suggested('11:15–11:45'),suggested('12:00–13:30'),suggested('14:30–18:00'),suggested('18:00–19:00')],
       3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
-      4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:15–14:15'),suggested('14:15–14:45 步行往澀谷'),suggested('14:45–15:30 FREAK\'S STORE'),suggested('15:30–18:30 PARCO／唐吉訶德／晚餐自選'),suggested('依集合時間返回民宿')],
-      5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–12:00'),suggested('12:00–14:00（檸檬 5 位已訂；另 2 位候選待選）'),suggested('14:00–15:30 淺草自由活動'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 PATISSERIE TEN&（建議時段）'),suggested('18:30–19:20 HARBS（有位內用／否則外帶）'),suggested('19:20 起 六本木新城聖誕市集・大屋頂廣場')],
+      4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:00–14:15（與午餐調整順序）'),suggested('11:00–14:15 午餐三選一'),suggested('14:15–14:45 步行往澀谷'),suggested('14:45–15:30 FREAK\'S STORE'),suggested('15:30–18:30 PARCO／唐吉訶德／晚餐自選'),suggested('依集合時間返回民宿')],
+      5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–12:00'),suggested('12:00–14:00（檸檬 5 位已訂；另 2 位候選待選）'),suggested('14:00–15:30 淺草自由活動'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 TEN& 外帶（建議）'),suggested('18:30–19:20 HARBS（有位內用／否則外帶）'),suggested('19:20 起 六本木新城聖誕市集・大屋頂廣場')],
       6:[fixed('09:03 或 10:03','候選列車班次・尚待確認'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00–16:30')],
       7:[suggested('07:50 前出發；湖區午餐；12:55／13:15 候選下山'),suggested('14:00–16:00（依末班入場取捨）'),suggested('17:30–18:30')],
       8:[suggested('12:30–13:00（依交通調整）'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
@@ -303,8 +303,8 @@
     let custom = '';
     if (state.day === 1 && state.group === 'B') {
       title = '抵達東京・晚餐會合';
-      route = '18:30 抵達成田 T2 → 入境與領行李 → Skyliner、青砥轉乘 → 本所吾妻橋民宿 → 視抵達時間前往鳥貴族會合';
-      items = [groupArrival(), '<strong>機場交通：</strong>以 20:23 Skyliner 172 號為預定班次；出關順利可搭 19:23，較晚可搭 21:23。詳細班次請看下方「航班交通」。', '<strong>先放行李：</strong>到本所吾妻橋民宿後在群組回報，再確認晚餐集合位置與抵達時間。', readable([...source.querySelectorAll('.day-item')].at(-1)), '<strong>晚餐彈性：</strong>航班或入境若延誤，抵達後再加入，或改買超商餐食。'];
+      route = '18:30 抵達成田 T2 → 入境與領行李 → Skyliner、青砥轉乘 → 本所吾妻橋民宿 → A 組先入店，B 組抵達後會合';
+      items = [groupArrival(), '<strong>機場交通：</strong>以 20:23 Skyliner 172 號為預定班次；出關順利可搭 19:23，較晚可搭 21:23。詳細班次請看下方「航班交通」。', '<strong>先放行李：</strong>到本所吾妻橋民宿後在群組回報，再確認晚餐集合位置與抵達時間。', readable([...source.querySelectorAll('.day-item')].at(-1)), '<strong>晚餐會合：</strong>A 組先憑訂位姓名報到入座；B 組抵達後加入。若航班或入境延誤，請先通知店家。'];
       extras = [];
     }
     if (state.day === 3 && state.group === 'C') {
@@ -377,7 +377,7 @@
     return `<nav class="day-rail booking-rail" aria-label="選擇已預約日期">${days.map(item=>`<button class="day-button" type="button" data-booking-day="${item.day}" aria-label="${item.date} ${item.label}" aria-pressed="${item.day===state.bookingDay}"><span>DAY ${String(item.day).padStart(2,'0')}</span><b>${item.date.slice(3)}</b><small>${item.label}</small></button>`).join('')}</nav>`;
   }
   function bookings() {
-    const content=state.bookingDay===1?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已訂位</span></div><h2>鳥貴族 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>21:10</strong></div><div><span>人數</span><strong>5 位成人</strong></div><div><span>同行</span><strong>A＋B 組</strong></div><div><span>訂位姓名</span><strong>CHEN, KUANTING</strong></div></div><p>訂位已確認。B 組若因交通延誤，請盡早通知店家；抵達時依訂位確認信報到。</p><a href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" target="_blank" rel="noopener noreferrer">開啟鳥貴族淺草店地圖 ↗</a></article>`
+    const content=state.bookingDay===1?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已訂位</span></div><h2>鳥貴族 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>21:30</strong></div><div><span>人數</span><strong>5 位成人</strong></div><div><span>同行</span><strong>A＋B 組</strong></div><div><span>訂位姓名</span><strong>CHEN, KUANTING</strong></div></div><p>訂位已確認。A 組可先憑 CHEN, KUANTING 的訂位報到入座；B 組抵達後加入。若 B 組交通延誤，請盡早通知店家。</p><a href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" target="_blank" rel="noopener noreferrer">開啟鳥貴族淺草店地圖 ↗</a></article>`
       :state.bookingDay===5?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 05 · 11/25（三）</span><span class="booking-status">已訂位 · 共 5 人</span></div><h2>牛たんの檸檬 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>12:00</strong></div><div><span>預約一</span><strong>3 人</strong></div><div><span>預約二</span><strong>2 人</strong></div></div><div class="booking-codes"><div><span>3 人訂位代碼</span><strong>M9FTDRY6WV</strong><small>訂位姓名：CHEN, KUANTING</small></div><div><span>2 人訂位代碼</span><strong>88C8NLC65V</strong><small>訂位姓名：MA XIN YA</small></div></div><p>兩筆各停留 1 小時，分別報上代碼；能否安排相鄰座位依店家現場為準。2 人訂位為禁菸桌。</p><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">開啟淺草店地圖 ↗</a></article>`
       :`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 08 · 11/28（六）</span><span class="booking-status">已訂妥 · 已付款</span></div><h2>日光民宿 → Richmond Hotel Narita</h2><div class="booking-facts"><div><span>上車時間（日本時間）</span><strong>08:00</strong></div><div><span>人數</span><strong>7 位成人</strong></div><div><span>車輛</span><strong>Toyota Hiace 10 人座 × 1</strong></div><div><span>預約人</span><strong>CHEN / KUANTING</strong></div><div><span>訂單編號</span><strong>673314</strong></div></div><div class="booking-followup"><strong>上車地點</strong><p>1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411</p><strong>下車地點</strong><p>Richmond Hotel Narita</p><p>憑證註明：乘客需備妥護照與憑證；上車前請主動聯絡司機確認等候位置。司機資訊預計前一天透過 WeChat／WhatsApp 提供，請允許好友邀請。</p><a href="./assets/nikko-narita-transfer-voucher-2026-11-28.pdf" target="_blank" rel="noopener noreferrer">開啟接送憑證 PDF ↗</a></div><div class="booking-followup"><strong>另有待辦｜11/29 飯店機場接駁</strong><p>全團 7 人預計搭 08:20 班次，約 08:40 抵達成田 T2；此為飯店接駁，尚未登記。11/28 入住後立即替 7 人登記並確認集合位置。</p><a href="https://richmondhotel.jp/narita/access/" target="_blank" rel="noopener noreferrer">Richmond 官方交通與接駁 ↗</a></div></article>`;
     return `<div class="eyebrow">CONFIRMED BOOKINGS</div><h1>已預約資料</h1><p class="intro">已確認的訂位與已付款接送集中在這裡；選日期即可查看姓名、時間、人數、訂位代碼及現場資訊。</p>${bookingNavigation()}<div class="booking-content">${content}</div>`;
@@ -398,12 +398,15 @@
   const couponItems = {
     yam:{short:'LABI',name:'山田電機 LABI',category:'家電',image:'https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png',alt:'山田電機 LABI 完整優惠券券面，10%免稅加最高7%折扣',headline:'退稅＋最高 7% 折扣',expiry:'有效至 2026/12/31',body:'可到指定免稅店使用；LABI 澀谷、LABI 新宿西口等店適用情形，請以即時券頁中的店舖名單為準。',caution:'Apple、遊戲主機、特價／Outlet 等部分商品不適用額外折扣。請開下方即時券頁出示條碼，並帶護照。',url:'https://livejapan.com/public/operation/coupon/yamadadenki/zh-tw.html',link:'開啟即時優惠券與指定店舖 ↗'},
     laox:{short:'LAOX',name:'LAOX 樂購仕',category:'家電／伴手禮',image:'https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg',alt:'LAOX 樂購仕完整優惠券券面，滿額享8%折扣與退稅',headline:'滿 ¥5,000 再折 8%',expiry:'有效至 2026/12/31',body:'指定商品、指定門市可用；淺草店在適用店舖名單內，適合 11/25 淺草行程順路查看。',caution:'不適用遊戲、藥品、特價品等部分商品，且不可和其他折扣併用。結帳前請確認折扣適用條件。',url:'https://livejapan.com/public/operation/coupon/laox/zh-tw.html',link:'開啟優惠券、使用條件與淺草店資料 ↗'},
-    donki:{short:'唐吉訶德',name:'唐吉訶德',category:'藥妝／零食／雜貨',image:'https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/donki_main.jpg',alt:'唐吉訶德完整優惠券官方圖片，依消費門檻享額外折扣',headline:'滿額最高 5%／7% 折扣',expiry:'官方即時券・出發前複查',body:'LIVE JAPAN 頁面列出未稅滿 ¥10,000 可享最高 5%，滿 ¥30,000 最高 7%；東京沿線有淺草、上野、新宿、澀谷、六本木等分店。',caution:'此圖僅供查看，不能拿截圖結帳；請連網開啟即時券頁，讓店員掃描動態條碼。酒類、香菸、遊戲主機及部分高價商品排除。',url:'https://livejapan.com/public/operation/coupon/donki/zh-tw.html',link:'開啟即時優惠券與使用說明 ↗'}
+    donki:{short:'唐吉訶德',name:'唐吉訶德',category:'藥妝／零食／雜貨',image:null,alt:'唐吉訶德即時優惠券須到官方網頁開啟',headline:'滿額最高 5%／7% 折扣',expiry:'官方即時券・出發前複查',body:'LIVE JAPAN 頁面列出未稅滿 ¥10,000 可享最高 5%，滿 ¥30,000 最高 7%；東京沿線有淺草、上野、新宿、澀谷、六本木等分店。',caution:'不可使用截圖結帳；請連網開啟即時券頁，讓店員掃描動態條碼。酒類、香菸、遊戲主機及部分高價商品排除。',url:'https://livejapan.com/public/operation/coupon/donki/zh-tw.html',link:'開啟即時優惠券與使用說明 ↗'}
   };
   function coupons() {
     const item=couponItems[state.coupon];
-    return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">像切換每日行程一樣選擇優惠券；下方直接顯示整張券面，點圖片可放大。結帳請開即時官方券頁，不要只出示截圖。</p><nav class="day-rail coupon-rail" aria-label="選擇優惠券">${Object.entries(couponItems).map(([key,value])=>`<button class="day-button" type="button" data-coupon="${key}" aria-pressed="${key===state.coupon}"><span>優惠券</span><b>${escape(value.short)}</b><small>${escape(value.category)}</small></button>`).join('')}</nav>
-      <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div><a class="coupon-image-link" href="${item.image}" target="_blank" rel="noopener noreferrer" aria-label="放大查看${escape(item.name)}完整優惠券"><img class="coupon-art" src="${item.image}" alt="${escape(item.alt)}" loading="lazy" decoding="async"/></a><h2>${escape(item.headline)}</h2><p>${escape(item.body)}</p><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article><p class="coupon-footnote">整理日期：2026/10/1。效期、適用店舖與商品以即時官方券頁／店員當日確認為準。</p>`;
+    const visual=item.image
+      ? `<a class="coupon-image-link" href="${item.image}" target="_blank" rel="noopener noreferrer" aria-label="放大查看${escape(item.name)}完整優惠券"><img class="coupon-art" src="${item.image}" alt="${escape(item.alt)}" loading="lazy" decoding="async"/></a>`
+      : '<p class="coupon-live-note">唐吉訶德使用即時條碼，不能保存券面或用截圖結帳。請點下方按鈕開啟官方即時優惠券。</p>';
+    return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">像切換每日行程一樣選擇優惠券；可保存的券面會顯示整張圖片。唐吉訶德須開啟即時條碼，結帳以官方券頁為準。</p><nav class="day-rail coupon-rail" aria-label="選擇優惠券">${Object.entries(couponItems).map(([key,value])=>`<button class="day-button" type="button" data-coupon="${key}" aria-pressed="${key===state.coupon}"><span>優惠券</span><b>${escape(value.short)}</b><small>${escape(value.category)}</small></button>`).join('')}</nav>
+      <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div>${visual}<h2>${escape(item.headline)}</h2><p>${escape(item.body)}</p><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article><p class="coupon-footnote">整理日期：2026/10/2。效期、適用店舖與商品以即時官方券頁／店員當日確認為準。</p>`;
   }
   function cleanRemote(node, baseUrl) {
     node.querySelectorAll('button.calendar-btn').forEach(button=>{
@@ -585,7 +588,11 @@
     else if(['stay-tokyo','stay-nikko','stay-narita'].includes(id)) { state.view='stays'; state.stay=id.replace('stay-',''); }
     else if($('#'+CSS.escape(id))) state.view='guide';
     render();
-    const details = root.querySelector(`details[data-detail="${CSS.escape(id)}"]`);
+    let details = root.querySelector(`details[data-detail="${CSS.escape(id)}"]`);
+    if(!details) {
+      const sourceKey = [...detailSources].find(([,source]) => source.id === id)?.[0];
+      if(sourceKey) details = root.querySelector(`details[data-detail="${CSS.escape(sourceKey)}"]`);
+    }
     if(details) { details.open=true; details.scrollIntoView({block:'center'}); }
   }
   window.addEventListener('hashchange',applyHash);
