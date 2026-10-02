@@ -455,7 +455,7 @@
     const target=main.querySelector(`[data-supplement="${kind}"]`);
     if(!target)return;
     const selectedDay=state.day;
-    const path=kind==='reserve'?'./site-one/index.html':'./restaurant-guide/index.html';
+    const path=kind==='reserve'?'./site-one/index.html?v=20261002-itinerary-fixes':'./restaurant-guide/index.html?v=20261002-itinerary-fixes';
     const baseUrl=new URL(path,document.baseURI);
     try {
       const response=await fetch(baseUrl.href,{cache:'no-cache'});
