@@ -36,7 +36,7 @@
     group: GROUPS.includes(initialGroup) ? initialGroup : 'A',
     day: Number(params.get('day') || saved.day) || 1,
     stay: STAY_KEYS.includes(initialStay) ? initialStay : 'tokyo',
-    view: ['days', 'flights', 'stays', 'bookings', 'money', 'reserve', 'restaurants', 'guide', 'coupons', 'vjw'].includes(params.get('view')) ? params.get('view') : 'days',
+    view: ['days', 'flights', 'stays', 'bookings', 'money', 'reserve', 'restaurants', 'guide', 'coupons'].includes(params.get('view')) ? params.get('view') : 'days',
     bookingDay: [1,5,8].includes(Number(params.get('bday') || saved.bookingDay)) ? Number(params.get('bday') || saved.bookingDay) : 1,
     coupon: ['yam','laox','donki'].includes(params.get('cpn') || saved.coupon) ? (params.get('cpn') || saved.coupon) : 'yam',
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
@@ -194,7 +194,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261002-vjw-official-steps', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261002-remove-vjw', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -213,7 +213,6 @@
         <button type="button" data-view="restaurants">${icon('pin')}<span>餐廳攻略</span></button>
         <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
         <button type="button" data-view="coupons">${icon('coupon')}<span>優惠券</span></button>
-        <button type="button" data-view="vjw">${icon('book')}<span>VJW</span></button>
         <button type="button" data-view="money">${icon('wallet')}<span>分帳</span></button>
       </nav>
     </div></header>
@@ -371,7 +370,7 @@
     return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">先選付款者、勾選分擔者，再設定平均或自訂金額；所有紀錄都列在「全部項目」。要結算時再按下計算，查看精簡的轉帳清單；日圓依每筆匯率換算成台幣。</p><div class="money-app"></div>`;
   }
   function reserve() {
-    return `<div class="eyebrow">TO-DO LIST</div><h1>待辦事項</h1><p class="intro">只列出尚未完成的餐廳決定、票券與出發前待辦；已確認訂位與接送請看「已預約」，VJW 請看獨立分頁。</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理待辦事項…</section></div>`;
+    return `<div class="eyebrow">TO-DO LIST</div><h1>待辦事項</h1><p class="intro">只列出尚未完成的餐廳決定、票券與出發前待辦；已確認訂位與接送請看「已預約」，</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理待辦事項…</section></div>`;
   }
   function bookingNavigation() {
     const days=[{day:1,date:'11/21',label:'鳥貴族'},{day:5,date:'11/25',label:'淺草午餐'},{day:8,date:'11/28',label:'日光接送'}];
@@ -380,7 +379,7 @@
   function bookings() {
     const content=state.bookingDay===1?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已訂位</span></div><h2>鳥貴族 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>21:10</strong></div><div><span>人數</span><strong>5 位成人</strong></div><div><span>同行</span><strong>A＋B 組</strong></div><div><span>訂位姓名</span><strong>CHEN, KUANTING</strong></div></div><p>訂位已確認。B 組若因交通延誤，請盡早通知店家；抵達時依訂位確認信報到。</p><a href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" target="_blank" rel="noopener noreferrer">開啟鳥貴族淺草店地圖 ↗</a></article>`
       :state.bookingDay===5?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 05 · 11/25（三）</span><span class="booking-status">已訂位 · 共 5 人</span></div><h2>牛たんの檸檬 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>12:00</strong></div><div><span>預約一</span><strong>3 人</strong></div><div><span>預約二</span><strong>2 人</strong></div></div><div class="booking-codes"><div><span>3 人訂位代碼</span><strong>M9FTDRY6WV</strong><small>訂位姓名：CHEN, KUANTING</small></div><div><span>2 人訂位代碼</span><strong>88C8NLC65V</strong><small>訂位姓名：MA XIN YA</small></div></div><p>兩筆各停留 1 小時，分別報上代碼；能否安排相鄰座位依店家現場為準。2 人訂位為禁菸桌。</p><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">開啟淺草店地圖 ↗</a></article>`
-      :`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 08 · 11/28（六）</span><span class="booking-status">已訂妥 · 已付款</span></div><h2>日光民宿 → Richmond Hotel Narita</h2><div class="booking-facts"><div><span>人數</span><strong>7 位成人</strong></div><div><span>車輛</span><strong>Toyota Hiace 10 人座 × 1</strong></div><div><span>日期</span><strong>11/28</strong></div><div><span>訂單姓名</span><strong>待補</strong></div></div><p>已訂妥並完成付款。出發前依業者通知確認實際上車時間、兩端接送位置、行李件數、司機姓名、車牌與聯絡方式。</p><div class="booking-followup"><strong>仍待現場辦理｜11/29 飯店機場接駁</strong><p>全團 7 人預計搭 08:20 班次，約 08:40 抵達成田 T2；這是飯店接駁，尚未登記。11/28 辦理入住後立即替 7 人登記並確認集合位置。</p><a href="https://richmondhotel.jp/narita/access/" target="_blank" rel="noopener noreferrer">Richmond 官方交通與接駁 ↗</a></div></article>`;
+      :`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 08 · 11/28（六）</span><span class="booking-status">已訂妥 · 已付款</span></div><h2>日光民宿 → Richmond Hotel Narita</h2><div class="booking-facts"><div><span>上車時間（日本時間）</span><strong>08:00</strong></div><div><span>人數</span><strong>7 位成人</strong></div><div><span>車輛</span><strong>Toyota Hiace 10 人座 × 1</strong></div><div><span>預約人</span><strong>CHEN / KUANTING</strong></div><div><span>訂單編號</span><strong>673314</strong></div></div><div class="booking-followup"><strong>上車地點</strong><p>1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411</p><strong>下車地點</strong><p>Richmond Hotel Narita</p><p>憑證註明：乘客需備妥護照與憑證；上車前請主動聯絡司機確認等候位置。司機資訊預計前一天透過 WeChat／WhatsApp 提供，請允許好友邀請。</p><a href="./assets/nikko-narita-transfer-voucher-2026-11-28.pdf" target="_blank" rel="noopener noreferrer">開啟接送憑證 PDF ↗</a></div><div class="booking-followup"><strong>另有待辦｜11/29 飯店機場接駁</strong><p>全團 7 人預計搭 08:20 班次，約 08:40 抵達成田 T2；此為飯店接駁，尚未登記。11/28 入住後立即替 7 人登記並確認集合位置。</p><a href="https://richmondhotel.jp/narita/access/" target="_blank" rel="noopener noreferrer">Richmond 官方交通與接駁 ↗</a></div></article>`;
     return `<div class="eyebrow">CONFIRMED BOOKINGS</div><h1>已預約資料</h1><p class="intro">已確認的訂位與已付款接送集中在這裡；選日期即可查看姓名、時間、人數、訂位代碼及現場資訊。</p>${bookingNavigation()}<div class="booking-content">${content}</div>`;
   }
   function dayNavigation(lastDay = 9) {
@@ -406,23 +405,6 @@
     return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">像切換每日行程一樣選擇優惠券；下方直接顯示整張券面，點圖片可放大。結帳請開即時官方券頁，不要只出示截圖。</p><nav class="day-rail coupon-rail" aria-label="選擇優惠券">${Object.entries(couponItems).map(([key,value])=>`<button class="day-button" type="button" data-coupon="${key}" aria-pressed="${key===state.coupon}"><span>優惠券</span><b>${escape(value.short)}</b><small>${escape(value.category)}</small></button>`).join('')}</nav>
       <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div><a class="coupon-image-link" href="${item.image}" target="_blank" rel="noopener noreferrer" aria-label="放大查看${escape(item.name)}完整優惠券"><img class="coupon-art" src="${item.image}" alt="${escape(item.alt)}" loading="lazy" decoding="async"/></a><h2>${escape(item.headline)}</h2><p>${escape(item.body)}</p><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article><p class="coupon-footnote">整理日期：2026/10/1。效期、適用店舖與商品以即時官方券頁／店員當日確認為準。</p>`;
   }
-  function vjw() {
-    return `<div class="eyebrow">BEFORE ARRIVAL</div><h1>Visit Japan Web 填寫流程</h1><p class="intro">照數位廳官方順序整理成 STEP 0–4：入境前建立帳號、登錄旅客與行程，再填入境手續；抵達日本時開啟 QR 碼。按下方步驟可快速跳到對應說明。</p>
-      <section class="panel vjw-card vjw-start-kit"><div><span class="pill">建議完成：11/10–11/15</span><span class="booking-status">全團 7 位成人</span></div><div><b>開始前準備</b><span>本人可收信的 Email、護照、機票，以及日本第一晚住宿名稱、地址和聯絡電話。</span></div></section>
-      <nav class="vjw-roadmap" aria-label="Visit Japan Web 官方流程導覽"><a href="#vjw-step-0"><b>STEP 0</b><span>建立帳號</span></a><a href="#vjw-step-1"><b>STEP 1</b><span>登錄旅客</span></a><a href="#vjw-step-2"><b>STEP 2</b><span>登錄行程</span></a><a href="#vjw-step-3"><b>STEP 3</b><span>填寫手續</span></a><a href="#vjw-step-4"><b>STEP 4</b><span>出示 QR</span></a></nav>
-      <div class="vjw-phase-label">入境日本前完成</div>
-      <section class="panel vjw-card vjw-flow-card" id="vjw-step-0"><div class="vjw-step-heading"><b>STEP 0</b><span>帳號準備</span></div><h2>建立帳號並登入</h2><p>首次使用請以 Email 建立帳號，之後登入 Visit Japan Web。建議每位成人先準備本人資料並各自確認能登入；不要在這個行程網站輸入或分享密碼、護照號碼。</p><p class="vjw-note">官方已於 2025/6/2 結束「代理輸入」功能；請依官方目前畫面操作，不要照舊版教學尋找代理輸入入口。</p></section>
-      <section class="panel vjw-card vjw-flow-card" id="vjw-step-1"><div class="vjw-step-heading"><b>STEP 1</b><span>旅客資料</span></div><h2>登錄本人資料</h2><ol class="vjw-field-list"><li><b>選擇手續類別：</b>依本人身分和旅行目的選擇入境／返回日本手續。</li><li><b>護照資料：</b>可用相機讀取或自行輸入；確認英文姓名、生日、國籍／地區及護照號碼都和護照一致。讀取失敗時可改手動輸入。</li><li><b>基本資料：</b>依畫面填寫；官方將職業、居住地等基本資料列為選填，已填資料可能供後續手續引用。</li><li><b>日本聯絡處（滯在先）：</b>如畫面提供此欄，可先登錄第一晚住宿聯絡資料，供 STEP 2 引用。</li></ol></section>
-      <section class="panel vjw-card vjw-flow-card" id="vjw-step-2"><div class="vjw-step-heading"><b>STEP 2</b><span>行程預定</span></div><h2>登錄入境日期、航班和日本聯絡處</h2><p>新增本次入境預定，依本人機票填抵達日本日期、機場和最後一段飛抵日本的航班；需要時再填日本聯絡地址。若已有登錄資料，可依官方畫面引用；簽證資料僅適用於持有簽證者。</p><div class="vjw-plan-grid">
-        <div><b>A 組</b><span>11/21 抵達成田 T2</span><span>台灣虎航 IT280</span><span>預定停留 9 天（11/21–11/29）</span></div>
-        <div><b>B 組</b><span>11/21 抵達成田 T2</span><span>中華航空 CI108</span><span>預定停留 9 天（11/21–11/29）</span></div>
-        <div><b>C 組</b><span>11/23 抵達成田 T2</span><span>台灣虎航 IT280</span><span>預定停留 7 天（11/23–11/29）</span></div>
-      </div><p class="vjw-note">航班、日期和機場逐人照本人機票確認；組別行程僅供核對，若機票不同，以本人已開票資料為準。</p><div class="booking-followup"><strong>本團第一晚住宿｜東京 Airbnb</strong><p>住宿名稱、完整地址及聯絡電話請照訂房資料或向房東確認；請填東京第一晚，不要填後續的日光或成田住宿，也不要猜電話。</p><a href="./?view=stays&amp;stay=tokyo">開啟住宿 → 東京資料 ↗</a></div></section>
-      <div class="vjw-phase-label">依畫面完成入境手續；抵達時出示</div>
-      <section class="panel vjw-card vjw-flow-card" id="vjw-step-3"><div class="vjw-step-heading"><b>STEP 3</b><span>入境手續</span></div><h2>填寫入境審查與海關申報</h2><ol class="vjw-field-list"><li><b>檢疫／健康確認：</b>如果手續頁面出現此項，依本人實際狀況作答並查看系統提示。</li><li><b>入境審查：</b>外國旅客依本人情況填寫入境紀錄；本次目的按實際選擇觀光，停留期間照預定天數填。所有是／否題須本人據實作答。</li><li><b>海關申報：</b>依本人資料填寫，並如實申報攜帶物品、未隨身行李及頁面詢問的現金等項目；不確定是否屬管制品時，先查官方說明。</li><li><b>確認送出：</b>逐頁檢查姓名、航班、日期及住宿欄，再完成申報。</li></ol></section>
-      <section class="panel vjw-card vjw-flow-card" id="vjw-step-4"><div class="vjw-step-heading"><b>STEP 4</b><span>抵達日本時</span></div><h2>開啟手續 QR 碼並依現場指示出示</h2><p>從已登錄的入境預定開啟入境手續，顯示 Visit Japan Web 的 QR 碼；依機場指示於入境審查櫃檯及海關電子申報機／檢查處使用。手機需能登入並保持有電，護照正本也要隨身攜帶。</p><ul class="vjw-checks"><li>七位成人各自確認本人畫面能登入、申報已完成且 QR 碼能開啟。</li><li>護照姓名、生日、護照號碼、抵達航班及第一晚住宿資料逐項核對。</li><li>申報答案因人而異；不要直接照抄同行者資料或答案。</li></ul><p class="booking-followup"><strong>出發前最後檢查｜11/20</strong><br/>確認每位旅客都能在自己的手機開啟 VJW 手續頁與 QR 碼。</p><div class="resource-links"><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/guide/" target="_blank" rel="noopener noreferrer">數位廳繁體中文官方逐步教學 ↗</a><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" target="_blank" rel="noopener noreferrer">Visit Japan Web 官方說明 ↗</a><a href="https://www.moj.go.jp/isa/content/930002134.pdf" target="_blank" rel="noopener noreferrer">入境卡欄位範例（日本入管） ↗</a><a href="https://www.customs.go.jp/english/passenger/declaration/declaration_app.html" target="_blank" rel="noopener noreferrer">日本海關電子申報說明 ↗</a></div></section>`;
-  }
-
   function cleanRemote(node, baseUrl) {
     node.querySelectorAll('button.calendar-btn').forEach(button=>{
       const date=button.dataset.date||'', title=button.dataset.title||'旅行提醒', time=button.dataset.time||'';
@@ -549,7 +531,7 @@
     });
     const row = flightRow(departures,state.group);
     root.querySelector('.group-context').textContent = `${state.group} 組 · ${row.cells[3].textContent.trim()} · ${row.cells[1].textContent.trim()}`;
-    const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='bookings'?bookings():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():state.view==='coupons'?coupons():state.view==='vjw'?vjw():guide();
+    const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='bookings'?bookings():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():state.view==='coupons'?coupons():guide();
     main.innerHTML = content+`<p class="status" role="status">${statusText()}</p>`;
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
