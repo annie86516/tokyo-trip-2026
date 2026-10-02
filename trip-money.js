@@ -230,21 +230,20 @@
 
   function expenseListMarkup(groups, allMembers) {
     return `<section class="money-records">
-      <div class="money-section-head"><div><span class="money-kicker">ALL EXPENSES</span><h3>全部項目</h3></div><span class="money-count">${groups.length} 項</span></div>
+      <div class="money-section-head"><div><span class="money-kicker">ALL EXPENSES</span><h3>全部項目</h3></div><div class="money-expense-tools"><span class="money-count">${groups.length} 項</span>${groups.length?'<button type="button" data-money-action="toggle-expenses" data-open="true">全部展開</button><button type="button" data-money-action="toggle-expenses" data-open="false">全部收合</button>':''}</div></div>
       ${groups.length?`<div class="money-expense-list">${groups.map(group=>{
         const payer=allMembers[group.payerIndex]||'成員',shares=groupShareMap(group);
         const converted=group.currency==='JPY'&&group.rate?money(twdValue(group.total,group.rate),'TWD'):'';
-        return `<article class="money-expense">
-          <header class="money-expense-head"><div><h4>${esc(group.title)}</h4><span>${esc(payer)} 先付款</span></div><div><strong>${money(group.total,group.currency)}</strong>${converted?`<small>約 ${converted}</small>`:''}</div></header>
-          <p class="money-expense-meta">${group.currency==='JPY'&&group.rate?`使用匯率 ${rateText(group.rate)}`:'台幣項目'}</p>
+        return `<details class="money-expense">
+          <summary class="money-expense-summary"><span class="money-expense-head"><div><h4>${esc(group.title)}</h4><span>${esc(payer)} 先付款</span></div><div><strong>${money(group.total,group.currency)}</strong>${converted?`<small>約 ${converted}</small>`:''}</div></span></summary><div class="money-expense-body"><p class="money-expense-meta">${group.currency==='JPY'&&group.rate?`使用匯率 ${rateText(group.rate)}`:'台幣項目'}</p>
           ${group.detail?`<p class="money-expense-note">${esc(group.detail)}</p>`:''}
           <div class="money-expense-actions"><button type="button" data-money-action="edit-expense" data-expense-id="${esc(group.id)}">編輯</button><button type="button" class="money-delete" data-money-action="delete-expense" data-expense-id="${esc(group.id)}">刪除項目</button></div>
           <div class="money-share-list">${[...shares.entries()].map(([index,amount])=>{
             const participant=allMembers[index]||'成員';
             const approx=group.currency==='JPY'&&group.rate?money(twdValue(amount,group.rate),'TWD'):'';
             return `<div class="money-share-row"><p><strong>${esc(participant)}</strong><span>分擔</span></p><b>${money(amount,group.currency)}${approx?`<small>約 ${approx}</small>`:''}</b></div>`;
-          }).join('')}</div>
-        </article>`;
+          }).join('')}</div></div>
+        </details>`;
       }).join('')}</div>`:'<div class="money-empty"><strong>目前還沒有分帳項目</strong><p>新增共同花費後，全部項目與每人的分擔金額會顯示在這裡。</p></div>'}
     </section>`;
   }
@@ -515,7 +514,10 @@
     if(!button)return;
     const action=button.dataset.moneyAction;
     try{
-      if(action==='retry'){
+      if(action==='toggle-expenses'){
+        host.querySelectorAll('.money-expense-list .money-expense').forEach(item=>{item.open=button.dataset.open==='true';});
+        return;
+      }else if(action==='retry'){
         host.innerHTML=loadingMarkup();
         await loadLedger();
         startPolling();

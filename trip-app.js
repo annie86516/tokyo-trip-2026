@@ -194,7 +194,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261001-booking-vjw-tabs', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261001-vjw-guide-booking-names', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -209,7 +209,7 @@
         <button type="button" data-view="flights">${icon('plane')}<span>航班交通</span></button>
         <button type="button" data-view="stays">${icon('bed')}<span>住宿</span></button>
         <button type="button" data-view="bookings">${icon('ticket')}<span>已預約</span></button>
-        <button type="button" data-view="reserve">${icon('calendar')}<span>待處理</span></button>
+        <button type="button" data-view="reserve">${icon('calendar')}<span>待辦事項</span></button>
         <button type="button" data-view="restaurants">${icon('pin')}<span>餐廳攻略</span></button>
         <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
         <button type="button" data-view="coupons">${icon('coupon')}<span>優惠券</span></button>
@@ -371,17 +371,17 @@
     return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">先選付款者、勾選分擔者，再設定平均或自訂金額；所有紀錄都列在「全部項目」。要結算時再按下計算，查看精簡的轉帳清單；日圓依每筆匯率換算成台幣。</p><div class="money-app"></div>`;
   }
   function reserve() {
-    return `<div class="eyebrow">BEFORE THE TRIP</div><h1>待處理事項</h1><p class="intro">只保留還沒完成的餐廳決定、票券與出發前事項；已確認的訂位與接送請看「已預約」，VJW 請看獨立分頁。</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理待處理事項…</section></div>`;
+    return `<div class="eyebrow">TO-DO LIST</div><h1>待辦事項</h1><p class="intro">只列出尚未完成的餐廳決定、票券與出發前待辦；已確認訂位與接送請看「已預約」，VJW 請看獨立分頁。</p><div class="supplement-root" data-supplement="reserve"><section class="panel supplement-loading">正在整理待辦事項…</section></div>`;
   }
   function bookingNavigation() {
     const days=[{day:1,date:'11/21',label:'鳥貴族'},{day:5,date:'11/25',label:'淺草午餐'},{day:8,date:'11/28',label:'日光接送'}];
     return `<nav class="day-rail booking-rail" aria-label="選擇已預約日期">${days.map(item=>`<button class="day-button" type="button" data-booking-day="${item.day}" aria-label="${item.date} ${item.label}" aria-pressed="${item.day===state.bookingDay}"><span>DAY ${String(item.day).padStart(2,'0')}</span><b>${item.date.slice(3)}</b><small>${item.label}</small></button>`).join('')}</nav>`;
   }
   function bookings() {
-    const content=state.bookingDay===1?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已訂位</span></div><h2>鳥貴族 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>21:10</strong></div><div><span>人數</span><strong>5 位成人</strong></div><div><span>同行</span><strong>A＋B 組</strong></div></div><p>訂位已確認。B 組若因交通延誤，請盡早通知店家；抵達時依訂位確認信報到。</p><a href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" target="_blank" rel="noopener noreferrer">開啟鳥貴族淺草店地圖 ↗</a></article>`
-      :state.bookingDay===5?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 05 · 11/25（三）</span><span class="booking-status">已訂位 · 共 5 人</span></div><h2>牛たんの檸檬 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>12:00</strong></div><div><span>預約一</span><strong>3 人</strong></div><div><span>預約二</span><strong>2 人</strong></div></div><div class="booking-codes"><div><span>3 人訂位代碼</span><strong>M9FTDRY6WV</strong></div><div><span>2 人訂位代碼</span><strong>88C8NLC65V</strong></div></div><p>兩筆各停留 1 小時，分別報上代碼；能否安排相鄰座位依店家現場為準。2 人訂位為禁菸桌。</p><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">開啟淺草店地圖 ↗</a></article>`
-      :`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 08 · 11/28（六）</span><span class="booking-status">已訂妥 · 已付款</span></div><h2>日光民宿 → Richmond Hotel Narita</h2><div class="booking-facts"><div><span>人數</span><strong>7 位成人</strong></div><div><span>車輛</span><strong>Toyota Hiace 10 人座 × 1</strong></div><div><span>日期</span><strong>11/28</strong></div></div><p>已訂妥並完成付款。出發前依業者通知確認實際上車時間、兩端接送位置、行李件數、司機姓名、車牌與聯絡方式。</p><div class="booking-followup"><strong>仍待現場辦理｜11/29 飯店機場接駁</strong><p>全團 7 人預計搭 08:20 班次，約 08:40 抵達成田 T2；這是飯店接駁，尚未登記。11/28 辦理入住後立即替 7 人登記並確認集合位置。</p><a href="https://richmondhotel.jp/narita/access/" target="_blank" rel="noopener noreferrer">Richmond 官方交通與接駁 ↗</a></div></article>`;
-    return `<div class="eyebrow">CONFIRMED BOOKINGS</div><h1>已預約資料</h1><p class="intro">已確認的訂位與已付款接送集中在這裡；選日期即可查看現場要用的資料。</p>${bookingNavigation()}<div class="booking-content">${content}</div>`;
+    const content=state.bookingDay===1?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已訂位</span></div><h2>鳥貴族 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>21:10</strong></div><div><span>人數</span><strong>5 位成人</strong></div><div><span>同行</span><strong>A＋B 組</strong></div><div><span>訂位姓名</span><strong>CHEN, KUANTING</strong></div></div><p>訂位已確認。B 組若因交通延誤，請盡早通知店家；抵達時依訂位確認信報到。</p><a href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" target="_blank" rel="noopener noreferrer">開啟鳥貴族淺草店地圖 ↗</a></article>`
+      :state.bookingDay===5?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 05 · 11/25（三）</span><span class="booking-status">已訂位 · 共 5 人</span></div><h2>牛たんの檸檬 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>12:00</strong></div><div><span>預約一</span><strong>3 人</strong></div><div><span>預約二</span><strong>2 人</strong></div></div><div class="booking-codes"><div><span>3 人訂位代碼</span><strong>M9FTDRY6WV</strong><small>訂位姓名：CHEN, KUANTING</small></div><div><span>2 人訂位代碼</span><strong>88C8NLC65V</strong><small>訂位姓名：MA XIN YA</small></div></div><p>兩筆各停留 1 小時，分別報上代碼；能否安排相鄰座位依店家現場為準。2 人訂位為禁菸桌。</p><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">開啟淺草店地圖 ↗</a></article>`
+      :`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 08 · 11/28（六）</span><span class="booking-status">已訂妥 · 已付款</span></div><h2>日光民宿 → Richmond Hotel Narita</h2><div class="booking-facts"><div><span>人數</span><strong>7 位成人</strong></div><div><span>車輛</span><strong>Toyota Hiace 10 人座 × 1</strong></div><div><span>日期</span><strong>11/28</strong></div><div><span>訂單姓名</span><strong>待補</strong></div></div><p>已訂妥並完成付款。出發前依業者通知確認實際上車時間、兩端接送位置、行李件數、司機姓名、車牌與聯絡方式。</p><div class="booking-followup"><strong>仍待現場辦理｜11/29 飯店機場接駁</strong><p>全團 7 人預計搭 08:20 班次，約 08:40 抵達成田 T2；這是飯店接駁，尚未登記。11/28 辦理入住後立即替 7 人登記並確認集合位置。</p><a href="https://richmondhotel.jp/narita/access/" target="_blank" rel="noopener noreferrer">Richmond 官方交通與接駁 ↗</a></div></article>`;
+    return `<div class="eyebrow">CONFIRMED BOOKINGS</div><h1>已預約資料</h1><p class="intro">已確認的訂位與已付款接送集中在這裡；選日期即可查看姓名、時間、人數、訂位代碼及現場資訊。</p>${bookingNavigation()}<div class="booking-content">${content}</div>`;
   }
   function dayNavigation(lastDay = 9) {
     return `<nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:lastDay+1-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-label="第 ${n} 天，11 月 ${20+n} 日" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>${20+n}</b><small>11月・${['六','日','一','二','三','四','五','六','日'][n-1]}</small></button>`).join('')}</nav>`;
@@ -407,9 +407,26 @@
       <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div><a class="coupon-image-link" href="${item.image}" target="_blank" rel="noopener noreferrer" aria-label="放大查看${escape(item.name)}完整優惠券"><img class="coupon-art" src="${item.image}" alt="${escape(item.alt)}" loading="lazy" decoding="async"/></a><h2>${escape(item.headline)}</h2><p>${escape(item.body)}</p><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article><p class="coupon-footnote">整理日期：2026/10/1。效期、適用店舖與商品以即時官方券頁／店員當日確認為準。</p>`;
   }
   function vjw() {
-    return `<div class="eyebrow">BEFORE ARRIVAL</div><h1>Visit Japan Web</h1><p class="intro">入境前集中準備的獨立頁面；官方服務用於入境審查與海關申報。</p><section class="panel vjw-card"><div class="booking-card-head"><span class="pill">建議完成：11/10–11/15</span><span class="booking-status">7 位成人</span></div><h2>每位旅客分別準備自己的資料</h2><p>官方已公告「代理輸入」功能於 2025/6/2 終止。為避免現場資料或 QR 碼不齊，全團 7 位請各自確認護照、航班、住宿資料與入境／海關申報內容，並能在手機上開啟自己的 QR 碼。</p><ol class="vjw-steps"><li><b>建立帳號並登入</b><span>使用本人可收信的 Email。</span></li><li><b>登錄使用者資料</b><span>依護照資料填寫，護照正本仍須隨身攜帶。</span></li><li><b>登錄入境預定</b><span>填入抵達航班與日本第一晚住宿。</span></li><li><b>完成入境與海關申報</b><span>出發前再次確認 QR 碼可顯示；不要只依賴截圖。</span></li></ol><p class="booking-followup"><strong>出發前最後檢查｜11/20</strong><br/>確認每位旅客都能登入、資料無誤且 QR 碼可開啟。</p><div class="resource-links"><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" target="_blank" rel="noopener noreferrer">Visit Japan Web 官方服務 ↗</a><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/guide/" target="_blank" rel="noopener noreferrer">官方使用指南 ↗</a></div></section>`;
+    return `<div class="eyebrow">BEFORE ARRIVAL</div><h1>Visit Japan Web</h1><p class="intro">照順序準備旅客資料、抵達航班、日本第一晚住宿，再完成入境審查與海關申報。以下整理這趟 7 位成人可用的填寫指引；護照與個人資料請各自保管。</p>
+      <section class="panel vjw-card"><div class="booking-card-head"><span class="pill">建議完成：11/10–11/15</span><span class="booking-status">7 位成人</span></div><h2>一、每位成人各自建立帳號和旅客資料</h2><ol class="vjw-steps">
+        <li><b>建立帳號並登入</b><span>使用本人可收信的 Email。官方已公告代理輸入功能於 2025/6/2 終止；本團 7 位成人各自完成本人資料。</span></li>
+        <li><b>登錄旅客資料</b><span>依護照原文輸入姓、名、生日、國籍／地區及護照號碼；可用相機讀取或手動輸入，確認英文拼字與護照一致。職業、居住地等基本資料依畫面填寫。</span></li>
+        <li><b>登錄入境預定</b><span>新增本次行程，填本人抵達日本日期、入境機場、最後一段抵達日本的航班號，及日本第一晚住宿聯絡資訊。</span></li>
+        <li><b>填入境審查（外國旅客）</b><span>目的選「觀光」；依本人航班填航班號，停留期間填預定天數，並填日本聯絡地址與電話。過去拒絕入境／遣返、犯罪判決、攜帶管制品等問題須依每人實際情況誠實作答。</span></li>
+        <li><b>完成海關申報</b><span>填姓名、航班、出發地、抵達日、住宿地址與電話、國籍、職業、生日、護照號碼及同行家人數；禁限品、超額商品、替他人攜帶物、未隨身行李及現金等問題依實際情況逐項回答。</span></li>
+        <li><b>確認並準備 QR 碼</b><span>完成後確認 VJW 內入境審查及海關申報 QR 碼都能開啟；入境時依現場指示出示。另保存登入方式、手機保持有電，並備妥護照正本。</span></li>
+      </ol></section>
+      <section class="panel vjw-card"><h2>二、這趟可直接核對的航班與停留天數</h2><div class="vjw-plan-grid">
+        <div><b>A 組</b><span>11/21 抵達成田 T2</span><span>台灣虎航 IT280</span><span>預定停留 9 天（11/21–11/29）</span></div>
+        <div><b>B 組</b><span>11/21 抵達成田 T2</span><span>中華航空 CI108</span><span>預定停留 9 天（11/21–11/29）</span></div>
+        <div><b>C 組</b><span>11/23 抵達成田 T2</span><span>台灣虎航 IT280</span><span>預定停留 7 天（11/23–11/29）</span></div>
+      </div><p>航班號、日期與機場請逐人對照本人機票；若個人班機與組別表不同，以本人已開票行程為準。</p>
+        <div class="booking-followup"><strong>三、日本住宿聯絡資訊｜填第一晚，不是最後一晚</strong><p>本團入境後第一晚住東京 Airbnb。VJW 的「日本的聯絡處（滯在先）」／入境卡住宿欄，請從下方東京住宿資料抄入住宿名稱、完整地址及住宿聯絡電話。電話請看 Airbnb 訂單或向房東確認，網站沒有電話資料，請勿自行猜填。</p><a href="./?view=stays&amp;stay=tokyo">開啟住宿 → 東京資料 ↗</a><p>入境後還會住日光與成田；這些後續住宿不用誤填成第一晚地址。若畫面要求填「停留期間」，依本人去回日期：A、B 組 9 天；C 組 7 天。</p></div>
+      </section>
+      <section class="panel vjw-card"><h2>出發前逐項檢查</h2><ul class="vjw-checks"><li>旅券姓名、生日、護照號碼及有效期限都與本人護照一致。</li><li>入境日期、機場、航班號和日本第一晚住宿資料與本人訂單相符。</li><li>入境審查中所有「是／否」題依每人真實情況作答，不照抄同行者答案。</li><li>海關申報中是否攜帶肉類／植物等管制物、超過免稅範圍商品、替他人攜帶物、未隨身行李或大額現金／貴金屬，按實際狀況回答；不確定時先查看官方說明或詢問海關。</li><li>所有資料送出後，VJW 內 QR 碼可登入查看；入境時手機有電，護照也在隨身行李。</li></ul><p class="booking-followup"><strong>出發前最後檢查｜11/20</strong><br/>確認 7 位成人都已完成本人流程，並能在自己的手機登入開啟 QR 碼。</p>
+        <div class="resource-links"><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" target="_blank" rel="noopener noreferrer">Visit Japan Web 官方說明 ↗</a><a href="https://services.digital.go.jp/visit-japan-web/guide/" target="_blank" rel="noopener noreferrer">數位廳操作步驟 ↗</a><a href="https://www.moj.go.jp/isa/content/930002134.pdf" target="_blank" rel="noopener noreferrer">入境卡欄位範例（日本入管） ↗</a><a href="https://www.customs.go.jp/english/passenger/declaration/declaration_app.html" target="_blank" rel="noopener noreferrer">日本海關電子申報說明 ↗</a></div>
+      </section>`;
   }
-
   function cleanRemote(node, baseUrl) {
     node.querySelectorAll('button.calendar-btn').forEach(button=>{
       const date=button.dataset.date||'', title=button.dataset.title||'旅行提醒', time=button.dataset.time||'';

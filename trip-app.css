@@ -292,15 +292,24 @@ details[open]>summary{background:var(--soft)}
 .money-split-preview b{display:grid;text-align:right}
 .money-split-preview small{color:var(--muted);font-weight:400}
 .money-count{padding:5px 10px;border-radius:999px;background:#f2eadf;color:#655244;font-size:12px;font-weight:700}
+.money-expense-tools{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap}
+.money-expense-tools button{min-height:38px!important;padding:7px 9px!important;font-size:11px!important}
 .money-settlement-note{margin:12px 0 0;color:var(--muted);font-size:11px;line-height:1.65}
 .money-expense-list{display:grid;gap:12px;margin-top:12px}
 .money-expense{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 4px 14px rgba(38,52,61,.05)}
-.money-expense-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:16px 17px 10px}
+.money-expense-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:72px;list-style:none;cursor:pointer}
+.money-expense-summary::-webkit-details-marker{display:none}
+.money-expense-summary:focus-visible{outline:3px solid rgba(170,63,50,.2);outline-offset:-3px}
+.money-expense-summary::after{content:'＋';padding-right:16px;color:var(--vermilion);font-size:16px;font-weight:700}
+.money-expense[open]>.money-expense-summary::after{content:'−'}
+.money-expense[open]>.money-expense-summary{border-bottom:1px solid var(--line)}
+.money-expense-head{display:flex;flex:1;min-width:0;align-items:flex-start;justify-content:space-between;gap:14px;padding:16px 0 16px 17px}
 .money-expense-head>div:first-child>span{display:inline-block;margin-top:5px;color:var(--vermilion);font-size:11px;font-weight:700}
 .money-expense-head h4{margin:0;color:var(--indigo);font-size:16px}
 .money-expense-head>div:last-child{display:grid;text-align:right}
 .money-expense-head strong{color:var(--vermilion);font-size:17px;white-space:nowrap}
 .money-expense-head small{color:var(--muted);font-size:10px}
+.money-expense-body{padding:0}
 .money-expense-meta,.money-expense-note{margin:0;padding:0 17px;color:var(--muted);font-size:11px;line-height:1.6!important}
 .money-expense-note{padding-top:4px;color:#55636c}
 .money-expense-actions{display:flex;justify-content:flex-end;gap:8px;padding:10px 13px 12px}
@@ -388,6 +397,7 @@ input,select,textarea{font-size:16px!important}
 .booking-facts strong{font-size:14px;color:#2d414c}
 .booking-codes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}
 .booking-codes strong{font-size:17px;letter-spacing:.055em;color:var(--vermilion);font-variant-numeric:tabular-nums}
+.booking-codes small{font-size:11px;color:var(--muted)}
 .booking-followup{margin:15px 0 2px;padding:13px 14px;border-left:3px solid var(--vermilion);border-radius:0 10px 10px 0;background:#fff6ef}
 .booking-followup p{margin:5px 0 8px}
 .vjw-card{max-width:820px;border-top:3px solid #668695}
@@ -396,6 +406,11 @@ input,select,textarea{font-size:16px!important}
 .vjw-steps li::before{content:"STEP " counter(vjw-step);font-size:9px;letter-spacing:.1em;color:#668695;font-weight:800}
 .vjw-steps li span{font-size:12px;color:var(--muted);line-height:1.6}
 .vjw-card .resource-links{margin-top:15px}
+.vjw-plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px;margin:12px 0}
+.vjw-plan-grid>div{display:grid;gap:4px;padding:12px;border:1px solid #dfe7e8;border-radius:11px;background:#f8fbfb}
+.vjw-plan-grid b{color:#315565;font-size:14px}
+.vjw-plan-grid span{color:var(--muted);font-size:12px;line-height:1.55}
+.vjw-checks{display:grid;gap:8px;margin:12px 0;padding-left:22px;color:#43535c;font-size:12px;line-height:1.7}
 .coupon-card>a{font-weight:700}
 .coupon-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .coupon-card{margin:0;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
@@ -411,4 +426,6 @@ input,select,textarea{font-size:16px!important}
 .coupon-extra{margin-top:16px}
 .coupon-links{display:flex;gap:10px;flex-wrap:wrap}
 .coupon-links a{font-weight:700}
+@media(max-width:700px){.money-section-head{align-items:flex-start}.money-expense-tools{max-width:100%}}
 @media(max-width:700px){.coupon-grid{grid-template-columns:1fr}.booking-facts{grid-template-columns:1fr 1fr}.booking-facts>div:last-child:nth-child(odd){grid-column:1/-1}.booking-codes,.vjw-steps{grid-template-columns:1fr}}
+
