@@ -411,6 +411,24 @@ input,select,textarea{font-size:16px!important}
 .vjw-plan-grid b{color:#315565;font-size:14px}
 .vjw-plan-grid span{color:var(--muted);font-size:12px;line-height:1.55}
 .vjw-checks{display:grid;gap:8px;margin:12px 0;padding-left:22px;color:#43535c;font-size:12px;line-height:1.7}
+.vjw-start-kit{display:grid;gap:12px;background:linear-gradient(135deg,#f2f8f8,#fffaf3)}
+.vjw-start-kit>div:first-child{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vjw-start-kit>div:last-child{display:grid;gap:4px;color:#43535c;font-size:13px;line-height:1.65}
+.vjw-start-kit>div:last-child b{color:#315565}
+.vjw-roadmap{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:12px 0 18px}
+.vjw-roadmap a{display:grid;gap:4px;min-width:0;padding:11px 8px;border:1px solid #d8e3e6;border-radius:11px;background:#f7fbfb;color:#43535c;text-align:center;text-decoration:none}
+.vjw-roadmap a:hover,.vjw-roadmap a:focus-visible{border-color:#7899a5;outline:3px solid rgba(102,134,149,.16)}
+.vjw-roadmap b{color:#668695;font-size:10px;letter-spacing:.06em}
+.vjw-roadmap span{font-size:12px;font-weight:700}
+.vjw-phase-label{margin:19px 0 8px;color:#668695;font-size:11px;font-weight:800;letter-spacing:.08em}
+.vjw-flow-card{scroll-margin-top:18px}
+.vjw-step-heading{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.vjw-step-heading b{display:grid;place-items:center;min-width:62px;min-height:29px;border-radius:999px;background:#668695;color:#fff;font-size:10px;letter-spacing:.06em}
+.vjw-step-heading span{color:#668695;font-size:11px;font-weight:700}
+.vjw-field-list{display:grid;gap:9px;margin:12px 0;padding-left:23px;color:#43535c;font-size:12px;line-height:1.75}
+.vjw-field-list b{color:#315565}
+.vjw-note{padding:10px 12px;border-left:3px solid #8baab4;border-radius:0 9px 9px 0;background:#f2f7f8;color:#536a73;font-size:11px;line-height:1.7}
+.vjw-flow-card .resource-links{display:flex;flex-wrap:wrap;gap:9px 14px}
 .coupon-card>a{font-weight:700}
 .coupon-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .coupon-card{margin:0;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
@@ -429,3 +447,5 @@ input,select,textarea{font-size:16px!important}
 @media(max-width:700px){.money-section-head{align-items:flex-start}.money-expense-tools{max-width:100%}}
 @media(max-width:700px){.coupon-grid{grid-template-columns:1fr}.booking-facts{grid-template-columns:1fr 1fr}.booking-facts>div:last-child:nth-child(odd){grid-column:1/-1}.booking-codes,.vjw-steps{grid-template-columns:1fr}}
 
+
+@media(max-width:700px){.vjw-roadmap{grid-template-columns:repeat(2,minmax(0,1fr))}.vjw-roadmap a:last-child{grid-column:1/-1}}

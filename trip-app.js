@@ -194,7 +194,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261001-vjw-guide-booking-names', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261002-vjw-official-steps', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -407,26 +407,22 @@
       <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div><a class="coupon-image-link" href="${item.image}" target="_blank" rel="noopener noreferrer" aria-label="放大查看${escape(item.name)}完整優惠券"><img class="coupon-art" src="${item.image}" alt="${escape(item.alt)}" loading="lazy" decoding="async"/></a><h2>${escape(item.headline)}</h2><p>${escape(item.body)}</p><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article><p class="coupon-footnote">整理日期：2026/10/1。效期、適用店舖與商品以即時官方券頁／店員當日確認為準。</p>`;
   }
   function vjw() {
-    return `<div class="eyebrow">BEFORE ARRIVAL</div><h1>Visit Japan Web</h1><p class="intro">照順序準備旅客資料、抵達航班、日本第一晚住宿，再完成入境審查與海關申報。以下整理這趟 7 位成人可用的填寫指引；護照與個人資料請各自保管。</p>
-      <section class="panel vjw-card"><div class="booking-card-head"><span class="pill">建議完成：11/10–11/15</span><span class="booking-status">7 位成人</span></div><h2>一、每位成人各自建立帳號和旅客資料</h2><ol class="vjw-steps">
-        <li><b>建立帳號並登入</b><span>使用本人可收信的 Email。官方已公告代理輸入功能於 2025/6/2 終止；本團 7 位成人各自完成本人資料。</span></li>
-        <li><b>登錄旅客資料</b><span>依護照原文輸入姓、名、生日、國籍／地區及護照號碼；可用相機讀取或手動輸入，確認英文拼字與護照一致。職業、居住地等基本資料依畫面填寫。</span></li>
-        <li><b>登錄入境預定</b><span>新增本次行程，填本人抵達日本日期、入境機場、最後一段抵達日本的航班號，及日本第一晚住宿聯絡資訊。</span></li>
-        <li><b>填入境審查（外國旅客）</b><span>目的選「觀光」；依本人航班填航班號，停留期間填預定天數，並填日本聯絡地址與電話。過去拒絕入境／遣返、犯罪判決、攜帶管制品等問題須依每人實際情況誠實作答。</span></li>
-        <li><b>完成海關申報</b><span>填姓名、航班、出發地、抵達日、住宿地址與電話、國籍、職業、生日、護照號碼及同行家人數；禁限品、超額商品、替他人攜帶物、未隨身行李及現金等問題依實際情況逐項回答。</span></li>
-        <li><b>確認並準備 QR 碼</b><span>完成後確認 VJW 內入境審查及海關申報 QR 碼都能開啟；入境時依現場指示出示。另保存登入方式、手機保持有電，並備妥護照正本。</span></li>
-      </ol></section>
-      <section class="panel vjw-card"><h2>二、這趟可直接核對的航班與停留天數</h2><div class="vjw-plan-grid">
+    return `<div class="eyebrow">BEFORE ARRIVAL</div><h1>Visit Japan Web 填寫流程</h1><p class="intro">照數位廳官方順序整理成 STEP 0–4：入境前建立帳號、登錄旅客與行程，再填入境手續；抵達日本時開啟 QR 碼。按下方步驟可快速跳到對應說明。</p>
+      <section class="panel vjw-card vjw-start-kit"><div><span class="pill">建議完成：11/10–11/15</span><span class="booking-status">全團 7 位成人</span></div><div><b>開始前準備</b><span>本人可收信的 Email、護照、機票，以及日本第一晚住宿名稱、地址和聯絡電話。</span></div></section>
+      <nav class="vjw-roadmap" aria-label="Visit Japan Web 官方流程導覽"><a href="#vjw-step-0"><b>STEP 0</b><span>建立帳號</span></a><a href="#vjw-step-1"><b>STEP 1</b><span>登錄旅客</span></a><a href="#vjw-step-2"><b>STEP 2</b><span>登錄行程</span></a><a href="#vjw-step-3"><b>STEP 3</b><span>填寫手續</span></a><a href="#vjw-step-4"><b>STEP 4</b><span>出示 QR</span></a></nav>
+      <div class="vjw-phase-label">入境日本前完成</div>
+      <section class="panel vjw-card vjw-flow-card" id="vjw-step-0"><div class="vjw-step-heading"><b>STEP 0</b><span>帳號準備</span></div><h2>建立帳號並登入</h2><p>首次使用請以 Email 建立帳號，之後登入 Visit Japan Web。建議每位成人先準備本人資料並各自確認能登入；不要在這個行程網站輸入或分享密碼、護照號碼。</p><p class="vjw-note">官方已於 2025/6/2 結束「代理輸入」功能；請依官方目前畫面操作，不要照舊版教學尋找代理輸入入口。</p></section>
+      <section class="panel vjw-card vjw-flow-card" id="vjw-step-1"><div class="vjw-step-heading"><b>STEP 1</b><span>旅客資料</span></div><h2>登錄本人資料</h2><ol class="vjw-field-list"><li><b>選擇手續類別：</b>依本人身分和旅行目的選擇入境／返回日本手續。</li><li><b>護照資料：</b>可用相機讀取或自行輸入；確認英文姓名、生日、國籍／地區及護照號碼都和護照一致。讀取失敗時可改手動輸入。</li><li><b>基本資料：</b>依畫面填寫；官方將職業、居住地等基本資料列為選填，已填資料可能供後續手續引用。</li><li><b>日本聯絡處（滯在先）：</b>如畫面提供此欄，可先登錄第一晚住宿聯絡資料，供 STEP 2 引用。</li></ol></section>
+      <section class="panel vjw-card vjw-flow-card" id="vjw-step-2"><div class="vjw-step-heading"><b>STEP 2</b><span>行程預定</span></div><h2>登錄入境日期、航班和日本聯絡處</h2><p>新增本次入境預定，依本人機票填抵達日本日期、機場和最後一段飛抵日本的航班；需要時再填日本聯絡地址。若已有登錄資料，可依官方畫面引用；簽證資料僅適用於持有簽證者。</p><div class="vjw-plan-grid">
         <div><b>A 組</b><span>11/21 抵達成田 T2</span><span>台灣虎航 IT280</span><span>預定停留 9 天（11/21–11/29）</span></div>
         <div><b>B 組</b><span>11/21 抵達成田 T2</span><span>中華航空 CI108</span><span>預定停留 9 天（11/21–11/29）</span></div>
         <div><b>C 組</b><span>11/23 抵達成田 T2</span><span>台灣虎航 IT280</span><span>預定停留 7 天（11/23–11/29）</span></div>
-      </div><p>航班號、日期與機場請逐人對照本人機票；若個人班機與組別表不同，以本人已開票行程為準。</p>
-        <div class="booking-followup"><strong>三、日本住宿聯絡資訊｜填第一晚，不是最後一晚</strong><p>本團入境後第一晚住東京 Airbnb。VJW 的「日本的聯絡處（滯在先）」／入境卡住宿欄，請從下方東京住宿資料抄入住宿名稱、完整地址及住宿聯絡電話。電話請看 Airbnb 訂單或向房東確認，網站沒有電話資料，請勿自行猜填。</p><a href="./?view=stays&amp;stay=tokyo">開啟住宿 → 東京資料 ↗</a><p>入境後還會住日光與成田；這些後續住宿不用誤填成第一晚地址。若畫面要求填「停留期間」，依本人去回日期：A、B 組 9 天；C 組 7 天。</p></div>
-      </section>
-      <section class="panel vjw-card"><h2>出發前逐項檢查</h2><ul class="vjw-checks"><li>旅券姓名、生日、護照號碼及有效期限都與本人護照一致。</li><li>入境日期、機場、航班號和日本第一晚住宿資料與本人訂單相符。</li><li>入境審查中所有「是／否」題依每人真實情況作答，不照抄同行者答案。</li><li>海關申報中是否攜帶肉類／植物等管制物、超過免稅範圍商品、替他人攜帶物、未隨身行李或大額現金／貴金屬，按實際狀況回答；不確定時先查看官方說明或詢問海關。</li><li>所有資料送出後，VJW 內 QR 碼可登入查看；入境時手機有電，護照也在隨身行李。</li></ul><p class="booking-followup"><strong>出發前最後檢查｜11/20</strong><br/>確認 7 位成人都已完成本人流程，並能在自己的手機登入開啟 QR 碼。</p>
-        <div class="resource-links"><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" target="_blank" rel="noopener noreferrer">Visit Japan Web 官方說明 ↗</a><a href="https://services.digital.go.jp/visit-japan-web/guide/" target="_blank" rel="noopener noreferrer">數位廳操作步驟 ↗</a><a href="https://www.moj.go.jp/isa/content/930002134.pdf" target="_blank" rel="noopener noreferrer">入境卡欄位範例（日本入管） ↗</a><a href="https://www.customs.go.jp/english/passenger/declaration/declaration_app.html" target="_blank" rel="noopener noreferrer">日本海關電子申報說明 ↗</a></div>
-      </section>`;
+      </div><p class="vjw-note">航班、日期和機場逐人照本人機票確認；組別行程僅供核對，若機票不同，以本人已開票資料為準。</p><div class="booking-followup"><strong>本團第一晚住宿｜東京 Airbnb</strong><p>住宿名稱、完整地址及聯絡電話請照訂房資料或向房東確認；請填東京第一晚，不要填後續的日光或成田住宿，也不要猜電話。</p><a href="./?view=stays&amp;stay=tokyo">開啟住宿 → 東京資料 ↗</a></div></section>
+      <div class="vjw-phase-label">依畫面完成入境手續；抵達時出示</div>
+      <section class="panel vjw-card vjw-flow-card" id="vjw-step-3"><div class="vjw-step-heading"><b>STEP 3</b><span>入境手續</span></div><h2>填寫入境審查與海關申報</h2><ol class="vjw-field-list"><li><b>檢疫／健康確認：</b>如果手續頁面出現此項，依本人實際狀況作答並查看系統提示。</li><li><b>入境審查：</b>外國旅客依本人情況填寫入境紀錄；本次目的按實際選擇觀光，停留期間照預定天數填。所有是／否題須本人據實作答。</li><li><b>海關申報：</b>依本人資料填寫，並如實申報攜帶物品、未隨身行李及頁面詢問的現金等項目；不確定是否屬管制品時，先查官方說明。</li><li><b>確認送出：</b>逐頁檢查姓名、航班、日期及住宿欄，再完成申報。</li></ol></section>
+      <section class="panel vjw-card vjw-flow-card" id="vjw-step-4"><div class="vjw-step-heading"><b>STEP 4</b><span>抵達日本時</span></div><h2>開啟手續 QR 碼並依現場指示出示</h2><p>從已登錄的入境預定開啟入境手續，顯示 Visit Japan Web 的 QR 碼；依機場指示於入境審查櫃檯及海關電子申報機／檢查處使用。手機需能登入並保持有電，護照正本也要隨身攜帶。</p><ul class="vjw-checks"><li>七位成人各自確認本人畫面能登入、申報已完成且 QR 碼能開啟。</li><li>護照姓名、生日、護照號碼、抵達航班及第一晚住宿資料逐項核對。</li><li>申報答案因人而異；不要直接照抄同行者資料或答案。</li></ul><p class="booking-followup"><strong>出發前最後檢查｜11/20</strong><br/>確認每位旅客都能在自己的手機開啟 VJW 手續頁與 QR 碼。</p><div class="resource-links"><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/guide/" target="_blank" rel="noopener noreferrer">數位廳繁體中文官方逐步教學 ↗</a><a href="https://services.digital.go.jp/zh-cmn-hant/visit-japan-web/" target="_blank" rel="noopener noreferrer">Visit Japan Web 官方說明 ↗</a><a href="https://www.moj.go.jp/isa/content/930002134.pdf" target="_blank" rel="noopener noreferrer">入境卡欄位範例（日本入管） ↗</a><a href="https://www.customs.go.jp/english/passenger/declaration/declaration_app.html" target="_blank" rel="noopener noreferrer">日本海關電子申報說明 ↗</a></div></section>`;
   }
+
   function cleanRemote(node, baseUrl) {
     node.querySelectorAll('button.calendar-btn').forEach(button=>{
       const date=button.dataset.date||'', title=button.dataset.title||'旅行提醒', time=button.dataset.time||'';
