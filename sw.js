@@ -1,9 +1,9 @@
 const CACHE_PREFIX = 'tokyo-trip-2026-';
-const CACHE_NAME = CACHE_PREFIX + 'mobile-v48';
+const CACHE_NAME = CACHE_PREFIX + 'mobile-v49';
 const BASE = new URL('./', self.location.href);
 const INDEX = new URL('index.html', BASE).href;
-const APP_FILES = ['index.html','trip-app.js','trip-app.js?v=20261003-voucher-booking','trip-app.css','trip-app.css?v=20261002-itinerary-fixes','trip-weather.js','trip-money.js','trip-money.js?v=20261002-collapsible','manifest.webmanifest','assets/nikko-narita-transfer-voucher-2026-11-28.pdf',
-  'trip-icon.svg','trip-icon-180.png','trip-icon-192.png','trip-icon-512.png','stay-tokyo.jpg','stay-nikko.jpg','stay-narita.jpg','site-one/index.html','site-one/index.html?v=20261003-voucher-booking','restaurant-guide/index.html','restaurant-guide/index.html?v=20261003-voucher-booking',
+const APP_FILES = ['index.html','trip-app.js','trip-app.js?v=20261003-daily-pass','trip-app.css','trip-app.css?v=20261002-itinerary-fixes','trip-weather.js','trip-money.js','trip-money.js?v=20261002-collapsible','manifest.webmanifest','assets/nikko-narita-transfer-voucher-2026-11-28.pdf',
+  'trip-icon.svg','trip-icon-180.png','trip-icon-192.png','trip-icon-512.png','stay-tokyo.jpg','stay-nikko.jpg','stay-narita.jpg','site-one/index.html','site-one/index.html?v=20261003-daily-pass','restaurant-guide/index.html','restaurant-guide/index.html?v=20261003-daily-pass',
   'restaurant-guide/venues/34-daitouen.html','restaurant-guide/venues/35-gyutan-lemon-asakusa.html','restaurant-guide/assets/daitouen-jou-karubi.jpg','restaurant-guide/assets/daitouen-tegutan.jpg','restaurant-guide/assets/lemon-kiwami-steak.jpg','restaurant-guide/assets/lemon-asakusa-exterior.jpg','restaurant-guide/assets/lemon-asakusa-interior.png','restaurant-guide/assets/food-grill.svg','restaurant-guide/assets/food-noodles.svg','restaurant-guide/assets/food-western.svg'];
 
 self.addEventListener('install', event => {
