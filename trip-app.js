@@ -7,6 +7,7 @@
   if (!$('#day1') || !$('#flight-info')) return;
   const GROUPS = ['A', 'B', 'C'];
   const STAY_KEYS = ['tokyo','nikko','narita'];
+  const COUPON_KEYS = ['bic','alpen','donki','matsukiyo','cocokara','sundrug','yam','laox','aeon'];
   const STAY_INFO = {
     tokyo:{label:'東京',id:'stay-tokyo',image:'./stay-tokyo.jpg',alt:'東京本所吾妻橋包棟民宿的客廳與用餐空間',source:'https://www.airbnb.com/rooms/1661217093593003826'},
     nikko:{label:'日光',id:'stay-nikko',image:'./stay-nikko.jpg',alt:'日光山景包棟民宿的和室空間',source:'https://www.airbnb.com/rooms/52815877'},
@@ -38,7 +39,7 @@
     stay: STAY_KEYS.includes(initialStay) ? initialStay : 'tokyo',
     view: ['days', 'flights', 'stays', 'bookings', 'money', 'reserve', 'restaurants', 'guide', 'coupons'].includes(params.get('view')) ? params.get('view') : 'days',
     bookingDay: [1,5,8].includes(Number(params.get('bday') || saved.bookingDay)) ? Number(params.get('bday') || saved.bookingDay) : 1,
-    coupon: ['yam','laox','donki'].includes(params.get('cpn') || saved.coupon) ? (params.get('cpn') || saved.coupon) : 'yam',
+    coupon: COUPON_KEYS.includes(params.get('cpn') || saved.coupon) ? (params.get('cpn') || saved.coupon) : 'bic',
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
   };
   const firstDay = () => state.group === 'C' ? 3 : 1;
@@ -194,7 +195,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261002-itinerary-fixes', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261003-coupons', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -396,18 +397,144 @@
     return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">這裡只保留行李準備、退稅與寄件等共用筆記。</p>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
   }
   const couponItems = {
-    yam:{short:'LABI',name:'山田電機 LABI',category:'家電',image:'https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png',alt:'山田電機 LABI 完整優惠券券面，10%免稅加最高7%折扣',headline:'退稅＋最高 7% 折扣',expiry:'有效至 2026/12/31',body:'可到指定免稅店使用；LABI 澀谷、LABI 新宿西口等店適用情形，請以即時券頁中的店舖名單為準。',caution:'Apple、遊戲主機、特價／Outlet 等部分商品不適用額外折扣。請開下方即時券頁出示條碼，並帶護照。',url:'https://livejapan.com/public/operation/coupon/yamadadenki/zh-tw.html',link:'開啟即時優惠券與指定店舖 ↗'},
-    laox:{short:'LAOX',name:'LAOX 樂購仕',category:'家電／伴手禮',image:'https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg',alt:'LAOX 樂購仕完整優惠券券面，滿額享8%折扣與退稅',headline:'滿 ¥5,000 再折 8%',expiry:'有效至 2026/12/31',body:'指定商品、指定門市可用；淺草店在適用店舖名單內，適合 11/25 淺草行程順路查看。',caution:'不適用遊戲、藥品、特價品等部分商品，且不可和其他折扣併用。結帳前請確認折扣適用條件。',url:'https://livejapan.com/public/operation/coupon/laox/zh-tw.html',link:'開啟優惠券、使用條件與淺草店資料 ↗'},
-    donki:{short:'唐吉訶德',name:'唐吉訶德',category:'藥妝／零食／雜貨',image:null,alt:'唐吉訶德即時優惠券須到官方網頁開啟',headline:'滿額最高 5%／7% 折扣',expiry:'官方即時券・出發前複查',body:'LIVE JAPAN 頁面列出未稅滿 ¥10,000 可享最高 5%，滿 ¥30,000 最高 7%；東京沿線有淺草、上野、新宿、澀谷、六本木等分店。',caution:'不可使用截圖結帳；請連網開啟即時券頁，讓店員掃描動態條碼。酒類、香菸、遊戲主機及部分高價商品排除。',url:'https://livejapan.com/public/operation/coupon/donki/zh-tw.html',link:'開啟即時優惠券與使用說明 ↗'}
-  };
+  "bic": {
+    "short": "Bic Camera",
+    "name": "Bic Camera",
+    "category": "家電／藥妝",
+    "image": "https://highway-buses.jp/chi/images/coupon/biccamera_01.jpg",
+    "alt": "Bic Camera 京王電鐵巴士合作優惠券完整券面",
+    "headline": "家電 7%・藥妝日用品 5%・清酒 3%",
+    "expiry": "有效至 2026/12/31",
+    "where": "DAY 2｜新宿 Bic Camera；DAY 4｜澀谷購物備用",
+    "body": "改用京王電鐵巴士刊登、效期涵蓋旅期的版本。符合免稅資格者在付款前出示護照與券面，依商品類別折扣。",
+    "caution": "Apple、遊戲主機／配件、部分手錶、Panasonic、DJI、FUJIFILM、特價及二手品等除外。清酒限酒類櫃檯，獺祭、八海山除外；不可與其他優惠券併用。",
+    "url": "https://highway-buses.jp/chi/coupon/07",
+    "link": "開啟 Bic Camera 券面與使用條件 ↗"
+  },
+  "alpen": {
+    "short": "Alpen",
+    "name": "Alpen TOKYO",
+    "category": "運動／戶外用品",
+    "image": "https://store.alpen-group.jp/campaign/group/coupon/matcha-coupon/media_MATCHA_coupon.png",
+    "alt": "Alpen Group 官方合作優惠券完整券面",
+    "headline": "指定商品 5% 折扣",
+    "expiry": "有效至 2026/12/31",
+    "where": "DAY 2｜新宿 Alpen TOKYO",
+    "body": "Alpen Group 在 MATCHA 發布的門市券，適用 Alpen TOKYO 及日本指定可免稅門市。付款前出示券面與護照。",
+    "caution": "部分商品除外、不可與其他折扣併用。辦理退稅須符合購物門檻；先請店員確認購買品項能否用券。",
+    "url": "https://store.alpen-group.jp/campaign/group/coupon/matcha-coupon/media_MATCHA_coupon.png",
+    "link": "開啟 Alpen 官方完整券面 ↗"
+  },
+  "donki": {
+    "short": "唐吉訶德",
+    "name": "唐吉訶德",
+    "category": "藥妝／零食／雜貨",
+    "image": null,
+    "liveNote": "請連網開啟唐吉訶德官方領券頁，依金額選券並出示即時條碼。截圖無法使用。",
+    "headline": "未稅滿 ¥10,000／¥30,000：最高 5%／7%",
+    "expiry": "即時券・效期以領券頁為準",
+    "where": "DAY 2／4／5｜新宿、澀谷、淺草等分店",
+    "body": "付款前先讓店員掃描條碼，再依頁面指示完成下一步及第二次掃碼。折扣門檻看單次免稅購物金額，付款後不能補用。",
+    "caution": "酒類、香菸、POSA 卡、遊戲主機、單件未稅 ¥100,000 以上商品及部分品牌除外。不能與其他優惠或 majica 併用；出發前再開領券頁確認效期。",
+    "url": "https://japanportal.donki-global.com/coupon/?ptcd=0099000503",
+    "link": "開啟唐吉訶德官方即時領券頁 ↗"
+  },
+  "matsukiyo": {
+    "short": "松本清",
+    "name": "松本清 Matsumoto Kiyoshi",
+    "category": "藥妝／日用品",
+    "image": "https://content.fun-japan.jp/renewal-prod/cms/light_coupon/TW---_2026-02-24-12-10-22.jpg",
+    "alt": "松本清 FUN! JAPAN 優惠券完整券面",
+    "headline": "滿 ¥10,000／¥30,000／¥50,000：3%／5%／7%",
+    "expiry": "有效至 2027/3/31",
+    "where": "東京購物備用｜遇到合適門市再使用",
+    "body": "FUN! JAPAN 一般讀者券，非會員亦可使用，適用居住日本以外的旅客。付款前出示手機券面；門檻依店員確認的結算金額計算。",
+    "caution": "諮詢化妝品、香菸、雜誌、嬰兒尿布與食品等部分商品除外。Outlet 等部分門市不適用，不可與其他折扣併用。",
+    "url": "https://fun-japan.jp/tw/light-coupons/27",
+    "link": "開啟松本清優惠券與條件 ↗"
+  },
+  "cocokara": {
+    "short": "Cocokara",
+    "name": "Cocokara Fine",
+    "category": "藥妝／日用品",
+    "image": "https://content.fun-japan.jp/renewal-prod/cms/light_coupon/-TW---_2026-02-24-12-08-59.jpg",
+    "alt": "Cocokara Fine FUN! JAPAN 優惠券完整券面",
+    "headline": "滿 ¥10,000／¥30,000／¥50,000：3%／5%／7%",
+    "expiry": "有效至 2027/3/31",
+    "where": "東京購物備用｜與松本清分開選對應券",
+    "body": "FUN! JAPAN 一般讀者券，非會員亦可使用。結帳前出示 Cocokara Fine 專用券面；適用品項與門檻金額請先由店員確認。",
+    "caution": "不可與其他優惠券併用。松本清與 Cocokara Fine 各有自己的券面，請用購物門市對應的那張。",
+    "url": "https://fun-japan.jp/tw/light-coupons/44",
+    "link": "開啟 Cocokara Fine 優惠券與條件 ↗"
+  },
+  "sundrug": {
+    "short": "SUNDRUG",
+    "name": "尚都樂客 SUNDRUG",
+    "category": "藥妝／日用品",
+    "image": "https://taxfreeshops.sakura.ne.jp/cms/wp-content/uploads/2025/11/coupon_en_2026.jpg",
+    "alt": "SUNDRUG TAXFREESHOPS.JP 特別優惠券完整券面",
+    "headline": "最高 7% 折扣・門檻看券面",
+    "expiry": "有效至 2026/12/31",
+    "where": "DAY 2｜新宿通店購物備用",
+    "body": "TAXFREESHOPS.JP 的新宿通店頁面刊登這張特別券。付款前出示手機券面，並先確認商品和購物金額適用的折扣。",
+    "caution": "僅可在免稅結帳時使用。諮詢化妝品等部分商品除外，不可與其他券併用；Direx 不適用。",
+    "url": "https://www.taxfreeshops.jp/zhtw/shop/900000440/coupon/10001254",
+    "link": "開啟 SUNDRUG 新宿通店券頁 ↗"
+  },
+  "yam": {
+    "short": "LABI",
+    "name": "山田電機 LABI",
+    "category": "家電",
+    "image": "https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png",
+    "alt": "山田電機 LABI 完整優惠券券面",
+    "headline": "指定商品最高 7% 折扣",
+    "expiry": "有效至 2026/12/31",
+    "where": "DAY 4｜澀谷家電比價備用",
+    "body": "指定可免稅門市適用，無須註冊會員或下載 App。結帳前開啟券頁，向店員出示條碼與護照；門市名單以券頁為準。",
+    "caution": "Apple、遊戲主機、Outlet／二手品、指定 Panasonic／Dyson、限量及特價品等部分商品除外。不能與其他優惠併用。",
+    "url": "https://livejapan.com/public/operation/coupon/yamadadenki/en.html",
+    "link": "開啟 LABI 即時券頁與指定店舖（英文）↗"
+  },
+  "laox": {
+    "short": "LAOX",
+    "name": "LAOX 樂購仕",
+    "category": "家電／伴手禮",
+    "image": "https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg",
+    "alt": "LAOX 樂購仕完整優惠券券面",
+    "headline": "未稅滿 ¥5,000：8% 折扣",
+    "expiry": "有效至 2026/12/31",
+    "where": "DAY 5｜淺草店；DAY 9｜成田 T2 店",
+    "body": "活動指定 7 間門市適用，淺草店與成田機場第二航廈店均在名單內。付款前出示此券，購買適用商品。",
+    "caution": "遊戲、周大福、奢侈品牌、進口手錶、藥品、特價品等部分商品除外。不能與其他折扣併用；機場店位置與營業以門市當日公告為準。",
+    "url": "https://livejapan.com/public/operation/coupon/laox/zh-tw.html",
+    "link": "開啟 LAOX 優惠券與適用門市 ↗"
+  },
+  "aeon": {
+    "short": "AEON",
+    "name": "AEON MALL 成田",
+    "category": "購物中心",
+    "image": null,
+    "liveNote": "這是服務台兌換券。請開啟官方頁面的 QR 碼到館內服務台兌換，取得購物券後再到適用店舖結帳。",
+    "headline": "含稅滿 ¥5,500：¥500 購物券",
+    "expiry": "官方常設頁・未明示截止日",
+    "where": "DAY 8｜11/28 AEON MALL 成田",
+    "body": "僅限外國旅客，成田館列在適用名單。可兌換 ¥500 優惠券或免費贈品，依現場供應可能無法選擇；抵達後先詢問服務台。",
+    "caution": "每人每日限兌換一次購物券，贈品每人限領一次。部分品牌不適用、不可併用其他券、影印或列印無效。11/28 能否領取及券的當日效期，須在服務台確認。",
+    "url": "https://tw.aeonmall.global/coupons/discount?couponid=22&mall=mall09",
+    "link": "開啟 AEON 官方兌換 QR 碼與條件 ↗"
+  }
+};
+
   function coupons() {
-    const item=couponItems[state.coupon];
+    const item=couponItems[state.coupon] || couponItems.bic;
     const visual=item.image
       ? `<a class="coupon-image-link" href="${item.image}" target="_blank" rel="noopener noreferrer" aria-label="放大查看${escape(item.name)}完整優惠券"><img class="coupon-art" src="${item.image}" alt="${escape(item.alt)}" loading="lazy" decoding="async"/></a>`
-      : '<p class="coupon-live-note">唐吉訶德使用即時條碼，不能保存券面或用截圖結帳。請點下方按鈕開啟官方即時優惠券。</p>';
-    return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">像切換每日行程一樣選擇優惠券；可保存的券面會顯示整張圖片。唐吉訶德須開啟即時條碼，結帳以官方券頁為準。</p><nav class="day-rail coupon-rail" aria-label="選擇優惠券">${Object.entries(couponItems).map(([key,value])=>`<button class="day-button" type="button" data-coupon="${key}" aria-pressed="${key===state.coupon}"><span>優惠券</span><b>${escape(value.short)}</b><small>${escape(value.category)}</small></button>`).join('')}</nav>
-      <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div>${visual}<h2>${escape(item.headline)}</h2><p>${escape(item.body)}</p><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article><p class="coupon-footnote">整理日期：2026/10/2。效期、適用店舖與商品以即時官方券頁／店員當日確認為準。</p>`;
+      : `<p class="coupon-live-note">${escape(item.liveNote)}</p>`;
+    return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">依 2026/11/21–11/29 行程重新查核。選擇店家查看整張券面、金額門檻與效期；唐吉訶德與 AEON 須於即時頁／現場確認效期。</p><nav class="day-rail coupon-rail" aria-label="選擇優惠券">${Object.entries(couponItems).map(([key,value])=>`<button class="day-button" type="button" data-coupon="${key}" aria-pressed="${key===state.coupon}"><span>優惠券</span><b>${escape(value.short)}</b><small>${escape(value.category)}</small></button>`).join('')}</nav>
+      <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div><h2>${escape(item.headline)}</h2><p><strong>${escape(item.where)}</strong></p>${visual}<p>${escape(item.body)}</p><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article>
+      <p class="coupon-footnote"><strong>11 月退稅提醒：</strong>2026/11/1 起，市區免稅購物先付含稅價格，出境時在託運行李前完成海關確認，再依店家方式退還消費稅。券面若寫「10% 免稅＋折扣」，仍須依 11 月新制辦理退稅；優惠券折扣與消費稅退稅分開看，不能直接相加當成總折扣。<a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html" target="_blank" rel="noopener noreferrer">觀光廳新制說明 ↗</a></p><p class="coupon-footnote">查核日期：2026/10/3。Bic Camera 採京王電鐵巴士至 12/31 的合作券，LIVE JAPAN／FUN! JAPAN 到 10/31 的版本不適用這趟旅期。優惠內容、適用品項及店舖以發行頁與結帳確認為準；請在付款前出示護照和對應券面。</p>`;
   }
+  
   function cleanRemote(node, baseUrl) {
     node.querySelectorAll('button.calendar-btn').forEach(button=>{
       const date=button.dataset.date||'', title=button.dataset.title||'旅行提醒', time=button.dataset.time||'';
