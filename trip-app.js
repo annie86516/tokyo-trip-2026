@@ -274,8 +274,8 @@
       3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
       4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:00–14:15（與午餐調整順序）'),suggested('11:00–14:15 午餐三選一'),suggested('14:15–14:45 步行往澀谷'),suggested('14:45–15:30 FREAK\'S STORE'),suggested('15:30–17:00 澀谷 PARCO'),suggested('17:00–19:00 PARCO B1 分開晚餐・依候位'),suggested('19:00–20:00 唐吉訶德選逛'),suggested('依集合時間返回民宿')],
       5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–12:00'),suggested('12:00–14:00（檸檬 5 位已訂；另 2 位候選待選）'),suggested('14:00–15:30 淺草自由活動'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 TEN& 外帶（建議）'),suggested('18:30–19:20 HARBS（有位內用／否則外帶）'),suggested('19:20 起 六本木新城聖誕市集・大屋頂廣場')],
-      6:[fixed('晴空塔 09:03 或 10:03','候選列車班次・上車站以車票為準'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:30 神橋；14:00 三佛堂、14:45 大猷院；16:00 後入住')],
-      7:[suggested('07:50 前出發；湖區午餐；12:55 首選下山'),suggested('13:45–16:00 東照宮、二荒山神社（依巴士抵達取捨）'),suggested('17:30–18:30')],
+      6:[fixed('晴空塔 09:03 或 10:03','候選列車班次・上車站以車票為準'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00 神橋；13:30–15:30 東照宮；16:00–16:30 入住')],
+      7:[suggested('07:50 前出發；瀑布、湖畔與原午餐空檔'),suggested('13:55 下山 → 14:31 回站；市區慢遊／憾滿選逛'),suggested('17:30–18:30')],
       8:[suggested('12:30–13:00（依交通調整）'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
       9:[fixed('08:20','飯店接駁・前一晚登記'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
     }[state.day] || [];
@@ -455,7 +455,7 @@
     const target=main.querySelector(`[data-supplement="${kind}"]`);
     if(!target)return;
     const selectedDay=state.day;
-    const path=kind==='reserve'?'./site-one/index.html?v=20261003-verified-itinerary':'./restaurant-guide/index.html?v=20261003-verified-itinerary';
+    const path=kind==='reserve'?'./site-one/index.html?v=20261003-nikko-two-days':'./restaurant-guide/index.html?v=20261003-nikko-two-days';
     const baseUrl=new URL(path,document.baseURI);
     try {
       const response=await fetch(baseUrl.href,{cache:'no-cache'});
