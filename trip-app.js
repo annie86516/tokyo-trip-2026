@@ -195,7 +195,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261003-coupons', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261008-inline-itinerary', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -281,12 +281,103 @@
       9:[fixed('08:20','飯店接駁・前一晚登記'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
     }[state.day] || [];
   }
-  function list(items) {
+  // Explicit mapping of detail rows to daily time slots (zero based).
+  const SLOT_ROWS = {
+    1:[0,0,1,2,3,4,4,5], 2:[0,0,1,1,2,3,4,5,5],
+    3:[0,0,0,0,0,0,0,0], 4:[0,1,2,2,3,4,5,7,8,9],
+    5:[0,1,1,2,3,5,6,7,8], 6:[0,1,2,3,3,3,3],
+    7:[0,0,0,0,0,1,1,2], 8:[0,0,1,2,3,3,3,3,3]
+  };
+  function inlineDetails(items, sources) {
+    const slots = items.map(() => []);
+    const add = (index, source, label) => {
+      const target = Math.min(Math.max(index, 0), slots.length - 1);
+      const anchors=[source,...source.querySelectorAll('[id]')].filter(el=>el.id).map(el=>`<span data-inline-source="${escape(el.id)}"></span>`).join('');
+      slots[target].push(`${anchors}${label ? `<h3>${escape(label)}</h3>` : ''}${readable(source)}`);
+    };
+    const addRow = (index, row, table, sourceId = '') => {
+      if(!row) return;
+      const part=table.cloneNode(false);
+      if(table.tHead) part.append(table.tHead.cloneNode(true));
+      const body=document.createElement('tbody');body.append(row.cloneNode(true));part.append(body);
+      const wrap=document.createElement('section');wrap.id=sourceId;wrap.append(part);add(index,wrap);
+    };
+    if((state.day===1 && state.group==='B') || (state.day===3 && state.group==='C')) {
+      const rail=$('.narita-combined-table').cloneNode(true);
+      [...rail.tBodies].forEach(body=>{if(!body.classList.contains('group-'+state.group.toLowerCase())) body.remove();});
+      add(1,rail,'成田機場到民宿');
+      if(state.group==='B') {
+        const table=$('#day1-route-detail .route-detail-table');
+        addRow(3,[...table.tBodies[0].rows].at(-1),table,'day1-route-detail');
+      } else {
+        const dinner=$('.day3-food .diet-inline-card');
+        const meeting=dinner?.querySelector('p');
+        if(meeting) add(2,meeting);
+      }
+    }
+    sources.forEach(source => {
+      const clone = source.cloneNode(true);
+      clone.querySelectorAll('.group-c-divider-row,.group-c-arrival-row').forEach(el => el.remove());
+      const tables = [...clone.querySelectorAll('.route-detail-table')];
+      if (tables.length) {
+        let rowIndex = 0;
+        tables.forEach(table => {
+          const label = state.day === 3 ? table.closest('.route-detail-section')?.querySelector('h3')?.textContent : '';
+          const grouped = new Map();
+          [...table.tBodies].flatMap(body => [...body.rows]).forEach(row => {
+            const index = (SLOT_ROWS[state.day] || [])[rowIndex++] ?? slots.length - 1;
+            if (!grouped.has(index)) grouped.set(index, []);
+            grouped.get(index).push(row.cloneNode(true));
+          });
+          grouped.forEach((rows, index) => {
+            const part = table.cloneNode(false);
+            if (table.tHead) part.append(table.tHead.cloneNode(true));
+            const body = document.createElement('tbody'); body.append(...rows); part.append(body);
+            const wrap = document.createElement('section'); wrap.id=source.id; wrap.append(part);
+            slots[index].push(`<span data-inline-source="${escape(source.id)}"></span>`);
+            add(index, wrap, label);
+          });
+        });
+        clone.querySelectorAll('.route-detail-table,h2,.route-detail-section-head,.route-final-note').forEach(el => el.remove());
+        clone.querySelectorAll('.route-map-bar').forEach(bar => {
+          [...bar.children].forEach((link, index) => {
+            const wrap = document.createElement('div'); wrap.append(link.cloneNode(true));
+            const target = state.day === 5 ? [1,6,7][index] ?? 8 : state.day === 4 ? (index ? 6 : 4) : state.day === 2 ? (index ? 4 : 1) : state.day === 1 ? (index ? 4 : 0) : 0;
+            add(target, wrap);
+          });
+          bar.remove();
+        });
+        if (clone.textContent.trim()) add(state.day === 8 ? 3 : 0, clone);
+      } else {
+        clone.querySelectorAll('.day-header').forEach(el=>el.remove());
+        if(state.day===5) {
+          clone.querySelectorAll('.meeting-plan .plan-box').forEach((box,index)=>{add(index ? 6 : 4,box);box.remove();});
+        }
+        if (state.day === 3) {
+          clone.querySelectorAll('.diet-inline-card').forEach(card => {
+            const meeting=card.querySelector('p');
+            if(meeting) add(1,meeting);
+            card.remove();
+          });
+          clone.querySelectorAll('.food-card-grid,.food-detail-card,.food-photo,.food-copy,.full-phrase-box,h2').forEach(el=>el.remove());
+          if (clone.textContent.trim()) add(source.textContent.includes('大東縁') && !source.classList.contains('day3-food') ? 1 : 0, clone);
+        } else if(!source.classList.contains('day-food-extension')) {
+          clone.querySelectorAll('.food-card-grid,.food-detail-card,.food-photo,.food-copy,.diet-inline-card,.full-phrase-box').forEach(el=>el.remove());
+          if(clone.textContent.trim()) add(slots.length - 1,clone);
+        }
+      }
+    });
+    return slots;
+  }
+  function list(items, sources = []) {
+    const slotDetails = inlineDetails(items, sources);
     const times = dailyTimes();
     return `<ol class="timeline">${items.map((html,i)=>{
       const slot=times[i];
       const time=slot?`<div class="schedule-time${slot.fixed?' is-fixed':''}"><span>${escape(slot.label)}</span><b>${escape(slot.time)}</b></div>`:'';
-      return `<li><span class="step" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="stop-content">${time}${html}</div></li>`;
+      const toggle = slotDetails[i].length ? `<button type="button" class="schedule-toggle" aria-expanded="false" aria-controls="slot-detail-${state.day}-${i}" aria-label="${escape(slot?.time || `第 ${i+1} 項`)} 詳細行程">${time}<span class="schedule-toggle-label">詳細行程 <span aria-hidden="true">＋</span></span></button>` : time;
+      const body = slotDetails[i].length ? `<div class="document schedule-detail-body" id="slot-detail-${state.day}-${i}" hidden>${slotDetails[i].join('')}</div>` : '';
+      return `<li><span class="step" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="stop-content">${toggle}${html}${body}</div></li>`;
     }).join('')}</ol>`;
   }
   function groupArrival() {
@@ -348,9 +439,9 @@
       <section class="weather-section" aria-label="當日行程天氣"><p>天氣資料載入中；尚未提供的預報不會以目前天氣代替。</p></section>
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
       <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div></aside>
-      <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${list(items)}${custom}
+      <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${custom}${list(items, extras)}
       ${source.querySelector('.day-alert-grid') ? `<div class="document">${readable(source.querySelector('.day-alert-grid'))}</div>` : ''}
-      ${extras.length?'<h2 class="section-label">交通細節與餐飲</h2>':''}${extras.map((el,i)=>detail(el.querySelector('h2,.day-title')?.textContent || '補充資料',el,`day-${state.day}-${i}`)).join('')}
+
       <div class="day-footer"><button type="button" data-day="${state.day-1}" ${state.day===firstDay()?'disabled':''}>← 前一天</button><span>DAY ${String(state.day).padStart(2,'0')} / 09</span><button type="button" data-day="${state.day+1}" ${state.day===9?'disabled':''}>後一天 →</button></div></section></div>`;
   }
   function flightPanel(table,title) {
@@ -683,7 +774,20 @@
     if(state.view === 'reserve' || state.view === 'restaurants') hydrateSupplement(state.view);
   }
   root.addEventListener('click',async event=>{
-    const button = event.target.closest('button'); if(!button) return;
+    const button = event.target.closest('button');
+    if(!button) {
+      const card=event.target.closest('.stop-content');
+      if(card && !event.target.closest('a,input,select,textarea,label,.schedule-detail-body')) card.querySelector('.schedule-toggle')?.click();
+      return;
+    }
+    if(button.classList.contains('schedule-toggle')) {
+      const body = root.getElementById(button.getAttribute('aria-controls'));
+      if(!body) return;
+      body.hidden = !body.hidden;
+      button.setAttribute('aria-expanded', String(!body.hidden));
+      button.querySelector('.schedule-toggle-label span').textContent = body.hidden ? '＋' : '−';
+      return;
+    }
     if(button.dataset.group) {
       state.group=button.dataset.group; render();
       root.querySelector('#announcement').textContent=`已切換為 ${state.group} 組，顯示本組與共同行程。`;
@@ -713,6 +817,7 @@
     if(match) { state.day=Number(match[1]); state.view='days'; }
     else if(id==='flight-info' || id==='narita-honjo-guide') state.view='flights';
     else if(['stay-tokyo','stay-nikko','stay-narita'].includes(id)) { state.view='stays'; state.stay=id.replace('stay-',''); }
+    else if(id==='day8-aeon-bus') { state.day=8; state.view='days'; }
     else if($('#'+CSS.escape(id))) state.view='guide';
     render();
     let details = root.querySelector(`details[data-detail="${CSS.escape(id)}"]`);
@@ -721,6 +826,14 @@
       if(sourceKey) details = root.querySelector(`details[data-detail="${CSS.escape(sourceKey)}"]`);
     }
     if(details) { details.open=true; details.scrollIntoView({block:'center'}); }
+    const inline = id === 'day8-aeon-bus' ? root.querySelector('#slot-detail-8-3') : root.querySelector(`[data-inline-source="${CSS.escape(id)}"]`)?.closest('.schedule-detail-body');
+    if(inline) {
+      inline.hidden=false;
+      const button=main.querySelector(`[aria-controls="${inline.id}"]`);
+      button?.setAttribute('aria-expanded','true');
+      if(button) button.querySelector('.schedule-toggle-label span').textContent='−';
+      button?.scrollIntoView({block:'center'});
+    }
   }
   window.addEventListener('hashchange',applyHash);
   window.addEventListener('beforeinstallprompt',event=>{
