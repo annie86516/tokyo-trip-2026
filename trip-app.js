@@ -37,7 +37,7 @@
     group: GROUPS.includes(initialGroup) ? initialGroup : 'A',
     day: Number(params.get('day') || saved.day) || 1,
     stay: STAY_KEYS.includes(initialStay) ? initialStay : 'tokyo',
-    view: ['days', 'flights', 'stays', 'bookings', 'money', 'reserve', 'restaurants', 'guide', 'coupons'].includes(params.get('view')) ? params.get('view') : 'days',
+    view: ['days', 'flights', 'stays', 'bookings', 'money', 'reserve', 'restaurants', 'airport', 'guide', 'coupons'].includes(params.get('view')) ? params.get('view') : 'days',
     bookingDay: [1,5,8].includes(Number(params.get('bday') || saved.bookingDay)) ? Number(params.get('bday') || saved.bookingDay) : 1,
     coupon: COUPON_KEYS.includes(params.get('cpn') || saved.coupon) ? (params.get('cpn') || saved.coupon) : 'bic',
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
@@ -195,7 +195,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261008-inline-itinerary', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261016-airport-shopping', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -212,6 +212,7 @@
         <button type="button" data-view="bookings">${icon('ticket')}<span>已預約</span></button>
         <button type="button" data-view="reserve">${icon('calendar')}<span>待辦事項</span></button>
         <button type="button" data-view="restaurants">${icon('pin')}<span>餐廳攻略</span></button>
+        <button type="button" data-view="airport">${icon('plane')}<span>機場購物</span></button>
         <button type="button" data-view="guide">${icon('book')}<span>旅行資料</span></button>
         <button type="button" data-view="coupons">${icon('coupon')}<span>優惠券</span></button>
         <button type="button" data-view="money">${icon('wallet')}<span>分帳</span></button>
@@ -480,6 +481,9 @@
   function restaurants() {
     return `<div class="eyebrow">TOKYO FOOD GUIDE</div><h1>餐廳攻略</h1><p class="intro">選擇日期，查看當天的店面、招牌餐點、營業與候位提醒。</p>${dayNavigation(8)}<div class="supplement-root" data-supplement="restaurants"><section class="panel supplement-loading">正在整理餐廳攻略…</section></div>`;
   }
+  function airport() {
+    return `<div class="eyebrow">NARITA AIRPORT SHOPPING</div><h1>機場購物</h1><p class="intro">成田第二航廈的伴手禮推薦、店家位置與安檢前後採買動線。</p><div class="supplement-root airport-shopping" data-supplement="airport"><section class="panel supplement-loading">正在載入機場購物推薦…</section></div>`;
+  }
   function guide() {
     const sections = [
       ['行前準備',['packing-list-1','packing-list-2']],
@@ -673,7 +677,7 @@
     const target=main.querySelector(`[data-supplement="${kind}"]`);
     if(!target)return;
     const selectedDay=state.day;
-    const path=kind==='reserve'?'./site-one/index.html?v=20261003-daily-pass':'./restaurant-guide/index.html?v=20261003-daily-pass';
+    const path=kind==='airport'?'./site-three/index.html':kind==='reserve'?'./site-one/index.html?v=20261003-daily-pass':'./restaurant-guide/index.html?v=20261003-daily-pass';
     const baseUrl=new URL(path,document.baseURI);
     try {
       const response=await fetch(baseUrl.href,{cache:'no-cache'});
@@ -681,7 +685,25 @@
       const doc=new DOMParser().parseFromString(await response.text(),'text/html');
       if(!target.isConnected)return;
       target.innerHTML='';
-      if(kind==='reserve') {
+      if(kind==='airport') {
+        for(const id of ['priority','gifts','route']) {
+          const source=doc.getElementById(id);if(!source)continue;
+          if(id==='gifts') {
+            [...source.querySelectorAll('.cards')].forEach((cards,index)=>{
+              const section=document.createElement('section');
+              section.innerHTML=`<h2 class="section-label">${escape(cards.previousElementSibling?.querySelector('h3')?.textContent || (index?'安檢後推薦':'安檢前推薦'))}</h2><div class="supplement-grid"></div>`;
+              for(const card of cards.children) {
+                const article=document.createElement('article');article.className='supplement-card';
+                article.append(cleanRemote(card.cloneNode(true),baseUrl));section.querySelector('.supplement-grid').append(article);
+              }
+              target.append(section);
+            });
+          } else {
+            const section=document.createElement('section');section.className='panel document airport-notes';
+            section.innerHTML=readable(source);target.append(section);
+          }
+        }
+      } else if(kind==='reserve') {
         const wanted=new URL(location.href).searchParams.get('section');
         [...doc.querySelectorAll('section.page')].filter(section=>['timeline','tickets','restaurants'].includes(section.id)).forEach((section,index)=>{
           const content=(section.querySelector('.content')||section).cloneNode(true);
@@ -752,7 +774,7 @@
     });
     const row = flightRow(departures,state.group);
     root.querySelector('.group-context').textContent = `${state.group} 組 · ${row.cells[3].textContent.trim()} · ${row.cells[1].textContent.trim()}`;
-    const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='bookings'?bookings():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():state.view==='coupons'?coupons():guide();
+    const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='bookings'?bookings():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():state.view==='airport'?airport():state.view==='coupons'?coupons():guide();
     main.innerHTML = content+`<p class="status" role="status">${statusText()}</p>`;
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
@@ -771,7 +793,7 @@
     }
     if(state.view === 'money' && window.TripMoney) window.TripMoney.mount(main.querySelector('.money-app'));
     else if(window.TripMoney) window.TripMoney.unmount();
-    if(state.view === 'reserve' || state.view === 'restaurants') hydrateSupplement(state.view);
+    if(['reserve','restaurants','airport'].includes(state.view)) hydrateSupplement(state.view);
   }
   root.addEventListener('click',async event=>{
     const button = event.target.closest('button');

@@ -422,6 +422,12 @@ input,select,textarea{font-size:16px!important}
 .schedule-detail-body[hidden]{display:none!important}
 .schedule-detail-body .table-card{margin:8px 0}
 @media(max-width:440px){.schedule-toggle{flex-wrap:wrap;gap:4px}.schedule-toggle-label{margin-left:auto}.schedule-detail-body .table-card>div{grid-template-columns:70px minmax(0,1fr)}}
+.airport-shopping .supplement-card .photo img{width:100%;height:210px;object-fit:contain;background:#faf6ef}
+.airport-shopping .badge-row{padding:8px 16px;color:var(--vermilion);font-size:12px}
+.airport-shopping .card-body{padding:0 16px 18px;line-height:1.8}
+.airport-shopping .meta-row{display:flex;gap:12px;border-top:1px solid var(--line);padding:8px 0}
+.airport-shopping .meta-row b{flex-shrink:0}
+.airport-shopping .airport-notes{margin-bottom:20px}
 .coupon-extra{margin-top:16px}
 .coupon-links{display:flex;gap:10px;flex-wrap:wrap}
 .coupon-links a{font-weight:700}
