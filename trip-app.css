@@ -410,9 +410,12 @@ input,select,textarea{font-size:16px!important}
 .coupon-card h2{margin:10px 0 4px;color:#2b3e4b;font-size:17px}
 .coupon-card p{font-size:12px;line-height:1.75}
 .coupon-top{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.coupon-status{color:#62717a;font-size:10px}
-.coupon-caution{margin-top:auto!important;padding:9px 10px;border-radius:9px;background:#fff7e8;color:#73521f;font-size:11px!important}
-.coupon-footnote{color:var(--muted);font-size:10px;line-height:1.7;margin:14px 2px}
+.coupon-status{color:#62717a;font-size:13px}
+.coupon-caution{margin-top:auto!important;padding:9px 10px;border-radius:9px;background:#fff7e8;color:#73521f;font-size:15px!important}
+.coupon-footnote{color:var(--muted);font-size:14px;line-height:1.8;margin:14px 2px}
+.coupon-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start;margin:24px 0}
+.coupon-layout>*{min-width:0}.coupon-visual .coupon-image-link{margin:0}.coupon-rules h3{font-size:20px;margin:0 0 12px}.coupon-rules dl{margin:0}.coupon-rules dl>div{padding:14px 0;border-bottom:1px solid var(--line)}.coupon-rules dt{font-weight:700;color:var(--accent);font-size:16px;margin-bottom:5px}.coupon-rules dd{margin:0;font-size:16px;line-height:1.85;overflow-wrap:anywhere}.coupon-card .coupon-caution{font-size:15px;line-height:1.85}.coupon-tax-note{font-size:15px;line-height:1.85;margin:20px 0}.coupon-tax-note summary{cursor:pointer;font-weight:700;padding:14px 0;min-height:44px}.coupon-tax-note p{margin-top:8px}
+@media(max-width:760px){.coupon-layout{grid-template-columns:1fr;gap:20px}.coupon-rules dl>div{padding:12px 0}.coupon-card .coupon-top{gap:10px;flex-wrap:wrap}}
 .coupon-image-link{display:flex;width:100%;justify-content:center;align-items:center;margin:10px 0 2px;padding:8px;border:1px solid #e8e1da;border-radius:12px;background:#fff;overflow:hidden}
 .coupon-live-note{width:100%;padding:16px;border:1px solid #e8cbbd;border-radius:12px;background:#fff9f3;color:#6d3b32;font-size:14px!important;line-height:1.8}
 .coupon-art{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;object-position:center top}
@@ -477,5 +480,20 @@ input,select,textarea{font-size:16px!important}
 .coupon-links a{font-weight:700}
 @media(max-width:700px){.money-section-head{align-items:flex-start}.money-expense-tools{max-width:100%}}
 @media(max-width:700px){.coupon-grid{grid-template-columns:1fr}.booking-facts{grid-template-columns:1fr 1fr}.booking-facts>div:last-child:nth-child(odd){grid-column:1/-1}.booking-codes{grid-template-columns:1fr}}
-
-
+/* Cross-panel reading scale; keep dates and compact badges distinct from body text. */
+.document,.document p,.document li,.table-card dd,.timeline .item-body,.supplement-card .verdict,.task-desc,.booking-card p,.coupon-card p{font-size:16px;line-height:1.9;overflow-wrap:anywhere}
+.table-card dt{font-size:14px;line-height:1.7}
+.document h2{font-size:21px;line-height:1.5}.document h3{font-size:18px;line-height:1.6}
+.document p,.document ul{margin-top:12px;margin-bottom:16px}
+.supplement-card h3{font-size:20px;line-height:1.5}
+.supplement-card .jp{font-size:14px;line-height:1.6}
+.supplement-card .card-foot,.booking-facts span,.booking-codes small{font-size:14px;line-height:1.7}
+.supplement-section>summary,.document-detail>summary{font-size:18px;line-height:1.6;min-height:48px}
+.important-reminder{color:#b42318!important;font-weight:700}
+.resource-links{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.resource-links a{display:flex;align-items:center;min-height:46px;padding:11px 16px;background:#fffaf1;border:1px solid #dfcdb4;border-radius:12px;color:#805236;text-decoration:none;font-size:16px;line-height:1.6}
+.resource-links a:focus-visible{outline:3px solid #a65a3d;outline-offset:3px}
+.task{align-items:start}.task-title{font-size:17px;line-height:1.6}.task-tools{gap:10px;flex-wrap:wrap}
+.task-tools a,.task-tools button{min-height:44px;font-size:14px}
+@media(max-width:600px){.resource-links{display:grid;grid-template-columns:1fr}.document,.document p,.document li,.task-desc,.booking-card p{font-size:16px}.document h2{font-size:20px}.booking-facts{grid-template-columns:1fr 1fr}.supplement-grid{grid-template-columns:1fr}}
+.image-unavailable{height:auto!important;min-height:0!important;aspect-ratio:auto!important;padding:14px!important;background:#f6f0e6}.image-unavailable img{display:none!important}.image-load-note{font-size:14px;line-height:1.8;margin:0;color:#695e52}
