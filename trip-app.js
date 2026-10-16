@@ -195,7 +195,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261016-airport-shopping', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261016-readable-shopping', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -481,6 +481,29 @@
   function restaurants() {
     return `<div class="eyebrow">TOKYO FOOD GUIDE</div><h1>餐廳攻略</h1><p class="intro">選擇日期，查看當天的店面、招牌餐點、營業與候位提醒。</p>${dayNavigation(8)}<div class="supplement-root" data-supplement="restaurants"><section class="panel supplement-loading">正在整理餐廳攻略…</section></div>`;
   }
+  function airportGuide(doc, baseUrl) {
+    const zones={before:'安檢前 · 4F',after:'安檢後 · 3F',check:'店況待確認'};
+    const cards=[...doc.querySelectorAll('#gifts .card')];
+    const counts=key=>key==='all'?cards.length:cards.filter(card=>card.dataset.zone===key).length;
+    const picks=[...doc.querySelectorAll('#priority .priority h3')].map(el=>`<span>${escape(el.textContent)}</span>`).join('');
+    const navigation=`<nav class="airport-filters" aria-label="依購買區域查看">${[['all','全部'],['before','安檢前'],['after','安檢後'],['check','待確認']].map(([key,label])=>`<button type="button" data-airport-zone="${key}" aria-pressed="${key==='all'}">${label}<small>${counts(key)}</small></button>`).join('')}</nav>`;
+    const list=cards.map((card,index)=>{
+      const title=card.querySelector('.card-title')?.textContent||'';
+      const subtitle=card.querySelector('.jp')?.textContent||'';
+      const zone=card.dataset.zone||'check';
+      const photo=card.querySelector('img');
+      const image=photo?cleanRemote(photo.cloneNode(true),baseUrl).outerHTML:'';
+      const rows=[...card.querySelectorAll('.meta-row')];
+      const location=rows.find(row=>/位置/.test(row.querySelector('b')?.textContent||''));
+      const locationText=location?.querySelector('span')?.textContent||'店鋪與庫存請現場確認';
+      const facts=rows.filter(row=>row!==location).map(row=>`<div><dt>${escape(row.querySelector('b')?.textContent||'資訊')}</dt><dd>${escape(row.querySelector('span')?.textContent||'')}</dd></div>`).join('');
+      const note=card.querySelector('.status-note')?.textContent;
+      return `<article class="airport-product" data-airport-card="${escape(zone)}"><div class="airport-product-top"><figure>${image}</figure><div class="airport-product-title"><span class="airport-zone airport-zone-${escape(zone)}">${zones[zone]||zones.check}</span><h2>${escape(title)}</h2><p>${escape(subtitle)}</p></div></div><p class="airport-location">${icon('pin')}<span>${escape(locationText)}</span></p><details class="airport-product-detail"><summary>口味・價格與購買提醒</summary><div class="airport-product-copy"><p>${escape(card.querySelector('.taste')?.textContent||'')}</p><dl>${facts}</dl>${note?`<p class="airport-product-note">${escape(note)}</p>`:''}</div></details></article>`;
+    }).join('');
+    const steps=[...doc.querySelectorAll('#route .timeline-item')].map(step=>`<li><span>${escape(step.querySelector('.timeline-time')?.textContent||'')}</span><div><strong>${escape(step.querySelector('strong')?.textContent||'')}</strong><p>${escape(step.querySelector('p')?.textContent||'')}</p></div></li>`).join('');
+    const tips=[...doc.querySelectorAll('#route .tips li')].map(tip=>`<li>${escape(tip.textContent)}</li>`).join('');
+    return `<section class="airport-reading-guide"><div class="airport-wayfinding"><div><b>01</b><span>4F 安檢前<small>先買專店與 ANA FESTA</small></span></div><span aria-hidden="true">→</span><div><b>02</b><span>安檢・出境<small>通關時間另外預留</small></span></div><span aria-hidden="true">→</span><div><b>03</b><span>3F 安檢後<small>Fa-So-La 免稅伴手禮</small></span></div></div><details class="airport-shortlist"><summary>時間不夠，先看這 5 款</summary><div>${picks}</div></details>${navigation}<p class="airport-results" role="status">共 ${cards.length} 款推薦</p><div class="airport-products">${list}</div><details class="airport-shopping-plan"><summary>建議採買動線與購物提醒</summary><div class="airport-plan-copy"><h2>採買約 45–60 分鐘，通關另計</h2><ol class="airport-route">${steps}</ol><h2>購買前小提醒</h2><ul>${tips}</ul></div></details></section>`;
+  }
   function airport() {
     return `<div class="eyebrow">NARITA AIRPORT SHOPPING</div><h1>機場購物</h1><p class="intro">成田第二航廈的伴手禮推薦、店家位置與安檢前後採買動線。</p><div class="supplement-root airport-shopping" data-supplement="airport"><section class="panel supplement-loading">正在載入機場購物推薦…</section></div>`;
   }
@@ -686,23 +709,7 @@
       if(!target.isConnected)return;
       target.innerHTML='';
       if(kind==='airport') {
-        for(const id of ['priority','gifts','route']) {
-          const source=doc.getElementById(id);if(!source)continue;
-          if(id==='gifts') {
-            [...source.querySelectorAll('.cards')].forEach((cards,index)=>{
-              const section=document.createElement('section');
-              section.innerHTML=`<h2 class="section-label">${escape(cards.previousElementSibling?.querySelector('h3')?.textContent || (index?'安檢後推薦':'安檢前推薦'))}</h2><div class="supplement-grid"></div>`;
-              for(const card of cards.children) {
-                const article=document.createElement('article');article.className='supplement-card';
-                article.append(cleanRemote(card.cloneNode(true),baseUrl));section.querySelector('.supplement-grid').append(article);
-              }
-              target.append(section);
-            });
-          } else {
-            const section=document.createElement('section');section.className='panel document airport-notes';
-            section.innerHTML=readable(source);target.append(section);
-          }
-        }
+        target.innerHTML=airportGuide(doc,baseUrl);
       } else if(kind==='reserve') {
         const wanted=new URL(location.href).searchParams.get('section');
         [...doc.querySelectorAll('section.page')].filter(section=>['timeline','tickets','restaurants'].includes(section.id)).forEach((section,index)=>{
@@ -810,7 +817,13 @@
       button.querySelector('.schedule-toggle-label span').textContent = body.hidden ? '＋' : '−';
       return;
     }
-    if(button.dataset.group) {
+    if(button.dataset.airportZone) {
+      const zone=button.dataset.airportZone;
+      main.querySelectorAll('[data-airport-zone]').forEach(el=>el.setAttribute('aria-pressed',String(el===button)));
+      let count=0;
+      main.querySelectorAll('[data-airport-card]').forEach(card=>{card.hidden=zone!=='all' && card.dataset.airportCard!==zone;if(!card.hidden)count++;});
+      main.querySelector('.airport-results').textContent=`${button.textContent.replace(/\d+$/,'')} · ${count} 款推薦`;
+    } else if(button.dataset.group) {
       state.group=button.dataset.group; render();
       root.querySelector('#announcement').textContent=`已切換為 ${state.group} 組，顯示本組與共同行程。`;
     } else if(button.dataset.day) { state.day=Number(button.dataset.day); render(true); }
