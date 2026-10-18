@@ -545,3 +545,19 @@ input,select,textarea{font-size:14px!important}
 .flight :is(.flight-departure-time,.flight-arrival-time){display:inline-block;color:#b42318;font-size:13px;font-weight:700;line-height:1.4;font-variant-numeric:tabular-nums;white-space:nowrap}
 
 .flight .flight-arrival-time{color:#b42318}
+
+
+
+/* Typography and compact content follow the user's edited A-group Word model. */
+.main[data-view="days"]{--day-section-size:14px;--day-body-size:13px}
+.main[data-view="days"] .hero-copy h1{font-size:18px}
+.main[data-view="days"] .route-label{font-weight:400}
+.main[data-view="days"] .schedule-time b{font-size:13px}
+.main[data-view="flights"] .ticket-header .pill{font-size:16px;font-weight:400}
+.main[data-view="flights"] .flight{font-size:12px}
+.main[data-view="flights"] .flight :is(.flight-departure-time,.flight-arrival-time){font-size:14px;color:#b42318}
+.main[data-view="flights"] .ticket-footer{font-size:12px}
+.main[data-view="flights"] .flight-number{font-size:14px;color:#ff0000;font-weight:700}
+.main[data-view="flights"] .ticket-footer .intro{font-size:12px}
+.main[data-view="flights"]>.section-label{font-size:20px}
+.main[data-view="flights"] .table-card :is(dt,dd){font-size:12px}
