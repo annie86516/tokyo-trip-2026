@@ -13,7 +13,7 @@
 <link rel="icon" href="./trip-icon.svg" type="image/svg+xml"/>
 <script src="./trip-weather.js" defer></script>
 <script src="./trip-money.js?v=20261002-collapsible" defer></script>
-<script src="./trip-app.js?v=20261018-mobile-compact" defer></script>
+<script src="./trip-app.js?v=20261018-mobile-font-plus1" defer></script>
 <title>2026 東京・日光・成田｜9 天 8 夜行程</title>
 <style id="document-style">@page { size: A4 portrait; margin: 0; }
     :root {
@@ -31,7 +31,7 @@
     }
     * { box-sizing: border-box; }
     body {
-      font-size:13px;
+      font-size:14px;
         font-family: 'Noto Sans CJK TC', 'Microsoft JhengHei', sans-serif;
         line-height: 1.52;
         color: var(--ink);
@@ -69,7 +69,7 @@
         position: absolute;
         right: 16mm;
         bottom: 7mm;
-        font-size: 5.5px;
+        font-size: 6.5px;
         letter-spacing: .08em;
         color: #91a09b;
     }
@@ -82,7 +82,7 @@
     .page-sheet.cover-sheet .container { width: 100%; }
     .page-sheet.cover-sheet h1 {
         border: 0;
-        font-size: 29px;
+        font-size: 30px;
         line-height: 1.28;
         margin: 0 0 18px 0;
         text-align: left;
@@ -93,7 +93,7 @@
         content: 'JAPAN TRAVEL NOTE';
         display: block;
         font-family: 'Noto Sans', 'Arial', sans-serif;
-        font-size: 8px;
+        font-size: 9px;
         letter-spacing: .18em;
         color: var(--accent-dark);
         margin-bottom: 14px;
@@ -104,7 +104,7 @@
         color: #203044;
         border-bottom: 3px solid rgba(207, 126, 104, .55);
         padding-bottom: 10px;
-        font-size: 21px;
+        font-size: 22px;
         text-align: center;
         margin: 0 0 18px 0;
     }
@@ -115,7 +115,7 @@
         border: 0;
         border-bottom: 2px solid #d9e3df;
         margin: 0 0 16px 0;
-        font-size: 17px;
+        font-size: 18px;
         letter-spacing: .03em;
     }
     h2::before {
@@ -133,12 +133,12 @@
         border-bottom: 0;
         padding-bottom: 3px;
         margin: 16px 0 10px 0;
-        font-size: 13px;
+        font-size: 14px;
     }
-    h4 { margin: 12px 0 8px 0; font-size: 11px; color: #334b5d; }
-    p { margin: 6px 0 9px 0; font-size: 9.6px; }
+    h4 { margin: 12px 0 8px 0; font-size: 12px; color: #334b5d; }
+    p { margin: 6px 0 9px 0; font-size: 10.6px; }
     ul { padding-left: 18px; margin: 5px 0 10px 0; }
-    li { margin-bottom: 4px; font-size: 9.4px; }
+    li { margin-bottom: 4px; font-size: 10.4px; }
     strong { font-weight: 800; }
     a { color: #3c82a0; text-decoration: none; font-weight: 650; }
     a:hover { text-decoration: underline; }
@@ -158,10 +158,10 @@
     .meta-info {
         padding: 14px 16px;
         margin-bottom: 16px;
-        font-size: 9.4px;
+        font-size: 10.4px;
         backdrop-filter: blur(3px);
     }
-    .meta-info p { font-size: 9.2px; }
+    .meta-info p { font-size: 10.2px; }
     .tax-alert-box {
         background: #fff1ed;
         border: 1px solid #e9b1a5;
@@ -170,7 +170,7 @@
         margin: 16px 0;
         color: #6e332e;
     }
-    .tax-alert-box h3 { color: #8c473d; margin-top: 0; font-size: 12px; }
+    .tax-alert-box h3 { color: #8c473d; margin-top: 0; font-size: 13px; }
     .daily-note-box {
         background: #fff8df;
         border-left: 6px solid #e4b969;
@@ -180,7 +180,7 @@
     }
     .reservation-red-tag {
         color: #9d3e35;
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 800;
         background: #fff0ed;
         padding: 9px 12px;
@@ -195,7 +195,7 @@
         border-collapse: separate;
         border-spacing: 0;
         margin: 12px 0;
-        font-size: 8.4px;
+        font-size: 9.4px;
         border: 1px solid #d8ded8;
         border-radius: 14px;
         overflow: hidden;
@@ -209,7 +209,7 @@
     }
     td { border-top: 1px solid #e6e7e3; padding: 7px 9px; vertical-align: top; }
     tr:nth-child(even) { background: rgba(230, 241, 240, .48); }
-    .badge { padding: 3px 9px; border-radius: 999px; font-size: 8px; font-weight: 800; display: inline-block; margin-right: 5px; }
+    .badge { padding: 3px 9px; border-radius: 999px; font-size: 9px; font-weight: 800; display: inline-block; margin-right: 5px; }
     .badge-orange { background: #fde6d5; color: #9a4e37; }
     .badge-blue { background: #dfeff3; color: #3e7287; }
     .badge-food { background: #f7d9d3; color: #8f3d35; }
@@ -254,7 +254,7 @@
         border-radius: 14px;
         padding: 8px 10px;
         color: #2f4350;
-        font-size: 8.5px;
+        font-size: 9.5px;
         font-weight: 700;
     }
     .photo-grid {
@@ -275,7 +275,7 @@
         background: rgba(255,255,255,.84);
         border-radius: 999px;
         padding: 4px 8px;
-        font-size: 7.2px;
+        font-size: 8.2px;
         line-height: 1.2;
         color: #40525a;
         font-weight: 650;
@@ -294,10 +294,10 @@
         padding: 8px 5px;
         min-height: 50px;
     }
-    .stat b { display: block; font-size: 12px; color: #355367; }
-    .stat small { display: block; font-size: 7.5px; color: #728075; margin-top: 2px; }
+    .stat b { display: block; font-size: 13px; color: #355367; }
+    .stat small { display: block; font-size: 8.5px; color: #728075; margin-top: 2px; }
     .source-note {
-        font-size: 7.2px;
+        font-size: 8.2px;
         color: #7c887f;
         margin-top: 7px;
     }
@@ -327,11 +327,11 @@
         text-align: center;
         color: #6a7b77;
         font-weight: 800;
-        font-size: 9px;
+        font-size: 10px;
         padding: 12px;
     }
     .image-card img { width: 220px; max-height: 150px; object-fit: cover; border-radius: 14px; border: 1px solid #d7ded7; }
-    .image-card-caption { flex: 1; font-size: 9px; color: #475569; }
+    .image-card-caption { flex: 1; font-size: 10px; color: #475569; }
     .mini-route {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
@@ -344,7 +344,7 @@
         border-radius: 999px;
         padding: 7px 4px;
         text-align: center;
-        font-size: 7.5px;
+        font-size: 8.5px;
         color: #43545d;
     }
     @media print {
@@ -368,10 +368,10 @@
 .day-page-sheet .container { height: 100%; }
 .day-layout { min-height: 257mm; display: flex; flex-direction: column; gap: 10px; position: relative; isolation: isolate; }
 .day-layout > * { position: relative; z-index: 1; }
-.day-layout::after { content: attr(data-watermark); position: absolute; z-index: 0; left: 8px; bottom: 42px; font-size: 63px; line-height: 1; font-weight: 950; letter-spacing: .08em; color: color-mix(in srgb, var(--day-accent) 7%, transparent); white-space: nowrap; }
+.day-layout::after { content: attr(data-watermark); position: absolute; z-index: 0; left: 8px; bottom: 42px; font-size: 64px; line-height: 1; font-weight: 950; letter-spacing: .08em; color: color-mix(in srgb, var(--day-accent) 7%, transparent); white-space: nowrap; }
 .day-eyebrow {
     display: flex; align-items: center; justify-content: space-between;
-    font-size: 6px; font-weight: 850; letter-spacing: .17em; color: var(--day-dark);
+    font-size: 7px; font-weight: 850; letter-spacing: .17em; color: var(--day-dark);
     padding: 0 2px;
 }
 .day-eyebrow .dots { display: flex; gap: 5px; align-items: center; }
@@ -389,10 +389,10 @@
     box-shadow: 0 8px 22px color-mix(in srgb, var(--day-accent) 28%, transparent);
     transform: rotate(-2deg);
 }
-.day-number span { font-size: 6px; font-weight: 900; letter-spacing: .18em; line-height: 1; }
-.day-number b { font-size: 28px; line-height: 1.02; letter-spacing: -.05em; }
-.day-date { color: var(--day-accent); font-size: 8px; font-weight: 900; letter-spacing: .08em; margin-bottom: 3px; }
-.day-title { color: #253542; font-size: 18px; line-height: 1.23; margin: 0; padding: 0; border: 0; letter-spacing: .01em; }
+.day-number span { font-size: 7px; font-weight: 900; letter-spacing: .18em; line-height: 1; }
+.day-number b { font-size: 29px; line-height: 1.02; letter-spacing: -.05em; }
+.day-date { color: var(--day-accent); font-size: 9px; font-weight: 900; letter-spacing: .08em; margin-bottom: 3px; }
+.day-title { color: #253542; font-size: 19px; line-height: 1.23; margin: 0; padding: 0; border: 0; letter-spacing: .01em; }
 .day-route {
     display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: center;
     border: 1px solid color-mix(in srgb, var(--day-accent) 28%, #d7ddd9);
@@ -401,9 +401,9 @@
 }
 .day-route-label {
     text-align: center; border-radius: 12px; padding: 6px 2px;
-    background: var(--day-soft); color: var(--day-dark); font-size: 7px; font-weight: 900;
+    background: var(--day-soft); color: var(--day-dark); font-size: 8px; font-weight: 900;
 }
-.day-route-text { font-size: 8.7px; line-height: 1.45; color: #42535d; }
+.day-route-text { font-size: 9.7px; line-height: 1.45; color: #42535d; }
 .day-route-text strong { color: var(--day-dark); }
 .day-photo-collage { display: grid; grid-template-columns: 1.14fr .86fr; gap: 10px; height: 205px; }
 .day-photo {
@@ -415,25 +415,25 @@
 .day-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .day-photo::after { content:''; position:absolute; inset:auto 0 0; height:58%; background:linear-gradient(transparent,rgba(18,29,35,.72)); pointer-events:none; }
 .day-photo figcaption { position:absolute; z-index:2; left:11px; right:10px; bottom:9px; color:white; }
-.day-photo figcaption b { display:block; font-size:9.5px; line-height:1.25; }
-.day-photo figcaption small { display:block; font-size:5.5px; opacity:.88; margin-top:2px; letter-spacing:.03em; }
+.day-photo figcaption b { display:block; font-size:10.5px; line-height:1.25; }
+.day-photo figcaption small { display:block; font-size:6.5px; opacity:.88; margin-top:2px; letter-spacing:.03em; }
 .day-panel {
     background: rgba(255,255,255,.84); border: 1px solid #dde3df; border-radius: 18px;
     padding: 11px 12px 12px; box-shadow: 0 3px 12px rgba(55,75,77,.045);
 }
-.day-panel-title { display:flex; align-items:center; gap:7px; color:var(--day-dark); font-size:8px; font-weight:900; letter-spacing:.08em; margin-bottom:9px; }
+.day-panel-title { display:flex; align-items:center; gap:7px; color:var(--day-dark); font-size:9px; font-weight:900; letter-spacing:.08em; margin-bottom:9px; }
 .day-panel-title::before { content:''; width:19px; height:4px; border-radius:999px; background:var(--day-accent); }
 .day-items-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
 .day-items-grid.single-column { grid-template-columns:1fr; }
 .day-item {
     position:relative; min-height:49px; border-radius:13px; padding:8px 9px 8px 34px;
     background: color-mix(in srgb, var(--day-soft) 37%, white); border:1px solid color-mix(in srgb, var(--day-accent) 16%, #dfe5e1);
-    font-size:8.15px; line-height:1.46; color:#3f4e57;
+    font-size:9.15px; line-height:1.46; color:#3f4e57;
     break-inside: avoid;
 }
 .day-item-icon {
     position:absolute; left:8px; top:8px; width:20px; height:20px; border-radius:8px;
-    display:flex; align-items:center; justify-content:center; font-size:8px;
+    display:flex; align-items:center; justify-content:center; font-size:9px;
     background:white; box-shadow:0 2px 6px rgba(50,70,73,.08);
 }
 .day-item strong { color:#263b48; }
@@ -444,42 +444,42 @@
 .day5-meal-card.pending { border-top:3px solid #c69a48; background:#fffdf7; }
 .day5-meal-card .meal-status { display:flex; justify-content:space-between; gap:6px; color:#34424a; font-weight:800; }
 .day5-meal-card .meal-status span { color:#8e443b; white-space:nowrap; }
-.day5-meal-card h4 { margin:4px 0; color:#773c35; font-size:7.8px; line-height:1.4; }
-.day5-meal-card p { margin:3px 0; font-size:6.8px; line-height:1.45; }
+.day5-meal-card h4 { margin:4px 0; color:#773c35; font-size:8.8px; line-height:1.4; }
+.day5-meal-card p { margin:3px 0; font-size:7.8px; line-height:1.45; }
 .day5-meal-card a { overflow-wrap:anywhere; }
 .day5-meal-card .meal-links { display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
 .day5-meal-card .meal-links a { color:#8e443b; font-weight:800; }
 .day5-meal-card .meal-caution { padding:5px; border-radius:7px; background:#fff1d9; color:#73521f; }
 @media (max-width:560px) { .day5-meal-groups { grid-template-columns:1fr; } }
 .day-item ul { padding-left:15px; margin:4px 0 0; }
-.day-item li { font-size:7.2px; margin-bottom:2px; }
+.day-item li { font-size:8.2px; margin-bottom:2px; }
 .day-route-columns { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 .day-route-card { border-radius:15px; background:color-mix(in srgb, var(--day-soft) 35%, white); border:1px solid color-mix(in srgb, var(--day-accent) 16%, #dfe5e1); padding:9px; }
-.day-route-card h4 { margin:0 0 6px; color:var(--day-dark); font-size:8px; line-height:1.35; }
+.day-route-card h4 { margin:0 0 6px; color:var(--day-dark); font-size:9px; line-height:1.35; }
 .day-route-card .day-item { background:white; }
 .day-alert-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 .day-alert-grid.one { grid-template-columns:1fr; }
 .day-alert {
-    border-radius:15px; padding:8px 10px; font-size:7.8px; line-height:1.48;
+    border-radius:15px; padding:8px 10px; font-size:8.8px; line-height:1.48;
     border:1px solid; box-shadow:0 2px 8px rgba(60,70,70,.04); break-inside:avoid;
 }
 .day-alert.reserve { background:#fff0ed; border-color:#e7b4aa; color:#803e36; }
 .day-alert.note { background:#fff8dc; border-color:#ead594; color:#654d1f; }
-.day-alert strong { font-size:8px; }
-.day-credit { margin-top:auto; font-size:5.3px; color:#7a8781; text-align:right; line-height:1.35; padding:0 2px; }
-.day-credit a { font-size:5.3px; color:#627c88; font-weight:650; }
+.day-alert strong { font-size:9px; }
+.day-credit { margin-top:auto; font-size:6.3px; color:#7a8781; text-align:right; line-height:1.35; padding:0 2px; }
+.day-credit a { font-size:6.3px; color:#627c88; font-weight:650; }
 .day-page-sheet.day-9 .day-photo-collage { height:215px; }
-.day-page-sheet.day-9 .day-item { font-size:7.45px; }
+.day-page-sheet.day-9 .day-item { font-size:8.45px; }
 .day-page-sheet.day-4 .day-photo-collage { height:195px; }
 .day-page-sheet.day-4 .day-panel { padding-bottom:9px; }
-.day-page-sheet.day-5 .day-item { font-size:7.5px; }
+.day-page-sheet.day-5 .day-item { font-size:8.5px; }
 .day-page-sheet.day-8 .day-photo:first-child img { object-position:center 48%; }
 .day-page-sheet.day-7 .day-photo:first-child img { object-position:center 42%; }
 
 
 .page-sheet:not(.day-page-sheet) h2 { position:relative; }
 .page-sheet:not(.day-page-sheet) h2::after {
-    content:'TRAVEL GUIDE'; float:right; font-size:5px; letter-spacing:.15em; color:#96a49f; margin-top:7px;
+    content:'TRAVEL GUIDE'; float:right; font-size:6px; letter-spacing:.15em; color:#96a49f; margin-top:7px;
 }
 .hotel-card, .transit-card, .meta-info, .tax-alert-box { backdrop-filter:none; }
 @media print {
@@ -497,7 +497,7 @@ a.map-link {
 }
 a.map-link::after {
     content: ' ↗';
-    font-size: calc(.78em - 0.66px);
+    font-size: calc(.78em - 0.44px);
     opacity: .72;
 }
 a.map-link:hover {
@@ -505,7 +505,7 @@ a.map-link:hover {
     background: rgba(220, 239, 242, .52);
     border-radius: 4px;
 }
-.food-table { font-size: 7.35px; line-height: 1.34; }
+.food-table { font-size: 8.35px; line-height: 1.34; }
 .food-table th { padding: 7px 7px; }
 .food-table td { padding: 5.5px 7px; }
 .food-table a.map-button {
@@ -515,12 +515,12 @@ a.map-link:hover {
     border-radius: 999px;
     background: #e4f1f4;
     color: #2f7189;
-    font-size: 6.5px;
+    font-size: 7.5px;
     font-weight: 800;
     border: 1px solid #cfe2e7;
 }
 .day-page-sheet.day-4 .day-photo-collage { height: 185px; }
-.day-page-sheet.day-4 .day-item { font-size: 7px; line-height: 1.38; min-height: 43px; padding-top: 7px; padding-bottom: 7px; }
+.day-page-sheet.day-4 .day-item { font-size: 8px; line-height: 1.38; min-height: 43px; padding-top: 7px; padding-bottom: 7px; }
 .day-page-sheet.day-4 .day-route-card .day-item + .day-item { margin-top: 6px; }
 @media print {
   a.map-link { color: #2e718e; border-bottom: none; }
@@ -534,7 +534,7 @@ a.map-link:hover {
     margin: 4px 0 0 0;
     padding: 2px 7px;
     border-radius: 999px;
-    font-size: 6.2px;
+    font-size: 7.2px;
     line-height: 1.25;
     font-weight: 900;
     letter-spacing: .02em;
@@ -586,10 +586,10 @@ a.map-link:hover {
 .diet-summary .step b {
     display:block;
     color:#315846;
-    font-size:10px;
+    font-size:11px;
     margin-bottom:4px;
 }
-.diet-summary .step span { font-size:8.4px; line-height:1.45; color:#4d5e56; }
+.diet-summary .step span { font-size:9.4px; line-height:1.45; color:#4d5e56; }
 .diet-card {
     display:grid;
     grid-template-columns: 54px 1fr;
@@ -607,23 +607,23 @@ a.map-link:hover {
     background:#6f9f82; color:white; line-height:1;
     box-shadow:0 5px 13px rgba(68,117,86,.17);
 }
-.diet-card .diet-day small { font-size:5.5px; letter-spacing:.12em; font-weight:900; }
-.diet-card .diet-day b { font-size:17px; margin-top:3px; }
+.diet-card .diet-day small { font-size:6.5px; letter-spacing:.12em; font-weight:900; }
+.diet-card .diet-day b { font-size:18px; margin-top:3px; }
 .diet-card h3 {
     margin:0 0 5px 0;
     padding:0;
-    font-size:12px;
+    font-size:13px;
     color:#274b39;
 }
-.diet-card p { margin:3px 0; font-size:8.8px; line-height:1.52; }
+.diet-card p { margin:3px 0; font-size:9.8px; line-height:1.52; }
 .diet-card ul { margin:5px 0 4px; padding-left:17px; }
-.diet-card li { margin-bottom:3px; font-size:8.5px; line-height:1.48; }
+.diet-card li { margin-bottom:3px; font-size:9.5px; line-height:1.48; }
 .diet-actions { margin-top:6px; display:flex; gap:7px; flex-wrap:wrap; }
 .diet-actions a {
     display:inline-block;
     border-radius:999px;
     padding:5px 10px;
-    font-size:7.5px;
+    font-size:8.5px;
     font-weight:900;
     border:1px solid;
 }
@@ -638,7 +638,7 @@ a.map-link:hover {
     border-left:7px solid #dda64f;
     color:#6e5221;
 }
-.diet-warning p { margin:3px 0; font-size:8.7px; line-height:1.5; }
+.diet-warning p { margin:3px 0; font-size:9.7px; line-height:1.5; }
 .phrase-box {
     border-radius:18px;
     border:1px solid #d7dce7;
@@ -646,7 +646,7 @@ a.map-link:hover {
     padding:11px 13px;
     margin-top:10px;
 }
-.phrase-box h3 { margin:0 0 7px 0; font-size:11px; color:#3d4e67; }
+.phrase-box h3 { margin:0 0 7px 0; font-size:12px; color:#3d4e67; }
 .phrase-box .jp {
     display:block;
     background:white;
@@ -654,12 +654,12 @@ a.map-link:hover {
     border-radius:12px;
     padding:8px 10px;
     margin:6px 0;
-    font-size:9.2px;
+    font-size:10.2px;
     line-height:1.55;
     color:#2f3e55;
     font-weight:700;
 }
-.phrase-box p { font-size:8.5px; margin:4px 0; }
+.phrase-box p { font-size:9.5px; margin:4px 0; }
 @media print {
   .diet-card, .diet-summary .step { box-shadow:none; }
 }
@@ -672,61 +672,61 @@ body, body * { font-family: var(--kai-font) !important; }
 
 
 .page-sheet { padding: 13mm 13mm 15mm 13mm; }
-.page-sheet::after { font-size: 7px; }
-.page-sheet.cover-sheet h1 { font-size: 32px; line-height: 1.25; }
-.page-sheet.cover-sheet h1::before { font-size: 9.5px; }
-h1 { font-size: 23px; }
-h2 { font-size: 19px; margin-bottom: 14px; }
-h2::after { font-size: 6.5px !important; }
-h3 { font-size: 15px; margin: 14px 0 9px; }
-h4 { font-size: 12.8px; }
-p { font-size: 11px; line-height: 1.52; }
-li { font-size: 10.8px; line-height: 1.48; }
-.meta-info { font-size: 10.8px; }
-.meta-info p { font-size: 10.6px; }
-.tax-alert-box h3 { font-size: 13.5px; }
-.daily-note-box { font-size: 10.3px; }
-.reservation-red-tag { font-size: 11.3px; }
-table { font-size: 9.6px; }
+.page-sheet::after { font-size: 8px; }
+.page-sheet.cover-sheet h1 { font-size: 33px; line-height: 1.25; }
+.page-sheet.cover-sheet h1::before { font-size: 10.5px; }
+h1 { font-size: 24px; }
+h2 { font-size: 20px; margin-bottom: 14px; }
+h2::after { font-size: 7.5px !important; }
+h3 { font-size: 16px; margin: 14px 0 9px; }
+h4 { font-size: 13.8px; }
+p { font-size: 12px; line-height: 1.52; }
+li { font-size: 11.8px; line-height: 1.48; }
+.meta-info { font-size: 11.8px; }
+.meta-info p { font-size: 11.6px; }
+.tax-alert-box h3 { font-size: 14.5px; }
+.daily-note-box { font-size: 11.3px; }
+.reservation-red-tag { font-size: 12.3px; }
+table { font-size: 10.6px; }
 th { padding: 7.5px 8px; }
 td { padding: 6.5px 8px; }
-.badge { font-size: 9px; }
-.photo-lead .photo-caption { font-size: 9.5px; }
-.photo-tile span { font-size: 8.2px; }
-.stat b { font-size: 13.5px; }
-.stat small { font-size: 8.5px; }
-.source-note { font-size: 8.3px; }
-.image-placeholder, .image-card-caption { font-size: 10.2px; }
-.mini-route span { font-size: 8.5px; }
+.badge { font-size: 10px; }
+.photo-lead .photo-caption { font-size: 10.5px; }
+.photo-tile span { font-size: 9.2px; }
+.stat b { font-size: 14.5px; }
+.stat small { font-size: 9.5px; }
+.source-note { font-size: 9.3px; }
+.image-placeholder, .image-card-caption { font-size: 11.2px; }
+.mini-route span { font-size: 9.5px; }
 
 
 .page-sheet.day-page-sheet { padding: 10.8mm 12.5mm 13.5mm; }
 .day-layout { min-height: 261mm; gap: 8px; }
-.day-eyebrow { font-size: 7.3px; }
+.day-eyebrow { font-size: 8.3px; }
 .day-header { grid-template-columns: 76px 1fr; gap: 14px; padding: 6px 3px 3px; }
 .day-number { width: 73px; height: 73px; }
-.day-number span { font-size: 7.3px; }
-.day-number b { font-size: 30px; }
-.day-date { font-size: 9.4px; }
-.day-title { font-size: 20px; line-height: 1.22; }
+.day-number span { font-size: 8.3px; }
+.day-number b { font-size: 31px; }
+.day-date { font-size: 10.4px; }
+.day-title { font-size: 21px; line-height: 1.22; }
 .day-route { grid-template-columns: 48px 1fr; padding: 8px 11px; }
-.day-route-label { font-size: 8.2px; }
-.day-route-text { font-size: 10px; line-height: 1.43; }
-.day-photo figcaption b { font-size: 11px; }
-.day-photo figcaption small { font-size: 6.7px; }
+.day-route-label { font-size: 9.2px; }
+.day-route-text { font-size: 11px; line-height: 1.43; }
+.day-photo figcaption b { font-size: 12px; }
+.day-photo figcaption small { font-size: 7.7px; }
 .day-panel { padding: 11px 12px 12px; }
-.day-panel-title { font-size: 9.4px; }
-.day-item { font-size: 9.55px; line-height: 1.43; min-height: 52px; padding: 8px 10px 8px 36px; }
-.day-item-icon { width: 22px; height: 22px; font-size: 9.2px; }
-.day-item li { font-size: 8.5px; }
-.day-route-card h4 { font-size: 9.5px; }
-.day-alert { font-size: 9.15px; line-height: 1.46; padding: 9px 11px; }
-.day-alert strong { font-size: 9.45px; }
-.day-credit, .day-credit a { font-size: 6.6px; }
+.day-panel-title { font-size: 10.4px; }
+.day-item { font-size: 10.55px; line-height: 1.43; min-height: 52px; padding: 8px 10px 8px 36px; }
+.day-item-icon { width: 22px; height: 22px; font-size: 10.2px; }
+.day-item li { font-size: 9.5px; }
+.day-route-card h4 { font-size: 10.5px; }
+.day-alert { font-size: 10.15px; line-height: 1.46; padding: 9px 11px; }
+.day-alert strong { font-size: 10.45px; }
+.day-credit, .day-credit a { font-size: 7.6px; }
 .day-page-sheet.day-4 .day-photo-collage { height: 188px; }
-.day-page-sheet.day-4 .day-item { font-size: 8.75px; line-height: 1.38; min-height: 45px; }
-.day-page-sheet.day-5 .day-item { font-size: 9px; }
-.day-page-sheet.day-9 .day-item { font-size: 8.9px; }
+.day-page-sheet.day-4 .day-item { font-size: 9.75px; line-height: 1.38; min-height: 45px; }
+.day-page-sheet.day-5 .day-item { font-size: 10px; }
+.day-page-sheet.day-9 .day-item { font-size: 9.9px; }
 
 
 a.booking-button {
@@ -737,16 +737,16 @@ a.booking-button {
   background: #fff0ed;
   color: #933f36;
   border: 1px solid #e5b3aa;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   line-height: 1.45;
   margin: 2px 2px 1px;
 }
 a.booking-button:hover { background: #ffe4df; text-decoration: none; }
-.booking-note { display: inline-block; margin-top: 2px; font-size: 7.9px; line-height: 1.35; color: #6c514c; }
+.booking-note { display: inline-block; margin-top: 2px; font-size: 8.9px; line-height: 1.35; color: #6c514c; }
 
 
-.food-table { font-size: 8.8px; line-height: 1.36; }
+.food-table { font-size: 9.8px; line-height: 1.36; }
 .food-table th { padding: 7.5px 7px; }
 .food-table td { padding: 6px 7px; }
 .food-table th:nth-child(1) { width: 18%; }
@@ -754,8 +754,8 @@ a.booking-button:hover { background: #ffe4df; text-decoration: none; }
 .food-table th:nth-child(3) { width: 14%; }
 .food-table th:nth-child(4) { width: 27%; }
 .food-table th:nth-child(5) { width: 32%; }
-.food-table a.map-button { font-size: 7.7px; padding: 2px 7px; }
-.food-table a.booking-button { font-size: 7.7px; }
+.food-table a.map-button { font-size: 8.7px; padding: 2px 7px; }
+.food-table a.booking-button { font-size: 8.7px; }
 
 
 .day-page-sheet.day-6 .day-photo-collage {
@@ -770,75 +770,75 @@ a.booking-button:hover { background: #ffe4df; text-decoration: none; }
 .day-page-sheet.day-6 .day-photo:nth-child(2) img { object-position: center 52%; }
 .day-page-sheet.day-6 .day-photo:nth-child(3) img { object-position: center 48%; }
 .day-page-sheet.day-6 .day-photo:nth-child(2) figcaption b,
-.day-page-sheet.day-6 .day-photo:nth-child(3) figcaption b { font-size: 9.2px; }
+.day-page-sheet.day-6 .day-photo:nth-child(3) figcaption b { font-size: 10.2px; }
 .day-page-sheet.day-6 .day-photo:nth-child(2) figcaption small,
-.day-page-sheet.day-6 .day-photo:nth-child(3) figcaption small { font-size: 5.9px; }
-.day-page-sheet.day-6 .day-item { min-height: 50px; font-size: 9.3px; }
+.day-page-sheet.day-6 .day-photo:nth-child(3) figcaption small { font-size: 6.9px; }
+.day-page-sheet.day-6 .day-item { min-height: 50px; font-size: 10.3px; }
 
 @media print {
   a.booking-button { background: #fff0ed; }
 }
 
 .page-sheet:not(.day-page-sheet) p {
-  font-size: 12px !important;
+  font-size: 13px !important;
   line-height: 1.53;
 }
 .page-sheet:not(.day-page-sheet) li {
-  font-size: 11.8px !important;
+  font-size: 12.8px !important;
   line-height: 1.49;
 }
-.meta-info { font-size: 11.7px; }
-.meta-info p { font-size: 11.8px !important; }
-.daily-note-box { font-size: 11.2px; line-height: 1.5; }
-.reservation-red-tag { font-size: 12.2px; line-height: 1.5; }
+.meta-info { font-size: 12.7px; }
+.meta-info p { font-size: 12.8px !important; }
+.daily-note-box { font-size: 12.2px; line-height: 1.5; }
+.reservation-red-tag { font-size: 13.2px; line-height: 1.5; }
 .tax-alert-box { padding-top: 12px; padding-bottom: 12px; }
 
 
-table { font-size: 10.4px; line-height: 1.43; }
+table { font-size: 11.4px; line-height: 1.43; }
 th { padding: 7px 8px; }
 td { padding: 6px 8px; }
-.badge { font-size: 9.8px; }
-.photo-lead .photo-caption { font-size: 10.2px; }
-.photo-tile span { font-size: 8.9px; }
-.stat b { font-size: 14px; }
-.stat small { font-size: 9.1px; }
-.source-note { font-size: 8.9px; line-height: 1.42; }
-.image-placeholder, .image-card-caption { font-size: 11px; line-height: 1.48; }
-.mini-route span { font-size: 9.2px; }
-a.booking-button { font-size: 8.8px; }
-.booking-note { font-size: 8.7px; }
-.food-table { font-size: 9.6px; line-height: 1.38; }
+.badge { font-size: 10.8px; }
+.photo-lead .photo-caption { font-size: 11.2px; }
+.photo-tile span { font-size: 9.9px; }
+.stat b { font-size: 15px; }
+.stat small { font-size: 10.1px; }
+.source-note { font-size: 9.9px; line-height: 1.42; }
+.image-placeholder, .image-card-caption { font-size: 12px; line-height: 1.48; }
+.mini-route span { font-size: 10.2px; }
+a.booking-button { font-size: 9.8px; }
+.booking-note { font-size: 9.7px; }
+.food-table { font-size: 10.6px; line-height: 1.38; }
 .food-table th { padding: 7px 6.5px; }
 .food-table td { padding: 5.5px 6.5px; }
 .food-table a.map-button,
-.food-table a.booking-button { font-size: 8.3px; }
+.food-table a.booking-button { font-size: 9.3px; }
 
 
-.day-route-text { font-size: 10.8px; line-height: 1.45; }
-.day-photo figcaption b { font-size: 11.6px; }
-.day-photo figcaption small { font-size: 7.2px; }
+.day-route-text { font-size: 11.8px; line-height: 1.45; }
+.day-photo figcaption b { font-size: 12.6px; }
+.day-photo figcaption small { font-size: 8.2px; }
 .day-item {
-  font-size: 10.35px;
+  font-size: 11.35px;
   line-height: 1.44;
   min-height: 52px;
 }
-.day-item li { font-size: 9.25px !important; line-height: 1.42; }
-.day-alert { font-size: 9.95px; line-height: 1.47; }
-.day-alert strong { font-size: 10.2px; }
-.day-credit, .day-credit a { font-size: 7.1px; }
+.day-item li { font-size: 10.25px !important; line-height: 1.42; }
+.day-alert { font-size: 10.95px; line-height: 1.47; }
+.day-alert strong { font-size: 11.2px; }
+.day-credit, .day-credit a { font-size: 8.1px; }
 
 
-.day-page-sheet.day-4 .day-item { font-size: 9.5px; line-height: 1.39; }
-.day-page-sheet.day-5 .day-item { font-size: 9.8px; line-height: 1.42; }
-.day-page-sheet.day-6 .day-item { font-size: 10.1px; line-height: 1.42; }
+.day-page-sheet.day-4 .day-item { font-size: 10.5px; line-height: 1.39; }
+.day-page-sheet.day-5 .day-item { font-size: 10.8px; line-height: 1.42; }
+.day-page-sheet.day-6 .day-item { font-size: 11.1px; line-height: 1.42; }
 .day-page-sheet.day-6 .day-photo:nth-child(2) figcaption b,
-.day-page-sheet.day-6 .day-photo:nth-child(3) figcaption b { font-size: 9.8px; }
+.day-page-sheet.day-6 .day-photo:nth-child(3) figcaption b { font-size: 10.8px; }
 .day-page-sheet.day-6 .day-photo:nth-child(2) figcaption small,
-.day-page-sheet.day-6 .day-photo:nth-child(3) figcaption small { font-size: 6.4px; }
-.day-page-sheet.day-9 .day-item { font-size: 9.7px; line-height: 1.41; }
+.day-page-sheet.day-6 .day-photo:nth-child(3) figcaption small { font-size: 7.4px; }
+.day-page-sheet.day-9 .day-item { font-size: 10.7px; line-height: 1.41; }
 
 .page-sheet:not(.day-page-sheet) p.source-note {
-  font-size: 9.2px !important;
+  font-size: 10.2px !important;
   line-height: 1.42;
 }
 .page-sheet.document-last-page {
@@ -884,7 +884,7 @@ a.booking-button { font-size: 8.8px; }
   border-radius: 14px;
 }
 .diet-page .diet-warning p {
-  font-size: 9.7px !important;
+  font-size: 10.7px !important;
   line-height: 1.40;
   margin: 2px 0;
 }
@@ -898,11 +898,11 @@ a.booking-button { font-size: 8.8px; }
   border-radius: 14px;
 }
 .diet-page .diet-summary .step b {
-  font-size: 9.2px;
+  font-size: 10.2px;
   margin-bottom: 2px;
 }
 .diet-page .diet-summary .step span {
-  font-size: 7.6px;
+  font-size: 8.6px;
   line-height: 1.36;
 }
 .diet-page .diet-card {
@@ -917,15 +917,15 @@ a.booking-button { font-size: 8.8px; }
   height: 44px;
   border-radius: 14px;
 }
-.diet-page .diet-card .diet-day small { font-size: 4.8px; }
-.diet-page .diet-card .diet-day b { font-size: 15px; margin-top: 2px; }
+.diet-page .diet-card .diet-day small { font-size: 5.8px; }
+.diet-page .diet-card .diet-day b { font-size: 16px; margin-top: 2px; }
 .diet-page .diet-card h3 {
-  font-size: 11.2px;
+  font-size: 12.2px;
   line-height: 1.32;
   margin: 0 0 3px;
 }
 .diet-page .diet-card p {
-  font-size: 9.5px !important;
+  font-size: 10.5px !important;
   line-height: 1.38;
   margin: 2px 0;
 }
@@ -934,7 +934,7 @@ a.booking-button { font-size: 8.8px; }
   padding-left: 16px;
 }
 .diet-page .diet-card li {
-  font-size: 9.2px !important;
+  font-size: 10.2px !important;
   line-height: 1.36;
   margin-bottom: 1px;
 }
@@ -944,7 +944,7 @@ a.booking-button { font-size: 8.8px; }
 }
 .diet-page .diet-actions a {
   padding: 4px 8px;
-  font-size: 6.9px;
+  font-size: 7.9px;
 }
 .diet-page .phrase-box {
   padding: 7px 9px;
@@ -952,23 +952,23 @@ a.booking-button { font-size: 8.8px; }
   border-radius: 15px;
 }
 .diet-page .phrase-box h3 {
-  font-size: 10.2px;
+  font-size: 11.2px;
   margin: 0 0 4px;
 }
 .diet-page .phrase-box .jp {
   padding: 5px 7px;
   margin: 3px 0;
   border-radius: 10px;
-  font-size: 8.2px;
+  font-size: 9.2px;
   line-height: 1.38;
 }
 .diet-page .phrase-box p {
-  font-size: 8.4px !important;
+  font-size: 9.4px !important;
   line-height: 1.32;
   margin: 2px 0;
 }
 .page-sheet.diet-page p.source-note {
-  font-size: 7.2px !important;
+  font-size: 8.2px !important;
   line-height: 1.28;
   margin: 4px 0 0;
 }
@@ -984,11 +984,11 @@ a.booking-button { font-size: 8.8px; }
 }
 .food-route-banner .route-grade {
   border-radius: 12px; text-align: center; padding: 7px 4px;
-  background: var(--day-soft); color: var(--day-dark); font-size: 8.4px; font-weight: 900;
+  background: var(--day-soft); color: var(--day-dark); font-size: 9.4px; font-weight: 900;
 }
-.food-route-banner p { margin: 0; font-size: 10.1px; line-height: 1.46; }
+.food-route-banner p { margin: 0; font-size: 11.1px; line-height: 1.46; }
 .food-route-banner strong { color: var(--day-dark); }
-.food-route-banner .route-sub { display:block; margin-top:2px; color:#687780; font-size:8.8px; }
+.food-route-banner .route-sub { display:block; margin-top:2px; color:#687780; font-size:9.8px; }
 .food-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .food-detail-card {
   display: grid; grid-template-columns: 112px 1fr; min-height: 139px;
@@ -1000,21 +1000,21 @@ a.booking-button { font-size: 8.8px; }
 .food-detail-card .food-photo img { width:100%; height:100%; object-fit:cover; display:block; }
 .food-detail-card .food-photo .photo-source {
   position:absolute; left:5px; bottom:5px; max-width:calc(100% - 10px); padding:3px 6px;
-  border-radius:999px; background:rgba(255,255,255,.86); color:#53636b; font-size:5px; line-height:1.18;
+  border-radius:999px; background:rgba(255,255,255,.86); color:#53636b; font-size:6px; line-height:1.18;
 }
 .food-detail-card .food-copy { padding: 8px 9px 7px; }
-.food-detail-card h4 { margin:0 0 4px; color:var(--day-dark); font-size:11.2px; line-height:1.28; }
-.food-detail-card p { margin:3px 0; font-size:9.35px; line-height:1.41; }
-.food-detail-card .food-meta { color:#65747b; font-size:8.35px; line-height:1.35; }
+.food-detail-card h4 { margin:0 0 4px; color:var(--day-dark); font-size:12.2px; line-height:1.28; }
+.food-detail-card p { margin:3px 0; font-size:10.35px; line-height:1.41; }
+.food-detail-card .food-meta { color:#65747b; font-size:9.35px; line-height:1.35; }
 .food-detail-card .food-picks { color:#334955; }
 .food-actions { display:flex; flex-wrap:wrap; gap:4px; margin-top:5px; align-items:center; }
 .food-actions a, .inline-action {
   display:inline-block; padding:3px 7px; border-radius:999px; border:1px solid #cbdad9;
-  background:#eef5f4; color:#32748c; font-size:7.4px; line-height:1.35; font-weight:800;
+  background:#eef5f4; color:#32748c; font-size:8.4px; line-height:1.35; font-weight:800;
 }
 .food-actions a:hover { text-decoration:none; background:#e4f0ef; }
 .food-safety {
-  display:inline-block; padding:2px 7px; border-radius:999px; font-size:7.3px; line-height:1.35; font-weight:900;
+  display:inline-block; padding:2px 7px; border-radius:999px; font-size:8.3px; line-height:1.35; font-weight:900;
 }
 .food-safety.ok { background:#e3f3e8; border:1px solid #add1b6; color:#2d6841; }
 .food-safety.caution { background:#fff3cf; border:1px solid #e5cc7e; color:#765817; }
@@ -1027,12 +1027,12 @@ a.booking-button { font-size: 8.8px; }
 .diet-inline-card .diet-photo { min-height:126px; overflow:hidden; position:relative; }
 .diet-inline-card .diet-photo img { width:100%; height:100%; object-fit:cover; display:block; }
 .diet-inline-card .diet-copy { padding:9px 11px 8px 0; }
-.diet-inline-card h4 { margin:0 0 4px; color:#285438; font-size:11.5px; line-height:1.3; }
-.diet-inline-card p { margin:3px 0; font-size:9.55px; line-height:1.42; }
+.diet-inline-card h4 { margin:0 0 4px; color:#285438; font-size:12.5px; line-height:1.3; }
+.diet-inline-card p { margin:3px 0; font-size:10.55px; line-height:1.42; }
 .diet-inline-card ul { margin:4px 0; padding-left:17px; }
-.diet-inline-card li { font-size:8.8px !important; line-height:1.38; margin-bottom:2px; }
-.day-extension-credit { margin-top:auto; text-align:right; font-size:6.3px; line-height:1.32; color:#77847e; }
-.day-extension-credit a { font-size:6.3px; color:#607d89; }
+.diet-inline-card li { font-size:9.8px !important; line-height:1.38; margin-bottom:2px; }
+.day-extension-credit { margin-top:auto; text-align:right; font-size:7.3px; line-height:1.32; color:#77847e; }
+.day-extension-credit a { font-size:7.3px; color:#607d89; }
 
 
 .day4-food .food-detail-card { min-height:155px; grid-template-columns:130px 1fr; }
@@ -1045,14 +1045,14 @@ a.booking-button { font-size: 8.8px; }
 .ebimaru-photo-pair { display:grid; grid-template-columns:1.15fr .85fr; gap:7px; min-height:174px; }
 .ebimaru-photo-pair figure { margin:0; border-radius:14px; overflow:hidden; position:relative; background:#eee; }
 .ebimaru-photo-pair img { width:100%; height:100%; object-fit:cover; display:block; }
-.ebimaru-photo-pair figcaption { position:absolute; left:6px; bottom:6px; padding:3px 6px; border-radius:999px; background:rgba(255,255,255,.88); font-size:5.5px; color:#53636b; }
-.ebimaru-feature h4 { margin:0 0 5px; color:var(--day-dark); font-size:12px; }
-.ebimaru-feature p { margin:3px 0; font-size:9.7px; line-height:1.43; }
+.ebimaru-photo-pair figcaption { position:absolute; left:6px; bottom:6px; padding:3px 6px; border-radius:999px; background:rgba(255,255,255,.88); font-size:6.5px; color:#53636b; }
+.ebimaru-feature h4 { margin:0 0 5px; color:var(--day-dark); font-size:13px; }
+.ebimaru-feature p { margin:3px 0; font-size:10.7px; line-height:1.43; }
 .ebimaru-feature ul { margin:4px 0; padding-left:17px; }
-.ebimaru-feature li { font-size:9px !important; line-height:1.39; margin-bottom:2px; }
+.ebimaru-feature li { font-size:10px !important; line-height:1.39; margin-bottom:2px; }
 .jp-mini-phrase {
   margin-top:7px; padding:7px 9px; border-radius:14px; background:#fff8dc; border:1px solid #e6d18d;
-  color:#614d20; font-size:9px; line-height:1.42;
+  color:#614d20; font-size:10px; line-height:1.42;
 }
 .jp-mini-phrase b { display:block; margin-bottom:2px; color:#5b4720; }
 
@@ -1065,25 +1065,25 @@ a.booking-button { font-size: 8.8px; }
 .akimitsu-hero .hero-photo { min-height:245px; position:relative; overflow:hidden; background:#eee; }
 .akimitsu-hero .hero-photo img { width:100%; height:100%; object-fit:cover; display:block; }
 .akimitsu-hero .hero-copy { padding:13px 14px; }
-.akimitsu-hero h4 { margin:0 0 6px; color:var(--day-dark); font-size:13px; }
-.akimitsu-hero p { margin:4px 0; font-size:10.05px; line-height:1.46; }
+.akimitsu-hero h4 { margin:0 0 6px; color:var(--day-dark); font-size:14px; }
+.akimitsu-hero p { margin:4px 0; font-size:11.05px; line-height:1.46; }
 .akimitsu-hero ul { margin:6px 0; padding-left:18px; }
-.akimitsu-hero li { font-size:9.5px !important; line-height:1.42; margin-bottom:3px; }
+.akimitsu-hero li { font-size:10.5px !important; line-height:1.42; margin-bottom:3px; }
 .meeting-plan {
   display:grid; grid-template-columns:1fr 1fr; gap:8px;
 }
 .meeting-plan .plan-box { padding:10px 11px; border-radius:16px; background:rgba(255,255,255,.86); border:1px solid #dedfda; }
-.meeting-plan h4 { margin:0 0 5px; color:var(--day-dark); font-size:11px; }
-.meeting-plan p { margin:3px 0; font-size:9.55px; line-height:1.43; }
+.meeting-plan h4 { margin:0 0 5px; color:var(--day-dark); font-size:12px; }
+.meeting-plan p { margin:3px 0; font-size:10.55px; line-height:1.43; }
 .full-phrase-box { padding:9px 11px; border-radius:16px; background:#fff8dc; border:1px solid #e4d18e; }
-.full-phrase-box h4 { margin:0 0 5px; color:#5b4720; font-size:10.8px; }
-.full-phrase-box p { margin:3px 0; font-size:9.2px; line-height:1.42; }
+.full-phrase-box h4 { margin:0 0 5px; color:#5b4720; font-size:11.8px; }
+.full-phrase-box p { margin:3px 0; font-size:10.2px; line-height:1.42; }
 .full-phrase-box .jp-line { padding:5px 7px; margin:4px 0; border-radius:10px; background:rgba(255,255,255,.78); border:1px solid #eadca8; }
 
 
 .day-alert.food-safe.continuation { background:#edf7ef; border-color:#b9d8c1; color:#31583c; }
 .day-alert.food-safe.continuation .route-note { margin-top:4px; }
-.continue-pill { display:inline-block; padding:2px 8px; border-radius:999px; background:#fff; border:1px solid #b9d8c1; font-size:7.7px; font-weight:900; color:#31583c; }
+.continue-pill { display:inline-block; padding:2px 8px; border-radius:999px; background:#fff; border:1px solid #b9d8c1; font-size:8.7px; font-weight:900; color:#31583c; }
 
 
 .food-summary-page.summary-split { padding-top:11mm; padding-bottom:12mm; }
@@ -1091,8 +1091,8 @@ a.booking-button { font-size: 8.8px; }
 .food-summary-page.summary-split .summary-lead {
   margin:5px 0 7px; padding:8px 11px; border-radius:14px; background:#eef5f4; border-left:5px solid #6f9fb3;
 }
-.food-summary-page.summary-split .summary-lead p { margin:2px 0; font-size:10.1px !important; line-height:1.43; }
-.food-summary-page.summary-split .food-table { font-size:9.15px; line-height:1.34; margin:7px 0; }
+.food-summary-page.summary-split .summary-lead p { margin:2px 0; font-size:11.1px !important; line-height:1.43; }
+.food-summary-page.summary-split .food-table { font-size:10.15px; line-height:1.34; margin:7px 0; }
 .food-summary-page.summary-split .food-table th { padding:6px 6px; }
 .food-summary-page.summary-split .food-table td { padding:5px 6px; }
 .food-summary-page.summary-split .food-table th:nth-child(1) { width:21%; }
@@ -1101,10 +1101,10 @@ a.booking-button { font-size: 8.8px; }
 .food-summary-page.summary-split .food-table th:nth-child(4) { width:22%; }
 .food-summary-page.summary-split .food-table th:nth-child(5) { width:32%; }
 .food-summary-page.summary-split .food-table a.map-button,
-.food-summary-page.summary-split .food-table a.booking-button { font-size:7.7px; }
-.food-summary-page.summary-split .source-note { margin:5px 0 0; font-size:7.9px !important; }
+.food-summary-page.summary-split .food-table a.booking-button { font-size:8.7px; }
+.food-summary-page.summary-split .source-note { margin:5px 0 0; font-size:8.9px !important; }
 .summary-legend { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0; }
-.summary-legend span { font-size:8.2px; }
+.summary-legend span { font-size:9.2px; }
 
 @media print {
   .food-detail-card, .diet-inline-card, .ebimaru-feature, .akimitsu-hero, .meeting-plan .plan-box { box-shadow:none; }
@@ -1144,7 +1144,7 @@ a.booking-button { font-size: 8.8px; }
   border-radius: 999px;
   background: rgba(255,255,255,.87);
   color: #665548;
-  font-size: 5.4px;
+  font-size: 6.4px;
   line-height: 1.2;
   font-weight: 750;
   text-align: center;
@@ -1153,7 +1153,7 @@ a.booking-button { font-size: 8.8px; }
 .ueno-recovery-kicker {
   color: #9b6651;
   font-family: 'Noto Sans', Arial, sans-serif;
-  font-size: 5.8px;
+  font-size: 6.8px;
   line-height: 1;
   letter-spacing: .14em;
   font-weight: 900;
@@ -1162,12 +1162,12 @@ a.booking-button { font-size: 8.8px; }
 .ueno-recovery-copy h4 {
   margin: 0 0 5px;
   color: #5f4038;
-  font-size: 11.4px;
+  font-size: 12.4px;
   line-height: 1.28;
 }
 .ueno-recovery-copy p {
   margin: 3px 0;
-  font-size: 8.45px;
+  font-size: 9.45px;
   line-height: 1.42;
 }
 .ueno-recovery-facts {
@@ -1182,7 +1182,7 @@ a.booking-button { font-size: 8.8px; }
   border: 1px solid rgba(190,169,132,.38);
   padding: 4px 6px;
   color: #4b565a;
-  font-size: 7.45px;
+  font-size: 8.45px;
   line-height: 1.35;
 }
 .ueno-recovery-facts strong { color: #6d463b; }
@@ -1193,7 +1193,7 @@ a.booking-button { font-size: 8.8px; }
   padding: 4px 6px;
 }
 .ueno-recovery-card .food-actions { margin-top: 5px; }
-.ueno-recovery-card .food-actions a { font-size: 7.1px; padding: 3px 7px; }
+.ueno-recovery-card .food-actions a { font-size: 8.1px; padding: 3px 7px; }
 @media print {
   .ueno-recovery-card { box-shadow: none; }
 }
@@ -1219,10 +1219,10 @@ html { scroll-behavior: smooth; }
   padding: 12mm 10mm 8mm; text-align: center;
 }
 .cover-date-line {
-  margin: 0 !important; color: #50575b; font-size: 13px !important; line-height: 1.45;
+  margin: 0 !important; color: #50575b; font-size: 14px !important; line-height: 1.45;
   font-weight: 800; letter-spacing: .02em;
 }
-.cover-year { color: #50575b; font-size: 15px; line-height: 1; font-weight: 900; letter-spacing: .04em; }
+.cover-year { color: #50575b; font-size: 16px; line-height: 1; font-weight: 900; letter-spacing: .04em; }
 
 
 .policy-page {
@@ -1230,11 +1230,11 @@ html { scroll-behavior: smooth; }
   background: radial-gradient(circle at 92% 7%, #e2f2f4 0 38mm, transparent 38.5mm), var(--paper);
 }
 .policy-page h2 { margin-bottom: 9px; }
-.policy-page h3 { margin: 0; font-size: 12px; }
+.policy-page h3 { margin: 0; font-size: 13px; }
 .policy-keyline {
   border-radius: 15px; padding: 9px 11px; margin: 7px 0 9px;
   background: #fff0ed; border: 1px solid #e5b3aa; border-left: 7px solid #cf745f;
-  color: #6d3d36; font-size: 9.4px; line-height: 1.47;
+  color: #6d3d36; font-size: 10.4px; line-height: 1.47;
 }
 .policy-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .policy-card {
@@ -1244,43 +1244,43 @@ html { scroll-behavior: smooth; }
 .policy-card h3 { color: #355264; margin-bottom: 6px; }
 .step-list, .check-list { margin: 0; padding-left: 20px; }
 .policy-page .step-list li,
-.policy-page .check-list li { font-size: 8.2px !important; line-height: 1.39; margin-bottom: 4px; }
+.policy-page .check-list li { font-size: 9.2px !important; line-height: 1.39; margin-bottom: 4px; }
 .narita-box {
   margin-top: 7px; padding: 7px 8px; border-radius: 12px;
   background: #fff8dc; border: 1px solid #e5d294; color: #654e21;
-  font-size: 7.9px; line-height: 1.4;
+  font-size: 8.9px; line-height: 1.4;
 }
 .vjw-panel {
   margin-top: 8px; padding: 9px 10px; border-radius: 17px;
   background: #eef5f7; border: 1px solid #cadde3;
 }
 .vjw-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 7px; }
-.vjw-head span { display: block; color: #5d8492; font-size: 5.7px; letter-spacing: .16em; font-weight: 900; }
+.vjw-head span { display: block; color: #5d8492; font-size: 6.7px; letter-spacing: .16em; font-weight: 900; }
 .vjw-head h3 { color: #2f5060; margin-top: 2px; }
 .official-link {
   white-space: nowrap; padding: 5px 9px; border-radius: 999px;
-  background: white; border: 1px solid #bad3dc; font-size: 7.4px; font-weight: 900;
+  background: white; border: 1px solid #bad3dc; font-size: 8.4px; font-weight: 900;
 }
 .vjw-grid { display: grid; grid-template-columns: 1.05fr 1.18fr .92fr; gap: 7px; }
 .vjw-box { border-radius: 13px; background: white; border: 1px solid #d9e5e8; padding: 7px 8px; }
-.vjw-box > b { color: #315565; font-size: 8.5px; }
-.policy-page .vjw-box p { font-size: 7.5px !important; line-height: 1.37; margin: 4px 0; }
+.vjw-box > b { color: #315565; font-size: 9.5px; }
+.policy-page .vjw-box p { font-size: 8.5px !important; line-height: 1.37; margin: 4px 0; }
 .policy-page .vjw-box ol { padding-left: 17px; margin: 5px 0 0; }
-.policy-page .vjw-box li { font-size: 7.25px !important; line-height: 1.35; margin-bottom: 3px; }
-.vjw-table { margin: 5px 0; font-size: 6.6px !important; border-radius: 9px; }
+.policy-page .vjw-box li { font-size: 8.25px !important; line-height: 1.35; margin-bottom: 3px; }
+.vjw-table { margin: 5px 0; font-size: 7.6px !important; border-radius: 9px; }
 .vjw-table th, .vjw-table td { padding: 4px 5px; }
 .small-note { color: #687981; }
-.policy-source { margin: 6px 1px 0 !important; font-size: 5.9px !important; line-height: 1.32 !important; color: #76837d; }
-.policy-source a { font-size: 5.9px; }
+.policy-source { margin: 6px 1px 0 !important; font-size: 6.9px !important; line-height: 1.32 !important; color: #76837d; }
+.policy-source a { font-size: 6.9px; }
 
 
 .day-index-page {
   padding: 12mm 13mm 13mm !important;
   background: radial-gradient(circle at 90% 8%, #f8e6dc 0 39mm, transparent 39.5mm), var(--paper);
 }
-.index-kicker { color: #8d665b; font-size: 6px; font-weight: 900; letter-spacing: .17em; margin: 2px 0 6px; }
+.index-kicker { color: #8d665b; font-size: 7px; font-weight: 900; letter-spacing: .17em; margin: 2px 0 6px; }
 .day-index-page h2 { margin-bottom: 7px; }
-.index-lead { margin: 4px 0 9px !important; font-size: 9.3px !important; color: #53636b; }
+.index-lead { margin: 4px 0 9px !important; font-size: 10.3px !important; color: #53636b; }
 .day-index-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
 .day-index-card {
   position: relative; min-height: 69mm; display: grid; grid-template-columns: 46px 1fr; gap: 8px;
@@ -1293,48 +1293,48 @@ html { scroll-behavior: smooth; }
   width: 44px; height: 55px; border-radius: 14px; background: #cf745f; color: white;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
-.day-index-number small { font-size: 4.5px; font-weight: 900; letter-spacing: .12em; }
-.day-index-number b { font-size: 17px; line-height: 1.05; }
-.day-index-copy span { color: #a06252; font-size: 6.7px; font-weight: 900; }
-.day-index-copy h3 { margin: 3px 0 5px; font-size: 10.2px; line-height: 1.3; color: #283b47; }
-.day-index-page .day-index-copy p { margin: 0 !important; font-size: 7.35px !important; line-height: 1.38; color: #65747b; }
-.day-index-card > i { position: absolute; right: 9px; bottom: 7px; color: #a6b3ae; font-style: normal; font-size: 9px; }
+.day-index-number small { font-size: 5.5px; font-weight: 900; letter-spacing: .12em; }
+.day-index-number b { font-size: 18px; line-height: 1.05; }
+.day-index-copy span { color: #a06252; font-size: 7.7px; font-weight: 900; }
+.day-index-copy h3 { margin: 3px 0 5px; font-size: 11.2px; line-height: 1.3; color: #283b47; }
+.day-index-page .day-index-copy p { margin: 0 !important; font-size: 8.35px !important; line-height: 1.38; color: #65747b; }
+.day-index-card > i { position: absolute; right: 9px; bottom: 7px; color: #a6b3ae; font-style: normal; font-size: 10px; }
 .day-index-2 .day-index-number, .day-index-5 .day-index-number, .day-index-8 .day-index-number { background: #6f9fb3; }
 .day-index-3 .day-index-number, .day-index-6 .day-index-number, .day-index-9 .day-index-number { background: #7c9b6e; }
 .index-note {
   margin-top: 9px; border-radius: 14px; padding: 8px 10px;
   background: #fff8dc; border: 1px solid #e3d08c; color: #665020;
-  font-size: 8.2px; line-height: 1.4;
+  font-size: 9.2px; line-height: 1.4;
 }
 
 
 .day-route { grid-template-columns: 74px 1fr !important; }
-.day-route-label { font-size: calc(calc(11.2px + 4pt) - 3px) !important; line-height: 1.15 !important; }
-.day-route-text { font-size: calc(calc(13.8px + 4pt) - 3px) !important; line-height: 1.32 !important; }
+.day-route-label { font-size: calc(calc(11.2px + 4pt) - 2px) !important; line-height: 1.15 !important; }
+.day-route-text { font-size: calc(calc(13.8px + 4pt) - 2px) !important; line-height: 1.32 !important; }
 
 @media print {
   .policy-card, .day-index-card { box-shadow: none; }
 }
 
-.policy-keyline { font-size: 10.4px !important; line-height: 1.49 !important; }
+.policy-keyline { font-size: 11.4px !important; line-height: 1.49 !important; }
 .policy-page .step-list li,
-.policy-page .check-list li { font-size: 9.2px !important; line-height: 1.42 !important; margin-bottom: 5px !important; }
-.narita-box { font-size: 8.7px !important; line-height: 1.43 !important; }
-.policy-page .vjw-box p { font-size: 8.2px !important; line-height: 1.40 !important; }
-.policy-page .vjw-box li { font-size: 8.05px !important; line-height: 1.39 !important; margin-bottom: 4px !important; }
-.vjw-table { font-size: 7.25px !important; }
-.policy-source, .policy-source a { font-size: 6.5px !important; line-height: 1.35 !important; }
+.policy-page .check-list li { font-size: 10.2px !important; line-height: 1.42 !important; margin-bottom: 5px !important; }
+.narita-box { font-size: 9.7px !important; line-height: 1.43 !important; }
+.policy-page .vjw-box p { font-size: 9.2px !important; line-height: 1.40 !important; }
+.policy-page .vjw-box li { font-size: 9.05px !important; line-height: 1.39 !important; margin-bottom: 4px !important; }
+.vjw-table { font-size: 8.25px !important; }
+.policy-source, .policy-source a { font-size: 7.5px !important; line-height: 1.35 !important; }
 .day-page-sheet.day-5 .day-photo-collage { height: 193px !important; }
 
 .policy-bottom-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
 .policy-mini-card { border-radius:15px; border:1px solid #d9e2df; background:#fff; padding:8px 10px; }
-.policy-mini-card h4 { margin:0 0 6px; color:#355264; font-size:10.2px; }
-.policy-page .policy-mini-card p { margin:6px 0 0 !important; font-size:7.9px !important; line-height:1.39 !important; color:#56666d; }
+.policy-mini-card h4 { margin:0 0 6px; color:#355264; font-size:11.2px; }
+.policy-page .policy-mini-card p { margin:6px 0 0 !important; font-size:8.9px !important; line-height:1.39 !important; color:#56666d; }
 .mini-checks { display:grid; grid-template-columns:1fr 1fr; gap:4px 8px; }
-.mini-checks span { font-size:7.8px; line-height:1.3; color:#344a55; }
+.mini-checks span { font-size:8.8px; line-height:1.3; color:#344a55; }
 .mini-timeline { display:flex; flex-wrap:wrap; align-items:center; gap:4px; }
-.mini-timeline span { padding:4px 6px; border-radius:999px; background:#eef5f7; border:1px solid #cbdde3; font-size:6.8px; font-weight:800; color:#315565; }
-.mini-timeline b { color:#cf745f; font-size:8px; }
+.mini-timeline span { padding:4px 6px; border-radius:999px; background:#eef5f7; border:1px solid #cbdde3; font-size:7.8px; font-weight:800; color:#315565; }
+.mini-timeline b { color:#cf745f; font-size:9px; }
 
 .day-index-page { padding-top: 14mm !important; }
 .day-index-page h2 { margin-bottom: 13px !important; }
@@ -1354,23 +1354,23 @@ html { scroll-behavior: smooth; }
   height: 64px !important;
   border-radius: 16px !important;
 }
-.day-index-number small { font-size: 5.5px !important; }
-.day-index-number b { font-size: 20px !important; }
+.day-index-number small { font-size: 6.5px !important; }
+.day-index-number b { font-size: 21px !important; }
 .day-index-copy span {
   display: block;
-  font-size: 7.7px !important;
+  font-size: 8.7px !important;
   margin-bottom: 6px;
 }
 .day-index-copy h3 {
   margin: 0 13px 0 0 !important;
-  font-size: 12.2px !important;
+  font-size: 13.2px !important;
   line-height: 1.46 !important;
   color: #283b47;
 }
 .day-index-card > i {
   right: 10px !important;
   bottom: 9px !important;
-  font-size: 10px !important;
+  font-size: 11px !important;
 }
 
 .day-index-page {
@@ -1399,19 +1399,19 @@ html { scroll-behavior: smooth; }
   border-radius: 15px !important;
 }
 .day-index-number small {
-  font-size: 5.5px !important;
+  font-size: 6.5px !important;
 }
 .day-index-number b {
-  font-size: 20px !important;
+  font-size: 21px !important;
 }
 .day-index-copy span {
   display: block;
-  font-size: 7.8px !important;
+  font-size: 8.8px !important;
   margin-bottom: 5px !important;
 }
 .day-index-copy h3 {
   margin: 0 !important;
-  font-size: 12.6px !important;
+  font-size: 13.6px !important;
   line-height: 1.43 !important;
   color: #283b47;
 }
@@ -1420,7 +1420,7 @@ html { scroll-behavior: smooth; }
   top: 50% !important;
   bottom: auto !important;
   transform: translateY(-50%);
-  font-size: 13px !important;
+  font-size: 14px !important;
 }
 
 .day-index-card:nth-child(9) {
@@ -1463,22 +1463,22 @@ html { scroll-behavior: smooth; }
   border-radius: 17px !important;
 }
 .day-index-number small {
-  font-size: 6.5px !important;
+  font-size: 7.5px !important;
   letter-spacing: .13em !important;
 }
 .day-index-number b {
-  font-size: 25px !important;
+  font-size: 26px !important;
   line-height: 1.02 !important;
 }
 .day-index-copy span {
   display: block !important;
-  font-size: 9.8px !important;
+  font-size: 10.8px !important;
   line-height: 1.2 !important;
   margin-bottom: 5px !important;
 }
 .day-index-copy h3 {
   margin: 0 !important;
-  font-size: 16px !important;
+  font-size: 17px !important;
   line-height: 1.32 !important;
   color: #283b47 !important;
 }
@@ -1487,7 +1487,7 @@ html { scroll-behavior: smooth; }
   top: 50% !important;
   bottom: auto !important;
   transform: translateY(-50%) !important;
-  font-size: 16px !important;
+  font-size: 17px !important;
 }
 @media print {
   .day-index-card > i { transform: translateY(-50%) !important; }
@@ -1508,16 +1508,16 @@ html { scroll-behavior: smooth; }
 .day3-route-detail-page{padding:10mm 12mm 12mm;background:radial-gradient(circle at 94% 6%,rgba(232,233,245,.92) 0 38mm,transparent 38.5mm),linear-gradient(180deg,#f7f7fc 0 41mm,var(--paper) 41.2mm 100%)}
 .day3-route-detail-page h2{margin-bottom:6px}.day3-route-detail-page h2::after{content:'DAY 03 ROUTE PLAN'!important}
 .day3-route-lead{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:center;margin:4px 0 7px;padding:7px 9px;border-radius:14px;background:#eef0fa;border:1px solid #d9dceb;border-left:6px solid #6f78a8}
-.day3-route-lead p{margin:0!important;font-size:9.4px!important;line-height:1.42!important}.day3-route-deadline{white-space:nowrap;border-radius:999px;padding:4px 8px;background:#fff;border:1px solid #cbd0e5;color:#4c557e;font-size:7.8px;font-weight:900}
+.day3-route-lead p{margin:0!important;font-size:10.4px!important;line-height:1.42!important}.day3-route-deadline{white-space:nowrap;border-radius:999px;padding:4px 8px;background:#fff;border:1px solid #cbd0e5;color:#4c557e;font-size:8.8px;font-weight:900}
 .day3-route-card{margin:7px 0;border:1px solid #dce1df;border-radius:15px;overflow:hidden;background:rgba(255,255,255,.94);break-inside:avoid}.day3-route-card.route-a{border-left:7px solid #6f78a8}.day3-route-card.route-b{border-left:7px solid #6f9f82}
 .day3-route-head{display:grid;grid-template-columns:78px 1fr auto;gap:8px;align-items:center;padding:6px 8px;border-bottom:1px solid #e1e5e2}.route-a .day3-route-head{background:#eef0fa}.route-b .day3-route-head{background:#edf6ef}
-.day3-route-code{border-radius:10px;padding:5px 4px;text-align:center;color:#fff;font-size:8.8px;font-weight:950}.route-a .day3-route-code{background:#6f78a8}.route-b .day3-route-code{background:#6f9f82}
-.day3-route-head h3{margin:0;padding:0;font-size:12.2px;line-height:1.24;color:#33435a}.day3-route-head p{margin:1px 0 0!important;font-size:7.9px!important;line-height:1.32!important;color:#66727a}
-.day3-route-map{display:inline-block;white-space:nowrap;border-radius:999px;padding:3px 7px;background:#fff;border:1px solid #ccd8dc;color:#30748c;font-size:7.1px;line-height:1.28;font-weight:900}.day3-route-map:hover{text-decoration:none;background:#edf5f7}
-.day3-route-table{width:100%;margin:0!important;border:0!important;border-radius:0!important;font-size:7.8px!important;line-height:1.34!important}.day3-route-table th{padding:4px 5px!important;font-size:7.4px!important;background:#566879}.day3-route-table td{padding:4.8px 5.5px!important;vertical-align:top}
+.day3-route-code{border-radius:10px;padding:5px 4px;text-align:center;color:#fff;font-size:9.8px;font-weight:950}.route-a .day3-route-code{background:#6f78a8}.route-b .day3-route-code{background:#6f9f82}
+.day3-route-head h3{margin:0;padding:0;font-size:13.2px;line-height:1.24;color:#33435a}.day3-route-head p{margin:1px 0 0!important;font-size:8.9px!important;line-height:1.32!important;color:#66727a}
+.day3-route-map{display:inline-block;white-space:nowrap;border-radius:999px;padding:3px 7px;background:#fff;border:1px solid #ccd8dc;color:#30748c;font-size:8.1px;line-height:1.28;font-weight:900}.day3-route-map:hover{text-decoration:none;background:#edf5f7}
+.day3-route-table{width:100%;margin:0!important;border:0!important;border-radius:0!important;font-size:8.8px!important;line-height:1.34!important}.day3-route-table th{padding:4px 5px!important;font-size:8.4px!important;background:#566879}.day3-route-table td{padding:4.8px 5.5px!important;vertical-align:top}
 .day3-route-table th:nth-child(1),.day3-route-table td:nth-child(1){width:15%;white-space:nowrap;font-weight:850}.day3-route-table th:nth-child(2),.day3-route-table td:nth-child(2){width:26%}.day3-route-table th:nth-child(3),.day3-route-table td:nth-child(3){width:18%}.day3-route-table th:nth-child(4),.day3-route-table td:nth-child(4){width:41%}.day3-route-table strong{color:#304657}
-.day3-route-foot{padding:5px 8px 6px;font-size:7.5px;line-height:1.39;border-top:1px dashed #d7ded9;color:#4e5f66;background:#fffdfa}.day3-route-foot strong{color:#5d4a1f}.day3-route-foot .swap{display:inline-block;margin-right:4px;padding:2px 6px;border-radius:999px;background:#fff3cf;border:1px solid #e1cb80;color:#73591a;font-size:6.6px;font-weight:900}
-.day3-route-bottom{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}.day3-route-choice{border-radius:13px;padding:6px 8px;border:1px solid #dce1df;background:#fff;font-size:7.8px;line-height:1.38}.day3-route-choice b{display:block;margin-bottom:1px;font-size:8.4px;color:#3d4f5b}.day3-route-final{grid-column:1/-1;border-radius:13px;padding:6px 8px;background:#fff4dd;border:1px solid #e7cf92;color:#664d1c;font-size:7.9px;line-height:1.38;text-align:center;font-weight:800}
+.day3-route-foot{padding:5px 8px 6px;font-size:8.5px;line-height:1.39;border-top:1px dashed #d7ded9;color:#4e5f66;background:#fffdfa}.day3-route-foot strong{color:#5d4a1f}.day3-route-foot .swap{display:inline-block;margin-right:4px;padding:2px 6px;border-radius:999px;background:#fff3cf;border:1px solid #e1cb80;color:#73591a;font-size:7.6px;font-weight:900}
+.day3-route-bottom{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}.day3-route-choice{border-radius:13px;padding:6px 8px;border:1px solid #dce1df;background:#fff;font-size:8.8px;line-height:1.38}.day3-route-choice b{display:block;margin-bottom:1px;font-size:9.4px;color:#3d4f5b}.day3-route-final{grid-column:1/-1;border-radius:13px;padding:6px 8px;background:#fff4dd;border:1px solid #e7cf92;color:#664d1c;font-size:8.9px;line-height:1.38;text-align:center;font-weight:800}
 
 .daily-route-detail-page{
   padding:10mm 12mm 12mm;
@@ -1530,53 +1530,53 @@ html { scroll-behavior: smooth; }
   margin:4px 0 8px;padding:7px 9px;border-radius:14px;background:#edf5f4;
   border:1px solid #d5e1df;border-left:6px solid #6f9f9a;
 }
-.route-detail-lead p{margin:0!important;font-size:9.45px!important;line-height:1.43!important}
-.route-detail-pill{white-space:nowrap;border-radius:999px;padding:4px 8px;background:#fff;border:1px solid #c7d9d6;color:#3f6661;font-size:7.8px;font-weight:900}
+.route-detail-lead p{margin:0!important;font-size:10.45px!important;line-height:1.43!important}
+.route-detail-pill{white-space:nowrap;border-radius:999px;padding:4px 8px;background:#fff;border:1px solid #c7d9d6;color:#3f6661;font-size:8.8px;font-weight:900}
 .route-map-bar{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 7px}
 .route-map-button,.official-link-button{
   display:inline-block;padding:4px 9px;border-radius:999px;background:#e7f2f3;border:1px solid #bfd9dd;
-  color:#2e7188;font-size:7.6px;line-height:1.35;font-weight:900;text-decoration:none;
+  color:#2e7188;font-size:8.6px;line-height:1.35;font-weight:900;text-decoration:none;
 }
 .official-link-button{background:#fff0ed;border-color:#e4b5ac;color:#8d443b}
 .route-detail-section{border-radius:16px;overflow:hidden;background:rgba(255,255,255,.9);border:1px solid #dce4e1;margin:7px 0;break-inside:avoid}
 .route-detail-section-head{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:7px 9px;background:#f0f6f4;border-bottom:1px solid #dce4e1}
-.route-detail-code{border-radius:999px;background:#668e89;color:#fff;padding:4px 8px;font-size:7.5px;font-weight:900;white-space:nowrap}
-.route-detail-section-head h3{margin:0;padding:0;font-size:11.6px;color:#33524e}
-.route-detail-section-head p{margin:1px 0 0!important;font-size:7.7px!important;line-height:1.35!important;color:#687773}
-.route-detail-table{width:100%;margin:0!important;border:0!important;border-radius:0!important;font-size:7.85px!important;line-height:1.34!important}
-.route-detail-table th{padding:4.2px 5px!important;font-size:7.4px!important;background:#536b79}
+.route-detail-code{border-radius:999px;background:#668e89;color:#fff;padding:4px 8px;font-size:8.5px;font-weight:900;white-space:nowrap}
+.route-detail-section-head h3{margin:0;padding:0;font-size:12.6px;color:#33524e}
+.route-detail-section-head p{margin:1px 0 0!important;font-size:8.7px!important;line-height:1.35!important;color:#687773}
+.route-detail-table{width:100%;margin:0!important;border:0!important;border-radius:0!important;font-size:8.85px!important;line-height:1.34!important}
+.route-detail-table th{padding:4.2px 5px!important;font-size:8.4px!important;background:#536b79}
 .route-detail-table td{padding:4.6px 5.5px!important;vertical-align:top}
 .route-detail-table th:nth-child(1),.route-detail-table td:nth-child(1){width:6%;text-align:center;font-weight:900;color:#3d5c58}
 .route-detail-table th:nth-child(2),.route-detail-table td:nth-child(2){width:31%}
 .route-detail-table th:nth-child(3),.route-detail-table td:nth-child(3){width:19%}
 .route-detail-table th:nth-child(4),.route-detail-table td:nth-child(4){width:44%}
 .route-detail-table strong{color:#304657}
-.route-detail-foot{padding:7px 9px;background:#fff9e8;border-top:1px solid #eadba7;font-size:7.9px;line-height:1.42;color:#654f24}
+.route-detail-foot{padding:7px 9px;background:#fff9e8;border-top:1px solid #eadba7;font-size:8.9px;line-height:1.42;color:#654f24}
 .route-detail-bottom{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}
-.route-choice,.route-final-note{border-radius:13px;padding:7px 9px;border:1px solid #dbe4e0;background:#fff;font-size:7.8px;line-height:1.42;color:#475854}
+.route-choice,.route-final-note{border-radius:13px;padding:7px 9px;border:1px solid #dbe4e0;background:#fff;font-size:8.8px;line-height:1.42;color:#475854}
 .route-choice b{display:block;color:#355a54;margin-bottom:2px}
 .route-final-note{grid-column:1/-1;background:#fff4e7;border-color:#ebcf9d;color:#6b5123;font-weight:800}
-.route-detail-jump{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:999px;background:#fff;border:1px solid color-mix(in srgb,var(--day-accent) 25%,#d8e0dc);font-size:7.8px;font-weight:900;color:var(--day-dark)}
+.route-detail-jump{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:999px;background:#fff;border:1px solid color-mix(in srgb,var(--day-accent) 25%,#d8e0dc);font-size:8.8px;font-weight:900;color:var(--day-dark)}
 .day-page-sheet.day-5 .route-detail-jump{margin-top:0;padding-top:1px;padding-bottom:1px}
 .day-page-sheet.day-5 .day-layout{gap:7px}
 .ticket-focus-box,.pass-focus-box,.weather-focus-box{
   margin-top:7px;border-radius:16px;padding:8px 10px;border:1px solid #dfc994;background:#fff9e2;break-inside:avoid
 }
-.ticket-focus-box h3,.pass-focus-box h3,.weather-focus-box h3{margin:0 0 5px;font-size:10.8px;color:#654f22}
+.ticket-focus-box h3,.pass-focus-box h3,.weather-focus-box h3{margin:0 0 5px;font-size:11.8px;color:#654f22}
 .ticket-facts,.pass-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
-.ticket-fact,.pass-card{border-radius:11px;background:rgba(255,255,255,.88);border:1px solid #e8d9aa;padding:6px 7px;font-size:7.35px;line-height:1.35}
-.ticket-fact b,.pass-card b{display:block;color:#5c4820;margin-bottom:2px;font-size:7.7px}
+.ticket-fact,.pass-card{border-radius:11px;background:rgba(255,255,255,.88);border:1px solid #e8d9aa;padding:6px 7px;font-size:8.35px;line-height:1.35}
+.ticket-fact b,.pass-card b{display:block;color:#5c4820;margin-bottom:2px;font-size:8.7px}
 .pass-grid{grid-template-columns:repeat(3,1fr)}
 .pass-card.recommend{background:#edf7f1;border-color:#b7d7c1}.pass-card.recommend b{color:#2f6240}
 .pass-card.caution{background:#fff1ee;border-color:#e5b9b0}.pass-card.caution b{color:#8b453c}
-.pass-verdict{margin-top:6px;border-radius:11px;padding:6px 8px;background:#fff;border:1px solid #e1d4ae;font-size:7.65px;line-height:1.42;color:#574927}
+.pass-verdict{margin-top:6px;border-radius:11px;padding:6px 8px;background:#fff;border:1px solid #e1d4ae;font-size:8.65px;line-height:1.42;color:#574927}
 .detail-option-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}
-.detail-option{border-radius:13px;border:1px solid #d9e3df;background:#fff;padding:7px 9px;font-size:7.75px;line-height:1.42;color:#465651}
+.detail-option{border-radius:13px;border:1px solid #d9e3df;background:#fff;padding:7px 9px;font-size:8.75px;line-height:1.42;color:#465651}
 .detail-option b{display:block;color:#345b55;margin-bottom:2px}
-.daily-route-detail-page.day4-detail .route-detail-table{font-size:7.45px!important}
-.daily-route-detail-page.day7-detail .route-detail-table{font-size:7.45px!important}
-.daily-route-detail-page.day8-detail .route-detail-table{font-size:7.55px!important}
-.daily-route-detail-page.day9-detail .route-detail-table{font-size:7.65px!important}
+.daily-route-detail-page.day4-detail .route-detail-table{font-size:8.45px!important}
+.daily-route-detail-page.day7-detail .route-detail-table{font-size:8.45px!important}
+.daily-route-detail-page.day8-detail .route-detail-table{font-size:8.55px!important}
+.daily-route-detail-page.day9-detail .route-detail-table{font-size:8.65px!important}
 @media print{
   .route-detail-section,.ticket-focus-box,.pass-focus-box,.weather-focus-box{box-shadow:none}
 }
@@ -1596,19 +1596,19 @@ html { scroll-behavior: smooth; }
 .daily-route-detail-page .weather-focus-box,
 .daily-route-detail-page .detail-option-grid,
 .daily-route-detail-page .detail-option-grid * {
-  font-size: 10.8px !important;
+  font-size: 11.8px !important;
   line-height: 1.45 !important;
 }
 .daily-route-detail-page .route-detail-table {
   width: 100%; margin: 0 !important; border: 0 !important; border-radius: 0 !important;
 }
 .daily-route-detail-page .route-detail-table th {
-  font-size: 10.2px !important;
+  font-size: 11.2px !important;
   line-height: 1.35 !important;
   padding: 7px 7px !important;
 }
 .daily-route-detail-page .route-detail-table td {
-  font-size: 10.8px !important;
+  font-size: 11.8px !important;
   line-height: 1.45 !important;
   padding: 7px 7px !important;
 }
@@ -1616,27 +1616,27 @@ html { scroll-behavior: smooth; }
 .daily-route-detail-page.day7-detail .route-detail-table,
 .daily-route-detail-page.day8-detail .route-detail-table,
 .daily-route-detail-page.day9-detail .route-detail-table {
-  font-size: 10.8px !important;
+  font-size: 11.8px !important;
 }
-.daily-route-detail-page .route-detail-section h3 { font-size: 13.5px !important; }
-.daily-route-detail-page .route-detail-section h3 span { font-size: 9.5px !important; }
+.daily-route-detail-page .route-detail-section h3 { font-size: 14.5px !important; }
+.daily-route-detail-page .route-detail-section h3 span { font-size: 10.5px !important; }
 .detail-part-pill {
   display: inline-block; margin-left: 7px; padding: 3px 10px; border-radius: 999px;
   background: #e7f1f2; color: #376b78; border: 1px solid #bdd6db;
-  font-size: 9.4px !important; font-weight: 900;
+  font-size: 10.4px !important; font-weight: 900;
 }
 .detail-page-nav {
   display: flex; justify-content: space-between; gap: 10px; align-items: center;
   margin-top: 11px; padding: 8px 10px; border-radius: 14px;
   background: #eef5f4; border: 1px solid #cbdad9;
-  font-size: 10px !important; line-height: 1.4;
+  font-size: 11px !important; line-height: 1.4;
 }
 .detail-page-nav a {
   display: inline-block; padding: 4px 9px; border-radius: 999px;
   background: #fff; border: 1px solid #c6d8d7; color: #2f7189;
-  font-size: 10px !important; font-weight: 900;
+  font-size: 11px !important; font-weight: 900;
 }
-.detail-page-nav .nav-hint { color: #5c6f73; font-size: 9.5px !important; }
+.detail-page-nav .nav-hint { color: #5c6f73; font-size: 10.5px !important; }
 
 
 .page-sheet.guide-page {
@@ -1651,7 +1651,7 @@ html { scroll-behavior: smooth; }
   background: #eef5f4; border-left: 6px solid #6f9fb3;
   color: #38505a;
 }
-.guide-lead p { margin: 2px 0 !important; font-size: 10.8px !important; line-height: 1.5 !important; }
+.guide-lead p { margin: 2px 0 !important; font-size: 11.8px !important; line-height: 1.5 !important; }
 .guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 9px 0; }
 .guide-grid.three { grid-template-columns: repeat(3,1fr); }
 .guide-grid.one { grid-template-columns: 1fr; }
@@ -1660,9 +1660,9 @@ html { scroll-behavior: smooth; }
   border: 1px solid #d9e2df; box-shadow: 0 3px 12px rgba(55,75,77,.045);
   break-inside: avoid;
 }
-.guide-card h3 { margin: 0 0 6px; color: #315468; font-size: 13px; line-height: 1.35; }
-.guide-card h4 { margin: 5px 0 4px; color: #3c5a68; font-size: 11.5px; }
-.guide-card p, .guide-card li { font-size: 10.4px !important; line-height: 1.48 !important; }
+.guide-card h3 { margin: 0 0 6px; color: #315468; font-size: 14px; line-height: 1.35; }
+.guide-card h4 { margin: 5px 0 4px; color: #3c5a68; font-size: 12.5px; }
+.guide-card p, .guide-card li { font-size: 11.4px !important; line-height: 1.48 !important; }
 .guide-card ul { margin: 4px 0 2px; padding-left: 19px; }
 .guide-card li { margin-bottom: 3px; }
 .guide-card.warn { background: #fff7e9; border-color: #e6cfaa; }
@@ -1673,22 +1673,22 @@ html { scroll-behavior: smooth; }
 .guide-callout {
   border-radius: 16px; padding: 10px 12px; margin: 9px 0;
   background: #fff8dc; border: 1px solid #e6d18d; color: #624d20;
-  font-size: 10.4px !important; line-height: 1.5 !important;
+  font-size: 11.4px !important; line-height: 1.5 !important;
 }
 .guide-callout strong { color: #574319; }
 .guide-table {
-  width: 100%; margin: 9px 0 !important; font-size: 9.5px !important;
+  width: 100%; margin: 9px 0 !important; font-size: 10.5px !important;
   line-height: 1.4 !important; border-radius: 14px !important;
 }
-.guide-table th { font-size: 9.3px !important; padding: 6px 7px !important; }
-.guide-table td { font-size: 9.5px !important; padding: 6px 7px !important; vertical-align: top; }
+.guide-table th { font-size: 10.3px !important; padding: 6px 7px !important; }
+.guide-table td { font-size: 10.5px !important; padding: 6px 7px !important; vertical-align: top; }
 .guide-table.compact td { padding: 5px 6px !important; }
 .guide-table .verdict { font-weight: 900; color: #315846; }
 .guide-button-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 7px 0 2px; }
 .guide-button-row a {
   display: inline-block; padding: 5px 10px; border-radius: 999px;
   background: #e8f4f8; border: 1px solid #b9dce8; color: #2f7187;
-  font-size: 9px !important; font-weight: 900;
+  font-size: 10px !important; font-weight: 900;
 }
 .check-list { list-style: none; padding-left: 0 !important; }
 .check-list li { position: relative; padding-left: 24px; }
@@ -1697,30 +1697,30 @@ html { scroll-behavior: smooth; }
 .weather-strip .weather-box {
   padding: 9px 11px; border-radius: 16px; background: #fff; border: 1px solid #d7e1de;
 }
-.weather-strip b { display: block; font-size: 12px; color: #365667; margin-bottom: 3px; }
-.weather-strip span { font-size: 10px; line-height: 1.45; color: #53666d; }
+.weather-strip b { display: block; font-size: 13px; color: #365667; margin-bottom: 3px; }
+.weather-strip span { font-size: 11px; line-height: 1.45; color: #53666d; }
 .provider-rank {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 28px; height: 28px; border-radius: 10px;
-  background: #6f9fb3; color: #fff; font-size: 11px; font-weight: 900;
+  background: #6f9fb3; color: #fff; font-size: 12px; font-weight: 900;
 }
 .quote-template {
   white-space: pre-wrap; background: #f7f9fa; border: 1px solid #d6dfe2;
-  border-radius: 15px; padding: 10px 12px; font-size: 9.8px !important;
+  border-radius: 15px; padding: 10px 12px; font-size: 10.8px !important;
   line-height: 1.48 !important; color: #334751;
 }
 .route-flow { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; margin: 8px 0; }
 .route-flow span {
   position: relative; padding: 8px 5px; border-radius: 13px; text-align: center;
-  background: #edf5f4; border: 1px solid #cddcda; font-size: 9px; line-height: 1.3;
+  background: #edf5f4; border: 1px solid #cddcda; font-size: 10px; line-height: 1.3;
 }
 .route-flow span:not(:last-child)::after { content: '→'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); color: #73929a; font-weight: 900; z-index: 2; }
 .post-label {
   white-space: pre-wrap; background: #fff; border: 2px dashed #91aaa4;
   border-radius: 14px; padding: 9px 11px; margin: 7px 0;
-  font-size: 9.8px !important; line-height: 1.45 !important;
+  font-size: 10.8px !important; line-height: 1.45 !important;
 }
-.small-print { font-size: 8.5px !important; line-height: 1.42 !important; color: #6c7b7f; }
+.small-print { font-size: 9.5px !important; line-height: 1.42 !important; color: #6c7b7f; }
 @media print {
   .guide-card { box-shadow: none; }
 }
@@ -1735,7 +1735,7 @@ html { scroll-behavior: smooth; }
 
 body .page-sheet:not(.cover-sheet) h2,
 body .page-sheet.day-page-sheet h3.day-title{
-  font-size:calc(var(--page-main-title-size) - 3px)!important;
+  font-size:calc(var(--page-main-title-size) - 2px)!important;
   line-height:1.24!important;
   letter-spacing:.02em!important;
 }
@@ -1744,7 +1744,7 @@ body .page-sheet.day-page-sheet h3.day-title{
 body .page-sheet:not(.cover-sheet) h3:not(.day-title),
 body .page-sheet:not(.cover-sheet) h4,
 body .page-sheet:not(.cover-sheet) .day-panel-title{
-  font-size:calc(var(--section-title-size) - 3px)!important;
+  font-size:calc(var(--section-title-size) - 2px)!important;
   line-height:1.30!important;
 }
 
@@ -1825,17 +1825,17 @@ body .page-sheet:not(.cover-sheet) .food-table td,
 body .page-sheet:not(.cover-sheet) .food-table a.map-button,
 body .page-sheet:not(.cover-sheet) .food-table a.booking-button,
 body .page-sheet:not(.cover-sheet) .source-note{
-  font-size:calc(var(--body-copy-size) - 3px)!important;
+  font-size:calc(var(--body-copy-size) - 2px)!important;
   line-height:1.46!important;
 }
 
 
 body .page-sheet.day-page-sheet .day-route-text{
-  font-size:calc(var(--daily-summary-route-size) - 3px)!important;
+  font-size:calc(var(--daily-summary-route-size) - 2px)!important;
   line-height:1.42!important;
 }
 body .page-sheet.day-page-sheet .day-route-label{
-  font-size:11px!important;
+  font-size:12px!important;
   line-height:1.2!important;
 }
 
@@ -1843,7 +1843,7 @@ body .page-sheet.day-page-sheet .day-route-label{
 body .page-sheet.daily-route-detail-page .route-detail-section h3,
 body .page-sheet.daily-route-detail-page .route-detail-section h3 span,
 body .page-sheet.daily-route-detail-page .detail-part-pill{
-  font-size:calc(var(--section-title-size) - 3px)!important;
+  font-size:calc(var(--section-title-size) - 2px)!important;
   line-height:1.3!important;
 }
 
@@ -1855,8 +1855,8 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
 .return-page .guide-grid{gap:8px;margin:8px 0;}
 .return-page .return-emphasis{border-left:7px solid #d95a57;background:#fff1ef;border-radius:15px;padding:8px 11px;margin:7px 0;color:#6e3732;}
 .return-page .return-emphasis p{margin:2px 0!important;}
-.return-page .return-tag{display:inline-block;border-radius:999px;padding:2px 8px;margin-right:4px;background:#e8f4f8;border:1px solid #b9dce8;color:#2f7187;font-size:11px!important;font-weight:900;}
-.return-page .return-phrase{display:block;background:#fff;border:1px solid #d9e2df;border-radius:11px;padding:6px 8px;margin:5px 0;font-size:11px!important;line-height:1.45!important;font-weight:700;color:#334a54;}
+.return-page .return-tag{display:inline-block;border-radius:999px;padding:2px 8px;margin-right:4px;background:#e8f4f8;border:1px solid #b9dce8;color:#2f7187;font-size:12px!important;font-weight:900;}
+.return-page .return-phrase{display:block;background:#fff;border:1px solid #d9e2df;border-radius:11px;padding:6px 8px;margin:5px 0;font-size:12px!important;line-height:1.45!important;font-weight:700;color:#334a54;}
 .return-page .post-label{font-family:'Noto Sans Mono CJK TC','Consolas',monospace!important;}
 .return-page .guide-button-row{margin-top:7px;}
 
@@ -1967,7 +1967,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
 .return-address{
   white-space:pre-wrap;
   font-family:'Noto Sans Mono CJK TC','Consolas',monospace!important;
-  font-size:11px!important;
+  font-size:12px!important;
   line-height:1.25!important;
 }
 .return-item-line{
@@ -2002,7 +2002,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   justify-content:center;
   background:#6f9fb3;
   color:#fff;
-  font-size:15px!important;
+  font-size:16px!important;
   font-weight:900;
   line-height:1;
 }
@@ -2048,7 +2048,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
 .day5-food .day5-staff-phrases .phrase-label {
   margin: 0 0 3px 1px;
   color: #5b4720;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.35;
   font-weight: 900;
 }
@@ -2059,7 +2059,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   border-radius: 10px 10px 0 0;
   background: rgba(255,255,255,.84);
   color: #2f3e55;
-  font-size: 11px !important;
+  font-size: 12px !important;
   line-height: 1.42;
   font-weight: 750;
 }
@@ -2071,13 +2071,13 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   border-radius: 0 0 10px 10px;
   background: rgba(255,255,255,.58);
   color: #67583f;
-  font-size: 11px !important;
+  font-size: 12px !important;
   line-height: 1.42;
 }
 .day5-food .day5-staff-phrases .phrase-note {
   margin: 5px 1px 0;
   color: #6d5a32;
-  font-size: 11px !important;
+  font-size: 12px !important;
   line-height: 1.42;
 }
 
@@ -2157,7 +2157,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   display: block;
   margin-bottom: 4px;
   font-family: 'Noto Sans', Arial, sans-serif !important;
-  font-size: 6px;
+  font-size: 7px;
   line-height: 1;
   font-weight: 850;
   letter-spacing: .17em;
@@ -2165,7 +2165,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
 }
 .side-toc-title {
   display: block;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.18;
   font-weight: 900;
   letter-spacing: .055em;
@@ -2174,7 +2174,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
 .side-toc-subtitle {
   display: block;
   margin-top: 3px;
-  font-size: 7.5px;
+  font-size: 8.5px;
   line-height: 1.3;
   letter-spacing: .04em;
   color: rgba(255,255,255,.78);
@@ -2194,7 +2194,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
   cursor: pointer;
   font-family: 'Noto Sans', Arial, sans-serif !important;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1;
   transition: background .15s ease, transform .15s ease;
 }
@@ -2208,7 +2208,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   align-items: center;
   gap: 6px;
   margin-top: 12px;
-  font-size: 7px;
+  font-size: 8px;
   line-height: 1;
   font-weight: 800;
   letter-spacing: .08em;
@@ -2255,7 +2255,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   margin: 10px 7px 5px;
   color: #7a8985;
   font-family: 'Noto Sans', Arial, sans-serif !important;
-  font-size: 6.5px;
+  font-size: 7.5px;
   line-height: 1;
   font-weight: 850;
   letter-spacing: .15em;
@@ -2282,7 +2282,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   color: #3d5059 !important;
   background: rgba(255,255,255,.43);
   text-decoration: none !important;
-  font-size: 10.2px;
+  font-size: 11.2px;
   line-height: 1.28;
   font-weight: 760;
   transition: background .15s ease, border-color .15s ease, color .15s ease, transform .15s ease, box-shadow .15s ease;
@@ -2291,7 +2291,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   content: '›';
   color: #9aa9a5;
   font-family: 'Noto Sans', Arial, sans-serif !important;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1;
   text-align: right;
   transition: transform .15s ease, color .15s ease;
@@ -2324,7 +2324,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   color: #fff;
   background: #6f99a2;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.24);
-  font-size: 9px;
+  font-size: 10px;
   line-height: 1;
   font-weight: 900;
 }
@@ -2370,13 +2370,13 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   box-shadow: 0 4px 12px rgba(139, 85, 66, .12), inset 0 -3px 0 #cf7e68;
 }
 .side-toc-day-no {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1;
   font-weight: 900;
   letter-spacing: -.02em;
 }
 .side-toc-day-name {
-  font-size: 5.5px;
+  font-size: 6.5px;
   line-height: 1;
   font-weight: 850;
   letter-spacing: .08em;
@@ -2393,7 +2393,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   color: #73817d;
   background: #f4f3ed;
   font-family: 'Noto Sans', Arial, sans-serif !important;
-  font-size: 6.5px;
+  font-size: 7.5px;
   line-height: 1.2;
   letter-spacing: .07em;
   font-weight: 750;
@@ -2411,7 +2411,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   background: #fff;
   cursor: pointer;
   font-family: var(--kai-font, 'DFKai-SB', 'BiauKai', '標楷體', serif) !important;
-  font-size: 10px !important;
+  font-size: 11px !important;
   line-height: 1.4;
   font-weight: 900;
   transition: background .15s ease, border-color .15s ease, transform .15s ease;
@@ -2427,7 +2427,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   border-color: #b9dce8;
   color: #2f7187;
   background: #e8f4f8;
-  font-size: 9px !important;
+  font-size: 10px !important;
 }
 @media print {
   .open-side-toc-button { display: none !important; }
@@ -2449,7 +2449,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   background: rgba(255, 253, 248, .97);
   box-shadow: 0 8px 24px rgba(36, 57, 68, .18);
   cursor: pointer;
-  font-size: 10.5px;
+  font-size: 11.5px;
   line-height: 1;
   font-weight: 900;
   transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
@@ -2465,7 +2465,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   color: #fff;
   background: linear-gradient(135deg, #3e6974, #7b8170);
   font-family: 'Noto Sans', Arial, sans-serif !important;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.22);
 }
@@ -2544,7 +2544,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   content: '🍁';
   right: 44px;
   top: 6px;
-  font-size: 31px;
+  font-size: 32px;
   opacity: .20;
   transform: rotate(-17deg);
 }
@@ -2552,7 +2552,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   content: '🍁';
   right: 7px;
   bottom: 6px;
-  font-size: 21px;
+  font-size: 22px;
   opacity: .13;
   transform: rotate(18deg);
 }
@@ -2563,7 +2563,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   letter-spacing: .135em !important;
 }
 .side-toc-title {
-  font-size: 19px !important;
+  font-size: 20px !important;
   letter-spacing: .09em !important;
   color: #fffaf0 !important;
   text-shadow: 0 2px 4px rgba(55,24,20,.28) !important;
@@ -2588,7 +2588,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
 .side-toc-section-label::before {
   content: '◆';
   color: var(--maple-gold);
-  font-size: 4px;
+  font-size: 5px;
 }
 .side-toc-section-label::after {
   background: linear-gradient(90deg, rgba(169,75,55,.35), rgba(212,163,76,.27), transparent) !important;
@@ -2650,7 +2650,7 @@ body .page-sheet.daily-route-detail-page .detail-part-pill{
   content: '楓' !important;
   background: linear-gradient(135deg, var(--maple-wine), var(--maple-orange)) !important;
   font-family: var(--kai-font, 'DFKai-SB', 'BiauKai', '標楷體', serif) !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
 }
 #side-toc-toggle:hover { background: #fffaf1 !important; }
 #side-toc-backdrop { background: rgba(56,31,26,.38) !important; }
@@ -2680,8 +2680,8 @@ html,body,body *,body *::before,body *::after,button,input,textarea,select,optio
   background:linear-gradient(135deg,#8e382f,#cf7637)!important;
 }
 .pretrip-external-link .side-toc-text{display:flex!important;flex-direction:column!important;gap:2px!important;}
-.pretrip-external-link .side-toc-text strong{font-size:12px!important;line-height:1.18!important;color:#6f2e2a!important;}
-.pretrip-external-link .side-toc-text small{font-size:8px!important;line-height:1.22!important;color:#9a5f3d!important;font-weight:800!important;}
+.pretrip-external-link .side-toc-text strong{font-size:13px!important;line-height:1.18!important;color:#6f2e2a!important;}
+.pretrip-external-link .side-toc-text small{font-size:9px!important;line-height:1.22!important;color:#9a5f3d!important;font-weight:800!important;}
 .pretrip-page-cta{
   display:grid;grid-template-columns:50px 1fr auto;gap:12px;align-items:center;
   margin:8px 0 12px;padding:12px 15px;border-radius:18px;
@@ -2690,15 +2690,15 @@ html,body,body *,body *::before,body *::after,button,input,textarea,select,optio
   box-shadow:0 8px 22px rgba(100,49,35,.19);
 }
 .pretrip-page-cta:hover{transform:translateY(-1px);box-shadow:0 11px 27px rgba(100,49,35,.23);}
-.pretrip-page-cta .cta-icon{width:48px;height:48px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.16);font-size:22px;}
+.pretrip-page-cta .cta-icon{width:48px;height:48px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.16);font-size:23px;}
 .pretrip-page-cta .cta-copy{display:flex;flex-direction:column;gap:2px;}
-.pretrip-page-cta .cta-kicker{font-size:7px!important;letter-spacing:.12em;color:#ffe1b7;font-weight:900;}
-.pretrip-page-cta strong{font-size:17px!important;line-height:1.22;color:#fff!important;}
-.pretrip-page-cta small{font-size:10px!important;line-height:1.35;color:#fff3df!important;font-weight:750;}
-.pretrip-page-cta .cta-arrow{font-size:23px;font-weight:900;color:#ffe7bd;}
+.pretrip-page-cta .cta-kicker{font-size:8px!important;letter-spacing:.12em;color:#ffe1b7;font-weight:900;}
+.pretrip-page-cta strong{font-size:18px!important;line-height:1.22;color:#fff!important;}
+.pretrip-page-cta small{font-size:11px!important;line-height:1.35;color:#fff3df!important;font-weight:750;}
+.pretrip-page-cta .cta-arrow{font-size:24px;font-weight:900;color:#ffe7bd;}
 .pretrip-inline-button,.nikko-bus-inline-button{
   display:inline-block;margin-top:6px;padding:5px 10px;border-radius:999px;
-  font-size:11px!important;line-height:1.35!important;font-weight:900!important;text-decoration:none!important;
+  font-size:12px!important;line-height:1.35!important;font-weight:900!important;text-decoration:none!important;
 }
 .pretrip-inline-button{background:#fff0e5;border:1px solid #e5b394;color:#8a4333!important;}
 .nikko-bus-inline-button{background:#e8f3ed;border:1px solid #afd0bd;color:#326347!important;}
@@ -2708,12 +2708,12 @@ html,body,body *,body *::before,body *::after,button,input,textarea,select,optio
   background:linear-gradient(110deg,#e8f4ed,#f7fbf6);border:1px solid #afd1bd;
   box-shadow:0 4px 13px rgba(50,99,71,.09);color:#2f5940!important;
 }
-.nikko-bus-day-cta .bus-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#648c70;color:white;font-size:20px;}
+.nikko-bus-day-cta .bus-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#648c70;color:white;font-size:21px;}
 .nikko-bus-day-cta .bus-copy{display:flex;flex-direction:column;gap:1px;}
-.nikko-bus-day-cta .bus-kicker{font-size:6.5px!important;letter-spacing:.12em;font-weight:900;color:#63816d;}
-.nikko-bus-day-cta strong{font-size:14px!important;line-height:1.25;color:#285438!important;}
-.nikko-bus-day-cta small{font-size:9.5px!important;line-height:1.3;color:#4d7058!important;font-weight:760;}
-.nikko-bus-day-cta .bus-arrow{font-size:21px;color:#5b8669;font-weight:900;}
+.nikko-bus-day-cta .bus-kicker{font-size:7.5px!important;letter-spacing:.12em;font-weight:900;color:#63816d;}
+.nikko-bus-day-cta strong{font-size:15px!important;line-height:1.25;color:#285438!important;}
+.nikko-bus-day-cta small{font-size:10.5px!important;line-height:1.3;color:#4d7058!important;font-weight:760;}
+.nikko-bus-day-cta .bus-arrow{font-size:22px;color:#5b8669;font-weight:900;}
 @media print{
   .pretrip-page-cta,.nikko-bus-day-cta{box-shadow:none;}
 }
@@ -2743,7 +2743,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   padding:3px 9px;border-radius:999px;
   background:#ffe7a8;color:#6a3524;
   border:1px solid rgba(255,255,255,.58);
-  font-size:9px!important;line-height:1.15!important;font-weight:900;
+  font-size:10px!important;line-height:1.15!important;font-weight:900;
   letter-spacing:.08em;
 }
 .pretrip-page-cta::after{
@@ -2752,13 +2752,13 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 }
 .pretrip-page-cta .cta-icon{
   width:56px!important;height:56px!important;border-radius:17px!important;
-  font-size:26px!important;background:rgba(255,255,255,.18)!important;
+  font-size:27px!important;background:rgba(255,255,255,.18)!important;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.23);
 }
-.pretrip-page-cta .cta-kicker{font-size:8px!important;color:#ffe0a2!important;letter-spacing:.10em!important;}
-.pretrip-page-cta strong{font-size:20px!important;line-height:1.18!important;}
-.pretrip-page-cta small{font-size:11px!important;line-height:1.34!important;color:#fff4df!important;}
-.pretrip-page-cta .cta-arrow{font-size:28px!important;color:#ffe6ae!important;}
+.pretrip-page-cta .cta-kicker{font-size:9px!important;color:#ffe0a2!important;letter-spacing:.10em!important;}
+.pretrip-page-cta strong{font-size:21px!important;line-height:1.18!important;}
+.pretrip-page-cta small{font-size:12px!important;line-height:1.34!important;color:#fff4df!important;}
+.pretrip-page-cta .cta-arrow{font-size:29px!important;color:#ffe6ae!important;}
 .pretrip-page-cta:hover{transform:translateY(-2px)!important;box-shadow:0 0 0 5px rgba(212,163,76,.20),0 15px 34px rgba(91,42,31,.28)!important;}
 
 
@@ -2782,21 +2782,21 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   position:absolute;right:13px;top:9px;
   padding:3px 9px;border-radius:999px;
   background:#ffe8a9;color:#31513a;border:1px solid rgba(255,255,255,.58);
-  font-size:8.5px!important;line-height:1.15!important;font-weight:900;
+  font-size:9.5px!important;line-height:1.15!important;font-weight:900;
 }
 .nikko-bus-day-cta::after{
   content:'🚌';position:absolute;right:54px;bottom:-20px;
-  font-size:69px!important;line-height:1;opacity:.08;transform:rotate(-8deg);pointer-events:none;
+  font-size:70px!important;line-height:1;opacity:.08;transform:rotate(-8deg);pointer-events:none;
 }
 .nikko-bus-day-cta .bus-icon{
   width:58px!important;height:58px!important;border-radius:18px!important;
   background:rgba(255,255,255,.17)!important;border:1px solid rgba(255,255,255,.20)!important;
-  font-size:26px!important;color:#fff!important;
+  font-size:27px!important;color:#fff!important;
 }
-.nikko-bus-day-cta .bus-kicker{font-size:7.5px!important;color:#f4dea2!important;letter-spacing:.10em!important;}
-.nikko-bus-day-cta strong{font-size:18px!important;line-height:1.2!important;color:#fff!important;}
-.nikko-bus-day-cta small{font-size:10.5px!important;line-height:1.32!important;color:#eef8ef!important;}
-.nikko-bus-day-cta .bus-arrow{font-size:28px!important;color:#ffe5a3!important;}
+.nikko-bus-day-cta .bus-kicker{font-size:8.5px!important;color:#f4dea2!important;letter-spacing:.10em!important;}
+.nikko-bus-day-cta strong{font-size:19px!important;line-height:1.2!important;color:#fff!important;}
+.nikko-bus-day-cta small{font-size:11.5px!important;line-height:1.32!important;color:#eef8ef!important;}
+.nikko-bus-day-cta .bus-arrow{font-size:29px!important;color:#ffe5a3!important;}
 .nikko-bus-day-cta:hover{transform:translateY(-2px)!important;box-shadow:0 0 0 5px rgba(223,195,110,.21),0 15px 33px rgba(31,79,54,.28)!important;}
 
 
@@ -2831,23 +2831,23 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 .pretrip-page-cta.pretrip-page-cta-featured::before{
   content:'重要入口';position:absolute;right:16px;top:-11px;
   padding:3px 11px;border-radius:999px;background:#fff4d7;border:1px solid #d7a64b;
-  color:#79382d;font-size:9px!important;line-height:1.2;font-weight:900;
+  color:#79382d;font-size:10px!important;line-height:1.2;font-weight:900;
   box-shadow:0 3px 9px rgba(91,48,35,.12);
 }
 .pretrip-page-cta-featured .cta-icon{
   width:64px!important;height:64px!important;border-radius:19px!important;
   background:rgba(255,255,255,.18)!important;border:1px solid rgba(255,255,255,.28);
-  font-size:28px!important;
+  font-size:29px!important;
 }
 .pretrip-page-cta-featured .cta-copy{gap:2px!important;}
 .pretrip-page-cta-featured .cta-badge{
   display:inline-block;width:max-content;padding:2px 9px;border-radius:999px;
-  background:#ffe2a7;color:#6b2d27;font-size:10px!important;line-height:1.25;font-weight:900;
+  background:#ffe2a7;color:#6b2d27;font-size:11px!important;line-height:1.25;font-weight:900;
 }
-.pretrip-page-cta-featured .cta-kicker{font-size:8px!important;}
-.pretrip-page-cta-featured strong{font-size:21px!important;line-height:1.17!important;letter-spacing:.02em;}
-.pretrip-page-cta-featured small{font-size:11.5px!important;line-height:1.35!important;}
-.pretrip-page-cta-featured .cta-arrow{font-size:31px!important;}
+.pretrip-page-cta-featured .cta-kicker{font-size:9px!important;}
+.pretrip-page-cta-featured strong{font-size:22px!important;line-height:1.17!important;letter-spacing:.02em;}
+.pretrip-page-cta-featured small{font-size:12.5px!important;line-height:1.35!important;}
+.pretrip-page-cta-featured .cta-arrow{font-size:32px!important;}
 
 .nikko-bus-day-cta.nikko-bus-day-cta-featured{
   position:relative;
@@ -2867,22 +2867,22 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 .nikko-bus-day-cta-featured::before{
   content:'另開完整專頁';position:absolute;right:14px;top:-10px;
   padding:3px 10px;border-radius:999px;background:#fff4d2;border:1px solid #d6af4f;
-  color:#31583d;font-size:8.5px!important;line-height:1.2;font-weight:900;
+  color:#31583d;font-size:9.5px!important;line-height:1.2;font-weight:900;
 }
 .nikko-bus-day-cta-featured .bus-icon{
   width:58px!important;height:58px!important;border-radius:17px!important;
   background:rgba(255,255,255,.17)!important;border:1px solid rgba(255,255,255,.26);
-  color:#fff!important;font-size:26px!important;
+  color:#fff!important;font-size:27px!important;
 }
 .nikko-bus-day-cta-featured .bus-copy{gap:1px!important;}
 .nikko-bus-day-cta-featured .bus-badge{
   display:inline-block;width:max-content;padding:2px 8px;border-radius:999px;
-  background:#f7d98d;color:#244d38;font-size:9px!important;line-height:1.2;font-weight:900;
+  background:#f7d98d;color:#244d38;font-size:10px!important;line-height:1.2;font-weight:900;
 }
-.nikko-bus-day-cta-featured .bus-kicker{font-size:7.5px!important;color:#e1f0df!important;}
-.nikko-bus-day-cta-featured strong{font-size:18px!important;line-height:1.18!important;color:#fff!important;}
-.nikko-bus-day-cta-featured small{font-size:10.5px!important;line-height:1.3!important;color:#eff8ed!important;}
-.nikko-bus-day-cta-featured .bus-arrow{font-size:28px!important;color:#ffe5a1!important;}
+.nikko-bus-day-cta-featured .bus-kicker{font-size:8.5px!important;color:#e1f0df!important;}
+.nikko-bus-day-cta-featured strong{font-size:19px!important;line-height:1.18!important;color:#fff!important;}
+.nikko-bus-day-cta-featured small{font-size:11.5px!important;line-height:1.3!important;color:#eff8ed!important;}
+.nikko-bus-day-cta-featured .bus-arrow{font-size:29px!important;color:#ffe5a1!important;}
 .nikko-bus-day-cta-featured:hover,.pretrip-page-cta-featured:hover{
   transform:translateY(-2px)!important;
 }
@@ -2934,7 +2934,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   border-radius:9px;
   background:var(--group-c-soft);
   color:var(--group-c-dark);
-  font-size:10.2px!important;
+  font-size:11.2px!important;
   line-height:1.38!important;
   font-weight:700;
 }
@@ -2945,7 +2945,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   border-top:2px solid var(--group-c-accent)!important;
   background:linear-gradient(90deg,#f8dcd5,#fff5f1)!important;
   color:var(--group-c-dark)!important;
-  font-size:10.2px!important;
+  font-size:11.2px!important;
   line-height:1.35!important;
   font-weight:850;
 }
@@ -2956,7 +2956,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   border-radius:999px;
   background:var(--group-c-accent);
   color:#fff;
-  font-size:8.5px!important;
+  font-size:9.5px!important;
   line-height:1.25!important;
   font-weight:900;
   letter-spacing:.05em;
@@ -2966,7 +2966,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   background:var(--group-c-soft)!important;
   border-top-color:#edcbc4!important;
   color:#5e403a!important;
-  font-size:9.9px!important;
+  font-size:10.9px!important;
   line-height:1.36!important;
 }
 .group-c-arrival-row td:first-child{box-shadow:inset 5px 0 0 var(--group-c-accent);text-align:center;}
@@ -2981,7 +2981,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   border-radius:9px;
   background:var(--group-c-accent);
   color:#fff;
-  font-size:9px!important;
+  font-size:10px!important;
   font-weight:900;
 }
 .detail-page-nav-clean.next-only{justify-content:flex-end!important;}
@@ -2992,7 +2992,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   }
 }
 
-#day4-route-detail .group-c-inline-note{margin-top:3px;padding:3px 6px;font-size:9.4px!important;line-height:1.28!important;}
+#day4-route-detail .group-c-inline-note{margin-top:3px;padding:3px 6px;font-size:10.4px!important;line-height:1.28!important;}
 
 .souvenir-external-link{
   min-height:58px!important;
@@ -3010,10 +3010,10 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   display:flex!important;flex-direction:column!important;gap:2px!important;
 }
 .souvenir-external-link .side-toc-text strong{
-  color:#2e5367!important;font-size:12px!important;line-height:1.18!important;
+  color:#2e5367!important;font-size:13px!important;line-height:1.18!important;
 }
 .souvenir-external-link .side-toc-text small{
-  color:#7a6745!important;font-size:7.8px!important;line-height:1.22!important;font-weight:800!important;
+  color:#7a6745!important;font-size:8.8px!important;line-height:1.22!important;font-weight:800!important;
 }
 .souvenir-external-link:hover{
   border-color:#91bac7!important;
@@ -3021,7 +3021,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 }
 
 #day9 .souvenir-item-note{
-  display:block;margin-top:5px;color:#526b77;font-size:9.5px!important;
+  display:block;margin-top:5px;color:#526b77;font-size:10.5px!important;
   line-height:1.38!important;font-weight:750;
 }
 .narita-souvenir-day-cta{
@@ -3043,26 +3043,26 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 .narita-souvenir-day-cta .souvenir-icon{
   width:56px;height:56px;border-radius:17px;display:flex;align-items:center;justify-content:center;
   background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.24);
-  font-size:26px!important;line-height:1;
+  font-size:27px!important;line-height:1;
 }
 .narita-souvenir-day-cta .souvenir-copy{
   display:flex;flex-direction:column;gap:2px;min-width:0;
 }
 .narita-souvenir-day-cta .souvenir-badge{
   display:inline-block;width:max-content;padding:2px 8px;border-radius:999px;
-  background:#f7d98d;color:#294d5e;font-size:8.5px!important;line-height:1.2!important;font-weight:900;
+  background:#f7d98d;color:#294d5e;font-size:9.5px!important;line-height:1.2!important;font-weight:900;
 }
 .narita-souvenir-day-cta .souvenir-kicker{
-  font-size:7.2px!important;line-height:1.2!important;letter-spacing:.10em;font-weight:900;color:#e5f3f5;
+  font-size:8.2px!important;line-height:1.2!important;letter-spacing:.10em;font-weight:900;color:#e5f3f5;
 }
 .narita-souvenir-day-cta strong{
-  color:#fff!important;font-size:17.5px!important;line-height:1.18!important;
+  color:#fff!important;font-size:18.5px!important;line-height:1.18!important;
 }
 .narita-souvenir-day-cta small{
-  color:#f4f7ee!important;font-size:10px!important;line-height:1.3!important;font-weight:760;
+  color:#f4f7ee!important;font-size:11px!important;line-height:1.3!important;font-weight:760;
 }
 .narita-souvenir-day-cta .souvenir-arrow{
-  color:#ffe5a1;font-size:27px!important;line-height:1;font-weight:900;text-align:center;
+  color:#ffe5a1;font-size:28px!important;line-height:1;font-weight:900;text-align:center;
 }
 @media print{
   .souvenir-external-link{box-shadow:none!important;}
@@ -3086,7 +3086,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 .page-sheet.narita-boarding-page li,
 .page-sheet.narita-boarding-page td,
 .page-sheet.narita-boarding-page th{
-  font-size:9.7px!important;
+  font-size:10.7px!important;
   line-height:1.39!important;
 }
 .narita-route-hero{
@@ -3095,91 +3095,91 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   border:1px solid #274f68;color:#fff;box-shadow:0 6px 17px rgba(38,78,96,.13);
 }
 .narita-route-hero-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:7px;}
-.narita-route-hero-head strong{font-size:14px!important;line-height:1.2;color:#fff;}
-.narita-route-total{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;padding:4px 9px;border-radius:999px;background:#fff2c9;color:#614819;font-size:9.8px!important;font-weight:900;}
+.narita-route-hero-head strong{font-size:15px!important;line-height:1.2;color:#fff;}
+.narita-route-total{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;padding:4px 9px;border-radius:999px;background:#fff2c9;color:#614819;font-size:10.8px!important;font-weight:900;}
 .narita-route-line{display:grid;grid-template-columns:repeat(7,auto);align-items:center;justify-content:center;gap:7px;}
-.narita-route-line .node{min-width:82px;padding:7px 8px;border-radius:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);text-align:center;color:#fff;font-size:9.4px!important;font-weight:900;line-height:1.25!important;}
-.narita-route-line .arrow{font-size:15px!important;color:#ffe7a5;font-weight:900;}
-.narita-route-sub{margin:7px 1px 0!important;color:#eaf5f6;font-size:8.7px!important;text-align:center;}
+.narita-route-line .node{min-width:82px;padding:7px 8px;border-radius:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);text-align:center;color:#fff;font-size:10.4px!important;font-weight:900;line-height:1.25!important;}
+.narita-route-line .arrow{font-size:16px!important;color:#ffe7a5;font-weight:900;}
+.narita-route-sub{margin:7px 1px 0!important;color:#eaf5f6;font-size:9.7px!important;text-align:center;}
 .narita-group-stack{display:grid;grid-template-columns:1fr;gap:7px;margin-top:7px;}
 .narita-group-card{--g:#4c7ea0;--gs:#eaf3f8;border:1px solid color-mix(in srgb,var(--g) 35%,#d9e2df);border-left:8px solid var(--g);border-radius:17px;overflow:hidden;background:#fff;box-shadow:0 3px 11px rgba(50,72,82,.045);break-inside:avoid;}
 .narita-group-card.group-b{--g:#5f8d70;--gs:#edf7f0;}
 .narita-group-card.group-c{--g:#b16b59;--gs:#fff0eb;}
 .narita-group-head{display:grid;grid-template-columns:68px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 10px;background:var(--gs);border-bottom:1px solid color-mix(in srgb,var(--g) 18%,#dfe5e2);}
-.narita-group-letter{width:58px;height:44px;border-radius:13px;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;font-size:21px!important;font-weight:950;letter-spacing:.02em;box-shadow:inset 0 1px 0 rgba(255,255,255,.25);}
-.narita-group-copy b{display:block;color:#2c4654;font-size:12.5px!important;line-height:1.22!important;}
-.narita-group-copy span{display:block;margin-top:2px;color:#607079;font-size:8.8px!important;line-height:1.3!important;}
-.narita-main-badge{white-space:nowrap;border-radius:999px;padding:5px 9px;background:#fff;border:1px solid color-mix(in srgb,var(--g) 35%,#d9e2df);color:var(--g);font-size:9.2px!important;font-weight:950;}
-.narita-group-table{width:100%;margin:0!important;border:0!important;border-radius:0!important;font-size:9.2px!important;line-height:1.32!important;}
-.narita-group-table th{background:#526b79!important;padding:4px 7px!important;font-size:8.8px!important;}
-.narita-group-table td{padding:4.5px 7px!important;font-size:9.15px!important;vertical-align:middle!important;}
+.narita-group-letter{width:58px;height:44px;border-radius:13px;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px!important;font-weight:950;letter-spacing:.02em;box-shadow:inset 0 1px 0 rgba(255,255,255,.25);}
+.narita-group-copy b{display:block;color:#2c4654;font-size:13.5px!important;line-height:1.22!important;}
+.narita-group-copy span{display:block;margin-top:2px;color:#607079;font-size:9.8px!important;line-height:1.3!important;}
+.narita-main-badge{white-space:nowrap;border-radius:999px;padding:5px 9px;background:#fff;border:1px solid color-mix(in srgb,var(--g) 35%,#d9e2df);color:var(--g);font-size:10.2px!important;font-weight:950;}
+.narita-group-table{width:100%;margin:0!important;border:0!important;border-radius:0!important;font-size:10.2px!important;line-height:1.32!important;}
+.narita-group-table th{background:#526b79!important;padding:4px 7px!important;font-size:9.8px!important;}
+.narita-group-table td{padding:4.5px 7px!important;font-size:10.15px!important;vertical-align:middle!important;}
 .narita-group-table th:nth-child(1),.narita-group-table td:nth-child(1){width:19%;}
 .narita-group-table th:nth-child(2),.narita-group-table td:nth-child(2){width:31%;}
 .narita-group-table th:nth-child(3),.narita-group-table td:nth-child(3){width:22%;}
 .narita-group-table th:nth-child(4),.narita-group-table td:nth-child(4){width:28%;}
 .narita-group-table .main-row td{background:var(--gs)!important;font-weight:900;color:#294554;}
 .narita-group-table .main-row td:first-child{box-shadow:inset 5px 0 0 var(--g);}
-.narita-group-foot{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:5px 9px 6px;background:#fffdfa;border-top:1px dashed #d9dfdb;color:#53646b;font-size:8.5px!important;line-height:1.34!important;}
+.narita-group-foot{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:5px 9px 6px;background:#fffdfa;border-top:1px dashed #d9dfdb;color:#53646b;font-size:9.5px!important;line-height:1.34!important;}
 .narita-group-foot strong{color:var(--g);}
 .narita-price-quick{display:grid;grid-template-columns:1fr 1fr 1.08fr;gap:7px;margin-top:8px;}
 .narita-price-chip{border-radius:14px;padding:7px 9px;background:#fff;border:1px solid #d8e2df;text-align:center;}
-.narita-price-chip b{display:block;font-size:12.5px!important;line-height:1.15;color:#315568;}
-.narita-price-chip span{display:block;margin-top:2px;font-size:8.4px!important;line-height:1.3;color:#64747b;}
+.narita-price-chip b{display:block;font-size:13.5px!important;line-height:1.15;color:#315568;}
+.narita-price-chip span{display:block;margin-top:2px;font-size:9.4px!important;line-height:1.3;color:#64747b;}
 .narita-price-chip.total{background:#fff5d9;border-color:#e3ca83;}
-.narita-price-chip.total b{color:#735319;font-size:15px!important;}
-.narita-group-note{margin:6px 1px 0!important;color:#6d7a7f;font-size:7.8px!important;line-height:1.35!important;}
+.narita-price-chip.total b{color:#735319;font-size:16px!important;}
+.narita-group-note{margin:6px 1px 0!important;color:#6d7a7f;font-size:8.8px!important;line-height:1.35!important;}
 
 .narita-same-route{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:5px 0 8px;}
 .narita-same-route .same-card{border-radius:14px;padding:7px 9px;border:1px solid #d7e1de;background:#fff;display:grid;grid-template-columns:34px 1fr;gap:7px;align-items:center;}
-.narita-same-route .same-card i{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#547f9a;color:#fff;font-style:normal;font-size:13px!important;font-weight:950;}
+.narita-same-route .same-card i{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#547f9a;color:#fff;font-style:normal;font-size:14px!important;font-weight:950;}
 .narita-same-route .same-card:nth-child(2) i{background:#648b6f;}
 .narita-same-route .same-card:nth-child(3) i{background:#ad6958;}
-.narita-same-route b{display:block;font-size:9.9px!important;color:#2d4856;line-height:1.2!important;}
-.narita-same-route span{display:block;font-size:7.9px!important;color:#67767c;line-height:1.28!important;}
+.narita-same-route b{display:block;font-size:10.9px!important;color:#2d4856;line-height:1.2!important;}
+.narita-same-route span{display:block;font-size:8.9px!important;color:#67767c;line-height:1.28!important;}
 .narita-visual-grid{display:grid;grid-template-columns:.92fr 1.04fr 1.04fr;gap:7px;margin:7px 0 8px;}
 .narita-visual-card{overflow:hidden;border-radius:15px;border:1px solid #d8e1de;background:#fff;box-shadow:0 3px 11px rgba(49,72,82,.05);}
 .narita-visual-card img{display:block;width:100%;height:150px;object-fit:contain;background:#edf2f1;}
 .narita-visual-card.train img{object-position:center 50%;}
 .narita-visual-card .visual-copy{padding:6px 8px 7px;}
-.narita-visual-card b{display:block;color:#315467;font-size:9.5px!important;line-height:1.26!important;}
-.narita-visual-card span{display:block;margin-top:2px;color:#65747b;font-size:7.5px!important;line-height:1.3!important;}
+.narita-visual-card b{display:block;color:#315467;font-size:10.5px!important;line-height:1.26!important;}
+.narita-visual-card span{display:block;margin-top:2px;color:#65747b;font-size:8.5px!important;line-height:1.3!important;}
 .narita-steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:7px 0;}
 .narita-step{position:relative;min-height:102px;border-radius:15px;padding:8px 9px 8px 43px;background:#fff;border:1px solid #d9e2df;break-inside:avoid;}
 .narita-step:nth-child(2),.narita-step:nth-child(3){background:#f3f8f7;}
-.narita-step-no{position:absolute;left:8px;top:8px;width:27px;height:27px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:#3f7187;color:#fff;font-size:12px!important;font-weight:950;}
-.narita-step h3{margin:0 0 3px!important;color:#315468!important;font-size:11.3px!important;line-height:1.25!important;}
-.narita-step p{margin:2px 0!important;font-size:8.75px!important;line-height:1.38!important;}
+.narita-step-no{position:absolute;left:8px;top:8px;width:27px;height:27px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:#3f7187;color:#fff;font-size:13px!important;font-weight:950;}
+.narita-step h3{margin:0 0 3px!important;color:#315468!important;font-size:12.3px!important;line-height:1.25!important;}
+.narita-step p{margin:2px 0!important;font-size:9.75px!important;line-height:1.38!important;}
 .narita-step ul{margin:3px 0 0!important;padding-left:17px!important;}
-.narita-step li{margin-bottom:1px!important;font-size:8.55px!important;line-height:1.34!important;}
+.narita-step li{margin-bottom:1px!important;font-size:9.55px!important;line-height:1.34!important;}
 .narita-fare-panel{display:grid;grid-template-columns:1.04fr .96fr;gap:7px;margin-top:7px;}
 .narita-fare-card{border-radius:15px;border:1px solid #d8e1de;background:#fff;padding:7px 9px;}
-.narita-fare-card h3{margin:0 0 5px!important;color:#315468!important;font-size:11.2px!important;}
-.narita-fare-table{margin:0!important;border-radius:10px!important;font-size:8.5px!important;}
-.narita-fare-table th,.narita-fare-table td{padding:4px 5px!important;font-size:8.45px!important;line-height:1.32!important;}
-.narita-fare-total{margin-top:5px;padding:6px 8px;border-radius:11px;background:#fff4d8;border:1px solid #e3ca82;color:#684e1b;font-size:9px!important;line-height:1.35!important;text-align:center;}
-.narita-fare-total strong{font-size:14px!important;color:#704e14;}
+.narita-fare-card h3{margin:0 0 5px!important;color:#315468!important;font-size:12.2px!important;}
+.narita-fare-table{margin:0!important;border-radius:10px!important;font-size:9.5px!important;}
+.narita-fare-table th,.narita-fare-table td{padding:4px 5px!important;font-size:9.45px!important;line-height:1.32!important;}
+.narita-fare-total{margin-top:5px;padding:6px 8px;border-radius:11px;background:#fff4d8;border:1px solid #e3ca82;color:#684e1b;font-size:10px!important;line-height:1.35!important;text-align:center;}
+.narita-fare-total strong{font-size:15px!important;color:#704e14;}
 .narita-segment-list{display:grid;gap:5px;}
-.narita-segment{border-radius:11px;padding:5px 7px;background:#f4f8f7;border:1px solid #dce6e2;font-size:8.5px!important;line-height:1.34!important;color:#465961;}
-.narita-segment b{display:block;color:#315568;font-size:8.9px!important;}
-.narita-fare-warning{margin-top:5px;padding:5px 7px;border-radius:11px;background:#fff0ed;border:1px solid #e3b1a8;color:#7b4037;font-size:8.45px!important;line-height:1.35!important;}
+.narita-segment{border-radius:11px;padding:5px 7px;background:#f4f8f7;border:1px solid #dce6e2;font-size:9.5px!important;line-height:1.34!important;color:#465961;}
+.narita-segment b{display:block;color:#315568;font-size:9.9px!important;}
+.narita-fare-warning{margin-top:5px;padding:5px 7px;border-radius:11px;background:#fff0ed;border:1px solid #e3b1a8;color:#7b4037;font-size:9.45px!important;line-height:1.35!important;}
 .narita-phrase{margin-top:7px;border-radius:14px;padding:7px 9px;background:#eef5f8;border:1px solid #bed6df;color:#315467;}
-.narita-phrase b{display:block;font-size:9.2px!important;margin-bottom:2px;}
-.narita-phrase span{font-size:9.1px!important;line-height:1.38!important;font-weight:800;}
-.narita-source{margin:5px 1px 0!important;text-align:right;color:#77847f;font-size:6.7px!important;line-height:1.28!important;}
-.narita-source a{font-size:6.7px!important;}
+.narita-phrase b{display:block;font-size:10.2px!important;margin-bottom:2px;}
+.narita-phrase span{font-size:10.1px!important;line-height:1.38!important;font-weight:800;}
+.narita-source{margin:5px 1px 0!important;text-align:right;color:#77847f;font-size:7.7px!important;line-height:1.28!important;}
+.narita-source a{font-size:7.7px!important;}
 @media print{
   .narita-route-hero,.narita-group-card,.narita-visual-card{box-shadow:none!important;}
 }
 
 .narita-route-plain{margin:2px 0 8px;}
-.narita-route-plain strong{display:block;color:#21485d;font-size:13.6px!important;line-height:1.25!important;margin-bottom:4px;}
-.narita-route-plain .route-line{display:block;color:#46606c;font-size:9.4px!important;line-height:1.35!important;}
-.narita-route-plain .route-fare{display:inline-block;margin-top:5px;padding:4px 9px;border-radius:999px;background:#fff5d9;border:1px solid #e3ca83;color:#6b4a13;font-size:9.1px!important;font-weight:900;}
+.narita-route-plain strong{display:block;color:#21485d;font-size:14.6px!important;line-height:1.25!important;margin-bottom:4px;}
+.narita-route-plain .route-line{display:block;color:#46606c;font-size:10.4px!important;line-height:1.35!important;}
+.narita-route-plain .route-fare{display:inline-block;margin-top:5px;padding:4px 9px;border-radius:999px;background:#fff5d9;border:1px solid #e3ca83;color:#6b4a13;font-size:10.1px!important;font-weight:900;}
 
 .narita-combined-table-wrap{margin-top:7px;border:1px solid #d5dfdc;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 3px 11px rgba(50,72,82,.045);}
-.narita-combined-table{width:100%;margin:0!important;border-radius:0!important;font-size:9.1px!important;line-height:1.33!important;}
-.narita-combined-table th{background:#526b79!important;padding:5px 7px!important;font-size:8.7px!important;}
-.narita-combined-table td{padding:5px 7px!important;font-size:9.05px!important;vertical-align:middle!important;background:#fff;}
+.narita-combined-table{width:100%;margin:0!important;border-radius:0!important;font-size:10.1px!important;line-height:1.33!important;}
+.narita-combined-table th{background:#526b79!important;padding:5px 7px!important;font-size:9.7px!important;}
+.narita-combined-table td{padding:5px 7px!important;font-size:10.05px!important;vertical-align:middle!important;background:#fff;}
 .narita-combined-table th:nth-child(1), .narita-combined-table td:nth-child(1){width:15%;}
 .narita-combined-table th:nth-child(2), .narita-combined-table td:nth-child(2){width:14%;}
 .narita-combined-table th:nth-child(3), .narita-combined-table td:nth-child(3){width:15%;}
@@ -3187,8 +3187,8 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 .narita-combined-table th:nth-child(5), .narita-combined-table td:nth-child(5){width:14%;}
 .narita-combined-table th:nth-child(6), .narita-combined-table td:nth-child(6){width:20%;}
 .narita-combined-table .group-label{font-weight:900;text-align:center;color:#21485d;line-height:1.3!important;}
-.narita-combined-table .group-label b{display:block;font-size:15px!important;line-height:1.05!important;margin-bottom:2px;}
-.narita-combined-table .group-label span{display:block;font-size:8.2px!important;font-weight:700;color:#4f636d;}
+.narita-combined-table .group-label b{display:block;font-size:16px!important;line-height:1.05!important;margin-bottom:2px;}
+.narita-combined-table .group-label span{display:block;font-size:9.2px!important;font-weight:700;color:#4f636d;}
 .narita-combined-table .group-start td{border-top-width:5px!important;}
 .narita-combined-table tbody.group-a .group-start td{border-top:5px solid #4c7ea0!important;}
 .narita-combined-table tbody.group-b .group-start td{border-top:5px solid #5f8d70!important;}
@@ -3207,7 +3207,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 .narita-combined-table tbody.group-a .main-row td:nth-child(3){box-shadow:inset 5px 0 0 #4c7ea0;}
 .narita-combined-table tbody.group-b .main-row td:nth-child(3){box-shadow:inset 5px 0 0 #5f8d70;}
 .narita-combined-table tbody.group-c .main-row td:nth-child(3){box-shadow:inset 5px 0 0 #b16b59;}
-.narita-combined-table .subnote{display:block;margin-top:2px;font-size:7.8px!important;color:#68777d;line-height:1.28!important;}
+.narita-combined-table .subnote{display:block;margin-top:2px;font-size:8.8px!important;color:#68777d;line-height:1.28!important;}
 
 .narita-boarding-page .narita-same-route{margin:2px 0 8px;}
 .narita-boarding-page .narita-same-route .same-card{padding:8px 10px;border-radius:14px;}
@@ -3215,15 +3215,15 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 .narita-boarding-page .narita-same-route .same-card:nth-child(2){border-left:6px solid #5f8d70;}
 .narita-boarding-page .narita-same-route .same-card:nth-child(3){border-left:6px solid #b16b59;}
 .narita-delay-note{margin:4px 0 8px;border-radius:15px;padding:8px 10px;background:#fff8ef;border:1px solid #eed0a7;color:#5f4a23;}
-.narita-delay-note h3{margin:0 0 4px!important;color:#6b4c17!important;font-size:11px!important;line-height:1.25!important;}
-.narita-delay-note p{margin:0 0 4px!important;font-size:8.8px!important;line-height:1.38!important;}
+.narita-delay-note h3{margin:0 0 4px!important;color:#6b4c17!important;font-size:12px!important;line-height:1.25!important;}
+.narita-delay-note p{margin:0 0 4px!important;font-size:9.8px!important;line-height:1.38!important;}
 .narita-delay-note ul{margin:4px 0 0!important;padding-left:18px!important;}
-.narita-delay-note li{margin-bottom:1px!important;font-size:8.55px!important;line-height:1.34!important;}
+.narita-delay-note li{margin-bottom:1px!important;font-size:9.55px!important;line-height:1.34!important;}
 
 .narita-visual-grid.large-two{grid-template-columns:1fr 1fr!important;gap:9px!important;margin-top:4px!important;}
 .narita-visual-grid.large-two .narita-visual-card img{height:222px!important;}
-.narita-visual-grid.large-two .narita-visual-card b{font-size:10.2px!important;}
-.narita-visual-grid.large-two .narita-visual-card span{font-size:8.1px!important;}
+.narita-visual-grid.large-two .narita-visual-card b{font-size:11.2px!important;}
+.narita-visual-grid.large-two .narita-visual-card span{font-size:9.1px!important;}
 
 @media print{
   .narita-combined-table-wrap,.narita-delay-note{box-shadow:none!important;}
@@ -3243,11 +3243,11 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   padding:8px 10px 9px!important;
 }
 .narita-boarding-page .narita-visual-grid.large-two .narita-visual-card b{
-  font-size:11.2px!important;
+  font-size:12.2px!important;
   line-height:1.28!important;
 }
 .narita-boarding-page .narita-visual-grid.large-two .narita-visual-card span{
-  font-size:8.6px!important;
+  font-size:9.6px!important;
   line-height:1.36!important;
 }
 
@@ -3300,11 +3300,11 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   padding:7px 10px 8px!important;
 }
 #narita-boarding-guide .narita-visual-card b{
-  font-size:11.4px!important;
+  font-size:12.4px!important;
   line-height:1.28!important;
 }
 #narita-boarding-guide .narita-visual-card span{
-  font-size:8.7px!important;
+  font-size:9.7px!important;
   line-height:1.34!important;
 }
 #narita-boarding-guide .aoto-side-fare{
@@ -3321,7 +3321,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #narita-boarding-guide .aoto-side-fare h3{
   margin:0 0 9px!important;
   color:#684f20!important;
-  font-size:12px!important;
+  font-size:13px!important;
   line-height:1.3!important;
   text-align:center;
 }
@@ -3334,7 +3334,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #narita-boarding-guide .aoto-side-fare .narita-fare-table th,
 #narita-boarding-guide .aoto-side-fare .narita-fare-table td{
   padding:7px 7px!important;
-  font-size:9.3px!important;
+  font-size:10.3px!important;
   line-height:1.36!important;
 }
 #narita-boarding-guide .aoto-side-fare .narita-fare-table th{
@@ -3391,12 +3391,12 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 }
 #narita-boarding-guide .aoto-side-fare h3{
   margin-bottom:7px!important;
-  font-size:11.6px!important;
+  font-size:12.6px!important;
 }
 #narita-boarding-guide .aoto-side-fare .narita-fare-table th,
 #narita-boarding-guide .aoto-side-fare .narita-fare-table td{
   padding:6px 6px!important;
-  font-size:8.9px!important;
+  font-size:9.9px!important;
 }
 #narita-boarding-guide .aoto-side-fare .narita-fare-total{
   margin-top:6px!important;
@@ -3443,7 +3443,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #narita-boarding-guide .inline-ticket-machine small{
   margin-top:2px;
   color:#315468;
-  font-size:6.5px!important;
+  font-size:7.5px!important;
   line-height:1.1!important;
   font-weight:900;
   white-space:nowrap;
@@ -3458,15 +3458,15 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 
 #narita-honjo-guide .narita-prev-fare-wrap{display:flex;justify-content:flex-end;margin-top:8px;}
 #narita-honjo-guide .narita-prev-fare-wrap .narita-fare-card{width:43%;min-width:320px;box-shadow:0 3px 10px rgba(49,72,82,.05);}
-#narita-honjo-guide .narita-prev-fare-wrap .narita-fare-card h3{margin:0 0 5px!important;font-size:11px!important;}
+#narita-honjo-guide .narita-prev-fare-wrap .narita-fare-card h3{margin:0 0 5px!important;font-size:12px!important;}
 
 #narita-boarding-guide .narita-visual-layout-v5{display:grid;grid-template-columns:1fr;gap:10px;margin:4px 0 10px!important;}
 #narita-boarding-guide .narita-t2-wide-v5{display:grid;grid-template-columns:1fr;gap:10px;}
 #narita-boarding-guide .narita-t2-wide-v5 .narita-visual-card{display:grid;grid-template-columns:1.3fr .9fr;align-items:stretch;border-radius:16px;overflow:hidden;}
 #narita-boarding-guide .narita-t2-wide-v5 .narita-visual-card img{width:100%;height:240px!important;object-fit:contain;background:#eef3f2;}
 #narita-boarding-guide .narita-t2-wide-v5 .narita-visual-card .visual-copy{display:flex;flex-direction:column;justify-content:center;padding:10px 11px!important;}
-#narita-boarding-guide .narita-t2-wide-v5 .narita-visual-card .visual-copy b{font-size:11.2px!important;line-height:1.3!important;}
-#narita-boarding-guide .narita-t2-wide-v5 .narita-visual-card .visual-copy span{font-size:8.7px!important;line-height:1.4!important;}
+#narita-boarding-guide .narita-t2-wide-v5 .narita-visual-card .visual-copy b{font-size:12.2px!important;line-height:1.3!important;}
+#narita-boarding-guide .narita-t2-wide-v5 .narita-visual-card .visual-copy span{font-size:9.7px!important;line-height:1.4!important;}
 #narita-boarding-guide .aoto-side-fare{display:none!important;}
 
 #narita-boarding-guide .narita-step-machine-layout{display:grid;grid-template-columns:1.12fr .88fr;gap:10px;margin:2px 0 8px;align-items:start;}
@@ -3476,11 +3476,11 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #narita-boarding-guide .narita-step + .narita-step{margin-top:8px;}
 #narita-boarding-guide .narita-machine-card{border-radius:16px;border:1px solid #d8e1de;background:#fff;box-shadow:0 3px 11px rgba(49,72,82,.05);overflow:hidden;}
 #narita-boarding-guide .narita-machine-card .machine-head{padding:8px 10px 0;}
-#narita-boarding-guide .narita-machine-card .machine-head h3{margin:0!important;color:#315468!important;font-size:11.6px!important;line-height:1.25!important;}
-#narita-boarding-guide .narita-machine-card .machine-head p{margin:3px 0 7px!important;font-size:8.4px!important;line-height:1.35!important;color:#66757c;}
+#narita-boarding-guide .narita-machine-card .machine-head h3{margin:0!important;color:#315468!important;font-size:12.6px!important;line-height:1.25!important;}
+#narita-boarding-guide .narita-machine-card .machine-head p{margin:3px 0 7px!important;font-size:9.4px!important;line-height:1.35!important;color:#66757c;}
 #narita-boarding-guide .narita-machine-card a{display:block;padding:0 10px 10px;color:inherit;text-decoration:none;}
 #narita-boarding-guide .narita-machine-card img{display:block;width:100%;height:368px;object-fit:contain;background:#eef3f2;border-radius:12px;}
-#narita-boarding-guide .narita-machine-card small{display:block;margin-top:6px;font-size:7.9px!important;color:#66757c;line-height:1.32!important;text-align:center;}
+#narita-boarding-guide .narita-machine-card small{display:block;margin-top:6px;font-size:8.9px!important;color:#66757c;line-height:1.32!important;text-align:center;}
 #narita-boarding-guide .inline-ticket-machine{display:none!important;}
 
 #narita-honjo-guide{padding-top:9mm!important;padding-bottom:11mm!important;}
@@ -3500,15 +3500,15 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #narita-honjo-guide .fare-strip-v8>div{min-height:76px;padding:9px 11px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid #e0e7e4;}
 #narita-honjo-guide .fare-strip-v8>div:first-child{border-left:0;}
 #narita-honjo-guide .fare-title-v8{background:linear-gradient(135deg,#31586b,#527a83);color:#fff;}
-#narita-honjo-guide .fare-title-v8 small{font-size:8.2px!important;line-height:1.2!important;letter-spacing:.08em;font-weight:900;color:#dfecef;}
-#narita-honjo-guide .fare-title-v8 b{margin-top:4px;font-size:12px!important;line-height:1.27!important;color:#fff;}
+#narita-honjo-guide .fare-title-v8 small{font-size:9.2px!important;line-height:1.2!important;letter-spacing:.08em;font-weight:900;color:#dfecef;}
+#narita-honjo-guide .fare-title-v8 b{margin-top:4px;font-size:13px!important;line-height:1.27!important;color:#fff;}
 #narita-honjo-guide .fare-item-v8{background:#f8fbfa;}
-#narita-honjo-guide .fare-item-v8 span{font-size:8.7px!important;line-height:1.35!important;color:#53666d;}
-#narita-honjo-guide .fare-item-v8 strong{margin-top:4px;font-size:14px!important;line-height:1.15!important;color:#315568;}
+#narita-honjo-guide .fare-item-v8 span{font-size:9.7px!important;line-height:1.35!important;color:#53666d;}
+#narita-honjo-guide .fare-item-v8 strong{margin-top:4px;font-size:15px!important;line-height:1.15!important;color:#315568;}
 #narita-honjo-guide .fare-total-v8{align-items:center;text-align:center;background:#fff4d8;}
-#narita-honjo-guide .fare-total-v8 span{font-size:8.6px!important;font-weight:900;color:#6d5520;}
-#narita-honjo-guide .fare-total-v8 strong{font-size:18px!important;line-height:1.08!important;color:#704e14;margin:3px 0 1px;}
-#narita-honjo-guide .fare-total-v8 small{font-size:7.5px!important;color:#7a6841;}
+#narita-honjo-guide .fare-total-v8 span{font-size:9.6px!important;font-weight:900;color:#6d5520;}
+#narita-honjo-guide .fare-total-v8 strong{font-size:19px!important;line-height:1.08!important;color:#704e14;margin:3px 0 1px;}
+#narita-honjo-guide .fare-total-v8 small{font-size:8.5px!important;color:#7a6841;}
 
 
 #narita-boarding-guide{padding-top:9mm!important;padding-bottom:10mm!important;}
@@ -3531,8 +3531,8 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   min-width:0!important;display:flex!important;flex-direction:column!important;justify-content:center!important;
   padding:9px 10px!important;border-left:1px solid #e2e8e5!important;background:#fbfcfa!important;
 }
-#narita-boarding-guide .narita-visual-card .visual-copy b{font-size:10.4px!important;line-height:1.32!important;color:#315468!important;}
-#narita-boarding-guide .narita-visual-card .visual-copy span{margin-top:4px!important;font-size:7.8px!important;line-height:1.38!important;color:#66757c!important;}
+#narita-boarding-guide .narita-visual-card .visual-copy b{font-size:11.4px!important;line-height:1.32!important;color:#315468!important;}
+#narita-boarding-guide .narita-visual-card .visual-copy span{margin-top:4px!important;font-size:8.8px!important;line-height:1.38!important;color:#66757c!important;}
 #narita-boarding-guide .aoto-side-fare{display:none!important;}
 
 
@@ -3540,22 +3540,22 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #narita-boarding-guide .narita-steps-stack{display:grid!important;grid-template-columns:1fr!important;gap:7px!important;}
 #narita-boarding-guide .narita-step{min-height:0!important;padding:8px 9px 8px 40px!important;border-radius:14px!important;}
 #narita-boarding-guide .narita-step+.narita-step{margin-top:0!important;}
-#narita-boarding-guide .narita-step-no{left:7px!important;top:7px!important;width:26px!important;height:26px!important;font-size:11px!important;}
-#narita-boarding-guide .narita-step h3{margin:0 0 3px!important;font-size:10.8px!important;line-height:1.25!important;}
-#narita-boarding-guide .narita-step p{margin:1px 0!important;font-size:8.2px!important;line-height:1.36!important;}
+#narita-boarding-guide .narita-step-no{left:7px!important;top:7px!important;width:26px!important;height:26px!important;font-size:12px!important;}
+#narita-boarding-guide .narita-step h3{margin:0 0 3px!important;font-size:11.8px!important;line-height:1.25!important;}
+#narita-boarding-guide .narita-step p{margin:1px 0!important;font-size:9.2px!important;line-height:1.36!important;}
 #narita-boarding-guide .narita-step ul{margin:3px 0 0!important;padding-left:16px!important;}
-#narita-boarding-guide .narita-step li{font-size:7.85px!important;line-height:1.33!important;margin-bottom:1px!important;}
+#narita-boarding-guide .narita-step li{font-size:8.85px!important;line-height:1.33!important;margin-bottom:1px!important;}
 #narita-boarding-guide .narita-machine-card{display:flex!important;flex-direction:column!important;border-radius:15px!important;overflow:hidden!important;border:1px solid #d8e1de!important;background:#fff!important;box-shadow:0 3px 11px rgba(49,72,82,.05)!important;}
 #narita-boarding-guide .narita-machine-card .machine-head{padding:8px 10px 6px!important;border-bottom:1px solid #e2e8e5;background:#f3f8f7!important;}
-#narita-boarding-guide .narita-machine-card .machine-head h3{margin:0!important;font-size:11.4px!important;line-height:1.25!important;color:#315468!important;}
+#narita-boarding-guide .narita-machine-card .machine-head h3{margin:0!important;font-size:12.4px!important;line-height:1.25!important;color:#315468!important;}
 #narita-boarding-guide .narita-machine-card .machine-head p{display:none!important;}
 #narita-boarding-guide .narita-machine-card a.machine-photo-link{display:flex!important;flex:1!important;padding:8px!important;text-decoration:none!important;align-items:center!important;justify-content:center!important;}
 #narita-boarding-guide .narita-machine-card a.machine-photo-link img{display:block!important;width:100%!important;height:326px!important;object-fit:contain!important;background:#eef3f2!important;border-radius:11px!important;}
 #narita-boarding-guide .narita-machine-card small{display:none!important;}
 #narita-boarding-guide .inline-ticket-machine{display:none!important;}
 #narita-boarding-guide .narita-phrase{margin-top:5px!important;padding:6px 9px!important;border-radius:13px!important;}
-#narita-boarding-guide .narita-phrase b{font-size:8.2px!important;}
-#narita-boarding-guide .narita-phrase span{font-size:8.25px!important;line-height:1.35!important;}
+#narita-boarding-guide .narita-phrase b{font-size:9.2px!important;}
+#narita-boarding-guide .narita-phrase span{font-size:9.25px!important;line-height:1.35!important;}
 
 @media print{
   #narita-honjo-guide .fare-strip-v8,
@@ -3583,11 +3583,11 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 
 
 #narita-boarding-guide .narita-step p{
-  font-size:10.2px!important;
+  font-size:11.2px!important;
   line-height:1.38!important;
 }
 #narita-boarding-guide .narita-step li{
-  font-size:9.85px!important;
+  font-size:10.85px!important;
   line-height:1.36!important;
 }
 
@@ -3620,7 +3620,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   right:74px;
   bottom:-8px;
   color:rgba(255,255,255,.075);
-  font-size:41px!important;
+  font-size:42px!important;
   line-height:1!important;
   font-weight:950;
   letter-spacing:.08em;
@@ -3641,7 +3641,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   border:1px solid rgba(255,255,255,.28);
   border-radius:19px;
   background:rgba(255,255,255,.17);
-  font-size:28px!important;
+  font-size:29px!important;
   line-height:1!important;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.21);
 }
@@ -3659,18 +3659,18 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   border-radius:999px;
   background:#f7d98d;
   color:#294d5e;
-  font-size:9px!important;
+  font-size:10px!important;
   line-height:1.2!important;
   font-weight:900;
 }
 #narita-honjo-guide .cta-copy-v10 strong{
   color:#fff!important;
-  font-size:20px!important;
+  font-size:21px!important;
   line-height:1.18!important;
 }
 #narita-honjo-guide .cta-copy-v10 span{
   color:#f1f7f3!important;
-  font-size:11px!important;
+  font-size:12px!important;
   line-height:1.35!important;
   font-weight:760;
 }
@@ -3678,7 +3678,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   position:relative;
   z-index:1;
   color:#ffe5a1;
-  font-size:31px!important;
+  font-size:32px!important;
   line-height:1!important;
   font-weight:900;
   text-align:center;
@@ -3710,7 +3710,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   padding:0!important;
   border:0!important;
   color:#315468!important;
-  font-size:13.5px!important;
+  font-size:14.5px!important;
   line-height:1.25!important;
 }
 .flight-narita-merged-page .merged-section-title::before{
@@ -3739,14 +3739,14 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 .flight-summary-table th{
   padding:5px 7px!important;
   background:#526b79!important;
-  font-size:8.6px!important;
+  font-size:9.6px!important;
   line-height:1.28!important;
 }
 .flight-summary-table td{
   padding:5.5px 7px!important;
   vertical-align:middle!important;
   background:#fff;
-  font-size:9px!important;
+  font-size:10px!important;
   line-height:1.34!important;
 }
 .flight-summary-table th:nth-child(1),.flight-summary-table td:nth-child(1){width:15%;}
@@ -3759,20 +3759,20 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 }
 .flight-summary-table .flight-group b{
   display:block;
-  font-size:12.5px!important;
+  font-size:13.5px!important;
   line-height:1.08!important;
 }
 .flight-summary-table .flight-group span{
   display:block;
   margin-top:2px;
-  font-size:7.5px!important;
+  font-size:8.5px!important;
   color:#607079;
 }
 .flight-summary-table tr.group-a .flight-group{background:#eaf3f8!important;border-left:8px solid #4c7ea0;}
 .flight-summary-table tr.group-b .flight-group{background:#edf7f0!important;border-left:8px solid #5f8d70;}
 .flight-summary-table tr.group-c .flight-group{background:#fff0eb!important;border-left:8px solid #b16b59;}
 .flight-main-line{display:block;font-weight:900;color:#304b59;}
-.flight-sub-line{display:block;margin-top:2px;color:#66767d;font-size:7.8px!important;line-height:1.28!important;}
+.flight-sub-line{display:block;margin-top:2px;color:#66767d;font-size:8.8px!important;line-height:1.28!important;}
 .flight-airport-time{
   display:inline-block;
   margin-top:2px;
@@ -3782,7 +3782,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   border:1px solid #e5b3aa;
   color:#a23f35;
   font-weight:900;
-  font-size:8px!important;
+  font-size:9px!important;
 }
 
 
@@ -3802,12 +3802,12 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #flight-info #narita-honjo-guide .narita-route-plain strong{
   grid-column:1;
   margin:0!important;
-  font-size:11.2px!important;
+  font-size:12.2px!important;
   line-height:1.25!important;
 }
 #flight-info #narita-honjo-guide .narita-route-plain .route-line{
   grid-column:1;
-  font-size:7.9px!important;
+  font-size:8.9px!important;
   line-height:1.3!important;
 }
 #flight-info #narita-honjo-guide .narita-route-plain .route-fare{
@@ -3816,7 +3816,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   align-self:center;
   margin:0!important;
   padding:4px 8px!important;
-  font-size:8px!important;
+  font-size:9px!important;
 }
 #flight-info #narita-honjo-guide .narita-combined-table-wrap{
   margin:0!important;
@@ -3824,22 +3824,22 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 }
 #flight-info #narita-honjo-guide .narita-combined-table th{
   padding:4px 5px!important;
-  font-size:7.8px!important;
+  font-size:8.8px!important;
   line-height:1.2!important;
 }
 #flight-info #narita-honjo-guide .narita-combined-table td{
   padding:3.8px 5px!important;
-  font-size:8.2px!important;
+  font-size:9.2px!important;
   line-height:1.25!important;
 }
 #flight-info #narita-honjo-guide .narita-combined-table .group-label b{
-  font-size:12px!important;
+  font-size:13px!important;
 }
 #flight-info #narita-honjo-guide .narita-combined-table .group-label span{
-  font-size:6.8px!important;
+  font-size:7.8px!important;
 }
 #flight-info #narita-honjo-guide .narita-combined-table .subnote{
-  font-size:6.4px!important;
+  font-size:7.4px!important;
   line-height:1.2!important;
 }
 #flight-info #narita-honjo-guide .narita-prev-fare-wrap{
@@ -3856,13 +3856,13 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
   min-height:48px!important;
   padding:5px 7px!important;
 }
-#flight-info #narita-honjo-guide .fare-title-v8 small{font-size:6px!important;}
-#flight-info #narita-honjo-guide .fare-title-v8 b{margin-top:2px!important;font-size:9.2px!important;line-height:1.2!important;}
-#flight-info #narita-honjo-guide .fare-item-v8 span{font-size:6.4px!important;line-height:1.2!important;}
-#flight-info #narita-honjo-guide .fare-item-v8 strong{margin-top:2px!important;font-size:10.5px!important;}
-#flight-info #narita-honjo-guide .fare-total-v8 span{font-size:6.3px!important;}
-#flight-info #narita-honjo-guide .fare-total-v8 strong{font-size:14px!important;margin:1px 0!important;}
-#flight-info #narita-honjo-guide .fare-total-v8 small{font-size:5.8px!important;}
+#flight-info #narita-honjo-guide .fare-title-v8 small{font-size:7px!important;}
+#flight-info #narita-honjo-guide .fare-title-v8 b{margin-top:2px!important;font-size:10.2px!important;line-height:1.2!important;}
+#flight-info #narita-honjo-guide .fare-item-v8 span{font-size:7.4px!important;line-height:1.2!important;}
+#flight-info #narita-honjo-guide .fare-item-v8 strong{margin-top:2px!important;font-size:11.5px!important;}
+#flight-info #narita-honjo-guide .fare-total-v8 span{font-size:7.3px!important;}
+#flight-info #narita-honjo-guide .fare-total-v8 strong{font-size:15px!important;margin:1px 0!important;}
+#flight-info #narita-honjo-guide .fare-total-v8 small{font-size:6.8px!important;}
 #flight-info #narita-honjo-guide .skyliner-external-cta-v10{
   grid-template-columns:44px minmax(0,1fr) 28px!important;
   gap:9px!important;
@@ -3876,62 +3876,62 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #flight-info #narita-honjo-guide .skyliner-external-cta-v10::after{
   right:48px!important;
   bottom:-5px!important;
-  font-size:27px!important;
+  font-size:28px!important;
 }
 #flight-info #narita-honjo-guide .cta-icon-v10{
   width:42px!important;
   height:42px!important;
   border-radius:13px!important;
-  font-size:19px!important;
+  font-size:20px!important;
 }
 #flight-info #narita-honjo-guide .cta-copy-v10{gap:1px!important;}
 #flight-info #narita-honjo-guide .cta-copy-v10 small{
   padding:1px 6px!important;
-  font-size:6.3px!important;
+  font-size:7.3px!important;
 }
 #flight-info #narita-honjo-guide .cta-copy-v10 strong{
-  font-size:14px!important;
+  font-size:15px!important;
   line-height:1.12!important;
 }
 #flight-info #narita-honjo-guide .cta-copy-v10 span{
-  font-size:7.8px!important;
+  font-size:8.8px!important;
   line-height:1.25!important;
 }
-#flight-info #narita-honjo-guide .cta-arrow-v10{font-size:22px!important;}
+#flight-info #narita-honjo-guide .cta-arrow-v10{font-size:23px!important;}
 @media print{
   .flight-summary-wrap,
   #flight-info #narita-honjo-guide .skyliner-external-cta-v10{box-shadow:none!important;}
 }
 
 #flight-info.flight-narita-merged-page{padding-top:10.5mm!important;padding-bottom:10.5mm!important;}
-#flight-info .merged-section-title{font-size:14.2px!important;margin-top:6px!important;margin-bottom:6px!important;}
-#flight-info .flight-summary-table th{font-size:9.1px!important;padding:6px 7px!important;}
-#flight-info .flight-summary-table td{font-size:9.8px!important;line-height:1.38!important;padding:7px 8px!important;}
-#flight-info .flight-summary-table .flight-group b{font-size:13.3px!important;}
-#flight-info .flight-summary-table .flight-group span{font-size:8px!important;}
-#flight-info .flight-sub-line{font-size:8.3px!important;}
-#flight-info .flight-airport-time{font-size:8.4px!important;padding:2px 7px!important;}
-#flight-info #narita-honjo-guide .narita-route-plain strong{font-size:11.8px!important;}
-#flight-info #narita-honjo-guide .narita-route-plain .route-line{font-size:8.4px!important;}
-#flight-info #narita-honjo-guide .narita-route-plain .route-fare{font-size:8.5px!important;padding:5px 9px!important;}
-#flight-info #narita-honjo-guide .narita-combined-table th{font-size:8.3px!important;padding:5px 6px!important;}
-#flight-info #narita-honjo-guide .narita-combined-table td{font-size:8.8px!important;line-height:1.29!important;padding:4.8px 6px!important;}
-#flight-info #narita-honjo-guide .narita-combined-table .group-label b{font-size:13px!important;}
-#flight-info #narita-honjo-guide .narita-combined-table .group-label span{font-size:7.3px!important;}
-#flight-info #narita-honjo-guide .narita-combined-table .subnote{font-size:6.8px!important;}
+#flight-info .merged-section-title{font-size:15.2px!important;margin-top:6px!important;margin-bottom:6px!important;}
+#flight-info .flight-summary-table th{font-size:10.1px!important;padding:6px 7px!important;}
+#flight-info .flight-summary-table td{font-size:10.8px!important;line-height:1.38!important;padding:7px 8px!important;}
+#flight-info .flight-summary-table .flight-group b{font-size:14.3px!important;}
+#flight-info .flight-summary-table .flight-group span{font-size:9px!important;}
+#flight-info .flight-sub-line{font-size:9.3px!important;}
+#flight-info .flight-airport-time{font-size:9.4px!important;padding:2px 7px!important;}
+#flight-info #narita-honjo-guide .narita-route-plain strong{font-size:12.8px!important;}
+#flight-info #narita-honjo-guide .narita-route-plain .route-line{font-size:9.4px!important;}
+#flight-info #narita-honjo-guide .narita-route-plain .route-fare{font-size:9.5px!important;padding:5px 9px!important;}
+#flight-info #narita-honjo-guide .narita-combined-table th{font-size:9.3px!important;padding:5px 6px!important;}
+#flight-info #narita-honjo-guide .narita-combined-table td{font-size:9.8px!important;line-height:1.29!important;padding:4.8px 6px!important;}
+#flight-info #narita-honjo-guide .narita-combined-table .group-label b{font-size:14px!important;}
+#flight-info #narita-honjo-guide .narita-combined-table .group-label span{font-size:8.3px!important;}
+#flight-info #narita-honjo-guide .narita-combined-table .subnote{font-size:7.8px!important;}
 #flight-info #narita-honjo-guide .fare-strip-v8>div{min-height:56px!important;padding:6px 8px!important;}
-#flight-info #narita-honjo-guide .fare-title-v8 small{font-size:6.5px!important;}
-#flight-info #narita-honjo-guide .fare-title-v8 b{font-size:10px!important;}
-#flight-info #narita-honjo-guide .fare-item-v8 span{font-size:6.9px!important;}
-#flight-info #narita-honjo-guide .fare-item-v8 strong{font-size:11.4px!important;}
-#flight-info #narita-honjo-guide .fare-total-v8 span{font-size:6.8px!important;}
-#flight-info #narita-honjo-guide .fare-total-v8 strong{font-size:15.3px!important;}
-#flight-info #narita-honjo-guide .fare-total-v8 small{font-size:6.2px!important;}
+#flight-info #narita-honjo-guide .fare-title-v8 small{font-size:7.5px!important;}
+#flight-info #narita-honjo-guide .fare-title-v8 b{font-size:11px!important;}
+#flight-info #narita-honjo-guide .fare-item-v8 span{font-size:7.9px!important;}
+#flight-info #narita-honjo-guide .fare-item-v8 strong{font-size:12.4px!important;}
+#flight-info #narita-honjo-guide .fare-total-v8 span{font-size:7.8px!important;}
+#flight-info #narita-honjo-guide .fare-total-v8 strong{font-size:16.3px!important;}
+#flight-info #narita-honjo-guide .fare-total-v8 small{font-size:7.2px!important;}
 #flight-info #narita-honjo-guide .skyliner-external-cta-v10{min-height:78px!important;padding:10px 13px!important;grid-template-columns:50px minmax(0,1fr) 30px!important;gap:11px!important;}
-#flight-info #narita-honjo-guide .cta-icon-v10{width:48px!important;height:48px!important;font-size:21px!important;}
-#flight-info #narita-honjo-guide .cta-copy-v10 small{font-size:6.8px!important;}
-#flight-info #narita-honjo-guide .cta-copy-v10 strong{font-size:15.6px!important;}
-#flight-info #narita-honjo-guide .cta-copy-v10 span{font-size:8.5px!important;}
+#flight-info #narita-honjo-guide .cta-icon-v10{width:48px!important;height:48px!important;font-size:22px!important;}
+#flight-info #narita-honjo-guide .cta-copy-v10 small{font-size:7.8px!important;}
+#flight-info #narita-honjo-guide .cta-copy-v10 strong{font-size:16.6px!important;}
+#flight-info #narita-honjo-guide .cta-copy-v10 span{font-size:9.5px!important;}
 
 #flight-info.flight-narita-merged-page{
   padding-top:8.5mm!important;
@@ -3967,7 +3967,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 }
 
 #flight-info #narita-honjo-guide > .merged-section-title{
-  font-size:15px!important;
+  font-size:16px!important;
   line-height:1.30!important;
   margin:0 0 8px!important;
 }
@@ -3978,7 +3978,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #flight-info #narita-honjo-guide .narita-combined-table .group-label b,
 #flight-info #narita-honjo-guide .narita-combined-table .group-label span,
 #flight-info #narita-honjo-guide .narita-combined-table .subnote{
-  font-size:11px!important;
+  font-size:12px!important;
   line-height:1.32!important;
 }
 #flight-info #narita-honjo-guide .narita-combined-table th{
@@ -4004,15 +4004,15 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 #flight-info #narita-honjo-guide .fare-item-v8 span,
 #flight-info #narita-honjo-guide .fare-total-v8 span,
 #flight-info #narita-honjo-guide .fare-total-v8 small{
-  font-size:11px!important;
+  font-size:12px!important;
   line-height:1.28!important;
 }
 #flight-info #narita-honjo-guide .fare-item-v8 strong{
-  font-size:13px!important;
+  font-size:14px!important;
   line-height:1.18!important;
 }
 #flight-info #narita-honjo-guide .fare-total-v8 strong{
-  font-size:16px!important;
+  font-size:17px!important;
   line-height:1.12!important;
 }
 #flight-info #narita-honjo-guide .fare-strip-v8>div{
@@ -4022,14 +4022,14 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 
 
 #flight-info #narita-honjo-guide .cta-copy-v10 small{
-  font-size:9px!important;
+  font-size:10px!important;
 }
 #flight-info #narita-honjo-guide .cta-copy-v10 strong{
-  font-size:15px!important;
+  font-size:16px!important;
   line-height:1.18!important;
 }
 #flight-info #narita-honjo-guide .cta-copy-v10 span{
-  font-size:11px!important;
+  font-size:12px!important;
   line-height:1.30!important;
 }
 #flight-info #narita-honjo-guide .skyliner-external-cta-v10{
@@ -4082,7 +4082,7 @@ body,body *,body *::before,body *::after{font-family:var(--refine-kai)!important
 
 /* Natural-language editorial pass */
 .page-sheet:not(.day-page-sheet) h2::after{display:none!important;content:none!important;}
-.day-route-label{font-size:11px!important;letter-spacing:.03em!important;}
+.day-route-label{font-size:12px!important;letter-spacing:.03em!important;}
 .day-panel-title{letter-spacing:.02em!important;}
 .side-toc-kicker,.side-toc-section-label,.day-eyebrow{letter-spacing:.035em!important;text-transform:none!important;}
 #side-toc .flight-narita-side-link .side-toc-text{line-height:1.2!important;}
@@ -4198,7 +4198,7 @@ body .page-sheet:not(.cover-sheet):not(.day-page-sheet) > .container > h2{
 #stay-narita .hotel-card table{margin-bottom:10px!important;}
 #stay-narita .hotel-hero{margin-top:12px!important;}
 #stay-narita .photo-lead img{max-height:190px!important; object-fit:cover!important; object-position:center 52%!important;}
-#stay-narita .photo-lead figcaption b{font-size:9.3px!important;}
+#stay-narita .photo-lead figcaption b{font-size:10.3px!important;}
 
 /* === Aug 14 refinement pass v4: unified title anchors and visual polish === */
 :root{
@@ -4374,10 +4374,10 @@ th{
   text-align:center!important;
 }
 .stay-page .photo-lead .photo-caption{
-  font-size:9px!important;
+  font-size:10px!important;
 }
 .stay-page .photo-tile > span{
-  font-size:7.2px!important;
+  font-size:8.2px!important;
 }
 .stay-page .photo-lead::after,.stay-page .photo-tile::after{
   content:'';
@@ -4479,7 +4479,7 @@ body .page-sheet.daily-route-detail-page > .container > h2 .detail-title-text{
   background: #fff4ee;
   color: #8d493d !important;
   font-family: "DFKai-SB", "標楷體", "Microsoft JhengHei", sans-serif;
-  font-size: calc(.78em - 0.66px);
+  font-size: calc(.78em - 0.44px);
   line-height: 1.35;
   font-weight: 800;
   text-decoration: none !important;
@@ -4510,7 +4510,7 @@ body .page-sheet.daily-route-detail-page > .container > h2 .detail-title-text{
   color: #fff !important;
   box-shadow: 0 8px 24px rgba(64, 37, 28, .24);
   font-family: "DFKai-SB", "標楷體", "Noto Serif TC", serif;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.15;
   font-weight: 800;
   text-decoration: none !important;
@@ -4551,7 +4551,7 @@ body .page-sheet.daily-route-detail-page > .container > h2 .detail-title-text{
     right: 11px;
     bottom: max(11px, env(safe-area-inset-bottom));
     padding: 9px 12px;
-    font-size: 9.5px;
+    font-size: 10.5px;
   }
 }
 @media print {
@@ -4760,12 +4760,12 @@ body .page-sheet.daily-route-detail-page > .container > h2 .detail-title-text {
 <style id="day-title-plus-2pt-20260821">
 /* 每日簡略行程新標題加大 2pt，手機與桌機同步維持相同比例縮放。 */
 .page-sheet[data-day-anchor] .day-title {
-  font-size: calc(calc(21px + 2pt) - 3px) !important;
+  font-size: calc(calc(21px + 2pt) - 2px) !important;
   line-height: 1.22 !important;
 }
 @media screen and (max-width: 820px) {
   .page-sheet[data-day-anchor] .day-title {
-    font-size: calc(calc(21px + 2pt) - 3px) !important;
+    font-size: calc(calc(21px + 2pt) - 2px) !important;
     line-height: 1.22 !important;
   }
 }
@@ -4773,7 +4773,7 @@ body .page-sheet.daily-route-detail-page > .container > h2 .detail-title-text {
 <style id="day-title-plus-4pt-20260821">
 /* 在前一版基礎上再加 2pt，合計較原始每日簡略行程標題加大 4pt。 */
 body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
-  font-size: calc(calc(var(--page-main-title-size, 24px) + 4pt) - 3px) !important;
+  font-size: calc(calc(var(--page-main-title-size, 24px) + 4pt) - 2px) !important;
   line-height: 1.20 !important;
 }
 </style>
@@ -4793,22 +4793,22 @@ body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
 }
 .day8-aeon-page > .container > h2 { margin-bottom: 9px !important; }
 .day8-aeon-page .guide-lead { margin: 5px 0 8px !important; padding: 8px 11px !important; }
-.day8-aeon-page .guide-lead p { margin: 0 !important; font-size: 10px !important; line-height: 1.43 !important; }
+.day8-aeon-page .guide-lead p { margin: 0 !important; font-size: 11px !important; line-height: 1.43 !important; }
 .aeon-plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 7px 0 8px; }
 .aeon-plan-grid .guide-card { padding: 8px 10px !important; }
-.aeon-plan-grid .guide-card h3 { font-size: 11.5px !important; margin: 0 0 4px !important; }
-.aeon-plan-grid .guide-card p { font-size: 9.1px !important; line-height: 1.38 !important; margin: 0 !important; }
-.aeon-section-title { font-size: 11.6px !important; margin: 8px 0 5px !important; color: #315468 !important; }
-.day8-aeon-page .aeon-time-table { margin: 0 0 6px !important; font-size: 8.4px !important; line-height: 1.28 !important; }
+.aeon-plan-grid .guide-card h3 { font-size: 12.5px !important; margin: 0 0 4px !important; }
+.aeon-plan-grid .guide-card p { font-size: 10.1px !important; line-height: 1.38 !important; margin: 0 !important; }
+.aeon-section-title { font-size: 12.6px !important; margin: 8px 0 5px !important; color: #315468 !important; }
+.day8-aeon-page .aeon-time-table { margin: 0 0 6px !important; font-size: 9.4px !important; line-height: 1.28 !important; }
 .day8-aeon-page .aeon-time-table th,
-.day8-aeon-page .aeon-time-table td { padding: 4px 6px !important; font-size: 8.4px !important; line-height: 1.28 !important; }
+.day8-aeon-page .aeon-time-table td { padding: 4px 6px !important; font-size: 9.4px !important; line-height: 1.28 !important; }
 .day8-aeon-page .aeon-time-table th:first-child,
 .day8-aeon-page .aeon-time-table td:first-child { width: 8%; text-align: center; font-weight: 900; }
 .day8-aeon-page .via { color: #557f49; font-weight: 900; }
-.day8-aeon-page .guide-callout { margin: 7px 0 !important; padding: 7px 9px !important; font-size: 8.8px !important; line-height: 1.38 !important; }
+.day8-aeon-page .guide-callout { margin: 7px 0 !important; padding: 7px 9px !important; font-size: 9.8px !important; line-height: 1.38 !important; }
 .day8-aeon-page .guide-button-row { margin: 6px 0 2px !important; gap: 5px !important; }
-.day8-aeon-page .guide-button-row a { padding: 4px 8px !important; font-size: 7.7px !important; }
-.day8-aeon-page .small-print { margin: 5px 0 0 !important; font-size: 6.9px !important; line-height: 1.3 !important; }
+.day8-aeon-page .guide-button-row a { padding: 4px 8px !important; font-size: 8.7px !important; }
+.day8-aeon-page .small-print { margin: 5px 0 0 !important; font-size: 7.9px !important; line-height: 1.3 !important; }
 #day8 .day-item { min-height: 50px; }
 @media print {
   .day8-aeon-page .guide-card, .day8-aeon-page table { box-shadow: none !important; }
@@ -4960,14 +4960,14 @@ body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
 <td>11/29（日） 13:00<br/>成田機場 (NRT T2)</td>
 <td>11/29（日） 16:40<br/>高雄小港 (KHH)</td>
 <td>台灣虎航<br/>IT281</td>
-<td><strong style="color:#c0392b; font-size:11px;">09:30</strong><br/>(提前 3.5 小時)</td>
+<td><strong style="color:#c0392b; font-size:12px;">09:30</strong><br/>(提前 3.5 小時)</td>
 </tr>
 <tr>
 <td><strong>B 組</strong></td>
 <td>11/29（日） 14:35<br/>成田機場 (NRT T2)</td>
 <td>11/29（日） 17:45<br/>台灣桃園 (TPE T2)</td>
 <td>中華航空<br/>CI101</td>
-<td><strong style="color:#c0392b; font-size:11px;">11:00</strong><br/>(提前 3.5 小時)</td>
+<td><strong style="color:#c0392b; font-size:12px;">11:00</strong><br/>(提前 3.5 小時)</td>
 </tr>
 </tbody>
 </table><section id="narita-honjo-guide">

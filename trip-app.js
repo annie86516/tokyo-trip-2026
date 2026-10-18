@@ -187,7 +187,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261018-mobile-compact', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261018-mobile-font-plus1', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
