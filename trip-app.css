@@ -522,7 +522,7 @@ input,select,textarea{font-size:14px!important}
 }
 /* Shared reading hierarchy for every day and group, including expanded details. */
 .main[data-view="days"]{
-  --day-title-size:20px;
+  --day-title-size:var(--page-title-size);
   --day-section-size:16px;
   --day-subtitle-size:14px;
   --day-body-size:13px;
@@ -539,3 +539,7 @@ input,select,textarea{font-size:14px!important}
 .main[data-view="days"] :is(.resource-links a,.meal-split-card>a,.meal-split-links a,.note){font-size:var(--day-body-size)}
 .main[data-view="days"] .meal-split-head>strong{font-size:var(--day-subtitle-size)}
 .main[data-view="days"] .document small{font-size:var(--day-meta-size)}
+/* Use the journey heading as the common title scale for every navigation view. */
+:host{--page-title-size:20px}
+.main>h1,.main .journey-title{font-size:var(--page-title-size);font-weight:700;line-height:1.45}
+.flight .flight-arrival-time{display:inline-block;color:#b42318;font-size:22px;font-weight:700;line-height:1.4;font-variant-numeric:tabular-nums;white-space:nowrap}
