@@ -187,7 +187,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261018-word-model', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261018-word-model2', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -1084,6 +1084,7 @@
         nodes[0].before(template.content);nodes.forEach(e=>e.remove());
       }
       main.dataset.wordPatchMisses=misses.join(',');
+      main.querySelectorAll('.route>strong').forEach(e=>{if(e.textContent.trim()==='今日路線')e.classList.add('route-label');});
       main.querySelectorAll('.route-label>span,.section-sub,.hero-copy small,.photo-caption,.resource-links').forEach(e=>e.remove());
       main.querySelectorAll('.schedule-detail-body a').forEach(e=>{if(e.textContent.trim()==='實拍攻略')e.remove();});
       main.querySelectorAll('.table-card>div').forEach(e=>{

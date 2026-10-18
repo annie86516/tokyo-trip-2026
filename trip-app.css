@@ -548,9 +548,12 @@ input,select,textarea{font-size:14px!important}
 
 
 
+
 /* Typography and compact content follow the user's edited A-group Word model. */
 .main[data-view="days"]{--day-section-size:14px;--day-body-size:13px}
 .main[data-view="days"] .hero-copy h1{font-size:18px}
+.main[data-view="days"] .day-stamp{font-size:14px}
+.main[data-view="days"] .day-stamp b{font-size:16px}
 .main[data-view="days"] .route-label{font-weight:400}
 .main[data-view="days"] .schedule-time b{font-size:13px}
 .main[data-view="flights"] .ticket-header .pill{font-size:16px;font-weight:400}
