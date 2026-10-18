@@ -498,7 +498,7 @@ input,select,textarea{font-size:14px!important}
 .task-tools a,.task-tools button{min-height:44px;font-size:12px}
 @media(max-width:600px){.resource-links{display:grid;grid-template-columns:1fr}.document,.document p,.document li,.task-desc,.booking-card p{font-size:14px}.document h2{font-size:18px}.booking-facts{grid-template-columns:1fr 1fr}.supplement-grid{grid-template-columns:1fr}}
 .image-unavailable{height:auto!important;min-height:0!important;aspect-ratio:auto!important;padding:14px!important;background:#f6f0e6}.image-unavailable img{display:none!important}.image-load-note{font-size:12px;line-height:1.8;margin:0;color:#695e52}
-/* Compact phone reading; typography is 3px smaller, touch targets stay usable. */
+/* Compact phone reading; retain usable touch targets. */
 .hero{width:100%;min-width:0}
 .group-dock,.stay-dock{bottom:max(12px,env(safe-area-inset-bottom))}
 .group-dock .groups button{min-height:44px}
@@ -520,3 +520,22 @@ input,select,textarea{font-size:14px!important}
   .weather-section{padding:14px;margin-bottom:16px}.weather-heading{margin-bottom:8px}
   .resource-links{gap:8px}.resource-links a{padding:9px 12px;min-height:44px}
 }
+/* Shared reading hierarchy for every day and group, including expanded details. */
+.main[data-view="days"]{
+  --day-title-size:20px;
+  --day-section-size:16px;
+  --day-subtitle-size:14px;
+  --day-body-size:13px;
+  --day-meta-size:12px;
+}
+.main[data-view="days"] .itinerary-layout,
+.main[data-view="days"] :is(.route,.timeline>li,.stop-content,.document,.schedule-detail-body,.meal-split-card){font-size:var(--day-body-size)}
+.main[data-view="days"] :where(.route,.stop-content,.document,.meal-split-card) :is(p,li,dt,dd,td,th){font-size:var(--day-body-size)}
+.main[data-view="days"] :where(.route,.stop-content,.document,.meal-split-card) :is(a,strong,b,em,span){font-size:inherit}
+.main[data-view="days"] :is(.journey-title,.hero-copy h1){font-size:var(--day-title-size);line-height:1.45}
+.main[data-view="days"] :is(.section-label,.route-label,.document h2,.schedule-detail-body h2){font-size:var(--day-section-size);line-height:1.5}
+.main[data-view="days"] :is(.document h3,.document h4,.schedule-detail-body h3,.schedule-detail-body h4,.meal-split-card h3,.schedule-time b,details>summary){font-size:var(--day-subtitle-size);line-height:1.6}
+.main[data-view="days"] :is(.hero-copy small,.photo-caption,.section-sub,.route-label>span,.schedule-time span,.schedule-toggle-label,.meal-split-head>span,.stop-content a[title*="攻略"]){font-size:var(--day-meta-size)}
+.main[data-view="days"] :is(.resource-links a,.meal-split-card>a,.meal-split-links a,.note){font-size:var(--day-body-size)}
+.main[data-view="days"] .meal-split-head>strong{font-size:var(--day-subtitle-size)}
+.main[data-view="days"] .document small{font-size:var(--day-meta-size)}
