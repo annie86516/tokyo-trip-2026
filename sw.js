@@ -1,8 +1,8 @@
 const CACHE_PREFIX = 'tokyo-trip-2026-';
-const CACHE_NAME = CACHE_PREFIX + 'mobile-v55';
+const CACHE_NAME = CACHE_PREFIX + 'mobile-v56';
 const BASE = new URL('./', self.location.href);
 const INDEX = new URL('index.html', BASE).href;
-const APP_FILES = ['site-two/index.html','site-four/index.html','reading-pages.css','reading-pages.css?v=20261016','reading-pages.js','reading-pages.js?v=20261016','restaurant-guide/venues/36-sweet-check.html','restaurant-guide/venues/37-baso.html','restaurant-guide/venues/38-kiwamiya-shibuya.html','restaurant-guide/venues/39-masaka-shibuya.html','restaurant-guide/venues/40-mitsui.html','restaurant-guide/venues/41-harbs-roppongi.html','restaurant-guide/venues/42-ten-okuroji.html','site-three/index.html','index.html','trip-app.js','trip-app.js?v=20261016-coupons-verified','trip-app.css','trip-app.css?v=20261016-coupons-verified','trip-weather.js','trip-money.js','trip-money.js?v=20261002-collapsible','manifest.webmanifest','assets/nikko-narita-transfer-voucher-2026-11-28.pdf',
+const APP_FILES = ['site-two/index.html','site-four/index.html','reading-pages.css','reading-pages.css?v=20261018-mobile-compact','reading-pages.js','reading-pages.js?v=20261018-mobile-compact','restaurant-guide/venues/36-sweet-check.html','restaurant-guide/venues/37-baso.html','restaurant-guide/venues/38-kiwamiya-shibuya.html','restaurant-guide/venues/39-masaka-shibuya.html','restaurant-guide/venues/40-mitsui.html','restaurant-guide/venues/41-harbs-roppongi.html','restaurant-guide/venues/42-ten-okuroji.html','site-three/index.html','index.html','trip-app.js','trip-app.js?v=20261018-mobile-compact','trip-app.css','trip-app.css?v=20261018-mobile-compact','trip-weather.js','trip-money.js','trip-money.js?v=20261002-collapsible','manifest.webmanifest','assets/nikko-narita-transfer-voucher-2026-11-28.pdf',
   'trip-icon.svg','trip-icon-180.png','trip-icon-192.png','trip-icon-512.png','stay-tokyo.jpg','stay-nikko.jpg','stay-narita.jpg','site-one/index.html','site-one/index.html?v=20261003-daily-pass','restaurant-guide/index.html','restaurant-guide/index.html?v=20261003-daily-pass',
   'restaurant-guide/venues/34-daitouen.html','restaurant-guide/venues/35-gyutan-lemon-asakusa.html','restaurant-guide/assets/daitouen-jou-karubi.jpg','restaurant-guide/assets/daitouen-tegutan.jpg','restaurant-guide/assets/lemon-kiwami-steak.jpg','restaurant-guide/assets/lemon-asakusa-exterior.jpg','restaurant-guide/assets/lemon-asakusa-interior.png','restaurant-guide/assets/food-grill.svg','restaurant-guide/assets/food-noodles.svg','restaurant-guide/assets/food-western.svg'];
 
@@ -62,7 +62,7 @@ self.addEventListener('fetch', event => {
       const cached = await cache.match(key);
       if(cached) return cached;
       if(request.mode === 'navigate') return new Response(
-        '<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>目前離線｜楓葉之旅</title><body style="font:18px/1.8 sans-serif;padding:32px;background:#faf7f2;color:#293b38"><h1>這一頁尚未儲存</h1><p>目前沒有網路，請連線後再開啟這份補充資料。</p><a href="'+BASE.pathname+'">回到可離線閱讀的每日行程</a></body></html>',
+        '<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>目前離線｜楓葉之旅</title><body style="font:15px/1.8 sans-serif;padding:32px;background:#faf7f2;color:#293b38"><h1>這一頁尚未儲存</h1><p>目前沒有網路，請連線後再開啟這份補充資料。</p><a href="'+BASE.pathname+'">回到可離線閱讀的每日行程</a></body></html>',
         {status:503,headers:{'Content-Type':'text/html; charset=utf-8'}});
       return Response.error();
     } finally { clearTimeout(timer); }

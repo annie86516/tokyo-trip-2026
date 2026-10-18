@@ -123,6 +123,9 @@
       const note = clone.querySelector('.narita-box');
       if (note) note.textContent = `${state.group} 組：依第 9 天共同接駁安排前往成田 T2，托運前完成免稅品攜出確認；護照、商品、收據與退款說明放在方便取用的位置。`;
     }
+    // Read booking context before parent classes are removed below.
+    const bookedDinnerLinks = new Set([...clone.querySelectorAll('a[href]')].filter(el =>
+      (el.closest('.day-item')?.textContent || '').includes('鳥貴族')));
     [clone,...clone.querySelectorAll('*')].forEach(el => {
       const urgent = /立即.*登記/.test(el.textContent) && el.children.length === 0;
       [...el.attributes].forEach(attr => {
@@ -132,8 +135,7 @@
       if (el.tagName === 'A') {
         const href = el.getAttribute('href') || '';
         if (href.includes('site-one/index.html')) {
-          const context=el.closest('.day-item')?.textContent||'';
-          const isBookedDinner=context.includes('鳥貴族');
+          const isBookedDinner=bookedDinnerLinks.has(el);
           const isBookedTransfer=source.id==='day8-route-detail';
           const bookingDay=isBookedDinner?1:isBookedTransfer?8:0;
           el.setAttribute('href',bookingDay?`./?view=bookings&bday=${bookingDay}`:'./?view=reserve');
@@ -185,7 +187,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261016-coupons-verified', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261018-mobile-compact', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -268,7 +270,7 @@
       5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('11:30–12:00'),suggested('12:00–14:00（檸檬 5 位已訂；另 2 位候選待選）'),suggested('14:00–15:30 淺草自由活動'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 TEN& 外帶（建議）'),suggested('18:30–19:20 HARBS（有位內用／否則外帶）'),suggested('19:20 起 六本木新城聖誕市集・大屋頂廣場')],
       6:[fixed('晴空塔 09:03 或 10:03','候選列車班次・上車站以車票為準'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00 神橋；13:30–15:30 東照宮；16:00–16:30 入住')],
       7:[suggested('07:50 前出發；瀑布、湖畔與原午餐空檔'),suggested('13:55 下山 → 14:31 回站；市區慢遊／憾滿選逛'),suggested('17:30–18:30')],
-      8:[suggested('12:30–13:00（依交通調整）'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
+      8:[fixed('08:00','已訂包車・建議 07:45 完成退房並集合'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
       9:[fixed('08:20','飯店接駁・前一晚登記'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
     }[state.day] || [];
   }
@@ -1021,6 +1023,12 @@
     if (offlineReady) return '行程已可離線閱讀 · 地圖與外部連結需連線';
     return offlineFailed ? '目前可線上閱讀 · 下次連線時會再次嘗試儲存離線行程' : '正在準備離線行程，請保持連線…';
   }
+  function revealActiveDay() {
+    const active = main.querySelector('.day-button[aria-pressed=true]');
+    if (!active) return;
+    const rail = active.parentElement;
+    rail.scrollLeft += active.getBoundingClientRect().left - rail.getBoundingClientRect().left - (rail.clientWidth - active.offsetWidth) / 2;
+  }
   function render(scroll = false) {
     clampDay(); detailSources = new Map();
     main.dataset.view = state.view;
@@ -1047,8 +1055,7 @@
     }));
     persist();
     if (scroll) window.scrollTo({top:0,behavior:'instant'});
-    const active = main.querySelector('.day-button[aria-pressed=true]');
-    if(active) active.parentElement.scrollLeft=Math.max(0,active.offsetLeft-active.parentElement.offsetLeft-110);
+    revealActiveDay();
     if(state.view === 'days') {
       const weather = main.querySelector('.weather-section');
       if(window.TripWeather) window.TripWeather.render(weather,state.day);
@@ -1141,10 +1148,16 @@
     document.documentElement.classList.add('trip-app-ready');
     document.documentElement.classList.remove('mobile-page-fit');
     applyHash();
+    requestAnimationFrame(revealActiveDay);
   };
   sheet.onerror=()=>host.remove();
   render();
   document.body.prepend(host);
+  // Navigation wraps on tablets; anchor offsets must follow its actual height.
+  const updateHeaderHeight = () => host.style.setProperty('--app-header-height', `${Math.ceil(root.querySelector('.app-header').getBoundingClientRect().height)}px`);
+  if ('ResizeObserver' in window) new ResizeObserver(updateHeaderHeight).observe(root.querySelector('.app-header'));
+  else window.addEventListener('resize', updateHeaderHeight);
+  updateHeaderHeight();
   if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
     navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'}).then(async()=>{
       await navigator.serviceWorker.ready; offlineReady=true;

@@ -376,21 +376,21 @@
       "今日の一番おすすめのパンはどれですか？（今天最推薦哪一款麵包？）",
       "牛肉が入っていないパンを教えてください。（請告訴我不含牛肉的麵包。）"
     ],
-    "official": "https://nukumuku.jp/",
+    "official": "https://www.instagram.com/nukumuku.breadstore/",
     "reservation_url": "",
     "map_url": "https://www.google.com/maps/search/?api=1&query=nukumuku+%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8D%80%E5%A4%AA%E5%AD%90%E5%A0%825-29-3",
     "day_date": "2026/11/22（日）",
     "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
     "sources": [
       {
-        "label": "nukumuku 官方網站",
-        "url": "https://nukumuku.jp/",
-        "note": "產品與基本資訊"
+        "label": "nukumuku 官方 Instagram",
+        "url": "https://www.instagram.com/nukumuku.breadstore/",
+        "note": "原官網目前顯示存取禁止；營業公告以官方社群與店家確認為準"
       },
       {
-        "label": "官方交通／營業頁",
-        "url": "https://nukumuku.jp/location",
-        "note": "地址與營業時間版本"
+        "label": "nukumuku 官方 Instagram",
+        "url": "https://www.instagram.com/nukumuku.breadstore/",
+        "note": "原官網目前顯示存取禁止；營業公告以官方社群與店家確認為準"
       },
       {
         "label": "2026 在地報導",
@@ -849,7 +849,7 @@
     "budget": "約 ¥1,500–3,500／人",
     "reservation": "不可預約；3 人需接受分桌或分批入座。",
     "queue": "週六晚餐開店前可能排隊；能提早放行李時，約 15:45 抵達較穩。",
-    "timing": "先依房東回覆處理行李：允許提早寄放就放妥後前往；未獲同意則 16:00 完成自助入住再出發。若 17:30 前仍未入座或已售罄，改吃文字燒 CHICO。",
+    "timing": "先依房東回覆處理行李：允許提早寄放就放妥後前往；未獲同意則 16:00 完成自助入住再出發。建議候位最多 45 分鐘，17:00 仍未入座或已售罄就改吃文字燒 CHICO。",
     "beef_level": "較安心",
     "no_beef": "核心是海鮮丼，對不吃牛肉者友善；仍要確認味噌湯、炸油與醬汁。",
     "dishes": [
@@ -893,7 +893,7 @@
     "group_plan": [
       "到店先報 3 人，主動表示可以分桌或分批，縮短等待時間。",
       "排隊時先決定餐點；豪華丼份量大，可請店家把白飯減量。",
-      "目標 17:30–17:45 前離店，保留丸之內點燈與 21:30 鳥貴族晚餐。"
+      "建議約 17:30–17:45 離店；若用餐延後，略過鹽麵包與淺草橋，保留丸之內點燈與 21:30 鳥貴族晚餐。"
     ],
     "pitfalls": [
       "不可預約，且可能因食材售罄提早結束。",
@@ -1187,9 +1187,9 @@
         "note": "營業時間與不可預約"
       },
       {
-        "label": "Solamachi 官方店舖頁",
-        "url": "https://www.tokyo-solamachi.jp/shop/detail/295/",
-        "note": "L.O.、取號與設備"
+        "label": "Triton 官方分店頁（商場網站暫停服務）",
+        "url": "https://toriton-kita1.jp/shop/soramachi/",
+        "note": "營業時間、L.O.、設備與不可預約規則"
       },
       {
         "label": "原始東京行程",
@@ -2302,8 +2302,9 @@
         "order": "第一選擇",
         "photo_mode": "restaurant",
         "photo_url": "https://stat.ameba.jp/user_images/20200317/21/yokosiroisi/e9/ef/j/o1080108014729616872.jpg?caw=800",
-        "photo_source": "https://ameblo.jp/yokosiroisi/entry-12582877863.html",
-        "photo_query": "anago tendon tempura rice bowl"
+        "photo_source": "",
+        "photo_query": "anago tendon tempura rice bowl",
+        "photo_source_note": "原照片出處：Ameba／yokosiroisi（文章已無法開啟）；保留可載入的原圖供辨識"
       },
       {
         "name": "五代目天丼／綜合天丼",
@@ -2374,9 +2375,10 @@
     "store_photo": "https://tblg.k-img.com/restaurant/images/Rvw/232118/640x640_rect_69a1837a7e5e5d3889c6df9da8061b34.jpg",
     "dish_photo": "https://stat.ameba.jp/user_images/20200317/21/yokosiroisi/e9/ef/j/o1080108014729616872.jpg?caw=800",
     "store_source": "https://tabelog.com/tokyo/A1311/A131102/13244823/",
-    "dish_source": "https://ameblo.jp/yokosiroisi/entry-12582877863.html",
+    "dish_source": "",
     "store_caption": "天麩羅秋光淺草本店店面實景",
-    "dish_caption": "招牌五代目天丼與整尾穴子天婦羅"
+    "dish_caption": "招牌五代目天丼與整尾穴子天婦羅",
+    "dish_source_note": "原照片出處：Ameba／yokosiroisi（文章已無法開啟）"
   },
   {
     "id": "25-asakusa-yokocho",
@@ -2827,9 +2829,9 @@
         "note": "2026/5 店主手術與原復業計畫"
       },
       {
-        "label": "原營業資料",
-        "url": "https://four.travel/restaurant/%E6%97%A5%E5%85%89%E6%B9%AF%E6%B3%A2%E5%B7%BB-%E5%85%A8-zen/",
-        "note": "過往時段與晚餐完全預約制；現行請再確認"
+        "label": "ZEN 官方店舖資訊",
+        "url": "https://nikko-zen.co.jp/shop/",
+        "note": "官方店舖頁列有時段與晚餐完全預約制；11 月是否接待晚餐仍須向店家確認"
       },
       {
         "label": "原始東京行程",
