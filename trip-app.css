@@ -542,4 +542,6 @@ input,select,textarea{font-size:14px!important}
 /* Use the journey heading as the common title scale for every navigation view. */
 :host{--page-title-size:20px}
 .main>h1,.main .journey-title{font-size:var(--page-title-size);font-weight:700;line-height:1.45}
-.flight .flight-arrival-time{display:inline-block;color:#b42318;font-size:22px;font-weight:700;line-height:1.4;font-variant-numeric:tabular-nums;white-space:nowrap}
+.flight :is(.flight-departure-time,.flight-arrival-time){display:inline-block;font-size:12px;font-weight:700;line-height:1.4;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.flight .flight-arrival-time{color:#b42318}

@@ -187,7 +187,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261018-flight-emphasis', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261018-flight-times', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -443,8 +443,9 @@
   }
   function flightPanel(table,title) {
     const row = flightRow(table,state.group);
+    const departure = row.cells[1].innerHTML.replace(/\b(\d{1,2}:\d{2})\b/, '<strong class="flight-departure-time">$1</strong>');
     const arrival = row.cells[2].innerHTML.replace(/\b(\d{1,2}:\d{2})\b/, '<strong class="flight-arrival-time">$1</strong>');
-    return `<section class="panel flight-ticket"><div class="ticket-header"><span class="pill">${escape(title)} · ${state.group} 組</span><span>BOARDING PASS</span></div><div class="flight"><div>${row.cells[1].innerHTML}</div><span class="arrow" aria-hidden="true">${icon('plane')}</span><div class="flight-arrival">${arrival}</div></div><div class="ticket-footer"><strong>${row.cells[3].innerHTML}</strong>${row.cells[4]?`<p class="intro">原行程預留抵達機場時間：${row.cells[4].innerHTML}</p>`:''}</div></section>`;
+    return `<section class="panel flight-ticket"><div class="ticket-header"><span class="pill">${escape(title)} · ${state.group} 組</span><span>BOARDING PASS</span></div><div class="flight"><div>${departure}</div><span class="arrow" aria-hidden="true">${icon('plane')}</span><div class="flight-arrival">${arrival}</div></div><div class="ticket-footer"><strong>${row.cells[3].innerHTML}</strong>${row.cells[4]?`<p class="intro">原行程預留抵達機場時間：${row.cells[4].innerHTML}</p>`:''}</div></section>`;
   }
   function flights() {
     const rail = $('.narita-combined-table').cloneNode(true);
