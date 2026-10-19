@@ -564,10 +564,12 @@ input,select,textarea{font-size:14px!important}
 .main[data-view="flights"] .ticket-footer .intro{font-size:12px}
 .main[data-view="flights"]>.section-label{font-size:20px}
 .main[data-view="flights"] .table-card :is(dt,dd){font-size:12px}
-/* Daily titles sit below photos, never over the image. */
-.main[data-view="days"] .hero{margin-bottom:0;border-radius:18px 18px 0 0}
-.main[data-view="days"] .hero::after{display:none}
-.main[data-view="days"] .day-hero-caption{position:static;inset:auto;color:var(--ink);padding:16px 20px;background:var(--paper,#fffdf8);border-radius:0 0 18px 18px;margin:0 0 16px;box-shadow:0 10px 24px #26343d12}
-.main[data-view="days"] .day-hero-caption h1{color:var(--ink);text-shadow:none;margin:0;font-size:18px;line-height:1.6}
+/* Daily photo titles share the same lower inside position. */
+.main[data-view="days"] .hero{margin-bottom:16px;border-radius:18px}
+.main[data-view="days"] .hero::after{display:block;background:linear-gradient(180deg,transparent 45%,#0b1727db 100%)}
+.main[data-view="days"] .day-hero-caption{position:absolute;inset:auto 20px 18px;color:#fff;padding:0;background:none;border-radius:0;margin:0;box-shadow:none;z-index:1}
+.main[data-view="days"] .day-hero-caption h1{color:#fff;text-shadow:0 2px 8px #0008;margin:0;font-size:18px;line-height:1.6}
 .main[data-view="days"] .summary-addition{font-size:var(--day-body-size);line-height:1.8;margin:8px 0 0}
+.main .place-map-link{display:inline-block;margin-left:6px;font-size:11px;white-space:nowrap}
+.main .flight-identity{display:inline-flex;gap:.45em;align-items:baseline;white-space:nowrap}
 
