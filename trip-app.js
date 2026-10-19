@@ -187,7 +187,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261018-word-model2', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261019-compact-itinerary', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -1109,6 +1109,50 @@
   }
 
 
+  const dailyCompactPlan = {"append":[{"id":"WEB00041","day":1,"text":"彈性景點：淺草橋銀杏岡八幡神社、シモジマ","add":"時間不足時整段略過。"},{"id":"WEB00049","day":1,"text":"夜晚點燈：日比谷公園（11/13–11/29，09:00–21:00，免費、免預約）→ 丸之內仲通與2026「哈利波特・魔法之雪」（11/12–12/25）。丸之內活動官網 ↗","add":"沿丸之內仲通り點燈路線走到東京車站丸之內廣場。"},{"id":"WEB00095","day":2,"text":"上午景點：豪德寺（約 10:00–10:30）；未訂妥美登利時，直接到梅丘取號，略過早餐店與豪德寺","add":"勿觸碰奉納招福貓。"},{"id":"WEB00110","day":2,"text":"點心：RARASAND 實拍攻略 / IRON COFFEE 實拍攻略 （只在叫號較晚、全員已會合且時間足夠時擇一）","add":"先到美登利會合，確認不會過號才離開；否則略過。"},{"id":"WEB00118","day":2,"text":"午餐：梅丘寿司の美登利 総本店 實拍攻略 (週日 11:00–21:00、L.O.20:30 | 代表 09:40 到店、10:00 取 5 人號碼；實際依叫號)","add":"取號時詢問拆桌與叫號規則。"},{"id":"WEB00135","day":2,"text":"晚餐：一蘭 新宿歌舞伎町店 實拍攻略（24 小時營業｜25 個單人座位）","add":"Alpen TOKYO 後前往，A＋B 組 5 人可分批入座；候位超過 45 分鐘就改店。"},{"id":"WEB00279","day":4,"text":"上午景點：明治神宮外苑銀杏大道。人潮多時先拍團體照，再自由拍攝，之後前往表參道、原宿。","add":"人潮多時縮短停留。"},{"id":"WEB00287","day":4,"text":"表參道／原宿分組逛街：KIDDY LAND 原宿店、NUMBER SUGAR等由各組自選；依午餐店別調整先後，午餐後直接往澀谷，不再折返集合。","add":"分組前確認集合時間與出口。"},{"id":"WEB00321","day":4,"text":"步行往澀谷：午餐順序依選店調整：選 Sweet Check 時先用餐，再往西逛 KIDDY LAND；選 BASO／麺散時先逛 KIDDY LAND，再用餐。各組午餐後不回 KIDDY LAND，直接往 FREAK'S STORE Shibuya；BASO／麺散沿貓街南行，經宮下公園步行約 15–20 分鐘。","add":"Sweet Check 組依地圖走西南向路線。"},{"id":"WEB00338","day":4,"text":"澀谷 PARCO：從 FREAK'S STORE 步行前往 澀谷 PARCO（宇田川町 15-1）。先逛想去的樓層，再到 B1 晚餐；一般商店營業至 21:00，部分店家不同。","add":"一般商店 11:00 開店。"},{"id":"WEB00357","day":4,"text":"飯後購物：時間與體力允許再往 MEGA 唐吉訶德 澀谷本店；候位太久就跳過，直接到車站會合。","add":"不為購物折返 PARCO。"},{"id":"WEB00365","day":4,"text":"回程集合：先約好時間，在澀谷站八公口外集合；點名後一起入站，返回本所吾妻橋民宿。","add":"先回者在群組回報。"},{"id":"WEB00404","day":5,"text":"小吃美食：花月堂菠蘿麵包 實拍攻略、壽壽喜園抹茶冰淇淋 實拍攻略、龜十銅鑼燒 實拍攻略","add":"三家不必全排，保留午餐時間。"},{"id":"WEB00412","day":5,"text":"11/25 午餐｜分開用餐","add":"餐後兩組在淺草會合。"},{"id":"WEB00433","day":5,"text":"民宿休息：放物品、稍作休息，再一起出發。","add":"約 15:30 回民宿，休息至 16:30。"},{"id":"WEB00452","day":5,"text":"六本木 HARBS：再到 HARBS 六本木 Hills 店；座位不能預約，有位就內用、滿席直接外帶，不為等位耽誤市集。週三營業至 20:00，蛋糕／飲料最後點餐 19:30、餐點最後點餐 17:00；傍晚只安排蛋糕與飲料。","add":"TEN& 外帶與轉乘時間請抓彈性。"},{"id":"WEB00461","day":5,"text":"六本木聖誕市集：HARBS 後步行到六本木新城大屋頂廣場逛聖誕市集；2026 市集 11/21–12/25、11:00–21:00。活動官網 ↗晚餐建議（待選店）：在市集或六本木館內另留主餐時間；先確認不吃牛肉 2 位的選項。HARBS 傍晚只安排甜點，若時間不足，縮短甜點停留。","add":"交通或排隊延誤時，依實際時間調整停留。"},{"id":"WEB00477","day":6,"text":"SPACIA X 預計班次：3 號淺草 09:00／東京晴空塔 09:03 出發，10:50 抵達東武日光；或 5 號淺草 10:00／東京晴空塔 10:03 出發，11:49 抵達。實際上車站與班次以車票為準。","add":"優先選早班，保留抵達後緩衝。"},{"id":"WEB00499","day":6,"text":"抵達後點心：日光さかえや 揚げゆばまんじゅう本舗 實拍攻略 （東武日光站步行約 30 秒｜09:30–17:00、不定休）。可點：現炸揚げゆばまんじゅう；若當季供應，可加點日光天然冰 × 日光草莓刨冰。午餐建議（待選店）：先準備車上簡餐或站前用餐備案；搭 5 號 11:49 抵達時，避免長時間候位，保留寄物與下午東照宮時間。","add":"先確認隔天的天候、巴士運行及回程候選。"},{"id":"WEB00602","day":7,"text":"晚餐待確認：日光店家尚未選定；建議行前確認 7 人座位、營業時間與不吃牛肉的餐點，並準備外帶備案。","add":"餐後整理行李，隔天 08:00 包車接送出發。"},{"id":"WEB00701","day":8,"text":"主要景點：成田山表參道 → 新勝寺大本堂 → なごみの米屋；為保留購物時間，成田山公園不列入主要行程。","add":"16:40 左右開始往京成成田站移動。"},{"id":"WEB00709","day":8,"text":"傍晚購物：京成成田站 6 號搭付費直行巴士前往 AEON MALL；主搭 17:15／17:47，回程主搭 20:28（星巴克前）或 20:29（Mall East）。查看時刻表 ↓","add":"去程延誤可改 18:30；逛至閉店可改搭 21:05／21:06 回程。前門上車先付費，成人單程 220 円，可用 IC 卡，車程約 10 分鐘。專門店 21:00 關門，全團先約定回程站牌。"}],"remove":[{"id":"WEB00031","day":1,"text":"不可預約；建議候位最多 45 分鐘，17:00 仍未入座或已售罄就改文字燒 CHICO。"},{"id":"WEB00039","day":1,"text":"若用餐延誤，直接略過。"},{"id":"WEB00047","day":1,"text":"時間不足時整段略過。"},{"id":"WEB00057","day":1,"text":"丸之內仲通り點燈 → 東京車站丸之內廣場"},{"id":"WEB00093","day":2,"text":"約 09:00–09:25 買麵包，優先外帶。"},{"id":"WEB00107","day":2,"text":"勿觸碰奉納招福貓。"},{"id":"WEB00116","day":2,"text":"先到美登利會合；只有叫號較晚且不會過號時才擇一，否則略過。"},{"id":"WEB00124","day":2,"text":"代表約 09:40 到店，10:00 取 5 人號碼並詢問拆桌與叫號規則。"},{"id":"WEB00141","day":2,"text":"A＋B 組 5 人可分批入座；候位超過 45 分鐘就改店。"},{"id":"WEB00285","day":4,"text":"人潮多時縮短停留。"},{"id":"WEB00299","day":4,"text":"分組前確認集合時間與出口。"},{"id":"WEB00319","day":4,"text":"Sweet Check 11:00 開店、備妥非現金支付；BASO 平日 11:30 開店、收現金；麺散 11/24（週二）營業時段待官方確認，未確認就選另外兩家；備妥電子支付。"},{"id":"WEB00327","day":4,"text":"午餐後不回 KIDDY LAND 集合；各組依所選店家直接到 FREAK'S STORE Shibuya 會合，Sweet Check 組依地圖走西南向路線。"},{"id":"WEB00336","day":4,"text":"PARCO 宇田川町 15-1；先逛想去的樓層，再到 B1 用餐。一般商店 11:00–21:00。"},{"id":"WEB00355","day":4,"text":"吃牛肉 5 人到極味屋現場候位，不接受訂位；不吃牛肉 2 人在館內另選無牛餐廳（B1「真さか」為候選）。極味屋平日約 20:00 可能提前停止受理，建議 17:00–18:00 到場；餐後再會合。"},{"id":"WEB00363","day":4,"text":"候位或用餐較久時直接略過，不為購物折返 PARCO。"},{"id":"WEB00371","day":4,"text":"依約定時間在站外點名後一起入站；先回者在群組回報。"},{"id":"WEB00410","day":5,"text":"三家不必全排；保留午餐時間。"},{"id":"WEB00427","day":5,"text":"牛舌店兩筆共 5 人；另 2 位尚未決定店家，兩候選均未預約；餐後在淺草會合。"},{"id":"WEB00439","day":5,"text":"約 15:30 回民宿放物品、休息至 16:30。"},{"id":"WEB00447","day":5,"text":"正式安排外帶短停；週三外帶時段為 17:30–20:00，不需預約 7 人座位。"},{"id":"WEB00458","day":5,"text":"有空位就內用，滿席或候位太久直接外帶；週三 20:00 打烊、蛋糕／飲料 L.O. 19:30、餐點 L.O. 17:00。TEN& 外帶與轉乘時間請抓彈性。"},{"id":"WEB00467","day":5,"text":"市集 11/21–12/25、11:00–21:00；甜點後前往，若交通或排隊延誤，依實際時間調整停留。"},{"id":"WEB00493","day":6,"text":"SPACIA X 3 號／5 號"},{"id":"WEB00497","day":6,"text":"3 號晴空塔 09:03 → 日光 10:50；5 號 10:03 → 11:49。7 人 Cockpit Suite 在 6 號車；優先選早班，保留抵達後緩衝。"},{"id":"WEB00505","day":6,"text":"抵達後站前點心與休息；先確認隔天的天候、巴士運行及回程候選。"},{"id":"WEB00608","day":7,"text":"晚餐店家仍待定；建議行前確認 7 人座位與不吃牛肉的選項。餐後整理行李，隔天 08:00 包車接送出發。"},{"id":"WEB00699","day":8,"text":"川豐先抽號；候位過長改成田江戶人壽司。"},{"id":"WEB00707","day":8,"text":"16:40 左右開始往京成成田站移動；成田山公園略過。"},{"id":"WEB00715","day":8,"text":"前門上車先付；成人 220 円，可用 IC 卡。"},{"id":"WEB00721","day":8,"text":"主搭 17:15／17:47 直行；延誤可改 18:30。"},{"id":"WEB00727","day":8,"text":"專門店 21:00 關門；全團先約定回程站牌。"},{"id":"WEB00733","day":8,"text":"主搭 20:28／20:29；逛至閉店可改 21:05／21:06。"},{"id":"WEB00740","day":8,"text":"主要安排飯店寄放行李 → 表參道午餐 → 新勝寺大本堂 → 米屋 → 17:15／17:47 巴士 → AEON MALL → 20:28／20:29 返回。"},{"id":"WEB00743","day":8,"text":"不是免費接駁車：這是京成成田站與 AEON MALL 成田之間的付費直行路線巴士。京成成田站從 6 號乘車處上車，成人單程 220 円、可使用 IC 卡，車程約 10 分鐘。"},{"id":"WEB00744","day":8,"text":"建議搭法"},{"id":"WEB00745","day":8,"text":"去程：17:15 或 17:47 直行。回程：20:28（星巴克前）／20:29（Mall East）；逛至專門店閉店可改 21:05／21:06。"},{"id":"WEB00027","day":1,"text":"野口鮮魚店 "},{"id":"WEB00035","day":1,"text":"塩パン屋 パンメゾン "},{"id":"WEB00043","day":1,"text":"銀杏岡八幡神社 "},{"id":"WEB00051","day":1,"text":"日比谷公園 "},{"id":"WEB00066","day":1,"text":"鳥貴族淺草店 "},{"id":"WEB00089","day":2,"text":"nukumuku "},{"id":"WEB00103","day":2,"text":"豪德寺"},{"id":"WEB00112","day":2,"text":"RARASAND ／IRON COFFEE "},{"id":"WEB00120","day":2,"text":"梅丘寿司の美登利 総本店 "},{"id":"WEB00137","day":2,"text":"Bic Camera 新宿東口店 → Alpen TOKYO → 一蘭 新宿歌舞伎町店 "},{"id":"WEB00281","day":4,"text":"明治神宮外苑銀杏大道"},{"id":"WEB00295","day":4,"text":"KIDDY LAND 原宿店／NUMBER SUGAR 表參道店 "},{"id":"WEB00315","day":4,"text":"Sweet Check 蛋包飯／BASO 蕎麥麵／うどん 麺散 "},{"id":"WEB00323","day":4,"text":"午餐店 → 宮下公園一帶 → FREAK'S STORE Shibuya"},{"id":"WEB00332","day":4,"text":"FREAK'S STORE Shibuya → 澀谷 PARCO"},{"id":"WEB00359","day":4,"text":"MEGA 唐吉訶德 澀谷本店"},{"id":"WEB00367","day":4,"text":"澀谷站八公口外 → 本所吾妻橋站"},{"id":"WEB00391","day":5,"text":"今戶神社"},{"id":"WEB00397","day":5,"text":"待乳山聖天 → 淺草寺"},{"id":"WEB00406","day":5,"text":"淺草花月堂 ／壽壽喜園 ／龜十 "},{"id":"WEB00423","day":5,"text":"牛たんの檸檬 淺草店 已訂 12:00／預約號／不吃牛 2 位：麺 みつヰ或秋光（候選）"},{"id":"WEB00435","day":5,"text":"淺草自由逛 → 東京民宿"},{"id":"WEB00443","day":5,"text":"東京民宿 → PATISSERIE TEN& 日比谷 OKUROJI"},{"id":"WEB00454","day":5,"text":"TEN& → HARBS 六本木 Hills 店"},{"id":"WEB00463","day":5,"text":"HARBS → 六本木新城聖誕市集（大屋頂廣場）"},{"id":"WEB00501","day":6,"text":"東武日光站・さかえや 炸湯波饅頭"},{"id":"WEB00695","day":8,"text":"成田山表參道／川豐本店"},{"id":"WEB00703","day":8,"text":"新勝寺大本堂 → なごみの米屋"},{"id":"WEB00711","day":8,"text":"京成成田站 6 號乘車處"},{"id":"WEB00717","day":8,"text":"京成成田站 → AEON MALL 成田"},{"id":"WEB00723","day":8,"text":"AEON MALL 成田"},{"id":"WEB00729","day":8,"text":"AEON MALL 成田 → 京成成田站"}]};
+  function compactDailyPresentation() {
+    if(state.view!=='days')return;
+    const normalize=t=>t.replace(/[\s\u3000]+/g,'').replace(/實拍攻略/g,'');
+    const relevant=op=>op.day===state.day && !(state.group==='B'&&state.day===1) && !(state.group==='C'&&state.day===3);
+    const stops=[...main.querySelectorAll('.stop-content')];
+    // Keep the original source DOM intact: Word-import locators run first.
+    const additions=[];
+    for(const op of dailyCompactPlan.append.filter(relevant)) {
+      const stop=stops.find(s=>{const c=s.cloneNode(true);c.querySelectorAll('.schedule-detail-body,.schedule-toggle,.schedule-time').forEach(e=>e.remove());return normalize(c.textContent).includes(normalize(op.text));});
+      if(stop){const p=document.createElement('p');p.className='summary-addition';p.textContent=op.add;const detail=stop.querySelector('.schedule-detail-body');detail?detail.before(p):stop.append(p);}
+      else additions.push(op.id);
+    }
+    main.dataset.compactMisses=additions.join(',');
+    for(const op of dailyCompactPlan.remove.filter(relevant)) {
+      const candidates=[...main.querySelectorAll('.schedule-detail-body dd,.schedule-detail-body p,.schedule-detail-body h3,.schedule-detail-body div')].filter(e=>normalize(e.textContent)===normalize(op.text));
+      for(const e of candidates.filter(e=>!candidates.some(other=>other!==e&&e.contains(other)))) {
+        if(e.tagName==='DD')e.parentElement.remove();else e.remove();
+      }
+    }
+    main.querySelectorAll('.table-card>div').forEach(field=>{
+      const dt=field.querySelector('dt'),dd=field.querySelector('dd');
+      if(dt?.textContent.trim()==='移動方式'&&!/\d{1,2}[:：]\d{2}/.test(dd?.textContent||''))field.remove();
+    });
+    for(const stop of stops){
+      const detail=stop.querySelector('.schedule-detail-body');if(!detail)continue;
+      const summary=stop.cloneNode(true);summary.querySelectorAll('.schedule-detail-body,.schedule-toggle').forEach(e=>e.remove());
+      const text=normalize(summary.textContent);
+      detail.querySelectorAll('.table-card>div').forEach(field=>{
+        const dt=field.querySelector('dt')?.textContent.trim(),dd=field.querySelector('dd');
+        // Remove exact duplicates only; retain timing exceptions and unique details.
+        if(dd&&['路段／地點','安排與提醒'].includes(dt)&&normalize(dd.textContent)&&text.includes(normalize(dd.textContent)))field.remove();
+      });
+      detail.querySelectorAll('.table-card').forEach(card=>{if(!card.querySelector('dd')||!card.textContent.trim())card.remove();});
+      for(const e of [...detail.querySelectorAll('div,section')].reverse())if(!e.textContent.trim()&&!e.querySelector('img,table,a'))e.remove();
+      if(!detail.textContent.trim()&&!detail.querySelector('img,a')){
+        const toggle=stop.querySelector('.schedule-toggle'),time=toggle?.querySelector('.schedule-time');
+        if(toggle&&time)toggle.replaceWith(time);else toggle?.remove();detail.remove();
+      }
+    }
+    const hero=main.querySelector('.day-overview>.hero'),caption=hero?.querySelector('.hero-copy');
+    if(caption){caption.classList.add('day-hero-caption');hero.after(caption);}
+  }
+
   function render(scroll = false) {
     clampDay(); detailSources = new Map();
     main.dataset.view = state.view;
@@ -1128,6 +1172,7 @@
     const content = state.view==='days'?daily():state.view==='flights'?flights():state.view==='stays'?stays():state.view==='bookings'?bookings():state.view==='money'?moneyView():state.view==='reserve'?reserve():state.view==='restaurants'?restaurants():state.view==='airport'?airport():state.view==='coupons'?coupons():guide();
     main.innerHTML = content+`<p class="status" role="status">${statusText()}</p>`;
     applyWordModel();
+    compactDailyPresentation();
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
         el.querySelector('.document').innerHTML=readable(detailSources.get(el.dataset.detail),{omitTitle:true});
