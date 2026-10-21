@@ -187,7 +187,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261019-photo-maps', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261021-station-guide', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -1176,7 +1176,7 @@
     ['晚餐會合｜大東縁','預計 17:30，全團 7 位成人會合。C 組先放好行李再加入；7 人座位、當天營業與不吃牛肉 2 位的餐點仍須電話確認，尚未訂妥。']
   ],
   4:[
-    ['出發｜本所吾妻橋 → 青山一丁目','搭車約 29 分鐘、原行程車資約 ¥320；出站後步行約 5 分鐘到銀杏大道。出發前先整理好當日要隨身帶的物品。'],
+    ['出發｜本所吾妻橋 → 青山一丁目','依下方站號與路線指引搭車，另留轉乘與出站步行時間；車資及所需時間依實際路線查詢。出發前先整理好當日要隨身帶的物品。'],
     ['上午｜明治神宮外苑銀杏大道','先拍團體照，再自由散步拍攝；人潮多就縮短停留。接著往表參道、原宿，不再回頭。'],
     ['逛街｜表參道・原宿','KIDDY LAND 原宿店、NUMBER SUGAR由各組自選。午餐依店別調整先後，分組前先約好會合時間，吃完直接往澀谷。'],
     null,
@@ -1257,6 +1257,33 @@
     8:['日光民宿上車，搭已訂包車到 Richmond Hotel Narita；先寄放行李。','由飯店往成田山表參道，先確認川豐抽號與候位情況。','沿表參道到新勝寺大本堂，再逛なごみの米屋；之後往京成成田站。','京成成田站 6 號乘付費直行巴士到 AEON MALL；回程先確認星巴克前或 Mall East 上車站。'],
     9:['前晚先登記飯店接駁；早上搭車到成田 T2，依各組航空公司找報到櫃檯。','安檢前與後分區採買；先完成需要在托運前處理的購物事項。','通過安檢後，依當天航班資訊前往正確登機門。']
   };
+  // Checked against operator station maps, 2026-10-21. Car numbers are directional.
+  const transitWayfinding = {
+    home:{title:'本所吾妻橋：回民宿與出發',lines:'A 都營淺草線・玫瑰紅色',route:'本所吾妻橋（本所吾妻橋）A19。往市區看「西馬込・羽田空港方面」；往押上看「押上・京成線方面」。',exit:'往東駒形民宿走南側出口；A2 為樓梯出口選項。大行李優先看 A0 地上電梯；另一側月台可看 A5 電梯，出站後依地圖步行。',car:'官方圖示第 4 車廂附近接 A0～A2／跨月台通道；押上方向第 8 車廂附近接 A5。直通車車廂編號可能不同，對照月台圖再上車。',url:'https://www.kotsu.metro.tokyo.jp/subway/stations/honjo-azumabashi.html'},
+    sangen:{title:'前往三軒茶屋',lines:'A 淺草線・玫瑰紅 → Z 半藏門線・紫 → DT 田園都市線・綠',route:'A19 本所吾妻橋 → A20 押上；站內依 Z 指標轉 Z14 押上，搭往澀谷、直通田園都市線的列車到 DT03 三軒茶屋。若列車只到澀谷，需在 Z01／DT01 澀谷改搭往中央林間方向。',exit:'三軒茶屋出站依太子堂方向與早餐店地圖走；北口 A／B 為太子堂側出口選項，不要往南口繞。',car:'押上換半藏門線可先靠列車中段，依轉乘指標走；直通列車長度不同，不指定未確認的車廂號。',url:'https://www.tokyu.co.jp/area/sangen-jaya/station/'},
+    gotokuji:{title:'三軒茶屋 → 豪德寺',lines:'SG 東急世田谷線・黃色',route:'SG01 三軒茶屋 → SG07 宮之坂（宮の坂），搭往下高井戶方向；下車後步行到豪德寺。SG08 山下與小田急豪德寺站是另一處，勿把站名當成寺院入口。',exit:'宮之坂為地面月台，依豪德寺地圖步行，沒有地鐵式出口編號。',car:'世田谷線為短編成，不需為轉乘指定車廂；依現場上車門指示排隊。',url:'https://www.tokyu.co.jp/railway/sg/'},
+    shinjuku:{title:'梅丘 → 新宿購物',lines:'OH 小田急小田原線・藍色',route:'OH09 梅丘（梅ヶ丘）搭各站停車往新宿 → OH01 新宿。梅丘不是急行停靠站；不必為了改搭快車多轉一次。',exit:'購物目的地在新宿東側。出小田急閘門後沿「東口／東西自由通路」指標走，再依 Bic Camera／Alpen 地圖前往。不要為穿越車站誤入 JR 付費區。',car:'車種與新宿到達月台不同；未確認通用的最佳車廂，依到站月台出口圖走。',url:'https://www.odakyu.jp/station/umegaoka/'},
+    asakusabashi:{title:'本所吾妻橋 → 淺草橋',lines:'A 都營淺草線・玫瑰紅色',route:'A19 本所吾妻橋 → A16 淺草橋（浅草橋），往西馬込・羽田空港方向。確認列車停靠淺草橋。',exit:'銀杏岡八幡神社、シモジマ依各自地圖導航；淺草橋 A16 與淺草 A18 是不同站。',car:'出口最近車廂尚未核實，先看下方官方站內圖。',url:'https://www.kotsu.metro.tokyo.jp/subway/stations/asakusabashi.html'},
+    ginzaHibiya:{title:'前往日比谷公園／丸之內',lines:'A 淺草線・玫瑰紅 → H 日比谷線・銀灰',route:'淺草橋 A16 往西馬込方向 → A11 東銀座；轉 H10 東銀座，搭往中目黑方向 → H08 日比谷。之後日比谷公園 → 丸之內採步行串聯。',exit:'日比谷站出口分布很廣，先按公園／目的地的地圖選出口；不要只見「日比谷」就任意出站。',car:'東銀座轉乘最近車廂未核實；跟 H 日比谷線指標，不把銀座線 G 當成同一條線。',url:'https://www.tokyometro.jp/station/hibiya/index.html'},
+    gaien:{title:'本所吾妻橋 → 銀杏大道',lines:'A 淺草線・玫瑰紅 → G 銀座線・橘色',route:'易辨識走法：A19 本所吾妻橋搭西馬込方向一站到 A18 淺草；出閘依 G 指標轉 G19 淺草，搭往澀谷方向到 G04 青山一丁目。轉乘含步行，請以當天路線查詢估時。',exit:'青山一丁目走 1 號出口，往青山通、銀杏大道方向；出站後約 5～10 分鐘步行為規劃估計。',car:'青山一丁目最近出口車廂未確認，附官方站內圖；不要套用半藏門線或大江戶線的車廂位置。',url:'https://www.tokyometro.jp/station/aoyama-itchome/index.html'},
+    shibuyaHome:{title:'澀谷 → 本所吾妻橋',lines:'Z 半藏門線・紫 → A 淺草線・玫瑰紅',route:'Z01 澀谷搭往押上方向 → Z14 押上；站內轉 A20 押上，搭西馬込・羽田空港方向 → A19 本所吾妻橋。',exit:'八公口是會合地標；會合後依地下鐵 Z／半藏門線指標進站，不要進 JR 閘門。到本所吾妻橋再依東駒形側出口回民宿。',car:'押上最近轉乘車廂未確認；選能全員一起上車的位置，再依站內 A 指標轉乘。',url:'https://www.tokyometro.jp/station/oshiage/index.html'},
+    ten:{title:'民宿 → 日比谷 OKUROJI',lines:'A 都營淺草線・玫瑰紅色',route:'A19 本所吾妻橋搭往西馬込・羽田空港方向 → A10 新橋；出站後步行到日比谷 OKUROJI 的 TEN&。',exit:'先沿 JR 新橋站日比谷口方向到地面，再走向高架下 OKUROJI。日比谷口是 JR 出口名稱，不是都營地下鐵的出口編號。',car:'新橋出口最近車廂未核實，依站內圖和「日比谷口方面」指標走。',url:'https://www.jrtk.jp/hibiya-okuroji/access/'},
+    roppongi:{title:'TEN& → 六本木 Hills／HARBS',lines:'H 日比谷線・銀灰色',route:'TEN& 外帶後步行至 H08 日比谷，搭「中目黒方面」→ H04 六本木（六本木）。',exit:'六本木走 1c 出口、六本木 Hills 連通方向，接著依 HARBS 店址前往；不是往 Tokyo Midtown 的出口。',car:'只適用往中目黑方向：第 5 車廂附近為往 Hills 的手扶梯，第 7 車廂附近為電梯／樓梯。日比谷線第 1～2 車廂偏向大江戶線／Midtown 端。',url:'https://www.tokyometro.jp/station/line_hibiya/position.html'},
+    nikko:{title:'東京出發搭 SPACIA X',lines:'東武特急 SPACIA X・依車票指定班次',route:'上車站依車票選淺草或とうきょうスカイツリー；目的地為東武日光，不是 JR 日光。請先確認上車站，再安排從民宿的步行路線。',exit:'從淺草上車要找「東武」淺草站，不是都營 A18 或 Metro G19 的月台。',car:'Cockpit Suite 規劃為 6 號車；只有買到對應席種與班次後才按票上座位搭乘，不能當成已訂妥。',url:'https://www.tobu.co.jp/spaciax/'},
+    narita:{title:'京成成田 → AEON MALL',lines:'此段是巴士，不是地鐵',route:'京成成田 KS40 只是集合定位站；到站外 6 號巴士站找 AEON MALL 直行巴士，不進鐵路閘門。',exit:'依行程指定的 6 號巴士站搭乘；飯店與成田山方向的步行路線分開看。',car:'巴士不分地鐵車廂；依乘車規則排隊，回程站點要和同行者先約好。',url:'https://new-www.keisei.co.jp/keisei/tetudou/accessj/keisei-narita.php'}
+  };
+  function appendTransitWayfinding(detail,i) {
+    const byDay={1:{2:['asakusabashi'],3:['ginzaHibiya']},2:{0:['sangen'],1:['gotokuji'],4:['shinjuku']},4:{0:['gaien'],9:['shibuyaHome']},5:{5:['home'],6:['ten'],7:['roppongi']},6:{0:['nikko']},8:{3:['narita']}};
+    const arrival=(state.group==='B'&&state.day===1)||(state.group==='C'&&state.day===3);
+    const keys=arrival?(i===0?['home']:[]):(byDay[state.day]?.[i]||[]);
+    if(i===0 && !arrival && state.day<=5)keys.unshift('home');
+    if(!keys.length)return;
+    const colors={A:'#e85298',G:'#f39700',H:'#9caeb7',Z:'#9b7cb6',DT:'#20a288',SG:'#e8b800',OH:'#2385c4',KS:'#2564a8'};
+    const marked=text=>{const fragment=document.createDocumentFragment();let end=0;const regex=/\b(DT|SG|OH|KS|A|G|H|Z)(\d{2})\b/g;for(const m of text.matchAll(regex)){fragment.append(document.createTextNode(text.slice(end,m.index)));const badge=document.createElement('span');badge.className='rail-station-badge';badge.style.setProperty('--rail-color',colors[m[1]]);badge.textContent=m[1]+' '+m[2];fragment.append(badge);end=m.index+m[0].length;}fragment.append(document.createTextNode(text.slice(end)));return fragment;};
+    const block=document.createElement('section');block.className='transit-wayfinding';
+    for(const key of keys){const info=transitWayfinding[key],card=document.createElement('section'),h=document.createElement('h3');h.textContent=info.title;card.append(h);const facts=document.createElement('dl');facts.className='table-card';for(const [label,value]of [['路線／顏色',info.lines],['方向／站號',info.route],['出口',info.exit],['車廂／轉乘',info.car]]){const row=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.append(marked(value));row.append(dt,dd);facts.append(row);}card.append(facts);const a=document.createElement('a');a.href=info.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='車站圖與出口指引 ↗';card.append(a);block.append(card);}
+    detail.prepend(block);
+  }
   function organizeDailyDetails() {
     if(state.view!=='days')return;
     const shared=!(state.group==='B'&&state.day===1)&&!(state.group==='C'&&state.day===3);
@@ -1280,6 +1307,7 @@
       const rows=[['怎麼去',access],['走訪順序',copy?order:null],['停留時間',time.textContent.trim()],['注意事項',cautions||'依當天抵達時間與體力調整；有變動時先通知同行者。']];
       rows.forEach(([label,value])=>{if(!value)return;const row=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;row.append(dt,dd);facts.append(row);});
       briefing.append(facts);detail.prepend(briefing);
+      appendTransitWayfinding(detail,i);
       let toggle=stop.querySelector('.schedule-toggle');
       if(!toggle){toggle=document.createElement('button');toggle.type='button';toggle.className='schedule-toggle';toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls',detail.id);time.before(toggle);toggle.append(time);const label=document.createElement('span');label.className='schedule-toggle-label';label.innerHTML='詳細行程 <span aria-hidden="true">＋</span>';toggle.append(label);}
       detail.id=`revised-detail-${state.group}-${state.day}-${i}`;
