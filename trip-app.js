@@ -1155,6 +1155,137 @@
 
 
   const dailyPlaceMaps = {"野口鮮魚店":"https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E3%81%95%E3%81%AA%E9%AD%9A%E3%81%8C%E3%81%97+%E9%87%8E%E5%8F%A3%E9%AE%AE%E9%AD%9A%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E6%9D%B1%E9%A7%92%E5%BD%A24-6-9+%E3%83%AA%E3%83%90%E3%83%BC%E3%83%8F%E3%82%A4%E3%83%84%E3%83%AF%E3%82%B3%E3%83%BC+1F","塩パン屋 パンメゾン":"https://www.google.com/maps/search/?api=1&query=%E5%A1%A9%E3%83%91%E3%83%B3%E5%B1%8B+%E3%83%91%E3%83%B3%E3%83%A1%E3%82%BE%E3%83%B3+%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E5%BA%97","鳥貴族 淺草店":"https://maps.app.goo.gl/EvEaCawMVivVVJDC9","nukumuku":"https://www.google.com/maps/search/?api=1&query=nukumuku+%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B+%E6%9D%B1%E4%BA%AC","本所吾妻橋站":"https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E9%A7%85","三軒茶屋站":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B%E9%A7%85","三軒茶屋站 世田谷線":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B%E9%A7%85%20%E4%B8%96%E7%94%B0%E8%B0%B7%E7%B7%9A","宮之坂站":"https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E3%81%AE%E5%9D%82%E9%A7%85","RARASAND":"https://www.google.com/maps/search/?api=1&query=RARASAND+%E8%B1%AA%E5%BE%B3%E5%AF%BA+%E6%9D%B1%E4%BA%AC","IRON COFFEE":"https://www.google.com/maps/search/?api=1&query=IRON+COFFEE+%E8%B1%AA%E5%BE%B3%E5%AF%BA+%E6%9D%B1%E4%BA%AC","梅丘寿司の美登利 総本店":"https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97","梅丘站":"https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E3%83%B6%E4%B8%98%E9%A7%85","新宿站":"https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%AE%BF%E9%A7%85","一蘭 新宿歌舞伎町店":"https://www.google.com/maps/search/?api=1&query=%E4%B8%80%E8%98%AD+%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-17-10","東京民宿":"https://maps.app.goo.gl/QZX3Ty983HxajN197","天王寺":"https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E7%8E%8B%E5%AF%BA%20%E8%B0%B7%E4%B8%AD%20%E6%9D%B1%E4%BA%AC","日暮里站":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9A%AE%E9%87%8C%E9%A7%85","谷中靈園":"https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E4%B8%AD%E9%9C%8A%E5%9C%92","根津神社":"https://www.google.com/maps/search/?api=1&query=%E6%A0%B9%E6%B4%A5%E7%A5%9E%E7%A4%BE%20%E6%9D%B1%E4%BA%AC","蛇道":"https://www.google.com/maps/search/?api=1&query=%E3%81%B8%E3%81%B3%E9%81%93%20%E5%8D%83%E9%A7%84%E6%9C%A8","千駄木":"https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E9%A7%84%E6%9C%A8%E9%A7%85","谷中銀座商店街":"https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E4%B8%AD%E9%8A%80%E5%BA%A7%E5%95%86%E5%BA%97%E8%A1%97","夕やけだんだん":"https://www.google.com/maps/search/?api=1&query=%E5%A4%95%E3%82%84%E3%81%91%E3%81%A0%E3%82%93%E3%81%A0%E3%82%93%20%E8%B0%B7%E4%B8%AD","押上站":"https://www.google.com/maps/search/?api=1&query=%E6%8A%BC%E4%B8%8A%E9%A7%85","飛木稻荷神社":"https://www.google.com/maps/search/?api=1&query=%E9%A3%9B%E6%9C%A8%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E6%8A%BC%E4%B8%8A","ハト屋パン店":"https://www.google.com/maps/search/?api=1&query=%E3%83%8F%E3%83%88%E5%B1%8B%E3%83%91%E3%83%B3%E5%BA%97%20%E4%BA%AC%E5%B3%B6","キラキラ橘商店街":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9%E6%A9%98%E5%95%86%E5%BA%97%E8%A1%97%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E4%BA%AC%E5%B3%B6","MUUMUU COFFEE":"https://www.google.com/maps/search/?api=1&query=MUUMUU%20COFFEE%20%E4%BA%AC%E5%B3%B6","吉備子屋":"https://www.google.com/maps/search/?api=1&query=%E5%90%89%E5%82%99%E5%AD%90%E5%B1%8B%20%E5%90%91%E5%B3%B6","志満ん草餅":"https://www.google.com/maps/search/?api=1&query=%E5%BF%97%E6%BA%80%E3%82%93%E8%8D%89%E9%A4%85%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E6%9D%B1%E5%90%91%E5%B3%B6","大東縁":"https://maps.app.goo.gl/KTH72UYA1GzS5AFs8","外苑前站":"https://www.google.com/maps/search/?api=1&query=%E5%A4%96%E8%8B%91%E5%89%8D%E9%A7%85","表參道站":"https://www.google.com/maps/search/?api=1&query=%E8%A1%A8%E5%8F%82%E9%81%93%E9%A7%85","Sweet Check 蛋包飯":"https://maps.app.goo.gl/cq6P7DPSL1NEdmQT8","BASO 蕎麥麵":"https://maps.app.goo.gl/XfhefUXyvnTHNSra8","うどん 麺散":"https://maps.app.goo.gl/Nf1bBBnExek1mAus5","FREAK'S STORE Shibuya":"https://maps.app.goo.gl/zfRiMG347oqCoXQQ6","極味屋 澀谷 PARCO 店":"https://maps.app.goo.gl/PW2hqEnuummDrjFH8","MEGA 唐吉訶德 澀谷本店":"https://www.google.com/maps/search/?api=1&query=MEGA%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%E6%B8%8B%E8%B0%B7%E6%9C%AC%E5%BA%97","Mūya":"https://www.google.com/maps/search/?api=1&query=%E3%82%80%E3%81%86%E3%82%84%20%E6%9D%B1%E4%BA%AC%E3%83%9F%E3%82%BA%E3%83%9E%E3%83%81","隅田川步道":"https://www.google.com/maps/search/?api=1&query=%E9%9A%85%E7%94%B0%E5%B7%9D%E3%83%86%E3%83%A9%E3%82%B9%20%E5%90%BE%E5%A6%BB%E6%A9%8B","花月堂菠蘿麵包":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E8%8A%B1%E6%9C%88%E5%A0%82+%E6%9C%AC%E5%BA%97","壽壽喜園抹茶冰淇淋":"https://www.google.com/maps/search/?api=1&query=%E5%A3%BD%E3%80%85%E5%96%9C%E5%9C%92+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97","龜十銅鑼燒":"https://www.google.com/maps/search/?api=1&query=%E4%BA%80%E5%8D%81+%E6%B5%85%E8%8D%89","牛たんの檸檬 淺草店":"https://maps.app.goo.gl/K4QdwtcbFczYAsTPA","東武淺草站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%B5%85%E8%8D%89%E9%A7%85","東京晴空塔站":"https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%81%86%E3%81%8D%E3%82%87%E3%81%86%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC%E9%A7%85","日光さかえや 揚げゆばまんじゅう本舗":"https://maps.app.goo.gl/BP5Dz4o8puYm7j7TA","日光東照宮":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE","鉢石町・日光街道":"https://www.google.com/maps/search/?api=1&query=%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89","日光 Airbnb":"https://maps.app.goo.gl/xPXoTRvUER7Yosbm6","東武日光站巴士站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85%20%E3%83%90%E3%82%B9%E4%B9%97%E3%82%8A%E5%A0%B4","東武日光站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85","中禪寺溫泉":"https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E5%81%9C%20%E6%97%A5%E5%85%89","站前・日光街道":"https://www.google.com/maps/search/?api=1&query=%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89","憾滿之淵（選逛）":"https://www.google.com/maps/search/?api=1&query=%E6%86%BE%E6%BA%80%E3%83%B6%E6%B7%B5","成田里士滿飯店":"https://maps.app.goo.gl/FTSRu1WMKEDXw1dQ8","川豐本店":"https://www.google.com/maps/search/?api=1&query=%E5%B7%9D%E8%B1%8A+%E6%9C%AC%E5%BA%97+%E6%88%90%E7%94%B0","成田江戶人壽司":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%B1%9F%E6%88%B8%E3%81%A3%E5%AD%90%E5%AF%BF%E5%8F%B8","淺草橋銀杏岡八幡神社":"https://www.google.com/maps/search/?api=1&query=%E9%8A%80%E6%9D%8F%E5%B2%A1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-29-11","銀杏岡八幡神社":"https://www.google.com/maps/search/?api=1&query=%E9%8A%80%E6%9D%8F%E5%B2%A1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-29-11","シモジマ淺草橋本店":"https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%A2%E3%82%B8%E3%83%9E%20%E6%B5%85%E8%8D%89%E6%A9%8B%E6%9C%AC%E5%BA%97%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-30-10","シモジマ":"https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%A2%E3%82%B8%E3%83%9E%20%E6%B5%85%E8%8D%89%E6%A9%8B%E6%9C%AC%E5%BA%97%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-30-10","日比谷公園":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%AF%94%E8%B0%B7%E5%85%AC%E5%9C%92%20%E6%9D%B1%E4%BA%AC","丸之內仲通り":"https://www.google.com/maps/search/?api=1&query=%E4%B8%B8%E3%81%AE%E5%86%85%E4%BB%B2%E9%80%9A%E3%82%8A%20%E6%9D%B1%E4%BA%AC","丸之內仲通":"https://www.google.com/maps/search/?api=1&query=%E4%B8%B8%E3%81%AE%E5%86%85%E4%BB%B2%E9%80%9A%E3%82%8A%20%E6%9D%B1%E4%BA%AC","東京車站丸之內廣場":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%A7%85%20%E4%B8%B8%E3%81%AE%E5%86%85%E9%A7%85%E5%89%8D%E5%BA%83%E5%A0%B4","東京車站丸之內":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%A7%85%20%E4%B8%B8%E3%81%AE%E5%86%85%E9%A7%85%E5%89%8D%E5%BA%83%E5%A0%B4","豪德寺":"https://www.google.com/maps/search/?api=1&query=%E8%B1%AA%E5%BE%B3%E5%AF%BA%20%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA%E8%B1%AA%E5%BE%B3%E5%AF%BA2-24-7","新宿 Bic Camera":"https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%AF%E3%82%AB%E3%83%A1%E3%83%A9%20%E6%96%B0%E5%AE%BF%E6%9D%B1%E5%8F%A3%E5%BA%97","Bic Camera 新宿東口店":"https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%AF%E3%82%AB%E3%83%A1%E3%83%A9%20%E6%96%B0%E5%AE%BF%E6%9D%B1%E5%8F%A3%E5%BA%97","Alpen Tokyo 旗艦店":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","Alpen TOKYO":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","Alpen Tokyo":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","明治神宮外苑銀杏大道":"https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E3%81%84%E3%81%A1%E3%82%87%E3%81%86%E4%B8%A6%E6%9C%A8","神宮外苑":"https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E6%9D%B1%E4%BA%AC","KIDDY LAND 原宿店":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%87%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89%20%E5%8E%9F%E5%AE%BF%E5%BA%97%20%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D6-1-9","KIDDY LAND":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%87%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89%20%E5%8E%9F%E5%AE%BF%E5%BA%97%20%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D6-1-9","NUMBER SUGAR 表參道店":"https://www.google.com/maps/search/?api=1&query=NUMBER%20SUGAR%20%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97","NUMBER SUGAR":"https://www.google.com/maps/search/?api=1&query=NUMBER%20SUGAR%20%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97","宮下公園":"https://www.google.com/maps/search/?api=1&query=MIYASHITA%20PARK%20%E6%B8%8B%E8%B0%B7","貓街":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%88%20%E6%B8%8B%E8%B0%B7","澀谷 PARCO":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7PARCO%20%E5%AE%87%E7%94%B0%E5%B7%9D%E7%94%BA15-1","澀谷站八公口外":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85%20%E3%83%8F%E3%83%81%E5%85%AC%E5%8F%A3","澀谷站八公口":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85%20%E3%83%8F%E3%83%81%E5%85%AC%E5%8F%A3","真さか":"https://www.google.com/maps/search/?api=1&query=%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%AC%E3%83%B3%E5%B1%85%E9%85%92%E5%B1%8B%20%E7%9C%9F%E3%81%95%E3%81%8B%20%E6%B8%8B%E8%B0%B7PARCO%20B1","今戶神社":"https://www.google.com/maps/search/?api=1&query=%E4%BB%8A%E6%88%B8%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%BB%8A%E6%88%B81-5-22","待乳山聖天":"https://www.google.com/maps/search/?api=1&query=%E5%BE%85%E4%B9%B3%E5%B1%B1%E8%81%96%E5%A4%A9%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%897-4-1","淺草寺参道":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E4%BB%B2%E8%A6%8B%E4%B8%96%E9%80%9A%E3%82%8A","淺草寺":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%892-3-1","雷門":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E9%9B%B7%E9%96%80","PATISSERIE TEN&（日比谷 OKUROJI）":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","PATISSERIE TEN&":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","日比谷 PATISSERIE TEN&":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","HARBS 六本木 Hills 店":"https://www.google.com/maps/search/?api=1&query=HARBS%20%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%E5%BA%97","六本木 HARBS":"https://www.google.com/maps/search/?api=1&query=HARBS%20%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%E5%BA%97","大屋頂廣場":"https://www.google.com/maps/search/?api=1&query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%20%E5%A4%A7%E5%B1%8B%E6%A0%B9%E3%83%97%E3%83%A9%E3%82%B6","六本木新城":"https://www.google.com/maps/search/?api=1&query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%20%E6%9D%B1%E4%BA%AC","神橋":"https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%A9%8B%20%E6%97%A5%E5%85%89%E5%B8%82%E4%B8%8A%E9%89%A2%E7%9F%B3%E7%94%BA","東照宮":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE%20%E6%97%A5%E5%85%89%E5%B8%82%E5%B1%B1%E5%86%852301","東京晴空塔":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC","晴空塔":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC","華嚴瀑布":"https://www.google.com/maps/search/?api=1&query=%E8%8F%AF%E5%8E%B3%E3%81%AE%E6%BB%9D%20%E6%97%A5%E5%85%89","中禪寺湖":"https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B9%96%20%E6%97%A5%E5%85%89","憾滿之淵":"https://www.google.com/maps/search/?api=1&query=%E6%86%BE%E6%BA%80%E3%83%B6%E6%B7%B5%20%E6%97%A5%E5%85%89","田母澤御用邸":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E7%94%B0%E6%AF%8D%E6%B2%A2%E5%BE%A1%E7%94%A8%E9%82%B8%E8%A8%98%E5%BF%B5%E5%85%AC%E5%9C%92","日光街道":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E8%A1%97%E9%81%93%20%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89%E5%B8%82","成田山表參道":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E8%A1%A8%E5%8F%82%E9%81%93","新勝寺大本堂":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E6%96%B0%E5%8B%9D%E5%AF%BA%20%E5%A4%A7%E6%9C%AC%E5%A0%82","成田山公園":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E5%85%AC%E5%9C%92","なごみの米屋":"https://www.google.com/maps/search/?api=1&query=%E3%81%AA%E3%81%94%E3%81%BF%E3%81%AE%E7%B1%B3%E5%B1%8B%20%E7%B7%8F%E6%9C%AC%E5%BA%97%20%E6%88%90%E7%94%B0%E5%B8%82%E4%B8%8A%E7%94%BA500","京成成田站":"https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E6%88%90%E6%88%90%E7%94%B0%E9%A7%85","AEON MALL 成田":"https://www.google.com/maps/search/?api=1&query=%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB%E6%88%90%E7%94%B0","青山一丁目站":"https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E5%B1%B1%E4%B8%80%E4%B8%81%E7%9B%AE%E9%A7%85","原宿站":"https://www.google.com/maps/search/?api=1&query=%E5%8E%9F%E5%AE%BF%E9%A7%85","澀谷站":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85","麺 みつヰ":"https://www.google.com/maps/search/?api=1&query=%E9%BA%BA%20%E3%81%BF%E3%81%A4%E3%83%B0%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E5%AF%BF2-9-15","天麩羅秋光":"https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E9%BA%A9%E7%BE%85%20%E7%A7%8B%E5%85%89%20%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97"};
+  const revisedDailyCopy = {
+  1:[
+    ['晚午餐｜野口鮮魚店','以 16:00 入店為目標，A 組 3 人可接受分桌。不可預約；候位最多 45 分鐘，17:00 仍未入座或售罄，就改 CHICO。'],
+    ['點心｜塩パン屋 パンメゾン','野口鮮魚店後順路買鹽可頌。依食量與時間決定，不特別排隊；晚午餐延誤就略過。'],
+    ['彈性散步｜淺草橋','銀杏岡八幡神社 → シモジマ淺草橋本店。只在晚午餐順利、還有餘裕時前往；不用為了這一段壓縮點燈與晚餐。'],
+    ['夜晚點燈｜日比谷・丸之內','從日比谷公園出發，沿丸之內仲通り走到東京車站丸之內廣場。先看夜景，再留時間前往淺草與 B 組會合。'],
+    ['晚餐｜鳥貴族 淺草店','21:30 已訂位，A＋B 組共 5 位成人。A 組先憑訂位信報到；B 組放好行李後加入，延誤時先通知同行者與餐廳。']
+  ],
+  2:[
+    ['早餐｜三軒茶屋 nukumuku','買手作麵包，建議外帶。若美登利尚未訂妥，取號代表直接去梅丘，不必繞來早餐店。'],
+    ['上午｜豪德寺','參拜與拍招福貓，約停留 30 分鐘；勿觸碰奉納招福貓。取號代表略過這一站，其餘人隨後前往梅丘會合。'],
+    ['彈性點心｜RARASAND／IRON COFFEE','先到美登利會合，確認叫號還早、離開不會過號，才擇一購買；時間緊就直接等候午餐。'],
+    ['午餐｜梅丘寿司の美登利 総本店','依叫號入店。代表目標 09:40 到店、10:00 取 5 人號碼，詢問拆桌與過號規則；13:00 還未入座就改午餐備案。'],
+    ['下午購物｜新宿','梅丘搭車到新宿，依序逛 Bic Camera 新宿東口店、Alpen TOKYO。午餐較晚結束，就縮短購物，不壓縮回程。'],
+    ['晚餐｜一蘭 新宿歌舞伎町店','Alpen TOKYO 後前往。24 小時營業、以單人吧台為主，5 人可分批入座；候位超過 45 分鐘就改店。']
+  ],
+  3:[
+    ['自由選線 → 晴空塔','A、B 組上午二選一：谷根千走根津神社、蛇道與谷中銀座；京島・向島走麵包咖啡散步。最晚 12:15 離開，13:00 起在晴空塔購物與休息，傍晚到晚餐店會合。'],
+    ['晚餐會合｜大東縁','預計 17:30，全團 7 位成人會合。C 組先放好行李再加入；7 人座位、當天營業與不吃牛肉 2 位的餐點仍須電話確認，尚未訂妥。']
+  ],
+  4:[
+    ['出發｜本所吾妻橋 → 青山一丁目','搭車約 29 分鐘、原行程車資約 ¥320；出站後步行約 5 分鐘到銀杏大道。出發前先整理好當日要隨身帶的物品。'],
+    ['上午｜明治神宮外苑銀杏大道','先拍團體照，再自由散步拍攝；人潮多就縮短停留。接著往表參道、原宿，不再回頭。'],
+    ['逛街｜表參道・原宿','KIDDY LAND 原宿店、NUMBER SUGAR由各組自選。午餐依店別調整先後，分組前先約好會合時間，吃完直接往澀谷。'],
+    null,
+    ['步行往澀谷｜午餐後直接會合','Sweet Check 組先吃再逛原宿；BASO／麺散組先逛再吃。之後直接往 FREAK’S STORE，沿貓街、宮下公園順走，不回 KIDDY LAND 集合。'],
+    ['澀谷第一站｜FREAK’S STORE Shibuya','神南 1-13-1，目前週二 12:00–20:00。依約定時間在這裡會合；宮下公園只沿途順逛，不另外繞路。'],
+    ['下午購物｜澀谷 PARCO','從 FREAK’S STORE 步行前往，先逛想去的樓層，再到 B1 晚餐。一般商店 11:00–21:00，個別店舖時間不同。'],
+    null,
+    ['選逛｜MEGA 唐吉訶德 澀谷本店','晚餐後依時間與體力前往。極味屋候位太久就略過，直接去車站；不為補買東西再折返 PARCO。'],
+    ['回程集合｜澀谷站八公口','先約好時間，在站外點名後一起入站，返回本所吾妻橋民宿。有人先回去，須在群組回報。']
+  ],
+  5:[
+    ['早餐｜Mūya','吐司與咖啡，店舖目前列 08:00–18:00。早餐後沿隅田川一帶往淺草方向散步，保留後續參拜與午餐時間。'],
+    ['淺草散步｜神社與寺院','今戶神社 → 待乳山聖天 → 淺草寺参道。依體力參拜與拍照，接近午餐時間就縮短停留，不壓到 12:00 訂位。'],
+    ['小吃｜花月堂・壽壽喜園・龜十','菠蘿麵包、抹茶冰淇淋、銅鑼燒依食量擇一或分享，不必三家全排；牛舌午餐的 5 位先準時到餐廳。'],
+    null,
+    ['午餐後｜淺草自由活動','兩組用餐後在淺草會合，附近自由逛街。今天不去阿美橫丁，約 15:30 回民宿集合。'],
+    ['回民宿｜放物品、休息','把購物袋與不需要的物品留在東京民宿，休息到約 16:30，再一起出發去日比谷。'],
+    ['外帶甜點｜PATISSERIE TEN&','日比谷 OKUROJI 短停外帶，週三外帶時段目前列 17:30–20:00。買完就往六本木，不安排 7 人內用。'],
+    ['甜點｜HARBS 六本木 Hills 店','有空位就內用，滿席或候位太久改外帶；不能預約座位。蛋糕與飲品 19:30 最後點餐、20:00 打烊，傍晚不安排主餐。'],
+    ['夜晚｜六本木新城聖誕市集','從 HARBS 步行到大屋頂廣場。行程所列市集 11/21–12/25、11:00–21:00；另留晚餐時間，優先確認不吃牛肉 2 位的餐點。']
+  ],
+  6:[
+    ['東京出發｜SPACIA X','首選 3 號：淺草 09:00／晴空塔 09:03 → 日光 10:50；備選 5 號：10:00／10:03 → 11:49。班次與上車站以實際車票為準。'],
+    ['列車體驗｜7 人 Cockpit Suite','預計購買 6 號車的 7 人包廂，全列車僅 1 室、約 11㎡。這是規劃中的席種，尚未視為訂妥；先確認票券再依車廂對號入座。'],
+    ['抵達日光｜站前點心與午餐','日光さかえや在東武日光站旁，可買現炸揚湯波饅頭。午餐先備車上簡餐或站前備案；搭 5 號較晚到，就避免長時間候位。'],
+    ['下午｜神橋・東照宮・入住','先處理行李，約 13:00 看神橋、13:30–15:30 參拜東照宮，16:00–16:30 入住民宿。以東照宮為主要參拜點，不連續排多座寺社。']
+  ],
+  7:[
+    ['上午上山｜華嚴瀑布・中禪寺湖','07:50 前離開民宿、08:10 前到站，以 08:35 巴士為候選。華嚴瀑布約 09:20–10:30，湖畔 10:30–11:30，11:35–12:25 湖區午餐；依天候彈性調整。'],
+    ['午後下山｜市區慢遊','13:30 前回乘車處排隊，首選 13:55 下山、約 14:31 到東武日光站。回到市區散步休息；天氣好且有體力，才加憾滿之淵，15:30 前結束。'],
+    ['晚餐與整理｜日光民宿','晚餐店家仍待決定，先確認 7 人座位與不吃牛肉選項，並準備外帶備案。餐後整理行李，隔天 08:00 包車出發。']
+  ],
+  8:[
+    ['日光 → 成田｜已訂包車','07:45 前完成退房與點名，08:00 出發。7 位成人、Toyota Hiace 10 人座 1 台，車資已付；抵達 Richmond Hotel Narita 後先寄放行李。'],
+    ['午餐｜成田山表參道','川豐本店先抽號；候位過長或不吃鰻魚者改成田江戶人壽司。用餐後直接走表參道，不另繞遠路。'],
+    ['下午｜新勝寺・米屋','沿成田山表參道走到新勝寺大本堂，再到なごみの米屋。今天不把成田山公園列為主要行程，約 16:40 開始往京成成田站移動。'],
+    ['傍晚購物｜AEON MALL 成田','京成成田站 6 號搭付費直行巴士，去程主搭 17:15／17:47，延誤可改 18:30。成人單程 ¥220、可用 IC 卡，前門上車先付。回程星巴克前 20:28／Mall East 20:29；逛到專門店 21:00 閉店，可改搭 21:05／21:06，先約好上車站。']
+  ],
+  9:[
+    ['飯店 → 成田 T2｜機場接駁','08:20 搭飯店接駁，約 08:40 抵達 T2。先完成航空報到、行李與需在托運前處理的程序，再依剩餘時間購物。'],
+    ['伴手禮｜安檢前、後分區買','先看本館 4F 安檢前，再到本館 3F 安檢後 Fa-So-La 補齊。PRESS BUTTER SAND、PISTA & TOKYO、桂新堂與 S’more 依清單選購。'],
+    ['返台｜核對自己的航班','A、C 組台灣虎航 13:00 起飛；B 組中華航空 17:45 起飛。依航空公司通知確認報到、登機時間與登機門，購物不能壓到登機。']
+  ]
+};
+  function applyRevisedDailyCopy() {
+    if(state.view!=='days' || (state.group==='B' && state.day===1) || (state.group==='C' && state.day===3))return;
+    const copies=revisedDailyCopy[state.day];
+    if(!copies)return;
+    const stops=[...main.querySelectorAll('.stop-content')];
+    // Copy follows the same ordered stop list used by the independent preview.
+    if(stops.length!==copies.length)return;
+    stops.forEach((stop,i)=>{
+      const copy=copies[i];if(!copy)return; // Keep split-meal cards in their existing layout.
+      const keep=[...stop.children].filter(e=>e.matches('.schedule-toggle,.schedule-time,.schedule-detail-body'));
+      const summary=stop.cloneNode(true);
+      summary.querySelectorAll('.schedule-toggle,.schedule-time,.schedule-detail-body').forEach(e=>e.remove());
+      const links=[],seen=new Set();
+      summary.querySelectorAll('a[href]').forEach(a=>{
+        const href=a.getAttribute('href');if(seen.has(href))return;seen.add(href);links.push(a.cloneNode(true));
+      });
+      for(const node of [...stop.childNodes])if(!keep.includes(node))node.remove();
+      const content=document.createElement('div');
+      const title=document.createElement('strong');title.textContent=copy[0];content.append(title);
+      const description=document.createElement('p');description.textContent=copy[1];content.append(description);
+      if(links.length){const row=document.createElement('p');links.forEach((a,j)=>{if(j)row.append(document.createTextNode('　'));row.append(a);});content.append(row);}
+      const detail=stop.querySelector('.schedule-detail-body');detail?detail.before(content):stop.append(content);
+      stop.dataset.revisedCopy='true';
+    });
+  }
+  const dailyAccessNotes = {
+    1:['民宿放妥行李後前往野口鮮魚店，位置可點地圖查看。','由野口鮮魚店順路前往塩パン屋 パンメゾン；不另排繞路行程。','由本所吾妻橋往淺草橋，依序走銀杏岡八幡神社、シモジマ；再往日比谷。','抵達日比谷公園後，沿丸之內仲通り步行至東京車站丸之內廣場。','看完點燈後返回淺草；A 組先到鳥貴族報到，B 組從民宿加入。'],
+    2:['取號代表直接前往梅丘；其他人到三軒茶屋 nukumuku 買早餐。','早餐後前往豪德寺；參拜後往梅丘美登利會合，取號代表不繞來。','先回美登利確認叫號；有餘裕才到 RARASAND 或 IRON COFFEE。','在梅丘美登利總本店會合；代表先取全組 5 人號碼。','用餐後從梅丘搭車到新宿；依序走 Bic Camera 新宿東口店、Alpen TOKYO。','從 Alpen TOKYO 前往一蘭新宿歌舞伎町店，用餐後返回民宿。'],
+    3:['上午先選谷根千或京島・向島其中一路；兩路之後都前往晴空塔，傍晚再到大東縁。','A、B 組從晴空塔前往；C 組抵達東京民宿、放妥行李後到餐廳會合。'],
+    4:['本所吾妻橋 → 青山一丁目，出站後步行到明治神宮外苑銀杏大道。','沿銀杏大道散步拍照，接著朝表參道、原宿前進。','銀杏大道 → 表參道 → 原宿；依午餐店別安排購物先後。','三間午餐是選項，不需要全部走訪；先確認各組店家與餐後集合方式。','午餐後朝澀谷前進，沿貓街、宮下公園順走至 FREAK’S STORE，不回原宿集合。','在 FREAK’S STORE Shibuya 會合，之後一起往 PARCO。','FREAK’S STORE → 澀谷 PARCO；先逛選定樓層，再到 B1。','晚餐在 PARCO B1 分組；吃牛肉 5 位與不吃牛肉 2 位各自用餐後會合。','從 PARCO 前往 MEGA 唐吉訶德；若候位耽誤，就直接往澀谷站。','到澀谷站八公口站外點名，確認人齊後一起進站回民宿。'],
+    5:['早餐後沿隅田川一帶往淺草散步。','今戶神社 → 待乳山聖天 → 淺草寺参道，接近午餐時間就縮短停留。','淺草散步時順路買小吃，不必三家全排。','午餐分兩組前往各自店家；吃完先在淺草會合。','兩組在淺草會合後附近自由逛街，再回東京民宿；不去阿美橫丁。','淺草 → 東京民宿，先放物品與休息，再出發往日比谷。','東京民宿 → 日比谷 OKUROJI，TEN& 外帶後直接往六本木。','日比谷 → 六本木 Hills，先到 HARBS 詢問座位。','HARBS → 六本木新城大屋頂廣場；市集與周邊點燈採步行串聯。'],
+    6:['依實際車票從淺草或東京晴空塔站上車；抵達東武日光後再展開市區行程。','核對車票上的班次、上車站、車廂與座位，依票入座。','東武日光站前購買點心或午餐；先確認行李如何寄放。','處理行李後往神橋、東照宮；參拜後到日光民宿辦理入住。'],
+    7:['民宿 → 巴士站 → 華嚴瀑布 → 中禪寺湖；湖區用午餐後回下山乘車處。','在湖區乘車處提早候車返回日光市區；憾滿之淵僅在天候與體力許可時加走。','市區晚餐後回民宿整理行李，準備隔日包車接送。'],
+    8:['日光民宿上車，搭已訂包車到 Richmond Hotel Narita；先寄放行李。','由飯店往成田山表參道，先確認川豐抽號與候位情況。','沿表參道到新勝寺大本堂，再逛なごみの米屋；之後往京成成田站。','京成成田站 6 號乘付費直行巴士到 AEON MALL；回程先確認星巴克前或 Mall East 上車站。'],
+    9:['前晚先登記飯店接駁；早上搭車到成田 T2，依各組航空公司找報到櫃檯。','安檢前與後分區採買；先完成需要在托運前處理的購物事項。','通過安檢後，依當天航班資訊前往正確登機門。']
+  };
+  function organizeDailyDetails() {
+    if(state.view!=='days')return;
+    const shared=!(state.group==='B'&&state.day===1)&&!(state.group==='C'&&state.day===3);
+    main.querySelectorAll('.stop-content').forEach((stop,i)=>{
+      const copy=shared?revisedDailyCopy[state.day]?.[i]:null;
+      let detail=stop.querySelector('.schedule-detail-body');
+      const time=stop.querySelector('.schedule-time');
+      if(!time)return;
+      const summary=stop.cloneNode(true);summary.querySelectorAll('.schedule-detail-body,.schedule-toggle,.schedule-time').forEach(e=>e.remove());
+      const text=copy?.[1]||summary.textContent.trim();
+      const access=shared?dailyAccessNotes[state.day]?.[i]:null;
+      if(!detail){detail=document.createElement('div');detail.className='document schedule-detail-body';detail.id=`slot-detail-${state.day}-${i}`;detail.hidden=true;stop.append(detail);}
+      // Preserve existing station-by-station and alternative-route instructions.
+      const briefing=document.createElement('section');briefing.className='supplement-section';
+      const heading=document.createElement('h3');heading.textContent='交通與補充細節';briefing.append(heading);
+      const facts=document.createElement('dl');facts.className='table-card';
+      const sentences=text.match(/[^。！？；]+[。！？；]?/g)||[text];
+      const isCaution=s=>/勿|不可|不能|不接受|尚未|待確認|候位|延誤|略過|確認|以.*為準|最晚|訂位|分桌/.test(s);
+      const cautions=sentences.filter(isCaution).join('');
+      const order=sentences.filter(s=>!isCaution(s)).join('');
+      const rows=[['怎麼去',access],['走訪順序',copy?order:null],['停留時間',time.textContent.trim()],['注意事項',cautions||'依當天抵達時間與體力調整；有變動時先通知同行者。']];
+      rows.forEach(([label,value])=>{if(!value)return;const row=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;row.append(dt,dd);facts.append(row);});
+      briefing.append(facts);detail.prepend(briefing);
+      let toggle=stop.querySelector('.schedule-toggle');
+      if(!toggle){toggle=document.createElement('button');toggle.type='button';toggle.className='schedule-toggle';toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls',detail.id);time.before(toggle);toggle.append(time);const label=document.createElement('span');label.className='schedule-toggle-label';label.innerHTML='詳細行程 <span aria-hidden="true">＋</span>';toggle.append(label);}
+      detail.id=`revised-detail-${state.group}-${state.day}-${i}`;
+      toggle.setAttribute('aria-controls',detail.id);
+    });
+  }
   function polishDailyLinks() {
     const makeMap=(name,url)=>{const a=document.createElement('a');a.href=url;a.textContent=name;a.target='_blank';a.rel='noopener noreferrer';a.title='開啟 Google Maps';return a;};
     const joinFlight=e=>{for(const br of [...e.querySelectorAll('br')]){const before=br.previousSibling?.textContent?.trim()||'',after=br.nextSibling?.textContent?.trim()||'';if(/(?:台灣虎航|中華航空|樂桃航空|Peach)$/.test(before)&&/^(?:IT|CI|MM)\s?\d{2,4}/.test(after))br.replaceWith(document.createTextNode('  '));}};
@@ -1196,6 +1327,8 @@
     main.innerHTML = content+`<p class="status" role="status">${statusText()}</p>`;
     applyWordModel();
     compactDailyPresentation();
+    applyRevisedDailyCopy();
+    organizeDailyDetails();
     polishDailyLinks();
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
