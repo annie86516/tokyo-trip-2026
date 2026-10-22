@@ -582,6 +582,3 @@ input,select,textarea{font-size:14px!important}
 :host .document .transit-wayfinding .table-card>div{display:block;padding:12px 0}
 :host .document .transit-wayfinding dt{font-weight:bold;margin-bottom:6px;color:#657675}
 :host .document .transit-wayfinding dd{margin:0}
-
-/* Beginner guidance, matching the shared 13 px body scale. */
-.beginner-note{margin:0 0 18px;padding:14px 16px;border:1px solid #e6d6ba;border-left:3px solid #b07a3e;border-radius:12px;background:#fff8ec;font-size:13px;line-height:1.85;color:#5b4530}.beginner-note>b{font-size:14px}.beginner-note p{margin:6px 0 8px}.beginner-note a,.beginner-entry a{display:inline-flex;align-items:center;min-height:44px;font-size:13px}.beginner-entry h2{font-size:14px}.beginner-entry p{font-size:13px;line-height:1.85}
