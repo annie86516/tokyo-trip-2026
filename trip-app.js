@@ -13,6 +13,11 @@
     nikko:{label:'日光',id:'stay-nikko',image:'./stay-nikko.jpg',alt:'日光山景包棟民宿的和室空間',source:'https://www.airbnb.com/rooms/52815877'},
     narita:{label:'成田',id:'stay-narita',image:'./stay-narita.jpg',alt:'成田里士滿飯店外觀',source:'https://richmondhotel.jp/narita/'}
   };
+  const STAY_DIRECTIONS = {
+    tokyo:{name:'東京民宿',destination:'4-21-4 Higashikomagata, Sumida City, Tokyo 130-0005, Japan'},
+    nikko:{name:'日光民宿',destination:'1-687-1 Inarimachi, Nikko, Tochigi 321-1411, Japan'},
+    narita:{name:'成田飯店',destination:'Richmond Hotel Narita, 970 Hanasakicho, Narita, Chiba, Japan'}
+  };
   const icon = name => {
     const paths = {
       calendar:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18M7 15h2m4 0h2m-8 3h2"/>',
@@ -187,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261023-itinerary-copy', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261023-practical-tools', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -223,6 +228,18 @@
       <p><strong>Android</strong><br/>用 Chrome 開啟此網站 → 選單 →「安裝應用程式」或「加到主畫面」。</p>
       <p>第一次請保持連線，等頁尾顯示「行程已可離線閱讀」。地圖與外部網站仍需網路。</p>
       <button type="button" data-action="native-install" hidden>安裝楓葉之旅</button>
+    </dialog>
+    <dialog id="food-phrase-dialog" class="food-phrase-dialog" aria-labelledby="food-phrase-title">
+      <button type="button" class="dialog-close" data-action="close-food-card" aria-label="關閉不吃牛肉日文卡">×</button>
+      <h2 id="food-phrase-title">不吃牛肉日文卡</h2>
+      <p class="phrase-caption">點餐時可直接出示這段日文</p>
+      <div class="phrase-japanese" lang="ja">
+        <p>牛肉を食べない者が2名います。</p>
+        <p>牛肉・牛骨だし・牛脂を使っていない料理はありますか？</p>
+        <p>スープやソース、具材にも入っていないか、確認していただけますか？</p>
+      </div>
+      <p class="phrase-translation">我們有兩位不吃牛肉。請問有不使用牛肉、牛骨高湯、牛脂的料理嗎？也請幫忙確認湯、醬汁和配料。</p>
+      <button type="button" class="phrase-done" data-action="close-food-card">關閉</button>
     </dialog>`;
   root.append(shell);
   if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) {
@@ -268,7 +285,7 @@
       3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
       4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:00–14:15（與午餐調整順序）'),suggested('11:00–14:15 午餐三選一'),suggested('14:15–14:45 步行往澀谷'),suggested('14:45–15:30 FREAK\'S STORE'),suggested('15:30–17:00 澀谷 PARCO'),suggested('17:00–19:00 PARCO B1 分開晚餐・依候位'),suggested('19:00–20:00 唐吉訶德選逛'),suggested('依集合時間返回民宿')],
       5:[suggested('09:00–09:45'),suggested('10:00–11:30'),suggested('12:00–14:00（檸檬 5 位已訂；另 2 位自由用餐）'),suggested('午餐後順逛'),suggested('14:00–15:30 淺草自由活動'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 TEN& 外帶（建議）'),suggested('18:30–19:20 HARBS（有位內用／否則外帶）'),suggested('19:20 起 六本木新城聖誕市集・大屋頂廣場')],
-      6:[fixed('晴空塔 09:03 或 10:03','候選列車班次・上車站以車票為準'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00 神橋；13:30–15:30 東照宮；16:00–16:30 入住')],
+      6:[fixed('晴空塔 09:03 或 10:03','候選列車班次・上車站以車票為準'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00 神橋；13:30–15:30 東照宮；取件後約 16:30 入住')],
       7:[suggested('07:50 前出發；華嚴瀑布與中禪寺湖'),suggested('13:55 下山 → 14:31 回站；市區慢遊／憾滿選逛'),suggested('17:30–18:30')],
       8:[fixed('08:00','已訂包車・建議 07:45 完成退房並集合'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
       9:[suggested('08:20（前晚登記座位）'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
@@ -432,10 +449,29 @@
       <section class="weather-section" aria-label="當日行程天氣"><p>天氣資料載入中；尚未提供的預報不會以目前天氣代替。</p></section>
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
       <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div></aside>
-      <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${custom}${list(items, extras)}${dayResources()}
+      <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${custom}${list(items, extras)}${dayPracticalInfo()}${dayResources()}${dayQuickActions()}
       ${source.querySelector('.day-alert-grid') ? `<div class="document">${readable(source.querySelector('.day-alert-grid'))}</div>` : ''}
 
       <div class="day-footer"><button type="button" data-day="${state.day-1}" ${state.day===firstDay()?'disabled':''}>← 前一天</button><span>DAY ${String(state.day).padStart(2,'0')} / 09</span><button type="button" data-day="${state.day+1}" ${state.day===9?'disabled':''}>後一天 →</button></div></section></div>`;
+  }
+  function practicalDetail(key) {
+    const source = $('#'+key);
+    return source ? detail(source.querySelector('h2').textContent, source, key) : '';
+  }
+  function dayPracticalInfo() {
+    if(state.day===6) return practicalDetail('nikko-luggage-info');
+    if(state.day===8 || state.day===9) return practicalDetail('narita-shuttle-fallback');
+    return '';
+  }
+  function foodCardButton() {
+    return '<button type="button" data-action="food-card" aria-haspopup="dialog">不吃牛肉日文卡</button>';
+  }
+  function dayQuickActions() {
+    const key = state.day<=5?'tokyo':state.day<=7?'nikko':state.day===8?'narita':null;
+    const stay = key && STAY_DIRECTIONS[key];
+    const url = stay ? 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(stay.destination) : '';
+    const home = stay ? '<a href="'+url+'" target="_blank" rel="noopener noreferrer" aria-label="回'+stay.name+'，開啟 Google 地圖路線">'+icon('pin')+'回住宿｜'+stay.name+' ↗</a>' : '';
+    return '<nav class="trip-quick-actions" aria-label="旅途快捷功能">'+home+foodCardButton()+'</nav>';
   }
   function dayResources() {
     const resources = state.day===6||state.day===7 ? [['./site-two/index.html','日光巴士：站牌、班次與票券']] : state.day===9 ? [['./?view=airport','機場購物：安檢前／後分區'],['./site-four/index.html','成田入境與 Skyliner 交通']] : state.day===1||state.day===3 ? [['./site-four/index.html','成田入境與 Skyliner 交通']] : [];
@@ -451,11 +487,11 @@
     const rail = $('.narita-combined-table').cloneNode(true);
     rail.querySelectorAll('tbody').forEach(body=>{ if(!body.classList.contains('group-'+state.group.toLowerCase())) body.remove(); });
     const wrap = document.createElement('div'); wrap.append(rail);
-    return `<div class="eyebrow">MY FLIGHTS</div><h1>${state.group} 組航班與交通</h1><p class="intro">只顯示本組班機與機場接駁資訊。</p>${flightPanel(departures,'去程')}${flightPanel(returns,'回程')}<div class="note">11/29 預計 08:20 搭飯店接駁到成田 T2，前晚登記座位；免稅品攜出確認須在托運前完成。</div><h2 class="section-label">成田 → 本所吾妻橋</h2><div class="document">${readable(wrap)}${readable($('.narita-prev-fare-wrap'))}</div><div class="resource-links"><a href="./site-four/index.html">成田入境、Skyliner 與青砥轉乘 ↗</a><a href="./?view=reserve">行前預約與票券 ↗</a></div>`;
+    return `<div class="eyebrow">MY FLIGHTS</div><h1>${state.group} 組航班與交通</h1><p class="intro">只顯示本組班機與機場接駁資訊。</p>${flightPanel(departures,'去程')}${flightPanel(returns,'回程')}<div class="note">11/29 預計 08:20 搭飯店接駁到成田 T2，前晚登記座位；免稅品攜出確認須在托運前完成。</div>${practicalDetail('narita-shuttle-fallback')}<h2 class="section-label">成田 → 本所吾妻橋</h2><div class="document">${readable(wrap)}${readable($('.narita-prev-fare-wrap'))}</div><div class="resource-links"><a href="./site-four/index.html">成田入境、Skyliner 與青砥轉乘 ↗</a><a href="./?view=reserve">行前預約與票券 ↗</a></div>`;
   }
   function stays() {
     const stay=STAY_INFO[state.stay], source=$('#'+stay.id);
-    return `<div class="eyebrow">OUR STAYS</div><h1>${stay.label}住宿</h1><p class="intro">使用下方按鈕切換東京、日光與成田。</p><article class="stay-focus"><figure class="stay-cover"><img src="${stay.image}" alt="${stay.alt}" fetchpriority="high"><figcaption>${stay.alt} · <a href="${stay.source}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a></figcaption></figure><div class="document stay-document">${readable(source,{omitTitle:true})}</div></article>`;
+    return `<div class="eyebrow">OUR STAYS</div><h1>${stay.label}住宿</h1><p class="intro">使用下方按鈕切換東京、日光與成田。</p><article class="stay-focus"><figure class="stay-cover"><img src="${stay.image}" alt="${stay.alt}" fetchpriority="high"><figcaption>${stay.alt} · <a href="${stay.source}" target="_blank" rel="noopener noreferrer">查看來源 ↗</a></figcaption></figure><div class="document stay-document">${readable(source,{omitTitle:true})}</div></article>${state.stay==='nikko'?practicalDetail('nikko-luggage-info'):state.stay==='narita'?practicalDetail('narita-shuttle-fallback'):''}`;
   }
   function moneyView() {
     return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">先選付款者、勾選分擔者，再設定平均或自訂金額；所有紀錄都列在「全部項目」。要結算時再按下計算，查看精簡的轉帳清單；日圓依每筆匯率換算成台幣。</p><div class="money-app"></div>`;
@@ -471,13 +507,13 @@
     const content=state.bookingDay===1?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已訂位</span></div><h2>鳥貴族 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>21:30</strong></div><div><span>人數</span><strong>5 位成人</strong></div><div><span>同行</span><strong>A＋B 組</strong></div><div><span>訂位姓名</span><strong>請見私人訂位信</strong></div></div><p>訂位已確認。A 組可先憑私人訂位信上的姓名報到入座；B 組抵達後加入。若 B 組交通延誤，請盡早通知店家。</p><a href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" target="_blank" rel="noopener noreferrer">開啟鳥貴族淺草店地圖 ↗</a></article>`
       :state.bookingDay===5?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 05 · 11/25（三）</span><span class="booking-status">已訂位 · 共 5 人</span></div><h2>牛たんの檸檬 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>12:00</strong></div><div><span>預約一</span><strong>3 人</strong></div><div><span>預約二</span><strong>2 人</strong></div></div><div class="booking-codes"><div><span>3 人訂位代碼</span><strong>請見私人訂位信</strong><small>訂位姓名：請見私人訂位信</small></div><div><span>2 人訂位代碼</span><strong>請見私人訂位信</strong><small>訂位姓名：請見私人訂位信</small></div></div><p>兩筆各停留 1 小時，分別報上代碼；能否安排相鄰座位依店家現場為準。3 人訂位為禁菸桌；2 人訂位未指定座位。</p><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">開啟淺草店地圖 ↗</a></article>`
       :`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 08 · 11/28（六）</span><span class="booking-status">已訂妥 · 已付款</span></div><h2>盛沺包車｜日光民宿 → Richmond Hotel Narita</h2><div class="booking-facts"><div><span>上車時間（日本時間）</span><strong>08:00</strong></div><div><span>人數</span><strong>7 位成人</strong></div><div><span>車輛</span><strong>Toyota Hiace 10 人座 × 1</strong></div><div><span>預約人</span><strong>請見包車憑證 PDF</strong></div><div><span>訂單編號</span><strong>請見包車憑證 PDF</strong></div></div><div class="booking-followup"><strong>上車地點</strong><p>1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411</p><strong>下車地點</strong><p>Richmond Hotel Narita</p><p>憑證註明：乘客需備妥護照與憑證；上車前請主動聯絡司機確認等候位置。司機資訊預計前一天透過 WeChat／WhatsApp 提供，請允許好友邀請。</p><p>出發前將原始接送憑證 PDF 存到手機，搭車時出示。</p><div class="action-row"><a href="./assets/nikko-narita-transfer-voucher-2026-11-28.pdf" target="_blank" rel="noopener noreferrer">開啟盛沺包車憑證 PDF ↗</a><a href="./assets/nikko-narita-transfer-voucher-2026-11-28.pdf" download="nikko-narita-transfer-voucher-2026-11-28.pdf">下載原始憑證</a></div></div><div class="booking-followup"><strong>另有待辦｜11/29 飯店機場接駁</strong><p>全團 7 人預計搭 08:20 班次，約 08:40 抵達成田 T2；此為飯店接駁，尚未登記。11/28 入住後立即替 7 人登記並確認集合位置。08:15 前上車，沒有出發廣播；每人限 1 件行李箱，超額行李須先詢問飯店。</p><a href="https://richmondhotel.jp/narita/access/" target="_blank" rel="noopener noreferrer">Richmond 官方交通與接駁 ↗</a></div></article>`;
-    return `<div class="eyebrow">CONFIRMED BOOKINGS</div><h1>已預約資料</h1><p class="intro">已確認的訂位與已付款接送集中在這裡；選日期即可查看時間、人數及現場資訊；餐廳訂位姓名與代碼請另存私人備忘或訂位信；第 8 天盛沺包車卡片可開啟、下載原始接送憑證。</p>${bookingNavigation()}<div class="booking-content">${content}</div>`;
+    return `<div class="eyebrow">CONFIRMED BOOKINGS</div><h1>已預約資料</h1><p class="intro">已確認的訂位與已付款接送集中在這裡；選日期即可查看時間、人數及現場資訊；餐廳訂位姓名與代碼請另存私人備忘或訂位信；第 8 天盛沺包車卡片可開啟、下載原始接送憑證。</p>${bookingNavigation()}<div class="booking-content">${content}</div>${state.bookingDay===8?practicalDetail('narita-shuttle-fallback'):''}`;
   }
   function dayNavigation(lastDay = 9) {
     return `<nav class="day-rail" aria-label="選擇行程日期">${Array.from({length:lastDay+1-firstDay()},(_,i)=>i+firstDay()).map(n=>`<button class="day-button" type="button" data-day="${n}" aria-label="第 ${n} 天，11 月 ${20+n} 日" aria-pressed="${n===state.day}"><span>DAY ${String(n).padStart(2,'0')}</span><b>${20+n}</b><small>11月・${['六','日','一','二','三','四','五','六','日'][n-1]}</small></button>`).join('')}</nav>`;
   }
   function restaurants() {
-    return `<div class="eyebrow">TOKYO FOOD GUIDE</div><h1>餐廳攻略</h1><p class="intro">選擇日期，查看當天的店面、招牌餐點、營業與候位提醒。</p>${dayNavigation(8)}<div class="supplement-root" data-supplement="restaurants"><section class="panel supplement-loading">正在整理餐廳攻略…</section></div>`;
+    return `<div class="eyebrow">TOKYO FOOD GUIDE</div><h1>餐廳攻略</h1><p class="intro">選擇日期，查看當天的店面、招牌餐點、營業與候位提醒。</p>${dayNavigation(8)}<nav class="trip-quick-actions" aria-label="點餐輔助">${foodCardButton()}</nav><div class="supplement-root" data-supplement="restaurants"><section class="panel supplement-loading">正在整理餐廳攻略…</section></div>`;
   }
   function airportGuide(doc, baseUrl) {
     const zones={before:'安檢前 · 4F',after:'安檢後 · 3F',check:'店況待確認'};
@@ -507,10 +543,11 @@
   }
   function guide() {
     const sections = [
+      ['交通與寄物',['nikko-luggage-info','narita-shuttle-fallback']],
       ['行前準備',['packing-list-1','packing-list-2']],
       ['退稅與寄件',['tax-refund','japan-post-domestic-1']]
     ];
-    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">行李清單、機場交通、退稅與寄件資料。</p><nav class="resource-links" aria-label="完整交通資料"><a href="./site-two/index.html">日光巴士完整攻略 ↗</a><a href="./site-four/index.html">成田入境與 Skyliner 交通 ↗</a></nav>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
+    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">行李清單、機場交通、退稅與寄件資料。</p><nav class="resource-links" aria-label="完整交通資料"><a href="./site-two/index.html">日光巴士完整攻略 ↗</a><a href="./site-four/index.html">成田入境與 Skyliner 交通 ↗</a></nav><nav class="trip-quick-actions" aria-label="點餐輔助">${foodCardButton()}</nav>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
   }
   const couponItems = {
   "bic": {
@@ -1300,7 +1337,7 @@
     ],
     [
       "下午｜神橋・東照宮",
-      "寄放行李 → 約 13:00 神橋 → 13:30–15:30 東照宮 → 16:00–16:30 民宿入住。東照宮 16:00 關門，最後入場 15:30。"
+      "寄放行李 → 約 13:00 神橋 → 13:30–15:30 東照宮 → 取件後約 16:30 入住。Yamato／mekke 最晚 17:00 取件；行李已放民宿就直接回去。東照宮 16:00 關門，最後入場 15:30。"
     ]
   ],
   "7": [
@@ -1381,7 +1418,7 @@
     3:['上午先選谷根千或京島・向島其中一路；兩路之後都前往晴空塔，傍晚再到大東縁。','A、B 組從晴空塔前往；C 組抵達東京民宿、放妥行李後到餐廳會合。'],
     4:['本所吾妻橋 → 青山一丁目，出站後步行到明治神宮外苑銀杏大道。','沿銀杏大道散步拍照，接著朝表參道、原宿前進。','銀杏大道 → 表參道 → 原宿；依午餐店別安排購物先後。','原宿、表參道午餐可參考這三家，當天再決定。','午餐後朝澀谷前進，沿貓街、宮下公園順走至 FREAK’S STORE，不回原宿集合。','在 FREAK’S STORE Shibuya 會合，之後一起往 PARCO。','FREAK’S STORE → 澀谷 PARCO；先逛選定樓層，再到 B1。','晚餐在 PARCO B1 分組；吃牛肉 5 位與不吃牛肉 2 位各自用餐後會合。','從 PARCO 前往 MEGA 唐吉訶德；若候位耽誤，就直接往澀谷站。','到澀谷站八公口站外點名，確認人齊後一起進站回民宿。'],
     5:['早餐後沿隅田川一帶往淺草散步。','今戶神社 → 待乳山聖天 → 淺草寺参道，接近午餐時間就縮短停留。','吃牛 5 人到牛舌店，另 2 人自由用餐；餐後在淺草會合。','午餐後在淺草順路買點心。','兩組在淺草會合後附近自由逛街，再回東京民宿；不去阿美橫丁。','淺草 → 東京民宿，先放物品與休息，再出發往日比谷。','東京民宿 → 日比谷 OKUROJI，TEN& 外帶後直接往六本木。','日比谷 → 六本木 Hills，先到 HARBS 詢問座位。','HARBS → 六本木新城大屋頂廣場；市集與周邊點燈採步行串聯。'],
-    6:['依實際車票從淺草或東京晴空塔站上車；抵達東武日光後再展開市區行程。','核對車票上的班次、上車站、車廂與座位，依票入座。','東武日光站前購買點心或午餐；先確認行李如何寄放。','處理行李後往神橋、東照宮；參拜後到日光民宿辦理入住。'],
+    6:['依實際車票從淺草或東京晴空塔站上車；抵達東武日光後再展開市區行程。','核對車票上的班次、上車站、車廂與座位，依票入座。','東武日光站前購買點心或午餐；民宿不能提前寄物時，先找站內 Yamato；詳細地點與取件時間見下方「日光行李寄放」。','寄好行李後往神橋、東照宮；參拜後先回寄物處取件，再到民宿。行李已放民宿則直接回去。'],
     7:['民宿 → 巴士站 → 華嚴瀑布 → 中禪寺湖；湖區用午餐後回下山乘車處。','在湖區乘車處提早候車返回日光市區；憾滿之淵僅在天候與體力許可時加走。','市區晚餐後回民宿整理行李，準備隔日包車接送。'],
     8:['日光民宿上車，搭已訂包車到 Richmond Hotel Narita；先寄放行李。','由飯店往成田山表參道，先確認川豐抽號與候位情況。','沿表參道到新勝寺大本堂，再逛なごみの米屋；之後往京成成田站。','京成成田站 6 號乘付費直行巴士到 AEON MALL；回程先確認星巴克前或 Mall East 上車站。'],
     9:['前晚先登記飯店接駁；早上搭車到成田 T2，依各組航空公司找報到櫃檯。','安檢前與後分區採買；先完成需要在托運前處理的購物事項。','通過安檢後，依當天航班資訊前往正確登機門。']
@@ -1541,6 +1578,8 @@
       try{await navigator.clipboard.writeText(template.textContent.trim());button.textContent='已複製';setTimeout(()=>{if(button.isConnected)button.textContent='複製';},1800);}
       catch{root.querySelector('#announcement').textContent='無法自動複製，請長按文字後複製。';}
     }
+    else if(button.dataset.action==='food-card') root.querySelector('#food-phrase-dialog').showModal();
+    else if(button.dataset.action==='close-food-card') root.querySelector('#food-phrase-dialog').close();
     else if(button.dataset.action==='install') { root.querySelector('dialog').showModal(); }
     else if(button.dataset.action==='close-install') root.querySelector('dialog').close();
     else if(button.dataset.action==='native-install' && pendingInstall) {
