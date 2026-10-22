@@ -5,7 +5,6 @@
   const places = {
     tokyo:{name:'東京',lat:35.6812,lon:139.7671},
     nikko:{name:'日光市區',lat:36.75,lon:139.6},
-    lake:{name:'中禪寺湖・華嚴瀑布',lat:36.738,lon:139.49},
     narita:{name:'成田',lat:35.776,lon:140.318}
   };
   const pending = new Map();
@@ -108,7 +107,7 @@
   }
   function render(container,day) {
     const date='2026-11-'+String(20+day);
-    const keys=day===7?['nikko','lake']:day===6?['nikko']:day>=8?['narita']:['tokyo'];
+    const keys=(day===6||day===7)?['nikko']:day>=8?['narita']:['tokyo'];
     container.replaceChildren();
     const heading=document.createElement('div'); heading.className='weather-heading';
     heading.append(line('weather-label','行程天氣'),line('weather-date',`11/${20+day} · 日本時間`));
@@ -124,7 +123,6 @@
       fill(card,key,date);
     }
     const note=document.createElement('p'); note.className='weather-credit';
-    if(day===7) note.append('山區與市區分開看；湖畔天氣可能不同。 ');
     note.append('預報可能變動 · 資料：');
     const link=document.createElement('a'); link.href='https://open-meteo.com/'; link.target='_blank'; link.rel='noopener noreferrer'; link.textContent='Open-Meteo';
     note.append(link); container.append(note);
