@@ -119,7 +119,7 @@
         clone.querySelector('table')?.before(arrivalMeal);
       }
     }
-    if (source.id === 'tax-vjw') {
+    if (source.id === 'tax-refund') {
       const note = clone.querySelector('.narita-box');
       if (note) note.textContent = `${state.group} 組：依第 9 天共同接駁安排前往成田 T2，托運前完成免稅品攜出確認；護照、商品、收據與退款說明放在方便取用的位置。`;
     }
@@ -187,7 +187,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261021-station-guide', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261022-beginner-guide', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -271,7 +271,7 @@
       6:[fixed('晴空塔 09:03 或 10:03','候選列車班次・上車站以車票為準'),suggested('搭車期間'),suggested('11:00–12:30（依班次）'),suggested('13:00 神橋；13:30–15:30 東照宮；16:00–16:30 入住')],
       7:[suggested('07:50 前出發；瀑布、湖畔與原午餐空檔'),suggested('13:55 下山 → 14:31 回站；市區慢遊／憾滿選逛'),suggested('17:30–18:30')],
       8:[fixed('08:00','已訂包車・建議 07:45 完成退房並集合'),suggested('13:00–14:30'),suggested('14:30–16:40'),fixed('去程 17:15／17:47；回程 20:28／20:29','行程所列巴士班次・行前確認')],
-      9:[fixed('08:20','飯店接駁・前一晚登記'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
+      9:[suggested('08:20（前晚登記座位）'),suggested(state.group==='B'?'11:30–12:30':'10:30–11:00'),fixed(state.group==='B'?'14:35':'13:00','回程航班起飛')]
     }[state.day] || [];
   }
   // Explicit mapping of detail rows to daily time slots (zero based).
@@ -422,7 +422,7 @@
     }
     if (state.day === 9) {
       const row = flightRow(returns,state.group);
-      items = items.map(html => html.includes('IT281') || html.includes('CI101') ? '<strong>行程流程：</strong>全體 08:20 飯店接駁（約 08:40 抵達 T2）→ 保留免稅品在身邊 → 托運前完成海關攜出確認 → 航空報到／托運。' : html);
+      items = items.map(html => html.includes('IT281') || html.includes('CI101') ? '<strong>行程流程：</strong>全體預計 08:20 飯店接駁（前晚登記座位，約 08:40 抵達 T2）→ 保留免稅品在身邊 → 托運前完成海關攜出確認 → 航空報到／托運。' : html);
       items.push(`<strong>${state.group} 組回程：</strong>${row.cells[3].innerHTML}<br/>${row.cells[1].innerHTML} → ${row.cells[2].innerHTML}`);
     }
     const date = source.querySelector('.day-date').textContent;
@@ -508,9 +508,9 @@
   function guide() {
     const sections = [
       ['行前準備',['packing-list-1','packing-list-2']],
-      ['退稅與寄件',['tax-vjw','japan-post-domestic-1']]
+      ['退稅與寄件',['tax-refund','japan-post-domestic-1']]
     ];
-    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">行李準備、退稅、寄件與完整交通資料集中在這裡。</p><nav class="resource-links" aria-label="完整交通資料"><a href="./site-two/index.html">日光巴士完整攻略 ↗</a><a href="./site-four/index.html">機場交通完整說明 ↗</a></nav>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
+    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">新手走法、行李準備、退稅、寄件與完整交通資料集中在這裡。</p><section class="panel beginner-entry"><span class="pill">2026/10/23 核對</span><h2>新手旅行指南</h2><p>先看待完成的預約，再照機場、搭車、每日安排與回程步驟走；每一天都有時間不夠時的備案。</p><p><a href="./beginner-guide/index.html">開啟完整旅行指南 ↗</a> · <a href="./beginner-guide/index.html#check">先處理這 6 件事</a></p></section><nav class="resource-links" aria-label="完整交通資料"><a href="./site-two/index.html">日光巴士完整攻略 ↗</a><a href="./site-four/index.html">機場交通完整說明 ↗</a></nav>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
   }
   const couponItems = {
   "bic": {
@@ -975,7 +975,7 @@
         [...doc.querySelectorAll('section.page')].filter(section=>['timeline','tickets','restaurants'].includes(section.id)).forEach((section,index)=>{
           const content=(section.querySelector('.content')||section).cloneNode(true);
           const heading=content.querySelector('h2');
-          if(section.id==='timeline') content.querySelectorAll('[data-task="vjw"]').forEach(task=>task.remove());
+
           if(section.id==='restaurants') {
             content.querySelectorAll('.restaurant-grid > article').forEach(card=>{
               const title=card.querySelector('h3')?.textContent||'';
@@ -1109,7 +1109,7 @@
   }
 
 
-  const dailyCompactPlan = {"append":[{"id":"WEB00041","day":1,"text":"彈性景點：淺草橋銀杏岡八幡神社、シモジマ","add":"時間不足時整段略過。"},{"id":"WEB00049","day":1,"text":"夜晚點燈：日比谷公園（11/13–11/29，09:00–21:00，免費、免預約）→ 丸之內仲通與2026「哈利波特・魔法之雪」（11/12–12/25）。丸之內活動官網 ↗","add":"沿丸之內仲通り點燈路線走到東京車站丸之內廣場。"},{"id":"WEB00095","day":2,"text":"上午景點：豪德寺（約 10:00–10:30）；未訂妥美登利時，直接到梅丘取號，略過早餐店與豪德寺","add":"勿觸碰奉納招福貓。"},{"id":"WEB00110","day":2,"text":"點心：RARASAND 實拍攻略 / IRON COFFEE 實拍攻略 （只在叫號較晚、全員已會合且時間足夠時擇一）","add":"先到美登利會合，確認不會過號才離開；否則略過。"},{"id":"WEB00118","day":2,"text":"午餐：梅丘寿司の美登利 総本店 實拍攻略 (週日 11:00–21:00、L.O.20:30 | 代表 09:40 到店、10:00 取 5 人號碼；實際依叫號)","add":"取號時詢問拆桌與叫號規則。"},{"id":"WEB00135","day":2,"text":"晚餐：一蘭 新宿歌舞伎町店 實拍攻略（24 小時營業｜25 個單人座位）","add":"Alpen TOKYO 後前往，A＋B 組 5 人可分批入座；候位超過 45 分鐘就改店。"},{"id":"WEB00279","day":4,"text":"上午景點：明治神宮外苑銀杏大道。人潮多時先拍團體照，再自由拍攝，之後前往表參道、原宿。","add":"人潮多時縮短停留。"},{"id":"WEB00287","day":4,"text":"表參道／原宿分組逛街：KIDDY LAND 原宿店、NUMBER SUGAR等由各組自選；依午餐店別調整先後，午餐後直接往澀谷，不再折返集合。","add":"分組前確認集合時間與出口。"},{"id":"WEB00321","day":4,"text":"步行往澀谷：午餐順序依選店調整：選 Sweet Check 時先用餐，再往西逛 KIDDY LAND；選 BASO／麺散時先逛 KIDDY LAND，再用餐。各組午餐後不回 KIDDY LAND，直接往 FREAK'S STORE Shibuya；BASO／麺散沿貓街南行，經宮下公園步行約 15–20 分鐘。","add":"Sweet Check 組依地圖走西南向路線。"},{"id":"WEB00338","day":4,"text":"澀谷 PARCO：從 FREAK'S STORE 步行前往 澀谷 PARCO（宇田川町 15-1）。先逛想去的樓層，再到 B1 晚餐；一般商店營業至 21:00，部分店家不同。","add":"一般商店 11:00 開店。"},{"id":"WEB00357","day":4,"text":"飯後購物：時間與體力允許再往 MEGA 唐吉訶德 澀谷本店；候位太久就跳過，直接到車站會合。","add":"不為購物折返 PARCO。"},{"id":"WEB00365","day":4,"text":"回程集合：先約好時間，在澀谷站八公口外集合；點名後一起入站，返回本所吾妻橋民宿。","add":"先回者在群組回報。"},{"id":"WEB00404","day":5,"text":"小吃美食：花月堂菠蘿麵包 實拍攻略、壽壽喜園抹茶冰淇淋 實拍攻略、龜十銅鑼燒 實拍攻略","add":"三家不必全排，保留午餐時間。"},{"id":"WEB00412","day":5,"text":"11/25 午餐｜分開用餐","add":"餐後兩組在淺草會合。"},{"id":"WEB00433","day":5,"text":"民宿休息：放物品、稍作休息，再一起出發。","add":"約 15:30 回民宿，休息至 16:30。"},{"id":"WEB00452","day":5,"text":"六本木 HARBS：再到 HARBS 六本木 Hills 店；座位不能預約，有位就內用、滿席直接外帶，不為等位耽誤市集。週三營業至 20:00，蛋糕／飲料最後點餐 19:30、餐點最後點餐 17:00；傍晚只安排蛋糕與飲料。","add":"TEN& 外帶與轉乘時間請抓彈性。"},{"id":"WEB00461","day":5,"text":"六本木聖誕市集：HARBS 後步行到六本木新城大屋頂廣場逛聖誕市集；2026 市集 11/21–12/25、11:00–21:00。活動官網 ↗晚餐建議（待選店）：在市集或六本木館內另留主餐時間；先確認不吃牛肉 2 位的選項。HARBS 傍晚只安排甜點，若時間不足，縮短甜點停留。","add":"交通或排隊延誤時，依實際時間調整停留。"},{"id":"WEB00477","day":6,"text":"SPACIA X 預計班次：3 號淺草 09:00／東京晴空塔 09:03 出發，10:50 抵達東武日光；或 5 號淺草 10:00／東京晴空塔 10:03 出發，11:49 抵達。實際上車站與班次以車票為準。","add":"優先選早班，保留抵達後緩衝。"},{"id":"WEB00499","day":6,"text":"抵達後點心：日光さかえや 揚げゆばまんじゅう本舗 實拍攻略 （東武日光站步行約 30 秒｜09:30–17:00、不定休）。可點：現炸揚げゆばまんじゅう；若當季供應，可加點日光天然冰 × 日光草莓刨冰。午餐建議（待選店）：先準備車上簡餐或站前用餐備案；搭 5 號 11:49 抵達時，避免長時間候位，保留寄物與下午東照宮時間。","add":"先確認隔天的天候、巴士運行及回程候選。"},{"id":"WEB00602","day":7,"text":"晚餐待確認：日光店家尚未選定；建議行前確認 7 人座位、營業時間與不吃牛肉的餐點，並準備外帶備案。","add":"餐後整理行李，隔天 08:00 包車接送出發。"},{"id":"WEB00701","day":8,"text":"主要景點：成田山表參道 → 新勝寺大本堂 → なごみの米屋；為保留購物時間，成田山公園不列入主要行程。","add":"16:40 左右開始往京成成田站移動。"},{"id":"WEB00709","day":8,"text":"傍晚購物：京成成田站 6 號搭付費直行巴士前往 AEON MALL；主搭 17:15／17:47，回程主搭 20:28（星巴克前）或 20:29（Mall East）。查看時刻表 ↓","add":"去程延誤可改 18:30；逛至閉店可改搭 21:05／21:06 回程。前門上車先付費，成人單程 220 円，可用 IC 卡，車程約 10 分鐘。專門店 21:00 關門，全團先約定回程站牌。"}],"remove":[{"id":"WEB00031","day":1,"text":"不可預約；建議候位最多 45 分鐘，17:00 仍未入座或已售罄就改文字燒 CHICO。"},{"id":"WEB00039","day":1,"text":"若用餐延誤，直接略過。"},{"id":"WEB00047","day":1,"text":"時間不足時整段略過。"},{"id":"WEB00057","day":1,"text":"丸之內仲通り點燈 → 東京車站丸之內廣場"},{"id":"WEB00093","day":2,"text":"約 09:00–09:25 買麵包，優先外帶。"},{"id":"WEB00107","day":2,"text":"勿觸碰奉納招福貓。"},{"id":"WEB00116","day":2,"text":"先到美登利會合；只有叫號較晚且不會過號時才擇一，否則略過。"},{"id":"WEB00124","day":2,"text":"代表約 09:40 到店，10:00 取 5 人號碼並詢問拆桌與叫號規則。"},{"id":"WEB00141","day":2,"text":"A＋B 組 5 人可分批入座；候位超過 45 分鐘就改店。"},{"id":"WEB00285","day":4,"text":"人潮多時縮短停留。"},{"id":"WEB00299","day":4,"text":"分組前確認集合時間與出口。"},{"id":"WEB00319","day":4,"text":"Sweet Check 11:00 開店、備妥非現金支付；BASO 平日 11:30 開店、收現金；麺散 11/24（週二）營業時段待官方確認，未確認就選另外兩家；備妥電子支付。"},{"id":"WEB00327","day":4,"text":"午餐後不回 KIDDY LAND 集合；各組依所選店家直接到 FREAK'S STORE Shibuya 會合，Sweet Check 組依地圖走西南向路線。"},{"id":"WEB00336","day":4,"text":"PARCO 宇田川町 15-1；先逛想去的樓層，再到 B1 用餐。一般商店 11:00–21:00。"},{"id":"WEB00355","day":4,"text":"吃牛肉 5 人到極味屋現場候位，不接受訂位；不吃牛肉 2 人在館內另選無牛餐廳（B1「真さか」為候選）。極味屋平日約 20:00 可能提前停止受理，建議 17:00–18:00 到場；餐後再會合。"},{"id":"WEB00363","day":4,"text":"候位或用餐較久時直接略過，不為購物折返 PARCO。"},{"id":"WEB00371","day":4,"text":"依約定時間在站外點名後一起入站；先回者在群組回報。"},{"id":"WEB00410","day":5,"text":"三家不必全排；保留午餐時間。"},{"id":"WEB00427","day":5,"text":"牛舌店兩筆共 5 人；另 2 位尚未決定店家，兩候選均未預約；餐後在淺草會合。"},{"id":"WEB00439","day":5,"text":"約 15:30 回民宿放物品、休息至 16:30。"},{"id":"WEB00447","day":5,"text":"正式安排外帶短停；週三外帶時段為 17:30–20:00，不需預約 7 人座位。"},{"id":"WEB00458","day":5,"text":"有空位就內用，滿席或候位太久直接外帶；週三 20:00 打烊、蛋糕／飲料 L.O. 19:30、餐點 L.O. 17:00。TEN& 外帶與轉乘時間請抓彈性。"},{"id":"WEB00467","day":5,"text":"市集 11/21–12/25、11:00–21:00；甜點後前往，若交通或排隊延誤，依實際時間調整停留。"},{"id":"WEB00493","day":6,"text":"SPACIA X 3 號／5 號"},{"id":"WEB00497","day":6,"text":"3 號晴空塔 09:03 → 日光 10:50；5 號 10:03 → 11:49。7 人 Cockpit Suite 在 6 號車；優先選早班，保留抵達後緩衝。"},{"id":"WEB00505","day":6,"text":"抵達後站前點心與休息；先確認隔天的天候、巴士運行及回程候選。"},{"id":"WEB00608","day":7,"text":"晚餐店家仍待定；建議行前確認 7 人座位與不吃牛肉的選項。餐後整理行李，隔天 08:00 包車接送出發。"},{"id":"WEB00699","day":8,"text":"川豐先抽號；候位過長改成田江戶人壽司。"},{"id":"WEB00707","day":8,"text":"16:40 左右開始往京成成田站移動；成田山公園略過。"},{"id":"WEB00715","day":8,"text":"前門上車先付；成人 220 円，可用 IC 卡。"},{"id":"WEB00721","day":8,"text":"主搭 17:15／17:47 直行；延誤可改 18:30。"},{"id":"WEB00727","day":8,"text":"專門店 21:00 關門；全團先約定回程站牌。"},{"id":"WEB00733","day":8,"text":"主搭 20:28／20:29；逛至閉店可改 21:05／21:06。"},{"id":"WEB00740","day":8,"text":"主要安排飯店寄放行李 → 表參道午餐 → 新勝寺大本堂 → 米屋 → 17:15／17:47 巴士 → AEON MALL → 20:28／20:29 返回。"},{"id":"WEB00743","day":8,"text":"不是免費接駁車：這是京成成田站與 AEON MALL 成田之間的付費直行路線巴士。京成成田站從 6 號乘車處上車，成人單程 220 円、可使用 IC 卡，車程約 10 分鐘。"},{"id":"WEB00744","day":8,"text":"建議搭法"},{"id":"WEB00745","day":8,"text":"去程：17:15 或 17:47 直行。回程：20:28（星巴克前）／20:29（Mall East）；逛至專門店閉店可改 21:05／21:06。"},{"id":"WEB00027","day":1,"text":"野口鮮魚店 "},{"id":"WEB00035","day":1,"text":"塩パン屋 パンメゾン "},{"id":"WEB00043","day":1,"text":"銀杏岡八幡神社 "},{"id":"WEB00051","day":1,"text":"日比谷公園 "},{"id":"WEB00066","day":1,"text":"鳥貴族淺草店 "},{"id":"WEB00089","day":2,"text":"nukumuku "},{"id":"WEB00103","day":2,"text":"豪德寺"},{"id":"WEB00112","day":2,"text":"RARASAND ／IRON COFFEE "},{"id":"WEB00120","day":2,"text":"梅丘寿司の美登利 総本店 "},{"id":"WEB00137","day":2,"text":"Bic Camera 新宿東口店 → Alpen TOKYO → 一蘭 新宿歌舞伎町店 "},{"id":"WEB00281","day":4,"text":"明治神宮外苑銀杏大道"},{"id":"WEB00295","day":4,"text":"KIDDY LAND 原宿店／NUMBER SUGAR 表參道店 "},{"id":"WEB00315","day":4,"text":"Sweet Check 蛋包飯／BASO 蕎麥麵／うどん 麺散 "},{"id":"WEB00323","day":4,"text":"午餐店 → 宮下公園一帶 → FREAK'S STORE Shibuya"},{"id":"WEB00332","day":4,"text":"FREAK'S STORE Shibuya → 澀谷 PARCO"},{"id":"WEB00359","day":4,"text":"MEGA 唐吉訶德 澀谷本店"},{"id":"WEB00367","day":4,"text":"澀谷站八公口外 → 本所吾妻橋站"},{"id":"WEB00391","day":5,"text":"今戶神社"},{"id":"WEB00397","day":5,"text":"待乳山聖天 → 淺草寺"},{"id":"WEB00406","day":5,"text":"淺草花月堂 ／壽壽喜園 ／龜十 "},{"id":"WEB00423","day":5,"text":"牛たんの檸檬 淺草店 已訂 12:00／預約號／不吃牛 2 位：麺 みつヰ或秋光（候選）"},{"id":"WEB00435","day":5,"text":"淺草自由逛 → 東京民宿"},{"id":"WEB00443","day":5,"text":"東京民宿 → PATISSERIE TEN& 日比谷 OKUROJI"},{"id":"WEB00454","day":5,"text":"TEN& → HARBS 六本木 Hills 店"},{"id":"WEB00463","day":5,"text":"HARBS → 六本木新城聖誕市集（大屋頂廣場）"},{"id":"WEB00501","day":6,"text":"東武日光站・さかえや 炸湯波饅頭"},{"id":"WEB00695","day":8,"text":"成田山表參道／川豐本店"},{"id":"WEB00703","day":8,"text":"新勝寺大本堂 → なごみの米屋"},{"id":"WEB00711","day":8,"text":"京成成田站 6 號乘車處"},{"id":"WEB00717","day":8,"text":"京成成田站 → AEON MALL 成田"},{"id":"WEB00723","day":8,"text":"AEON MALL 成田"},{"id":"WEB00729","day":8,"text":"AEON MALL 成田 → 京成成田站"}]};
+  const dailyCompactPlan = {"append":[{"id":"WEB00041","day":1,"text":"彈性景點：淺草橋銀杏岡八幡神社、シモジマ","add":"時間不足時整段略過。"},{"id":"WEB00049","day":1,"text":"夜晚點燈：日比谷公園（11/13–11/29，09:00–21:00，免費、免預約）→ 丸之內仲通與2026「哈利波特・魔法之雪」（11/12–12/25）。丸之內活動官網 ↗","add":"沿丸之內仲通り點燈路線走到東京車站丸之內廣場。"},{"id":"WEB00095","day":2,"text":"上午景點：豪德寺（約 10:00–10:30）；未訂妥美登利時，直接到梅丘取號，略過早餐店與豪德寺","add":"勿觸碰奉納招福貓。"},{"id":"WEB00110","day":2,"text":"點心：RARASAND 實拍攻略 / IRON COFFEE 實拍攻略 （只在叫號較晚、全員已會合且時間足夠時擇一）","add":"先到美登利會合，確認不會過號才離開；否則略過。"},{"id":"WEB00118","day":2,"text":"午餐：梅丘寿司の美登利 総本店 實拍攻略 (週日 11:00–21:00、L.O.20:30 | 代表 09:40 到店、10:00 取 5 人號碼；實際依叫號)","add":"取號時詢問拆桌與叫號規則。"},{"id":"WEB00135","day":2,"text":"晚餐：一蘭 新宿歌舞伎町店 實拍攻略（24 小時營業｜25 個單人座位）","add":"Alpen TOKYO 後前往，A＋B 組 5 人可分批入座；候位超過 45 分鐘就改店。"},{"id":"WEB00279","day":4,"text":"上午景點：明治神宮外苑銀杏大道。人潮多時先拍團體照，再自由拍攝，之後前往表參道、原宿。","add":"人潮多時縮短停留。"},{"id":"WEB00287","day":4,"text":"表參道／原宿分組逛街：KIDDY LAND 原宿店、NUMBER SUGAR等由各組自選；依午餐店別調整先後，午餐後直接往澀谷，不再折返集合。","add":"分組前確認集合時間與出口。"},{"id":"WEB00321","day":4,"text":"步行往澀谷：午餐順序依選店調整：選 Sweet Check 時先用餐，再往西逛 KIDDY LAND；選 BASO／麺散時先逛 KIDDY LAND，再用餐。各組午餐後不回 KIDDY LAND，直接往 FREAK'S STORE Shibuya；BASO／麺散沿貓街南行，經宮下公園步行約 15–20 分鐘。","add":"Sweet Check 組依地圖走西南向路線。"},{"id":"WEB00338","day":4,"text":"澀谷 PARCO：從 FREAK'S STORE 步行前往 澀谷 PARCO（宇田川町 15-1）。先逛想去的樓層，再到 B1 晚餐；一般商店營業至 21:00，部分店家不同。","add":"一般商店 11:00 開店。"},{"id":"WEB00357","day":4,"text":"飯後購物：時間與體力允許再往 MEGA 唐吉訶德 澀谷本店；候位太久就跳過，直接到車站會合。","add":"不為購物折返 PARCO。"},{"id":"WEB00365","day":4,"text":"回程集合：先約好時間，在澀谷站八公口外集合；點名後一起入站，返回本所吾妻橋民宿。","add":"先回者在群組回報。"},{"id":"WEB00404","day":5,"text":"小吃美食：花月堂菠蘿麵包 實拍攻略、壽壽喜園抹茶冰淇淋 實拍攻略、龜十銅鑼燒 實拍攻略","add":"三家不必全排，保留午餐時間。"},{"id":"WEB00412","day":5,"text":"11/25 午餐｜分開用餐","add":"餐後兩組在淺草會合。"},{"id":"WEB00433","day":5,"text":"民宿休息：放物品、稍作休息，再一起出發。","add":"約 15:30 回民宿，休息至 16:30。"},{"id":"WEB00452","day":5,"text":"六本木 HARBS：再到 HARBS 六本木 Hills 店；座位不能預約，有位就內用、滿席直接外帶，不為等位耽誤市集。週三營業至 20:00，蛋糕／飲料最後點餐 19:30、餐點最後點餐 17:00；傍晚只安排蛋糕與飲料。","add":"TEN& 外帶與轉乘時間請抓彈性。"},{"id":"WEB00461","day":5,"text":"六本木聖誕市集：HARBS 後步行到六本木新城大屋頂廣場逛聖誕市集；2026 市集 11/21–12/25、11:00–21:00。活動官網 ↗晚餐建議（待選店）：在市集或六本木館內另留主餐時間；先確認不吃牛肉 2 位的選項。HARBS 傍晚只安排甜點，若時間不足，縮短甜點停留。","add":"交通或排隊延誤時，依實際時間調整停留。"},{"id":"WEB00477","day":6,"text":"SPACIA X 預計班次：3 號淺草 09:00／東京晴空塔 09:03 出發，10:50 抵達東武日光；或 5 號淺草 10:00／東京晴空塔 10:03 出發，11:49 抵達。實際上車站與班次以車票為準。","add":"優先選早班，保留抵達後緩衝。"},{"id":"WEB00499","day":6,"text":"抵達後點心：日光さかえや 揚げゆばまんじゅう本舗 實拍攻略 （東武日光站步行約 30 秒｜09:30–17:00、不定休）。可點：現炸揚げゆばまんじゅう；若當季供應，可加點日光天然冰 × 日光草莓刨冰。午餐建議（待選店）：先準備車上簡餐或站前用餐備案；搭 5 號 11:49 抵達時，避免長時間候位，保留寄物與下午東照宮時間。","add":"先確認隔天的天候、巴士運行及回程候選。"},{"id":"WEB00602","day":7,"text":"晚餐待確認：日光店家尚未選定；建議行前確認 7 人座位、營業時間與不吃牛肉的餐點，並準備外帶備案。","add":"餐後整理行李，隔天 08:00 包車接送出發。"},{"id":"WEB00701","day":8,"text":"主要景點：成田山表參道 → 新勝寺大本堂 → なごみの米屋；為保留購物時間，成田山公園不列入主要行程。","add":"16:40 左右開始往京成成田站移動。"},{"id":"WEB00709","day":8,"text":"傍晚購物：京成成田站 6 號搭付費直行巴士前往 AEON MALL；主搭 17:15／17:47，回程主搭 20:28（星巴克前）或 20:29（Mall East）。查看時刻表 ↓","add":"去程延誤可改 18:30；逛至閉店可改搭 21:05／21:06 回程。前門上車先付費，成人單程 220 円，可用 IC 卡，車程約 10 分鐘。專門店 21:00 關門，全團先約定回程站牌。"}],"remove":[{"id":"WEB00031","day":1,"text":"不可預約；建議候位最多 45 分鐘，17:00 仍未入座或已售罄就改文字燒 CHICO。"},{"id":"WEB00039","day":1,"text":"若用餐延誤，直接略過。"},{"id":"WEB00047","day":1,"text":"時間不足時整段略過。"},{"id":"WEB00057","day":1,"text":"丸之內仲通り點燈 → 東京車站丸之內廣場"},{"id":"WEB00093","day":2,"text":"約 09:00–09:25 買麵包，優先外帶。"},{"id":"WEB00107","day":2,"text":"勿觸碰奉納招福貓。"},{"id":"WEB00116","day":2,"text":"先到美登利會合；只有叫號較晚且不會過號時才擇一，否則略過。"},{"id":"WEB00124","day":2,"text":"代表約 09:40 到店，10:00 取 5 人號碼並詢問拆桌與叫號規則。"},{"id":"WEB00141","day":2,"text":"A＋B 組 5 人可分批入座；候位超過 45 分鐘就改店。"},{"id":"WEB00285","day":4,"text":"人潮多時縮短停留。"},{"id":"WEB00299","day":4,"text":"分組前確認集合時間與出口。"},{"id":"WEB00319","day":4,"text":"Sweet Check 11:00 開店、備妥非現金支付；BASO 平日 11:30 開店、收現金；麺散 11/24（週二）營業時段待官方確認，未確認就選另外兩家；備妥電子支付。"},{"id":"WEB00327","day":4,"text":"午餐後不回 KIDDY LAND 集合；各組依所選店家直接到 FREAK'S STORE Shibuya 會合，Sweet Check 組依地圖走西南向路線。"},{"id":"WEB00336","day":4,"text":"PARCO 宇田川町 15-1；先逛想去的樓層，再到 B1 用餐。一般商店 11:00–21:00。"},{"id":"WEB00355","day":4,"text":"吃牛肉 5 人到極味屋現場候位，不接受訂位；不吃牛肉 2 人在館內另選無牛餐廳（B1「真さか」為候選）。極味屋候位受理可能提早結束，以現場公告為準，建議 17:00–18:00 到場；餐後再會合。"},{"id":"WEB00363","day":4,"text":"候位或用餐較久時直接略過，不為購物折返 PARCO。"},{"id":"WEB00371","day":4,"text":"依約定時間在站外點名後一起入站；先回者在群組回報。"},{"id":"WEB00410","day":5,"text":"三家不必全排；保留午餐時間。"},{"id":"WEB00427","day":5,"text":"牛舌店兩筆共 5 人；另 2 位尚未決定店家，兩候選均未預約；餐後在淺草會合。"},{"id":"WEB00439","day":5,"text":"約 15:30 回民宿放物品、休息至 16:30。"},{"id":"WEB00447","day":5,"text":"正式安排外帶短停；週三外帶時段為 17:30–20:00，不需預約 7 人座位。"},{"id":"WEB00458","day":5,"text":"有空位就內用，滿席或候位太久直接外帶；週三 20:00 打烊、蛋糕／飲料 L.O. 19:30、餐點 L.O. 17:00。TEN& 外帶與轉乘時間請抓彈性。"},{"id":"WEB00467","day":5,"text":"市集 11/21–12/25、11:00–21:00；甜點後前往，若交通或排隊延誤，依實際時間調整停留。"},{"id":"WEB00493","day":6,"text":"SPACIA X 3 號／5 號"},{"id":"WEB00497","day":6,"text":"3 號晴空塔 09:03 → 日光 10:50；5 號 10:03 → 11:49。7 人 Cockpit Suite 在 6 號車；優先選早班，保留抵達後緩衝。"},{"id":"WEB00505","day":6,"text":"抵達後站前點心與休息；先確認隔天的天候、巴士運行及回程候選。"},{"id":"WEB00608","day":7,"text":"晚餐店家仍待定；建議行前確認 7 人座位與不吃牛肉的選項。餐後整理行李，隔天 08:00 包車接送出發。"},{"id":"WEB00699","day":8,"text":"川豐先抽號；候位過長改成田江戶人壽司。"},{"id":"WEB00707","day":8,"text":"16:40 左右開始往京成成田站移動；成田山公園略過。"},{"id":"WEB00715","day":8,"text":"前門上車先付；成人 220 円，可用 IC 卡。"},{"id":"WEB00721","day":8,"text":"主搭 17:15／17:47 直行；延誤可改 18:30。"},{"id":"WEB00727","day":8,"text":"專門店 21:00 關門；全團先約定回程站牌。"},{"id":"WEB00733","day":8,"text":"主搭 20:28／20:29；逛至閉店可改 21:05／21:06。"},{"id":"WEB00740","day":8,"text":"主要安排飯店寄放行李 → 表參道午餐 → 新勝寺大本堂 → 米屋 → 17:15／17:47 巴士 → AEON MALL → 20:28／20:29 返回。"},{"id":"WEB00743","day":8,"text":"不是免費接駁車：這是京成成田站與 AEON MALL 成田之間的付費直行路線巴士。京成成田站從 6 號乘車處上車，成人單程 220 円、可使用 IC 卡，車程約 10 分鐘。"},{"id":"WEB00744","day":8,"text":"建議搭法"},{"id":"WEB00745","day":8,"text":"去程：17:15 或 17:47 直行。回程：20:28（星巴克前）／20:29（Mall East）；逛至專門店閉店可改 21:05／21:06。"},{"id":"WEB00027","day":1,"text":"野口鮮魚店 "},{"id":"WEB00035","day":1,"text":"塩パン屋 パンメゾン "},{"id":"WEB00043","day":1,"text":"銀杏岡八幡神社 "},{"id":"WEB00051","day":1,"text":"日比谷公園 "},{"id":"WEB00066","day":1,"text":"鳥貴族淺草店 "},{"id":"WEB00089","day":2,"text":"nukumuku "},{"id":"WEB00103","day":2,"text":"豪德寺"},{"id":"WEB00112","day":2,"text":"RARASAND ／IRON COFFEE "},{"id":"WEB00120","day":2,"text":"梅丘寿司の美登利 総本店 "},{"id":"WEB00137","day":2,"text":"Bic Camera 新宿東口店 → Alpen TOKYO → 一蘭 新宿歌舞伎町店 "},{"id":"WEB00281","day":4,"text":"明治神宮外苑銀杏大道"},{"id":"WEB00295","day":4,"text":"KIDDY LAND 原宿店／NUMBER SUGAR 表參道店 "},{"id":"WEB00315","day":4,"text":"Sweet Check 蛋包飯／BASO 蕎麥麵／うどん 麺散 "},{"id":"WEB00323","day":4,"text":"午餐店 → 宮下公園一帶 → FREAK'S STORE Shibuya"},{"id":"WEB00332","day":4,"text":"FREAK'S STORE Shibuya → 澀谷 PARCO"},{"id":"WEB00359","day":4,"text":"MEGA 唐吉訶德 澀谷本店"},{"id":"WEB00367","day":4,"text":"澀谷站八公口外 → 本所吾妻橋站"},{"id":"WEB00391","day":5,"text":"今戶神社"},{"id":"WEB00397","day":5,"text":"待乳山聖天 → 淺草寺"},{"id":"WEB00406","day":5,"text":"淺草花月堂 ／壽壽喜園 ／龜十 "},{"id":"WEB00423","day":5,"text":"牛たんの檸檬 淺草店 已訂 12:00／預約號／不吃牛 2 位：麺 みつヰ或秋光（候選）"},{"id":"WEB00435","day":5,"text":"淺草自由逛 → 東京民宿"},{"id":"WEB00443","day":5,"text":"東京民宿 → PATISSERIE TEN& 日比谷 OKUROJI"},{"id":"WEB00454","day":5,"text":"TEN& → HARBS 六本木 Hills 店"},{"id":"WEB00463","day":5,"text":"HARBS → 六本木新城聖誕市集（大屋頂廣場）"},{"id":"WEB00501","day":6,"text":"東武日光站・さかえや 炸湯波饅頭"},{"id":"WEB00695","day":8,"text":"成田山表參道／川豐本店"},{"id":"WEB00703","day":8,"text":"新勝寺大本堂 → なごみの米屋"},{"id":"WEB00711","day":8,"text":"京成成田站 6 號乘車處"},{"id":"WEB00717","day":8,"text":"京成成田站 → AEON MALL 成田"},{"id":"WEB00723","day":8,"text":"AEON MALL 成田"},{"id":"WEB00729","day":8,"text":"AEON MALL 成田 → 京成成田站"}]};
   function compactDailyPresentation() {
     if(state.view!=='days')return;
     const normalize=t=>t.replace(/[\s\u3000]+/g,'').replace(/實拍攻略/g,'');
@@ -1216,9 +1216,9 @@
     ['傍晚購物｜AEON MALL 成田','京成成田站 6 號搭付費直行巴士，去程主搭 17:15／17:47，延誤可改 18:30。成人單程 ¥220、可用 IC 卡，前門上車先付。回程星巴克前 20:28／Mall East 20:29；逛到專門店 21:00 閉店，可改搭 21:05／21:06，先約好上車站。']
   ],
   9:[
-    ['飯店 → 成田 T2｜機場接駁','08:20 搭飯店接駁，約 08:40 抵達 T2。先完成航空報到、行李與需在托運前處理的程序，再依剩餘時間購物。'],
+    ['飯店 → 成田 T2｜機場接駁','預計 08:20 搭飯店接駁，前晚須確認 7 人座位；約 08:40 抵達 T2。虎航一般起飛前 2.5 小時開櫃，13:00 航班推算約 10:30（以當日公告為準）；等候時自行保管行李。含退稅商品的行李先完成海關攜出確認，再交付托運。'],
     ['伴手禮｜安檢前、後分區買','先看本館 4F 安檢前，再到本館 3F 安檢後 Fa-So-La 補齊。PRESS BUTTER SAND、PISTA & TOKYO、桂新堂與 S’more 依清單選購。'],
-    ['返台｜核對自己的航班','A、C 組台灣虎航 13:00 起飛；B 組中華航空 17:45 起飛。依航空公司通知確認報到、登機時間與登機門，購物不能壓到登機。']
+    ['返台｜核對自己的航班','A、C 組台灣虎航 13:00 起飛；B 組中華航空 CI101 14:35 起飛、17:45 抵達桃園（各為當地時間）。依航空公司通知確認報到、登機時間與登機門，購物不能壓到登機。']
   ]
 };
   function applyRevisedDailyCopy() {
@@ -1335,6 +1335,29 @@
     }
   }
 
+
+  function addBeginnerNotes() {
+    if (state.view !== 'days') return;
+    const notes = {
+      1: state.group === 'B'
+        ? '20:23 Skyliner 順利銜接時，仍約 21:05–21:15 才到本所吾妻橋；放行李後趕 21:30 晚餐偏緊。A 組先報到，B 組回報進度；晚到或分批入座須由預約人先向店家確認。'
+        : '民宿 16:00 入住與野口鮮魚店 16:00 入店重疊。先取得寄物同意，否則入住後再用餐；時間不足先刪淺草橋與點心。',
+      2: '指定 1 位代表直接去梅丘美登利，10:00 起現場取 5 人號碼，目前不提供手機排隊。其餘人依叫號進度會合，別讓代表同時跟早餐與豪德寺。',
+      3: state.group === 'C'
+        ? '12:10 落地到 13:22 列車僅 72 分鐘；出關慢就改後續停青砥的班次，不必硬趕。大東縁 7 人晚餐尚未訂妥，須確認時間、座位與 2 位不吃牛餐點。'
+        : '11/23 是日本國定假日，上午散步兩條路線選一條即可。大東縁 7 人晚餐尚未訂妥，須確認假日營業、座位與 2 位不吃牛餐點。',
+      4: '麺散週二營業尚未確認，未確認就選其他午餐。極味屋現場候位且可能提早截止，建議 17:00–18:00 到；與不吃牛的 2 位先約好同一樓層的會合點。',
+      5: '吃牛 5 人午餐已有兩筆訂位；不吃牛 2 人午餐與六本木正式晚餐仍待選店。TEN& 只收無現金支付；HARBS 傍晚只供甜點飲品，排太久可外帶或略過。',
+      6: 'SPACIA X 目前待購，11/26 的票於 10/26 台灣 08:00 開賣；先決定包廂售完的備案。日光寄物須確認，東照宮 16:00 關閉、15:30 最後入場，午餐不要久排。',
+      7: '上山前先看路況與巴士公告；中禪寺溫泉站施工，回程找現場臨時站牌。午餐與晚餐先選主店和外帶備案，天候不佳就改市區。',
+      8: '入住成田飯店時先登記隔日 08:20 接駁的 7 人座位及全部行李，滿位當晚安排備案。AEON 回程 20:28 星巴克前／20:29 Mall East 是同一班車的相鄰站。',
+      9: '08:40 到機場不代表能立即托運，各航空公司開櫃時間不同。先完成退稅商品確認再交付含商品的行李；B 組 CI101 是 14:35 起飛、17:45 抵達桃園。'
+    };
+    const heading = main.querySelector('.day-plan > .section-label');
+    if (!heading || !notes[state.day]) return;
+    heading.insertAdjacentHTML('afterend', `<aside class="beginner-note" aria-label="新手提醒"><b>新手提醒</b><p>${notes[state.day]}</p><a href="./beginner-guide/index.html#days">看每日走法與延誤備案 ↗</a></aside>`);
+  }
+
   function render(scroll = false) {
     clampDay(); detailSources = new Map();
     main.dataset.view = state.view;
@@ -1358,6 +1381,7 @@
     applyRevisedDailyCopy();
     organizeDailyDetails();
     polishDailyLinks();
+    addBeginnerNotes();
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
         el.querySelector('.document').innerHTML=readable(detailSources.get(el.dataset.detail),{omitTitle:true});

@@ -13,7 +13,7 @@
 <link rel="icon" href="./trip-icon.svg" type="image/svg+xml"/>
 <script src="./trip-weather.js" defer></script>
 <script src="./trip-money.js?v=20261002-collapsible" defer></script>
-<script src="./trip-app.js?v=20261021-station-guide" defer></script>
+<script src="./trip-app.js?v=20261022-beginner-guide" defer></script>
 <title>2026 東京・日光・成田｜9 天 8 夜行程</title>
 <style id="document-style">@page { size: A4 portrait; margin: 0; }
     :root {
@@ -1250,25 +1250,25 @@ html { scroll-behavior: smooth; }
   background: #fff8dc; border: 1px solid #e5d294; color: #654e21;
   font-size: 8.9px; line-height: 1.4;
 }
-.vjw-panel {
+.refund-panel {
   margin-top: 8px; padding: 9px 10px; border-radius: 17px;
   background: #eef5f7; border: 1px solid #cadde3;
 }
-.vjw-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 7px; }
-.vjw-head span { display: block; color: #5d8492; font-size: 6.7px; letter-spacing: .16em; font-weight: 900; }
-.vjw-head h3 { color: #2f5060; margin-top: 2px; }
+.refund-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 7px; }
+.refund-head span { display: block; color: #5d8492; font-size: 6.7px; letter-spacing: .16em; font-weight: 900; }
+.refund-head h3 { color: #2f5060; margin-top: 2px; }
 .official-link {
   white-space: nowrap; padding: 5px 9px; border-radius: 999px;
   background: white; border: 1px solid #bad3dc; font-size: 8.4px; font-weight: 900;
 }
-.vjw-grid { display: grid; grid-template-columns: 1.05fr 1.18fr .92fr; gap: 7px; }
-.vjw-box { border-radius: 13px; background: white; border: 1px solid #d9e5e8; padding: 7px 8px; }
-.vjw-box > b { color: #315565; font-size: 9.5px; }
-.policy-page .vjw-box p { font-size: 8.5px !important; line-height: 1.37; margin: 4px 0; }
-.policy-page .vjw-box ol { padding-left: 17px; margin: 5px 0 0; }
-.policy-page .vjw-box li { font-size: 8.25px !important; line-height: 1.35; margin-bottom: 3px; }
-.vjw-table { margin: 5px 0; font-size: 7.6px !important; border-radius: 9px; }
-.vjw-table th, .vjw-table td { padding: 4px 5px; }
+.refund-grid { display: grid; grid-template-columns: 1.05fr 1.18fr .92fr; gap: 7px; }
+.refund-box { border-radius: 13px; background: white; border: 1px solid #d9e5e8; padding: 7px 8px; }
+.refund-box > b { color: #315565; font-size: 9.5px; }
+.policy-page .refund-box p { font-size: 8.5px !important; line-height: 1.37; margin: 4px 0; }
+.policy-page .refund-box ol { padding-left: 17px; margin: 5px 0 0; }
+.policy-page .refund-box li { font-size: 8.25px !important; line-height: 1.35; margin-bottom: 3px; }
+.refund-table { margin: 5px 0; font-size: 7.6px !important; border-radius: 9px; }
+.refund-table th, .refund-table td { padding: 4px 5px; }
 .small-note { color: #687981; }
 .policy-source { margin: 6px 1px 0 !important; font-size: 6.9px !important; line-height: 1.32 !important; color: #76837d; }
 .policy-source a { font-size: 6.9px; }
@@ -1320,9 +1320,9 @@ html { scroll-behavior: smooth; }
 .policy-page .step-list li,
 .policy-page .check-list li { font-size: 10.2px !important; line-height: 1.42 !important; margin-bottom: 5px !important; }
 .narita-box { font-size: 9.7px !important; line-height: 1.43 !important; }
-.policy-page .vjw-box p { font-size: 9.2px !important; line-height: 1.40 !important; }
-.policy-page .vjw-box li { font-size: 9.05px !important; line-height: 1.39 !important; margin-bottom: 4px !important; }
-.vjw-table { font-size: 8.25px !important; }
+.policy-page .refund-box p { font-size: 9.2px !important; line-height: 1.40 !important; }
+.policy-page .refund-box li { font-size: 9.05px !important; line-height: 1.39 !important; margin-bottom: 4px !important; }
+.refund-table { font-size: 8.25px !important; }
 .policy-source, .policy-source a { font-size: 7.5px !important; line-height: 1.35 !important; }
 .day-page-sheet.day-5 .day-photo-collage { height: 193px !important; }
 
@@ -4850,7 +4850,7 @@ body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
 <a class="side-toc-link" href="#restaurant-main"><span class="side-toc-icon coral">餐</span><span class="side-toc-text">DAY 1–4 主餐</span></a>
 <a class="side-toc-link" href="#restaurant-alternative"><span class="side-toc-icon gold">分</span><span class="side-toc-text">分組用餐與後段主餐</span></a>
 <a class="side-toc-link" href="#restaurant-snacks"><span class="side-toc-icon green">甜</span><span class="side-toc-text">點心與咖啡</span></a><a class="side-toc-link restaurant-guide-toc-link" href="restaurant-guide/index.html"><span class="side-toc-icon coral">食</span><span class="side-toc-text">餐廳實拍攻略<br/>店面、招牌餐點與營業資訊</span></a>
-<div class="side-toc-section-label">退稅與寄件</div><a class="side-toc-link" href="#tax-vjw"><span class="side-toc-icon coral">退</span><span class="side-toc-text">日本退稅流程與成田機場辦理</span></a><a class="side-toc-link" href="#japan-post-domestic-1"><span class="side-toc-icon blue">郵</span><span class="side-toc-text">日本郵局寄件</span></a>
+<div class="side-toc-section-label">退稅與寄件</div><a class="side-toc-link" href="#tax-refund"><span class="side-toc-icon coral">退</span><span class="side-toc-text">日本退稅流程與成田機場辦理</span></a><a class="side-toc-link" href="#japan-post-domestic-1"><span class="side-toc-icon blue">郵</span><span class="side-toc-text">日本郵局寄件</span></a>
 </div>
 <div class="side-toc-footer"><span><b>9 天</b>・8 夜</span><span>11/21–11/29</span></div>
 </nav>
@@ -4894,7 +4894,7 @@ body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
 <h2>行李清單｜證件、電子用品與藥品</h2>
 <div class="guide-grid">
 <div class="guide-card good"><h3>證件、付款與離線備份</h3><ul class="check-list">
-<li>護照正本；另存護照照片與紙本影本</li><li>機票、住宿、SPACIA X、包車憑證</li><li>Visit Japan Web 入境／海關 QR 截圖，依每位旅客分開保存</li><li>信用卡 2 張以上分開放；日圓現金與零錢</li><li>Suica／PASMO 或可使用的手機交通卡</li><li>旅平險、緊急聯絡人、住宿地址離線檔</li>
+<li>護照正本；另存護照照片與紙本影本</li><li>機票、住宿、SPACIA X、包車憑證</li><li>信用卡 2 張以上分開放；日圓現金與零錢</li><li>Suica／PASMO 或可使用的手機交通卡</li><li>旅平險、緊急聯絡人、住宿地址離線檔</li>
 </ul></div>
 <div class="guide-card blue"><h3>手機、充電與網路</h3><ul class="check-list">
 <li>手機、充電器、充電線、轉接頭／多孔充電器</li><li>行動電源放隨身行李，不放托運；容量與數量依各航空公司規定</li><li>eSIM／SIM／Wi-Fi 機與備用啟用資訊</li><li>耳機、相機、記憶卡與相機電池</li><li>Google 地圖離線資料、住宿與車票截圖</li><li>日光巴士數位票需手機有電，至少一人再帶備用電源</li>
@@ -5058,7 +5058,7 @@ body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
 <p><strong>住宿：</strong>成田里士滿飯店（Richmond Hotel Narita） <a href="https://maps.app.goo.gl/FTSRu1WMKEDXw1dQ8" target="_blank">[Google 地圖]</a> <a href="https://richmondhotel.jp/narita/" rel="noopener noreferrer" target="_blank">[官方網站]</a></p>
 <p><strong>地址：</strong>〒286-0033 千葉縣成田市花崎町 970</p>
 <p>入住：14:00 起｜退房：11:00 前</p>
-<p><strong>交通：</strong>從京成成田站東口步行約 5 分鐘。11/29 全體 7 人搭 08:20 飯店免費接駁，約 08:40 抵達成田機場 T2。</p>
+<p><strong>交通：</strong>從京成成田站東口步行約 5 分鐘。11/29 全體 7 人預計搭 08:20 飯店免費接駁，約 08:40 抵達成田機場 T2；座位待 11/28 入住時登記確認。</p>
 <p><strong>房型與提醒：</strong>共訂 3 間雙人房，每間約 18 m²、配置 1 張大床；訂單編號、確認編號與 PIN 保留在私人備忘。<strong style="color:#b42318">11/28 辦理入住後，立即登記隔日 08:20 接駁</strong>，並確認集合位置、座位與行李規定。飯店規定每人限 1 件行李箱；08:15 前上車，沒有出發廣播。超額行李需先向飯店確認。</p>
 </div>
 </div>
@@ -5243,7 +5243,7 @@ body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
 <div class="day-item"><span class="day-item-icon">🚶</span><strong>步行往澀谷：</strong>午餐順序依選店調整：選 Sweet Check 時先用餐，再往西逛 KIDDY LAND；選 BASO／麺散時先逛 KIDDY LAND，再用餐。各組午餐後不回 KIDDY LAND，直接往 FREAK'S STORE Shibuya；BASO／麺散沿貓街南行，經宮下公園步行約 15–20 分鐘。</div>
 <div class="day-item"><span class="day-item-icon">🛍</span><strong>澀谷第一站：</strong><a class="map-link" href="https://maps.app.goo.gl/zfRiMG347oqCoXQQ6" rel="noopener noreferrer" target="_blank">FREAK'S STORE Shibuya</a>（神南 1-13-1；目前週二 12:00–20:00）。宮下公園可沿途順逛，不必另繞一圈。</div>
 <div class="day-item"><span class="day-item-icon">🛍</span><strong>澀谷 PARCO：</strong>從 FREAK'S STORE 步行前往 <a class="map-link" href="https://shibuya.parco.jp/info/" rel="noopener noreferrer" target="_blank">澀谷 PARCO</a>（宇田川町 15-1）。先逛想去的樓層，再到 B1 晚餐；一般商店營業至 21:00，部分店家不同。</div>
-<div class="day-item day5-lunch-item"><span class="day-item-icon">🍽</span><strong>11/24 晚餐｜PARCO 內分開用餐</strong><div class="day5-meal-groups" aria-label="11月24日晚餐分組"><section class="day5-meal-card pending"><div class="meal-status">吃牛肉・5 人<span>現場候位</span></div><h4><a class="map-link" href="https://maps.app.goo.gl/PW2hqEnuummDrjFH8" rel="noopener noreferrer" target="_blank">極味屋 澀谷 PARCO 店</a></h4><p>B1 漢堡排；不接受訂位。建議 17:00–18:00 到場排隊，5 人可能分批入座；平日約 20:00 可能提早停止受理候位。</p><div class="meal-links"><a href="https://maps.app.goo.gl/PW2hqEnuummDrjFH8" target="_blank" rel="noopener noreferrer">地圖 ↗</a><a href="https://kiwami.ysworks-hakata.com/shoplist/shibuya-parco" target="_blank" rel="noopener noreferrer">店家資訊 ↗</a></div></section><section class="day5-meal-card pending"><div class="meal-status">不吃牛肉・2 人<span>餐廳待選</span></div><h4>澀谷 PARCO 內另選</h4><p>極味屋官方列出的主餐是牛肉。館內 B1 的純素居酒屋「真さか」可作無牛候選（12:00–22:00）；2 位確認喜好與座位後再決定，餐後於館內會合。</p><div class="meal-links"><a href="https://shibuya.parco.jp/shop/detail/?cd=025897" target="_blank" rel="noopener noreferrer">真さか店家資訊 ↗</a></div></section></div></div>
+<div class="day-item day5-lunch-item"><span class="day-item-icon">🍽</span><strong>11/24 晚餐｜PARCO 內分開用餐</strong><div class="day5-meal-groups" aria-label="11月24日晚餐分組"><section class="day5-meal-card pending"><div class="meal-status">吃牛肉・5 人<span>現場候位</span></div><h4><a class="map-link" href="https://maps.app.goo.gl/PW2hqEnuummDrjFH8" rel="noopener noreferrer" target="_blank">極味屋 澀谷 PARCO 店</a></h4><p>B1 漢堡排；不接受訂位。建議 17:00–18:00 到場排隊，5 人可能分批入座；候位受理可能提早結束，以現場公告為準。</p><div class="meal-links"><a href="https://maps.app.goo.gl/PW2hqEnuummDrjFH8" target="_blank" rel="noopener noreferrer">地圖 ↗</a><a href="https://kiwami.ysworks-hakata.com/shoplist/shibuya-parco" target="_blank" rel="noopener noreferrer">店家資訊 ↗</a></div></section><section class="day5-meal-card pending"><div class="meal-status">不吃牛肉・2 人<span>餐廳待選</span></div><h4>澀谷 PARCO 內另選</h4><p>極味屋官方列出的主餐是牛肉。館內 B1 的純素居酒屋「真さか」可作無牛候選（12:00–22:00）；2 位確認喜好與座位後再決定，餐後於館內會合。</p><div class="meal-links"><a href="https://shibuya.parco.jp/shop/detail/?cd=025897" target="_blank" rel="noopener noreferrer">真さか店家資訊 ↗</a></div></section></div></div>
 <div class="day-item"><span class="day-item-icon">🛍</span><strong>飯後購物：</strong>時間與體力允許再往 <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=MEGA%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%E6%B8%8B%E8%B0%B7%E6%9C%AC%E5%BA%97" rel="noopener noreferrer" target="_blank">MEGA 唐吉訶德 澀谷本店</a>；候位太久就跳過，直接到車站會合。</div>
 <div class="day-item"><span class="day-item-icon">🌙</span><strong>回程集合：</strong>先約好時間，在澀谷站八公口外集合；點名後一起入站，返回本所吾妻橋民宿。</div></div></div>
 </div></div>
@@ -5261,7 +5261,7 @@ body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
 <tr><td>5</td><td><a class="map-link" href="https://maps.app.goo.gl/cq6P7DPSL1NEdmQT8" target="_blank" rel="noopener noreferrer">Sweet Check 蛋包飯</a>／<a class="map-link" href="https://maps.app.goo.gl/XfhefUXyvnTHNSra8" target="_blank" rel="noopener noreferrer">BASO 蕎麥麵</a>／<a class="map-link" href="https://maps.app.goo.gl/Nf1bBBnExek1mAus5" target="_blank" rel="noopener noreferrer">うどん 麺散</a> <a aria-label="開啟 14-menchirashi 餐廳攻略" class="restaurant-mini-link" href="restaurant-guide/venues/14-menchirashi.html" title="開啟店面實景、招牌餐點與營業攻略">實拍攻略</a></td><td>午餐三選一</td><td>Sweet Check 11:00 開店、備妥非現金支付；BASO 平日 11:30 開店、收現金；麺散 11/24（週二）營業時段待官方確認，未確認就選另外兩家；備妥電子支付。</td></tr>
 <tr><td>6</td><td>午餐店 → <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=MIYASHITA%20PARK" rel="noopener noreferrer" target="_blank">宮下公園一帶</a> → <a class="map-link" href="https://maps.app.goo.gl/zfRiMG347oqCoXQQ6" rel="noopener noreferrer" target="_blank">FREAK'S STORE Shibuya</a></td><td>步行；BASO／麺散方向沿貓街南行</td><td>午餐後不回 KIDDY LAND 集合；各組依所選店家直接到 FREAK'S STORE Shibuya 會合，Sweet Check 組依地圖走西南向路線。</td></tr>
 <tr class="group-c-related-row"><td>7</td><td><a class="map-link" href="https://maps.app.goo.gl/zfRiMG347oqCoXQQ6" rel="noopener noreferrer" target="_blank">FREAK'S STORE Shibuya</a> → <a class="map-link" href="https://shibuya.parco.jp/info/" rel="noopener noreferrer" target="_blank">澀谷 PARCO</a></td><td>步行＋逛店</td><td>PARCO 宇田川町 15-1；先逛想去的樓層，再到 B1 用餐。一般商店 11:00–21:00。</td></tr>
-<tr><td>8</td><td><a class="map-link" href="https://maps.app.goo.gl/PW2hqEnuummDrjFH8" rel="noopener noreferrer" target="_blank">極味屋 澀谷 PARCO 店</a>／PARCO 內其他餐廳</td><td>B1 分開晚餐</td><td>吃牛肉 5 人到極味屋現場候位，不接受訂位；不吃牛肉 2 人在館內另選無牛餐廳（B1「真さか」為候選）。極味屋平日約 20:00 可能提前停止受理，建議 17:00–18:00 到場；餐後再會合。</td></tr>
+<tr><td>8</td><td><a class="map-link" href="https://maps.app.goo.gl/PW2hqEnuummDrjFH8" rel="noopener noreferrer" target="_blank">極味屋 澀谷 PARCO 店</a>／PARCO 內其他餐廳</td><td>B1 分開晚餐</td><td>吃牛肉 5 人到極味屋現場候位，不接受訂位；不吃牛肉 2 人在館內另選無牛餐廳（B1「真さか」為候選）。極味屋候位受理可能提早結束，以現場公告為準，建議 17:00–18:00 到場；餐後再會合。</td></tr>
 <tr><td>9</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=MEGA%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%E6%B8%8B%E8%B0%B7%E6%9C%AC%E5%BA%97" rel="noopener noreferrer" target="_blank">MEGA 唐吉訶德 澀谷本店</a></td><td>飯後選逛</td><td>候位或用餐較久時直接略過，不為購物折返 PARCO。</td></tr>
 <tr><td>10</td><td><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B8%8B%E8%B0%B7%E9%A7%85%20%E5%85%AB%E5%85%AC%E5%8F%A3" rel="noopener noreferrer" target="_blank">澀谷站八公口外</a> → <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E9%A7%85" rel="noopener noreferrer" target="_blank">本所吾妻橋站</a></td><td>集合＋地鐵返回</td><td>依約定時間在站外點名後一起入站；先回者在群組回報。</td></tr></tbody></table></section>
 </div></div></div>
@@ -5477,7 +5477,7 @@ body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
 <div class="container"><div class="day-layout" data-watermark="成田"><div class="day-eyebrow"></div><div class="day-header"><div class="day-number"><span>DAY</span><b>09</b></div><div class="day-heading-copy"><div class="day-date">2026/11/29（日）</div><h3 class="day-title">成田 T2・返台</h3></div></div>
 <div class="day-photo-collage"><figure class="day-photo"><img loading="lazy" decoding="async" alt="成田機場第二航廈出境大廳" src="trip-image-718230eb1c02809cd8bf.jpg"/><figcaption><b>成田機場第二航廈出境大廳</b></figcaption></figure><figure class="day-photo"><img loading="lazy" decoding="async" alt="成田機場跑道與飛機" src="trip-image-cd5eeba2d8ebcf6767fb.jpg"/><figcaption><b>成田機場跑道與飛機</b></figcaption></figure></div>
 <div class="day-panel"><div class="day-panel-title">今日行程</div><div class="day-items-grid single-column">
-<div class="day-item"><span class="day-item-icon">🚆</span><strong>行程流程：</strong><br/>全體 7 人：08:20 飯店接駁（約 08:40 抵達 T2）→ 保留全部免稅品在身邊 → 依指標於托運前完成護照／免稅品攜出確認；紅色判定再至海關檢查 → 航空公司報到／托運。<br/>A、C 組：13:00 IT281；B 組：14:35 CI101。</div>
+<div class="day-item"><span class="day-item-icon">🚆</span><strong>行程流程：</strong><br/>全體 7 人：預計 08:20 飯店接駁（前晚須登記座位）（約 08:40 抵達 T2）→ 保留全部免稅品在身邊 → 依指標於托運前完成護照／免稅品攜出確認；紅色判定再至海關檢查 → 航空公司報到／托運。<br/>A、C 組：13:00 IT281；B 組：14:35 CI101。</div>
 <div class="day-item"><span class="day-item-icon">🛍</span><strong>成田 T2 伴手禮：</strong> PRESS BUTTER SAND、抹茶巧克力夾心、桂新堂蝦仙貝、PISTA &amp; TOKYO、烤棉花糖塔 S’more。<span class="souvenir-item-note">採買順序：先逛本館 4F 安檢前，再到本館 3F 安檢後 Fa-So-La 補齊免稅限定款。</span></div></div></div>
 <a aria-label="成田 T2 伴手禮整理" class="narita-souvenir-day-cta" href="site-three/index.html" rel="noopener noreferrer" target="_blank" title="成田 T2 伴手禮整理">
 <span class="souvenir-icon">🎁</span><span class="souvenir-copy"><span class="souvenir-badge">DAY 9</span><span class="souvenir-kicker">成田機場第二航廈</span><strong>成田 T2 伴手禮整理</strong><small>店家位置、安檢前後動線與採買順序</small></span><span class="souvenir-arrow">↗</span>
@@ -5506,7 +5506,7 @@ body .page-sheet.day-page-sheet[data-day-anchor] h3.day-title {
 </tr>
 <tr><td><strong>大東縁</strong></td><td>第 3 天晚餐</td><td>12:00–23:00<br/>週四休；假日先確認</td><td><a class="map-button" href="https://maps.app.goo.gl/KTH72UYA1GzS5AFs8" target="_blank" rel="noopener noreferrer">Google 地圖 ↗</a></td><td>本所吾妻橋 A1 出口旁；電話 03-3623-4129。先確認團體座位與不吃牛肉者餐點，餐後前往晴空塔。</td></tr>
 <tr><td><strong><a class="restaurant-inline-link" href="restaurant-guide/venues/14-menchirashi.html" title="開啟餐廳實景、招牌餐點與營業攻略">うどん 麵散</a></strong><br/><span class="diet-tag split">△ 看品項</span></td><td>第 4 天午餐</td><td>11/24 週二時段待確認；先按午餐候選，勿延至晚餐</td><td><a class="map-button" href="https://maps.app.goo.gl/Nf1bBBnExek1mAus5" target="_blank">Google 地圖 ↗</a></td><td>第 4 天午餐候選；11/24 週二營業時段待官方確認。不吃牛肉者避開牛肉配料，並先詢問湯底是否含牛肉、牛骨或牛脂。</td></tr>
-<tr><td><strong>極味屋 澀谷 PARCO 店</strong><br/><span class="diet-tag no">✖ 吃牛肉者 5 人</span></td><td>第 4 天晚餐</td><td>平日 11:30–23:00<br/>排隊受理約 20:00 前可能截止</td><td><a class="map-button" href="https://maps.app.goo.gl/PW2hqEnuummDrjFH8" target="_blank" rel="noopener noreferrer">Google 地圖 ↗</a></td><td>PARCO B1，現場候位、不接受訂位；不吃牛肉 2 人另選館內餐廳（B1「真さか」可作候選），餐後會合。</td></tr>
+<tr><td><strong>極味屋 澀谷 PARCO 店</strong><br/><span class="diet-tag no">✖ 吃牛肉者 5 人</span></td><td>第 4 天晚餐</td><td>平日 11:30–23:00<br/>候位受理可能提早結束，以現場公告為準</td><td><a class="map-button" href="https://maps.app.goo.gl/PW2hqEnuummDrjFH8" target="_blank" rel="noopener noreferrer">Google 地圖 ↗</a></td><td>PARCO B1，現場候位、不接受訂位；不吃牛肉 2 人另選館內餐廳（B1「真さか」可作候選），餐後會合。</td></tr>
 </tbody></table>
 <p class="source-note">營業時間、休店日與價格可能調整，出發前再確認。</p>
 </div>
@@ -5554,7 +5554,7 @@ window.addEventListener('load', () => {
     });
   }, 1500);
 });
-</script><div class="page-sheet policy-page" id="tax-vjw">
+</script><div class="page-sheet policy-page" id="tax-refund">
 <div class="container">
 <h2>2026 日本退稅流程｜成田機場辦理方式</h2>
 <div class="policy-keyline"><strong>11/1 起先付含稅價，完成海關攜出確認後依店家方式退款：</strong>店內先收含稅價；旅客出境時完成海關攜出確認後，再由原店家或其委託業者退款。海關與機場只負責確認，退款仍由原店家或退稅業者處理。</div>
@@ -5562,10 +5562,10 @@ window.addEventListener('load', () => {
 <section class="policy-card refund-card">
 <h3>退稅流程</h3>
 <ol class="step-list">
-<li><b>店內購買：</b>同一店、同一天，未稅合計滿 ¥5,000；出示護照，支援店舖亦可使用 VJW 免稅購物 QR，先支付含稅價。</li>
+<li><b>店內購買：</b>同一店、同一天，未稅合計滿 ¥5,000；出示護照，先支付含稅價。</li>
 <li><b>保存資料：</b>保留收據、店家退款說明、付款卡／退款帳戶資訊；所有申報商品都要帶離日本。</li>
-<li><b>成田 T2 托運前：</b>免稅商品全部留在身邊，依現場指標到免稅確認端末，或在指定 Wi‑Fi 區使用 VJW 線上辦理。</li>
-<li><b>判定：</b>綠色＝確認完成；紅色＝攜商品、護照到海關檢查處。完成後才可辦航空報到與行李托運。</li>
+<li><b>成田 T2 托運前：</b>免稅商品全部留在身邊，依現場指標到免稅確認端末，掃描護照並依畫面指示完成手續。</li>
+<li><b>判定：</b>綠色＝確認完成；紅色＝攜商品、護照到海關檢查處。完成確認後再交付含退稅商品的托運行李；報到手續依航空公司指示辦理。</li>
 <li><b>後續退款：</b>海關確認資訊傳回店家／退稅業者後，再依購買時約定方式退款；時間與入帳方式以各店規則為準，可能為卡片、帳戶、App 或出境口岸現金退款。</li>
 </ol>
 </section>
@@ -5578,7 +5578,7 @@ window.addEventListener('load', () => {
 <li><b>超過期限：</b>須在購買日後 90 日內出境並接受海關確認。</li>
 <li><b>另寄回台：</b>旅客自行郵寄等「別送」方式已不列入免稅。</li>
 </ul>
-<div class="narita-box"><strong>本團提醒：</strong>全體搭 08:20 接駁，預計約 08:40 抵達 T2；先完成免稅品攜出確認，再托運。端末位置與排隊動線依 2026/11/29 現場標示；護照、商品、收據與退款說明先放在方便取用的位置。</div>
+<div class="narita-box"><strong>本團提醒：</strong>全體預計搭 08:20 接駁（前晚須登記座位），約 08:40 抵達 T2；先完成免稅品攜出確認，再托運。端末位置與排隊動線依 2026/11/29 現場標示；護照、商品、收據與退款說明先放在方便取用的位置。</div>
 </section>
 </div>
 <div class="policy-bottom-grid" style="grid-template-columns:1fr;">
