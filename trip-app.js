@@ -513,12 +513,47 @@
       <div class="action-row"><a href="./site-four/index.html">入境與轉乘圖解 ↗</a><a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/us/skyliner/purchase.php" target="_blank" rel="noopener noreferrer">京成購票說明 ↗</a><a href="https://www.keisei.co.jp/keisei/tetudou/stationmap/pdf/us/110.pdf" target="_blank" rel="noopener noreferrer">青砥站內圖 ↗</a></div>`;
     return `<details class="major-transit-guide"${open?' open':''}><summary>${title}</summary><div class="transit-guide-body">${body}</div></details>`;
   }
+  function airportArrivalItem() {
+    const row=flightRow(departures,state.group);
+    const arrival=row.cells[2].textContent.match(/\b\d{1,2}:\d{2}\b/)?.[0] || '';
+    const rail=$('.narita-combined-table').cloneNode(true);
+    [...rail.tBodies].forEach(body=>{if(!body.classList.contains('group-'+state.group.toLowerCase()))body.remove();});
+    const candidates=[...rail.tBodies[0].rows].map(tr=>tr.cells[tr.cells.length-3].textContent.trim()).join('、');
+    const guide=document.createElement('div');
+    guide.innerHTML=majorTransitGuide('skyliner');
+    const steps=guide.querySelector('.transit-guide-body').innerHTML;
+    const walk='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent('本所吾妻橋駅')+'&destination='+encodeURIComponent(STAY_DIRECTIONS.tokyo.destination)+'&travelmode=walking';
+    const lodging=state.group==='B'
+      ? '到民宿放好行李後在群組回報，再前往晚餐集合地點。若搭 21:23 班次，會晚於 21:30 晚餐訂位，請先通知店家與 A 組。'
+      : '民宿 16:00 起可入住；若提早抵達，先依房東回覆寄放行李，未獲同意不要直接放置。';
+    const id='airport-arrival-detail-'+state.group;
+    return `<li class="airport-arrival-stop"><span class="step" aria-hidden="true">01</span><div class="stop-content">
+      <button type="button" class="schedule-toggle" aria-expanded="false" aria-controls="${id}" aria-label="成田機場到本所吾妻橋 詳細交通">
+        <div class="schedule-time is-fixed"><span>航班抵達</span><b>${escape(arrival)} 成田 T2</b></div><span class="schedule-toggle-label">詳細交通 <span aria-hidden="true">＋</span></span>
+      </button>
+      <div class="item-body"><strong>成田機場 → 本所吾妻橋</strong><p>成田 T2 B1 搭 Skyliner → 青砥站內轉乘 → 本所吾妻橋站 → 步行到民宿。</p><p><strong>候選班次：</strong>${escape(candidates)}</p><p>出關後依時間與空位選班。</p></div>
+      <div class="document schedule-detail-body" id="${id}" hidden>
+        <h3>${state.group} 組班次時間</h3>${readable(rail)}
+        <h3>買票與搭車步驟</h3>${steps}
+        <h3>到站後前往民宿</h3><p>${lodging}</p><a href="${walk}" target="_blank" rel="noopener noreferrer">本所吾妻橋站 → 民宿步行路線 ↗</a>
+      </div>
+    </div></li>`;
+  }
   function attachMajorTransitGuide() {
     if(state.view==='flights') {
       main.querySelector('.section-label')?.insertAdjacentHTML('afterend', majorTransitGuide('skyliner')+skylinerNotice());
     } else if(state.view==='days') {
-      if(state.day===1 || (state.day===3 && state.group==='C')) {
-        main.querySelector('.timeline')?.insertAdjacentHTML('beforebegin', majorTransitGuide('skyliner'));
+      if((state.day===1 && state.group!=='C') || (state.day===3 && state.group==='C')) {
+        const timeline=main.querySelector('.timeline');
+        if(timeline) {
+          // Merge the legacy arrival and rail entries after the Word layout pass.
+          // Other stops keep their existing detail IDs and event handlers.
+          if(state.group==='B' || state.group==='C') {
+            [...timeline.children].slice(0,2).forEach(item=>item.remove());
+          }
+          timeline.insertAdjacentHTML('afterbegin', airportArrivalItem());
+          timeline.querySelectorAll(':scope > li > .step').forEach((step,i)=>step.textContent=String(i+1).padStart(2,'0'));
+        }
       }
       if(state.day===6) {
         const boarding=main.querySelector('.schedule-detail-body');
