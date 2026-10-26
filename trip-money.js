@@ -23,6 +23,7 @@
   const fromCents = value => value / 100;
   const amountText = value => new Intl.NumberFormat('zh-TW', {minimumFractionDigits:2,maximumFractionDigits:2}).format(fromCents(cents(value)));
   const money = (value, currency = 'JPY') => `${currency==='TWD'?'NT$':'¥'}${amountText(value)}`;
+  const settlementMoney = (value, currency = 'JPY') => `${currency==='TWD'?'NT$':'¥'}${new Intl.NumberFormat('zh-TW', {maximumFractionDigits:0}).format(Math.ceil(cents(value)/100))}`;
   const rateText = value => Number(value).toLocaleString('zh-TW', {minimumFractionDigits:4,maximumFractionDigits:6});
   const currencyOf = note => /^\[(JPY|TWD)\]/.exec(String(note || ''))?.[1] || 'TWD';
   const fxRateOf = note => {
@@ -251,7 +252,7 @@
   function settlementMarkup(allMembers) {
     if(!settlementVisible) return `<section class="money-card money-settlement"><div><span class="money-kicker">SETTLEMENT</span><h3>誰付給誰</h3><p>需要結算時再按下計算，系統會把全部已登錄項目合併成最少的付款筆數。</p></div><button type="button" class="money-primary money-calculate" data-money-action="calculate-settlement" aria-expanded="false" aria-controls="money-settlement-result">計算誰付給誰</button></section>`;
     const convertedSettlement=twdSettlements(),transfers=convertedSettlement.missingRate?settlements():convertedSettlement.items;
-    return `<section class="money-card money-settlement money-settlement-result" id="money-settlement-result"><div class="money-section-head"><div><span class="money-kicker">SETTLEMENT RESULT</span><h3>誰付給誰${convertedSettlement.missingRate?'（分幣別）':'（台幣結算）'}</h3></div><button type="button" data-money-action="hide-settlement">收起結果</button></div>${transfers.length?`<div class="money-transfers">${transfers.map(item=>`<div><strong>${esc(allMembers[item.from]||'成員')}</strong><span>付給</span><strong>${esc(allMembers[item.to]||'成員')}</strong><b>${money(item.amount,item.currency)}</b></div>`).join('')}</div>`:'<div class="money-clear">✓ 目前沒有需要互相付款的金額</div>'}<p class="money-settlement-note">${convertedSettlement.missingRate?'部分舊日圓紀錄沒有保存匯率，因此暫時分幣別顯示。':'日圓項目依各筆儲存的匯率換算，再與台幣項目合併計算。'}</p></section>`;
+    return `<section class="money-card money-settlement money-settlement-result" id="money-settlement-result"><div class="money-section-head"><div><span class="money-kicker">SETTLEMENT RESULT</span><h3>誰付給誰${convertedSettlement.missingRate?'（分幣別）':'（台幣結算）'}</h3></div><button type="button" data-money-action="hide-settlement">收起結果</button></div>${transfers.length?`<div class="money-transfers">${transfers.map(item=>`<div><strong>${esc(allMembers[item.from]||'成員')}</strong><span>付給</span><strong>${esc(allMembers[item.to]||'成員')}</strong><b>${settlementMoney(item.amount,item.currency)}</b></div>`).join('')}</div>`:'<div class="money-clear">✓ 目前沒有需要互相付款的金額</div>'}<p class="money-settlement-note">${convertedSettlement.missingRate?'部分舊日圓紀錄沒有保存匯率，因此暫時分幣別顯示。':'日圓項目依各筆儲存的匯率換算，再與台幣項目合併計算。'}每筆應付金額無條件進位至整數。</p></section>`;
   }
 
   function ledgerMarkup() {
