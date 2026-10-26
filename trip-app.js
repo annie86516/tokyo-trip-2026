@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261026-transit-dinner', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261026-arrival-buttons', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -525,8 +525,10 @@
       <div class="document transit-guide-body">
         <h3>Skyliner｜成田入境、買票與青砥轉乘</h3>
         <h3>班次時間</h3>${readable(rail)}
-        <p><a href="./site-four/index.html">成田入境與 Skyliner 交通 ↗</a></p>
-        <p><a href="${walk}" target="_blank" rel="noopener noreferrer">本所吾妻橋站 → 民宿步行路線 ↗</a></p>
+        <nav class="trip-quick-actions airport-arrival-actions" aria-label="機場交通與民宿步行路線">
+          <a href="./site-four/index.html">成田入境與 Skyliner 交通 ↗</a>
+          <a href="${walk}" target="_blank" rel="noopener noreferrer">本所吾妻橋站 → 民宿步行路線 ↗</a>
+        </nav>
       </div>
     </div></li>`;
   }

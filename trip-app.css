@@ -615,3 +615,7 @@ input,select,textarea{font-size:14px!important}
 .main .major-transit-guide .action-row a{display:flex;align-items:center;justify-content:center;flex:1 1 180px;min-width:0;min-height:44px;padding:9px 12px;border:1px solid #dfcdb4;border-radius:9px;background:#fff;color:#805236;font-size:13px;line-height:1.6;text-align:center;text-decoration:none;white-space:normal;overflow-wrap:anywhere}
 .main .major-transit-guide .action-row a:focus-visible{outline:3px solid #a65a3d;outline-offset:2px}
 
+
+/* Arrival links share the home shortcut styling and remain side by side. */
+.airport-arrival-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.airport-arrival-actions a{min-width:0;text-align:center;white-space:normal;overflow-wrap:anywhere}
