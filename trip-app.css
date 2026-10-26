@@ -657,3 +657,5 @@ input,select,textarea{font-size:14px!important}
 .money-currency-list dt{font-size:13px;font-weight:500;line-height:1.5;white-space:nowrap}
 .money-currency-list dd{margin:0;font-size:20px;font-weight:700;line-height:1.5;text-align:right;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .money-expense-head>div:first-child>span{font-size:13px;line-height:1.6}
+
+.money-stats .money-currency-list dt,.money-stats .money-currency-list dd{color:#fff}
