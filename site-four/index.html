@@ -200,10 +200,41 @@ html,body,body *,body *::before,body *::after{
 }
 @media print { .github-site-links { display: none !important; } }
 </style><link rel="stylesheet" href="../reading-pages.css?v=20261018-mobile-font-plus1"/>
-<script src="../reading-pages.js?v=20261018-mobile-font-plus1" defer></script>
-</head>
+
+
+<style id="matching-travel-template">
+@media screen {
+html{background:#f5eee5}
+body{max-width:1040px;margin:auto;padding:20px 16px 90px;color:#3b352e;font-family:DFKai-SB,BiauKai,"標楷體",KaiTi,serif;font-size:13px;line-height:1.7}
+body .page{width:100%;height:auto;min-height:0;margin:0;padding:22px;background:#fffdf8;border:0;box-shadow:none;overflow:visible}
+body .page::before,body .page::after,body .stamp{display:none}
+body .content{height:auto}
+body .reading-section{margin:16px 0;border:1px solid #ded3c4;border-top:3px solid #b18a52;border-radius:18px;background:#fffdf8}
+body .reading-section>summary{font-size:18px;color:#653d2e;padding:16px 20px}
+body .header{border-color:#ded3c4;flex-wrap:wrap}
+body .header h1{font-size:24px;color:#653d2e}
+body h2,body .step h2,body .machine-card h2,body .visual-copy h2{font-size:17px;line-height:1.5;color:#653d2e}
+body h3{font-size:15px!important}
+body p,body li,body .machine-note,body .node,body .screen-words,body .final-check-grid div,body .final-check-grid b,body .jp-card span,body .jp-card b{font-size:13px!important;line-height:1.7!important}
+body .route{background:#745b45;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+body .route .node{min-width:0}
+body .step-no{background:#9a7049}
+body .page1-grid,body .visual-row{grid-template-columns:1fr}
+body .machine-card img,body .visual-row img{height:auto;max-height:520px;object-fit:contain}
+body .transfer-steps,body .warning,body .jp-grid{grid-template-columns:1fr;gap:12px}
+body a{color:#855538}
+body .github-site-links{display:flex;flex-wrap:wrap;gap:12px;padding:16px;background:#fffdf8;border:1px solid #ded3c4;border-radius:14px}
+body .github-site-links a{padding:10px;min-height:44px}
+@media(max-width:640px){
+body{padding:12px 10px 65px}body .page{padding:14px}
+body .route{grid-template-columns:1fr}body .route .arrow{transform:rotate(90deg);text-align:center}
+body .final-check-grid{grid-template-columns:1fr 1fr}
+body .header h1{font-size:22px}
+}
+}
+</style></head>
 <body>
-<section class="page" id="page-1">
+<details class="reading-section" open><summary>成田入境與 Skyliner 搭乘</summary><section class="page" id="page-1">
 <div class="content">
 <header class="header">
 <h1>成田入境與 Skyliner 交通<small>成田機場 T2・3 → 青砥 → 本所吾妻橋</small></h1>
@@ -256,8 +287,7 @@ html,body,body *,body *::before,body *::after{
 <div><b>指定席區間</b>到青砥 Aoto</div><div><b>停靠欄</b>不是「—」</div><div><b>票面</b>車次／車廂／座位</div><div><b>基本車資</b>IC 或車票到本所吾妻橋</div><div><b>行李</b>先記住放置位置</div>
 </div></div>
 </div>
-</section>
-<section class="page" id="page-2">
+</section></details><details class="reading-section" open><summary>青砥轉乘與抵達本所吾妻橋</summary><section class="page" id="page-2">
 <div class="content">
 <header class="header">
 <h1>機場進站與青砥轉乘圖解<small>看圖確認方向，最後仍以現場電子看板為準</small></h1>
@@ -290,5 +320,5 @@ html,body,body *,body *::before,body *::after{
 <div class="jp-card"><b>詢問哪班停青砥</b><span>青砥に停まるスカイライナーはどれですか？</span></div>
 <div class="jp-card"><b>詢問是否停本所吾妻橋</b><span>本所吾妻橋へ行きたいです。この電車は停まりますか？</span></div>
 </div>
-</div></section><nav aria-label="網站快捷連結" class="github-site-links"><a href="../index.html">← 完整行程</a><a class="restaurant" href="../restaurant-guide/index.html">🍽️ 餐廳攻略</a></nav></body>
+</div></section></details><nav aria-label="網站快捷連結" class="github-site-links"><a href="../index.html">← 完整行程</a><a class="restaurant" href="../restaurant-guide/index.html">🍽️ 餐廳攻略</a></nav></body>
 </html>
