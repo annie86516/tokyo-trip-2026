@@ -263,7 +263,7 @@
       ${memberListMarkup(current)}
       <div class="money-stats money-stats-simple">
         <div><span>已登錄項目</span><strong>${groups.length} 項</strong></div>
-        <div><span>全部總額</span><strong>${money(fromCents(totals.JPY),'JPY')}</strong><small>台幣支出 ${money(fromCents(totals.TWD),'TWD')}${totals.converted?` · 換算合計 ${money(fromCents(totals.TWD+totals.converted),'TWD')}`:''}</small></div>
+        <div class="money-currency-totals"><span>支出總覽</span><dl class="money-currency-list"><div><dt>日幣支出</dt><dd>${money(fromCents(totals.JPY),'JPY')}</dd></div><div><dt>台幣支出</dt><dd>${money(fromCents(totals.TWD),'TWD')}</dd></div></dl>${totals.converted?`<small>含日幣換算合計 ${money(fromCents(totals.TWD+totals.converted),'TWD')}</small>`:''}</div>
       </div>
       <p class="money-rate-note">日圓換算使用每日參考匯率，實際刷卡或換匯時可自行修改。資料來源：<a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer">ExchangeRate-API</a></p>
       ${expenseForm(current,groups)}

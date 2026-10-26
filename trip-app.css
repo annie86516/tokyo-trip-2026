@@ -649,3 +649,11 @@ input,select,textarea{font-size:14px!important}
 .next-stop-actions a>span{flex-shrink:0}
 .next-stop-actions small{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:1.5;color:inherit}
 @media(max-width:600px){.trip-quick-actions :is(a,button){font-size:13px;padding:7px 10px}.trip-quick-actions .icon{width:16px;height:16px}}
+
+/* Currency totals share the same visual weight. */
+.money-stats .money-currency-totals{gap:10px}
+.money-currency-list{display:grid;gap:10px;margin:0}
+.money-currency-list>div{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.money-currency-list dt{font-size:13px;font-weight:500;line-height:1.5;white-space:nowrap}
+.money-currency-list dd{margin:0;font-size:20px;font-weight:700;line-height:1.5;text-align:right;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.money-expense-head>div:first-child>span{font-size:13px;line-height:1.6}
