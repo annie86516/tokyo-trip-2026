@@ -89,69 +89,8 @@ body{margin:0;color:var(--ink);font-family:"Microsoft JhengHei","Noto Sans CJK T
 @media print{html,body{background:white}.page{box-shadow:none;margin:0}a{color:inherit}}
 @media screen and (max-width:900px){.page{width:100%;height:auto;min-height:0;padding:24px 22px;margin-bottom:18px}.page::before,.page::after{display:none}.page1-grid,.visual-row,.transfer-steps,.warning,.jp-grid{grid-template-columns:1fr}.route{grid-template-columns:1fr;gap:4px}.route .arrow{transform:rotate(90deg)}.machine-card img,.visual-row img{height:auto}}
 </style>
-<style id="skyliner-full-itinerary-typography-20260813">
-/* ===== 2026-08-13：與完整行程統一字體、字級，並強化指定席券按鈕 ===== */
-:root{
-  --full-kai:'DFKai-SB','BiauKai','標楷體','KaiTi','Kaiti TC','AR PL KaitiM Big5',serif;
-  --page-main-title-size:24px;
-  --section-title-size:18px;
-  --body-copy-size:14px;
-}
-html,body,body *,body *::before,body *::after{
-  font-family:var(--full-kai)!important;
-}
-.header h1{
-  font-size:calc(var(--page-main-title-size) - 2px)!important;
-  line-height:1.24!important;
-}
-.header h1 small{
-  font-size:calc(var(--body-copy-size) - 2px)!important;
-  line-height:1.42!important;
-}
-.step h2,
-.machine-card h2,
-.option-note h2,
-.final-check h2,
-.visual-copy h2,
-.mini h3,
-.warn-card h3,
-.transfer-card h2,
-.page h2:not(.step h2):not(.machine-card h2){
-  font-size:calc(var(--section-title-size) - 2px)!important;
-  line-height:1.30!important;
-}
-.step p,.step li,
-.machine-card .machine-note,
-.phrase b,.phrase .jp,
-.final-check-grid div,.final-check-grid b,
-.visual-copy p,.visual-copy li,
-.mini p,.mini li,
-.warn-card p,.warn-card li,
-.transfer-card p,.transfer-card li,
-.source-note,
-.page p,.page li{
-  font-size:calc(var(--body-copy-size) - 2px)!important;
-  line-height:1.46!important;
-}
-.route .node{font-size:10px!important;line-height:1.34!important;}
-.header .stamp{font-size:10px!important;line-height:1.3!important;}
-.machine-card .screen-words{font-size:10px!important;line-height:1.46!important;}
-.liner-ticket-only{
-  display:inline-block;
-  color:#c62828!important;
-  font-size:14px!important;
-  line-height:1.18!important;
-  font-weight:950!important;
-  letter-spacing:.015em;
-  background:#fff1f0;
-  border-bottom:2px solid #c62828;
-  padding:1px 4px 0;
-  border-radius:4px;
-}
-/* 兩段指定內容移除後，放寬主要步驟以維持 A4 平衡。 */
-.page1-grid{margin-top:9px;}
-.step{padding-top:9px;padding-bottom:9px;}
-.machine-card img{height:356px;}
+<style>
+.liner-ticket-only{display:inline-block;color:#c62828;font-size:13px;font-weight:bold;background:#fff1f0;border-bottom:2px solid #c62828;padding:1px 4px;border-radius:4px}
 </style><style id="github-site-links-style">
 /* GitHub Pages 導覽列：2026-08-17 */
 .github-site-links {
@@ -219,12 +158,14 @@ body p,body li,body .machine-note,body .node,body .screen-words,body .final-chec
 body .route{background:#745b45;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
 body .route .node{min-width:0}
 body .step-no{background:#9a7049}
+body .phrase b,body .phrase .jp{font-size:13px;line-height:1.7}
+body .header h1 small{font-size:13px}
 body .page1-grid,body .visual-row{grid-template-columns:1fr}
 body .machine-card img,body .visual-row img{height:auto;max-height:520px;object-fit:contain}
 body .transfer-steps,body .warning,body .jp-grid{grid-template-columns:1fr;gap:12px}
 body a{color:#855538}
-body .github-site-links{display:flex;flex-wrap:wrap;gap:12px;padding:16px;background:#fffdf8;border:1px solid #ded3c4;border-radius:14px}
-body .github-site-links a{padding:10px;min-height:44px}
+body .github-site-links{position:static;max-width:100%;margin-top:16px;display:flex;flex-wrap:wrap;gap:12px;padding:16px;background:#fffdf8;border:1px solid #ded3c4;border-radius:14px}
+body .github-site-links a{padding:10px;min-height:44px;font-size:13px;white-space:normal}
 @media(max-width:640px){
 body{padding:12px 10px 65px}body .page{padding:14px}
 body .route{grid-template-columns:1fr}body .route .arrow{transform:rotate(90deg);text-align:center}
