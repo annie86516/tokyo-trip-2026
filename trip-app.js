@@ -404,7 +404,7 @@
     if (state.day === 1 && state.group === 'B') {
       title = '抵達東京・晚餐會合';
       route = '18:30 抵達成田 T2 → 入境與領行李 → Skyliner、青砥轉乘 → 本所吾妻橋民宿 → A 組先入店，B 組抵達後會合';
-      items = [groupArrival(), '<strong>機場交通：</strong>已核對 11/21 起新時刻表：19:23、20:23、21:23 均停靠青砥，再轉本所吾妻橋。出關後依空位選班；若搭 21:23，會晚於 21:30 晚餐訂位，請先通知店家與 A 組。', '<strong>先放行李：</strong>到本所吾妻橋民宿後在群組回報，再確認晚餐集合位置與抵達時間。', readable([...source.querySelectorAll('.day-item')].at(-1)), '<strong>晚餐會合：</strong>A 組先憑訂位姓名報到入座；B 組抵達後加入。若航班或入境延誤，請先通知店家。'];
+      items = [groupArrival(), '<strong>機場交通：</strong>19:23、20:23、21:23 均停靠青砥，再轉本所吾妻橋。出關後依時間與空位選班；若搭 21:23，會晚於 21:30 晚餐訂位，請先通知店家與 A 組。', '<strong>先放行李：</strong>到本所吾妻橋民宿後在群組回報，再確認晚餐集合位置與抵達時間。', readable([...source.querySelectorAll('.day-item')].at(-1)), '<strong>晚餐會合：</strong>A 組先憑訂位姓名報到入座；B 組抵達後加入。若航班或入境延誤，請先通知店家。'];
       extras = [];
     }
     if (state.day === 3 && state.group === 'C') {
@@ -483,7 +483,7 @@
   }
 
   function skylinerNotice() {
-    return '<p class="transit-alert"><strong>Skyliner 新時刻已核對：</strong>11/21 與 11/23 適用土休日表，下列候選班次的出發時間及青砥停靠維持不變。出關後依空位選班；本所吾妻橋抵達時間為轉乘估計。<a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/jp/traffic/skyliner_timetable_1121.php" target="_blank" rel="noopener noreferrer">官方新時刻表 ↗</a></p>';
+    return '<p class="transit-alert"><strong>搭車提醒：</strong>出關後依時間與空位選班；本所吾妻橋抵達時間為轉乘估計。<a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/jp/traffic/skyliner_timetable_1121.php" target="_blank" rel="noopener noreferrer">官方時刻表 ↗</a></p>';
   }
   function majorTransitGuide(kind, open=false) {
     const isNikko=kind==='spacia';
