@@ -634,3 +634,5 @@ input,select,textarea{font-size:14px!important}
   .main .skyliner-time-card dd{margin:0;text-align:right;font-size:15px;font-weight:700;line-height:1.5;white-space:nowrap;font-variant-numeric:tabular-nums;color:#293a43}
   .main .skyliner-time-card .skyliner-time-note{margin:10px 0 0;padding-top:8px;border-top:1px solid #eadfd3;color:#736c64;font-size:12px;line-height:1.6}
 }
+
+.airport-arrival-actions{grid-template-columns:minmax(0,1fr)}
