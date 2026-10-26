@@ -518,7 +518,6 @@
     const arrival=row.cells[2].textContent.match(/\b\d{1,2}:\d{2}\b/)?.[0] || '';
     const rail=$('.narita-combined-table').cloneNode(true);
     [...rail.tBodies].forEach(body=>{if(!body.classList.contains('group-'+state.group.toLowerCase()))body.remove();});
-    const candidates=[...rail.tBodies[0].rows].map(tr=>tr.cells[tr.cells.length-3].textContent.trim()).join('、');
     const guide=document.createElement('div');
     guide.innerHTML=majorTransitGuide('skyliner');
     const steps=guide.querySelector('.transit-guide-body').innerHTML;
@@ -526,15 +525,12 @@
     const lodging=state.group==='B'
       ? '到民宿放好行李後在群組回報，再前往晚餐集合地點。若搭 21:23 班次，會晚於 21:30 晚餐訂位，請先通知店家與 A 組。'
       : '民宿 16:00 起可入住；若提早抵達，先依房東回覆寄放行李，未獲同意不要直接放置。';
-    const id='airport-arrival-detail-'+state.group;
     return `<li class="airport-arrival-stop"><span class="step" aria-hidden="true">01</span><div class="stop-content">
-      <button type="button" class="schedule-toggle" aria-expanded="false" aria-controls="${id}" aria-label="成田機場到本所吾妻橋 詳細交通">
-        <div class="schedule-time is-fixed"><span>航班抵達</span><b>${escape(arrival)} 成田 T2</b></div><span class="schedule-toggle-label">詳細交通 <span aria-hidden="true">＋</span></span>
-      </button>
-      <div class="item-body"><strong>成田機場 → 本所吾妻橋</strong><p>成田 T2 B1 搭 Skyliner → 青砥站內轉乘 → 本所吾妻橋站 → 步行到民宿。</p><p><strong>候選班次：</strong>${escape(candidates)}</p><p>出關後依時間與空位選班。</p></div>
-      <div class="document schedule-detail-body" id="${id}" hidden>
-        <h3>${state.group} 組班次時間</h3>${readable(rail)}
-        <h3>買票與搭車步驟</h3>${steps}
+      <div class="schedule-time is-fixed"><span>航班抵達</span><b>${escape(arrival)} 成田 T2</b></div>
+      <div class="item-body"><strong>成田機場 → 本所吾妻橋</strong></div>
+      <div class="document transit-guide-body">
+        <h3>Skyliner｜成田入境、買票與青砥轉乘</h3>${steps}
+        <h3>班次時間</h3>${readable(rail)}
         <h3>到站後前往民宿</h3><p>${lodging}</p><a href="${walk}" target="_blank" rel="noopener noreferrer">本所吾妻橋站 → 民宿步行路線 ↗</a>
       </div>
     </div></li>`;
