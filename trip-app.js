@@ -472,6 +472,7 @@
     return '<nav class="trip-quick-actions" aria-label="旅途快捷功能">'+home+foodCardButton()+'</nav>';
   }
   function dayResources() {
+    if((state.day===1 && state.group!=='C') || (state.day===3 && state.group==='C')) return '';
     const resources = state.day===6||state.day===7 ? [['./site-two/index.html','日光巴士：站牌、班次與票券']] : state.day===9 ? [['./?view=airport','機場購物：安檢前／後分區'],['./site-four/index.html','成田入境與 Skyliner 交通']] : state.day===1||state.day===3 ? [['./site-four/index.html','成田入境與 Skyliner 交通']] : [];
     return resources.length ? '<nav class="resource-links" aria-label="當日延伸資料">'+resources.map(([url,title])=>'<a href="'+url+'">'+title+' ↗</a>').join('')+'</nav>' : '';
   }
@@ -518,20 +519,15 @@
     const arrival=row.cells[2].textContent.match(/\b\d{1,2}:\d{2}\b/)?.[0] || '';
     const rail=$('.narita-combined-table').cloneNode(true);
     [...rail.tBodies].forEach(body=>{if(!body.classList.contains('group-'+state.group.toLowerCase()))body.remove();});
-    const guide=document.createElement('div');
-    guide.innerHTML=majorTransitGuide('skyliner');
-    const steps=guide.querySelector('.transit-guide-body').innerHTML;
+    rail.querySelector('caption')?.remove();
     const walk='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent('本所吾妻橋駅')+'&destination='+encodeURIComponent(STAY_DIRECTIONS.tokyo.destination)+'&travelmode=walking';
-    const lodging=state.group==='B'
-      ? '到民宿放好行李後在群組回報，再前往晚餐集合地點。若搭 21:23 班次，會晚於 21:30 晚餐訂位，請先通知店家與 A 組。'
-      : '民宿 16:00 起可入住；若提早抵達，先依房東回覆寄放行李，未獲同意不要直接放置。';
     return `<li class="airport-arrival-stop"><span class="step" aria-hidden="true">01</span><div class="stop-content">
       <div class="schedule-time is-fixed"><span>航班抵達</span><b>${escape(arrival)} 成田 T2</b></div>
-      <div class="item-body"><strong>成田機場 → 本所吾妻橋</strong></div>
       <div class="document transit-guide-body">
-        <h3>Skyliner｜成田入境、買票與青砥轉乘</h3>${steps}
+        <h3>Skyliner｜成田入境、買票與青砥轉乘</h3>
         <h3>班次時間</h3>${readable(rail)}
-        <h3>到站後前往民宿</h3><p>${lodging}</p><a href="${walk}" target="_blank" rel="noopener noreferrer">本所吾妻橋站 → 民宿步行路線 ↗</a>
+        <p><a href="./site-four/index.html">成田入境與 Skyliner 交通 ↗</a></p>
+        <p><a href="${walk}" target="_blank" rel="noopener noreferrer">本所吾妻橋站 → 民宿步行路線 ↗</a></p>
       </div>
     </div></li>`;
   }
