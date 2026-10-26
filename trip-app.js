@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261026-compact-buttons', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261026-remove-extras', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -525,13 +525,13 @@
       const status=cells[0].cloneNode(true);
       const note=status.querySelector('.subnote')?.textContent.trim() || '';
       status.querySelector('.subnote')?.remove();
-      return `<article class="skyliner-time-card"><div class="skyliner-time-card-head"><strong>Skyliner ${escape(train[1] || '')}</strong><span>${escape(status.textContent.trim())}</span></div>
+      return `<article class="skyliner-time-card"><div class="skyliner-time-card-head"><strong>Skyliner ${escape(train[1] || '')}</strong></div>
         <dl><div><dt>成田 T2 出發</dt><dd>${escape(train[0])}</dd></div><div><dt>青砥抵達</dt><dd>${escape(cells[2].textContent.trim())}</dd></div><div><dt>本所吾妻橋<br>預估抵達</dt><dd>${escape(cells[3].textContent.trim())}</dd></div></dl>
         ${note ? `<p class="skyliner-time-note">${escape(note)}</p>` : ''}
       </article>`;
     }).join('');
 
-    const walk='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent('本所吾妻橋駅')+'&destination='+encodeURIComponent(STAY_DIRECTIONS.tokyo.destination)+'&travelmode=walking';
+    [...rail.rows].forEach(tr=>tr.cells[0]?.remove());
     return `<li class="airport-arrival-stop"><span class="step" aria-hidden="true">01</span><div class="stop-content">
       <div class="schedule-time is-fixed"><span>航班抵達</span><b>${escape(arrival)} 成田 T2</b></div>
       <div class="document transit-guide-body">
@@ -1528,7 +1528,7 @@
     const colors={A:'#e85298',G:'#f39700',H:'#9caeb7',Z:'#9b7cb6',DT:'#20a288',SG:'#e8b800',OH:'#2385c4',KS:'#2564a8'};
     const marked=text=>{const fragment=document.createDocumentFragment();let end=0;const regex=/\b(DT|SG|OH|KS|A|G|H|Z)(\d{2})\b/g;for(const m of text.matchAll(regex)){fragment.append(document.createTextNode(text.slice(end,m.index)));const badge=document.createElement('span');badge.className='rail-station-badge';badge.style.setProperty('--rail-color',colors[m[1]]);badge.textContent=m[1]+' '+m[2];fragment.append(badge);end=m.index+m[0].length;}fragment.append(document.createTextNode(text.slice(end)));return fragment;};
     const block=document.createElement('section');block.className='transit-wayfinding';
-    for(const key of keys){const info=transitWayfinding[key],card=document.createElement('section'),h=document.createElement('h3');h.textContent=info.title;card.append(h);const facts=document.createElement('dl');facts.className='table-card';for(const [label,value]of [['路線／顏色',info.lines],['方向／站號',info.route],['出口',info.exit],['車廂／轉乘',info.car]]){const row=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.append(marked(value));row.append(dt,dd);facts.append(row);}card.append(facts);const a=document.createElement('a');a.href=info.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='車站圖與出口指引 ↗';card.append(a);block.append(card);}
+    for(const key of keys){const info=transitWayfinding[key],card=document.createElement('section'),h=document.createElement('h3');h.textContent=info.title;card.append(h);const facts=document.createElement('dl');facts.className='table-card';for(const [label,value]of [['路線／顏色',info.lines],['方向／站號',info.route],['出口',info.exit],['車廂／轉乘',info.car]]){const row=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.append(marked(value));row.append(dt,dd);facts.append(row);}card.append(facts);block.append(card);}
     detail.prepend(block);
   }
   function organizeDailyDetails() {
@@ -1584,49 +1584,6 @@
 
 
 
-  function addNextStopActions() {
-    if(state.view!=='days') return;
-    // Destinations follow the visible timeline; null keeps free-choice stops unassigned.
-    const destinations = {
-      1:['野口鮮魚店','塩パン屋 パンメゾン','銀杏岡八幡神社','日比谷公園','鳥貴族 淺草店'],
-      2:['nukumuku','豪德寺',null,'梅丘寿司の美登利 総本店','Bic Camera 新宿東口店','一蘭 新宿歌舞伎町店'],
-      3:[null,'炭火焼肉おくさこ'],
-      4:['青山一丁目站','明治神宮外苑銀杏大道','KIDDY LAND 原宿店',null,"FREAK'S STORE Shibuya","FREAK'S STORE Shibuya",'澀谷 PARCO',null,'MEGA 唐吉訶德 澀谷本店','澀谷站八公口'],
-      5:['Mūya','今戶神社',null,null,null,'東京民宿','PATISSERIE TEN&','HARBS 六本木 Hills 店','大屋頂廣場'],
-      6:['東武淺草站',null,null,'神橋'],
-      7:['日光東照宮',null,'日光 Airbnb'],
-      8:['成田里士滿飯店','成田山表參道','新勝寺大本堂','AEON MALL 成田'],
-      9:[null,null,null]
-    };
-    const extraQueries={'澀谷 PARCO':'渋谷 PARCO 東京','澀谷站八公口':'渋谷駅 ハチ公口','今戶神社':'今戸神社 台東区','PATISSERIE TEN&':'PATISSERIE TEN& 日比谷 OKUROJI'};
-    let targets=destinations[state.day] || [];
-    if(state.day===1 && state.group==='A') targets=[null,...targets];
-    if(state.day===1 && state.group==='B') targets=[null,'東京民宿','鳥貴族 淺草店',null];
-    if(state.day===3 && state.group==='C') targets=[null,'炭火焼肉おくさこ','東京晴空塔'];
-    const stops=[...main.querySelectorAll('.timeline > li > .stop-content')];
-    if(stops.length!==targets.length) return;
-    stops.forEach((stop,i)=>{
-      const name=targets[i+1];
-      // Keep the arrival panel limited to the timetable and Skyliner guide.
-      if(!name || stop.closest('.airport-arrival-stop') || name===targets[i]) return;
-      let destination=extraQueries[name];
-      const map=dailyPlaceMaps[name];
-      if(!destination && map){
-        const url=new URL(map,document.baseURI);
-        destination=url.searchParams.get('destination') || url.searchParams.get('query');
-      }
-      if(name==='東京民宿') destination=STAY_DIRECTIONS.tokyo.destination;
-      if(name==='日光 Airbnb') destination=STAY_DIRECTIONS.nikko.destination;
-      if(!destination) destination=name+' 日本';
-      const href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(destination);
-      const nav=document.createElement('nav');
-      nav.className='trip-quick-actions next-stop-actions';
-      nav.setAttribute('aria-label','下一站導航');
-      nav.innerHTML='<a href="'+href+'" target="_blank" rel="noopener noreferrer"><span class="next-stop-label">下一站｜</span><small>'+escape(name)+'</small><span>↗</span></a>';
-      stop.append(nav);
-    });
-  }
-
   function render(scroll = false) {
     clampDay(); detailSources = new Map();
     main.dataset.view = state.view;
@@ -1651,7 +1608,6 @@
     organizeDailyDetails();
     polishDailyLinks();
     attachMajorTransitGuide();
-    addNextStopActions();
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
         el.querySelector('.document').innerHTML=readable(detailSources.get(el.dataset.detail),{omitTitle:true});
