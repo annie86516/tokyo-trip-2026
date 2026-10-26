@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261026-arrival-buttons', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261026-skyliner-cards', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -519,12 +519,24 @@
     const rail=$('.narita-combined-table').cloneNode(true);
     [...rail.tBodies].forEach(body=>{if(!body.classList.contains('group-'+state.group.toLowerCase()))body.remove();});
     rail.querySelector('caption')?.remove();
+    const mobileTimes=[...rail.tBodies[0].rows].map(tr=>{
+      const cells=[...tr.cells];
+      const train=cells[1].textContent.trim().split('／');
+      const status=cells[0].cloneNode(true);
+      const note=status.querySelector('.subnote')?.textContent.trim() || '';
+      status.querySelector('.subnote')?.remove();
+      return `<article class="skyliner-time-card"><div class="skyliner-time-card-head"><strong>Skyliner ${escape(train[1] || '')}</strong><span>${escape(status.textContent.trim())}</span></div>
+        <dl><div><dt>成田 T2 出發</dt><dd>${escape(train[0])}</dd></div><div><dt>青砥抵達</dt><dd>${escape(cells[2].textContent.trim())}</dd></div><div><dt>本所吾妻橋<br>預估抵達</dt><dd>${escape(cells[3].textContent.trim())}</dd></div></dl>
+        ${note ? `<p class="skyliner-time-note">${escape(note)}</p>` : ''}
+      </article>`;
+    }).join('');
+
     const walk='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent('本所吾妻橋駅')+'&destination='+encodeURIComponent(STAY_DIRECTIONS.tokyo.destination)+'&travelmode=walking';
     return `<li class="airport-arrival-stop"><span class="step" aria-hidden="true">01</span><div class="stop-content">
       <div class="schedule-time is-fixed"><span>航班抵達</span><b>${escape(arrival)} 成田 T2</b></div>
       <div class="document transit-guide-body">
         <h3>Skyliner｜成田入境、買票與青砥轉乘</h3>
-        <h3>班次時間</h3>${readable(rail)}
+        <h3>班次時間</h3><div class="skyliner-desktop-times">${readable(rail)}</div><div class="skyliner-mobile-times" aria-label="Skyliner 候選班次">${mobileTimes}</div>
         <nav class="trip-quick-actions airport-arrival-actions" aria-label="機場交通與民宿步行路線">
           <a href="./site-four/index.html">成田入境與 Skyliner 交通 ↗</a>
           <a href="${walk}" target="_blank" rel="noopener noreferrer">本所吾妻橋站 → 民宿步行路線 ↗</a>

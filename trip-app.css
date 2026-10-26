@@ -619,3 +619,18 @@ input,select,textarea{font-size:14px!important}
 /* Arrival links share the home shortcut styling and remain side by side. */
 .airport-arrival-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
 .airport-arrival-actions a{min-width:0;text-align:center;white-space:normal;overflow-wrap:anywhere}
+
+/* Mobile rail times use a vertical card for each train. */
+.skyliner-mobile-times{display:none}
+@media(max-width:600px){
+  .skyliner-desktop-times{display:none}
+  .skyliner-mobile-times{display:grid;gap:12px;min-width:0}
+  .skyliner-time-card{padding:12px;border:1px solid #e4d7c8;border-radius:12px;background:#fffdf9;min-width:0}
+  .skyliner-time-card-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;padding-bottom:9px;border-bottom:1px solid #eadfd3;color:#754b35}
+  .skyliner-time-card-head span{color:#736c64}
+  .main .skyliner-time-card dl{display:grid;gap:10px;margin:12px 0 0}
+  .main .skyliner-time-card dl>div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:0;border:0;background:none}
+  .main .skyliner-time-card dt{font-weight:400;color:#59666a;line-height:1.6}
+  .main .skyliner-time-card dd{margin:0;text-align:right;font-size:15px;font-weight:700;line-height:1.5;white-space:nowrap;font-variant-numeric:tabular-nums;color:#293a43}
+  .main .skyliner-time-card .skyliner-time-note{margin:10px 0 0;padding-top:8px;border-top:1px solid #eadfd3;color:#736c64;font-size:12px;line-height:1.6}
+}
