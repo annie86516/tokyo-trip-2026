@@ -521,7 +521,8 @@
         main.querySelector('.timeline')?.insertAdjacentHTML('beforebegin', majorTransitGuide('skyliner'));
       }
       if(state.day===6) {
-        main.querySelector('.schedule-detail-body')?.insertAdjacentHTML('afterbegin',majorTransitGuide('spacia',true));
+        const boarding=main.querySelector('.schedule-detail-body');
+        if(boarding)boarding.innerHTML=majorTransitGuide('spacia',true);
       }
     }
   }
