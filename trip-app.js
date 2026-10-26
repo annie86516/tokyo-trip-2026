@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261026-quick-navigation', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261026-compact-buttons', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -1622,7 +1622,7 @@
       const nav=document.createElement('nav');
       nav.className='trip-quick-actions next-stop-actions';
       nav.setAttribute('aria-label','下一站導航');
-      nav.innerHTML='<a href="'+href+'" target="_blank" rel="noopener noreferrer"><span>前往下一站 ↗</span><small>'+escape(name)+'</small></a>';
+      nav.innerHTML='<a href="'+href+'" target="_blank" rel="noopener noreferrer"><span class="next-stop-label">下一站｜</span><small>'+escape(name)+'</small><span>↗</span></a>';
       stop.append(nav);
     });
   }
