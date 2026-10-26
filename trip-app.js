@@ -275,12 +275,12 @@
     ];
     if (state.day === 3 && state.group === 'C') return [
       fixed('12:10','航班抵達'), suggested('出關後，依實際班次前往民宿'),
-      suggested('17:30–18:30'), suggested('18:30–19:00')
+      suggested('17:30–19:00（依用餐進度）'), suggested('19:00 起（晴空塔選逛）')
     ];
     return {
       1:[suggested('15:20–16:00'),suggested('16:00–17:00'),suggested('17:00–17:20'),suggested('17:30–18:15'),suggested('18:45–20:00'),fixed('21:30 鳥貴族','已訂位')],
       2:[suggested('09:00–09:25'),suggested('10:00–10:30'),suggested('豪德寺後，順路選逛'),suggested('到店一起取號，依叫號入座'),suggested('14:30–18:00'),suggested('18:00–19:00')],
-      3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–18:30')],
+      3:[suggested('09:00–12:15；13:00 起晴空塔'),suggested('17:30–19:00（依用餐進度）')],
       4:[suggested('09:00–09:45'),suggested('09:45–10:45'),suggested('11:00–14:15（與午餐調整順序）'),suggested('11:00–14:15 午餐三選一'),suggested('14:15–14:45 步行往澀谷'),suggested('14:45–15:30 FREAK\'S STORE'),suggested('15:30–17:00 澀谷 PARCO'),suggested('17:00–19:00 PARCO B1 分開晚餐・依候位'),suggested('19:00–20:00 唐吉訶德選逛'),suggested('依集合時間返回民宿')],
       5:[suggested('09:00–09:45'),suggested('10:00–11:30'),fixed('12:00 牛舌訂位・用餐 1 小時','5 位已訂；另 2 位自由用餐'),suggested('午餐後順逛'),suggested('14:00–15:30 淺草自由活動'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 TEN& 外帶（建議）'),suggested('18:30–19:20 HARBS（有位內用／否則外帶）'),suggested('19:20 起 六本木新城聖誕市集・大屋頂廣場')],
       6:[fixed('淺草 09:00 → 東武日光 10:50','SPACIA X 003・已訂妥'),suggested('搭車期間'),suggested('10:50 抵達後'),suggested('13:00–14:30 神橋、日光街道；15:00–15:30 入住')],
