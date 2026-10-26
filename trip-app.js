@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261026-money-summary-v2', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261026-heading-links', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -1480,10 +1480,10 @@
         const href=a.getAttribute('href');if(seen.has(href))return;seen.add(href);links.push(a.cloneNode(true));
       });
       for(const node of [...stop.childNodes])if(!keep.includes(node))node.remove();
-      const content=document.createElement('div');
-      const title=document.createElement('strong');title.textContent=copy[0];content.append(title);
+      const content=document.createElement('div');content.className='stop-summary';
+      const title=document.createElement('strong');title.className='stop-summary-title';title.textContent=copy[0];content.append(title);
       const description=document.createElement('p');description.textContent=copy[1];content.append(description);
-      if(links.length){const row=document.createElement('p');links.forEach((a,j)=>{if(j)row.append(document.createTextNode('　'));row.append(a);});content.append(row);}
+      if(links.length){const row=document.createElement('p');row.className='stop-summary-links';links.forEach((a,j)=>{if(j)row.append(document.createTextNode('　'));row.append(a);});content.append(row);}
       const detail=stop.querySelector('.schedule-detail-body');detail?detail.before(content):stop.append(content);
       stop.dataset.revisedCopy='true';
     });
@@ -1579,6 +1579,47 @@
 
 
 
+
+  function consolidateDailySummaryLinks() {
+    if(state.view!=='days') return;
+    const urlKey=href=>{
+      const url=new URL(href,document.baseURI);
+      url.hash='';url.searchParams.sort();
+      return url.origin+url.pathname+'?'+url.searchParams.toString();
+    };
+    const isMap=a=>/google\.[^/]+\/maps|maps\.app\.goo\.gl|goo\.gl\/maps/.test(a.href);
+    const isGuide=a=>/\/restaurant-guide\/venues\/[^/]+\.html$/.test(new URL(a.href,document.baseURI).pathname);
+    main.querySelectorAll('.stop-summary').forEach(summary=>{
+      const title=summary.querySelector('.stop-summary-title');
+      const row=summary.querySelector('.stop-summary-links');
+      if(!title||!row) return;
+      const places=[...title.querySelectorAll('a[href]')].filter(isMap);
+      let activePlace=null;
+      for(const link of [...row.querySelectorAll('a[href]')]){
+        if(isMap(link)){
+          activePlace=places.find(place=>urlKey(place.href)===urlKey(link.href)) || null;
+          if(activePlace) link.remove();
+          continue;
+        }
+        if(isGuide(link)&&activePlace){
+          let pair=activePlace.parentElement;
+          if(!pair.classList.contains('stop-title-place')){
+            pair=document.createElement('span');pair.className='stop-title-place';
+            activePlace.before(pair);pair.append(activePlace);
+          }
+          if([...pair.querySelectorAll('a')].some(a=>urlKey(a.href)===urlKey(link.href))){link.remove();continue;}
+          link.classList.add('stop-title-guide');
+          link.textContent='實拍攻略';
+          link.setAttribute('aria-label',activePlace.textContent.trim()+' 實拍攻略');
+          pair.append(link);
+        } else {
+          activePlace=null;
+        }
+      }
+      if(!row.querySelector('a')&&!row.textContent.replace(/[\s\u3000／|｜→↗]/g,'')) row.remove();
+    });
+  }
+
   function render(scroll = false) {
     clampDay(); detailSources = new Map();
     main.dataset.view = state.view;
@@ -1602,6 +1643,7 @@
     applyRevisedDailyCopy();
     organizeDailyDetails();
     polishDailyLinks();
+    consolidateDailySummaryLinks();
     attachMajorTransitGuide();
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {

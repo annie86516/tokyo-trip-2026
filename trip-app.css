@@ -659,3 +659,9 @@ input,select,textarea{font-size:14px!important}
 .money-expense-head>div:first-child>span{font-size:13px;line-height:1.6}
 
 .money-stats .money-currency-list dt,.money-stats .money-currency-list dd{color:#fff}
+
+/* Keep the map name and its restaurant guide together in the card heading. */
+.stop-title-place{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:5px;max-width:100%;vertical-align:baseline;margin-right:3px}
+.main .stop-summary-title .stop-title-guide{display:inline-flex;align-items:center;min-height:26px;padding:2px 7px;border:1px solid #e3cfd1;border-radius:6px;background:#faf4f4;color:var(--vermilion);font-size:11px;font-weight:500;line-height:1.5;white-space:nowrap;text-decoration:none}
+.stop-title-place>a:first-child{min-width:0;overflow-wrap:anywhere}
+.stop-summary-title{line-height:1.9}
