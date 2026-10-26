@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261026-skyliner-short', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261026-quick-navigation', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -469,7 +469,7 @@
     const stay = key && STAY_DIRECTIONS[key];
     const url = stay ? 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(stay.destination) : '';
     const home = stay ? '<a href="'+url+'" target="_blank" rel="noopener noreferrer" aria-label="回'+stay.name+'，開啟 Google 地圖路線">'+icon('pin')+'回住宿｜'+stay.name+' ↗</a>' : '';
-    return '<nav class="trip-quick-actions" aria-label="旅途快捷功能">'+home+foodCardButton()+'</nav>';
+    return '<nav class="trip-quick-actions" aria-label="旅途快捷功能">'+home+'<a href="https://www.google.com/maps/search/?api=1&query=restaurants+near+me" target="_blank" rel="noopener noreferrer">附近找吃的 ↗</a>'+foodCardButton()+'</nav>';
   }
   function dayResources() {
     const resources = state.day===6||state.day===7 ? [['./site-two/index.html','日光巴士：站牌、班次與票券']] : state.day===9 ? [['./?view=airport','機場購物：安檢前／後分區']] : [];
@@ -1583,6 +1583,50 @@
   }
 
 
+
+  function addNextStopActions() {
+    if(state.view!=='days') return;
+    // Destinations follow the visible timeline; null keeps free-choice stops unassigned.
+    const destinations = {
+      1:['野口鮮魚店','塩パン屋 パンメゾン','銀杏岡八幡神社','日比谷公園','鳥貴族 淺草店'],
+      2:['nukumuku','豪德寺',null,'梅丘寿司の美登利 総本店','Bic Camera 新宿東口店','一蘭 新宿歌舞伎町店'],
+      3:[null,'炭火焼肉おくさこ'],
+      4:['青山一丁目站','明治神宮外苑銀杏大道','KIDDY LAND 原宿店',null,"FREAK'S STORE Shibuya","FREAK'S STORE Shibuya",'澀谷 PARCO',null,'MEGA 唐吉訶德 澀谷本店','澀谷站八公口'],
+      5:['Mūya','今戶神社',null,null,null,'東京民宿','PATISSERIE TEN&','HARBS 六本木 Hills 店','大屋頂廣場'],
+      6:['東武淺草站',null,null,'神橋'],
+      7:['日光東照宮',null,'日光 Airbnb'],
+      8:['成田里士滿飯店','成田山表參道','新勝寺大本堂','AEON MALL 成田'],
+      9:[null,null,null]
+    };
+    const extraQueries={'澀谷 PARCO':'渋谷 PARCO 東京','澀谷站八公口':'渋谷駅 ハチ公口','今戶神社':'今戸神社 台東区','PATISSERIE TEN&':'PATISSERIE TEN& 日比谷 OKUROJI'};
+    let targets=destinations[state.day] || [];
+    if(state.day===1 && state.group==='A') targets=[null,...targets];
+    if(state.day===1 && state.group==='B') targets=[null,'東京民宿','鳥貴族 淺草店',null];
+    if(state.day===3 && state.group==='C') targets=[null,'炭火焼肉おくさこ','東京晴空塔'];
+    const stops=[...main.querySelectorAll('.timeline > li > .stop-content')];
+    if(stops.length!==targets.length) return;
+    stops.forEach((stop,i)=>{
+      const name=targets[i+1];
+      // Keep the arrival panel limited to the timetable and Skyliner guide.
+      if(!name || stop.closest('.airport-arrival-stop') || name===targets[i]) return;
+      let destination=extraQueries[name];
+      const map=dailyPlaceMaps[name];
+      if(!destination && map){
+        const url=new URL(map,document.baseURI);
+        destination=url.searchParams.get('destination') || url.searchParams.get('query');
+      }
+      if(name==='東京民宿') destination=STAY_DIRECTIONS.tokyo.destination;
+      if(name==='日光 Airbnb') destination=STAY_DIRECTIONS.nikko.destination;
+      if(!destination) destination=name+' 日本';
+      const href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(destination);
+      const nav=document.createElement('nav');
+      nav.className='trip-quick-actions next-stop-actions';
+      nav.setAttribute('aria-label','下一站導航');
+      nav.innerHTML='<a href="'+href+'" target="_blank" rel="noopener noreferrer"><span>前往下一站 ↗</span><small>'+escape(name)+'</small></a>';
+      stop.append(nav);
+    });
+  }
+
   function render(scroll = false) {
     clampDay(); detailSources = new Map();
     main.dataset.view = state.view;
@@ -1607,6 +1651,7 @@
     organizeDailyDetails();
     polishDailyLinks();
     attachMajorTransitGuide();
+    addNextStopActions();
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
         el.querySelector('.document').innerHTML=readable(detailSources.get(el.dataset.detail),{omitTitle:true});

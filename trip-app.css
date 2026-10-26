@@ -636,3 +636,6 @@ input,select,textarea{font-size:14px!important}
 }
 
 .airport-arrival-actions{grid-template-columns:minmax(0,1fr)}
+
+.next-stop-actions a{flex-direction:column;gap:2px;text-align:center}
+.next-stop-actions small{font-size:12px;line-height:1.6;color:#736c64}
