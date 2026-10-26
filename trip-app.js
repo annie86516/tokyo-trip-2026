@@ -472,8 +472,7 @@
     return '<nav class="trip-quick-actions" aria-label="旅途快捷功能">'+home+foodCardButton()+'</nav>';
   }
   function dayResources() {
-    if((state.day===1 && state.group!=='C') || (state.day===3 && state.group==='C')) return '';
-    const resources = state.day===6||state.day===7 ? [['./site-two/index.html','日光巴士：站牌、班次與票券']] : state.day===9 ? [['./?view=airport','機場購物：安檢前／後分區'],['./site-four/index.html','成田入境與 Skyliner 交通']] : state.day===1||state.day===3 ? [['./site-four/index.html','成田入境與 Skyliner 交通']] : [];
+    const resources = state.day===6||state.day===7 ? [['./site-two/index.html','日光巴士：站牌、班次與票券']] : state.day===9 ? [['./?view=airport','機場購物：安檢前／後分區']] : [];
     return resources.length ? '<nav class="resource-links" aria-label="當日延伸資料">'+resources.map(([url,title])=>'<a href="'+url+'">'+title+' ↗</a>').join('')+'</nav>' : '';
   }
   function flightPanel(table,title) {
