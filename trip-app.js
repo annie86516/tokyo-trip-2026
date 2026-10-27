@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261026-heading-links', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261027-day3-routes', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -416,7 +416,7 @@
       extras = [];
     } else if (state.day === 3) {
       const selected = ['yanaka','sumida'].includes(state.routes[state.group]) ? state.routes[state.group] : 'all';
-      route = '本所吾妻橋 → 自選谷根千或京島・向島 → 晴空塔 Solamachi → 炭火焼肉おくさこ晚餐 → 晴空塔夜景（選逛）';
+      route = `本所吾妻橋 → ${selected==='yanaka'?'谷根千（根津神社・蛇道・谷中銀座）':selected==='sumida'?'京島・向島（飛木稻荷・ハト屋・キラキラ橘・MUUMUU COFFEE）':'谷根千／京島・向島（二選一）'} → 晴空塔 Solamachi → 炭火焼肉おくさこ晚餐 → 晴空塔夜景（選逛）`;
       items[0] = '<strong>上午自由選線：</strong>谷根千保留根津神社、蛇道與谷中銀座；天王寺與靈園只順路短停，略過上野櫻木。京島・向島維持麵包、咖啡散步。最晚 12:15 離開上午路線，直接前往晴空塔。';
       custom = `<h2 class="section-label">上午想走哪一條？</h2><p class="intro">A、B 組都可自由選擇，與航班組別無關。</p><div class="route-select" role="group" aria-label="第 3 天散步路線">${[['all','兩條都看'],['yanaka','谷根千'],['sumida','京島・向島']].map(([key,label])=>`<button type="button" data-route="${key}" aria-pressed="${selected===key}">${label}</button>`).join('')}</div>`;
       extras = extras.filter(el => selected === 'all' || (selected === 'yanaka' ? el.id !== 'day3-route-detail-b1' : el.id !== 'day3-route-detail'));
@@ -1156,6 +1156,7 @@
       const blocks=new Set('div section article main aside header footer figure ul ol dl details form fieldset p li h1 h2 h3 h4 table img dt dd summary figcaption address pre blockquote label button input select textarea'.split(' '));
       const pending=[],misses=[];
       for(const op of wordModelPatches) {
+        if(['WEB00155','WEB00156'].includes(op.id))continue;
         const day=Number(op.chapter.split('-')[2]);
         if(day!==state.day || (day===1 && state.group!=='A') || (day<=3 && state.group==='C'))continue;
         let node=mirror;const parts=op.locator.split('/').slice(1);const last=parts.at(-1);
@@ -1463,6 +1464,14 @@
     ]
   ]
 };
+  function dailyCopyFor(index) {
+    if(state.day!==3 || index!==0 || state.group==='C')return revisedDailyCopy[state.day]?.[index];
+    const selected=state.routes[state.group];
+    const ending='最晚 12:15 離開上午路線，13:00 起在晴空塔購物與休息，傍晚與 C 組會合晚餐。';
+    if(selected==='yanaka')return ['谷根千 → 晴空塔','日暮里 → 天王寺／谷中靈園短停 → 根津神社 → 蛇道 → 谷中銀座 → 日暮里。谷中銀座預留約 11:25–11:55 短逛；各店營業時間不同，遇到排隊就略過，不保證能逛完全部店家。'+ending];
+    if(selected==='sumida')return ['京島・向島 → 晴空塔','押上 → 飛木稻荷 → ハト屋 → キラキラ橘商店街 → MUUMUU COFFEE；這條路線不經谷中銀座。'+ending];
+    return ['上午路線二選一 → 晴空塔','A、B 組都可自由選線，與航班分組無關。谷根千：日暮里 → 根津神社 → 蛇道 → 谷中銀座。京島・向島：飛木稻荷 → ハト屋 → キラキラ橘商店街 → MUUMUU COFFEE。兩條是替代方案，不排在同一個上午。'+ending];
+  }
   function applyRevisedDailyCopy() {
     if(state.view!=='days' || (state.group==='B' && state.day===1) || (state.group==='C' && state.day===3))return;
     const copies=revisedDailyCopy[state.day];
@@ -1471,7 +1480,7 @@
     // Copy follows the same ordered stop list used by the independent preview.
     if(stops.length!==copies.length)return;
     stops.forEach((stop,i)=>{
-      const copy=copies[i];if(!copy)return; // Keep split-meal cards in their existing layout.
+      const copy=dailyCopyFor(i);if(!copy)return; // Keep split-meal cards in their existing layout.
       const keep=[...stop.children].filter(e=>e.matches('.schedule-toggle,.schedule-time,.schedule-detail-body'));
       const summary=stop.cloneNode(true);
       summary.querySelectorAll('.schedule-toggle,.schedule-time,.schedule-detail-body').forEach(e=>e.remove());
@@ -1530,13 +1539,13 @@
     if(state.view!=='days')return;
     const shared=!(state.group==='B'&&state.day===1)&&!(state.group==='C'&&state.day===3);
     main.querySelectorAll('.stop-content').forEach((stop,i)=>{
-      const copy=shared?revisedDailyCopy[state.day]?.[i]:null;
+      const copy=shared?dailyCopyFor(i):null;
       let detail=stop.querySelector('.schedule-detail-body');
       const time=stop.querySelector('.schedule-time');
       if(!time)return;
       const summary=stop.cloneNode(true);summary.querySelectorAll('.schedule-detail-body,.schedule-toggle,.schedule-time').forEach(e=>e.remove());
       const text=copy?.[1]||summary.textContent.trim();
-      const access=shared?dailyAccessNotes[state.day]?.[i]:null;
+      const access=shared?(state.day===3&&i===0 ? (state.routes[state.group]==='yanaka'?'先前往日暮里，依谷根千路線步行；完成後由日暮里轉往晴空塔。':state.routes[state.group]==='sumida'?'先前往押上，依京島・向島路線步行；完成後回晴空塔。':dailyAccessNotes[3][0]):dailyAccessNotes[state.day]?.[i]):null;
       if(!detail){detail=document.createElement('div');detail.className='document schedule-detail-body';detail.id=`slot-detail-${state.day}-${i}`;detail.hidden=true;stop.append(detail);}
       // Preserve existing station-by-station and alternative-route instructions.
       const briefing=document.createElement('section');briefing.className='supplement-section';
