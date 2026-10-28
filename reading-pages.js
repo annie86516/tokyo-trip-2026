@@ -19,7 +19,7 @@
     venue.querySelectorAll('img[data-commons-query]').forEach(img=>{
       img.removeAttribute('data-commons-query');img.closest('.dish-visual')?.remove();
     });
-    venue.querySelectorAll('.photo-panel .intro').forEach(p=>p.textContent='店面與招牌餐點供行前辨識；實際菜色與供應以當日為準。');
+    venue.querySelectorAll('.photo-panel .intro').forEach(p=>p.remove());
   }else{
     document.querySelectorAll('section.page').forEach((p,i)=>fold(p,p.querySelector('h2'),i===0));
   }

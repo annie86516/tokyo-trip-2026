@@ -227,7 +227,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 <section class="hero-home"><div class="wrap hero-home-inner">
 <div>
 <div class="eyebrow">TOKYO · NIKKO · NARITA 2026</div>
-<h1>按日期查看餐廳<br/>已訂位與候選一目了然</h1>
+<h1>按日期查看餐廳<br/>已訂位餐廳與候選清單</h1>
 <p class="lead">依 9 天 8 夜行程整理已訂位餐廳、午餐候選與順路小吃。部分店家提供獨立攻略；候選店以地圖、營業與點餐提醒為主。</p>
 <div class="badges"><span class="badge red">已訂位</span><span class="badge gold">午餐候選</span><span class="badge sage">順路小吃</span><span class="badge blue">分組用餐</span></div>
 
@@ -239,7 +239,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 <div aria-label="餐廳篩選" class="filterbar" role="group">
 <button class="active" data-filter="all" type="button">全部</button>
 <button data-filter="day-1" type="button">DAY 1</button><button data-filter="day-2" type="button">DAY 2</button><button data-filter="day-3" type="button">DAY 3</button><button data-filter="day-4" type="button">DAY 4</button><button data-filter="day-5" type="button">DAY 5</button><button data-filter="day-6" type="button">DAY 6</button><button data-filter="day-7" type="button">DAY 7</button><button data-filter="day-8" type="button">DAY 8</button>
-<button data-filter="priority-S" type="button">S 級必吃</button>
+<button data-filter="priority-S" type="button">S 級推薦</button>
 </div>
 <div class="empty" id="emptyState">沒有符合條件的餐廳。</div>
 <section class="day-section" data-day-section="1">
@@ -250,10 +250,10 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 <span class="photo-label">招牌｜朝一築地丼</span>
 </div>
 <div class="card-body">
-<div class="card-meta"><span class="badge gold">A｜推薦安排</span><span class="badge blue">行程正式安排</span></div>
+<div class="card-meta"><span class="badge gold">A｜推薦安排</span><span class="badge blue">行程安排</span></div>
 <h3>野口鮮魚店</h3>
 <div class="jp">小さな魚がし 野口鮮魚店</div>
-<p class="verdict">DAY 1 放妥行李後的第一餐；以 16:00 晚餐開店為目標，3 人接受分桌並設定候位停損。</p>
+<p class="verdict">DAY 1 放好行李後用餐，預計 16:00 晚餐開店時抵達；3 人可分桌，等太久就換店。</p>
 <div class="card-bottom"><span>DAY 1・晚午餐</span><span>本所吾妻橋</span></div>
 </div>
 </a>
@@ -282,7 +282,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <h3>鹽麵包屋 Pain Maison</h3>
 <div class="jp">塩パン屋 パン・メゾン すみだ浅草通り店</div>
-<p class="verdict">便宜、快速、代表性高；建議每人先買原味鹽麵包，再挑一個夾餡款。</p>
+<p class="verdict">每人可先買原味鹽麵包，想吃甜口味再挑夾餡款。</p>
 <div class="card-bottom"><span>DAY 1・點心</span><span>吾妻橋</span></div>
 </div>
 </a>
@@ -314,11 +314,11 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 <div class="card-body">
 <div class="card-meta">
 <span class="badge sage">B｜順路可吃</span>
-<span class="badge blue">行程正式安排</span>
+<span class="badge blue">行程安排</span>
 </div>
 <h3>nukumuku 三軒茶屋</h3>
 <div class="jp">nukumuku</div>
-<p class="verdict">適合進豪德寺前補充早餐；重點是 1 樓選麵包，時間有限就不要等 2 樓正餐。</p>
+<p class="verdict">豪德寺前的早餐安排：在 1 樓買麵包外帶；時間不夠就略過 2 樓餐點。</p>
 <div class="card-bottom"><span>DAY 2・早餐</span><span>三軒茶屋</span></div>
 </div>
 </a>
@@ -334,7 +334,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <h3>RARASAND 招福貓甜點咖啡</h3>
 <div class="jp">RARASAND</div>
-<p class="verdict">造型與豪德寺主題最連貫；重點是招福燒，不必為了完整咖啡時段久候。</p>
+<p class="verdict">可買招福貓造型的招福燒；內用候位太久就外帶。</p>
 <div class="card-bottom"><span>DAY 2・點心備選</span><span>豪德寺</span></div>
 </div>
 </a>
@@ -350,7 +350,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <h3>IRON COFFEE 豪德寺</h3>
 <div class="jp">IRON COFFEE</div>
-<p class="verdict">比 RARASAND 更適合真正想喝好咖啡的人；週日 09:00 開，可作早餐後第二站。</p>
+<p class="verdict">想喝咖啡可選這間；週日 09:00 開，可在早餐後順路買。</p>
 <div class="card-bottom"><span>DAY 2・咖啡備選</span><span>豪德寺</span></div>
 </div>
 </a>
@@ -361,8 +361,8 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <div class="card-body">
 <div class="card-meta">
-<span class="badge red">S｜值得專程安排</span>
-<span class="badge blue">行程正式安排</span>
+<span class="badge red">S｜優先考慮</span>
+<span class="badge blue">行程安排</span>
 </div>
 <h3>梅丘壽司美登利 總本店</h3>
 <div class="jp">梅丘寿司の美登利 総本店</div>
@@ -376,10 +376,10 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 <span class="photo-label">招牌｜天然豚骨拉麵</span>
 </div>
 <div class="card-body">
-<div class="card-meta"><span class="badge gold">A｜推薦安排</span><span class="badge blue">行程正式安排</span></div>
+<div class="card-meta"><span class="badge gold">A｜推薦安排</span><span class="badge blue">行程安排</span></div>
 <h3>一蘭 新宿歌舞伎町店</h3>
 <div class="jp">一蘭 新宿歌舞伎町店</div>
-<p class="verdict">DAY 2 新宿採買後的正式晚餐；24 小時營業讓時間更有彈性，但 5 人應接受分開入座。</p>
+<p class="verdict">DAY 2 新宿採買後吃晚餐。店家 24 小時營業，5 人可能分開入座。</p>
 <div class="card-bottom"><span>DAY 2・晚餐</span><span>新宿・歌舞伎町</span></div>
 </div>
 </a></div>
@@ -400,7 +400,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <h3>akim'p 布丁</h3>
 <div class="jp">akim'p</div>
-<p class="verdict">小而精緻的布丁店；焦糖布蕾表演感強，但 12 席不適合 7 人同時久坐。</p>
+<p class="verdict">布丁會在桌邊炙燒焦糖；店內只有 12 席，7 人可能需分批入座。</p>
 <div class="card-bottom"><span>DAY 3・甜點</span><span>押上・業平</span></div>
 </div>
 </a>
@@ -414,7 +414,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <div class="card-body">
 <div class="card-meta">
-<span class="badge red">S｜值得專程安排</span>
+<span class="badge red">S｜優先考慮</span>
 <span class="badge blue">不吃牛肉首選</span>
 </div>
 <h3>回轉壽司 Triton 東京 Solamachi 店</h3>
@@ -439,7 +439,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <h3>NUMBER SUGAR 表參道本店</h3>
 <div class="jp">NUMBER SUGAR 表参道本店</div>
-<p class="verdict">體積小、好攜帶、送禮辨識度高；建議直接買綜合盒，不必逐顆研究太久。</p>
+<p class="verdict">想試多種口味可買綜合盒，也方便帶回送人。</p>
 <div class="card-bottom"><span>DAY 4・伴手禮／點心</span><span>表參道・Cat Street</span></div>
 </div>
 </a>
@@ -477,8 +477,8 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <h3>笑たこ 原宿表參道店</h3>
 <div class="jp">笑たこ 原宿表参道店</div>
-<p class="verdict">適合多人分一盒、快速補一口；不要每人一份，會影響晚餐。</p>
-<div class="card-bottom"><span>DAY 4・加碼點心</span><span>原宿・表參道</span></div>
+<p class="verdict">可先買一盒分食，依食量再加點。</p>
+<div class="card-bottom"><span>DAY 4・點心</span><span>原宿・表參道</span></div>
 </div>
 </a>
 <a class="venue-card" data-day="4" data-priority="A" href="venues/38-kiwamiya-shibuya.html" target="_blank" rel="noopener noreferrer">
@@ -497,11 +497,11 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 <div class="card-body">
 <div class="card-meta">
 <span class="badge gold">A｜推薦安排</span>
-<span class="badge blue">行程正式安排</span>
+<span class="badge blue">行程安排</span>
 </div>
 <h3>MŪYA 吐司咖啡廳</h3>
 <div class="jp">むうや</div>
-<p class="verdict">地點漂亮、早餐節奏容易控制；重點吃招牌「ムー」吐司，不需要點太多。</p>
+<p class="verdict">早餐可點招牌「ムー」吐司，之後還有淺草小吃，份量依食量調整。</p>
 <div class="card-bottom"><span>DAY 5・早餐</span><span>東京 Mizumachi</span></div>
 </div>
 </a>
@@ -517,7 +517,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <h3>淺草花月堂 本店</h3>
 <div class="jp">浅草花月堂 本店</div>
-<p class="verdict">剛出爐最有價值；全團 2–3 個共享即可，不要為拍照買過量。</p>
+<p class="verdict">建議買剛出爐的麵包，全團可先買 2–3 個分食。</p>
 <div class="card-bottom"><span>DAY 5・小吃</span><span>淺草寺周邊</span></div>
 </div>
 </a>
@@ -528,12 +528,12 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <div class="card-body">
 <div class="card-meta">
-<span class="badge red">S｜值得專程安排</span>
+<span class="badge red">S｜優先考慮</span>
 <span class="badge blue">順路小吃</span>
 </div>
 <h3>壽壽喜園 淺草本店</h3>
 <div class="jp">壽々喜園 浅草本店</div>
-<p class="verdict">淺草甜點中最值得保留的一站；建議 No.7 與較淡口味各一球對比。</p>
+<p class="verdict">想比較抹茶濃度，可選 No.7 與較淡口味各一球。</p>
 <div class="card-bottom"><span>DAY 5・甜點</span><span>淺草寺北側</span></div>
 </div>
 </a>
@@ -544,7 +544,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <div class="card-body">
 <div class="card-meta">
-<span class="badge red">S｜值得專程安排</span>
+<span class="badge red">S｜優先考慮</span>
 <span class="badge blue">順路小吃</span>
 </div>
 <h3>龜十 銅鑼燒</h3>
@@ -612,7 +612,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <div class="card-body">
 <div class="card-meta">
-<span class="badge red">S｜值得專程安排</span>
+<span class="badge red">S｜優先考慮</span>
 <span class="badge blue">順路選吃</span>
 </div>
 <h3>日光さかえや 炸湯波饅頭</h3>
@@ -632,7 +632,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <div class="card-body">
 <div class="card-meta">
-<span class="badge red">S｜值得專程安排</span>
+<span class="badge red">S｜優先考慮</span>
 <span class="badge blue">推薦安排</span>
 </div>
 <h3>さんフィールド 湯波御膳</h3>
@@ -654,7 +654,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 <h3>日光湯波巻 全 ZEN</h3>
 <div class="jp">日光湯波巻 全 ZEN</div>
 <p class="verdict">官方菜單頁顯示 2026/7/1 恢復營業、供應部分菜單。列為店家參考；晚餐當天再決定，這間過往採預約制，不能直接當作可現場入店的選擇。</p>
-<div class="card-bottom"><span>DAY 7・高階晚餐備選</span><span>上鉢石町</span></div>
+<div class="card-bottom"><span>DAY 7・晚餐備選</span><span>上鉢石町</span></div>
 </div>
 </a>
 <a class="venue-card" data-day="7" data-priority="A" href="venues/30-meiji-no-yakata.html">
@@ -684,12 +684,12 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <div class="card-body">
 <div class="card-meta">
-<span class="badge red">S｜值得專程安排</span>
-<span class="badge blue">行程正式安排</span>
+<span class="badge red">S｜優先考慮</span>
+<span class="badge blue">行程安排</span>
 </div>
 <h3>川豐 本店</h3>
 <div class="jp">川豊 本店</div>
-<p class="verdict">DAY 8 的第一選擇；10:00 開門，抵達成田後第一件事應先抽號／排隊，再逛表參道。</p>
+<p class="verdict">DAY 8 午餐首選，10:00 開門。抵達成田後先取號，再逛表參道。</p>
 <div class="card-bottom"><span>DAY 8・午餐</span><span>成田山表參道</span></div>
 </div>
 </a>
@@ -705,7 +705,7 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <h3>成田江戶人壽司 參道本店</h3>
 <div class="jp">成田江戸ッ子寿司 参道本店</div>
-<p class="verdict">川豐等待太久時的最佳替代；有較多座位與包廂，7 人比排鰻魚更容易控制時間。</p>
+<p class="verdict">川豐等太久時可改吃壽司；這間有較多座位與包廂，可先問是否能接待 7 人。</p>
 <div class="card-bottom"><span>DAY 8・午餐備選</span><span>成田站・表參道</span></div>
 </div>
 </a>
@@ -721,13 +721,13 @@ h1{font-size:calc(clamp(36px,5vw,60px) - 2px);line-height:1.2;margin:10px 0 16px
 </div>
 <h3>なごみの米屋 總本店</h3>
 <div class="jp">なごみの米屋 總本店</div>
-<p class="verdict">成田最後採買的穩定選擇；栗羊羹送長輩，花生最中送同事，先看保存期限再買。</p>
+<p class="verdict">可買栗羊羹或花生最中作伴手禮，購買前先看保存期限。</p>
 <div class="card-bottom"><span>DAY 8・伴手禮</span><span>成田山表參道</span></div>
 </div>
 </a></div>
 </section>
 </div></main>
-<footer class="footer"><div class="wrap footer-inner"><span>2026 東京・日光・成田餐廳攻略</span><span>照片與營業資訊請於出發前再次確認</span></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><span>2026 東京・日光・成田餐廳攻略</span><span>營業時間請於出發前確認</span></div></footer>
 <script>
 (() => {
   const buttons = [...document.querySelectorAll('[data-filter]')];
