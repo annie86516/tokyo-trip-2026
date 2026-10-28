@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'tokyo-trip-2026-';
-const CACHE_NAME = CACHE_PREFIX + 'mobile-v101';
+const CACHE_NAME = CACHE_PREFIX + 'mobile-v102';
 const BASE = new URL('./', self.location.href);
 const INDEX = new URL('index.html', BASE).href;
 const APP_FILES = ['airport-guide/index.html','site-two/index.html','site-four/index.html','reading-pages.css','reading-pages.css?v=20261018-mobile-font-plus1','reading-pages.js','reading-pages.js?v=20261028-plain-copy','restaurant-guide/venues/36-sweet-check.html','restaurant-guide/venues/37-baso.html','restaurant-guide/venues/38-kiwamiya-shibuya.html','restaurant-guide/venues/39-masaka-shibuya.html','restaurant-guide/venues/40-mitsui.html','restaurant-guide/venues/41-harbs-roppongi.html','restaurant-guide/venues/42-ten-okuroji.html','site-three/index.html','index.html','trip-app.js','trip-app.js?v=20261028-airport-guide','trip-app.css','trip-app.css?v=20261028-airport-guide','trip-weather.js','trip-weather.js?v=20261023-narita-autumn','trip-money.js','trip-money.js?v=20261026-payment-round-up','manifest.webmanifest','assets/nikko-narita-transfer-voucher-2026-11-28.pdf',
