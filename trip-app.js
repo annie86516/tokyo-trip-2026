@@ -7,7 +7,7 @@
   if (!$('#day1') || !$('#flight-info')) return;
   const GROUPS = ['A', 'B', 'C'];
   const STAY_KEYS = ['tokyo','nikko','narita'];
-  const COUPON_KEYS = ['bic','alpen','donki','matsukiyo','cocokara','sundrug','sugi','yam','laox','odakyu','aeon'];
+  const COUPON_KEYS = ['bic','alpen','donki','matsukiyo','cocokara','sundrug','sugi','yam','laox','odakyu','aeon','edion','tsuruha','sapporo','seibu','daimaru','cosmos','shinseido','tobu','kintetsu','narita-dutyfree','sundrug-shinjuku-online','donki-shinjuku-online','daimaru-tokyo-online','alpen-tokyo-online'];
   const STAY_INFO = {
     tokyo:{label:'東京',id:'stay-tokyo',image:'./stay-tokyo.jpg',alt:'東京本所吾妻橋包棟民宿的客廳與用餐空間',source:'https://www.airbnb.com/rooms/1661217093593003826'},
     nikko:{label:'日光',id:'stay-nikko',image:'./stay-nikko.jpg',alt:'日光山景包棟民宿的和室空間',source:'https://www.airbnb.com/rooms/52815877'},
@@ -626,404 +626,728 @@
     return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">入出境、退稅、行李與寄件。</p><nav class="resource-links" aria-label="機場與交通資料"><a href="./airport-guide/index.html">成田機場入境・退稅・出境 ↗</a><a href="./site-two/index.html">日光巴士 ↗</a></nav><nav class="trip-quick-actions" aria-label="點餐輔助">${foodCardButton()}</nav>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
   }
   const couponItems = {
-  "bic": {
-    "short": "Bic Camera",
-    "name": "Bic Camera",
-    "category": "家電／藥妝",
-    "image": "https://highway-buses.jp/chi/images/coupon/biccamera_01.jpg",
-    "alt": "Bic Camera 京王電鐵巴士合作優惠券完整券面",
-    "headline": "家電 7%・藥妝日用品 5%・清酒 3%",
-    "expiry": "有效至 2026/12/31",
-    "where": "DAY 2｜新宿 Bic Camera；DAY 4｜澀谷購物備用",
-    "body": "京王電鐵巴士合作券，有效至 2026/12/31。",
-    "caution": "只有符合免稅資格的交易可用。清酒折扣限酒類櫃檯；兩個條碼都須出示給店員。",
-    "url": "https://highway-buses.jp/chi/coupon/07",
-    "link": "開啟 Bic Camera 券面與使用條件 ↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "適用家電等 7%；藥品、化妝品、食品與日用品等 5%；日本清酒 3%。券頁未另外列出折扣最低消費額，仍須符合免稅資格及門檻。"
-      ],
-      [
-        "適用店舖",
-        "Bic Camera／Kojima 合作券指定門市；新宿、澀谷購物前先確認店舖與商品可用。"
-      ],
-      [
-        "如何使用",
-        "付款前出示護照正本與完整券面，請店員掃描上、下兩個條碼；免稅與優惠折扣分開計算。"
-      ],
-      [
-        "不適用商品",
-        "Apple、進口手錶、Grand Seiko、遊戲主機與原廠配件、遊戲軟體、PlayStation VR、Meta Quest、指定 Panasonic、DJI、FUJIFILM、部分威士忌等酒類、特價、Outlet、二手品等。清酒的獺祭、八海山不打折。"
-      ],
-      [
-        "併用與付款",
-        "不可與其他優惠券、活動折扣併用；券頁未列專屬付款方式，依門市規定。活動及排除商品可能調整。"
+    "bic": {
+      "short": "Bic Camera",
+      "name": "BicCamera／Kojima",
+      "category": "家電・藥妝",
+      "image": "./assets/coupons/bic.png",
+      "alt": "BicCamera／Kojima 優惠券原始券面",
+      "headline": "家電 7%・日用品 5%・清酒 3% OFF",
+      "expiry": "至 2027/04/30",
+      "where": "DAY 2｜新宿 Bic Camera",
+      "body": "券面含兩個條碼；不同商品類別適用不同折扣，另依資格辦理退稅。",
+      "caution": "付款前出示護照及兩個條碼；部分商品不適用。",
+      "url": "https://livejapan.com/en/article-a0006089/?sc_lid=lj_pc_article_new_frame_4",
+      "link": "LIVE JAPAN 優惠券與退稅說明 ↗",
+      "conditions": [
+        [
+          "折扣",
+          "日用品、藥品、化妝品、食品 5%；家電、3C 7%；日本清酒 3%（獺祭、八海山除外）；免稅同店同日未稅消費滿 ¥5,000。"
+        ],
+        [
+          "使用",
+          "付款前出示護照及券面兩個條碼；免稅依資格辦理。"
+        ],
+        [
+          "限制",
+          "部分商品排除且不可與其他折扣併用；券面標示退稅費用 ¥0。"
+        ]
       ]
-    ]
-  },
-  "alpen": {
-    "short": "Alpen",
-    "name": "Alpen TOKYO",
-    "category": "運動／戶外用品",
-    "image": "https://store.alpen-group.jp/campaign/group/coupon/matcha-coupon/media_MATCHA_coupon.png",
-    "alt": "Alpen Group 官方合作優惠券完整券面",
-    "headline": "指定商品 5% 折扣",
-    "expiry": "有效至 2026/12/31",
-    "where": "DAY 2｜新宿 Alpen TOKYO",
-    "body": "新宿 Alpen TOKYO 購物可備用；使用品牌官方刊登的 MATCHA 合作券。",
-    "caution": "5% 是購物折扣，不是再把券面 10% 免稅直接相加成 15% 總折扣。",
-    "url": "https://store.alpen-group.jp/campaign/group/coupon/matcha-coupon/media_MATCHA_coupon.png",
-    "link": "開啟 Alpen 官方完整券面 ↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "5% 折扣。券面另列免稅購物門檻為含稅 ¥5,500，並非另一筆折扣；11 月退稅依新制及店舖確認。"
-      ],
-      [
-        "適用店舖",
-        "Alpen TOKYO、Alpen FUKUOKA、Alpen NAGOYA，以及日本其他指定可辦理免稅的集團門市。"
-      ],
-      [
-        "如何使用",
-        "付款前出示券面；辦理免稅須持護照等資格證明。"
-      ],
-      [
-        "併用與限制",
-        "不得與其他折扣併用。券面未逐項列出排除品牌、使用次數或限定支付方式；購買前請店員確認實際品項。"
+    },
+    "alpen": {
+      "short": "Alpen",
+      "name": "Alpen／SPORTS DEPO／GOLF5",
+      "category": "運動・戶外",
+      "image": "./assets/coupons/alpen.png",
+      "alt": "Alpen／SPORTS DEPO／GOLF5 優惠券原始券面",
+      "headline": "全店 5% OFF",
+      "expiry": "券面未標示效期",
+      "where": "DAY 2｜新宿 Alpen TOKYO",
+      "body": "券面列 Alpen TOKYO、福岡、名古屋及全國免稅店。",
+      "caution": "免稅購物含稅 ¥5,500 起；部分商品除外、不能併用。",
+      "url": "https://store.alpen-group.jp/alpentokyo/CSfTokyoTop.jsp",
+      "link": "Alpen TOKYO 官方店舖 ↗",
+      "conditions": [
+        [
+          "折扣",
+          "指定商品 5% OFF。"
+        ],
+        [
+          "使用",
+          "免稅購物含稅 ¥5,500 起，結帳前出示券面。"
+        ],
+        [
+          "限制",
+          "部分商品不適用，免稅資格以門市核對為準。"
+        ]
       ]
-    ]
-  },
-  "donki": {
-    "short": "唐吉訶德",
-    "name": "唐吉訶德",
-    "category": "藥妝／零食／雜貨",
-    "image": null,
-    "liveNote": "請連網開啟唐吉訶德官方領券頁，依金額選券並出示即時條碼。截圖無法使用。",
-    "headline": "未稅滿 ¥10,000／¥30,000：最高 5%／7%",
-    "expiry": "即時券・效期以領券頁為準",
-    "where": "DAY 2／4／5｜新宿、澀谷、淺草等分店",
-    "body": "使用 WAmazing 合作連結開啟官方電子券。必須連網，不能用儲存的圖片或截圖結帳。",
-    "caution": "未公布固定截止日，不能保證 11 月仍是相同優惠；請在購物當日開啟官方券頁確認。",
-    "url": "https://japanportal.donki-global.com/coupon/?ptcd=0281000002",
-    "link": "開啟唐吉訶德官方即時領券頁 ↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "單次符合免稅資格的消費：未稅 ¥10,000 起 5%；未稅 ¥30,000 起 7%。不可把兩級折扣疊加。"
+    },
+    "donki": {
+      "short": "唐吉訶德",
+      "name": "Don Quijote",
+      "category": "折扣店・免稅",
+      "image": "./assets/coupons/donki.png",
+      "liveNote": "請連網開啟唐吉訶德官方領券頁，依金額選券並出示即時條碼。截圖無法使用。",
+      "headline": "免稅購物 5%／7% OFF＋最高 10% 退稅",
+      "expiry": "券面未標日期；結帳前確認",
+      "where": "新宿／澀谷購物區；分店與商品先核對",
+      "body": "含稅 ¥11,000 起 5% OFF；¥33,000 起 7% OFF。",
+      "caution": "限免稅合格交易，部分門市及商品不適用；不可併用。",
+      "url": "https://www.donki.com/en/tax_free/",
+      "link": "唐吉訶德免稅說明 ↗",
+      "conditions": [
+        [
+          "折扣級距",
+          "含稅 ¥11,000 以上 5%；¥33,000 以上 7%；另依資格退稅。"
+        ],
+        [
+          "使用",
+          "付款前出示券面和護照。"
+        ],
+        [
+          "限制",
+          "部分門市、指定商品不適用；不能與其他優惠併用。"
+        ]
       ],
-      [
-        "適用店舖",
-        "官方電子券指定的日本門市；新宿、澀谷、淺草購物時先確認該店可用。"
-      ],
-      [
-        "如何使用",
-        "付款前開啟官方頁並依畫面出示即時條碼；需要網路。付款後不能補用，截圖無效。"
-      ],
-      [
-        "不適用商品",
-        "酒、菸、POSA 儲值卡、遊戲主機、單件未稅 ¥100,000 以上商品及限價商品等；這些商品也不計入用券門檻。"
-      ],
-      [
-        "次數與併用",
-        "單次使用券，使用後不可再次用同一張。不可與其他折扣或服務併用；支付方式及當日券狀態以官方頁與門市為準。"
+      "alt": "Don Quijote 優惠券原始券面"
+    },
+    "matsukiyo": {
+      "short": "松本清",
+      "name": "松本清 Matsumoto Kiyoshi",
+      "category": "藥妝・美容",
+      "image": "./assets/coupons/matsukiyo.png",
+      "alt": "松本清 Matsumoto Kiyoshi 優惠券原始券面",
+      "headline": "滿 ¥10,000 起 3%／5%／7% OFF",
+      "expiry": "日本停留期間有效；活動可能提前結束",
+      "where": "東京藥妝店；指定商品、門市結帳前確認",
+      "body": "¥10,000–29,999：3%；¥30,000–49,999：5%；¥50,000 以上：7%。",
+      "caution": "券面標示美容品限定商品；部分商品排除、不能與其他優惠併用。",
+      "url": "https://www.matsukiyococokara-online.com/",
+      "link": "松本清官方網站 ↗",
+      "conditions": [
+        [
+          "優惠級距",
+          "¥10,000–29,999：3%；¥30,000–49,999：5%；¥50,000 以上：7%。"
+        ],
+        [
+          "限制",
+          "美容品限定商品；部分品項排除且不能併用其他折扣。"
+        ],
+        [
+          "使用",
+          "日本停留期間有效；結帳前出示券面。"
+        ]
       ]
-    ]
-  },
-  "matsukiyo": {
-    "short": "松本清",
-    "name": "松本清 Matsumoto Kiyoshi",
-    "category": "藥妝／日用品",
-    "image": "https://content.fun-japan.jp/renewal-prod/cms/light_coupon/TW---_2026-02-24-12-10-22.jpg",
-    "alt": "松本清 FUN! JAPAN 優惠券完整券面",
-    "headline": "滿 ¥10,000／¥30,000／¥50,000：3%／5%／7%",
-    "expiry": "有效至 2027/3/31",
-    "where": "東京購物備用｜遇到合適門市再使用",
-    "body": "提供給居住日本以外旅客的一般讀者券，不需要加入 FUN! JAPAN 會員；請選購物店家對應的券面。",
-    "caution": "松本清與 Cocokara Fine 的券不可拿錯。部分門市／商品不適用；第一類醫藥品在藥師不在場時不能販售。",
-    "url": "https://fun-japan.jp/tw/light-coupons/27",
-    "link": "開啟松本清優惠券與條件 ↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "¥10,000～29,999：3%；¥30,000～49,999：5%；¥50,000 起：7%。券面未明示含稅／未稅口徑，付款前請店員確認符合門檻的商品小計；不要把排除品項直接算入。"
-      ],
-      [
-        "資格與門市",
-        "居住日本以外的旅客適用；部分門市除外，先向結帳店員確認。"
-      ],
-      [
-        "如何使用",
-        "結帳前出示這家店的手機券面；適用的折扣級距由店員核算。"
-      ],
-      [
-        "不適用商品",
-        "諮詢／專櫃化妝品、香菸、雜誌、嬰兒尿布、嬰兒食品等指定商品除外；不是全部食品一律排除。"
-      ],
-      [
-        "併用與付款",
-        "不可與其他優惠券或折扣併用。券面未另列指定付款方式或使用次數，依門市確認。"
+    },
+    "cocokara": {
+      "short": "CocokaraFine",
+      "name": "CocokaraFine",
+      "category": "藥妝・免稅",
+      "image": "./assets/coupons/cocokara.png",
+      "alt": "CocokaraFine 優惠券原始券面",
+      "headline": "滿額 3%／5%／7% OFF",
+      "expiry": "至 2027/03/31",
+      "where": "券面指定門市含銀座四丁目、新宿三丁目等",
+      "body": "未稅 ¥10,000–29,999：3%；¥30,000–49,999：5%；¥50,000 以上：7%。",
+      "caution": "限免稅購物；指定商品排除、不可併券。",
+      "url": "https://www.matsukiyococokara-online.com/",
+      "link": "官方網站 ↗",
+      "conditions": [
+        [
+          "折扣級距",
+          "未稅 ¥10,000–29,999：3%；¥30,000–49,999：5%；¥50,000 以上：7%。"
+        ],
+        [
+          "指定門市",
+          "銀座四丁目、新宿三丁目、心齋橋長堀通等券面列店。"
+        ],
+        [
+          "限制",
+          "限免稅交易，部分化妝品、菸品、雜誌、POSA 等除外。"
+        ]
       ]
-    ]
-  },
-  "cocokara": {
-    "short": "Cocokara",
-    "name": "Cocokara Fine",
-    "category": "藥妝／日用品",
-    "image": "https://content.fun-japan.jp/renewal-prod/cms/light_coupon/-TW---_2026-02-24-12-08-59.jpg",
-    "alt": "Cocokara Fine FUN! JAPAN 優惠券完整券面",
-    "headline": "滿 ¥10,000／¥30,000／¥50,000：3%／5%／7%",
-    "expiry": "有效至 2027/3/31",
-    "where": "東京購物備用｜與松本清分開選對應券",
-    "body": "提供給居住日本以外旅客的一般讀者券，不需要加入 FUN! JAPAN 會員；請選購物店家對應的券面。",
-    "caution": "松本清與 Cocokara Fine 的券不可拿錯。部分門市／商品不適用；第一類醫藥品在藥師不在場時不能販售。",
-    "url": "https://fun-japan.jp/tw/light-coupons/44",
-    "link": "開啟 Cocokara Fine 優惠券與條件 ↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "¥10,000～29,999：3%；¥30,000～49,999：5%；¥50,000 起：7%。券面未明示含稅／未稅口徑，付款前請店員確認符合門檻的商品小計；不要把排除品項直接算入。"
-      ],
-      [
-        "資格與門市",
-        "居住日本以外的旅客適用；部分門市除外，先向結帳店員確認。"
-      ],
-      [
-        "如何使用",
-        "結帳前出示這家店的手機券面；適用的折扣級距由店員核算。"
-      ],
-      [
-        "不適用商品",
-        "諮詢／專櫃化妝品、香菸、雜誌、嬰兒尿布、嬰兒食品等指定商品除外；不是全部食品一律排除。"
-      ],
-      [
-        "併用與付款",
-        "不可與其他優惠券或折扣併用。券面未另列指定付款方式或使用次數，依門市確認。"
+    },
+    "sundrug": {
+      "short": "SUNDRUG",
+      "name": "SUNDRUG 尚都樂客",
+      "category": "藥妝・免稅",
+      "image": "./assets/coupons/sundrug.png",
+      "alt": "SUNDRUG 尚都樂客 優惠券原始券面",
+      "headline": "未稅滿額 3%／5%／7% OFF",
+      "expiry": "券面未標示效期",
+      "where": "DAY 2｜新宿周邊；先核對券面指定店",
+      "body": "未稅 ¥10,000–29,999：3%；¥30,000–49,999：5%；¥50,000 以上：7%。",
+      "caution": "部分商品除外且不可併用；門檻按券面。",
+      "url": "https://www.sundrug.co.jp/",
+      "link": "SUNDRUG 官方網站 ↗",
+      "conditions": [
+        [
+          "折扣級距",
+          "未稅 ¥10,000–29,999：3%；¥30,000–49,999：5%；¥50,000 以上：7%。"
+        ],
+        [
+          "限制",
+          "部分商品排除，不能與其他優惠券併用。"
+        ],
+        [
+          "使用",
+          "結帳前出示券面，免稅依門市規定。"
+        ]
       ]
-    ]
-  },
-  "sundrug": {
-    "short": "SUNDRUG",
-    "name": "尚都樂客 SUNDRUG",
-    "category": "藥妝／日用品",
-    "image": "https://taxfreeshops.sakura.ne.jp/cms/wp-content/uploads/2025/11/coupon_en_2026.jpg",
-    "alt": "SUNDRUG TAXFREESHOPS.JP 特別優惠券完整券面",
-    "headline": "滿 ¥10,000／¥30,000／¥50,000：3%／5%／7%",
-    "expiry": "有效至 2026/12/31",
-    "where": "DAY 2｜新宿通店購物備用",
-    "body": "新宿通店刊登的 SUNDRUG 特別券；完整券面包含三個折扣級距。",
-    "caution": "只限免稅交易，Direx 不適用；不要因為同屬集團就使用這張券。",
-    "url": "https://www.taxfreeshops.jp/zhtw/shop/900000440/coupon/10001254",
-    "link": "開啟 SUNDRUG 新宿通店券頁 ↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "¥10,000～29,999：3%；¥30,000～49,999：5%；¥50,000 起：7%。券面未明示含稅／未稅口徑，付款前請店員確認符合門檻的商品小計；不要把排除品項直接算入。"
-      ],
-      [
-        "資格與門市",
-        "限符合免稅資格的交易；指定 SUNDRUG 店舖適用，Direx 除外。"
-      ],
-      [
-        "如何使用",
-        "結帳前出示完整券面，讓店員依購物金額選擇對應條碼。"
-      ],
-      [
-        "不適用與併用",
-        "諮詢化妝品等指定品項除外，不可與其他優惠券併用。券面未另列付款方式及使用次數。"
+    },
+    "sugi": {
+      "short": "杉藥局",
+      "name": "SUGI 杉藥局",
+      "category": "藥妝・免稅",
+      "image": "./assets/coupons/sugi.png",
+      "alt": "SUGI 杉藥局 優惠券原始券面",
+      "headline": "滿額 14%／16%／18% 優惠＋最高 10% 退稅",
+      "expiry": "至 2027/02/28",
+      "where": "東京行程未指定分店，逛到參與門市可用",
+      "body": "¥10,000–29,999：14%；¥30,000–49,999：16%；¥50,000 以上：18%。",
+      "caution": "部分品項排除，折扣不可與其他券併用；退稅依資格辦理。",
+      "url": "https://www.sugi-net.jp/",
+      "link": "杉藥局官方網站 ↗",
+      "conditions": [
+        [
+          "優惠級距",
+          "券面分別標示 14%、16%、18% OFF，另有免稅最高 10%。"
+        ],
+        [
+          "門檻",
+          "單筆消費達券面金額級距；免稅依旅客資格。"
+        ],
+        [
+          "限制",
+          "專櫃化妝品、菸品、雜誌、嬰兒用品等部分品項除外。"
+        ]
       ]
-    ]
-  },
-  "sugi": {
-    "short": "杉藥局",
-    "name": "SUGI 杉藥局",
-    "category": "藥妝／日用品",
-    "image": "https://content.fun-japan.jp/renewal-prod/cms/light_coupon/JTB35---_2026-04-16-06-13-40.png",
-    "alt": "杉藥局 FUN! JAPAN 合作優惠券完整券面",
-    "headline": "滿 ¥10,000／¥30,000／¥50,000：4%／6%／8%",
-    "expiry": "有效至 2027/2/28",
-    "where": "東京購物備用｜不為用券另外繞路",
-    "body": "新增 FUN! JAPAN 合作券，效期涵蓋旅程。此版本僅適用免稅交易，不是官方另一張單品 15% 券。",
-    "caution": "依這張券面，「所有食品」列為排除項目；不要套用其他版本的食品規則。券面 14%／16%／18% 字樣不是可直接相加的總折扣。",
-    "url": "https://fun-japan.jp/tw/light-coupons/50",
-    "link": "開啟杉藥局優惠券與完整條件 ↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "¥10,000～29,999：4%；¥30,000～49,999：6%；¥50,000 起：8%。券面未明示含稅／未稅口徑，付款前請店員確認符合門檻的商品小計；不要把排除品項直接算入。"
-      ],
-      [
-        "資格與門市",
-        "日本以外居住的旅客，於可辦理免稅的杉藥局門市使用；請先確認門市與品項適用。"
-      ],
-      [
-        "如何使用",
-        "付款前出示整張券面及護照，由店員選擇符合購物金額的條碼。結帳後不可補用。"
-      ],
-      [
-        "不適用商品",
-        "處方藥、百貨／專櫃化妝品、所有食品、POSA 卡等；部分商品可能折扣較低或不適用。"
-      ],
-      [
-        "併用與限制",
-        "同一商品不可重複用折扣券、減價券或其他優惠。不接受因個人因素退貨；付款方式與次數未另列，依店舖規定。"
+    },
+    "yam": {
+      "short": "YAMADA",
+      "name": "YAMADA 山田電機",
+      "category": "家電・免稅",
+      "image": "./assets/coupons/yam.png",
+      "alt": "YAMADA 山田電機 優惠券原始券面",
+      "headline": "指定商品 7% OFF＋退稅",
+      "expiry": "至 2027/03/31",
+      "where": "行程未指定山田電機門市",
+      "body": "免稅未稅金額達 ¥5,000 可使用；食品退稅按券面。",
+      "caution": "Apple、遊戲機、二手品及指定商品除外，不可與其他優惠併用。",
+      "url": "https://www.yamada-denki.jp/",
+      "link": "YAMADA 官方網站 ↗",
+      "conditions": [
+        [
+          "優惠",
+          "指定商品 7% OFF。"
+        ],
+        [
+          "使用",
+          "結帳前出示券面；免稅商品未稅購買額 ¥5,000 起；食品稅率依券面以 8% 計算。"
+        ],
+        [
+          "限制",
+          "Apple、遊戲機、二手品、部分 Dyson／Panasonic 等商品不適用。"
+        ]
       ]
-    ]
-  },
-  "yam": {
-    "short": "LABI",
-    "name": "山田電機 LABI",
-    "category": "家電",
-    "image": "https://livejapan.com/public/operation/coupon/assets/image/summary-yamadadenki-coupon-en2.png",
-    "alt": "山田電機 LABI 完整優惠券券面",
-    "headline": "指定商品最高 7% 折扣",
-    "expiry": "有效至 2026/12/31",
-    "where": "DAY 2｜新宿西口；DAY 4｜澀谷 LABI 比價備用",
-    "body": "指定商品最高 7%，不是每件商品都打 7% 折扣；不需註冊或下載 App。",
-    "caution": "付款方式依分店，不限定只能刷卡；先讓店員核對商品與用券資格。",
-    "url": "https://livejapan.com/public/operation/coupon/yamadadenki/en.html",
-    "link": "開啟 LABI 即時券頁與指定店舖（英文）↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "指定商品最高 7%。券頁未另列折扣最低金額；免稅資格與退稅門檻仍需另外符合。"
-      ],
-      [
-        "適用店舖",
-        "日本指定免稅店，包括 LABI 澀谷、新宿西口，以及活動列出的 Tecc Land、Tecc LIFE SELECT、Best Denki 等；非所有分店適用。"
-      ],
-      [
-        "如何使用",
-        "付款前開啟條碼給店員掃描，帶護照正本。可在效期內多次消費使用，但同一筆交易只可用一張一次。"
-      ],
-      [
-        "不適用商品",
-        "Apple、遊戲主機、Outlet／二手品、指定 Panasonic／Dyson、限量與特價清倉商品、禮券及商品券等。"
-      ],
-      [
-        "併用與付款",
-        "不可併用其他促銷，不可拆券或兌換現金；付款方式依各店規定。"
+    },
+    "laox": {
+      "short": "LAOX",
+      "name": "LAOX",
+      "category": "免稅・折扣",
+      "image": "./assets/coupons/laox.png",
+      "alt": "LAOX 優惠券原始券面",
+      "headline": "8% OFF＋免稅",
+      "expiry": "至 2026/12/31",
+      "where": "指定 LAOX 門市，行程店址先確認",
+      "body": "指定門市消費滿 ¥5,000，結帳前出示護照與券面。",
+      "caution": "遊戲、Apple、名牌包／錶、藥品、特價品等除外；不可併用。",
+      "url": "https://www.laox.co.jp/en/",
+      "link": "LAOX 官方網站 ↗",
+      "conditions": [
+        [
+          "優惠",
+          "指定商品 8% OFF，並依資格退稅。"
+        ],
+        [
+          "使用",
+          "指定門市滿 ¥5,000，付款前出示券面及護照。"
+        ],
+        [
+          "限制",
+          "部分電子產品、精品、藥品、特價品等除外。"
+        ]
       ]
-    ]
-  },
-  "laox": {
-    "short": "LAOX",
-    "name": "LAOX 樂購仕",
-    "category": "家電／伴手禮",
-    "image": "https://rimage.gnst.jp/livejapan.com/public/operation/coupon/assets/image/laox_zh-tw_NP2.jpg",
-    "alt": "LAOX 樂購仕完整優惠券券面",
-    "headline": "滿 ¥5,000：指定商品 8% 折扣",
-    "expiry": "有效至 2026/12/31",
-    "where": "DAY 5｜淺草店；DAY 9｜成田 T2 店",
-    "body": "目前指定 7 間門市，淺草店與成田第二航廈店都在名單內。",
-    "caution": "券面沒有註明 ¥5,000 是含稅或未稅，因此不再標成「未稅滿 ¥5,000」；結帳前先確認。",
-    "url": "https://livejapan.com/public/operation/coupon/laox/en.html",
-    "link": "開啟 LAOX 券面與適用門市（英文）↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "單店購物滿 ¥5,000，適用商品 8% 折扣；含稅／未稅口徑及排除品項是否計入門檻，須由門市確認。"
-      ],
-      [
-        "適用店舖",
-        "淺草、成田機場 T2、秋葉原本店、GINZA、心齋橋筋、新千歲國際線、Watch. DiverCity Tokyo Plaza 指定店。"
-      ],
-      [
-        "如何使用",
-        "付款前出示手機券面；若辦理退稅，另須符合旅客資格與門檻。"
-      ],
-      [
-        "不適用商品",
-        "遊戲、周大福商品、精品品牌、進口手錶、藥品、特價商品等。"
-      ],
-      [
-        "併用與付款",
-        "不得與其他折扣券併用；券頁列可使用主要信用卡及條碼支付，實際支援支付工具請詢問門市。"
+    },
+    "odakyu": {
+      "short": "小田急",
+      "name": "小田急百貨 新宿店",
+      "category": "百貨／服飾",
+      "image": "https://highway-buses.jp/chi/images/coupon/odakyu_01.png",
+      "alt": "小田急百貨新宿店京王電鐵巴士合作優惠券完整券面",
+      "headline": "單筆含稅滿 ¥1,000：指定商品 6% 折扣",
+      "expiry": "有效至 2028/3/31",
+      "where": "DAY 2｜新宿購物備用",
+      "body": "新增新宿小田急百貨旅客券；購買服飾等適用商品時可比較使用，不因此增加購物站。",
+      "caution": "食品、餐廳、咖啡店不適用；同棟 Bic Camera 也不能使用這張百貨券。",
+      "url": "https://highway-buses.jp/chi/coupon/04",
+      "link": "開啟小田急百貨完整券面與條件 ↗",
+      "conditions": [
+        [
+          "折扣與門檻",
+          "單張收據含稅金額 ¥1,000 起，適用商品 6% 折扣。"
+        ],
+        [
+          "資格與門市",
+          "非日本居民的外國旅客，持本人護照於小田急百貨新宿店適用櫃位使用。"
+        ],
+        [
+          "如何使用",
+          "付款前出示這張券與本人護照；店員確認商品適用後折扣。"
+        ],
+        [
+          "不適用商品",
+          "食品、特價品、餐廳／咖啡店及指定品牌與商品等；不能在 Bic Camera 使用。"
+        ],
+        [
+          "併用與付款",
+          "不可併用其他優惠。券面列明可用現金、信用卡、銀聯卡、Alipay、WeChat Pay；各櫃支援方式仍請確認。"
+        ]
       ]
-    ]
-  },
-  "odakyu": {
-    "short": "小田急",
-    "name": "小田急百貨 新宿店",
-    "category": "百貨／服飾",
-    "image": "https://highway-buses.jp/chi/images/coupon/odakyu_01.png",
-    "alt": "小田急百貨新宿店京王電鐵巴士合作優惠券完整券面",
-    "headline": "單筆含稅滿 ¥1,000：指定商品 6% 折扣",
-    "expiry": "有效至 2028/3/31",
-    "where": "DAY 2｜新宿購物備用",
-    "body": "新增新宿小田急百貨旅客券；購買服飾等適用商品時可比較使用，不因此增加購物站。",
-    "caution": "食品、餐廳、咖啡店不適用；同棟 Bic Camera 也不能使用這張百貨券。",
-    "url": "https://highway-buses.jp/chi/coupon/04",
-    "link": "開啟小田急百貨完整券面與條件 ↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "單張收據含稅金額 ¥1,000 起，適用商品 6% 折扣。"
-      ],
-      [
-        "資格與門市",
-        "非日本居民的外國旅客，持本人護照於小田急百貨新宿店適用櫃位使用。"
-      ],
-      [
-        "如何使用",
-        "付款前出示這張券與本人護照；店員確認商品適用後折扣。"
-      ],
-      [
-        "不適用商品",
-        "食品、特價品、餐廳／咖啡店及指定品牌與商品等；不能在 Bic Camera 使用。"
-      ],
-      [
-        "併用與付款",
-        "不可併用其他優惠。券面列明可用現金、信用卡、銀聯卡、Alipay、WeChat Pay；各櫃支援方式仍請確認。"
+    },
+    "aeon": {
+      "short": "AEON",
+      "name": "AEON MALL 成田",
+      "category": "購物中心",
+      "image": null,
+      "liveNote": "這是服務台兌換券。請開啟官方頁面的 QR 碼到館內服務台兌換，取得購物券後再到適用店舖結帳。",
+      "headline": "含稅滿 ¥5,500：¥500 購物券",
+      "expiry": "官方常設頁・未明示截止日",
+      "where": "DAY 8｜11/28 AEON MALL 成田",
+      "body": "成田館在官方適用名單內。抵達購物中心後先到服務台，依現場供應兌換購物券或贈品。",
+      "caution": "QR 碼不是可直接結帳的 ¥500 折價券。沒有公布固定活動截止日；11/28 能否領券、剩餘數量與領到的券效期，仍須現場確認。",
+      "url": "https://tw.aeonmall.global/coupons/discount?couponid=22&mall=mall09",
+      "link": "開啟 AEON 官方兌換 QR 碼與條件 ↗",
+      "conditions": [
+        [
+          "折扣與門檻",
+          "兌換 ¥500 購物券後，於適用店舖單次購物含稅滿 ¥5,500 使用；不能當作全館或超市通用現金。"
+        ],
+        [
+          "資格與門市",
+          "僅限外國旅客；本行程使用 AEON MALL 成田館，部分品牌／店舖不適用。"
+        ],
+        [
+          "如何使用",
+          "開啟官方 QR 碼 → 館內服務台兌換 → 確認實體券適用店、效期與門檻 → 付款前出示兌換取得的購物券。"
+        ],
+        [
+          "次數與贈品",
+          "購物券每人每日一次；贈品每人一次、送完為止。可領內容依現場供應，未必能自行選擇。"
+        ],
+        [
+          "併用與限制",
+          "不可與其他券併用；影印或列印無效。付款方式及不適用品牌依兌換券和店舖規定。"
+        ]
       ]
-    ]
-  },
-  "aeon": {
-    "short": "AEON",
-    "name": "AEON MALL 成田",
-    "category": "購物中心",
-    "image": null,
-    "liveNote": "這是服務台兌換券。請開啟官方頁面的 QR 碼到館內服務台兌換，取得購物券後再到適用店舖結帳。",
-    "headline": "含稅滿 ¥5,500：¥500 購物券",
-    "expiry": "官方常設頁・未明示截止日",
-    "where": "DAY 8｜11/28 AEON MALL 成田",
-    "body": "成田館在官方適用名單內。抵達購物中心後先到服務台，依現場供應兌換購物券或贈品。",
-    "caution": "QR 碼不是可直接結帳的 ¥500 折價券。沒有公布固定活動截止日；11/28 能否領券、剩餘數量與領到的券效期，仍須現場確認。",
-    "url": "https://tw.aeonmall.global/coupons/discount?couponid=22&mall=mall09",
-    "link": "開啟 AEON 官方兌換 QR 碼與條件 ↗",
-    "conditions": [
-      [
-        "折扣與門檻",
-        "兌換 ¥500 購物券後，於適用店舖單次購物含稅滿 ¥5,500 使用；不能當作全館或超市通用現金。"
+    },
+    "edion": {
+      "short": "EDION",
+      "name": "EDION 愛電王",
+      "category": "家電・藥妝",
+      "headline": "家電 7% 或食品藥妝 5% OFF",
+      "expiry": "券面未標示效期",
+      "where": "東京行程未指定 EDION 門市",
+      "body": "家電、相機、手錶等 7%；食品、藥品、化妝品等 5%。",
+      "caution": "部分商品排除；需出示券面並符合免稅資格。",
+      "url": "https://www.edion.com/",
+      "link": "EDION 官方網站 ↗",
+      "conditions": [
+        [
+          "折扣",
+          "指定家電類 7%；指定食品、藥品、化妝品類 5%。"
+        ],
+        [
+          "使用",
+          "付款前出示券面與護照，請店員掃描兩組條碼；免稅商品同店單日未稅滿 ¥5,000。"
+        ],
+        [
+          "限制",
+          "部分商品、門市及品類不適用；免稅門檻依現場。"
+        ]
       ],
-      [
-        "資格與門市",
-        "僅限外國旅客；本行程使用 AEON MALL 成田館，部分品牌／店舖不適用。"
+      "image": "./assets/coupons/edion.png",
+      "alt": "EDION 愛電王 優惠券原始券面"
+    },
+    "tsuruha": {
+      "short": "鶴羽藥妝",
+      "name": "鶴羽藥妝 Tsuruha Drug",
+      "category": "藥妝・免稅",
+      "headline": "滿額 3%／5%／7% OFF＋免稅",
+      "expiry": "券面未標效期",
+      "where": "東京行程未指定分店",
+      "body": "含稅 ¥10,000／30,000／50,000 起分級折扣。",
+      "caution": "指定商品除外，不可與其他券併用。",
+      "url": "https://www.tsuruha.co.jp/",
+      "link": "鶴羽官方網站 ↗",
+      "conditions": [
+        [
+          "折扣級距",
+          "含稅 ¥10,000–29,999：3%；¥30,000–49,999：5%；¥50,000 以上：7%。"
+        ],
+        [
+          "限制",
+          "部分化妝品、菸品、嬰兒用品等排除；不可併用。"
+        ],
+        [
+          "使用",
+          "結帳前出示券面，免稅依現行資格辦理。"
+        ]
       ],
-      [
-        "如何使用",
-        "開啟官方 QR 碼 → 館內服務台兌換 → 確認實體券適用店、效期與門檻 → 付款前出示兌換取得的購物券。"
+      "image": "./assets/coupons/tsuruha.png",
+      "alt": "鶴羽藥妝 Tsuruha Drug 優惠券原始券面"
+    },
+    "sapporo": {
+      "short": "札幌藥妝",
+      "name": "札幌藥妝 Satudora",
+      "category": "藥妝・免稅",
+      "headline": "免稅＋5%／7% 優惠",
+      "expiry": "日期未列",
+      "where": "券面指定門市以北海道為主；東京路線無已核實分店",
+      "body": "高級距券面標示未稅 ¥38,888 起；較低級距標示 5% 優惠。",
+      "caution": "指定店舖和效期需先核對；暫列備查。",
+      "url": "https://satudora.jp/",
+      "link": "札幌藥妝官方網站 ↗",
+      "conditions": [
+        [
+          "優惠",
+          "券面標示免稅＋5%／7% OFF。"
+        ],
+        [
+          "店舖",
+          "限券面指定店，東京行程未核實到合用分店。"
+        ],
+        [
+          "限制",
+          "活動及商品排除依券面與門市規定。"
+        ]
       ],
-      [
-        "次數與贈品",
-        "購物券每人每日一次；贈品每人一次、送完為止。可領內容依現場供應，未必能自行選擇。"
+      "image": "./assets/coupons/sapporo.png",
+      "alt": "札幌藥妝 Satudora 優惠券原始券面"
+    },
+    "seibu": {
+      "short": "西武・SOGO",
+      "name": "西武・SOGO 百貨",
+      "category": "百貨・免稅",
+      "headline": "滿 ¥1,000 未稅 95 折＋免稅",
+      "expiry": "至 2027/12/31",
+      "where": "指定分店；本行程未經池袋西武",
+      "body": "訪日旅客於券面列出分店使用。",
+      "caution": "食品、餐飲、精品等部分排除，不可與其他折扣併用。",
+      "url": "https://www.sogo-seibu.jp/",
+      "link": "西武・SOGO 官網 ↗",
+      "conditions": [
+        [
+          "優惠",
+          "單筆未稅 ¥1,000 起 95 折。"
+        ],
+        [
+          "門市",
+          "西武池袋／福井；SOGO 橫濱、千葉、廣島、大宮。"
+        ],
+        [
+          "限制",
+          "食品、餐廳咖啡廳、禮券、菸品與指定精品等除外。"
+        ]
       ],
-      [
-        "併用與限制",
-        "不可與其他券併用；影印或列印無效。付款方式及不適用品牌依兌換券和店舖規定。"
+      "image": "./assets/coupons/seibu.png",
+      "alt": "西武・SOGO 百貨 優惠券原始券面"
+    },
+    "daimaru": {
+      "short": "大丸・松坂屋",
+      "name": "大丸・松坂屋百貨",
+      "category": "百貨・退稅",
+      "headline": "退稅＋5% OFF＋美食券",
+      "expiry": "至 2027/08/31",
+      "where": "指定大丸／松坂屋銷售樓層；東京可留意大丸店",
+      "body": "券面說明訪日外國旅客使用，期間內可重複使用。",
+      "caution": "食品、餐廳及咖啡廳除外；出示護照。",
+      "url": "https://www.daimaru.co.jp/tokyo/",
+      "link": "大丸東京官方網站 ↗",
+      "conditions": [
+        [
+          "優惠",
+          "5% OFF 並贈美食券；退稅依資格辦理。"
+        ],
+        [
+          "使用",
+          "券面指定銷售樓層；出示護照與優惠券。"
+        ],
+        [
+          "限制",
+          "食品、餐廳、咖啡廳除外。"
+        ]
+      ],
+      "image": "./assets/coupons/daimaru.png",
+      "alt": "大丸・松坂屋百貨 優惠券原始券面"
+    },
+    "cosmos": {
+      "short": "COSMOS",
+      "name": "COSMOS 科摩思藥妝",
+      "category": "藥妝・免稅",
+      "headline": "滿額 5%／7%／9% OFF＋免稅",
+      "expiry": "至 2027/12/31",
+      "where": "僅限券面指定分店；東京店址待核對",
+      "body": "未稅 ¥10,000–29,999：5%；¥30,000–49,999：7%；¥50,000 起：9%。",
+      "caution": "免稅旅客限定、一天一次、不可併券。",
+      "url": "https://www.cosmospc.co.jp/",
+      "link": "COSMOS 官方網站 ↗",
+      "conditions": [
+        [
+          "折扣級距",
+          "未稅 ¥10,000–29,999：5%；¥30,000–49,999：7%；¥50,000 以上：9%。"
+        ],
+        [
+          "限制",
+          "指定分店限定、一天一次、不能與其他券併用。"
+        ],
+        [
+          "店舖",
+          "東京行程附近是否有指定店須先確認。"
+        ]
+      ],
+      "image": "./assets/coupons/cosmos.png",
+      "alt": "COSMOS 科摩思藥妝 優惠券原始券面"
+    },
+    "shinseido": {
+      "short": "新生堂",
+      "name": "新生堂藥妝",
+      "category": "藥妝・免稅",
+      "headline": "指定商品 5% OFF",
+      "expiry": "至 2026/12/31",
+      "where": "福岡／九州指定門市；東京行程不適用",
+      "body": "券面列藥院、天神南、百道濱、五條等門市。",
+      "caution": "免稅未稅單筆 ¥5,000 門檻；部分商品除外。",
+      "url": "https://sinseido-co.jp/",
+      "link": "新生堂官方網站 ↗",
+      "conditions": [
+        [
+          "優惠",
+          "券面指定商品 5% OFF。"
+        ],
+        [
+          "門市",
+          "福岡、九州券面所列門市，不在本次路線。"
+        ],
+        [
+          "退稅",
+          "未稅 ¥5,000 起且符合免稅資格。"
+        ]
+      ],
+      "image": "./assets/coupons/shinseido.png",
+      "alt": "新生堂藥妝 優惠券原始券面"
+    },
+    "tobu": {
+      "short": "東武百貨",
+      "name": "TOBU 池袋店",
+      "category": "百貨・免稅",
+      "headline": "5% OFF＋退稅",
+      "expiry": "至 2027/09/30",
+      "where": "池袋東武；本行程未安排池袋",
+      "body": "單筆未稅 ¥2,000 以上，結帳前出示券。",
+      "caution": "食品、特價品等排除，不可併用其他券。",
+      "url": "https://www.tobu-dept.jp/ikebukuro/",
+      "link": "東武池袋官網 ↗",
+      "conditions": [
+        [
+          "優惠",
+          "5% OFF，退稅依實際稅率。"
+        ],
+        [
+          "條件",
+          "單筆未稅 ¥2,000 以上。"
+        ],
+        [
+          "限制",
+          "食品、特價品、部分指定商品除外。"
+        ]
+      ],
+      "image": "./assets/coupons/tobu.png",
+      "alt": "TOBU 池袋店 優惠券原始券面"
+    },
+    "kintetsu": {
+      "short": "近鐵百貨",
+      "name": "近鐵百貨",
+      "category": "百貨・免稅",
+      "headline": "未稅 ¥2,000 起 95 折",
+      "expiry": "至 2026/12/31",
+      "where": "近鐵指定門市；本次東京行程無分店",
+      "body": "付款時出示優惠券。",
+      "caution": "食品、特價品、餐廳咖啡店及指定商品除外。",
+      "url": "https://www.d-kintetsu.co.jp/",
+      "link": "近鐵百貨官網 ↗",
+      "conditions": [
+        [
+          "優惠",
+          "單筆未稅 ¥2,000 起享 95 折。"
+        ],
+        [
+          "門市",
+          "海闊天空、和歌山、奈良、生駒、上本町、橿原、四日市、草津等。"
+        ],
+        [
+          "限制",
+          "食品、餐廳咖啡廳、特價品及指定商品除外。"
+        ]
+      ],
+      "image": "./assets/coupons/kintetsu.png",
+      "alt": "近鐵百貨 優惠券原始券面"
+    },
+    "narita-dutyfree": {
+      "short": "成田免稅店",
+      "name": "JAPAN DUTY FREE 成田",
+      "category": "機場免稅店",
+      "headline": "指定菸酒 5% OFF",
+      "expiry": "至 2027/03/31",
+      "where": "DAY 9｜成田機場出境免稅店",
+      "body": "菸酒指定商品折扣，加熱式菸品除外。",
+      "caution": "部分商品不折扣，且不可與其他優惠券併用。",
+      "url": "https://www.japandutyfree.com/",
+      "link": "JAPAN DUTY FREE 官網 ↗",
+      "conditions": [
+        [
+          "折扣",
+          "指定菸酒 5% OFF（加熱式菸品除外）。"
+        ],
+        [
+          "使用",
+          "成田機場指定免稅店結帳時出示券面。"
+        ],
+        [
+          "限制",
+          "部分商品除外，不能與其他優惠券併用。"
+        ]
+      ],
+      "image": "./assets/coupons/narita-dutyfree.png",
+      "alt": "JAPAN DUTY FREE 成田 優惠券原始券面"
+    },
+    "sundrug-shinjuku-online": {
+      "short": "SUNDRUG新宿線上券",
+      "name": "SUNDRUG 新宿中央東口店（網路券）",
+      "category": "網路補充・新宿限定",
+      "headline": "指定免稅交易 7% OFF",
+      "expiry": "至 2026/12/31",
+      "where": "DAY 2｜新宿中央東口店，步行約 2 分",
+      "body": "網路券頁列指定 Sundrug 新宿中央東口店。",
+      "caution": "部分商品不適用且不可併券；和級距券是兩張獨立券。",
+      "url": "https://www.taxfreeshops.jp/en/shop/900000487/coupon/470",
+      "link": "開啟網路券與店址 ↗",
+      "conditions": [
+        [
+          "折扣",
+          "指定免稅交易 7% OFF。"
+        ],
+        [
+          "效期",
+          "來源券頁列至 2026/12/31。"
+        ],
+        [
+          "限制",
+          "部分商品排除、不可與其他券併用；僅限指定店。"
+        ]
+      ],
+      "liveNote": "網路查到的指定店舖券。開啟來源券頁核對即時效期、店舖與使用資格。"
+    },
+    "donki-shinjuku-online": {
+      "short": "唐吉訶德新宿券",
+      "name": "Don Quijote 新宿店（網路券）",
+      "category": "網路補充・新宿限定",
+      "headline": "未稅 ¥10,000 起免稅交易 5% OFF",
+      "expiry": "至 2026/12/31",
+      "where": "新宿購物可備用；需確認券頁所列分店",
+      "body": "網路券頁列免稅交易每次限用一次。",
+      "caution": "酒、菸、POSA、遊戲機及高價商品等除外；不與你提供的券疊加。",
+      "url": "https://www.taxfreeshops.jp/en/shop/1306/coupon/189",
+      "link": "開啟網路券與條件 ↗",
+      "conditions": [
+        [
+          "折扣",
+          "免稅交易未稅 ¥10,000 以上 5% OFF，每筆限用一次。"
+        ],
+        [
+          "效期",
+          "來源券頁列至 2026/12/31。"
+        ],
+        [
+          "限制",
+          "酒、菸、POSA 卡、遊戲主機、未稅 ¥100,000 以上商品等除外。"
+        ]
+      ],
+      "liveNote": "網路查到的指定店舖券。開啟來源券頁核對即時效期、店舖與使用資格。"
+    },
+    "daimaru-tokyo-online": {
+      "short": "大丸東京網路券",
+      "name": "大丸東京店（網路券）",
+      "category": "網路補充・東京站",
+      "headline": "免稅＋5% OFF",
+      "expiry": "至 2026/12/31",
+      "where": "東京站八重洲北口直結；行程經東京站時可用",
+      "body": "網路券頁列訪日旅客憑護照使用，效期內可重複使用。",
+      "caution": "這是店舖限定券，和你提供的大丸／松坂屋券不同。",
+      "url": "https://www.taxfreeshops.jp/zhtw/shop/900001075/coupon/317",
+      "link": "開啟大丸東京網路券 ↗",
+      "conditions": [
+        [
+          "優惠",
+          "來源券頁標示免稅＋5% OFF。"
+        ],
+        [
+          "效期",
+          "至 2026/12/31；訪日旅客適用。"
+        ],
+        [
+          "使用",
+          "出示護照與券面，效期內可重複使用。"
+        ]
+      ],
+      "liveNote": "網路查到的指定店舖券。開啟來源券頁核對即時效期、店舖與使用資格。"
+    },
+    "alpen-tokyo-online": {
+      "short": "AlpenTOKYO 網路券",
+      "name": "AlpenTOKYO 新宿（網路券）",
+      "category": "網路補充・新宿限定",
+      "headline": "免稅＋5% OFF",
+      "expiry": "來源店舖頁列 2027/06/30",
+      "where": "DAY 2｜Alpen TOKYO 新宿，東口步行約 1 分",
+      "body": "網路店舖資料另列 AlpenTOKYO 免稅＋5% 優惠；可能與你提供的券面是不同活動。",
+      "caution": "此券頁是門市限定資訊，使用前開啟來源確認實際券面、商品限制及能否與紙本券併用。",
+      "url": "https://www.taxfreeshops.jp/en/shop/900001262",
+      "link": "查看 AlpenTOKYO 線上門市優惠 ↗",
+      "liveNote": "網路店舖資料列免稅＋5% 優惠，至 2027/06/30。付款前請再確認券面及折扣是否與你提供的圖片券相同。",
+      "conditions": [
+        [
+          "網路資料",
+          "AlpenTOKYO 新宿門市資訊列免稅＋5% 優惠，效期至 2027/06/30。"
+        ],
+        [
+          "使用",
+          "僅適用指定新宿店；出示護照並按門市免稅流程結帳。"
+        ],
+        [
+          "提醒",
+          "可能是另一張活動券；不能假設可與圖片券疊加，商品及併用條件以現場為準。"
+        ]
       ]
-    ]
-  }
-};
-
+    }
+  };
   function coupons() {
     const item=couponItems[state.coupon] || couponItems.bic;
     const visual=item.image
       ? `<a class="coupon-image-link" href="${item.image}" target="_blank" rel="noopener noreferrer" aria-label="放大查看${escape(item.name)}完整優惠券"><img class="coupon-art" src="${item.image}" alt="${escape(item.alt)}" loading="lazy" decoding="async"/></a>`
       : `<p class="coupon-live-note">${escape(item.liveNote)}</p>`;
-    return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">供 2026/11/21–11/29 使用。選店家查看條件，點券面可放大；唐吉訶德與 AEON 效期須在即時頁或現場確認。</p><nav class="day-rail coupon-rail" aria-label="選擇優惠券">${Object.entries(couponItems).map(([key,value])=>`<button class="day-button" type="button" data-coupon="${key}" aria-pressed="${key===state.coupon}"><span>優惠券</span><b>${escape(value.short)}</b><small>${escape(value.category)}</small></button>`).join('')}</nav>
+    return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">供 2026/11/21–11/29 使用。選店家查看條件；券面可點開放大，含使用者提供券面及網路補充券。</p><nav class="day-rail coupon-rail" aria-label="選擇優惠券">${Object.entries(couponItems).map(([key,value])=>`<button class="day-button" type="button" data-coupon="${key}" aria-pressed="${key===state.coupon}"><span>優惠券</span><b>${escape(value.short)}</b><small>${escape(value.category)}</small></button>`).join('')}</nav>
       <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div><h2>${escape(item.headline)}</h2><p><strong>${escape(item.where)}</strong></p><p>${escape(item.body)}</p><div class="coupon-layout"><section class="coupon-visual" aria-label="完整優惠券">${visual}</section><section class="coupon-rules" aria-label="優惠券使用條件"><h3>使用條件</h3><dl>${item.conditions.map(([label,value])=>`<div><dt>${escape(label)}</dt><dd>${escape(value)}</dd></div>`).join('')}</dl></section></div><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article>
-      <details class="coupon-tax-note"><summary>11 月退稅與券面折扣如何看？</summary><p>2026/11/1 起，市區免稅購物先付含稅價格，出境時在託運行李前完成海關確認，再依店家方式退還消費稅。券面若寫「10% 免稅＋折扣」，仍須依 11 月新制辦理退稅；優惠券折扣與消費稅退稅分開看，不能直接相加當成總折扣。<a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html" target="_blank" rel="noopener noreferrer">觀光廳新制說明 ↗</a></p></details><p class="coupon-footnote">查核日期：2026/10/16。9 張券有明示效期並涵蓋旅程；唐吉訶德、AEON 為即時／現場券，旅期可用性仍待當日確認。優惠內容、適用品項及店舖以發行頁與結帳確認為準；請在付款前出示護照和對應券面。</p>`;
+      <details class="coupon-tax-note"><summary>11 月退稅與券面折扣如何看？</summary><p>2026/11/1 起，市區免稅購物先付含稅價格；出境時須在託運前、通過安檢前的一般區域完成海關確認，並於購買日起 90 日內攜出日本，確認後由店家或受託業者退款。免稅門檻為同店同日未稅滿 ¥5,000。食品、飲料、化妝品等消耗品若在日本境內使用或消耗，可能不符合退稅條件。券面若寫「10% 免稅＋折扣」，免稅退款與優惠券折扣分開計算，不能直接相加當成總折扣。<a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00028.html" target="_blank" rel="noopener noreferrer">觀光廳新制說明 ↗</a></p></details><p class="coupon-footnote">共 25 張：19 張使用者提供券面、4 張網路找到的指定門市券，另保留原有小田急與 AEON 券。未標效期的券請先問店員。優惠內容、適用品項及門市以來源頁及結帳確認為準；請在付款前出示護照和對應券面。</p>`;
   }
   
   function cleanRemote(node, baseUrl) {
@@ -1268,7 +1592,7 @@
   }
 
 
-  const dailyPlaceMaps = {"野口鮮魚店":"https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E3%81%95%E3%81%AA%E9%AD%9A%E3%81%8C%E3%81%97+%E9%87%8E%E5%8F%A3%E9%AE%AE%E9%AD%9A%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E6%9D%B1%E9%A7%92%E5%BD%A24-6-9+%E3%83%AA%E3%83%90%E3%83%BC%E3%83%8F%E3%82%A4%E3%83%84%E3%83%AF%E3%82%B3%E3%83%BC+1F","塩パン屋 パンメゾン":"https://www.google.com/maps/search/?api=1&query=%E5%A1%A9%E3%83%91%E3%83%B3%E5%B1%8B+%E3%83%91%E3%83%B3%E3%83%A1%E3%82%BE%E3%83%B3+%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E5%BA%97","鳥貴族 淺草店":"https://maps.app.goo.gl/EvEaCawMVivVVJDC9","nukumuku":"https://www.google.com/maps/search/?api=1&query=nukumuku+%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B+%E6%9D%B1%E4%BA%AC","本所吾妻橋站":"https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E9%A7%85","三軒茶屋站":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B%E9%A7%85","三軒茶屋站 世田谷線":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B%E9%A7%85%20%E4%B8%96%E7%94%B0%E8%B0%B7%E7%B7%9A","宮之坂站":"https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E3%81%AE%E5%9D%82%E9%A7%85","RARASAND":"https://www.google.com/maps/search/?api=1&query=RARASAND+%E8%B1%AA%E5%BE%B3%E5%AF%BA+%E6%9D%B1%E4%BA%AC","IRON COFFEE":"https://www.google.com/maps/search/?api=1&query=IRON+COFFEE+%E8%B1%AA%E5%BE%B3%E5%AF%BA+%E6%9D%B1%E4%BA%AC","梅丘寿司の美登利 総本店":"https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97","梅丘站":"https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E3%83%B6%E4%B8%98%E9%A7%85","新宿站":"https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%AE%BF%E9%A7%85","一蘭 新宿歌舞伎町店":"https://www.google.com/maps/search/?api=1&query=%E4%B8%80%E8%98%AD+%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-17-10","東京民宿":"https://maps.app.goo.gl/QZX3Ty983HxajN197","天王寺":"https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E7%8E%8B%E5%AF%BA%20%E8%B0%B7%E4%B8%AD%20%E6%9D%B1%E4%BA%AC","日暮里站":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9A%AE%E9%87%8C%E9%A7%85","谷中靈園":"https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E4%B8%AD%E9%9C%8A%E5%9C%92","根津神社":"https://www.google.com/maps/search/?api=1&query=%E6%A0%B9%E6%B4%A5%E7%A5%9E%E7%A4%BE%20%E6%9D%B1%E4%BA%AC","蛇道":"https://www.google.com/maps/search/?api=1&query=%E3%81%B8%E3%81%B3%E9%81%93%20%E5%8D%83%E9%A7%84%E6%9C%A8","千駄木":"https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E9%A7%84%E6%9C%A8%E9%A7%85","谷中銀座商店街":"https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E4%B8%AD%E9%8A%80%E5%BA%A7%E5%95%86%E5%BA%97%E8%A1%97","夕やけだんだん":"https://www.google.com/maps/search/?api=1&query=%E5%A4%95%E3%82%84%E3%81%91%E3%81%A0%E3%82%93%E3%81%A0%E3%82%93%20%E8%B0%B7%E4%B8%AD","押上站":"https://www.google.com/maps/search/?api=1&query=%E6%8A%BC%E4%B8%8A%E9%A7%85","飛木稻荷神社":"https://www.google.com/maps/search/?api=1&query=%E9%A3%9B%E6%9C%A8%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E6%8A%BC%E4%B8%8A","ハト屋パン店":"https://www.google.com/maps/search/?api=1&query=%E3%83%8F%E3%83%88%E5%B1%8B%E3%83%91%E3%83%B3%E5%BA%97%20%E4%BA%AC%E5%B3%B6","キラキラ橘商店街":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9%E6%A9%98%E5%95%86%E5%BA%97%E8%A1%97%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E4%BA%AC%E5%B3%B6","MUUMUU COFFEE":"https://www.google.com/maps/search/?api=1&query=MUUMUU%20COFFEE%20%E4%BA%AC%E5%B3%B6","吉備子屋":"https://www.google.com/maps/search/?api=1&query=%E5%90%89%E5%82%99%E5%AD%90%E5%B1%8B%20%E5%90%91%E5%B3%B6","志満ん草餅":"https://www.google.com/maps/search/?api=1&query=%E5%BF%97%E6%BA%80%E3%82%93%E8%8D%89%E9%A4%85%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E6%9D%B1%E5%90%91%E5%B3%B6","炭火焼肉おくさこ":"https://maps.app.goo.gl/rWTxzYh2HwmYyaoX8","外苑前站":"https://www.google.com/maps/search/?api=1&query=%E5%A4%96%E8%8B%91%E5%89%8D%E9%A7%85","表參道站":"https://www.google.com/maps/search/?api=1&query=%E8%A1%A8%E5%8F%82%E9%81%93%E9%A7%85","Sweet Check 蛋包飯":"https://maps.app.goo.gl/cq6P7DPSL1NEdmQT8","BASO 蕎麥麵":"https://maps.app.goo.gl/XfhefUXyvnTHNSra8","うどん 麺散":"https://maps.app.goo.gl/Nf1bBBnExek1mAus5","FREAK'S STORE Shibuya":"https://maps.app.goo.gl/zfRiMG347oqCoXQQ6","極味屋 澀谷 PARCO 店":"https://maps.app.goo.gl/PW2hqEnuummDrjFH8","MEGA 唐吉訶德 澀谷本店":"https://www.google.com/maps/search/?api=1&query=MEGA%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%E6%B8%8B%E8%B0%B7%E6%9C%AC%E5%BA%97","Mūya":"https://www.google.com/maps/search/?api=1&query=%E3%82%80%E3%81%86%E3%82%84%20%E6%9D%B1%E4%BA%AC%E3%83%9F%E3%82%BA%E3%83%9E%E3%83%81","隅田川步道":"https://www.google.com/maps/search/?api=1&query=%E9%9A%85%E7%94%B0%E5%B7%9D%E3%83%86%E3%83%A9%E3%82%B9%20%E5%90%BE%E5%A6%BB%E6%A9%8B","花月堂菠蘿麵包":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E8%8A%B1%E6%9C%88%E5%A0%82+%E6%9C%AC%E5%BA%97","壽壽喜園抹茶冰淇淋":"https://www.google.com/maps/search/?api=1&query=%E5%A3%BD%E3%80%85%E5%96%9C%E5%9C%92+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97","龜十銅鑼燒":"https://www.google.com/maps/search/?api=1&query=%E4%BA%80%E5%8D%81+%E6%B5%85%E8%8D%89","牛たんの檸檬 淺草店":"https://maps.app.goo.gl/K4QdwtcbFczYAsTPA","東武淺草站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%B5%85%E8%8D%89%E9%A7%85","東京晴空塔站":"https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%81%86%E3%81%8D%E3%82%87%E3%81%86%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC%E9%A7%85","日光さかえや 揚げゆばまんじゅう本舗":"https://maps.app.goo.gl/BP5Dz4o8puYm7j7TA","日光東照宮":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE","鉢石町・日光街道":"https://www.google.com/maps/search/?api=1&query=%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89","日光 Airbnb":"https://maps.app.goo.gl/xPXoTRvUER7Yosbm6","東武日光站巴士站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85%20%E3%83%90%E3%82%B9%E4%B9%97%E3%82%8A%E5%A0%B4","東武日光站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85","中禪寺溫泉":"https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E5%81%9C%20%E6%97%A5%E5%85%89","站前・日光街道":"https://www.google.com/maps/search/?api=1&query=%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89","憾滿之淵（選逛）":"https://www.google.com/maps/search/?api=1&query=%E6%86%BE%E6%BA%80%E3%83%B6%E6%B7%B5","成田里士滿飯店":"https://maps.app.goo.gl/FTSRu1WMKEDXw1dQ8","川豐本店":"https://www.google.com/maps/search/?api=1&query=%E5%B7%9D%E8%B1%8A+%E6%9C%AC%E5%BA%97+%E6%88%90%E7%94%B0","成田江戶人壽司":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%B1%9F%E6%88%B8%E3%81%A3%E5%AD%90%E5%AF%BF%E5%8F%B8","淺草橋銀杏岡八幡神社":"https://www.google.com/maps/search/?api=1&query=%E9%8A%80%E6%9D%8F%E5%B2%A1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-29-11","銀杏岡八幡神社":"https://www.google.com/maps/search/?api=1&query=%E9%8A%80%E6%9D%8F%E5%B2%A1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-29-11","シモジマ淺草橋本店":"https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%A2%E3%82%B8%E3%83%9E%20%E6%B5%85%E8%8D%89%E6%A9%8B%E6%9C%AC%E5%BA%97%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-30-10","シモジマ":"https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%A2%E3%82%B8%E3%83%9E%20%E6%B5%85%E8%8D%89%E6%A9%8B%E6%9C%AC%E5%BA%97%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-30-10","日比谷公園":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%AF%94%E8%B0%B7%E5%85%AC%E5%9C%92%20%E6%9D%B1%E4%BA%AC","丸之內仲通り":"https://www.google.com/maps/search/?api=1&query=%E4%B8%B8%E3%81%AE%E5%86%85%E4%BB%B2%E9%80%9A%E3%82%8A%20%E6%9D%B1%E4%BA%AC","丸之內仲通":"https://www.google.com/maps/search/?api=1&query=%E4%B8%B8%E3%81%AE%E5%86%85%E4%BB%B2%E9%80%9A%E3%82%8A%20%E6%9D%B1%E4%BA%AC","東京車站丸之內廣場":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%A7%85%20%E4%B8%B8%E3%81%AE%E5%86%85%E9%A7%85%E5%89%8D%E5%BA%83%E5%A0%B4","東京車站丸之內":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%A7%85%20%E4%B8%B8%E3%81%AE%E5%86%85%E9%A7%85%E5%89%8D%E5%BA%83%E5%A0%B4","豪德寺":"https://www.google.com/maps/search/?api=1&query=%E8%B1%AA%E5%BE%B3%E5%AF%BA%20%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA%E8%B1%AA%E5%BE%B3%E5%AF%BA2-24-7","新宿 Bic Camera":"https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%AF%E3%82%AB%E3%83%A1%E3%83%A9%20%E6%96%B0%E5%AE%BF%E6%9D%B1%E5%8F%A3%E5%BA%97","Bic Camera 新宿東口店":"https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%AF%E3%82%AB%E3%83%A1%E3%83%A9%20%E6%96%B0%E5%AE%BF%E6%9D%B1%E5%8F%A3%E5%BA%97","Alpen Tokyo 旗艦店":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","Alpen TOKYO":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","Alpen Tokyo":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","明治神宮外苑銀杏大道":"https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E3%81%84%E3%81%A1%E3%82%87%E3%81%86%E4%B8%A6%E6%9C%A8","神宮外苑":"https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E6%9D%B1%E4%BA%AC","KIDDY LAND 原宿店":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%87%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89%20%E5%8E%9F%E5%AE%BF%E5%BA%97%20%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D6-1-9","KIDDY LAND":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%87%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89%20%E5%8E%9F%E5%AE%BF%E5%BA%97%20%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D6-1-9","NUMBER SUGAR 表參道店":"https://www.google.com/maps/search/?api=1&query=NUMBER%20SUGAR%20%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97","NUMBER SUGAR":"https://www.google.com/maps/search/?api=1&query=NUMBER%20SUGAR%20%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97","宮下公園":"https://www.google.com/maps/search/?api=1&query=MIYASHITA%20PARK%20%E6%B8%8B%E8%B0%B7","貓街":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%88%20%E6%B8%8B%E8%B0%B7","澀谷 PARCO":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7PARCO%20%E5%AE%87%E7%94%B0%E5%B7%9D%E7%94%BA15-1","澀谷站八公口外":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85%20%E3%83%8F%E3%83%81%E5%85%AC%E5%8F%A3","澀谷站八公口":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85%20%E3%83%8F%E3%83%81%E5%85%AC%E5%8F%A3","真さか":"https://www.google.com/maps/search/?api=1&query=%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%AC%E3%83%B3%E5%B1%85%E9%85%92%E5%B1%8B%20%E7%9C%9F%E3%81%95%E3%81%8B%20%E6%B8%8B%E8%B0%B7PARCO%20B1","今戶神社":"https://www.google.com/maps/search/?api=1&query=%E4%BB%8A%E6%88%B8%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%BB%8A%E6%88%B81-5-22","待乳山聖天":"https://www.google.com/maps/search/?api=1&query=%E5%BE%85%E4%B9%B3%E5%B1%B1%E8%81%96%E5%A4%A9%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%897-4-1","淺草寺参道":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E4%BB%B2%E8%A6%8B%E4%B8%96%E9%80%9A%E3%82%8A","淺草寺":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%892-3-1","雷門":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E9%9B%B7%E9%96%80","PATISSERIE TEN&（日比谷 OKUROJI）":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","PATISSERIE TEN&":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","日比谷 PATISSERIE TEN&":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","HARBS 六本木 Hills 店":"https://www.google.com/maps/search/?api=1&query=HARBS%20%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%E5%BA%97","六本木 HARBS":"https://www.google.com/maps/search/?api=1&query=HARBS%20%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%E5%BA%97","大屋頂廣場":"https://www.google.com/maps/search/?api=1&query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%20%E5%A4%A7%E5%B1%8B%E6%A0%B9%E3%83%97%E3%83%A9%E3%82%B6","六本木新城":"https://www.google.com/maps/search/?api=1&query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%20%E6%9D%B1%E4%BA%AC","神橋":"https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%A9%8B%20%E6%97%A5%E5%85%89%E5%B8%82%E4%B8%8A%E9%89%A2%E7%9F%B3%E7%94%BA","東照宮":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE%20%E6%97%A5%E5%85%89%E5%B8%82%E5%B1%B1%E5%86%852301","東京晴空塔":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC","晴空塔":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC","華嚴瀑布":"https://www.google.com/maps/search/?api=1&query=%E8%8F%AF%E5%8E%B3%E3%81%AE%E6%BB%9D%20%E6%97%A5%E5%85%89","中禪寺湖":"https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B9%96%20%E6%97%A5%E5%85%89","憾滿之淵":"https://www.google.com/maps/search/?api=1&query=%E6%86%BE%E6%BA%80%E3%83%B6%E6%B7%B5%20%E6%97%A5%E5%85%89","田母澤御用邸":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E7%94%B0%E6%AF%8D%E6%B2%A2%E5%BE%A1%E7%94%A8%E9%82%B8%E8%A8%98%E5%BF%B5%E5%85%AC%E5%9C%92","日光街道":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E8%A1%97%E9%81%93%20%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89%E5%B8%82","成田山表參道":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E8%A1%A8%E5%8F%82%E9%81%93","新勝寺大本堂":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E6%96%B0%E5%8B%9D%E5%AF%BA%20%E5%A4%A7%E6%9C%AC%E5%A0%82","成田山公園":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E5%85%AC%E5%9C%92","なごみの米屋":"https://www.google.com/maps/search/?api=1&query=%E3%81%AA%E3%81%94%E3%81%BF%E3%81%AE%E7%B1%B3%E5%B1%8B%20%E7%B7%8F%E6%9C%AC%E5%BA%97%20%E6%88%90%E7%94%B0%E5%B8%82%E4%B8%8A%E7%94%BA500","京成成田站":"https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E6%88%90%E6%88%90%E7%94%B0%E9%A7%85","AEON MALL 成田":"https://www.google.com/maps/search/?api=1&query=%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB%E6%88%90%E7%94%B0","青山一丁目站":"https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E5%B1%B1%E4%B8%80%E4%B8%81%E7%9B%AE%E9%A7%85","原宿站":"https://www.google.com/maps/search/?api=1&query=%E5%8E%9F%E5%AE%BF%E9%A7%85","澀谷站":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85","麺 みつヰ":"https://www.google.com/maps/search/?api=1&query=%E9%BA%BA%20%E3%81%BF%E3%81%A4%E3%83%B0%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E5%AF%BF2-9-15","天麩羅秋光":"https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E9%BA%A9%E7%BE%85%20%E7%A7%8B%E5%85%89%20%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97"};
+  const dailyPlaceMaps = {"野口鮮魚店":"https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E3%81%95%E3%81%AA%E9%AD%9A%E3%81%8C%E3%81%97+%E9%87%8E%E5%8F%A3%E9%AE%AE%E9%AD%9A%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E6%9D%B1%E9%A7%92%E5%BD%A24-6-9+%E3%83%AA%E3%83%90%E3%83%BC%E3%83%8F%E3%82%A4%E3%83%84%E3%83%AF%E3%82%B3%E3%83%BC+1F","塩パン屋 パンメゾン":"https://www.google.com/maps/search/?api=1&query=%E5%A1%A9%E3%83%91%E3%83%B3%E5%B1%8B+%E3%83%91%E3%83%B3%E3%83%A1%E3%82%BE%E3%83%B3+%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E5%BA%97","鳥貴族 淺草店":"https://maps.app.goo.gl/EvEaCawMVivVVJDC9","nukumuku":"https://www.google.com/maps/search/?api=1&query=nukumuku+%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B+%E6%9D%B1%E4%BA%AC","本所吾妻橋站":"https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E9%A7%85","三軒茶屋站":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B%E9%A7%85","三軒茶屋站 世田谷線":"https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E8%BB%92%E8%8C%B6%E5%B1%8B%E9%A7%85%20%E4%B8%96%E7%94%B0%E8%B0%B7%E7%B7%9A","宮之坂站":"https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E3%81%AE%E5%9D%82%E9%A7%85","RARASAND":"https://www.google.com/maps/search/?api=1&query=RARASAND+%E8%B1%AA%E5%BE%B3%E5%AF%BA+%E6%9D%B1%E4%BA%AC","IRON COFFEE":"https://www.google.com/maps/search/?api=1&query=IRON+COFFEE+%E8%B1%AA%E5%BE%B3%E5%AF%BA+%E6%9D%B1%E4%BA%AC","梅丘寿司の美登利 総本店":"https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97","梅丘站":"https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E3%83%B6%E4%B8%98%E9%A7%85","新宿站":"https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%AE%BF%E9%A7%85","一蘭 新宿歌舞伎町店":"https://www.google.com/maps/search/?api=1&query=%E4%B8%80%E8%98%AD+%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-17-10","東京民宿":"https://maps.app.goo.gl/QZX3Ty983HxajN197","天王寺":"https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E7%8E%8B%E5%AF%BA%20%E8%B0%B7%E4%B8%AD%20%E6%9D%B1%E4%BA%AC","日暮里站":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9A%AE%E9%87%8C%E9%A7%85","谷中靈園":"https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E4%B8%AD%E9%9C%8A%E5%9C%92","根津神社":"https://www.google.com/maps/search/?api=1&query=%E6%A0%B9%E6%B4%A5%E7%A5%9E%E7%A4%BE%20%E6%9D%B1%E4%BA%AC","蛇道":"https://www.google.com/maps/search/?api=1&query=%E3%81%B8%E3%81%B3%E9%81%93%20%E5%8D%83%E9%A7%84%E6%9C%A8","千駄木":"https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E9%A7%84%E6%9C%A8%E9%A7%85","谷中銀座商店街":"https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E4%B8%AD%E9%8A%80%E5%BA%A7%E5%95%86%E5%BA%97%E8%A1%97","夕やけだんだん":"https://www.google.com/maps/search/?api=1&query=%E5%A4%95%E3%82%84%E3%81%91%E3%81%A0%E3%82%93%E3%81%A0%E3%82%93%20%E8%B0%B7%E4%B8%AD","押上站":"https://www.google.com/maps/search/?api=1&query=%E6%8A%BC%E4%B8%8A%E9%A7%85","飛木稻荷神社":"https://www.google.com/maps/search/?api=1&query=%E9%A3%9B%E6%9C%A8%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E6%8A%BC%E4%B8%8A","ハト屋パン店":"https://www.google.com/maps/search/?api=1&query=%E3%83%8F%E3%83%88%E5%B1%8B%E3%83%91%E3%83%B3%E5%BA%97%20%E4%BA%AC%E5%B3%B6","キラキラ橘商店街":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9%E6%A9%98%E5%95%86%E5%BA%97%E8%A1%97%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E4%BA%AC%E5%B3%B6","MUUMUU COFFEE":"https://www.google.com/maps/search/?api=1&query=MUUMUU%20COFFEE%20%E4%BA%AC%E5%B3%B6","吉備子屋":"https://www.google.com/maps/search/?api=1&query=%E5%90%89%E5%82%99%E5%AD%90%E5%B1%8B%20%E5%90%91%E5%B3%B6","志満ん草餅":"https://www.google.com/maps/search/?api=1&query=%E5%BF%97%E6%BA%80%E3%82%93%E8%8D%89%E9%A4%85%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E6%9D%B1%E5%90%91%E5%B3%B6","炭火焼肉おくさこ":"https://maps.app.goo.gl/rWTxzYh2HwmYyaoX8","外苑前站":"https://www.google.com/maps/search/?api=1&query=%E5%A4%96%E8%8B%91%E5%89%8D%E9%A7%85","表參道站":"https://www.google.com/maps/search/?api=1&query=%E8%A1%A8%E5%8F%82%E9%81%93%E9%A7%85","Sweet Check 蛋包飯":"https://maps.app.goo.gl/cq6P7DPSL1NEdmQT8","BASO 蕎麥麵":"https://maps.app.goo.gl/XfhefUXyvnTHNSra8","うどん 麺散":"https://maps.app.goo.gl/Nf1bBBnExek1mAus5","FREAK'S STORE Shibuya":"https://maps.app.goo.gl/zfRiMG347oqCoXQQ6","極味屋 澀谷 PARCO 店":"https://maps.app.goo.gl/PW2hqEnuummDrjFH8","MEGA 唐吉訶德 澀谷本店":"https://www.google.com/maps/search/?api=1&query=MEGA%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%E6%B8%8B%E8%B0%B7%E6%9C%AC%E5%BA%97","Mūya":"https://www.google.com/maps/search/?api=1&query=%E3%82%80%E3%81%86%E3%82%84%20%E6%9D%B1%E4%BA%AC%E3%83%9F%E3%82%BA%E3%83%9E%E3%83%81","隅田川步道":"https://www.google.com/maps/search/?api=1&query=%E9%9A%85%E7%94%B0%E5%B7%9D%E3%83%86%E3%83%A9%E3%82%B9%20%E5%90%BE%E5%A6%BB%E6%A9%8B","花月堂菠蘿麵包":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E8%8A%B1%E6%9C%88%E5%A0%82+%E6%9C%AC%E5%BA%97","壽壽喜園抹茶冰淇淋":"https://www.google.com/maps/search/?api=1&query=%E5%A3%BD%E3%80%85%E5%96%9C%E5%9C%92+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97","龜十銅鑼燒":"https://www.google.com/maps/search/?api=1&query=%E4%BA%80%E5%8D%81+%E6%B5%85%E8%8D%89","牛たんの檸檬 淺草店":"https://maps.app.goo.gl/K4QdwtcbFczYAsTPA","東武淺草站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%B5%85%E8%8D%89%E9%A7%85","東京晴空塔站":"https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%81%86%E3%81%8D%E3%82%87%E3%81%86%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC%E9%A7%85","日光さかえや 揚げゆばまんじゅう本舗":"https://maps.app.goo.gl/BP5Dz4o8puYm7j7TA","日光東照宮":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE","鉢石町・日光街道":"https://www.google.com/maps/search/?api=1&query=%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89","日光 Airbnb":"https://maps.app.goo.gl/xPXoTRvUER7Yosbm6","東武日光站巴士站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85%20%E3%83%90%E3%82%B9%E4%B9%97%E3%82%8A%E5%A0%B4","東武日光站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85","中禪寺溫泉":"https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E5%81%9C%20%E6%97%A5%E5%85%89","站前・日光街道":"https://www.google.com/maps/search/?api=1&query=%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89","憾滿之淵（選逛）":"https://www.google.com/maps/search/?api=1&query=%E6%86%BE%E6%BA%80%E3%83%B6%E6%B7%B5","成田里士滿飯店":"https://maps.app.goo.gl/2XG4HEaMg9eHVKVZ6","川豐本店":"https://www.google.com/maps/search/?api=1&query=%E5%B7%9D%E8%B1%8A+%E6%9C%AC%E5%BA%97+%E6%88%90%E7%94%B0","成田江戶人壽司":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%B1%9F%E6%88%B8%E3%81%A3%E5%AD%90%E5%AF%BF%E5%8F%B8","淺草橋銀杏岡八幡神社":"https://www.google.com/maps/search/?api=1&query=%E9%8A%80%E6%9D%8F%E5%B2%A1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-29-11","銀杏岡八幡神社":"https://www.google.com/maps/search/?api=1&query=%E9%8A%80%E6%9D%8F%E5%B2%A1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-29-11","シモジマ淺草橋本店":"https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%A2%E3%82%B8%E3%83%9E%20%E6%B5%85%E8%8D%89%E6%A9%8B%E6%9C%AC%E5%BA%97%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-30-10","シモジマ":"https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%A2%E3%82%B8%E3%83%9E%20%E6%B5%85%E8%8D%89%E6%A9%8B%E6%9C%AC%E5%BA%97%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-30-10","日比谷公園":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%AF%94%E8%B0%B7%E5%85%AC%E5%9C%92%20%E6%9D%B1%E4%BA%AC","丸之內仲通り":"https://www.google.com/maps/search/?api=1&query=%E4%B8%B8%E3%81%AE%E5%86%85%E4%BB%B2%E9%80%9A%E3%82%8A%20%E6%9D%B1%E4%BA%AC","丸之內仲通":"https://www.google.com/maps/search/?api=1&query=%E4%B8%B8%E3%81%AE%E5%86%85%E4%BB%B2%E9%80%9A%E3%82%8A%20%E6%9D%B1%E4%BA%AC","東京車站丸之內廣場":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%A7%85%20%E4%B8%B8%E3%81%AE%E5%86%85%E9%A7%85%E5%89%8D%E5%BA%83%E5%A0%B4","東京車站丸之內":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%A7%85%20%E4%B8%B8%E3%81%AE%E5%86%85%E9%A7%85%E5%89%8D%E5%BA%83%E5%A0%B4","豪德寺":"https://www.google.com/maps/search/?api=1&query=%E8%B1%AA%E5%BE%B3%E5%AF%BA%20%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA%E8%B1%AA%E5%BE%B3%E5%AF%BA2-24-7","新宿 Bic Camera":"https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%AF%E3%82%AB%E3%83%A1%E3%83%A9%20%E6%96%B0%E5%AE%BF%E6%9D%B1%E5%8F%A3%E5%BA%97","Bic Camera 新宿東口店":"https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%AF%E3%82%AB%E3%83%A1%E3%83%A9%20%E6%96%B0%E5%AE%BF%E6%9D%B1%E5%8F%A3%E5%BA%97","Alpen Tokyo 旗艦店":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","Alpen TOKYO":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","Alpen Tokyo":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","明治神宮外苑銀杏大道":"https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E3%81%84%E3%81%A1%E3%82%87%E3%81%86%E4%B8%A6%E6%9C%A8","神宮外苑":"https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E6%9D%B1%E4%BA%AC","KIDDY LAND 原宿店":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%87%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89%20%E5%8E%9F%E5%AE%BF%E5%BA%97%20%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D6-1-9","KIDDY LAND":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%87%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89%20%E5%8E%9F%E5%AE%BF%E5%BA%97%20%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D6-1-9","NUMBER SUGAR 表參道店":"https://www.google.com/maps/search/?api=1&query=NUMBER%20SUGAR%20%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97","NUMBER SUGAR":"https://www.google.com/maps/search/?api=1&query=NUMBER%20SUGAR%20%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97","宮下公園":"https://www.google.com/maps/search/?api=1&query=MIYASHITA%20PARK%20%E6%B8%8B%E8%B0%B7","貓街":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%88%20%E6%B8%8B%E8%B0%B7","澀谷 PARCO":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7PARCO%20%E5%AE%87%E7%94%B0%E5%B7%9D%E7%94%BA15-1","澀谷站八公口外":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85%20%E3%83%8F%E3%83%81%E5%85%AC%E5%8F%A3","澀谷站八公口":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85%20%E3%83%8F%E3%83%81%E5%85%AC%E5%8F%A3","真さか":"https://www.google.com/maps/search/?api=1&query=%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%AC%E3%83%B3%E5%B1%85%E9%85%92%E5%B1%8B%20%E7%9C%9F%E3%81%95%E3%81%8B%20%E6%B8%8B%E8%B0%B7PARCO%20B1","今戶神社":"https://www.google.com/maps/search/?api=1&query=%E4%BB%8A%E6%88%B8%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E4%BB%8A%E6%88%B81-5-22","待乳山聖天":"https://www.google.com/maps/search/?api=1&query=%E5%BE%85%E4%B9%B3%E5%B1%B1%E8%81%96%E5%A4%A9%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%897-4-1","淺草寺参道":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E4%BB%B2%E8%A6%8B%E4%B8%96%E9%80%9A%E3%82%8A","淺草寺":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%892-3-1","雷門":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E9%9B%B7%E9%96%80","PATISSERIE TEN&（日比谷 OKUROJI）":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","PATISSERIE TEN&":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","日比谷 PATISSERIE TEN&":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","HARBS 六本木 Hills 店":"https://www.google.com/maps/search/?api=1&query=HARBS%20%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%E5%BA%97","六本木 HARBS":"https://www.google.com/maps/search/?api=1&query=HARBS%20%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%E5%BA%97","大屋頂廣場":"https://www.google.com/maps/search/?api=1&query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%20%E5%A4%A7%E5%B1%8B%E6%A0%B9%E3%83%97%E3%83%A9%E3%82%B6","六本木新城":"https://www.google.com/maps/search/?api=1&query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%20%E6%9D%B1%E4%BA%AC","神橋":"https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%A9%8B%20%E6%97%A5%E5%85%89%E5%B8%82%E4%B8%8A%E9%89%A2%E7%9F%B3%E7%94%BA","東照宮":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE%20%E6%97%A5%E5%85%89%E5%B8%82%E5%B1%B1%E5%86%852301","東京晴空塔":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC","晴空塔":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC","華嚴瀑布":"https://www.google.com/maps/search/?api=1&query=%E8%8F%AF%E5%8E%B3%E3%81%AE%E6%BB%9D%20%E6%97%A5%E5%85%89","中禪寺湖":"https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B9%96%20%E6%97%A5%E5%85%89","憾滿之淵":"https://www.google.com/maps/search/?api=1&query=%E6%86%BE%E6%BA%80%E3%83%B6%E6%B7%B5%20%E6%97%A5%E5%85%89","田母澤御用邸":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E7%94%B0%E6%AF%8D%E6%B2%A2%E5%BE%A1%E7%94%A8%E9%82%B8%E8%A8%98%E5%BF%B5%E5%85%AC%E5%9C%92","日光街道":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E8%A1%97%E9%81%93%20%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89%E5%B8%82","成田山表參道":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E8%A1%A8%E5%8F%82%E9%81%93","新勝寺大本堂":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E6%96%B0%E5%8B%9D%E5%AF%BA%20%E5%A4%A7%E6%9C%AC%E5%A0%82","成田山公園":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E5%85%AC%E5%9C%92","なごみの米屋":"https://www.google.com/maps/search/?api=1&query=%E3%81%AA%E3%81%94%E3%81%BF%E3%81%AE%E7%B1%B3%E5%B1%8B%20%E7%B7%8F%E6%9C%AC%E5%BA%97%20%E6%88%90%E7%94%B0%E5%B8%82%E4%B8%8A%E7%94%BA500","京成成田站":"https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E6%88%90%E6%88%90%E7%94%B0%E9%A7%85","AEON MALL 成田":"https://www.google.com/maps/search/?api=1&query=%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB%E6%88%90%E7%94%B0","青山一丁目站":"https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E5%B1%B1%E4%B8%80%E4%B8%81%E7%9B%AE%E9%A7%85","原宿站":"https://www.google.com/maps/search/?api=1&query=%E5%8E%9F%E5%AE%BF%E9%A7%85","澀谷站":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85","麺 みつヰ":"https://www.google.com/maps/search/?api=1&query=%E9%BA%BA%20%E3%81%BF%E3%81%A4%E3%83%B0%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E5%AF%BF2-9-15","天麩羅秋光":"https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E9%BA%A9%E7%BE%85%20%E7%A7%8B%E5%85%89%20%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97"};
   const revisedDailyCopy = {
   "1": [
     [
@@ -1609,16 +1933,17 @@
           if(activePlace) link.remove();
           continue;
         }
-        if(isGuide(link)&&activePlace){
-          let pair=activePlace.parentElement;
-          if(!pair.classList.contains('stop-title-place')){
+        if(isGuide(link)){
+          let pair=activePlace?.parentElement||link.parentElement;
+          if(activePlace&&!pair.classList.contains('stop-title-place')){
             pair=document.createElement('span');pair.className='stop-title-place';
             activePlace.before(pair);pair.append(activePlace);
           }
-          if([...pair.querySelectorAll('a')].some(a=>urlKey(a.href)===urlKey(link.href))){link.remove();continue;}
+          if([...pair.querySelectorAll('a')].some(a=>a!==link&&urlKey(a.href)===urlKey(link.href))){link.remove();continue;}
           link.classList.add('stop-title-guide');
-          link.textContent='實拍攻略';
-          link.setAttribute('aria-label',activePlace.textContent.trim()+' 實拍攻略');
+          const slug=new URL(link.href,document.baseURI).pathname.split('/').pop();
+          link.textContent=slug==='01-monjayaki-chico.html'?'第二方案｜文字燒 CHICO 實拍攻略':slug==='09-noguchi-sengyoten.html'?'野口鮮魚店實拍攻略':'實拍攻略';
+          link.setAttribute('aria-label',link.textContent);
           pair.append(link);
         } else {
           activePlace=null;
@@ -1626,6 +1951,19 @@
       }
       if(!row.querySelector('a')&&!row.textContent.replace(/[\s\u3000／|｜→↗]/g,'')) row.remove();
     });
+  }
+
+  function addDayCouponShortcuts() {
+    if(state.view!=='days') return;
+    const targets=state.day===9?[['機場購物：安檢前／後分區 ↗','narita-dutyfree']]:[['Bic Camera 新宿東口店','bic'],['新宿 Bic Camera','bic'],['Alpen TOKYO','alpen']];
+    const added=new Set();
+    for(const [label,key] of targets){
+      if(added.has(key)) continue;
+      const anchor=[...main.querySelectorAll('a[href]')].find(a=>a.textContent.trim()===label);
+      if(!anchor) continue;
+      const shortcut=document.createElement('a');shortcut.className='restaurant-mini-link';shortcut.href='./?view=coupons&cpn='+key;shortcut.textContent='看優惠券';shortcut.setAttribute('aria-label',label+' 優惠券');
+      anchor.insertAdjacentElement('afterend',shortcut);added.add(key);
+    }
   }
 
   function render(scroll = false) {
@@ -1652,6 +1990,7 @@
     organizeDailyDetails();
     polishDailyLinks();
     consolidateDailySummaryLinks();
+    addDayCouponShortcuts();
     attachMajorTransitGuide();
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{
       if(el.open && !el.dataset.loaded) {
