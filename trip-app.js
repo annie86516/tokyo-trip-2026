@@ -483,7 +483,10 @@
   }
 
   function skylinerNotice() {
-    return '<p class="transit-alert"><strong>搭車提醒：</strong>出關後依時間與空位選班；本所吾妻橋抵達時間為轉乘估計。<a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/jp/traffic/skyliner_timetable_1121.php" target="_blank" rel="noopener noreferrer">官方時刻表 ↗</a></p>';
+    return `<p class="transit-alert"><strong>搭車提醒：</strong>${state.group==='A'?'11/21 的 136 號已訂位；如果可能趕不上，請在發車前登入京成訂票網站確認變更。':'出關後依時間與空位選班。'}本所吾妻橋抵達時間為轉乘估計。<a href="https://www.keisei.co.jp/keisei/tetudou/skyliner/jp/traffic/skyliner_timetable_1121.php" target="_blank" rel="noopener noreferrer">官方時刻表 ↗</a></p>`;
+  }
+  function bookedSkyliner() {
+    return '<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已購票 · A 組 3 人</span></div><h2>Skyliner 136 號｜成田 → 青砥</h2><div class="booking-facts"><div><span>空港第 2 ビル出發</span><strong>14:22</strong></div><div><span>青砥抵達</span><strong>14:54</strong></div><div><span>座位</span><strong>8 號車 1A・1B・1C</strong></div><div><span>指定席券</span><strong>3 人共 ¥3,150</strong></div></div><p>已購買網路指定席券，基本車資另付；每人使用自己的 Suica／PASMO 進站，在青砥轉車時不出站，到本所吾妻橋再刷同一張卡出站。查票時開啟京成訂票網站的票券畫面。</p><a href="https://www.keisei.co.jp/srweb/info/pc/faq.html" target="_blank" rel="noopener noreferrer">京成電子票與改票說明 ↗</a></article>';
   }
   function majorTransitGuide(kind, open=false) {
     const isNikko=kind==='spacia';
@@ -502,9 +505,9 @@
       <div class="action-row"><a href="https://tobu-japantrip-tickets.com/faq" target="_blank" rel="noopener noreferrer">電子票與退票官方說明 ↗</a><a href="https://www.tobu.co.jp/railway/special_express/platform/" target="_blank" rel="noopener noreferrer">東武淺草特急月台 ↗</a><a href="https://www.tobu.co.jp/railway/special_express/purchase/" target="_blank" rel="noopener noreferrer">基本車資與特急券 ↗</a></div>` : `
       ${skylinerNotice()}
       <ol>
-        <li>完成入境審查、領行李與海關後，跟「鐵道／京成電鐵」到<strong>成田第 2 航廈 B1</strong>。全員及行李到齊再買票。</li>
-        <li>告知櫃檯：搭<strong>停靠青砥</strong>的 Skyliner，再轉車到<strong>本所吾妻橋</strong>。不是每班 Skyliner 都停青砥；核對車次、時間、青砥停靠與座位後才付款。</li>
-        <li>每人需要<strong>基本車資＋Skyliner 指定席券</strong>。用 Suica／PASMO 付基本車資時，另買到青砥的指定席券；出站前基本車資須涵蓋到本所吾妻橋。若買含基本車資的票券，依票券方式進站，不要重複刷 IC。</li>
+        <li>完成入境審查、領行李與海關後，跟「鐵道／京成電鐵」到<strong>成田第 2 航廈 B1</strong>。${state.group==='A'?'A 組已訂 14:22 Skyliner 136 號，到青砥 14:54。':'全員及行李到齊再買票。'}</li>
+        <li>${state.group==='A'?'開啟京成訂票網站上的電子指定席券，確認 8 號車 1A、1B、1C；查票時出示票券畫面。':'告知櫃檯：搭<strong>停靠青砥</strong>的 Skyliner，再轉車到<strong>本所吾妻橋</strong>。不是每班 Skyliner 都停青砥；核對車次、時間、青砥停靠與座位後才付款。'}</li>
+        <li>${state.group==='A'?'已購票為指定席券，<strong>基本車資另付</strong>；3 人各用自己的 Suica／PASMO 進站，到本所吾妻橋再刷同一張卡出站。':'每人需要<strong>基本車資＋Skyliner 指定席券</strong>。用 Suica／PASMO 付基本車資時，另買到青砥的指定席券；出站前基本車資須涵蓋到本所吾妻橋。若買含基本車資的票券，依票券方式進站，不要重複刷 IC。'}</li>
         <li>依票面班次、月台、車廂和座位乘車。行李放指定區，到青砥前先整理好。</li>
         <li><strong>青砥不出閘門。</strong>通常在 2 樓的 2 號月台下車，走到同一座月台對側的 1 號；通常不用上下樓。看「押上・都營淺草線方面」，再確認列車停靠<strong>本所吾妻橋 A19</strong>。機場快特不停 A19，不要只看終點就上車；月台以現場看板為準。</li>
         <li>到本所吾妻橋，用進站時同一張 IC 卡出站；紙票區間不足找站員補票。依住宿地圖步行，大件行李可看電梯出口標誌。</li>
@@ -530,8 +533,9 @@
     return `<li class="airport-arrival-stop"><span class="step" aria-hidden="true">01</span><div class="stop-content">
       <div class="schedule-time is-fixed"><span>航班抵達</span><b>${escape(arrival)} 成田 T2</b></div>
       <div class="document transit-guide-body">
-        <h3>Skyliner｜成田入境、買票與青砥轉乘</h3>
-        <h3>班次時間</h3><div class="skyliner-desktop-times">${readable(rail)}</div><div class="skyliner-mobile-times" aria-label="Skyliner 候選班次">${mobileTimes}</div>
+        <h3>Skyliner｜成田入境與青砥轉乘</h3>
+        ${state.group==='A'?'<p class="transit-alert"><strong>已訂｜11/21 Skyliner 136 號</strong><br>成田 T2 14:22 → 青砥 14:54｜3 人，8 號車 1A・1B・1C。指定席券共 ¥3,150；基本車資另付，每人用自己的交通卡。<br><a href="./?view=bookings&amp;bday=1">查看已預約資料 ↗</a></p>':''}
+        <h3>${state.group==='A'?'班次時間｜136 號已訂，其餘為備選':'班次時間'}</h3><div class="skyliner-desktop-times">${readable(rail)}</div><div class="skyliner-mobile-times" aria-label="Skyliner 班次">${mobileTimes}</div>
         <nav class="trip-quick-actions airport-arrival-actions" aria-label="機場交通">
           <a href="./site-four/index.html">Skyliner 交通 ↗</a>
         </nav>
@@ -579,7 +583,7 @@
     return `<nav class="day-rail booking-rail" aria-label="選擇已預約日期">${days.map(item=>`<button class="day-button" type="button" data-booking-day="${item.day}" aria-label="${item.date} ${item.label}" aria-pressed="${item.day===state.bookingDay}"><span>DAY ${String(item.day).padStart(2,'0')}</span><b>${item.date.slice(3)}</b><small>${item.label}</small></button>`).join('')}</nav>`;
   }
   function bookings() {
-    const content=state.bookingDay===1?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已訂位</span></div><h2>鳥貴族 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>21:30</strong></div><div><span>人數</span><strong>5 位成人</strong></div><div><span>同行</span><strong>A＋B 組</strong></div><div><span>訂位姓名</span><strong>請見私人訂位信</strong></div></div><p>訂位已確認。A 組可先憑私人訂位信上的姓名報到入座；B 組抵達後加入。若 B 組交通延誤，請盡早通知店家。</p><a href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" target="_blank" rel="noopener noreferrer">開啟鳥貴族淺草店地圖 ↗</a></article>`
+    const content=state.bookingDay===1?`${bookedSkyliner()}<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 01 · 11/21（六）</span><span class="booking-status">已訂位</span></div><h2>鳥貴族 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>21:30</strong></div><div><span>人數</span><strong>5 位成人</strong></div><div><span>同行</span><strong>A＋B 組</strong></div><div><span>訂位姓名</span><strong>請見私人訂位信</strong></div></div><p>訂位已確認。A 組可先憑私人訂位信上的姓名報到入座；B 組抵達後加入。若 B 組交通延誤，請盡早通知店家。</p><a href="https://maps.app.goo.gl/EvEaCawMVivVVJDC9" target="_blank" rel="noopener noreferrer">開啟鳥貴族淺草店地圖 ↗</a></article>`
       :state.bookingDay===5?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 05 · 11/25（三）</span><span class="booking-status">已訂位 · 共 5 人</span></div><h2>牛たんの檸檬 淺草店</h2><div class="booking-facts"><div><span>時間</span><strong>12:00</strong></div><div><span>預約一</span><strong>3 人</strong></div><div><span>預約二</span><strong>2 人</strong></div></div><div class="booking-codes"><div><span>3 人訂位代碼</span><strong>請見私人訂位信</strong><small>訂位姓名：請見私人訂位信</small></div><div><span>2 人訂位代碼</span><strong>請見私人訂位信</strong><small>訂位姓名：請見私人訂位信</small></div></div><p>兩筆各停留 1 小時，分別報上代碼；能否安排相鄰座位依店家現場為準。3 人訂位為禁菸桌；2 人訂位未指定座位。</p><a href="https://maps.app.goo.gl/K4QdwtcbFczYAsTPA" target="_blank" rel="noopener noreferrer">開啟淺草店地圖 ↗</a></article>`
       :state.bookingDay===6?`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 06 · 11/26（四）</span><span class="booking-status">已訂妥 · 7 位成人</span></div><h2>SPACIA X 003｜豪華座位</h2><div class="booking-facts"><div><span>淺草出發（日本時間）</span><strong>09:00</strong></div><div><span>東武日光抵達</span><strong>10:50</strong></div><div><span>席種</span><strong>Premium seat</strong></div></div>${majorTransitGuide('spacia',true)}</article>`
       :`<article class="panel booking-card"><div class="booking-card-head"><span class="pill">DAY 08 · 11/28（六）</span><span class="booking-status">已訂妥 · 已付款</span></div><h2>關東專車接送｜日光民宿 → Richmond Hotel Narita</h2><div class="booking-facts"><div><span>上車時間（日本時間）</span><strong>08:00</strong></div><div><span>人數</span><strong>7 位成人</strong></div><div><span>車輛</span><strong>Toyota Hiace 10 人座 × 1</strong></div></div><div class="booking-followup"><strong>上車地點</strong><p>1-chōme-687-1 Inarimachi, Nikko, Tochigi 321-1411</p><strong>下車地點</strong><p>Richmond Hotel Narita</p><p>憑證註明：乘客需備妥護照與憑證；上車前請主動聯絡司機確認等候位置。司機資訊預計前一天透過 WeChat／WhatsApp 提供，請允許好友邀請。</p><p>出發前將原始接送憑證 PDF 存到手機，搭車時出示。</p><div class="action-row"><a href="./assets/nikko-narita-transfer-voucher-2026-11-28.pdf" target="_blank" rel="noopener noreferrer">開啟關東專車接送憑證 PDF ↗</a><a href="./assets/nikko-narita-transfer-voucher-2026-11-28.pdf" download="nikko-narita-transfer-voucher-2026-11-28.pdf">下載原始憑證</a></div></div><div class="booking-followup"><strong>11/29 飯店機場接駁</strong><p>全團 7 人預計搭 08:20 班次，約 08:40 抵達成田 T2；此為飯店接駁，尚未登記。11/28 入住後立即替 7 人登記並確認集合位置。08:15 前上車，沒有出發廣播；每人限 1 件行李箱，超額行李須先詢問飯店。</p><a href="https://richmondhotel.jp/narita/access/" target="_blank" rel="noopener noreferrer">Richmond 官方交通與接駁 ↗</a></div></article>`;
