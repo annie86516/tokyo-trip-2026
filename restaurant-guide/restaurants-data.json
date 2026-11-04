@@ -1324,8 +1324,8 @@
     "type": "現打烏龍麵",
     "area": "原宿",
     "verdict": "11/24 午餐三選一候選；培根奶油烏龍麵值得吃，選用時請安排午餐並核對當日營業時間。",
-    "hours": "一般日約 11:30–22:00；星期二常見短時段約 11:30–17:00。",
-    "hours_note": "營業時間依官方 Instagram／現場公告變動；DAY 4 是星期二，切勿把它延後成晚餐。",
+    "hours": "週二 11:30–22:00，最後點餐 21:30。",
+    "hours_note": "限店家接受的信用卡或電子票證，不收現金或 QR 碼支付。臨時營業異動以店家當週公告為準。",
     "address": "東京都澀谷區神宮前6-13-7",
     "access": "明治神宮前站步行約 5 分鐘；Cat Street 一帶。",
     "budget": "約 ¥1,000–2,500／人",
@@ -1375,7 +1375,7 @@
       "不吃牛肉者下單前先確認高湯與油脂，不只看表面配料。"
     ],
     "pitfalls": [
-      "星期二提前結束營業。",
+      "限店家接受的信用卡或電子票證，不收現金或 QR 碼支付。",
       "排隊會壓縮下午自由活動時間。",
       "濃郁款份量足，之後章魚燒只需少量。"
     ],
@@ -1383,7 +1383,7 @@
       "牛骨スープや牛脂は使っていますか？（有使用牛骨湯或牛油嗎？）",
       "カルボナーラうどんと、さっぱりしたうどんを一つずつお願いします。（請給我們一碗奶油烏龍和一碗清爽口味。）"
     ],
-    "official": "https://www.instagram.com/menchirashi/",
+    "official": "https://www.instagram.com/menchirashi_one/",
     "reservation_url": "",
     "alert": "⚠ 11/24 星期二只作午餐候選；當日實際營業時間請再次確認。",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E9%BA%BA%E6%95%A3+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%BE%80%E8%B0%B7%E5%8D%80%E7%A5%9E%E5%AE%AE%E5%89%8D6-13-7",
@@ -1391,9 +1391,9 @@
     "day_route": "神宮外苑・表參道・原宿・澀谷",
     "sources": [
       {
-        "label": "麵散營業資訊參考",
-        "url": "https://tabidan.tokyo/menchirashi/",
-        "note": "星期二短營業與排隊經驗"
+        "label": "麵散店家營業資訊",
+        "url": "https://tabelog.com/tokyo/A1306/A130601/13225567/",
+        "note": "店家登載的營業時間與付款方式"
       },
       {
         "label": "原始東京行程",
@@ -1506,7 +1506,7 @@
     "name_ja": "HARBS ルミネエスト新宿店",
     "type": "大切片蛋糕／咖啡",
     "area": "新宿站",
-    "verdict": "本店不在目前 11/24 行程；11/25 的 HARBS 安排在六本木 Hills 店。此頁僅供自由活動另訪時參考。",
+    "verdict": "本店不在目前 11/24 行程；11/25 的 HARBS 安排在 LUMINE 有樂町店。此頁僅供自由活動另訪時參考。",
     "hours": "內用 11:00–20:00；餐點 L.O.19:00、蛋糕飲料 L.O.19:30；外帶至約 21:00。",
     "hours_note": "依 LUMINE EST 休館與節日調整。",
     "address": "東京都新宿區新宿3-38-1 LUMINE EST B2F",
@@ -2205,7 +2205,7 @@
     "name_ja": "牛たんの檸檬 浅草店",
     "type": "厚切牛舌定食",
     "area": "淺草",
-    "verdict": "11/25 12:00 已訂兩筆，共 5 人（3 人＋2 人）；另 2 人自由用餐，其中 1 位不吃牛。",
+    "verdict": "11/25 12:00 已訂兩筆，共 5 人（3 人＋2 人）；另 2 人自由用餐，1 位不吃牛、1 位陪同。",
     "hours": "午餐 11:30–15:00（L.O.14:30）；晚餐 17:00–21:30（L.O.21:00）。",
     "hours_note": "營業與可預約時段以店家最新公告、訂位頁為準。",
     "address": "東京都台東區淺草2-9-13 TACT浅草2F",
@@ -2223,9 +2223,9 @@
       }
     ],
     "group_plan": [
-      "牛舌訂位 5 人，另 2 人自由用餐（其中 1 位不吃牛），與航班 A／B／C 組無關。",
+      "牛舌訂位 5 人，另 2 人自由用餐（1 位不吃牛、1 位陪同），與航班 A／B／C 組無關。",
       "兩筆預約各自報到：3 人與 2 人各有一組預約號；座位是否相鄰依店家安排。",
-      "自由用餐的 2 人當天再選店；不吃牛的 1 位點餐前確認湯底、醬汁和配料。餐後在淺草會合。"
+      "不吃牛的 1 位和陪同的 1 位當天一起選店；不吃牛的 1 位點餐前確認湯底、醬汁和配料。餐後在淺草會合。"
     ],
     "pitfalls": [
       "訂位與地圖都要選淺草店；不要選到新宿總本店。",
@@ -2478,15 +2478,15 @@
     "name_ja": "GOEN CAFÉ SPACIA X",
     "type": "觀光列車咖啡吧",
     "area": "SPACIA X 1 號車",
-    "verdict": "你們若成功訂到 6 號車 Cockpit Suite，可免整理券使用咖啡吧，是很值得保留的列車體驗。",
+    "verdict": "本團 7 人已訂 Premium seat。依車上指示領取線上整理券，再按指定時段前往 1 號車咖啡櫃台外帶。",
     "hours": "隨 SPACIA X 列車運行；販售時間與商品依班次、售罄狀況調整。",
-    "hours_note": "一般乘客常需整理券；Cockpit Suite 乘客依官方規則可免整理券使用。",
+    "hours_note": "販售時間及整理券數量依當班列車為準。",
     "address": "SPACIA X 列車內 1 號車 Cockpit Lounge／Cafe Counter",
-    "access": "從 6 號車 Cockpit Suite 穿越列車前往 1 號車，需留意服務時段與車內走動。",
+    "access": "依指定時段步行至 1 號車咖啡櫃台。",
     "budget": "約 ¥500–2,000／人",
-    "reservation": "咖啡吧本身不另訂位；前提是先取得 SPACIA X 車票與包廂。",
+    "reservation": "已持 Premium seat 乘車，咖啡櫃台外帶仍須取得線上整理券。",
     "queue": "熱門商品可能排隊與售罄；剛發車時最忙。",
-    "timing": "上車安置行李 15–20 分鐘後，由 1–2 人先去確認販售情況，避免全團一起穿越車廂。",
+    "timing": "上車放好行李後確認整理券受理時間，依指定時段前往。",
     "beef_level": "需確認",
     "no_beef": "飲料容易選；輕食、便當、甜點需逐項看標示。",
     "dishes": [
@@ -2525,9 +2525,8 @@
       }
     ],
     "group_plan": [
-      "派 1–2 人代表先去看菜單與排隊。",
-      "在群組拍菜單，其他人在包廂回覆品項。",
-      "一次帶回 7 份需注意托盤與列車晃動，可分兩趟。"
+      "上車後確認整理券並依指定時間前往。",
+      "在群組確認品項；熱飲拿穩再回座位。"
     ],
     "pitfalls": [
       "列車限定品可能售罄。",
@@ -2540,7 +2539,7 @@
     ],
     "official": "https://www.tobu.co.jp/spaciax/en/cafe/",
     "reservation_url": "",
-    "map_url": "https://www.google.com/maps/search/?api=1&query=GOEN+CAF%C3%89+SPACIA+X+SPACIA+X+%E5%88%97%E8%BB%8A%E5%85%A7+1+%E8%99%9F%E8%BB%8A+Cockpit+Lounge%EF%BC%8FCafe+Counter",
+    "map_url": "",
     "day_date": "2026/11/26（四）",
     "day_route": "SPACIA X・日光街道",
     "sources": [
@@ -2812,7 +2811,7 @@
       "現在のメニューで、7名の夕食予約はできますか？（依目前菜單，可預約 7 人晚餐嗎？）"
     ],
     "official": "https://nikko-zen.co.jp/",
-    "reservation_url": "https://nikko-zen.co.jp/",
+    "reservation_url": "",
     "alert": "⚠ 官方午餐頁已標示 2026/7/1 復業，但採部分調整後菜單；11/27 晚餐與 7 人接待仍須直接確認。",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%B9%AF%E6%B3%A2%E5%B7%BB+%E5%85%A8+ZEN+%E6%A0%83%E6%9C%A8%E7%B8%A3%E6%97%A5%E5%85%89%E5%B8%82%E4%B8%8A%E9%89%A2%E7%9F%B3%E7%94%BA1007",
     "day_date": "2026/11/27（五）",
@@ -2922,7 +2921,7 @@
       "11月27日は営業していますか？7名で予約できますか？（11/27 有營業嗎？可預約 7 位嗎？）"
     ],
     "official": "https://www.meiji-yakata.com/ja/meiji/",
-    "reservation_url": "https://www.meiji-yakata.com/ja/meiji/",
+    "reservation_url": "",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E6%B4%8B%E6%96%99%E7%90%86+%E6%98%8E%E6%B2%BB%E3%81%AE%E9%A4%A8+%E6%A0%83%E6%9C%A8%E7%B8%A3%E6%97%A5%E5%85%89%E5%B8%82%E5%B1%B1%E5%85%A72339-1",
     "day_date": "2026/11/27（五）",
     "day_route": "東照宮・午後休息",

@@ -236,7 +236,7 @@
         const payer=allMembers[group.payerIndex]||'成員',shares=groupShareMap(group);
         const converted=group.currency==='JPY'&&group.rate?money(twdValue(group.total,group.rate),'TWD'):'';
         return `<details class="money-expense">
-          <summary class="money-expense-summary"><span class="money-expense-head"><div><h4>${esc(group.title)}</h4><span>${esc(payer)} 先付款</span></div><div><strong>${money(group.total,group.currency)}</strong>${converted?`<small>約 ${converted}</small>`:''}</div></span></summary><div class="money-expense-body"><p class="money-expense-meta">${group.currency==='JPY'&&group.rate?`使用匯率 ${rateText(group.rate)}`:'台幣項目'}</p>
+          <summary class="money-expense-summary"><span class="money-expense-head"><div><h4>${esc(group.title)}</h4><span>${esc(payer)} 先付款</span></div><div><strong>${money(group.total,group.currency)}</strong>${converted?`<small>約 ${converted}</small>`:''}</div></span></summary><div class="money-expense-body"><p class="money-expense-meta">${group.currency==='TWD'?'台幣項目':group.rate?`使用匯率 ${rateText(group.rate)}`:'日圓項目（未記錄匯率）'}</p>
           ${group.detail?`<p class="money-expense-note">${esc(group.detail)}</p>`:''}
           <div class="money-expense-actions"><button type="button" data-money-action="edit-expense" data-expense-id="${esc(group.id)}">編輯</button><button type="button" class="money-delete" data-money-action="delete-expense" data-expense-id="${esc(group.id)}">刪除項目</button></div>
           <div class="money-share-list">${[...shares.entries()].map(([index,amount])=>{
