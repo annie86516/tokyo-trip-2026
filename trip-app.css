@@ -666,7 +666,7 @@ input,select,textarea{font-size:14px!important}
 .stop-title-place>a:first-child{min-width:0;overflow-wrap:anywhere}
 .stop-summary-title{line-height:1.9}
 
-/* Daily departure advice stays visible above the weather and itinerary. */
+/* Daily departure advice follows the route in the day overview. */
 .departure-card{margin:16px 0 20px;padding:18px 22px;border:1px solid #dfd7c7;border-left:4px solid #63735c;border-radius:14px;background:#fffdf7;color:#303b32;box-shadow:0 4px 14px #58432808}
 .departure-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px}
 .departure-heading h2{margin:0;font-size:16px;line-height:1.5;letter-spacing:.06em}

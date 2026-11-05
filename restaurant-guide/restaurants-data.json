@@ -156,7 +156,7 @@
     ],
     "group_plan": [
       "一人排隊，其餘人在附近不妨礙店面的地方等候。",
-      "原味可統一買 7 個，再自由加購特色款。",
+      "3 人可先各買 1 個原味，再依食量加購特色款。",
       "不要在鄰店門口邊走邊吃；依現場指示使用指定區域。"
     ],
     "pitfalls": [
@@ -307,115 +307,6 @@
     "dish_caption": "官方菜單實拍：もも貴族焼（たれ）"
   },
   {
-    "id": "04-nukumuku",
-    "day": 2,
-    "slot": "早餐",
-    "status": "planned",
-    "priority": "B",
-    "name_zh": "nukumuku 三軒茶屋",
-    "name_ja": "nukumuku",
-    "type": "手作麵包／咖啡",
-    "area": "三軒茶屋",
-    "verdict": "適合進豪德寺前補充早餐；重點是 1 樓選麵包，時間有限就不要等 2 樓正餐。",
-    "hours": "官方頁面目前出現不同版本：1F 約 08:00–19:00／20:00；2F 咖啡約 09:30–18:00／19:00。",
-    "hours_note": "另有 2026 在地資料顯示 07:00 開始。11 月行前請以官方 Instagram 當週公告為準。星期日通常營業。",
-    "address": "東京都世田谷區太子堂5-29-3",
-    "access": "三軒茶屋站步行約 10 分鐘，再轉往世田谷線。",
-    "budget": "約 ¥700–2,000／人",
-    "reservation": "買麵包不需預約；2F 座位若人多會拖慢行程。",
-    "queue": "早上品項較齊；10 點後觀光客與在地客增加。",
-    "timing": "08:00 左右抵達，抓 30–40 分鐘。若 1F 尚未開門，直接改車站附近早餐，不要影響豪德寺時程。",
-    "beef_level": "需確認",
-    "no_beef": "甜麵包與部分素麵包容易選；熟食、漢堡、肉料理需詢問。也要注意奶、蛋與豬肉。",
-    "dishes": [
-      {
-        "name": "當日出爐招牌麵包",
-        "why": "品項變化大，直接問店員「今天最推薦」。",
-        "order": "每人 1–2 個",
-        "photo_mode": "restaurant",
-        "photo_url": "https://san-tatsu.jp/assets/uploads/2026/02/19174353/1771490631-6dc16f7fb0db8ad1140e0431600dc348.jpg",
-        "photo_source": "https://san-tatsu.jp/articles/510100/",
-        "photo_query": "Japanese bakery bread assortment"
-      },
-      {
-        "name": "自家製餡／卡士達甜麵包",
-        "why": "店家強調自製內餡，適合早餐。",
-        "order": "挑 1 個共享",
-        "photo_mode": "commons-search",
-        "photo_source": "https://commons.wikimedia.org/",
-        "photo_query": "custard bun Japanese bread"
-      },
-      {
-        "name": "三明治／帕尼尼",
-        "why": "需要較完整早餐的人可選，但等待時間較長。",
-        "order": "時間充裕再點",
-        "photo_mode": "commons-search",
-        "photo_source": "https://commons.wikimedia.org/",
-        "photo_query": "panini sandwich"
-      },
-      {
-        "name": "法式吐司",
-        "why": "2F 咖啡代表性餐點，但不適合趕行程。",
-        "order": "僅早起且無排隊時",
-        "photo_mode": "commons-search",
-        "photo_source": "https://commons.wikimedia.org/",
-        "photo_query": "French toast"
-      }
-    ],
-    "group_plan": [
-      "5 人分兩批進店選購，避免擋住狹窄動線。",
-      "先在門外決定外帶或內用；不要到櫃檯才討論。",
-      "每人自付最快，或由一人統一付款後記錄。"
-    ],
-    "pitfalls": [
-      "官網不同頁面的營業時間不一致。",
-      "離車站約 10 分鐘，需把步行算進去。",
-      "2F 內用可能讓整體停留超過 1 小時。"
-    ],
-    "phrases": [
-      "今日の一番おすすめのパンはどれですか？（今天最推薦哪一款麵包？）",
-      "牛肉が入っていないパンを教えてください。（請告訴我不含牛肉的麵包。）"
-    ],
-    "official": "https://www.instagram.com/nukumuku.breadstore/",
-    "reservation_url": "",
-    "map_url": "https://www.google.com/maps/search/?api=1&query=nukumuku+%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8D%80%E5%A4%AA%E5%AD%90%E5%A0%825-29-3",
-    "day_date": "2026/11/22（日）",
-    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
-    "sources": [
-      {
-        "label": "nukumuku 官方 Instagram",
-        "url": "https://www.instagram.com/nukumuku.breadstore/",
-        "note": "原官網目前顯示存取禁止；營業公告以官方社群與店家確認為準"
-      },
-      {
-        "label": "nukumuku 官方 Instagram",
-        "url": "https://www.instagram.com/nukumuku.breadstore/",
-        "note": "原官網目前顯示存取禁止；營業公告以官方社群與店家確認為準"
-      },
-      {
-        "label": "2026 在地報導",
-        "url": "https://san-tatsu.jp/spots/510157/",
-        "note": "近期營業資訊"
-      },
-      {
-        "label": "原始東京行程",
-        "url": "../index.html",
-        "note": ""
-      }
-    ],
-    "image": "food-bakery.svg",
-    "image_note": "料理主題示意圖（非店家實景）；實際菜色與擺盤以店家當日供應為準。",
-    "name": "nukumuku 三軒茶屋",
-    "signature": "當日出爐招牌麵包",
-    "tabelog": null,
-    "store_photo": "https://san-tatsu.jp/assets/uploads/2026/02/19174455/1771490693-f1fe538df97c2ca4455d9ab9f8e28a18.jpg",
-    "dish_photo": "https://san-tatsu.jp/assets/uploads/2026/02/19174353/1771490631-6dc16f7fb0db8ad1140e0431600dc348.jpg",
-    "store_source": "https://san-tatsu.jp/articles/510100/",
-    "dish_source": "https://san-tatsu.jp/articles/510100/",
-    "store_caption": "nukumuku 三軒茶屋店面",
-    "dish_caption": "nukumuku 三軒茶屋店內人氣麵包陳列實拍"
-  },
-  {
     "id": "05-rarasand",
     "day": 2,
     "slot": "點心備選",
@@ -425,7 +316,7 @@
     "name_ja": "RARASAND",
     "type": "貓咪造型甜點／咖啡",
     "area": "豪德寺",
-    "verdict": "造型與豪德寺主題最連貫；重點是招福燒，不必為了完整咖啡時段久候。",
+    "verdict": "招福燒與咖啡僅列候選；11:15 參拜後直接往梅丘，不為點心繞回豪德寺站。",
     "hours": "近期公開資料約 10:00–17:00／18:00；店休與臨時變更以 Instagram 為準。",
     "hours_note": "過往資料曾顯示營業至 22:00，但 2026 更新資料較早收店，請勿採用舊時間。",
     "address": "東京都世田谷區豪德寺1-8-5",
@@ -433,7 +324,7 @@
     "budget": "約 ¥500–1,500／人",
     "reservation": "通常現場購買；店面不大，不適合 5 人長時間佔位。",
     "queue": "豪德寺觀光高峰會排隊；造型甜點可能售完。",
-    "timing": "參拜後回到車站方向順買，停留 15–30 分鐘；若隊伍過長就改 IRON COFFEE。",
+    "timing": "僅列候選，不排必訪時段。09:00 出門、10:30–11:15 豪德寺參拜，約 11:35 全員到美登利取號；不為點心延後取號或從梅丘折返。",
     "beef_level": "較安心",
     "no_beef": "甜點本身通常不含牛肉，但含奶蛋；若對明膠或製程嚴格，仍需詢問。",
     "dishes": [
@@ -489,7 +380,7 @@
     "reservation_url": "",
     "map_url": "https://www.google.com/maps/search/?api=1&query=RARASAND+%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8D%80%E8%B1%AA%E5%BE%B7%E5%AF%BA1-8-5",
     "day_date": "2026/11/22（日）",
-    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
+    "day_route": "豪德寺・梅丘・新宿",
     "sources": [
       {
         "label": "2026 店舖更新資料",
@@ -529,7 +420,7 @@
     "name_ja": "IRON COFFEE",
     "type": "精品咖啡／烘焙點心",
     "area": "豪德寺",
-    "verdict": "比 RARASAND 更適合真正想喝好咖啡的人；週日 09:00 開，可作早餐後第二站。",
+    "verdict": "咖啡僅列候選；11:15 參拜後直接往梅丘，不為咖啡繞回豪德寺站。",
     "hours": "平日 08:30–18:00；週末 09:00–18:00；星期三休。",
     "hours_note": "以官方 2026 可查頁面為準；臨時店休仍請看社群。",
     "address": "東京都世田谷區豪德寺1-18-9",
@@ -537,7 +428,7 @@
     "budget": "約 ¥500–1,200／人",
     "reservation": "不需預約；店小，5 人較適合外帶。",
     "queue": "尖峰可能要等手沖；趕路時點濃縮咖啡或牛奶咖啡較快。",
-    "timing": "豪德寺參拜前後皆可；建議外帶，停留 15–25 分鐘。",
+    "timing": "僅列候選，不排必訪時段。09:00 出門、10:30–11:15 豪德寺參拜，約 11:35 全員到美登利取號；不為咖啡延後取號或從梅丘折返。",
     "beef_level": "較安心",
     "no_beef": "咖啡與一般烘焙甜點無牛肉疑慮；需注意牛奶、奶油、蛋與堅果。",
     "dishes": [
@@ -587,13 +478,13 @@
     ],
     "phrases": [
       "酸味が少なめのコーヒーはどれですか？（哪一款咖啡酸味較低？）",
-      "テイクアウトで7杯お願いします。（請做 7 杯外帶。）"
+      "テイクアウトでお願いします。（請幫我外帶。）"
     ],
     "official": "https://iron-coffee.com/about/",
     "reservation_url": "",
     "map_url": "https://www.google.com/maps/search/?api=1&query=IRON+COFFEE+%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8D%80%E8%B1%AA%E5%BE%B7%E5%AF%BA1-18-9",
     "day_date": "2026/11/22（日）",
-    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
+    "day_route": "豪德寺・梅丘・新宿",
     "sources": [
       {
         "label": "IRON COFFEE 官方資訊",
@@ -628,15 +519,15 @@
     "name_ja": "梅丘寿司の美登利 総本店",
     "type": "人氣壽司",
     "area": "梅丘",
-    "verdict": "DAY 2 的核心餐廳；星期日不要只提早 30 分鐘，建議 09:40–10:00 就派代表操作發券機。",
+    "verdict": "DAY 2 午餐；豪德寺參拜後，5 人一起到店取號，再依叫號安排附近行程。",
     "hours": "平日 11:00–14:30、17:00–21:00；週六、日、國定假日 11:00–21:00（L.O.20:30）。",
-    "hours_note": "店頭順番受付通常 10:00 開始；11/22 是星期日，不要期待臨時訂位。",
+    "hours_note": "店頭候位號碼牌 10:00 起發放；目前不提供手機遠端取號。",
     "address": "東京都世田谷區梅丘1-20-7",
     "access": "小田急線梅丘站附近；從豪德寺一站即可到。",
     "budget": "約 ¥2,500–5,000／人",
     "reservation": "週日以現場取號為主；5 人可能拆成 2 桌，接受拆桌可大幅縮短等待。",
-    "queue": "週日高風險等待 1–3 小時；發券後依號碼回店，不要離太遠。",
-    "timing": "代表 09:40 左右先到；其他人完成豪德寺後會合。目標 11:00–12:30 入店，後續新宿購物才不會被壓縮。",
+    "queue": "週日候位時間不定，依現場叫號；取號後不要離太遠，等太久可改附近餐廳。",
+    "timing": "豪德寺參拜後，5 人一起到梅丘美登利取號。取號後在梅丘附近等候或散步，留意叫號。",
     "beef_level": "較安心",
     "no_beef": "壽司本體容易避開牛肉；味噌湯、煮物、炙燒醬與期間限定仍要確認是否用牛肉／牛脂。",
     "dishes": [
@@ -681,18 +572,17 @@
     ],
     "pitfalls": [
       "原行程寫「無法預約」過度簡化；平日有部分預約枠，但本次星期日仍以發券為主。",
-      "過號可能需重新安排。",
-      "若超過 13:30 還未入店，應啟動備案，否則新宿行程會被吃掉。"
+      "過號可能需重新安排。"
     ],
     "phrases": [
-      "5名ですが、2つの席に分かれても大丈夫です。（我們 7 位，分成兩桌也可以。）",
+      "5名ですが、2つの席に分かれても大丈夫です。（我們 5 位，分成兩桌也可以。）",
       "本日のおすすめの白身魚は何ですか？（今天推薦的白身魚是什麼？）"
     ],
     "official": "https://www.sushinomidori.co.jp/shops/honkan/",
     "reservation_url": "https://www.sushinomidori.co.jp/shops/honkan/",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8D%80%E6%A2%85%E4%B8%981-20-7",
     "day_date": "2026/11/22（日）",
-    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
+    "day_route": "豪德寺・梅丘・新宿",
     "sources": [
       {
         "label": "美登利總本店官方頁",
@@ -792,7 +682,7 @@
       "主體為豬骨湯，不適合不吃豬肉者。"
     ],
     "phrases": [
-      "5名ですが、席が分かれても大丈夫です。（我們 7 位，分開坐也可以。）",
+      "5名ですが、席が分かれても大丈夫です。（我們 5 位，分開坐也可以。）",
       "待ち時間はどのくらいですか？（大概要等多久？）",
       "牛肉由来の原材料は入っていますか？（有使用牛肉來源的原料嗎？）"
     ],
@@ -800,7 +690,7 @@
     "reservation_url": "https://www.tablecheck.com/ja/ichiran-shinjuku-kabukicho",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%80%E8%98%AD+%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-17-10",
     "day_date": "2026/11/22（日）",
-    "day_route": "三軒茶屋・豪德寺・梅丘・新宿",
+    "day_route": "豪德寺・梅丘・新宿",
     "sources": [
       {
         "label": "一蘭官方店舖頁",
@@ -901,7 +791,7 @@
       "海鮮丼份量大，晚間另有聚餐時不要勉強吃完。"
     ],
     "phrases": [
-      "3名ですが、席が分かれても大丈夫です。（我們 7 位，分開坐也可以。）",
+      "3名ですが、席が分かれても大丈夫です。（我們 3 位，分開坐也可以。）",
       "待ち時間はどのくらいですか？（大概要等多久？）",
       "ご飯を少なめにできますか？（飯可以少一點嗎？）"
     ],
@@ -958,7 +848,7 @@
     "budget": "約 ¥700–1,500／人",
     "reservation": "座位約 12 席；以現場為主，7 人可能拆批或外帶。",
     "queue": "週末與國定假日可能等待 20–30 分鐘。",
-    "timing": "上午散步時經過可吃；A／B 組最晚 12:15 離開上午路線前往晴空塔，晚餐再與 C 組在大東縁會合。",
+    "timing": "上午散步時經過可吃；A／B 組最晚 12:15 離開上午路線前往晴空塔，晚餐再與 C 組在炭火焼肉おくさこ會合。",
     "beef_level": "較安心",
     "no_beef": "布丁通常不含牛肉，但含奶蛋；若在意明膠或焦糖原料，請確認。",
     "dishes": [
@@ -1045,65 +935,55 @@
     "slot": "晚餐",
     "status": "beef",
     "priority": "S",
-    "name_zh": "大東縁",
-    "name_ja": "焼肉 大東縁",
+    "name_zh": "炭火焼肉おくさこ",
+    "name_ja": "炭火焼肉おくさこ",
     "type": "燒肉",
     "area": "本所吾妻橋",
-    "verdict": "11/23 晚餐；C 組放行李後到餐廳會合，餐後再前往晴空塔。",
-    "hours": "12:00–23:00；週四休。",
-    "hours_note": "國定假日營業與團體座位請電話確認。",
-    "address": "東京都墨田區吾妻橋2-2-5 相川ビル2F",
-    "access": "都營淺草線本所吾妻橋站 A1 出口旁。",
+    "verdict": "11/23 建議 17:30、7 位成人。C 組放好行李後會合；餐後晴空塔選去，累了就回民宿。",
+    "hours": "11/23（一・國定假日）17:00–23:00，最後點餐 22:30。",
+    "hours_note": "固定休息日為週二、每月第 3／第 4 個週三；臨時休業或時間異動以店家公告為準。",
+    "address": "東京都墨田区吾妻橋2-2-4 フェスティワン2F",
+    "access": "本所吾妻橋站附近的 2 樓；從民宿或車站依地圖前往。",
     "budget": "依現場菜單與實際點餐。",
-    "reservation": "官網建議午餐、晚餐盡量預約；電話 03-3623-4129。",
-    "queue": "先確認實際用餐人數與是否可同桌；尚未代表已完成訂位。",
-    "timing": "原建議晚餐 17:30–18:30，須依餐廳訂位結果確認。",
+    "reservation": "可預約，尚未訂位；電話 03-6381-3166。",
+    "queue": "7 人同桌尚未確認；若需分桌，訂位時一併詢問。",
+    "timing": "11/23 建議 17:30 用餐；確切時間依訂位與 C 組抵達進度確認。",
     "beef_level": "需先確認",
-    "no_beef": "同行有不吃牛肉者；可吃的主餐、醬汁與共用烤網須事前向店家確認。",
+    "no_beef": "1 位不吃牛肉可參考豬五花、豬頸肉、雞腿及海鮮；點餐時確認醃料、醬汁與冷麵湯底，分開烤網或夾子的需求一併詢問。",
     "dishes": [],
     "group_plan": [
       "A、B 組下午晴空塔自由活動後到餐廳集合。",
-      "C 組先放行李，再到大東縁會合。",
-      "餐後一起前往晴空塔；確切集合時間在群組確認。"
+      "C 組先放行李，再到炭火焼肉おくさこ會合。",
+      "餐後晴空塔依體力選去，累了就回民宿。"
     ],
     "pitfalls": [
       "11/23 為國定假日，不能只依平日營業表判斷。",
       "不吃牛肉者餐點尚待店家確認。"
     ],
     "phrases": [],
-    "official": "https://daitouen.net/map.html",
-    "reservation_url": "tel:+81336234129",
-    "map_url": "https://maps.app.goo.gl/KTH72UYA1GzS5AFs8",
+    "official": "https://tabelog.com/tokyo/A1312/A131203/13295810/",
+    "reservation_url": "tel:+81363813166",
+    "map_url": "https://maps.app.goo.gl/rWTxzYh2HwmYyaoX8",
     "day_date": "2026/11/23（一・日本國定假日）",
     "day_route": "谷根千／京島・向島・晴空塔・本所吾妻橋",
     "sources": [
       {
-        "title": "官方店舖資訊",
-        "url": "https://daitouen.net/map.html"
+        "title": "食べログ店家資料",
+        "url": "https://tabelog.com/tokyo/A1312/A131203/13295810/"
       }
     ],
-    "image": "daitouen-jou-karubi.jpg",
-    "image_note": "大東縁官方餐點照片｜上カルビ定食；實際供應依店家當日為準。",
-    "signature": "燒肉，依店家當日菜單選擇",
-    "verified_at": "2026-09-29",
-    "dish_photo": "assets/daitouen-jou-karubi.jpg",
-    "dish_source": "https://daitouen.net/menu.html",
-    "dish_caption": "大東縁官方餐點照片｜上カルビ定食",
+    "image": "food-grill.svg",
+    "image_note": "料理主題示意圖，非店家餐點實拍。",
+    "signature": "炭火燒肉；豬肉、雞肉與海鮮依當日菜單供應。",
+    "verified_at": "2026-11-05",
+    "dish_photo": null,
+    "dish_source": null,
+    "dish_caption": null,
     "store_photo": null,
     "store_source": null,
     "store_caption": null,
-    "photos": [
-      {
-        "path": "assets/daitouen-jou-karubi.jpg",
-        "caption": "燒肉・上カルビ定食",
-        "source": "https://daitouen.net/menu.html"
-      },
-      {
-        "path": "assets/daitouen-tegutan.jpg",
-        "caption": "大東縁特製テグタン",
-        "source": "https://daitouen.net/menu.html"
-      }
-    ]
+    "photos": [],
+    "name": "炭火焼肉おくさこ"
   },
   {
     "id": "12-triton-solamachi",
@@ -1823,7 +1703,7 @@
     "budget": "約 ¥800–2,000／人",
     "reservation": "早餐通常現場；共 28 席，7 人可能分桌。",
     "queue": "週末較熱門；本次星期三相對穩定。",
-    "timing": "08:00–08:40 用餐，之後直接進入今戶神社與淺草行程。",
+    "timing": "09:00 從民宿出門，09:30–10:15 早餐；候位久就外帶，接著往淺草寺與仲見世。",
     "beef_level": "需確認",
     "no_beef": "原味吐司與甜口味容易選；鹹食三明治、熱壓吐司可能含肉或肉醬。",
     "dishes": [
@@ -1879,7 +1759,7 @@
     "reservation_url": "",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E3%82%80%E3%81%86%E3%82%84+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E5%90%91%E5%B3%B61-2-12+TOKYO+mizumachi+W07",
     "day_date": "2026/11/25（三）",
-    "day_route": "淺草・六本木",
+    "day_route": "淺草・淺草橋・日比谷・六本木",
     "sources": [
       {
         "label": "TOKYO mizumachi 官方店舖頁",
@@ -1915,14 +1795,14 @@
     "type": "巨型菠蘿麵包",
     "area": "淺草寺周邊",
     "verdict": "剛出爐最有價值；全團 2–3 個共享即可，不要為拍照買過量。",
-    "hours": "本店約 09:00–16:30；售完可能提早結束。",
+    "hours": "本店平日 11:00 起、假日 10:00 起；巨型菠蘿麵包售完即閉店，無固定公休。",
     "hours_note": "部分分店週末延長；本行程以本店當日公告為準。",
     "address": "東京都台東區淺草2-7-13 附近（請以官方地圖定位本店）",
     "access": "淺草寺、花屋敷周邊。",
     "budget": "約 ¥300–800／人",
     "reservation": "不可預約；現場排隊。",
     "queue": "中午後人多，且有售罄風險。",
-    "timing": "09:30–11:00 之間經過就買；不要留到傍晚。",
+    "timing": "11/25（三）11:00 開店；午餐前順路外帶，排隊久就略過。12:00 訂位、13:15 會合後前往淺草橋；售完即止。",
     "beef_level": "較安心",
     "no_beef": "菠蘿麵包通常無肉，但含奶、蛋、小麥；冰淇淋夾餡另有乳製品。",
     "dishes": [
@@ -1970,7 +1850,7 @@
     "reservation_url": "",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E8%8A%B1%E6%9C%88%E5%A0%82+%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E6%B7%BA%E8%8D%892-7-13+%E9%99%84%E8%BF%91%EF%BC%88%E8%AB%8B%E4%BB%A5%E5%AE%98%E6%96%B9%E5%9C%B0%E5%9C%96%E5%AE%9A%E4%BD%8D%E6%9C%AC%E5%BA%97%EF%BC%89",
     "day_date": "2026/11/25（三）",
-    "day_route": "淺草・六本木",
+    "day_route": "淺草・淺草橋・日比谷・六本木",
     "sources": [
       {
         "label": "淺草花月堂官方網站",
@@ -2018,7 +1898,7 @@
     "budget": "約 ¥700–1,500／人",
     "reservation": "不可預約；繁忙時可能發整理券。",
     "queue": "中午後排隊明顯；2F 有以站立為主的飲食空間。",
-    "timing": "11:00 開店前後先吃最穩；不要排在龜十後面太晚。",
+    "timing": "11:00 開店後有時間再選吃；排隊久就略過，以 12:00 午餐為優先。13:15 會合後前往淺草橋，不另排下午甜點時段。",
     "beef_level": "較安心",
     "no_beef": "抹茶冰淇淋無牛肉，但含乳製品；抹茶團子等另需確認原料。",
     "dishes": [
@@ -2074,7 +1954,7 @@
     "reservation_url": "",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%A3%BD%E3%80%85%E5%96%9C%E5%9C%92+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E6%B7%BA%E8%8D%893-4-3",
     "day_date": "2026/11/25（三）",
-    "day_route": "淺草・六本木",
+    "day_route": "淺草・淺草橋・日比谷・六本木",
     "sources": [
       {
         "label": "壽壽喜園營運公司官方頁",
@@ -2114,7 +1994,7 @@
     "name_ja": "御菓子司 亀十",
     "type": "和菓子／銅鑼燒",
     "area": "雷門",
-    "verdict": "要吃就早上先買；傍晚容易售完，排隊 30–60 分鐘要預先納入。",
+    "verdict": "淺草散步時順路購買；隊伍長就略過，保留午餐及 13:15 會合時間。",
     "hours": "10:00–19:00；不定休。",
     "hours_note": "熱門商品售完不等於店鋪立即關門。",
     "address": "東京都台東區雷門2-18-11",
@@ -2122,7 +2002,7 @@
     "budget": "約 ¥500–2,000／人",
     "reservation": "一般旅客以現場排隊購買；大量購買需另詢問。",
     "queue": "常態排隊 30–60 分鐘，假日更久。",
-    "timing": "DAY 5 一早先派代表在 09:40–10:00 排隊，買完再進入其他景點。",
+    "timing": "淺草散步時有時間再順路購買；隊伍長就略過。12:00 午餐、13:15 會合後往淺草橋，不為點心延後行程。",
     "beef_level": "較安心",
     "no_beef": "銅鑼燒無牛肉，但含蛋、小麥；白餡／黑餡可依喜好。",
     "dishes": [
@@ -2170,7 +2050,7 @@
     "reservation_url": "",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%BE%A1%E8%8F%93%E5%AD%90%E5%8F%B8+%E4%BA%80%E5%8D%81+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E9%9B%B7%E9%96%802-18-11",
     "day_date": "2026/11/25（三）",
-    "day_route": "淺草・六本木",
+    "day_route": "淺草・淺草橋・日比谷・六本木",
     "sources": [
       {
         "label": "淺草商店聯合會－龜十",
@@ -2213,7 +2093,7 @@
     "budget": "依實際套餐及訂位頁價格。",
     "reservation": "已完成兩筆預約：2026/11/25（三）12:00，3 人與 2 人各一筆；預約號與禁菸桌資訊列於店家攻略頁。",
     "queue": "兩筆訂位各停留 1 小時；分開預訂，是否能安排相鄰座位依店家現場安排。",
-    "timing": "12:00 入店，兩筆預約各停留 1 小時。另 2 人午餐當天選店；餐後在淺草會合，再一起回東京民宿。",
+    "timing": "12:00 入店，兩筆預約各停留 1 小時。另 2 人午餐當天選店；13:15 在淺草會合，13:30–15:00 淺草橋銀杏岡八幡神社與シモジマ，15:30 回民宿休息。",
     "beef_level": "不適合",
     "no_beef": "牛舌主餐及配菜可能含牛肉成分；不吃牛肉者的午餐地點尚待決定。",
     "dishes": [
@@ -2236,7 +2116,7 @@
     "reservation_url": "https://www.tablecheck.com/ja/beef-lemon/reserve/message",
     "map_url": "https://maps.app.goo.gl/K4QdwtcbFczYAsTPA",
     "day_date": "2026/11/25（三）",
-    "day_route": "淺草・六本木",
+    "day_route": "淺草・淺草橋・日比谷・六本木",
     "sources": [
       {
         "title": "官方分店資訊",
@@ -2292,7 +2172,7 @@
     "budget": "約 ¥1,500–4,000／人",
     "reservation": "午餐尚未決定；若最後選擇秋光，再確認 11/25 可預約時段與座位。",
     "queue": "觀光時段可能排隊；是否訂位待餐廳選定後再安排。",
-    "timing": "目前僅作候選資料；若選擇秋光，再與已訂牛舌的 5 位確認用餐時間及會合點。",
+    "timing": "自由用餐的 2 位（1 位不吃牛、1 位陪同）午餐當天再決定；13:15 在淺草與牛舌組會合，再前往淺草橋。",
     "beef_level": "需確認",
     "no_beef": "核心為海鮮與蔬菜天婦羅，但天汁、期間品、共用炸油仍要確認不含牛肉／牛骨／牛脂。",
     "dishes": [
@@ -2349,7 +2229,7 @@
     "reservation_url": "https://akimichu1005.owst.jp/",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E9%BA%A9%E7%BE%85+%E7%A7%8B%E5%85%89+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E6%B7%BA%E8%8D%892-15-1",
     "day_date": "2026/11/25（三）",
-    "day_route": "淺草・六本木",
+    "day_route": "淺草・淺草橋・日比谷・六本木",
     "sources": [
       {
         "label": "秋光官方店舖頁",
@@ -2390,7 +2270,7 @@
     "name_ja": "浅草横町",
     "type": "室內美食橫町／居酒屋群",
     "area": "淺草 ROX 周邊",
-    "verdict": "優點是 7 人可依口味分店、氣氛熱鬧；缺點是「橫町」不是單一餐廳，營業與訂位要看各店。",
+    "verdict": "原本的淺草晚餐備選；目前安排淺草橋、回民宿後前往六本木，此處不列入 11/25 主要行程。",
     "hours": "各店不同；多數約 11:00／12:00–22:00／23:00。",
     "hours_note": "必須點進各店頁面確認，不能只看商場總時間。",
     "address": "東京都台東區淺草2-6-7 東京樂天地淺草ビル 4F",
@@ -2398,7 +2278,7 @@
     "budget": "約 ¥2,000–4,000／人",
     "reservation": "各店分別受理；7 人若要同桌，應先選定店家而不是現場隨機。",
     "queue": "熱門店週三晚間仍可能等位；活動日更熱鬧。",
-    "timing": "DAY 5 午餐較重，晚餐可延後至 19:00 並以小菜、串燒為主。",
+    "timing": "目前不列入 11/25 主要行程；只有取消六本木晚間安排、改留淺草時，才另選店家並確認營業時間。",
     "beef_level": "需確認",
     "no_beef": "同樓有不同店家，容易避開牛肉，但每店醬汁與共用設備不同。可優先找雞肉、海鮮、蔬菜品項。",
     "dishes": [
@@ -2438,7 +2318,7 @@
     "reservation_url": "https://asakusayokocho.com/",
     "map_url": "https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E6%A8%AA%E7%94%BA+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8F%B0%E6%9D%B1%E5%8D%80%E6%B7%BA%E8%8D%892-6-7+%E6%9D%B1%E4%BA%AC%E6%A8%82%E5%A4%A9%E5%9C%B0%E6%B7%BA%E8%8D%89%E3%83%93%E3%83%AB+4F",
     "day_date": "2026/11/25（三）",
-    "day_route": "淺草・六本木",
+    "day_route": "淺草・淺草橋・日比谷・六本木",
     "sources": [
       {
         "label": "淺草橫町官方網站",
