@@ -5,6 +5,7 @@
   const places = {
     tokyo:{name:'東京',lat:35.6812,lon:139.7671},
     nikko:{name:'日光市區',lat:36.75,lon:139.6},
+    chuzenji:{name:'中禪寺湖・華嚴瀑布',lat:36.74,lon:139.5},
     narita:{name:'成田',lat:35.776,lon:140.318}
   };
   const pending = new Map();
@@ -107,7 +108,7 @@
   }
   function render(container,day) {
     const date='2026-11-'+String(20+day);
-    const keys=(day===6||day===7)?['nikko']:day>=8?['narita']:['tokyo'];
+    const keys=day===7?['chuzenji','nikko']:day===6?['nikko']:day>=8?['narita']:['tokyo'];
     container.replaceChildren();
     const heading=document.createElement('div'); heading.className='weather-heading';
     heading.append(line('weather-label','行程天氣'),line('weather-date',`11/${20+day} · 日本時間`));
