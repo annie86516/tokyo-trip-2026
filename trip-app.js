@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261028-airport-guide', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261105-departure-times', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -263,6 +263,34 @@
   function detail(title,source,key) {
     detailSources.set(key,source);
     return `<details data-detail="${escape(key)}"><summary>${escape(title)}</summary><div class="document"></div></details>`;
+  }
+  function dailyDeparture() {
+    let rows;
+    let note = '';
+    if (state.day === 1 || (state.day === 3 && state.group === 'C')) {
+      rows = [{time:'出關後',label:'抵達日・從成田機場出發',text:'全員領完行李、通過海關後再往車站；依實際出關時間選班或修改原訂班次。'}];
+      note = '當天從台灣住家出門的時間，請依航班與前往機場所需時間另行安排。';
+    } else if (state.day === 3) {
+      const route = state.routes[state.group];
+      const yanaka = {time:'08:40',label:'谷根千路線',text:'從東京民宿出門，09:00 前到本所吾妻橋都08站牌；依休日班次候車。'};
+      const sumida = {time:'09:00',label:'京島・向島路線',text:'從東京民宿出門，先往押上、飛木稻荷神社，再逛麵包店與商店街。'};
+      rows = route === 'yanaka' ? [yanaka] : route === 'sumida' ? [sumida] : [yanaka,sumida];
+      note = '上午兩條路線擇一，與 A、B 航班組別無關。';
+    } else {
+      rows = {
+        2:[{time:'07:45',label:'東京民宿出門・A＋B 組 5 人',text:'前往三軒茶屋 nukumuku，目標 09:00 到店；步行、候車與轉乘共留約 75 分鐘。'}],
+        4:[{time:'08:00',label:'東京民宿出門',text:'前往神宮外苑銀杏大道，目標 09:00 開始散步；先吃好早餐再出門。'}],
+        5:[{time:'08:30',label:'上午・東京民宿出門',text:'步行前往 Mūya，目標 09:00 早餐，再往淺草。'},
+           {time:'16:30',label:'下午・休息後再出門',text:'從民宿搭車前往新橋、日比谷 OKUROJI；TEN& 傍晚外帶 17:30 開始。'}],
+        6:[{time:'07:50',label:'東京民宿退房出門',text:'7 人帶行李，預留步行與找月台時間；08:30 前到東武淺草站，搭已訂 09:00 SPACIA X。'}],
+        7:[{time:'08:40',label:'日光民宿出門',text:'08:50 前到東武日光站 2A 排隊，搭 09:05 往湯元溫泉、停靠中禪寺溫泉的巴士。'}],
+        8:[{time:'07:45',label:'退房完成・民宿門口集合',text:'全員與行李到齊、聯絡司機並裝車；已訂包車 08:00 出發往成田飯店。'}],
+        9:[{time:'08:05',label:'飯店大廳集合・已登記到接駁座位',text:'08:15 前上車，08:20 發車，約 08:40 抵達成田 T2；先辦退稅商品海關確認，再托運。'}]
+      }[state.day] || [];
+      if (state.day === 9) note = '若未登記到接駁座位，改為 08:00 從飯店出門，步行至京成成田站搭電車。';
+    }
+    if (!rows.length) return '';
+    return `<section class="departure-card" aria-labelledby="departure-title"><div class="departure-heading"><h2 id="departure-title">建議出門時間</h2><span>日本時間</span></div><div class="departure-rows">${rows.map(row=>`<div class="departure-row"><strong class="departure-time">${escape(row.time)}</strong><div><h3>${escape(row.label)}</h3><p>${escape(row.text)}</p></div></div>`).join('')}</div>${note?`<p class="departure-note">${escape(note)}</p>`:''}</section>`;
   }
   // Suggestions are local Japan times, not reservations. Fixed entries come
   // from the existing itinerary; unbooked services remain explicitly pending.
@@ -444,6 +472,7 @@
     return `<div class="journey-heading"><div><div class="eyebrow">NOVEMBER IN JAPAN</div><p class="journey-title">${state.group} 組行程</p></div><span class="trip-duration">${state.group==='C'?'7 天 6 夜':'9 天 8 夜'}</span></div>
       <p class="intro journey-intro">${state.group==='C'?'11.23':'11.21'} — 11.29<span>本組行程與共同活動</span></p>
       ${dayNavigation()}
+      ${dailyDeparture()}
       <section class="weather-section" aria-label="當日行程天氣"><p>天氣資料載入中…</p></section>
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
       <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div></aside>

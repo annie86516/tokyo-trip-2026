@@ -665,3 +665,16 @@ input,select,textarea{font-size:14px!important}
 .main .stop-summary-title .stop-title-guide{display:inline-flex;align-items:center;min-height:26px;padding:2px 7px;border:1px solid #e3cfd1;border-radius:6px;background:#faf4f4;color:var(--vermilion);font-size:11px;font-weight:500;line-height:1.5;white-space:nowrap;text-decoration:none}
 .stop-title-place>a:first-child{min-width:0;overflow-wrap:anywhere}
 .stop-summary-title{line-height:1.9}
+
+/* Daily departure advice stays visible above the weather and itinerary. */
+.departure-card{margin:16px 0 20px;padding:18px 22px;border:1px solid #dfd7c7;border-left:4px solid #63735c;border-radius:14px;background:#fffdf7;color:#303b32;box-shadow:0 4px 14px #58432808}
+.departure-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px}
+.departure-heading h2{margin:0;font-size:16px;line-height:1.5;letter-spacing:.06em}
+.departure-heading>span{font-size:12px;color:#6e756d;white-space:nowrap}
+.departure-rows{display:grid;gap:14px}
+.departure-row{display:grid;grid-template-columns:100px minmax(0,1fr);align-items:start;gap:16px}
+.departure-time{font-size:27px;line-height:1.4;letter-spacing:.03em;font-variant-numeric:tabular-nums;color:#42533b}
+.departure-row h3{margin:0 0 3px;font-size:15px;line-height:1.6}
+.departure-row p,.departure-note{margin:0;font-size:14px;line-height:1.8}
+.departure-note{margin-top:12px;padding-top:10px;border-top:1px solid #e7e1d4;color:#626a60}
+@media(max-width:600px){.departure-card{padding:15px 16px}.departure-row{grid-template-columns:78px minmax(0,1fr);gap:10px}.departure-time{font-size:24px}.departure-row h3,.departure-row p,.departure-note{font-size:13px}}
