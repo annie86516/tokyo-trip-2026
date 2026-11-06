@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261106-bus-pass-labels', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261106-bus-pass-details', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -309,19 +309,57 @@
     if (state.view !== 'days') return;
     // Same zero-based stop order as dailyTimes; only the covered bus legs.
     const rides = {
-      6:{2:'適用日光郷土センター前 → 西参道入口的巴士段。'},
-      7:{0:'車頭寫「湯元温泉」，在中禪寺溫泉下車；票券不含搭到湯元。',
-         5:'中禪寺溫泉 → 東武日光，續用同張有效券，不用另刷 IC 卡。'}
+      6:{2:{note:'適用日光郷土センター前 → 西参道入口的巴士段。',
+        time:'11/26 12:45–13:30 為候車、搭車與步行時段；到站搭下一班適用車，不是 12:45 固定發車。',
+        from:'日光郷土センター前（5 號站），mekke 附近，往神橋／中禪寺方向的站牌。',
+        direction:'選往神橋方向、停靠「西参道入口」的 C／M／SP／Y／YK 系統；上車前核對站牌與車頭方向。',
+        to:'西参道入口（9 號站）下車，再依指標步行到東照宮。',
+        scope:'票券只抵這段巴士車資；步行參拜不需車票，東照宮門票與 SPACIA X 另付。'}},
+      7:{0:{note:'車頭寫「湯元温泉」，在中禪寺溫泉下車；票券不含搭到湯元。',
+        time:'11/27 08:50 前到站排隊；09:05 發車，表定 09:50 到中禪寺溫泉。',
+        from:'東武日光站 2A 乘車處。2A 是站牌位置，不是巴士路線。',
+        direction:'YK 系統，車頭看「湯元温泉」，確認經中禪寺溫泉；途中經伊呂波坂。',
+        to:'中禪寺溫泉（26 號站）下車，步行約 5 分鐘到華嚴瀑布。',
+        scope:'東武日光 → 中禪寺溫泉可用；不要跟車搭到湯元溫泉。華嚴瀑布電梯另付。'},
+         5:{note:'中禪寺溫泉 → 東武日光，續用同張有效券，不用另刷 IC 卡。',
+        time:'11/27 14:10–14:15 到站排隊；14:30 發車，表定 15:06 到東武日光。',
+        from:'中禪寺溫泉 26B 乘車處，往 JR／東武日光站方向。',
+        direction:'YK 系統，確認車頭是日光站方向；不要排 26A 往湯元溫泉的車。',
+        to:'東武日光站（2 號站）下車，不必坐到 JR 日光站。',
+        scope:'中禪寺溫泉 → 東武日光全段可用，續用 11/26 啟用的同一張有效券。'}}
     }[state.day];
     if (!rides) return;
     main.querySelectorAll('.stop-content').forEach((stop,index)=>{
-      if (!rides[index]) return;
+      const ride=rides[index];
+      if (!ride) return;
       const note=document.createElement('div');
       note.className='bus-pass-usage';
-      note.innerHTML=`<span class="bus-pass-badge"><span aria-hidden="true">✓</span> 中禪寺溫泉兩日券可用</span><p>${escape(rides[index])}</p>`;
+      note.innerHTML=`<span class="bus-pass-badge"><span aria-hidden="true">✓</span> 中禪寺溫泉兩日券可用</span><p>${escape(ride.note)}</p>`;
       const time=stop.querySelector('.schedule-toggle,.schedule-time');
       if (time) time.after(note); else stop.prepend(note);
       stop.closest('li').classList.add('has-bus-pass');
+      const body=stop.querySelector('.schedule-detail-body');
+      if (!body) return;
+      const headingId=`bus-pass-detail-${state.day}-${index}`;
+      const instructions=document.createElement('section');
+      instructions.className='bus-pass-detail';
+      instructions.setAttribute('aria-labelledby',headingId);
+      const facts=[['班次／候車',ride.time],['在哪上車',ride.from],['看哪班車',ride.direction],['在哪下車',ride.to]];
+      instructions.innerHTML=`<h3 id="${headingId}">✓ 中禪寺溫泉兩日券｜這段怎麼搭</h3>
+        <p class="bus-pass-validity">票券使用日期：11/26–11/27；每位成人各備一張有效券。</p>
+        <dl class="bus-pass-facts">${facts.map(([label,value])=>`<div><dt>${escape(label)}</dt><dd>${escape(value)}</dd></div>`).join('')}</dl>
+        <h4>紙本券使用方式</h4>
+        <ol><li>上車先備好票券。前門上車向司機出示；中門上車則在下車時出示。</li><li>車內顯示目的站時按下車鈴，下車時各自清楚出示有效券。這段不用再刷 IC 卡或另付車資。</li></ol>
+        <details class="bus-pass-digital"><summary>使用電子券時</summary><p>NIKKO MaaS／TOBU Japan Trip Tickets：先開啟「巴士乘車用 QR」，上、下車各掃一次車內讀取器。</p><p>Jorudan：向司機出示使用中的票券畫面；依購買平台的方式使用。</p></details>
+        <p class="bus-pass-scope"><strong>適用範圍：</strong>${escape(ride.scope)}</p>
+        <p class="bus-pass-reminder">巴士券不保留座位，滿車須等後續班次；時刻與乘車處如有異動，以當日站牌公告為準。</p>
+        <a href="https://www.tobu-bus.com/pc/area/nikko/guide.html" target="_blank" rel="noopener noreferrer">東武巴士乘車方式 ↗</a>`;
+      body.prepend(instructions);
+      const toggle=stop.querySelector('.schedule-toggle');
+      if (toggle) {
+        toggle.querySelector('.schedule-toggle-label').innerHTML='詳細行程・票券 <span aria-hidden="true">＋</span>';
+        toggle.setAttribute('aria-label',`${dailyTimes()[index].time} 詳細行程與巴士券使用方式`);
+      }
     });
   }
   function dailyTimes() {

@@ -704,3 +704,14 @@ input,select,textarea{font-size:14px!important}
 .bus-pass-usage{margin:10px 0 12px;padding:10px 12px;border:1px solid #c6dccc;border-radius:10px;background:#edf6ee;color:#285239}
 .main[data-view="days"] .bus-pass-badge{display:inline-flex;align-items:baseline;gap:5px;font-size:13px;font-weight:700;line-height:1.6}
 .main[data-view="days"] .bus-pass-usage p{margin:5px 0 0;font-size:12px;line-height:1.7;color:#3c6049}
+.main[data-view="days"] .has-bus-pass .schedule-toggle-label{padding:5px 8px;border:1px solid #b4d0ba;border-radius:7px;background:#edf6ee;color:#285239;white-space:normal}
+.bus-pass-detail{margin:0 0 18px;padding:14px;border:1px solid #bdd6c3;border-top:3px solid #47745b;border-radius:12px;background:#f4faf3;color:#294936;overflow-wrap:anywhere}
+.main[data-view="days"] .bus-pass-detail h3{margin:0 0 8px;font-size:15px;color:#285239;line-height:1.6}
+.bus-pass-detail h4{margin:14px 0 6px}.bus-pass-detail ol{padding-left:1.4em;margin:6px 0}
+.bus-pass-facts{margin:12px 0}.bus-pass-facts>div{padding:9px 0;border-top:1px solid #d8e6d9}
+.bus-pass-facts dt{font-weight:700;color:#285239}.bus-pass-facts dd{margin:3px 0 0;line-height:1.8}
+.bus-pass-detail .bus-pass-digital{margin:12px 0;background:#fffdf8}.bus-pass-detail .bus-pass-digital>summary{padding:10px 32px 10px 12px;line-height:1.6}
+.bus-pass-detail .bus-pass-digital>p{padding:0 12px}
+.main[data-view="days"] .bus-pass-detail .bus-pass-validity,.main[data-view="days"] .bus-pass-detail .bus-pass-reminder{font-size:12px;line-height:1.8}
+.bus-pass-scope{padding-top:10px;border-top:1px solid #d8e6d9}
+@media(max-width:400px){.bus-pass-detail{padding:11px}.main[data-view="days"] .has-bus-pass .schedule-toggle-label{padding:4px 6px;max-width:85px}}
