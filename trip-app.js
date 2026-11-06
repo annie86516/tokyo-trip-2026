@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261106-transport-passes', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261106-bus-pass-labels', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -265,9 +265,10 @@
     return `<details data-detail="${escape(key)}"><summary>${escape(title)}</summary><div class="document"></div></details>`;
   }
   function dailyDeparture() {
+    if (state.day === 1) return '';
     let rows;
     let note = '';
-    if (state.day === 1 || (state.day === 3 && state.group === 'C')) {
+    if (state.day === 3 && state.group === 'C') {
       rows = [{time:'出關後',label:'抵達日・從成田機場出發',text:'全員領完行李、通過海關後再往車站；依實際出關時間選班或修改原訂班次。'}];
       note = '當天從台灣住家出門的時間，請依航班與前往機場所需時間另行安排。';
     } else if (state.day === 3) {
@@ -303,6 +304,25 @@
     }[state.day];
     if (!entry) return '';
     return `<section class="daily-pass-card" aria-label="本日推薦交通票券"><div class="daily-pass-heading"><h2>${escape(entry.title)}</h2><span>${escape(entry.status)}</span></div><p>${escape(entry.note)}</p>${detail('購買、範圍與使用方式',$('#'+entry.source),'daily-transport-pass-'+state.day)}</section>`;
+  }
+  function markNikkoBusPassRides() {
+    if (state.view !== 'days') return;
+    // Same zero-based stop order as dailyTimes; only the covered bus legs.
+    const rides = {
+      6:{2:'適用日光郷土センター前 → 西参道入口的巴士段。'},
+      7:{0:'車頭寫「湯元温泉」，在中禪寺溫泉下車；票券不含搭到湯元。',
+         5:'中禪寺溫泉 → 東武日光，續用同張有效券，不用另刷 IC 卡。'}
+    }[state.day];
+    if (!rides) return;
+    main.querySelectorAll('.stop-content').forEach((stop,index)=>{
+      if (!rides[index]) return;
+      const note=document.createElement('div');
+      note.className='bus-pass-usage';
+      note.innerHTML=`<span class="bus-pass-badge"><span aria-hidden="true">✓</span> 中禪寺溫泉兩日券可用</span><p>${escape(rides[index])}</p>`;
+      const time=stop.querySelector('.schedule-toggle,.schedule-time');
+      if (time) time.after(note); else stop.prepend(note);
+      stop.closest('li').classList.add('has-bus-pass');
+    });
   }
   function dailyTimes() {
     const suggested = time => ({time, label:'建議時間'});
@@ -2015,6 +2035,7 @@
     organizeDailyDetails();
     polishDailyLinks();
     consolidateDailySummaryLinks();
+    markNikkoBusPassRides();
     addDayCouponShortcuts();
     attachMajorTransitGuide();
     main.querySelectorAll('details[data-detail]').forEach(el=>el.addEventListener('toggle',()=>{

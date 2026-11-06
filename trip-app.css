@@ -517,7 +517,13 @@ input,select,textarea{font-size:14px!important}
   .panel{padding:16px;margin:12px 0}.timeline{gap:10px}.timeline>li{padding:11px 12px}
   .section-label{margin-top:20px;margin-bottom:12px}
   summary{padding-top:13px;padding-bottom:13px;min-height:48px}
-  .weather-section{padding:14px;margin-bottom:16px}.weather-heading{margin-bottom:8px}
+  .weather-section{padding:14px;margin-bottom:16px}.weather-heading{margin-bottom:12px;flex-wrap:wrap;gap:4px 12px}
+  .weather-label{font-size:15px}.weather-date{font-size:12px}
+  .weather-card{display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 10px;align-items:start}
+  .weather-symbol{width:28px;font-size:24px;grid-row:1 / 3}
+  .weather-place{font-size:16px}.weather-message{font-size:14px;line-height:1.7}
+  .weather-updated{font-size:12px;line-height:1.6}.weather-value{grid-column:2;font-size:22px;white-space:normal}
+  .weather-credit{font-size:12px;line-height:1.7}
   .resource-links{gap:8px}.resource-links a{padding:9px 12px;min-height:44px}
 }
 /* Shared reading hierarchy for every day and group, including expanded details. */
@@ -669,15 +675,15 @@ input,select,textarea{font-size:14px!important}
 /* Daily departure advice follows the route in the day overview. */
 .departure-card{margin:16px 0 20px;padding:18px 22px;border:1px solid #dfd7c7;border-left:4px solid #63735c;border-radius:14px;background:#fffdf7;color:#303b32;box-shadow:0 4px 14px #58432808}
 .departure-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px}
-.departure-heading h2{margin:0;font-size:16px;line-height:1.5;letter-spacing:.06em}
+.departure-heading h2{margin:0;font-size:14px;line-height:1.5;letter-spacing:.06em}
 .departure-heading>span{font-size:12px;color:#6e756d;white-space:nowrap}
 .departure-rows{display:grid;gap:14px}
-.departure-row{display:grid;grid-template-columns:100px minmax(0,1fr);align-items:start;gap:16px}
-.departure-time{font-size:27px;line-height:1.4;letter-spacing:.03em;font-variant-numeric:tabular-nums;color:#42533b}
-.departure-row h3{margin:0 0 3px;font-size:15px;line-height:1.6}
-.departure-row p,.departure-note{margin:0;font-size:14px;line-height:1.8}
+.departure-row{display:grid;grid-template-columns:84px minmax(0,1fr);align-items:start;gap:14px}
+.departure-time{font-size:22px;line-height:1.4;letter-spacing:.03em;font-variant-numeric:tabular-nums;color:#42533b}
+.departure-row h3{margin:0 0 3px;font-size:14px;line-height:1.6}
+.departure-row p,.departure-note{margin:0;font-size:13px;line-height:1.8}
 .departure-note{margin-top:12px;padding-top:10px;border-top:1px solid #e7e1d4;color:#626a60}
-@media(max-width:600px){.departure-card{padding:15px 16px}.departure-row{grid-template-columns:78px minmax(0,1fr);gap:10px}.departure-time{font-size:24px}.departure-row h3,.departure-row p,.departure-note{font-size:13px}}
+@media(max-width:600px){.departure-card{padding:15px 16px}.departure-row{grid-template-columns:68px minmax(0,1fr);gap:10px}.departure-time{font-size:20px}.departure-row h3,.departure-row p,.departure-note{font-size:13px}}
 
 /* Ticket guidance shares one source with Travel Notes and stays below departure advice. */
 .daily-pass-card{min-width:0;margin:16px 0 20px;padding:16px 18px;border:1px solid #dfcdb4;border-left:4px solid #a05d3b;border-radius:14px;background:#fffaf1;color:#35464b}
@@ -692,3 +698,9 @@ input,select,textarea{font-size:14px!important}
 .daily-pass-card .document :is(ul,ol){padding-left:1.4em}
 .daily-pass-card .document h3{font-size:15px;line-height:1.7}
 @media(max-width:600px){.daily-pass-card{padding:15px 16px}.daily-pass-card>p,.daily-pass-card .document :is(p,li){font-size:13px}}
+
+/* Color plus explicit wording identifies the covered bus segment. */
+.timeline>li.has-bus-pass{border-left:3px solid #47745b}
+.bus-pass-usage{margin:10px 0 12px;padding:10px 12px;border:1px solid #c6dccc;border-radius:10px;background:#edf6ee;color:#285239}
+.main[data-view="days"] .bus-pass-badge{display:inline-flex;align-items:baseline;gap:5px;font-size:13px;font-weight:700;line-height:1.6}
+.main[data-view="days"] .bus-pass-usage p{margin:5px 0 0;font-size:12px;line-height:1.7;color:#3c6049}
