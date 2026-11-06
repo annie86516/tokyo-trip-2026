@@ -133,10 +133,12 @@
       (el.closest('.day-item')?.textContent || '').includes('鳥貴族')));
     [clone,...clone.querySelectorAll('*')].forEach(el => {
       const urgent = /立即.*登記/.test(el.textContent) && el.children.length === 0;
+      const mealClass=el.classList.contains('day5-meal-groups')?'meal-split-grid':el.classList.contains('day5-meal-card')?'meal-split-card meal-split-pending':el.classList.contains('meal-status')?'meal-split-head':el.classList.contains('meal-links')?'meal-split-links':'';
       [...el.attributes].forEach(attr => {
         if (!['href','src','alt','title','target','rel','colspan','rowspan'].includes(attr.name)) el.removeAttribute(attr.name);
       });
       if (urgent) el.className = 'important-reminder';
+      if (mealClass) el.className = mealClass;
       if (el.tagName === 'A') {
         const href = el.getAttribute('href') || '';
         if (href.includes('site-one/index.html')) {
@@ -192,7 +194,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261106-bus-directions-compact', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261106-reading-compact', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -215,7 +217,7 @@
     </div></header>
     <main class="main" id="main"></main>
     <aside class="group-dock" aria-label="航班組別">
-      <div class="groups" role="group" aria-label="選擇旅行組別（全部成人）">${GROUPS.map(g=>`<button type="button" data-group="${g}" aria-pressed="false">${g} 組 · ${g==='A'?3:2} 人</button>`).join('')}</div>
+      <div class="groups" role="group" aria-label="選擇旅行組別（全部成人）">${GROUPS.map(g=>`<button type="button" data-group="${g}" aria-pressed="false">${g} 組</button>`).join('')}</div>
       <p class="group-context"></p>
     </aside>
     <nav class="stay-dock" aria-label="選擇住宿地點">${STAY_KEYS.map(key=>`<button type="button" data-stay="${key}" aria-pressed="false">${STAY_INFO[key].label}</button>`).join('')}</nav>
@@ -279,11 +281,11 @@
       note = '上午兩條路線擇一，與 A、B 航班組別無關。';
     } else {
       rows = {
-        2:[{time:'09:00',label:'東京民宿出門・A＋B 組 5 人',text:'先吃好早餐，搭車前往豪德寺；步行、候車與轉乘共留約 75–90 分鐘，預計 10:30 開始參拜。'}],
+        2:[{time:'09:00',label:'東京民宿出門',text:'先吃好早餐，搭車前往豪德寺；步行、候車與轉乘共留約 75–90 分鐘，預計 10:30 開始參拜。'}],
         4:[{time:'09:00',label:'東京民宿出門',text:'先吃好早餐，前往神宮外苑銀杏大道，預計 10:00 開始散步。'}],
         5:[{time:'09:00',label:'上午・東京民宿出門',text:'步行前往 Mūya，預計 09:30 早餐，再逛淺草寺；12:00 牛舌訂位時間不變。'},
            {time:'16:30',label:'下午・休息後再出門',text:'從民宿搭車前往新橋、日比谷 OKUROJI；TEN& 傍晚外帶 17:30 開始。'}],
-        6:[{time:'07:50',label:'東京民宿退房出門',text:'7 人帶行李，預留步行與找月台時間；08:30 前到東武淺草站，搭已訂 09:00 SPACIA X。'}],
+        6:[{time:'07:50',label:'東京民宿退房出門',text:'帶好行李，預留步行與找月台時間；08:30 前到東武淺草站，搭已訂 09:00 SPACIA X。'}],
         7:[{time:'08:40',label:'日光民宿出門',text:'08:50 前到東武日光站 2A 排隊，搭 09:05 往湯元溫泉、停靠中禪寺溫泉的巴士。'}],
         8:[{time:'07:45',label:'退房完成・民宿門口集合',text:'全員與行李到齊、聯絡司機並裝車；已訂包車 08:00 出發往成田飯店。'}],
         9:[{time:'08:05',label:'飯店大廳集合・已登記到接駁座位',text:'08:15 前上車，08:20 發車，約 08:40 抵達成田 T2；先辦退稅商品海關確認，再托運。'}]
@@ -299,7 +301,7 @@
     const entry = {
       4:{source:'tokyo-subway-pass-info',title:'東京地鐵 48 小時券',status:'可選購',note:'11/24 上午首次進站啟用，11/25 續用。官方成人 ¥1,500；可樂參考價 NT$307（11/06）。'},
       5:{source:'tokyo-subway-pass-info',title:'東京地鐵 48 小時券',status:'續用提醒',note:'若昨天已啟用，今天地鐵續用同張券；本日淺草橋、新橋、日比谷、六本木路線可用。'},
-      6:{source:'nikko-bus-pass-info',title:'中禪寺溫泉 2 日巴士券',status:'建議購買',note:'10:50 抵達東武日光後購買，使用日期 11/26–11/27。成人 ¥2,300，7 人共 ¥16,100。'},
+      6:{source:'nikko-bus-pass-info',title:'中禪寺溫泉 2 日巴士券',status:'建議購買',note:'10:50 抵達東武日光後購買，使用日期 11/26–11/27。成人每人 ¥2,300。'},
       7:{source:'nikko-bus-pass-info',title:'中禪寺溫泉 2 日巴士券',status:'續用提醒',note:'若昨天已依建議購票，今天續用同張券往返中禪寺溫泉。適用車程不用再刷 IC 卡；瀑布電梯另付。'}
     }[state.day];
     if (!entry) return '';
@@ -614,9 +616,12 @@
     }).join('');
 
     return `<li class="airport-arrival-stop"><span class="step" aria-hidden="true">01</span><div class="stop-content">
-      <div class="schedule-time is-fixed"><span>航班抵達</span><b>${escape(arrival)} 成田 T2</b></div>
-      <div class="document transit-guide-body">
-        <h3>Skyliner｜成田入境與青砥轉乘</h3>
+      <button type="button" class="schedule-toggle" aria-expanded="false" aria-controls="airport-reading-detail"><div class="schedule-time is-fixed"><span>航班抵達</span><b>${escape(arrival)} 成田 T2</b></div><span class="schedule-toggle-label">詳細行程 <span aria-hidden="true">＋</span></span></button>
+      <div class="stop-summary"><strong class="stop-summary-title">成田機場 → 青砥轉乘 → 本所吾妻橋</strong><p>${state.group==='A'?'已訂 Skyliner 136 號，14:22 成田 T2 → 14:54 青砥。青砥不出閘，轉往押上／都營淺草線、會停本所吾妻橋的列車，再步行到民宿。':'出關取行李後，到 T2 地下 1 樓選停靠青砥的 Skyliner。青砥不出閘，轉往押上／都營淺草線、會停本所吾妻橋的列車，再去民宿。'}</p></div>
+      <div class="document transit-guide-body schedule-detail-body" id="airport-reading-detail" hidden>
+        <p class="reading-note"><strong>青砥轉車：</strong>先看月台停站表，勿搭不停本所吾妻橋 A19 的 Airport 快特。持網路指定席券時，基本車資另用自己的 IC 卡；同一張卡在機場進站、本所吾妻橋出站。</p>
+        <p><strong>本所吾妻橋出站：</strong>往東駒形民宿走 A2；帶大行李優先找 A0 電梯，再依住宿地圖步行。</p>
+        ${state.group==='B'?'<p>若只能搭 21:23 班，會趕不上 21:30 晚餐；先通知餐廳，A 組先入座。</p>':''}
         ${state.group==='A'?'<p class="transit-alert"><strong>已訂｜11/21 Skyliner 136 號</strong><br>成田 T2 14:22 → 青砥 14:54｜3 人，8 號車 1A・1B・1C。指定席券共 ¥3,150；基本車資另付，每人用自己的交通卡。<br><a href="./?view=bookings&amp;bday=1">查看已預約資料 ↗</a></p>':''}
         <h3>${state.group==='A'?'班次時間｜136 號已訂，其餘為備選':'班次時間'}</h3><div class="skyliner-desktop-times">${readable(rail)}</div><div class="skyliner-mobile-times" aria-label="Skyliner 班次">${mobileTimes}</div>
         <nav class="trip-quick-actions airport-arrival-actions" aria-label="機場交通">
@@ -637,13 +642,14 @@
           if(state.group==='B' || state.group==='C') {
             [...timeline.children].slice(0,2).forEach(item=>item.remove());
           }
+          if(state.group==='B')timeline.lastElementChild?.remove();
           timeline.insertAdjacentHTML('afterbegin', airportArrivalItem());
           timeline.querySelectorAll(':scope > li > .step').forEach((step,i)=>step.textContent=String(i+1).padStart(2,'0'));
         }
       }
       if(state.day===6) {
         const boarding=main.querySelector('.schedule-detail-body');
-        if(boarding)boarding.innerHTML=majorTransitGuide('spacia',true);
+        if(boarding)boarding.insertAdjacentHTML('beforeend',majorTransitGuide('spacia'));
       }
     }
   }
@@ -656,10 +662,10 @@
   }
   function stays() {
     const stay=STAY_INFO[state.stay], source=$('#'+stay.id);
-    return `<div class="eyebrow">OUR STAYS</div><h1>${stay.label}住宿</h1><p class="intro">使用下方按鈕切換東京、日光與成田。</p><article class="stay-focus"><figure class="stay-cover"><img src="${stay.image}" alt="${stay.alt}" fetchpriority="high"><figcaption>${stay.alt} · <a href="${stay.source}" target="_blank" rel="noopener noreferrer">${state.stay==='narita'?'里士滿飯店官網':'查看來源'} ↗</a></figcaption></figure><div class="document stay-document">${readable(source,{omitTitle:true})}</div></article>${state.stay==='nikko'?practicalDetail('nikko-luggage-info'):state.stay==='narita'?practicalDetail('narita-shuttle-fallback'):''}`;
+    return `<div class="eyebrow">OUR STAYS</div><h1>${stay.label}住宿</h1><p class="intro">使用下方按鈕切換東京、日光與成田。</p><article class="stay-focus"><figure class="stay-cover"><img src="${stay.image}" alt="${stay.alt}" fetchpriority="high"><figcaption>${stay.alt}</figcaption></figure><div class="document stay-document">${readable(source,{omitTitle:true})}</div></article>${state.stay==='nikko'?practicalDetail('nikko-luggage-info'):state.stay==='narita'?practicalDetail('narita-shuttle-fallback'):''}`;
   }
   function moneyView() {
-    return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">先選付款者、勾選分擔者，再設定平均或自訂金額；所有紀錄都列在「全部項目」。要結算時再按下計算，查看精簡的轉帳清單；日圓依每筆匯率換算成台幣。</p><div class="money-app"></div>`;
+    return `<div class="eyebrow">TRIP EXPENSES</div><h1>旅費分帳</h1><p class="intro">選付款者與分擔者，填入金額；日圓按每筆匯率換算台幣。紀錄可在「全部項目」編輯，需要結算時再按計算。</p><div class="money-app"></div>`;
   }
   function bookingNavigation() {
     const days=[{day:1,date:'11/21',label:'鳥貴族'},{day:5,date:'11/25',label:'淺草午餐'},{day:6,date:'11/26',label:'SPACIA X'},{day:8,date:'11/28',label:'日光接送'}];
@@ -1439,7 +1445,7 @@
     const visual=note+photo;
     return `<div class="eyebrow">TRIP SAVINGS</div><h1>旅行優惠券</h1><p class="intro">11/21–11/29 購物備查。選店家查看券面、適用分店與使用方式。</p><nav class="day-rail coupon-rail" aria-label="選擇優惠券">${Object.entries(couponItems).map(([key,value])=>`<button class="day-button" type="button" data-coupon="${key}" aria-pressed="${key===state.coupon}"><span>優惠券</span><b>${escape(value.short)}</b><small>${escape(value.category)}</small></button>`).join('')}</nav>
       <article class="panel coupon-card coupon-photo-card"><div class="coupon-top"><span class="pill">${escape(item.category)}｜${escape(item.name)}</span><span class="coupon-status">${escape(item.expiry)}</span></div><h2>${escape(item.headline)}</h2><p><strong>${escape(item.where)}</strong></p><p>${escape(item.body)}</p><div class="coupon-layout"><section class="coupon-visual" aria-label="完整優惠券">${visual}</section><section class="coupon-rules" aria-label="優惠券使用條件"><h3>使用條件</h3><dl>${item.conditions.map(([label,value])=>`<div><dt>${escape(label)}</dt><dd>${escape(value)}</dd></div>`).join('')}</dl></section></div><p class="coupon-caution">${escape(item.caution)}</p><a href="${item.url}" target="_blank" rel="noopener noreferrer">${escape(item.link)}</a></article>
-      <details class="coupon-tax-note"><summary>11 月退稅與券面折扣如何看？</summary><p>2026/11/1 起，市區免稅購物先付含稅價格；出境時須在託運前、通過安檢前的一般區域完成海關確認，並於購買日起 90 日內攜出日本，確認後由店家或受託業者退款。免稅門檻為同店同日未稅滿 ¥5,000。食品、飲料、化妝品等消耗品若在日本境內使用或消耗，可能不符合退稅條件。券面若寫「10% 免稅＋折扣」，免稅退款與優惠券折扣分開計算，不能直接相加當成總折扣。<a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00028.html" target="_blank" rel="noopener noreferrer">觀光廳新制說明 ↗</a></p></details><p class="coupon-footnote">共 25 張：19 張使用者提供券面、4 張網路找到的指定門市券，另保留原有小田急與 AEON 券。未標效期的券請先問店員。優惠內容、適用品項及門市以來源頁及結帳確認為準；請在付款前出示護照和對應券面。</p>`;
+      <details class="coupon-tax-note"><summary>11 月退稅與券面折扣如何看？</summary><p>2026/11/1 起，市區免稅購物先付含稅價格；出境時須在託運前、通過安檢前的一般區域完成海關確認，並於購買日起 90 日內攜出日本，確認後由店家或受託業者退款。免稅門檻為同店同日未稅滿 ¥5,000。食品、飲料、化妝品等消耗品若在日本境內使用或消耗，可能不符合退稅條件。券面若寫「10% 免稅＋折扣」，免稅退款與優惠券折扣分開計算，不能直接相加當成總折扣。<a href="https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00028.html" target="_blank" rel="noopener noreferrer">觀光廳新制說明 ↗</a></p></details><p class="coupon-footnote">付款前出示護照與對應券面。先看適用門市、門檻與效期；未標效期的券，先請店員確認。</p>`;
   }
   
   function cleanRemote(node, baseUrl) {
@@ -1686,275 +1692,1439 @@
 
 
   const dailyPlaceMaps = {"野口鮮魚店":"https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E3%81%95%E3%81%AA%E9%AD%9A%E3%81%8C%E3%81%97+%E9%87%8E%E5%8F%A3%E9%AE%AE%E9%AD%9A%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E6%9D%B1%E9%A7%92%E5%BD%A24-6-9+%E3%83%AA%E3%83%90%E3%83%BC%E3%83%8F%E3%82%A4%E3%83%84%E3%83%AF%E3%82%B3%E3%83%BC+1F","塩パン屋 パンメゾン":"https://www.google.com/maps/search/?api=1&query=%E5%A1%A9%E3%83%91%E3%83%B3%E5%B1%8B+%E3%83%91%E3%83%B3%E3%83%A1%E3%82%BE%E3%83%B3+%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E5%BA%97","鳥貴族 淺草店":"https://maps.app.goo.gl/EvEaCawMVivVVJDC9","本所吾妻橋站":"https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E9%A7%85","RARASAND":"https://www.google.com/maps/search/?api=1&query=RARASAND+%E8%B1%AA%E5%BE%B3%E5%AF%BA+%E6%9D%B1%E4%BA%AC","IRON COFFEE":"https://www.google.com/maps/search/?api=1&query=IRON+COFFEE+%E8%B1%AA%E5%BE%B3%E5%AF%BA+%E6%9D%B1%E4%BA%AC","梅丘寿司の美登利 総本店":"https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97","梅丘站":"https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E3%83%B6%E4%B8%98%E9%A7%85","新宿站":"https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%AE%BF%E9%A7%85","一蘭 新宿歌舞伎町店":"https://www.google.com/maps/search/?api=1&query=%E4%B8%80%E8%98%AD+%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-17-10","東京民宿":"https://maps.app.goo.gl/QZX3Ty983HxajN197","日暮里站":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9A%AE%E9%87%8C%E9%A7%85","根津神社":"https://www.google.com/maps/search/?api=1&query=%E6%A0%B9%E6%B4%A5%E7%A5%9E%E7%A4%BE%20%E6%9D%B1%E4%BA%AC","千駄木":"https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E9%A7%84%E6%9C%A8%E9%A7%85","谷中銀座商店街":"https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E4%B8%AD%E9%8A%80%E5%BA%A7%E5%95%86%E5%BA%97%E8%A1%97","夕やけだんだん":"https://www.google.com/maps/search/?api=1&query=%E5%A4%95%E3%82%84%E3%81%91%E3%81%A0%E3%82%93%E3%81%A0%E3%82%93%20%E8%B0%B7%E4%B8%AD","押上站":"https://www.google.com/maps/search/?api=1&query=%E6%8A%BC%E4%B8%8A%E9%A7%85","飛木稻荷神社":"https://www.google.com/maps/search/?api=1&query=%E9%A3%9B%E6%9C%A8%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E6%8A%BC%E4%B8%8A","ハト屋パン店":"https://www.google.com/maps/search/?api=1&query=%E3%83%8F%E3%83%88%E5%B1%8B%E3%83%91%E3%83%B3%E5%BA%97%20%E4%BA%AC%E5%B3%B6","キラキラ橘商店街":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9%E6%A9%98%E5%95%86%E5%BA%97%E8%A1%97%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E4%BA%AC%E5%B3%B6","MUUMUU COFFEE":"https://www.google.com/maps/search/?api=1&query=MUUMUU%20COFFEE%20%E4%BA%AC%E5%B3%B6","吉備子屋":"https://www.google.com/maps/search/?api=1&query=%E5%90%89%E5%82%99%E5%AD%90%E5%B1%8B%20%E5%90%91%E5%B3%B6","志満ん草餅":"https://www.google.com/maps/search/?api=1&query=%E5%BF%97%E6%BA%80%E3%82%93%E8%8D%89%E9%A4%85%20%E5%A2%A8%E7%94%B0%E5%8C%BA%E6%9D%B1%E5%90%91%E5%B3%B6","炭火焼肉おくさこ":"https://maps.app.goo.gl/rWTxzYh2HwmYyaoX8","外苑前站":"https://www.google.com/maps/search/?api=1&query=%E5%A4%96%E8%8B%91%E5%89%8D%E9%A7%85","表參道站":"https://www.google.com/maps/search/?api=1&query=%E8%A1%A8%E5%8F%82%E9%81%93%E9%A7%85","Sweet Check 蛋包飯":"https://maps.app.goo.gl/cq6P7DPSL1NEdmQT8","BASO 蕎麥麵":"https://maps.app.goo.gl/XfhefUXyvnTHNSra8","うどん 麺散":"https://maps.app.goo.gl/Nf1bBBnExek1mAus5","FREAK'S STORE Shibuya":"https://maps.app.goo.gl/zfRiMG347oqCoXQQ6","極味屋 澀谷 PARCO 店":"https://maps.app.goo.gl/PW2hqEnuummDrjFH8","MEGA 唐吉訶德 澀谷本店":"https://www.google.com/maps/search/?api=1&query=MEGA%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%E6%B8%8B%E8%B0%B7%E6%9C%AC%E5%BA%97","Mūya":"https://www.google.com/maps/search/?api=1&query=%E3%82%80%E3%81%86%E3%82%84%20%E6%9D%B1%E4%BA%AC%E3%83%9F%E3%82%BA%E3%83%9E%E3%83%81","隅田川步道":"https://www.google.com/maps/search/?api=1&query=%E9%9A%85%E7%94%B0%E5%B7%9D%E3%83%86%E3%83%A9%E3%82%B9%20%E5%90%BE%E5%A6%BB%E6%A9%8B","花月堂菠蘿麵包":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E8%8A%B1%E6%9C%88%E5%A0%82+%E6%9C%AC%E5%BA%97","壽壽喜園抹茶冰淇淋":"https://www.google.com/maps/search/?api=1&query=%E5%A3%BD%E3%80%85%E5%96%9C%E5%9C%92+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97","龜十銅鑼燒":"https://www.google.com/maps/search/?api=1&query=%E4%BA%80%E5%8D%81+%E6%B5%85%E8%8D%89","牛たんの檸檬 淺草店":"https://maps.app.goo.gl/K4QdwtcbFczYAsTPA","東武淺草站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%B5%85%E8%8D%89%E9%A7%85","東京晴空塔站":"https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%81%86%E3%81%8D%E3%82%87%E3%81%86%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC%E9%A7%85","日光さかえや 揚げゆばまんじゅう本舗":"https://maps.app.goo.gl/BP5Dz4o8puYm7j7TA","日光東照宮":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE","鉢石町・日光街道":"https://www.google.com/maps/search/?api=1&query=%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89","日光 Airbnb":"https://maps.app.goo.gl/xPXoTRvUER7Yosbm6","東武日光站巴士站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85%20%E3%83%90%E3%82%B9%E4%B9%97%E3%82%8A%E5%A0%B4","東武日光站":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85","中禪寺溫泉":"https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E5%81%9C%20%E6%97%A5%E5%85%89","站前・日光街道":"https://www.google.com/maps/search/?api=1&query=%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89","憾滿之淵（選逛）":"https://www.google.com/maps/search/?api=1&query=%E6%86%BE%E6%BA%80%E3%83%B6%E6%B7%B5","成田里士滿飯店":"https://maps.app.goo.gl/2XG4HEaMg9eHVKVZ6","川豐本店":"https://www.google.com/maps/search/?api=1&query=%E5%B7%9D%E8%B1%8A+%E6%9C%AC%E5%BA%97+%E6%88%90%E7%94%B0","成田江戶人壽司":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E6%B1%9F%E6%88%B8%E3%81%A3%E5%AD%90%E5%AF%BF%E5%8F%B8","淺草橋銀杏岡八幡神社":"https://www.google.com/maps/search/?api=1&query=%E9%8A%80%E6%9D%8F%E5%B2%A1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-29-11","銀杏岡八幡神社":"https://www.google.com/maps/search/?api=1&query=%E9%8A%80%E6%9D%8F%E5%B2%A1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-29-11","シモジマ淺草橋本店":"https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%A2%E3%82%B8%E3%83%9E%20%E6%B5%85%E8%8D%89%E6%A9%8B%E6%9C%AC%E5%BA%97%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-30-10","シモジマ":"https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%A2%E3%82%B8%E3%83%9E%20%E6%B5%85%E8%8D%89%E6%A9%8B%E6%9C%AC%E5%BA%97%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-30-10","日比谷公園":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%AF%94%E8%B0%B7%E5%85%AC%E5%9C%92%20%E6%9D%B1%E4%BA%AC","丸之內仲通り":"https://www.google.com/maps/search/?api=1&query=%E4%B8%B8%E3%81%AE%E5%86%85%E4%BB%B2%E9%80%9A%E3%82%8A%20%E6%9D%B1%E4%BA%AC","丸之內仲通":"https://www.google.com/maps/search/?api=1&query=%E4%B8%B8%E3%81%AE%E5%86%85%E4%BB%B2%E9%80%9A%E3%82%8A%20%E6%9D%B1%E4%BA%AC","東京車站丸之內廣場":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%A7%85%20%E4%B8%B8%E3%81%AE%E5%86%85%E9%A7%85%E5%89%8D%E5%BA%83%E5%A0%B4","東京車站丸之內":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%A7%85%20%E4%B8%B8%E3%81%AE%E5%86%85%E9%A7%85%E5%89%8D%E5%BA%83%E5%A0%B4","豪德寺":"https://www.google.com/maps/search/?api=1&query=%E8%B1%AA%E5%BE%B3%E5%AF%BA%20%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA%E8%B1%AA%E5%BE%B3%E5%AF%BA2-24-7","新宿 Bic Camera":"https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%AF%E3%82%AB%E3%83%A1%E3%83%A9%20%E6%96%B0%E5%AE%BF%E6%9D%B1%E5%8F%A3%E5%BA%97","Bic Camera 新宿東口店":"https://www.google.com/maps/search/?api=1&query=%E3%83%93%E3%83%83%E3%82%AF%E3%82%AB%E3%83%A1%E3%83%A9%20%E6%96%B0%E5%AE%BF%E6%9D%B1%E5%8F%A3%E5%BA%97","Alpen Tokyo 旗艦店":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","Alpen TOKYO":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","Alpen Tokyo":"https://www.google.com/maps/search/?api=1&query=Alpen%20TOKYO%20%E6%96%B0%E5%AE%BF","明治神宮外苑銀杏大道":"https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E3%81%84%E3%81%A1%E3%82%87%E3%81%86%E4%B8%A6%E6%9C%A8","神宮外苑":"https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E6%9D%B1%E4%BA%AC","KIDDY LAND 原宿店":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%87%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89%20%E5%8E%9F%E5%AE%BF%E5%BA%97%20%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D6-1-9","KIDDY LAND":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%87%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89%20%E5%8E%9F%E5%AE%BF%E5%BA%97%20%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D6-1-9","NUMBER SUGAR 表參道店":"https://www.google.com/maps/search/?api=1&query=NUMBER%20SUGAR%20%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97","NUMBER SUGAR":"https://www.google.com/maps/search/?api=1&query=NUMBER%20SUGAR%20%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97","宮下公園":"https://www.google.com/maps/search/?api=1&query=MIYASHITA%20PARK%20%E6%B8%8B%E8%B0%B7","貓街":"https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%88%20%E6%B8%8B%E8%B0%B7","澀谷 PARCO":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7PARCO%20%E5%AE%87%E7%94%B0%E5%B7%9D%E7%94%BA15-1","澀谷站八公口外":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85%20%E3%83%8F%E3%83%81%E5%85%AC%E5%8F%A3","澀谷站八公口":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85%20%E3%83%8F%E3%83%81%E5%85%AC%E5%8F%A3","真さか":"https://www.google.com/maps/search/?api=1&query=%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%AC%E3%83%B3%E5%B1%85%E9%85%92%E5%B1%8B%20%E7%9C%9F%E3%81%95%E3%81%8B%20%E6%B8%8B%E8%B0%B7PARCO%20B1","淺草寺参道":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E4%BB%B2%E8%A6%8B%E4%B8%96%E9%80%9A%E3%82%8A","淺草寺":"https://www.google.com/maps/search/?api=1&query=%E6%B7%BA%E8%8D%89%E5%AF%BA%20%E6%9D%B1%E4%BA%AC","雷門":"https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E5%AF%BA%20%E9%9B%B7%E9%96%80","PATISSERIE TEN&（日比谷 OKUROJI）":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","PATISSERIE TEN&":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","日比谷 PATISSERIE TEN&":"https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI","大屋頂廣場":"https://www.google.com/maps/search/?api=1&query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%20%E5%A4%A7%E5%B1%8B%E6%A0%B9%E3%83%97%E3%83%A9%E3%82%B6","六本木新城":"https://www.google.com/maps/search/?api=1&query=%E5%85%AD%E6%9C%AC%E6%9C%A8%E3%83%92%E3%83%AB%E3%82%BA%20%E6%9D%B1%E4%BA%AC","神橋":"https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%A9%8B%20%E6%97%A5%E5%85%89%E5%B8%82%E4%B8%8A%E9%89%A2%E7%9F%B3%E7%94%BA","東照宮":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE%20%E6%97%A5%E5%85%89%E5%B8%82%E5%B1%B1%E5%86%852301","東京晴空塔":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC","晴空塔":"https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC","華嚴瀑布":"https://www.google.com/maps/search/?api=1&query=%E8%8F%AF%E5%8E%B3%E3%81%AE%E6%BB%9D%20%E6%97%A5%E5%85%89","中禪寺湖":"https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B9%96%20%E6%97%A5%E5%85%89","憾滿之淵":"https://www.google.com/maps/search/?api=1&query=%E6%86%BE%E6%BA%80%E3%83%B6%E6%B7%B5%20%E6%97%A5%E5%85%89","田母澤御用邸":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E7%94%B0%E6%AF%8D%E6%B2%A2%E5%BE%A1%E7%94%A8%E9%82%B8%E8%A8%98%E5%BF%B5%E5%85%AC%E5%9C%92","日光街道":"https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E8%A1%97%E9%81%93%20%E9%89%A2%E7%9F%B3%E7%94%BA%20%E6%97%A5%E5%85%89%E5%B8%82","成田山表參道":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E8%A1%A8%E5%8F%82%E9%81%93","新勝寺大本堂":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E6%96%B0%E5%8B%9D%E5%AF%BA%20%E5%A4%A7%E6%9C%AC%E5%A0%82","成田山公園":"https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E5%85%AC%E5%9C%92","なごみの米屋":"https://www.google.com/maps/search/?api=1&query=%E3%81%AA%E3%81%94%E3%81%BF%E3%81%AE%E7%B1%B3%E5%B1%8B%20%E7%B7%8F%E6%9C%AC%E5%BA%97%20%E6%88%90%E7%94%B0%E5%B8%82%E4%B8%8A%E7%94%BA500","京成成田站":"https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E6%88%90%E6%88%90%E7%94%B0%E9%A7%85","AEON MALL 成田":"https://www.google.com/maps/search/?api=1&query=%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB%E6%88%90%E7%94%B0","青山一丁目站":"https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E5%B1%B1%E4%B8%80%E4%B8%81%E7%9B%AE%E9%A7%85","原宿站":"https://www.google.com/maps/search/?api=1&query=%E5%8E%9F%E5%AE%BF%E9%A7%85","澀谷站":"https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85","麺 みつヰ":"https://www.google.com/maps/search/?api=1&query=%E9%BA%BA%20%E3%81%BF%E3%81%A4%E3%83%B0%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E5%AF%BF2-9-15","天麩羅秋光":"https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E9%BA%A9%E7%BE%85%20%E7%A7%8B%E5%85%89%20%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97","HARBS LUMINE 有樂町店":"https://www.google.com/maps/search/?api=1&query=HARBS%20%E3%83%AB%E3%83%9F%E3%83%8D%E6%9C%89%E6%A5%BD%E7%94%BA%E5%BA%97%20%E6%9C%89%E6%A5%BD%E7%94%BA2-5-1","有樂町 HARBS":"https://www.google.com/maps/search/?api=1&query=HARBS%20%E3%83%AB%E3%83%9F%E3%83%8D%E6%9C%89%E6%A5%BD%E7%94%BA%E5%BA%97%20%E6%9C%89%E6%A5%BD%E7%94%BA2-5-1","豪德寺站":"https://www.google.com/maps/search/?api=1&query=%E8%B1%AA%E5%BE%B7%E5%AF%BA%E7%AB%99%20%E6%9D%B1%E4%BA%AC","仲見世商店街":"https://www.google.com/maps/search/?api=1&query=%E4%BB%B2%E8%A6%8B%E4%B8%96%E5%95%86%E5%BA%97%E8%A1%97%20%E6%9D%B1%E4%BA%AC","とうきょうスカイツリー駅前":"https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%81%86%E3%81%8D%E3%82%87%E3%81%86%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC%E9%A7%85%E5%89%8D%20%E6%9D%B1%E4%BA%AC","根津駅前":"https://www.google.com/maps/search/?api=1&query=%E6%A0%B9%E6%B4%A5%E9%A7%85%E5%89%8D%20%E6%9D%B1%E4%BA%AC"};
-  const revisedDailyCopy = {
-  "1": [
-    [
-      "抵達民宿｜放行李",
-      "A 組 3 人先到民宿。若尚未開放入住，依房東確認的方式處理行李；之後前往野口鮮魚店。"
+  const readableDailyStops = {
+  "1-0": {
+    "title": "抵達民宿｜放行李",
+    "summary": "先到民宿；能否提早放行李依房東回覆。若需等 16:00 入住，放好行李再出發，野口鮮魚店順延到約 16:15。",
+    "directions": "本所吾妻橋出站後，依民宿地圖步行；往東駒形可用 A2，帶大行李優先找 A0 電梯。",
+    "note": "未取得房東同意前，不把提前寄放視為已安排。",
+    "links": [
+      {
+        "label": "東京民宿",
+        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
+      },
+      {
+        "label": "本所吾妻橋站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E9%A7%85"
+      }
     ],
-    [
-      "晚午餐｜野口鮮魚店",
-      "放好行李後前往，A 組 3 人可分桌；排隊超過 45 分鐘或售罄就改 CHICO。"
-    ],
-    [
-      "點心｜塩パン屋 パンメゾン",
-      "飯後順路買鹽可頌，3 人先各買 1 個；吃飽或時間不夠就跳過。"
-    ],
-    [
-      "夜景｜日比谷・丸之內",
-      "逛日比谷公園、丸之內仲通與丸大樓，再回淺草吃晚餐。東京站前廣場的限定裝置 11/27 才開始。"
-    ],
-    [
-      "晚餐｜鳥貴族 淺草店",
-      "21:30 已訂 A＋B 組 5 人。A 組先報到，B 組放好行李後加入；來不及就先聯絡餐廳。"
+    "rail": true,
+    "car": "往東駒形可用 A2 樓梯；大行李優先找 A0 電梯。第 4 車廂附近接 A0～A2／跨月台通道；列車車廂編號請對照站內圖。"
+  },
+  "1-1": {
+    "title": "晚午餐｜野口鮮魚店",
+    "summary": "放好行李後步行到野口鮮魚店，可分桌。候位超過 45 分鐘、17:00 仍未入座或已售罄，就改吃 CHICO。",
+    "directions": "民宿 → 野口鮮魚店，步行約 5–10 分鐘。",
+    "note": "不接受訂位；保留後面夜景與 21:30 晚餐的時間。",
+    "links": [
+      {
+        "label": "野口鮮魚店攻略",
+        "url": "restaurant-guide/venues/09-noguchi-sengyoten.html"
+      },
+      {
+        "label": "CHICO 備案",
+        "url": "restaurant-guide/venues/01-monjayaki-chico.html"
+      },
+      {
+        "label": "野口鮮魚店",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E3%81%95%E3%81%AA%E9%AD%9A%E3%81%8C%E3%81%97+%E9%87%8E%E5%8F%A3%E9%AE%AE%E9%AD%9A%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8D%80%E6%9D%B1%E9%A7%92%E5%BD%A24-6-9+%E3%83%AA%E3%83%90%E3%83%BC%E3%83%8F%E3%82%A4%E3%83%84%E3%83%AF%E3%82%B3%E3%83%BC+1F"
+      }
     ]
-  ],
-  "2": [
-    [
-      "出發｜民宿 → 豪德寺",
-      "09:00 出門，淺草橋轉 JR 總武線各站停車到新宿，再轉小田急各站停車到豪德寺站。含步行、候車與轉乘約 75–90 分鐘。"
-    ],
-    [
-      "上午｜豪德寺",
-      "約 10:30–11:15 參拜、拍招福貓，之後步行約 20 分鐘到梅丘。奉納的招福貓請勿移動。"
-    ],
-    [
-      "午餐｜梅丘寿司の美登利 総本店",
-      "約 11:35，5 人一起到店取號；依現場叫號入座，不保證到店即用餐。等太久就另選餐廳；新宿購物可縮短，不為趕時間提前分頭排隊。"
-    ],
-    [
-      "下午購物｜新宿",
-      "用餐後由梅丘搭小田急各站停車往新宿，逛 Bic Camera 新宿東口店、Alpen TOKYO。午餐延後就縮短購物。"
-    ],
-    [
-      "晚餐｜一蘭 新宿歌舞伎町店",
-      "逛完 Alpen TOKYO 再去。24 小時營業，以單人吧台為主，5 人可分批入座。候位超過 45 分鐘就改店。"
+  },
+  "1-2": {
+    "title": "點心｜塩パン屋 パンメゾン",
+    "summary": "野口用餐後順路買鹽麵包，想吃可各買 1 個。吃飽、排隊太長或時間延後，就直接前往日比谷。",
+    "directions": "野口鮮魚店 → 塩パン屋 パンメゾン，依地圖步行。",
+    "note": "點心可略過，不影響當天主要安排。",
+    "links": [
+      {
+        "label": "鹽麵包攻略",
+        "url": "restaurant-guide/venues/02-pain-maison.html"
+      },
+      {
+        "label": "塩パン屋 パンメゾン",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%A1%A9%E3%83%91%E3%83%B3%E5%B1%8B+%E3%83%91%E3%83%B3%E3%83%A1%E3%82%BE%E3%83%B3+%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E5%BA%97"
+      }
     ]
-  ],
-  "3": [
-    [
-      "上午散步・下午晴空塔",
-      "09:00 出門。谷根千走根津神社、谷中銀座；或選京島・向島麵包咖啡散步。13:00 左右前往晴空塔，依交通與散步進度調整，傍晚會合吃燒肉。"
+  },
+  "1-3": {
+    "title": "夜景｜日比谷・丸之內",
+    "summary": "日比谷公園 → 丸之內仲通 → 丸大樓 → 東京站前，沿路散步看燈飾。20:00 左右結束，留時間回淺草赴 21:30 晚餐。",
+    "directions": "本所吾妻橋 A19 搭淺草線往西馬込／羽田方向，到東銀座 A11；轉日比谷線 H10 往中目黑，到日比谷 H08。出站後依步行地圖順走。",
+    "note": "11/21 不安排尚未開始的東京站限定裝置；下雨沿原雨備改走地下街。",
+    "links": [
+      {
+        "label": "丸之內活動官網",
+        "url": "https://www.marunouchi.com/lp/brightholiday2026/"
+      }
     ],
-    [
-      "晚餐｜炭火焼肉おくさこ",
-      "預計 17:30，全團 7 人；C 組放好行李後加入。店家目前週一、假日 17:00–23:00（餐點最後點餐 22:30）。尚未訂位，7 人同桌需確認；不吃牛的 1 位可選豬、雞、海鮮，湯汁先問。餐後晴空塔可看體力略過。"
+    "extra": "下雨時沿原雨備改走丸之內地下街；20:00 左右離開，保留返回淺草的時間。"
+  },
+  "1-4": {
+    "title": "晚餐｜鳥貴族 淺草店",
+    "summary": "21:30 已訂位，A 組先報到入座；B 組到民宿放好行李後加入。B 組若趕不上，先聯絡餐廳說明。",
+    "directions": "東京站前 → 丸之內線 M17 東京（紅色，荻窪方向）搭 1 站到 M16 銀座 → 轉銀座線 G09（橘色，淺草方向）到 G19 淺草 → 依餐廳地圖步行到鳥貴族。",
+    "note": "報到時出示訂位信，資料見「已預約」。",
+    "links": [
+      {
+        "label": "鳥貴族地圖",
+        "url": "https://maps.app.goo.gl/EvEaCawMVivVVJDC9"
+      },
+      {
+        "label": "鳥貴族攻略",
+        "url": "restaurant-guide/venues/03-torikizoku-asakusa.html"
+      },
+      {
+        "label": "已預約資料",
+        "url": "./?view=bookings&bday=1"
+      },
+      {
+        "label": "東京站／丸之內線",
+        "url": "https://www.tokyometro.jp/station/tokyo/index.html"
+      }
+    ],
+    "rail": true
+  },
+  "1-B-2": {
+    "title": "先放行李",
+    "summary": "抵達本所吾妻橋後，先回民宿放好行李，回報預計到餐廳的時間，再去鳥貴族與 A 組會合。",
+    "directions": "本所吾妻橋出站 → 民宿 → 鳥貴族淺草店；分別使用民宿、餐廳地圖導航。",
+    "note": "不要為趕 21:30 而忽略行李與轉車所需時間。",
+    "links": [
+      {
+        "label": "東京民宿",
+        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
+      },
+      {
+        "label": "鳥貴族地圖",
+        "url": "https://maps.app.goo.gl/EvEaCawMVivVVJDC9"
+      }
     ]
-  ],
-  "4": [
-    [
-      "出發｜本所吾妻橋 → 青山一丁目",
-      "搭車路線、站號與出口見下方交通說明，出站後步行到銀杏大道。"
-    ],
-    [
-      "上午｜明治神宮外苑銀杏大道",
-      "散步、拍銀杏，接著往表參道與原宿。"
-    ],
-    [
-      "逛街｜表參道・原宿",
-      "KIDDY LAND、NUMBER SUGAR 等各自選逛，午餐後往澀谷。"
-    ],
-    null,
-    [
-      "步行往澀谷",
-      "Sweet Check 組先吃再逛原宿；BASO／麺散組先逛再吃。午餐後往 FREAK’S STORE，途中可逛貓街與宮下公園。"
-    ],
-    [
-      "FREAK’S STORE Shibuya",
-      "神南 1-13-1，週二 12:00–20:00。各組在這裡會合，再往 PARCO。"
-    ],
-    [
-      "購物｜澀谷 PARCO",
-      "從 FREAK’S STORE 步行前往。一般商店 11:00–21:00，晚餐在 B1。"
-    ],
-    null,
-    [
-      "晚餐後｜MEGA 唐吉訶德",
-      "自由購物；也可直接回民宿。"
-    ],
-    [
-      "回程｜澀谷站八公口",
-      "約好時間在八公口外集合，一起搭車回本所吾妻橋。"
+  },
+  "1-B-3": {
+    "title": "晚餐｜鳥貴族 淺草店",
+    "summary": "21:30 已訂位，由 A 組先進店。B 組放好行李後加入；若延誤，請提前聯絡餐廳。",
+    "directions": "",
+    "note": "延誤時先聯絡店家。",
+    "links": [
+      {
+        "label": "鳥貴族攻略",
+        "url": "restaurant-guide/venues/03-torikizoku-asakusa.html"
+      },
+      {
+        "label": "已預約資料",
+        "url": "./?view=bookings&bday=1"
+      }
     ]
-  ],
-  "5": [
-    [
-      "早餐｜Mūya",
-      "09:00 從民宿出門，09:30–10:15 吃吐司與咖啡，再往淺草寺；若候位久可外帶。"
+  },
+  "1-B-4": {
+    "title": "晚餐會合",
+    "summary": "A 組先報到入座，B 組抵達後加入。",
+    "directions": "",
+    "note": "",
+    "links": []
+  },
+  "2-0": {
+    "title": "出發｜民宿 → 豪德寺",
+    "summary": "09:00 從民宿出門，經淺草橋、新宿轉往豪德寺。全段含步行、等車約 75–90 分鐘；早餐先吃完，抵達後直接參拜。",
+    "directions": "本所吾妻橋 A19 搭淺草線往西馬込／羽田，到淺草橋 A16；轉黃色 JR 中央・總武各站停車往新宿；新宿再轉小田急各駅停車，到豪德寺 OH10，步行約 10–15 分鐘。",
+    "note": "小田急要搭各駅停車，急行不停豪德寺。",
+    "links": [
+      {
+        "label": "豪德寺站官方資訊",
+        "url": "https://www.odakyu.jp/station/gotokuji/"
+      },
+      {
+        "label": "豪德寺站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E8%B1%AA%E5%BE%B7%E5%AF%BA%E7%AB%99%20%E6%9D%B1%E4%BA%AC"
+      }
     ],
-    [
-      "淺草寺・仲見世散步",
-      "10:30–11:30 參拜與逛街，預留步行到餐廳的時間；12:00 牛舌訂位不變。"
-    ],
-    null,
-    [
-      "淺草小吃｜順路選一",
-      "花月堂本店、壽壽喜園 11:00 開門；龜十看排隊情況。挑想吃的一家，長隊就略過，約 13:15 兩組會合往淺草橋。"
-    ],
-    [
-      "午後｜銀杏岡八幡神社・シモジマ",
-      "淺草搭淺草線到淺草橋，A3 出口走約 2 分鐘到神社，再逛シモジマ淺草橋本店。預留約 13:30–15:00，15:00 左右離開回民宿。"
-    ],
-    [
-      "回民宿休息",
-      "約 15:30 回東京民宿放購物袋、休息一小時；16:30 再出發去日比谷。"
-    ],
-    [
-      "外帶｜PATISSERIE TEN&",
-      "日比谷 OKUROJI，週三傍晚外帶 17:30–20:00，只收無現金支付。想先留指定甜點，可選「テイクアウト」並用信用卡預付。"
-    ],
-    [
-      "甜點｜HARBS LUMINE 有樂町店",
-      "從 TEN& 步行到 LUMINE 有樂町 1 館 2F。有位就內用，滿席就外帶。內用最後點餐 20:00，外帶至 21:00。冬季外帶建議在 1 小時內冷藏，有保冷袋約 2 小時。"
-    ],
-    [
-      "六本木新城聖誕市集",
-      "從有樂町 HARBS 走到日比谷站，搭地鐵到六本木，從 1c 出口前往大屋頂廣場。市集 11/21–12/25、11:00–21:00，晚餐當天決定。"
+    "rail": true
+  },
+  "2-1": {
+    "title": "豪德寺參拜 → 梅丘",
+    "summary": "10:30–11:15 參拜豪德寺，看招福貓與寺院庭園；11:15 左右離開，步行約 20 分鐘到梅丘，接著排午餐。",
+    "directions": "豪德寺 → 梅丘壽司美登利，依原步行地圖往梅丘方向走。",
+    "note": "不要挪動或觸摸奉納的招福貓；途中不另加咖啡停留。",
+    "links": [
+      {
+        "label": "梅丘寿司の美登利 総本店",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97"
+      }
     ]
-  ],
-  "6": [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-  ],
-  "7": [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-  ],
-  "8": [
-    [
-      "日光 → 成田｜包車",
-      "07:45 集合，08:00 出發。7 人搭 Toyota Hiace，車資已付；到 Richmond Hotel Narita 後先寄放行李。"
-    ],
-    [
-      "午餐｜成田山表參道",
-      "川豐本店取號吃鰻魚飯；等太久或想吃別的，就在表參道附近選店。"
-    ],
-    [
-      "下午｜新勝寺・紅葉祭・米屋",
-      "新勝寺大本堂 → 成田山公園紅葉祭 → なごみの米屋。公園賞楓抓約 45–60 分鐘，約 16:40 往京成成田站。若提早抵達，可看 13:30 演奏；茶會至約 15:00、額滿提早結束，有名額再參加。"
-    ],
-    [
-      "傍晚｜AEON MALL 成田",
-      "京成成田站 6 號搭直行巴士，去程 17:15／17:47，下一班 18:30。單程 ¥220，可刷 IC 卡，前門上車付費。回程 20:28 星巴克前／20:29 Mall East 是同一班車相鄰兩站；較晚可搭 21:05／21:06。"
+  },
+  "2-2": {
+    "title": "午餐｜梅丘壽司美登利總本店",
+    "summary": "預計 11:35 到店，一起取號候位；這是抵達目標，並非訂位時間。午餐若延後，就縮短下午新宿購物。",
+    "directions": "從豪德寺步行到梅丘站附近的總本店。",
+    "note": "店家 11:00 開門；候位長短無法事先保證，不另派人提早排隊。",
+    "links": [
+      {
+        "label": "美登利攻略",
+        "url": "restaurant-guide/venues/07-sushi-midori-umeoka.html"
+      },
+      {
+        "label": "梅丘寿司の美登利 総本店",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97"
+      },
+      {
+        "label": "梅丘站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E3%83%B6%E4%B8%98%E9%A7%85"
+      }
     ]
-  ],
-  "9": [
-    [
-      "飯店 → 成田 T2",
-      "預計 08:20 接駁、08:40 抵達，前晚登記座位。虎航約 10:30 開櫃，以當天公告為準；含退稅商品的行李完成海關確認後再托運。"
+  },
+  "2-3": {
+    "title": "新宿購物｜BicCamera → Alpen TOKYO",
+    "summary": "午餐後到新宿東口，先逛 BicCamera，再到 Alpen TOKYO。先約好集合點；抵達若比預期晚，少逛幾間即可。",
+    "directions": "梅丘 OH09 搭小田急各駅停車往新宿 OH01；出站跟「東口／東西自由通路」指標，到東口商圈，不需進 JR 付費閘門。",
+    "note": "14:30 為預估開始時間，以午餐結束時間為準。",
+    "links": [
+      {
+        "label": "BicCamera 優惠券",
+        "url": "./?view=coupons&cpn=bic"
+      },
+      {
+        "label": "Alpen 優惠券",
+        "url": "./?view=coupons&cpn=alpen"
+      },
+      {
+        "label": "新宿站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%AE%BF%E9%A7%85"
+      }
     ],
-    [
-      "機場伴手禮",
-      "安檢前逛本館 4F，安檢後到 3F Fa-So-La。PRESS BUTTER SAND、PISTA & TOKYO、桂新堂、S’more 可依清單購買。"
-    ],
-    [
-      "回台灣",
-      "A、C 組 IT281：13:00 成田起飛；B 組 CI101：14:35 起飛、17:45 抵達桃園，均為當地時間。登機時間與登機門看登機證。"
+    "rail": true
+  },
+  "2-4": {
+    "title": "晚餐｜一蘭 新宿歌舞伎町店",
+    "summary": "18:00–19:00 於一蘭用餐，可分開入座；候位超過 45 分鐘，就改附近餐廳。餐後搭車回本所吾妻橋休息。",
+    "directions": "新宿搭黃色 JR 中央・總武各站停車往千葉方向，到淺草橋；轉都營淺草線往押上，到本所吾妻橋 A19，再步行回民宿。",
+    "note": "一蘭為吧台座位，不保證坐在一起。",
+    "links": [
+      {
+        "label": "一蘭攻略",
+        "url": "restaurant-guide/venues/08-ichiran-kabukicho.html"
+      },
+      {
+        "label": "一蘭 新宿歌舞伎町店",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%80%E8%98%AD+%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-17-10"
+      },
+      {
+        "label": "東京民宿",
+        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
+      }
     ]
-  ]
+  },
+  "3-0": {
+    "title": "上午自由選線",
+    "summary": "09:00 出門，谷根千或京島・向島擇一；A、B 組都能自由選。約 13:00 到晴空塔 Solamachi 吃午餐、逛街，時間可隨散步進度順延。",
+    "directions": "谷根千走根津神社 → 谷中銀座 → 日暮里；京島・向島走飛木稻荷 → ハト屋 → キラキラ橘 → MUUMUU COFFEE。兩路最後都回晴空塔。",
+    "note": "上午只選一條路線；兩路都在晴空塔用餐，17:30 前往燒肉店與 C 組會合。",
+    "links": []
+  },
+  "3-1": {
+    "title": "晚餐｜炭火焼肉おくさこ",
+    "summary": "17:30 前往炭火焼肉おくさこ，與 C 組會合用餐。晚餐後想看夜景再去晴空塔，累了就回民宿。",
+    "directions": "晴空塔／Solamachi → 餐廳，依餐廳地圖步行；C 組由民宿直接前往會合。",
+    "note": "17:30 是用餐安排，尚未確認訂位；有 1 人不吃牛，點餐時再確認肉品、湯底與調味。",
+    "links": [
+      {
+        "label": "餐廳地圖",
+        "url": "https://maps.app.goo.gl/rWTxzYh2HwmYyaoX8"
+      },
+      {
+        "label": "現有菜單頁",
+        "url": "https://tabelog.com/tokyo/A1312/A131203/13295810/dtlmenu/"
+      },
+      {
+        "label": "餐廳電話",
+        "url": "tel:+81363813166"
+      }
+    ],
+    "extra": "目前週一、假日 17:00–23:00，餐點最後點餐 22:30；同桌安排仍需店家確認。"
+  },
+  "3-yanaka": {
+    "title": "谷根千｜神社與老街",
+    "summary": "先搭上 26 到根津，依序走根津神社、谷中銀座、夕やけだんだん，從日暮里搭京成回晴空塔；一路向前走，不回頭取車。",
+    "directions": "民宿步行約 15–20 分鐘，到「とうきょうスカイツリー駅前」2 番站牌；搭上 26「上野公園行」，在根津駅前下車。回程從日暮里搭京成普通列車到青砥，轉往押上／都營淺草線的列車，到押上下車。",
+    "note": "11/23 用假日班表；上車站是「駅前」，不是「駅入口」。巴士塞車就縮短參拜，仍照原路走到日暮里。",
+    "links": [
+      {
+        "label": "上 26 官方時刻",
+        "url": "https://tobus.jp/sp/blsys/stop/time?ln=ja&poleno=2&routecode=79&stopid=2028&ud=1"
+      },
+      {
+        "label": "既有步行地圖",
+        "url": "https://www.google.com/maps/dir/?api=1&origin=%E6%A0%B9%E6%B4%A5%E9%A7%85%E5%89%8D%20%E3%83%90%E3%82%B9%E5%81%9C&destination=%E6%97%A5%E6%9A%AE%E9%87%8C%E9%A7%85&travelmode=walking&waypoints=%E6%A0%B9%E6%B4%A5%E7%A5%9E%E7%A4%BE%7C%E8%B0%B7%E4%B8%AD%E9%8A%80%E5%BA%A7%E5%95%86%E5%BA%97%E8%A1%97%7C%E5%A4%95%E3%82%84%E3%81%91%E3%81%A0%E3%82%93%E3%81%A0%E3%82%93"
+      }
+    ]
+  },
+  "3-sumida": {
+    "title": "京島・向島｜麵包與咖啡",
+    "summary": "從押上開始逛飛木稻荷、ハト屋、キラキラ橘與 MUUMUU COFFEE。12:15 前離開京島，直接回晴空塔吃午餐，不先繞回民宿。",
+    "directions": "本所吾妻橋 A19 搭淺草線往押上 A20，只坐 1 站；依步行地圖串聯各店。返晴空塔可步行，走累了沿用原計畫搭計程車。",
+    "note": "麵包店排隊長、咖啡店客滿或未開就略過；若改走吉備子屋與志満ん草餅，沿原備案取捨，勿把所有店疊加。",
+    "links": [
+      {
+        "label": "既有步行地圖",
+        "url": "https://www.google.com/maps/dir/?api=1&origin=%E6%8A%BC%E4%B8%8A%E9%A7%85&destination=MUUMUU%20COFFEE&travelmode=walking&waypoints=%E9%A3%9B%E6%9C%A8%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE%7C%E3%83%8F%E3%83%88%E5%B1%8B%E3%83%91%E3%83%B3%E5%BA%97%7C%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9%E6%A9%98%E5%95%86%E5%BA%97%E8%A1%97"
+      },
+      {
+        "label": "既有步行地圖",
+        "url": "https://www.google.com/maps/dir/?api=1&origin=%E3%83%8F%E3%83%88%E5%B1%8B%E3%83%91%E3%83%B3%E5%BA%97&destination=%E5%BF%97%E6%BA%80%E3%82%93%E8%8D%89%E9%A4%85&travelmode=walking&waypoints=%E5%90%89%E5%82%99%E5%AD%90%E5%B1%8B"
+      }
+    ]
+  },
+  "3-C-2": {
+    "title": "放好行李 → 燒肉晚餐會合",
+    "summary": "先在民宿放行李、休息，17:30 到炭火焼肉おくさこ與 A、B 組會合。若提早抵達，行李寄放須依房東同意方式辦理。",
+    "directions": "民宿 → 餐廳依地圖步行，不用先去晴空塔找 A、B 組。",
+    "note": "民宿 16:00 入住；沒有房東允許，不能保證提前放行李。",
+    "links": [
+      {
+        "label": "東京民宿",
+        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
+      },
+      {
+        "label": "晚餐地圖",
+        "url": "https://maps.app.goo.gl/rWTxzYh2HwmYyaoX8"
+      }
+    ]
+  },
+  "3-C-3": {
+    "title": "餐後安排",
+    "summary": "晚餐後若還有體力，可去晴空塔看夜景；想休息就直接回民宿。",
+    "directions": "",
+    "note": "晴空塔為選逛，沒有預約觀景台。",
+    "links": [
+      {
+        "label": "東京晴空塔",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC"
+      },
+      {
+        "label": "東京民宿",
+        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
+      }
+    ]
+  },
+  "4-0": {
+    "title": "出發｜本所吾妻橋 → 青山一丁目",
+    "summary": "09:00 出門，搭淺草線到淺草，轉銀座線到青山一丁目；從 1 號出口走到銀杏大道。含轉乘與步行預留約 1 小時。",
+    "directions": "本所吾妻橋 A19 搭淺草線（玫瑰紅，西馬込／羽田方向）到淺草 A18，出閘轉銀座線 G19（橘色，澀谷方向）至青山一丁目 G04；1 號出口後步行約 5–10 分鐘。",
+    "note": "淺草轉銀座線須依指標換線；不要搭往押上方向。",
+    "links": [
+      {
+        "label": "本所吾妻橋站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E9%A7%85"
+      },
+      {
+        "label": "青山一丁目站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E5%B1%B1%E4%B8%80%E4%B8%81%E7%9B%AE%E9%A7%85"
+      },
+      {
+        "label": "明治神宮外苑銀杏大道",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E3%81%84%E3%81%A1%E3%82%87%E3%81%86%E4%B8%A6%E6%9C%A8"
+      }
+    ],
+    "meal": false,
+    "rail": true
+  },
+  "4-1": {
+    "title": "上午｜明治神宮外苑銀杏大道",
+    "summary": "沿銀杏大道散步、拍照，10:45 左右繼續往表參道；接下來一路往原宿、澀谷，避免逛完再折回外苑。",
+    "directions": "散步後往外苑前站；可搭銀座線 1 站至表參道，或依原訂步行路線前往。",
+    "note": "",
+    "links": [
+      {
+        "label": "明治神宮外苑銀杏大道",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE%E5%A4%96%E8%8B%91%20%E3%81%84%E3%81%A1%E3%82%87%E3%81%86%E4%B8%A6%E6%9C%A8"
+      },
+      {
+        "label": "外苑前站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%96%E8%8B%91%E5%89%8D%E9%A7%85"
+      },
+      {
+        "label": "表參道站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E8%A1%A8%E5%8F%82%E9%81%93%E9%A7%85"
+      }
+    ],
+    "meal": false
+  },
+  "4-2": {
+    "title": "逛街｜表參道・原宿",
+    "summary": "KIDDY LAND、NUMBER SUGAR 順路選逛。Sweet Check 組先吃再逛；BASO／麺散組先逛再吃，14:15 各自朝澀谷方向走。",
+    "directions": "由表參道朝原宿方向逛街；依午餐店位置調整購物先後，餐後不折回 KIDDY LAND。",
+    "note": "各組先約好 14:45 在 FREAK’S STORE Shibuya 會合。",
+    "links": [
+      {
+        "label": "KIDDY LAND",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%87%E3%82%A4%E3%83%A9%E3%83%B3%E3%83%89%20%E5%8E%9F%E5%AE%BF%E5%BA%97%20%E6%B8%8B%E8%B0%B7%E5%8C%BA%E7%A5%9E%E5%AE%AE%E5%89%8D6-1-9"
+      },
+      {
+        "label": "NUMBER SUGAR",
+        "url": "https://www.google.com/maps/search/?api=1&query=NUMBER%20SUGAR%20%E8%A1%A8%E5%8F%82%E9%81%93%E6%9C%AC%E5%BA%97"
+      }
+    ],
+    "meal": false
+  },
+  "4-3": {
+    "title": "午餐｜三選一",
+    "summary": "Sweet Check 11:00、BASO 11:30、麺散 11:30 起可用餐；當天選店，與購物穿插安排。餐後直接往澀谷，不再回原宿集合。",
+    "directions": "Sweet Check 在南青山；BASO、麺散在神宮前。依各店地圖到店，14:15 左右往澀谷出發。",
+    "note": "BASO 備現金；麺散不收現金與 QR 支付，備信用卡或電子支付。",
+    "links": [
+      {
+        "label": "Sweet Check 蛋包飯",
+        "url": "https://maps.app.goo.gl/cq6P7DPSL1NEdmQT8"
+      },
+      {
+        "label": "BASO 蕎麥麵",
+        "url": "https://maps.app.goo.gl/XfhefUXyvnTHNSra8"
+      },
+      {
+        "label": "うどん 麺散",
+        "url": "https://maps.app.goo.gl/Nf1bBBnExek1mAus5"
+      }
+    ],
+    "meal": true
+  },
+  "4-4": {
+    "title": "步行往澀谷",
+    "summary": "午餐與購物結束後，沿貓街、宮下公園方向走到 FREAK’S STORE Shibuya；14:45 會合，途中點心看時間選買。",
+    "directions": "原宿／表參道 → 貓街南段 → 宮下公園周邊 → FREAK’S STORE Shibuya。",
+    "note": "午餐後不折返原宿；笑たこ等點心在原宿逛街時順買。",
+    "links": [
+      {
+        "label": "FREAK'S STORE Shibuya",
+        "url": "https://maps.app.goo.gl/zfRiMG347oqCoXQQ6"
+      }
+    ],
+    "meal": false
+  },
+  "4-5": {
+    "title": "FREAK’S STORE Shibuya",
+    "summary": "各組在 FREAK’S STORE Shibuya 會合、逛店，15:30 再一起步行去 PARCO。認明神南 1-13-1 的澀谷店，避免走到其他分店。",
+    "directions": "集合地點：FREAK’S STORE Shibuya，神南 1-13-1。集合後依地圖步行至 PARCO。",
+    "note": "",
+    "links": [
+      {
+        "label": "FREAK'S STORE Shibuya",
+        "url": "https://maps.app.goo.gl/zfRiMG347oqCoXQQ6"
+      },
+      {
+        "label": "澀谷 PARCO",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7PARCO%20%E5%AE%87%E7%94%B0%E5%B7%9D%E7%94%BA15-1"
+      }
+    ],
+    "meal": false,
+    "extra": "週二 12:00–20:00。"
+  },
+  "4-6": {
+    "title": "購物｜澀谷 PARCO",
+    "summary": "從 FREAK’S STORE 走到 PARCO，先逛想看的樓層，17:00 到 B1 分開吃晚餐；把候位時間留給極味屋。",
+    "directions": "FREAK’S STORE Shibuya → 澀谷 PARCO；餐廳在 B1。",
+    "note": "一般商店與餐廳營業時間不同；先逛商店再用餐。",
+    "links": [
+      {
+        "label": "澀谷 PARCO",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7PARCO%20%E5%AE%87%E7%94%B0%E5%B7%9D%E7%94%BA15-1"
+      }
+    ],
+    "meal": false,
+    "extra": "一般商店 11:00–21:00。"
+  },
+  "4-7": {
+    "title": "晚餐｜PARCO B1 分開用餐",
+    "summary": "吃牛的 5 位排極味屋；另 2 位（1 位不吃牛、1 位陪同）在館內選店，真さか可作候選。先約好餐後會合點，再各自入座。",
+    "directions": "兩組都在 PARCO B1 用餐；餐後在約定地點會合，接著往唐吉訶德或澀谷站。",
+    "note": "極味屋不接受訂位，5 位可能分開入座；候位較久就縮短後面的自由購物。",
+    "links": [
+      {
+        "label": "極味屋 澀谷 PARCO 店",
+        "url": "https://maps.app.goo.gl/PW2hqEnuummDrjFH8"
+      },
+      {
+        "label": "真さか",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%AC%E3%83%B3%E5%B1%85%E9%85%92%E5%B1%8B%20%E7%9C%9F%E3%81%95%E3%81%8B%20%E6%B8%8B%E8%B0%B7PARCO%20B1"
+      }
+    ],
+    "meal": true
+  },
+  "4-8": {
+    "title": "晚餐後｜MEGA 唐吉訶德",
+    "summary": "餐後有時間就逛 MEGA 唐吉訶德，再往澀谷站；若候位較久或想休息，可直接回民宿，不必為購物繞回 PARCO。",
+    "directions": "PARCO → MEGA 唐吉訶德澀谷本店 → 澀谷站。",
+    "note": "先回民宿的人在群組告知，避免大家等候。",
+    "links": [
+      {
+        "label": "MEGA 唐吉訶德 澀谷本店",
+        "url": "https://www.google.com/maps/search/?api=1&query=MEGA%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%E6%B8%8B%E8%B0%B7%E6%9C%AC%E5%BA%97"
+      },
+      {
+        "label": "澀谷站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85"
+      }
+    ],
+    "meal": false
+  },
+  "4-9": {
+    "title": "回程｜澀谷站八公口",
+    "summary": "依約定時間在八公口站外會合、點名，再一起搭地鐵回本所吾妻橋；八公口是集合地標，乘車請找半藏門線 Z 的指標。",
+    "directions": "澀谷 Z01 搭半藏門線（紫色，押上方向）至押上 Z14，轉淺草線 A20（玫瑰紅，西馬込／羽田方向）至本所吾妻橋 A19。",
+    "note": "八公口附近有 JR 與地鐵入口，不要直接跟著 JR 人潮進閘。",
+    "links": [
+      {
+        "label": "澀谷站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85"
+      },
+      {
+        "label": "本所吾妻橋站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E9%A7%85"
+      },
+      {
+        "label": "東京民宿",
+        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
+      }
+    ],
+    "meal": false,
+    "rail": true
+  },
+  "5-0": {
+    "title": "早餐｜Mūya",
+    "summary": "09:00 從民宿出門，沿隅田川方向走到 Mūya；09:30–10:15 早餐後往淺草寺。若候位久就外帶，留時間逛寺院與準時午餐。",
+    "directions": "東京民宿 → 隅田川步道 → Mūya，步行約 20–30 分鐘。",
+    "note": "",
+    "links": [
+      {
+        "label": "東京民宿",
+        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
+      },
+      {
+        "label": "隅田川步道",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E9%9A%85%E7%94%B0%E5%B7%9D%E3%83%86%E3%83%A9%E3%82%B9%20%E5%90%BE%E5%A6%BB%E6%A9%8B"
+      },
+      {
+        "label": "Mūya",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%82%80%E3%81%86%E3%82%84%20%E6%9D%B1%E4%BA%AC%E3%83%9F%E3%82%BA%E3%83%9E%E3%83%81"
+      }
+    ],
+    "meal": false
+  },
+  "5-1": {
+    "title": "淺草寺・仲見世散步",
+    "summary": "從 Mūya 過河往淺草寺、仲見世，10:30–11:30 參拜逛街；11:30 起往各自午餐店移動，牛舌組須在 12:00 訂位前到店。",
+    "directions": "Mūya → 隅田公園／吾妻橋過河 → 淺草寺 → 仲見世。",
+    "note": "12:00 牛舌訂位優先，排隊買小吃不要壓縮到店時間。",
+    "links": [
+      {
+        "label": "淺草寺",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%B7%BA%E8%8D%89%E5%AF%BA%20%E6%9D%B1%E4%BA%AC"
+      },
+      {
+        "label": "仲見世商店街",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%BB%B2%E8%A6%8B%E4%B8%96%E5%95%86%E5%BA%97%E8%A1%97%20%E6%9D%B1%E4%BA%AC"
+      }
+    ],
+    "meal": false
+  },
+  "5-2": {
+    "title": "午餐｜5 人訂位、2 人自由選店",
+    "summary": "12:00 牛舌店已訂 5 位，分 3 人與 2 人兩筆；另 2 位（1 位不吃牛、1 位陪同）自由選店，麺みつヰ、秋光保留候選。13:15 雷門會合。",
+    "directions": "牛舌組到牛たんの檸檬淺草店；另 2 位依候選店地圖前往。餐後一起到雷門，再搭車往淺草橋。",
+    "note": "牛舌訂位停留 1 小時；兩筆訂位資訊見「已預約 → DAY 05」。候選店湯底、醬汁是否含牛需向店員確認。",
+    "links": [
+      {
+        "label": "牛たんの檸檬 淺草店",
+        "url": "https://maps.app.goo.gl/K4QdwtcbFczYAsTPA"
+      },
+      {
+        "label": "麺 みつヰ",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E9%BA%BA%20%E3%81%BF%E3%81%A4%E3%83%B0%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E5%AF%BF2-9-15"
+      },
+      {
+        "label": "天麩羅秋光",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E9%BA%A9%E7%BE%85%20%E7%A7%8B%E5%85%89%20%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97"
+      },
+      {
+        "label": "訂位資料",
+        "url": "?view=bookings&bday=5"
+      }
+    ],
+    "meal": true
+  },
+  "5-3": {
+    "title": "淺草小吃｜順路選一",
+    "summary": "午餐前後有空再選買花月堂、壽壽喜園或龜十，選一家分食即可；遇到長隊就略過，13:15 回雷門會合，留足淺草橋與休息時間。",
+    "directions": "各自用餐後向雷門方向集合；小吃店位置不同，按地圖挑順路的一家。",
+    "note": "小吃為選逛，不須全部買齊；不要為排隊延後集合。",
+    "links": [
+      {
+        "label": "花月堂菠蘿麵包",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%B5%85%E8%8D%89%E8%8A%B1%E6%9C%88%E5%A0%82+%E6%9C%AC%E5%BA%97"
+      },
+      {
+        "label": "壽壽喜園抹茶冰淇淋",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%A3%BD%E3%80%85%E5%96%9C%E5%9C%92+%E6%B5%85%E8%8D%89%E6%9C%AC%E5%BA%97"
+      },
+      {
+        "label": "龜十銅鑼燒",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%BA%80%E5%8D%81+%E6%B5%85%E8%8D%89"
+      }
+    ],
+    "meal": false,
+    "extra": "花月堂本店、壽壽喜園 11:00 開門；龜十依現場排隊決定。"
+  },
+  "5-4": {
+    "title": "午後｜銀杏岡八幡神社・シモジマ",
+    "summary": "雷門會合後搭淺草線到淺草橋，A3 出口先去銀杏岡八幡神社，再逛シモジマ本店；15:00 左右離開，保留回民宿休息的時間。",
+    "directions": "淺草 A18 搭淺草線（玫瑰紅，西馬込／羽田方向）2 站至淺草橋 A16；A3 出口步行約 2–3 分鐘到神社，再步行約 5 分鐘到シモジマ。",
+    "note": "淺草與淺草橋是不同車站；搭車會經過藏前。",
+    "links": [
+      {
+        "label": "銀杏岡八幡神社",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E9%8A%80%E6%9D%8F%E5%B2%A1%E5%85%AB%E5%B9%A1%E7%A5%9E%E7%A4%BE%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-29-11"
+      },
+      {
+        "label": "シモジマ淺草橋本店",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%A2%E3%82%B8%E3%83%9E%20%E6%B5%85%E8%8D%89%E6%A9%8B%E6%9C%AC%E5%BA%97%20%E5%8F%B0%E6%9D%B1%E5%8C%BA%E6%B5%85%E8%8D%89%E6%A9%8B1-30-10"
+      }
+    ],
+    "meal": false,
+    "rail": true,
+    "extra": "銀杏岡八幡神社授與所 09:30–16:30；シモジマ淺草橋本店 09:30–19:00。"
+  },
+  "5-5": {
+    "title": "回民宿休息",
+    "summary": "15:00 左右從淺草橋搭車回本所吾妻橋，約 15:30 到民宿放購物袋、休息；16:30 再出發去日比谷，晚間不用提著白天買的物品。",
+    "directions": "淺草橋 A16 搭淺草線（玫瑰紅，押上方向）3 站至本所吾妻橋 A19，再步行回民宿。",
+    "note": "",
+    "links": [
+      {
+        "label": "本所吾妻橋站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E6%89%80%E5%90%BE%E5%A6%BB%E6%A9%8B%E9%A7%85"
+      },
+      {
+        "label": "東京民宿",
+        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
+      }
+    ],
+    "meal": false,
+    "rail": true
+  },
+  "5-6": {
+    "title": "外帶｜PATISSERIE TEN&",
+    "summary": "16:30 民宿出門，到日比谷 OKUROJI 的 TEN& 外帶，預計 17:30–18:00 取餐。指定甜點可先選外帶預訂，取餐後步行去有樂町 HARBS。",
+    "directions": "本所吾妻橋 A19 搭淺草線（玫瑰紅，西馬込／羽田方向）至新橋 A10，往 JR 日比谷口一側出地面，沿鐵路高架旁步行到 OKUROJI。",
+    "note": "週三傍晚外帶自 17:30 起；店內採無現金支付，外帶預訂須信用卡預付。",
+    "links": [
+      {
+        "label": "PATISSERIE TEN&",
+        "url": "https://www.google.com/maps/search/?api=1&query=PATISSERIE%20TEN%26%20%E6%97%A5%E6%AF%94%E8%B0%B7OKUROJI"
+      },
+      {
+        "label": "TEN& 外帶預訂",
+        "url": "https://www.tablecheck.com/ja/shops/patisserie-ten-okuroji/reserve"
+      }
+    ],
+    "meal": false,
+    "extra": "週三傍晚外帶 17:30–20:00。",
+    "rail": true
+  },
+  "5-7": {
+    "title": "甜點｜HARBS LUMINE 有樂町店",
+    "summary": "沿高架旁步行約 10–15 分鐘，到 LUMINE 有樂町 1 館 2F。18:00–19:00 有位內用、滿席外帶，再去日比谷站搭車往六本木。",
+    "directions": "TEN& → 有樂町方向 → LUMINE 有樂町 1 館 2F；用餐後步行往日比谷站。",
+    "note": "外帶前告知店員稍後還要逛市集，確認保冷時間。",
+    "links": [
+      {
+        "label": "HARBS LUMINE 有樂町店",
+        "url": "https://www.google.com/maps/search/?api=1&query=HARBS%20%E3%83%AB%E3%83%9F%E3%83%8D%E6%9C%89%E6%A5%BD%E7%94%BA%E5%BA%97%20%E6%9C%89%E6%A5%BD%E7%94%BA2-5-1"
+      },
+      {
+        "label": "HARBS 保冷說明",
+        "url": "https://www.harbs.co.jp/qa/"
+      }
+    ],
+    "meal": false,
+    "extra": "不接受座位預約。內用最後點餐 20:00、外帶至 21:00；冬季外帶建議 1 小時內冷藏，有保冷袋約 2 小時。"
+  },
+  "5-8": {
+    "title": "六本木新城聖誕市集",
+    "summary": "由日比谷搭地鐵到六本木，約 19:30 到大屋頂廣場逛聖誕市集，再沿周邊看點燈；晚餐現場選擇，市集 21:00 結束。",
+    "directions": "日比谷 H08 搭日比谷線（灰色，中目黑方向）至六本木 H04；1c 出口通往六本木新城，依指標到大屋頂廣場。",
+    "note": "市集在大屋頂廣場；點燈區與市集位置不同，跟著步行指標走。",
+    "links": [
+      {
+        "label": "六本木聖誕官方網站",
+        "url": "https://www.christmas.hills-site.com/"
+      }
+    ],
+    "meal": false,
+    "extra": "市集 11/21–12/25，11:00–21:00；櫸樹坂點燈至 22:00。",
+    "rail": true,
+    "car": "往中目黑方向：第 5 車廂附近接 Hills 手扶梯，第 7 車廂附近為電梯／樓梯；不是往大江戶線的第 1～2 車廂端。"
+  },
+  "6-0": {
+    "title": "東京 → 日光｜已訂妥",
+    "summary": "07:50 退房出門，08:30 到東武淺草站。搭已訂 09:00 SPACIA X 003，10:50 抵達東武日光；已訂 Premium seat。",
+    "directions": "從東京民宿步行前往東武淺草站，依 SPACIA X 指標找月台；車廂與座位看手機車票。",
+    "note": "要找「東武」淺草站，避免走進都營或 Metro 淺草站。",
+    "links": [
+      {
+        "label": "東武淺草站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%B5%85%E8%8D%89%E9%A7%85"
+      },
+      {
+        "label": "東武日光站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85"
+      },
+      {
+        "label": "已預約車票",
+        "url": "./?view=bookings&bday=6"
+      }
+    ],
+    "meal": false,
+    "extra": "10:50 抵達後，可先在站內旅客服務中心購買中禪寺溫泉兩日券，再前往 mekke。"
+  },
+  "6-1": {
+    "title": "抵達後先寄物",
+    "summary": "出站後先寄行李再用餐。沿日光街道往神橋方向走到 mekke，拖行李預留約 20 分鐘；民宿不接受提前寄放，mekke 尚待確認空位。",
+    "directions": "東武日光站 → 沿日光街道往神橋方向 → mekke 日光郷土センター（日光市御幸町591）。",
+    "note": "行李收件空間先確認；30 吋箱要提供含輪子、把手的外尺寸。",
+    "links": [
+      {
+        "label": "東武日光站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85"
+      },
+      {
+        "label": "mekke 日光郷土センター",
+        "url": "https://www.google.com/maps/search/?api=1&query=mekke%20%E6%97%A5%E5%85%89%E9%83%B7%E5%9C%9F%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E6%97%A5%E5%85%89%E5%B8%82%E5%BE%A1%E5%B9%B8%E7%94%BA591"
+      },
+      {
+        "label": "寄物預約",
+        "url": "https://www.mekke-nikko.com/luggagestorage-reservation"
+      },
+      {
+        "label": "寄物費用與備案",
+        "url": "./?view=guide#nikko-luggage-info"
+      }
+    ],
+    "meal": false,
+    "extra": "mekke 09:00–17:00；每人最多 2 件、2 件以內 ¥1,000。行李合計費用先詢問，保留收據，16:15–16:30 回來取件。"
+  },
+  "6-2": {
+    "title": "午餐後前往東照宮",
+    "summary": "11:30–12:45 在日光街道午餐。餐後從 mekke 附近搭巴士到西参道入口，再步行去東照宮；直接順路上山，省去折返車站。",
+    "directions": "",
+    "note": "午餐候位太久就換附近店家；可分桌，1 位不吃牛，點餐前確認湯底與醬汁。",
+    "links": [
+      {
+        "label": "日光郷土センター前",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E9%83%B7%E5%9C%9F%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E5%89%8D%20%E3%83%90%E3%82%B9%E5%81%9C"
+      },
+      {
+        "label": "西参道入口",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E5%8F%82%E9%81%93%E5%85%A5%E5%8F%A3%20%E6%97%A5%E5%85%89%20%E3%83%90%E3%82%B9%E5%81%9C"
+      },
+      {
+        "label": "日光巴士站牌與班次",
+        "url": "site-two/index.html"
+      }
+    ],
+    "meal": false
+  },
+  "6-3": {
+    "title": "日光東照宮",
+    "summary": "13:30–15:15 參觀東照宮，先看陽明門、三猿、眠貓與主要社殿。奧宮階梯依體力決定；成人參拜券 ¥1,600，不含寶物館。",
+    "directions": "從西参道入口站下車，依東照宮指標步行進入參道；參觀後沿表參道下坡往神橋。",
+    "note": "11 月 16:00 關門、15:30 最後入場；若前段延誤，縮短奧宮或購物，保留取件時間。",
+    "links": [
+      {
+        "label": "日光東照宮",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE"
+      },
+      {
+        "label": "參拜與門票",
+        "url": "https://toshogu.jp/pages/25/"
+      }
+    ],
+    "meal": false,
+    "extra": "11 月 09:00–16:00，15:30 最後入場。"
+  },
+  "6-4": {
+    "title": "神橋外觀拍照",
+    "summary": "15:15 從東照宮沿參道下坡，步行約 10–15 分鐘到神橋，在橋外拍照後往寄物處走。這段不安排付費渡橋。",
+    "directions": "東照宮 → 表參道下坡 → 神橋；在公共道路一側拍照。",
+    "note": "渡橋 15:30 結束，目前時段以橋外拍照為主。",
+    "links": [
+      {
+        "label": "日光東照宮",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E6%9D%B1%E7%85%A7%E5%AE%AE"
+      },
+      {
+        "label": "神橋",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%A9%8B%20%E6%97%A5%E5%85%89%E5%B8%82%E4%B8%8A%E9%89%A2%E7%9F%B3%E7%94%BA"
+      }
+    ],
+    "meal": false
+  },
+  "6-5": {
+    "title": "日光街道順路散步",
+    "summary": "從神橋沿日光街道往 mekke 走，沿途短逛或買布丁；約 16:15 回到寄物處。不要先走回車站，mekke 就在途中。",
+    "directions": "神橋 → 沿日光街道往東武日光站方向 → mekke；日光ぷりん亭可順路短停。",
+    "note": "布丁店若排隊就略過，先確保能在關門前取行李。",
+    "links": [
+      {
+        "label": "神橋",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E6%A9%8B%20%E6%97%A5%E5%85%89%E5%B8%82%E4%B8%8A%E9%89%A2%E7%9F%B3%E7%94%BA"
+      },
+      {
+        "label": "mekke 日光郷土センター",
+        "url": "https://www.google.com/maps/search/?api=1&query=mekke%20%E6%97%A5%E5%85%89%E9%83%B7%E5%9C%9F%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E6%97%A5%E5%85%89%E5%B8%82%E5%BE%A1%E5%B9%B8%E7%94%BA591"
+      },
+      {
+        "label": "日光ぷりん亭",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E3%81%B7%E3%82%8A%E3%82%93%E4%BA%AD%20%E6%97%A5%E5%85%89%E6%9C%AC%E5%BA%97"
+      }
+    ],
+    "meal": false,
+    "extra": "日光ぷりん亭 10:00–17:00、不定休；不為購物延後取件。"
+  },
+  "6-6": {
+    "title": "取回行李",
+    "summary": "16:15–16:30 回原寄物處出示收據取件，最晚 17:00 前完成。若早上改寄站內 Yamato，就回車站取件，不必再去 mekke。",
+    "directions": "mekke 取件後直接前往民宿；改用 Yamato 的話，先回原寄放車站取件，再去民宿。",
+    "note": "17:00 後無法取件；前段延誤時，先縮短沿街購物。",
+    "links": [
+      {
+        "label": "mekke 日光郷土センター",
+        "url": "https://www.google.com/maps/search/?api=1&query=mekke%20%E6%97%A5%E5%85%89%E9%83%B7%E5%9C%9F%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%20%E6%97%A5%E5%85%89%E5%B8%82%E5%BE%A1%E5%B9%B8%E7%94%BA591"
+      },
+      {
+        "label": "東武日光站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85"
+      },
+      {
+        "label": "寄物費用與備案",
+        "url": "./?view=guide#nikko-luggage-info"
+      }
+    ],
+    "meal": false
+  },
+  "6-7": {
+    "title": "民宿入住、自由晚餐",
+    "summary": "取件後前往日光民宿，約 16:45–17:15 入住；依房東訊息操作玄關鑰匙盒。晚餐當天決定，晚上備好隔天湖區的保暖與暈車用品。",
+    "directions": "從原寄物處依民宿地圖前往，不再多排站前購物；站前商店已留在隔天下午。",
+    "note": "民宿 15:00 起可入住，未包含溫泉晚餐。",
+    "links": [
+      {
+        "label": "日光民宿",
+        "url": "https://maps.app.goo.gl/xPXoTRvUER7Yosbm6"
+      }
+    ],
+    "meal": false
+  },
+  "7-0": {
+    "title": "早餐後搭車上山",
+    "summary": "08:40 出門，08:50 前到東武日光站 2A 排隊。搭 09:05 YK 往湯元溫泉，09:50 在中禪寺溫泉下車；之後步行到華嚴瀑布。",
+    "directions": "",
+    "note": "伊呂波坂彎道多，會暈車的人先準備。出門前看運行公告；強風、雨雪、結冰或巴士停駛時，留日光市區，不勉強上山。",
+    "links": [
+      {
+        "label": "東武日光站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85"
+      },
+      {
+        "label": "中禪寺溫泉巴士站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB"
+      },
+      {
+        "label": "官方巴士時刻表",
+        "url": "https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408="
+      },
+      {
+        "label": "日光巴士站牌與班次",
+        "url": "site-two/index.html"
+      }
+    ],
+    "meal": false
+  },
+  "7-1": {
+    "title": "華嚴瀑布",
+    "summary": "從中禪寺溫泉站步行約 5 分鐘到華嚴瀑布，10:00–11:00 留給觀瀑、排隊與拍照。電梯成人往返 ¥600，濃霧或停運時縮短停留。",
+    "directions": "中禪寺溫泉巴士站 → 步行到華嚴瀑布；搭電梯可到下方觀瀑台。",
+    "note": "巴士券不含電梯；水量、能見度及運行依現場情況。",
+    "links": [
+      {
+        "label": "中禪寺溫泉巴士站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB"
+      },
+      {
+        "label": "華嚴瀑布",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E8%8F%AF%E5%8E%B3%E3%81%AE%E6%BB%9D%20%E6%97%A5%E5%85%89"
+      },
+      {
+        "label": "電梯營業與費用",
+        "url": "https://www.kegon.jp/info/"
+      }
+    ],
+    "meal": false,
+    "extra": "11 月電梯 08:00–17:00。"
+  },
+  "7-2": {
+    "title": "湖畔短程散步",
+    "summary": "11:00–11:30 從瀑布走回中禪寺湖畔，在巴士站附近看湖、拍男體山。這段只作短程散步，不環湖，保留午餐與休息時間。",
+    "directions": "華嚴瀑布 → 返回中禪寺溫泉站附近 → 站前湖岸。",
+    "note": "強風、雨雪或結冰時改進室內休息。",
+    "links": [
+      {
+        "label": "華嚴瀑布",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E8%8F%AF%E5%8E%B3%E3%81%AE%E6%BB%9D%20%E6%97%A5%E5%85%89"
+      },
+      {
+        "label": "中禪寺湖",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B9%96%20%E6%97%A5%E5%85%89"
+      },
+      {
+        "label": "中禪寺溫泉巴士站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB"
+      }
+    ],
+    "meal": false
+  },
+  "7-3": {
+    "title": "湖區午餐、坐下休息",
+    "summary": "11:30–13:00 在湖畔或巴士站附近午餐。留 60 分鐘吃飯、30 分鐘候位與休息；可分桌，隊伍太長就換附近店家。",
+    "directions": "沿站前湖畔就近選店，不另外搭車或走到遠處。",
+    "note": "餐廳未預約；1 位不吃牛肉，先確認湯底、醬汁與配料。",
+    "links": [],
+    "meal": false
+  },
+  "7-4": {
+    "title": "湖畔自由時間",
+    "summary": "午餐後在站前湖畔小逛或喝咖啡；約 14:00 開始回站，14:10–14:15 到 26B 排隊。這段也預留給上午巴士或用餐延誤。",
+    "directions": "從湖畔步行回中禪寺溫泉巴士站，找往 JR／東武日光方向的 26B 乘車處。",
+    "note": "天冷就提早回候車室，不另加遠處景點。",
+    "links": [
+      {
+        "label": "中禪寺湖",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B9%96%20%E6%97%A5%E5%85%89"
+      },
+      {
+        "label": "中禪寺溫泉巴士站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB"
+      }
+    ],
+    "meal": false
+  },
+  "7-5": {
+    "title": "14:30 搭車下山",
+    "summary": "在中禪寺溫泉 26B 搭 14:30 YK 下山，表定 15:06 到東武日光。回程仍用同張有效兩日券；若延誤，就縮短站前自由購物。",
+    "directions": "",
+    "note": "14:30 不是末班車；若滿車，向站務人員確認後續車班。",
+    "links": [
+      {
+        "label": "中禪寺溫泉巴士站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E7%A6%85%E5%AF%BA%E6%B8%A9%E6%B3%89%20%E3%83%90%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB"
+      },
+      {
+        "label": "東武日光站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85"
+      },
+      {
+        "label": "官方巴士時刻表",
+        "url": "https://www.tobu-bus.com/pc/assets/pdf/nikko_timetable_summer.pdf?20260408="
+      },
+      {
+        "label": "日光巴士站牌與班次",
+        "url": "site-two/index.html"
+      }
+    ],
+    "meal": false
+  },
+  "7-6": {
+    "title": "站前自由逛｜可直接回民宿",
+    "summary": "15:15–16:15 在東武日光站前挑 1～2 家店：さかえや炸湯波饅頭、CHEESE GARDEN 或 ACCESS 土產店；排隊長就略過，累了可直接回民宿。",
+    "directions": "三家都在東武日光站前；ACCESS 在改札外候車室，其他兩家沿站前街道步行前往。",
+    "note": "店家可自由選逛，不用走滿一小時。",
+    "links": [
+      {
+        "label": "日光さかえや",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E5%85%89%E3%81%95%E3%81%8B%E3%81%88%E3%82%84%20%E6%9D%BE%E5%8E%9F%E7%94%BA10-1"
+      },
+      {
+        "label": "CHEESE GARDEN THE NIKKO",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%83%81%E3%83%BC%E3%82%BA%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%20THE%20NIKKO%20%E6%9D%BE%E5%8E%9F%E7%94%BA8-1"
+      },
+      {
+        "label": "ACCESS 東武日光站店",
+        "url": "https://www.google.com/maps/search/?api=1&query=ACCESS%20%E6%9D%B1%E6%AD%A6%E6%97%A5%E5%85%89%E9%A7%85"
+      },
+      {
+        "label": "さかえや攻略",
+        "url": "restaurant-guide/venues/27-nikko-sakaeya.html"
+      },
+      {
+        "label": "CHEESE GARDEN",
+        "url": "https://shoplist.cheesegarden.jp/detail/002/"
+      },
+      {
+        "label": "ACCESS",
+        "url": "https://www.tobushoji.co.jp/service/ekinaka/"
+      }
+    ],
+    "meal": false,
+    "extra": "さかえや 09:30–17:00；CHEESE GARDEN 09:00–18:00（部分甜食 17:00、飲料等 17:30 最後點餐）；ACCESS 08:00–18:10。"
+  },
+  "7-7": {
+    "title": "回民宿休息、自由晚餐",
+    "summary": "約 16:30 回日光民宿，晚餐當天決定。晚上洗衣、整理行李並休息；隔天 07:45 集合，08:00 已訂包車往成田。",
+    "directions": "從東武日光站步行回民宿，約 7 分鐘，依步速預留 10–15 分鐘。",
+    "note": "隔天需帶全部行李退房，今晚先整理。",
+    "links": [
+      {
+        "label": "日光民宿",
+        "url": "https://maps.app.goo.gl/xPXoTRvUER7Yosbm6"
+      },
+      {
+        "label": "隔日包車資料",
+        "url": "./?view=bookings&bday=8"
+      }
+    ],
+    "meal": false
+  },
+  "8-0": {
+    "title": "日光 → 成田｜包車",
+    "summary": "07:45 退房集合，08:00 搭已訂 Hiace 往成田里士滿飯店，先寄行李並詢問隔日 08:20 接駁登記。表參道有交通管制，從飯店步行前往。",
+    "directions": "日光民宿門口上車 → Richmond Hotel Narita 下車寄物 → 步行往成田山表參道。",
+    "note": "若接駁須入住後登記，14:00 後、去 AEON 前先辦入住；7 個座位未確認。",
+    "links": [
+      {
+        "label": "日光民宿",
+        "url": "https://maps.app.goo.gl/xPXoTRvUER7Yosbm6"
+      },
+      {
+        "label": "成田里士滿飯店",
+        "url": "https://maps.app.goo.gl/2XG4HEaMg9eHVKVZ6"
+      },
+      {
+        "label": "已預約包車",
+        "url": "./?view=bookings&bday=8"
+      },
+      {
+        "label": "接送憑證PDF",
+        "url": "assets/nikko-narita-transfer-voucher-2026-11-28.pdf"
+      },
+      {
+        "label": "官方交通管制",
+        "url": "https://www.nrtk.jp/news/20261013.html"
+      }
+    ],
+    "meal": false,
+    "extra": "已訂 Toyota Hiace，車資已付。預計前一天透過 WeChat／WhatsApp 收到司機資料；上車前主動確認等候位置。"
+  },
+  "8-1": {
+    "title": "午餐｜成田山表參道",
+    "summary": "從飯店步行到成田山表參道，先到川豐本店取號，再依叫號用餐；若候位太久或想吃其他料理，就在表參道附近選店。",
+    "directions": "Richmond Hotel Narita → 成田山表參道 → 川豐本店。",
+    "note": "先取號才知道候位時間，之後再決定是否等候。",
+    "links": [
+      {
+        "label": "成田山表參道",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E8%A1%A8%E5%8F%82%E9%81%93"
+      },
+      {
+        "label": "川豐本店",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%B7%9D%E8%B1%8A+%E6%9C%AC%E5%BA%97+%E6%88%90%E7%94%B0"
+      }
+    ],
+    "meal": false
+  },
+  "8-2": {
+    "title": "下午｜新勝寺・紅葉祭・米屋",
+    "summary": "步行逛新勝寺大本堂、成田山公園紅葉祭，再回表參道買米屋。公園約留 45–60 分鐘，16:40 左右往京成成田站；提早抵達才加看演奏或茶會。",
+    "directions": "表參道 → 新勝寺大本堂 → 成田山公園 → 原路回表參道的なごみの米屋 → 京成成田站。",
+    "note": "13:30 演奏早於下午主行程；只有提早抵達才參加，不為活動更動路線。",
+    "links": [
+      {
+        "label": "新勝寺大本堂",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E6%96%B0%E5%8B%9D%E5%AF%BA%20%E5%A4%A7%E6%9C%AC%E5%A0%82"
+      },
+      {
+        "label": "成田山公園",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%88%90%E7%94%B0%E5%B1%B1%E5%85%AC%E5%9C%92"
+      },
+      {
+        "label": "なごみの米屋",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%81%AA%E3%81%94%E3%81%BF%E3%81%AE%E7%B1%B3%E5%B1%8B%20%E7%B7%8F%E6%9C%AC%E5%BA%97%20%E6%88%90%E7%94%B0%E5%B8%82%E4%B8%8A%E7%94%BA500"
+      },
+      {
+        "label": "京成成田站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E6%88%90%E6%88%90%E7%94%B0%E9%A7%85"
+      },
+      {
+        "label": "紅葉祭活動資訊",
+        "url": "https://www.nrtk.jp/enjoy/shikisaisai/autumn-festival.html"
+      }
+    ],
+    "meal": false,
+    "extra": "紅葉祭 11/14–11/29；11/28 演奏 11:00、13:30，茶會約 10:00–15:00，額滿提早結束。若接駁需入住後登記，去 AEON 前先回飯店辦理。"
+  },
+  "8-3": {
+    "title": "傍晚｜AEON MALL 成田",
+    "summary": "京成成田站 6 號搭 17:15／17:47 直行巴士，單程 ¥220、可刷 IC。回程選 20:28 星巴克前或 20:29 Mall East；這是同一班車的相鄰兩站。",
+    "directions": "京成成田站 6 號 → AEON MALL；回程在全團約好的站牌上車 → 京成成田站，再步行約 5 分鐘回飯店。",
+    "note": "前門上車先付費；回程兩站擇一集合，不要把 20:28／20:29 當成兩班車。",
+    "links": [
+      {
+        "label": "京成成田站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E6%88%90%E6%88%90%E7%94%B0%E9%A7%85"
+      },
+      {
+        "label": "AEON MALL 成田",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB%E6%88%90%E7%94%B0"
+      },
+      {
+        "label": "AEON巴士時刻表",
+        "url": "#day8-aeon-bus"
+      },
+      {
+        "label": "成田里士滿飯店",
+        "url": "https://maps.app.goo.gl/2XG4HEaMg9eHVKVZ6"
+      }
+    ],
+    "meal": false,
+    "extra": "去程備案 18:30；回程備案 21:05 星巴克前／21:06 Mall East。車程約 10 分鐘，專門店 21:00 關門。"
+  },
+  "9-0": {
+    "title": "飯店 → 成田 T2",
+    "summary": "已登記接駁座位者 08:05 大廳集合、08:20 發車，約 08:40 到成田 T2。先完成免稅品海關攜出確認，再辦報到與托運。",
+    "directions": "飯店接駁 → 成田 T2 → 依指標完成護照／免稅品攜出確認 → 航空公司報到櫃檯。",
+    "note": "免稅商品完成海關確認前不要托運；接駁座位前晚登記，滿位就用京成電車備案。",
+    "links": [
+      {
+        "label": "成田里士滿飯店",
+        "url": "https://maps.app.goo.gl/2XG4HEaMg9eHVKVZ6"
+      },
+      {
+        "label": "接駁備案",
+        "url": "./?view=guide#narita-shuttle-fallback"
+      },
+      {
+        "label": "成田入境退稅出境說明",
+        "url": "airport-guide/index.html#departure"
+      }
+    ],
+    "meal": false,
+    "extra": "08:15 前上車。虎航約 10:30 開櫃，以當天公告為準；若無接駁座位，08:00 離開飯店改搭京成電車。"
+  },
+  "9-1": {
+    "title": "機場伴手禮",
+    "summary": "完成海關確認與托運後，先逛本館 4F 安檢前商店，再過安檢到本館 3F Fa-So-La。想買的先看清單，接近登機時間就直接往登機門。",
+    "directions": "成田 T2 本館 4F（安檢前）→ 安檢與出境審查 → 本館 3F Fa-So-La（安檢後）→ 登機門。",
+    "note": "安檢前、後的店不能自由往返；先完成海關與托運，再按登機時間安排購物。",
+    "links": [
+      {
+        "label": "機場購物清單",
+        "url": "./?view=airport"
+      },
+      {
+        "label": "成田T2購物詳細",
+        "url": "site-three/index.html"
+      }
+    ],
+    "meal": false
+  },
+  "9-2": {
+    "title": "回台灣",
+    "summary": "A、C 組搭 IT281，13:00 從成田起飛；B 組搭 CI101，14:35 起飛、17:45 抵達桃園。依登機證與當天看板確認登機門及登機時間。",
+    "directions": "通過安檢與出境審查後，依當天看板的登機門號碼前進，按登機證所列時間到門口集合。",
+    "note": "起飛時間不是登機時間；以登機證列出的時間到登機門集合。",
+    "links": [
+      {
+        "label": "航班交通",
+        "url": "./?view=flights"
+      }
+    ],
+    "meal": false
+  }
 };
-  function dailyCopyFor(index) {
-    if(state.day!==3 || index!==0 || state.group==='C')return revisedDailyCopy[state.day]?.[index];
+
+  const readingRoutes = [
+  {
+    "key": "yanaka",
+    "title": "谷根千｜根津 → 谷中銀座 → 日暮里",
+    "steps": [
+      {
+        "time": "09:00 出門",
+        "title": "民宿 → 晴空塔站前 → 根津",
+        "text": "步行約 15–20 分鐘到「とうきょうスカイツリー駅前」2 番站牌，搭上 26「上野公園行」，在根津駅前下車。前門上車刷 IC 卡付款、後門下車；11/23 查假日班表，不預設固定班次。"
+      },
+      {
+        "time": "約 10:10–10:50",
+        "title": "根津神社",
+        "text": "根津駅前下車後步行約 5–10 分鐘，參拜樓門、社殿與千本鳥居。巴士若延誤，就縮短停留，仍照原路往谷中銀座走。"
+      },
+      {
+        "time": "約 10:50–11:15",
+        "title": "根津 → 千駄木 → 谷中銀座",
+        "text": "沿步行地圖往谷中銀座走，路上拍照可短停。不另繞住宅巷弄，保留老街散步時間。"
+      },
+      {
+        "time": "約 11:15–12:00",
+        "title": "谷中銀座商店街",
+        "text": "逛老街、買小吃分食；部分店家較晚開門，遇長隊就略過。接著往夕やけだんだん方向走，不走回頭路。"
+      },
+      {
+        "time": "約 12:00–12:15",
+        "title": "夕やけだんだん → 日暮里站",
+        "text": "經夕やけだんだん階梯走到日暮里站，準備搭京成線回晴空塔。"
+      },
+      {
+        "time": "約 12:15 起",
+        "title": "日暮里 → 青砥 → 押上",
+        "text": "搭京成本線往青砥方向，在青砥依指標轉京成押上線往押上；用一般列車，不需 Skyliner 特急券。含候車約 40–50 分鐘，到押上後步行至 Solamachi。"
+      },
+      {
+        "time": "約 13:00 起",
+        "title": "晴空塔 Solamachi",
+        "text": "自行午餐、逛街，午餐沒有訂位，可依到達時間順延。晚餐前到炭火焼肉おくさこ與 C 組會合。"
+      }
+    ],
+    "note": "延誤時縮短根津神社或谷中銀座停留，不追加景點；日暮里本來就是回程上車站。",
+    "alternatives": [],
+    "links": [
+      {
+        "label": "谷根千步行地圖 ↗",
+        "url": "https://www.google.com/maps/dir/?api=1&origin=%E6%A0%B9%E6%B4%A5%E9%A7%85%E5%89%8D%20%E3%83%90%E3%82%B9%E5%81%9C&destination=%E6%97%A5%E6%9A%AE%E9%87%8C%E9%A7%85&travelmode=walking&waypoints=%E6%A0%B9%E6%B4%A5%E7%A5%9E%E7%A4%BE%7C%E8%B0%B7%E4%B8%AD%E9%8A%80%E5%BA%A7%E5%95%86%E5%BA%97%E8%A1%97%7C%E5%A4%95%E3%82%84%E3%81%91%E3%81%A0%E3%82%93%E3%81%A0%E3%82%93"
+      },
+      {
+        "label": "東京民宿",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A2%A8%E7%94%B0%E5%8C%BA%E6%9D%B1%E9%A7%92%E5%BD%A24-21-4"
+      },
+      {
+        "label": "とうきょうスカイツリー駅前 2 番站牌",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%81%86%E3%81%8D%E3%82%87%E3%81%86%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%84%E3%83%AA%E3%83%BC%E9%A7%85%E5%89%8D%20%E4%B8%8A26%20%E3%83%90%E3%82%B9%E5%81%9C"
+      },
+      {
+        "label": "根津駅前",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%A0%B9%E6%B4%A5%E9%A7%85%E5%89%8D%20%E3%83%90%E3%82%B9%E5%81%9C"
+      },
+      {
+        "label": "根津神社",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%A0%B9%E6%B4%A5%E7%A5%9E%E7%A4%BE"
+      },
+      {
+        "label": "千駄木",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E9%A7%84%E6%9C%A8%E9%A7%85"
+      },
+      {
+        "label": "谷中銀座",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E4%B8%AD%E9%8A%80%E5%BA%A7%E5%95%86%E5%BA%97%E8%A1%97"
+      },
+      {
+        "label": "夕やけだんだん",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%A4%95%E3%82%84%E3%81%91%E3%81%A0%E3%82%93%E3%81%A0%E3%82%93"
+      },
+      {
+        "label": "日暮里站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%97%A5%E6%9A%AE%E9%87%8C%E9%A7%85"
+      },
+      {
+        "label": "青砥站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E7%A0%A5%E9%A7%85"
+      },
+      {
+        "label": "押上站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%8A%BC%E4%B8%8A%E9%A7%85"
+      },
+      {
+        "label": "東京晴空塔／Solamachi",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E3%82%BD%E3%83%A9%E3%83%9E%E3%83%81"
+      },
+      {
+        "label": "都營巴士班次查詢 ↗",
+        "url": "https://www.kotsu.metro.tokyo.jp/bus/"
+      },
+      {
+        "label": "上 26 晴空塔站前 2 番官方時刻",
+        "url": "https://tobus.jp/sp/blsys/stop/time?ln=ja&poleno=2&routecode=79&stopid=2028&ud=1"
+      }
+    ]
+  },
+  {
+    "key": "sumida",
+    "title": "京島・向島｜神社、麵包與商店街",
+    "steps": [
+      {
+        "time": "09:00 出門",
+        "title": "民宿 → 押上",
+        "text": "從民宿到本所吾妻橋站，搭都營淺草線往押上，只坐 1 站。押上下車後，依步行地圖前往飛木稻荷。"
+      },
+      {
+        "time": "上午",
+        "title": "飛木稻荷神社",
+        "text": "參拜、拍照後，繼續往京島的ハト屋パン店走。"
+      },
+      {
+        "time": "上午",
+        "title": "ハト屋パン店",
+        "text": "沿京島巷弄步行到麵包店；排隊太長就略過，接著走商店街。"
+      },
+      {
+        "time": "上午",
+        "title": "キラキラ橘商店街",
+        "text": "沿商店街散步、看店家；各自逛之前先約好在商店街出口集合。"
+      },
+      {
+        "time": "上午",
+        "title": "MUUMUU COFFEE",
+        "text": "步行到咖啡店休息；客滿或臨休就略過。想改逛向島，可選下方替換路線，不把所有店疊加。"
+      },
+      {
+        "time": "最晚 12:15 離開京島",
+        "title": "京島 → 晴空塔 Solamachi",
+        "text": "直接步行回晴空塔，走累了可依原計畫搭計程車。不先回民宿，以免折返。"
+      },
+      {
+        "time": "約 13:00 起",
+        "title": "晴空塔 Solamachi",
+        "text": "自行午餐、自由逛街，晚餐前到炭火焼肉おくさこ與 C 組會合。"
+      }
+    ],
+    "note": "此路線保留較多隨走隨停的時間；麵包、咖啡店不必硬排。",
+    "alternatives": [
+      {
+        "title": "向島替換路線｜不是全部必去",
+        "text": "想去吉備子屋與志満ん草餅，離開ハト屋後改走向島，略過 MUUMUU；MUUMUU、吉備子屋、志満ん草餅三處最多選兩處。碰到臨休就略過，仍最晚 12:15 往晴空塔。"
+      }
+    ],
+    "links": [
+      {
+        "label": "京島、向島步行地圖 ↗",
+        "url": "https://www.google.com/maps/dir/?api=1&origin=%E6%8A%BC%E4%B8%8A%E9%A7%85&destination=MUUMUU%20COFFEE&travelmode=walking&waypoints=%E9%A3%9B%E6%9C%A8%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE%7C%E3%83%8F%E3%83%88%E5%B1%8B%E3%83%91%E3%83%B3%E5%BA%97%7C%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9%E6%A9%98%E5%95%86%E5%BA%97%E8%A1%97"
+      },
+      {
+        "label": "東京民宿",
+        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
+      },
+      {
+        "label": "押上站",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E6%8A%BC%E4%B8%8A%E9%A7%85"
+      },
+      {
+        "label": "飛木稻荷神社",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E9%A3%9B%E6%9C%A8%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE"
+      },
+      {
+        "label": "ハト屋パン店",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%83%8F%E3%83%88%E5%B1%8B%E3%83%91%E3%83%B3%E5%BA%97%20%E4%BA%AC%E5%B3%B6"
+      },
+      {
+        "label": "キラキラ橘商店街",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9%E6%A9%98%E5%95%86%E5%BA%97%E8%A1%97"
+      },
+      {
+        "label": "MUUMUU COFFEE",
+        "url": "https://www.google.com/maps/search/?api=1&query=MUUMUU%20COFFEE%20%E4%BA%AC%E5%B3%B6"
+      },
+      {
+        "label": "吉備子屋",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%90%89%E5%82%99%E5%AD%90%E5%B1%8B%20%E5%90%91%E5%B3%B6"
+      },
+      {
+        "label": "志満ん草餅",
+        "url": "https://www.google.com/maps/search/?api=1&query=%E5%BF%97%E6%BA%80%E3%82%93%E8%8D%89%E9%A4%85"
+      },
+      {
+        "label": "向島步行地圖 ↗",
+        "url": "https://www.google.com/maps/dir/?api=1&origin=%E3%83%8F%E3%83%88%E5%B1%8B%E3%83%91%E3%83%B3%E5%BA%97&destination=%E5%BF%97%E6%BA%80%E3%82%93%E8%8D%89%E9%A4%85&travelmode=walking&waypoints=%E5%90%89%E5%82%99%E5%AD%90%E5%B1%8B"
+      }
+    ]
+  }
+];
+
+  function readingDayThreeRoutes() {
     const selected=state.routes[state.group];
-    const ending='13:00 左右到晴空塔午餐、購物；巴士或散步延誤就順延，17:30 與 C 組會合晚餐。';
-    if(selected==='yanaka')return ['谷根千 → 晴空塔','09:00 民宿出門，晴空塔站前搭上 26 到根津駅前。10:10–10:50 根津神社 → 11:15–12:00 谷中銀座 → 日暮里搭京成線，青砥轉押上。出門前確認假日巴士時刻。'+ending];
-    if(selected==='sumida')return ['京島・向島 → 晴空塔','09:00 出門，押上 → 飛木稻荷 → ハト屋 → キラキラ橘商店街 → MUUMUU COFFEE。'+ending];
-    return ['上午路線二選一 → 晴空塔','兩條都約 09:00 出門，與航班分組無關。谷根千：根津神社 → 谷中銀座；京島・向島：飛木稻荷 → ハト屋 → キラキラ橘 → MUUMUU COFFEE。'+ending];
+    return readingRoutes.filter(route=>!['yanaka','sumida'].includes(selected)||route.key===selected).map(route=>{
+      const links=route.links.filter(link=>link.url.includes('/dir/')||link.label.includes('官方時刻'));
+      return `<section class="reading-route"><h3>${escape(route.title)}</h3><ol class="reading-steps">${route.steps.map(step=>`<li><small>${escape(step.time)}</small><h4>${escape(step.title)}</h4><p>${escape(step.text)}</p></li>`).join('')}</ol>${route.alternatives.map(a=>`<details><summary>${escape(a.title)}</summary><p>${escape(a.text)}</p></details>`).join('')}<nav class="reading-links" aria-label="散步路線地圖">${links.map(link=>`<a href="${escape(link.url)}" target="_blank" rel="noopener noreferrer">${escape(link.label)}</a>`).join('')}</nav></section>`;
+    }).join('');
+  }
+
+  function readingStop(index) {
+    const special=(state.day===1&&state.group==='B')||(state.day===3&&state.group==='C');
+    let value=readableDailyStops[special?`${state.day}-${state.group}-${index}`:`${state.day}-${index}`];
+    if(state.day===3 && state.group!=='C' && index===0) {
+      const route=state.routes[state.group];
+      if(route==='yanaka'||route==='sumida') value={...value,title:readableDailyStops['3-'+route].title,summary:readableDailyStops['3-'+route].summary};
+    }
+    if(state.day===9 && index===2) {
+      const row=flightRow(returns,state.group);
+      value={...value,title:state.group+' 組回程',summary:row.cells[3].textContent.trim()+'｜'+row.cells[1].textContent.trim()+' → '+row.cells[2].textContent.trim()+'。登機時間與登機門看登機證。'};
+    }
+    return value;
   }
   function applyRevisedDailyCopy() {
-    if(state.view!=='days' || (state.group==='B' && state.day===1) || (state.group==='C' && state.day===3))return;
-    const copies=revisedDailyCopy[state.day];
-    if(!copies)return;
-    const stops=[...main.querySelectorAll('.stop-content')];
-    // Copy follows the same ordered stop list used by the independent preview.
-    if(stops.length!==copies.length)return;
-    stops.forEach((stop,i)=>{
-      const copy=dailyCopyFor(i);if(!copy)return; // Keep split-meal cards in their existing layout.
+    if(state.view!=='days')return;
+    main.querySelectorAll('.stop-content').forEach((stop,i)=>{
+      const copy=readingStop(i);if(!copy)return;
       const keep=[...stop.children].filter(e=>e.matches('.schedule-toggle,.schedule-time,.schedule-detail-body'));
-      const summary=stop.cloneNode(true);
-      summary.querySelectorAll('.schedule-toggle,.schedule-time,.schedule-detail-body').forEach(e=>e.remove());
+      const detail=stop.querySelector('.schedule-detail-body');
+      if(copy.meal) {
+        const p=document.createElement('p');p.className='meal-meeting-note';
+        p.textContent=state.day===5?'餐後 13:15 在雷門會合，再一起往淺草橋。':i===3?'餐後各自往澀谷，14:45 在 FREAK’S STORE Shibuya 會合。':'先約好 PARCO B1 的餐後會合點，再分開入座。';
+        detail?detail.before(p):stop.append(p);return;
+      }
+      const original=stop.cloneNode(true);original.querySelectorAll('.schedule-toggle,.schedule-time,.schedule-detail-body').forEach(e=>e.remove());
       const links=[],seen=new Set();
-      summary.querySelectorAll('a[href]').forEach(a=>{
-        const href=a.getAttribute('href');if(seen.has(href))return;seen.add(href);links.push(a.cloneNode(true));
-      });
+      original.querySelectorAll('a[href]').forEach(a=>{const href=a.getAttribute('href');if(!seen.has(href)){seen.add(href);links.push(a.cloneNode(true));}});
       for(const node of [...stop.childNodes])if(!keep.includes(node))node.remove();
       const content=document.createElement('div');content.className='stop-summary';
-      const title=document.createElement('strong');title.className='stop-summary-title';title.textContent=copy[0];content.append(title);
-      const description=document.createElement('p');description.textContent=copy[1];content.append(description);
-      if(links.length){const row=document.createElement('p');row.className='stop-summary-links';links.forEach((a,j)=>{if(j)row.append(document.createTextNode('　'));row.append(a);});content.append(row);}
-      const detail=stop.querySelector('.schedule-detail-body');detail?detail.before(content):stop.append(content);
+      const title=document.createElement('strong');title.className='stop-summary-title';title.textContent=copy.title;content.append(title);
+      const description=document.createElement('p');description.textContent=copy.summary;content.append(description);
+      if(links.length){const row=document.createElement('p');row.className='stop-summary-links';links.forEach((a,j)=>{if(j)row.append('　');row.append(a);});content.append(row);}
+      detail?detail.before(content):stop.append(content);
       stop.dataset.revisedCopy='true';
     });
   }
-  const dailyAccessNotes = {"1":["機場出關後依實際列車班次到本所吾妻橋，再步行往民宿。","民宿放好行李後，步行前往野口鮮魚店。","野口鮮魚店 → 塩パン屋 パンメゾン。","本所吾妻橋搭車往日比谷，沿丸之內仲通り步行至東京車站丸之內廣場。","看完夜景後回淺草；A 組先到鳥貴族報到，B 組從民宿加入。"],"2":["09:00 民宿出門；本所吾妻橋 → 淺草橋轉 JR → 新宿轉小田急各站停車 → 豪德寺站，步行到寺院。","10:30–11:15 參拜，之後步行約 20 分鐘至梅丘，不再繞去其他車站。","約 11:35 全員一起到美登利取號，依叫號入座；候位久可改店。","用餐後從梅丘搭小田急各站停車到新宿，依序逛 Bic Camera、Alpen TOKYO。","從 Alpen TOKYO 前往一蘭，餐後搭車回本所吾妻橋。"],"3":["上午先選谷根千或京島・向島其中一路；兩路之後都前往晴空塔，傍晚再到炭火焼肉おくさこ。","A、B 組從晴空塔前往；C 組抵達東京民宿、放妥行李後到餐廳會合。"],"4":["本所吾妻橋 → 青山一丁目，出站後步行到明治神宮外苑銀杏大道。","沿銀杏大道散步拍照，接著朝表參道、原宿前進。","銀杏大道 → 表參道 → 原宿；依午餐店別安排購物先後。","原宿、表參道午餐可參考這三家，當天再決定。","午餐後朝澀谷前進，沿貓街、宮下公園順走至 FREAK’S STORE，不回原宿集合。","在 FREAK’S STORE Shibuya 會合，之後一起往 PARCO。","FREAK’S STORE → 澀谷 PARCO；先逛選定樓層，再到 B1。","晚餐在 PARCO B1 分組；5 位在極味屋用餐，另 2 位（1 位不吃牛、1 位陪同）在館內選店，餐後會合。","從 PARCO 前往 MEGA 唐吉訶德；若候位耽誤，就直接往澀谷站。","到澀谷站八公口站外點名，確認人齊後一起進站回民宿。"],"5":["09:00 民宿出門，步行至 Mūya 吃早餐，之後往淺草寺。","Mūya → 淺草寺、仲見世；11:30 起往各自午餐店移動。","吃牛 5 人到牛舌店，另 2 人（1 位不吃牛、1 位陪同）一起選店；餐後在淺草會合。","小吃順路選買即可；約 13:15 兩組會合，再一起前往淺草橋。","淺草 A18 → 淺草橋 A16，A3 出口 → 銀杏岡八幡神社 → シモジマ淺草橋本店。","15:00 左右離開淺草橋，搭淺草線回本所吾妻橋；15:30–16:30 民宿休息。","東京民宿 → 日比谷 OKUROJI，TEN& 外帶後步行到有樂町 HARBS。","從日比谷 OKUROJI 沿高架旁往有樂町站方向步行，到 LUMINE 有樂町 1 館 2F。","有樂町 HARBS → 日比谷站搭日比谷線 → 六本木站走 1c 出口到六本木新城大屋頂廣場；步行逛市集與周邊點燈。"],"6":["前往東武淺草站，找 SPACIA X 月台；不是都營或 Metro 淺草站。","東武日光出站後往神橋方向前往 mekke，寄物尚未預約。","午餐後在日光郷土センター前搭往西参道入口的車，不折返東武日光站。","西参道入口下車後依指標步行至東照宮。","從東照宮沿表參道下坡到神橋。","由神橋沿日光街道往 mekke 方向散步。","取件後直接前往民宿；若改寄 Yamato，須回原寄放車站取件。","依房東提供的地址與鑰匙盒指示入住。"],"7":["東武日光站 2A 搭 09:05 往湯元溫泉、經中禪寺的巴士，在中禪寺溫泉下車。","從中禪寺溫泉巴士站步行約 5 分鐘到華嚴瀑布。","從瀑布走回站前湖岸，不環湖。","在湖畔或巴士站附近選店，吃完坐下休息。","約 14:00 往中禪寺溫泉站走，14:10–14:15 到 26B 候車。","從 26B 搭往東武日光／JR 日光方向的車下山。","東武日光站前幾家店步行可到，挑想逛的即可。","由東武日光站走回民宿，預留晚上休息。"],"8":["日光民宿上車，搭已訂包車到 Richmond Hotel Narita；先寄放行李。11/28 表參道分段交通管制，從飯店步行前往，不安排包車開進表參道。","由飯店往成田山表參道，先確認川豐抽號與候位情況。","沿表參道到新勝寺大本堂，再進成田山公園逛紅葉祭；返回表參道米屋後，約 16:40 往京成成田站。","京成成田站 6 號乘付費直行巴士到 AEON MALL；回程先確認星巴克前或 Mall East 上車站。"],"9":["前晚先登記飯店接駁；早上搭車到成田 T2，依各組航空公司找報到櫃檯。","安檢前與後分區採買；先完成需要在托運前處理的購物事項。","通過安檢後，依當天航班資訊前往正確登機門。"]};
-  // Checked against operator station maps, 2026-10-21. Car numbers are directional.
-  const transitWayfinding = {
-    home:{title:'本所吾妻橋：回民宿與出發',lines:'A 都營淺草線・玫瑰紅色',route:'本所吾妻橋 A19。往市區看「西馬込・羽田空港方面」；往押上看「押上・京成線方面」。',exit:'往東駒形民宿走南側出口；A2 為樓梯出口選項。大行李優先看 A0 地上電梯；另一側月台可看 A5 電梯，出站後依地圖步行。',car:'官方圖示第 4 車廂附近接 A0～A2／跨月台通道；押上方向第 8 車廂附近接 A5。直通車車廂編號可能不同，對照月台圖再上車。',url:'https://www.kotsu.metro.tokyo.jp/subway/stations/honjo-azumabashi.html'},
-    gotokuji:{title:'本所吾妻橋 → 豪德寺',lines:'A 淺草線・玫瑰紅 → JB 中央・總武線各站停車・黃 → OH 小田急小田原線・藍',route:'A19 本所吾妻橋往西馬込・羽田空港方向 → A16 淺草橋；轉 JR 的 JB20 淺草橋，搭往新宿・中野・三鷹方向的各站停車 → JB10 新宿。依小田急指標轉 OH01 新宿，搭各站停車 → OH10 豪德寺（豪徳寺），下車步行約 10–15 分鐘到寺院。',exit:'淺草橋出都營閘門後依 JR 總武線指標轉乘；新宿出 JR 閘門後依小田急線指標走。豪德寺站與寺院有一段步行距離，出站後依寺院地圖前往。',car:'最近轉乘車廂未確認；預留淺草橋與新宿站內步行時間。豪德寺不屬於急行停靠站，上車前確認「各駅停車」。',url:'https://www.odakyu.jp/station/gotokuji/'},
-    shinjuku:{title:'梅丘 → 新宿購物',lines:'OH 小田急小田原線・藍色',route:'OH09 梅丘（梅ヶ丘）搭各站停車往新宿 → OH01 新宿。梅丘不是急行停靠站；不必為了改搭快車多轉一次。',exit:'購物目的地在新宿東側。出小田急閘門後沿「東口／東西自由通路」指標走，再依 Bic Camera／Alpen 地圖前往。不要為穿越車站誤入 JR 付費區。',car:'最近出口車廂尚未確認，依到站月台的出口圖走。',url:'https://www.odakyu.jp/station/umegaoka/'},
-    asakusabashi:{title:'淺草 → 淺草橋神社、シモジマ',lines:'A 都營淺草線・玫瑰紅色',route:'午餐後從 A18 淺草搭往西馬込・羽田空港方向 → A16 淺草橋（浅草橋），中間經蔵前。購物後再從 A16 淺草橋搭押上方向 → A19 本所吾妻橋，回民宿放物品。',exit:'銀杏岡八幡神社走 A3 出口，步行約 2 分鐘；シモジマ淺草橋本店在 A4 出口附近，兩處可步行串聯。淺草橋 A16 與淺草 A18 是不同站。',car:'最近出口車廂尚未確認，依站內圖選擇。回程確認列車往押上方向，並停靠本所吾妻橋。',url:'https://www.kotsu.metro.tokyo.jp/subway/stations/asakusabashi.html'},
-    ginzaHibiya:{title:'本所吾妻橋 → 日比谷公園／丸之內',lines:'A 淺草線・玫瑰紅 → H 日比谷線・銀灰',route:'A19 本所吾妻橋往西馬込・羽田空港方向 → A11 東銀座；轉 H10 東銀座，搭往中目黑方向 → H08 日比谷。之後日比谷公園 → 丸之內採步行串聯。',exit:'日比谷站出口分布很廣，按公園或目的地的地圖選出口。',car:'東銀座轉乘最近車廂未核實；跟 H 日比谷線指標，不把銀座線 G 當成同一條線。',url:'https://www.tokyometro.jp/station/hibiya/index.html'},
-    yanaka:{title:'民宿 → 根津神社',lines:'都巴士上 26・往上野公園',route:'09:00 從民宿出門，步行至「とうきょうスカイツリー駅前」2 番站牌，搭上 26「上野公園行」至根津駅前，下車步行約 5 分鐘到根津神社。巴士行車預留約 25–35 分鐘，另計候車時間。',exit:'上車站是「とうきょうスカイツリー駅前」，不是名稱相近的「駅入口」。確認 2 番站牌與上野公園方向。',car:'11/23 為日本國定假日；上 26 班次較疏，出門前看官方假日時刻與即時位置。錯過班次時，上午散步與晴空塔午餐順延。',url:'https://tobus.jp/sp/blsys/stop/time?ln=ja&poleno=2&routecode=79&stopid=2028&ud=1',linkLabel:'查看上 26 官方時刻表 ↗'},
-    yanakaReturn:{title:'谷中銀座 → 晴空塔',lines:'KS 京成本線・藍 → 京成押上線',route:'谷中銀座經夕やけだんだん步行到 KS02 日暮里；搭京成本線往青砥方向 → KS09 青砥，轉往押上・都營淺草線方向 → KS45 押上（A20）。不要搭需另外付特急費的 Skyliner。',exit:'谷中銀座到日暮里站預留約 15 分鐘；到押上後依東京晴空塔、Solamachi 指標出站。',car:'青砥依月台電子看板確認「押上方面」，車廂與月台依實際班次；全段連同步行、候車及轉乘預留約 45–60 分鐘。',url:'https://www.keisei.co.jp/keisei/tetudou/accessj/route.php'},
-    gaien:{title:'本所吾妻橋 → 銀杏大道',lines:'A 淺草線・玫瑰紅 → G 銀座線・橘色',route:'A19 本所吾妻橋搭西馬込方向一站到 A18 淺草；出閘依 G 指標轉 G19 淺草，搭往澀谷方向到 G04 青山一丁目。轉乘含步行，請以當天路線查詢估時。',exit:'青山一丁目走 1 號出口，往青山通、銀杏大道方向；出站後預估步行 5～10 分鐘。',car:'青山一丁目最近出口車廂尚未確認；請對照銀座線月台的站內圖。',url:'https://www.tokyometro.jp/station/aoyama-itchome/index.html'},
-    shibuyaHome:{title:'澀谷 → 本所吾妻橋',lines:'Z 半藏門線・紫 → A 淺草線・玫瑰紅',route:'Z01 澀谷搭往押上方向 → Z14 押上；站內轉 A20 押上，搭西馬込・羽田空港方向 → A19 本所吾妻橋。',exit:'八公口是會合地標；會合後依地下鐵 Z／半藏門線指標進站，不要進 JR 閘門。到本所吾妻橋再依東駒形側出口回民宿。',car:'押上最近轉乘車廂未確認；選能全員一起上車的位置，再依站內 A 指標轉乘。',url:'https://www.tokyometro.jp/station/oshiage/index.html'},
-    ten:{title:'民宿 → 日比谷 OKUROJI',lines:'A 都營淺草線・玫瑰紅色',route:'A19 本所吾妻橋搭往西馬込・羽田空港方向 → A10 新橋；出站後步行到日比谷 OKUROJI 的 TEN&。',exit:'先沿 JR 新橋站日比谷口方向到地面，再走向高架下 OKUROJI。日比谷口是 JR 出口名稱，不是都營地下鐵的出口編號。',car:'新橋出口最近車廂未核實，依站內圖和「日比谷口方面」指標走。',url:'https://www.jrtk.jp/hibiya-okuroji/access/'},
-    harbs:{title:'TEN& → 有樂町 HARBS',lines:'步行',route:'TEN& 外帶後，沿日比谷 OKUROJI 高架下向有樂町方向走，再到 LUMINE 有樂町 LUMINE 1 的 HARBS，步行預留約 10–15 分鐘。',exit:'到 LUMINE 1 後依館內樓層指標前往 HARBS；不要走到另一棟 LUMINE 2。',car:'有位置就內用，滿席則外帶；外帶蛋糕依店家保冷與保存說明處理。',url:'https://www.harbs.co.jp/shop/'},
-    roppongi:{title:'有樂町 HARBS → 六本木新城大屋頂廣場',lines:'H 日比谷線・銀灰色',route:'離開有樂町 HARBS 後步行至 H08 日比谷，搭「中目黒方面」→ H04 六本木（六本木）。',exit:'六本木走 1c 出口、六本木 Hills 連通方向，沿館內指標前往大屋頂廣場。',car:'只適用往中目黑方向：第 5 車廂附近為往 Hills 的手扶梯，第 7 車廂附近為電梯／樓梯。日比谷線第 1～2 車廂偏向大江戶線／Midtown 端。',url:'https://www.tokyometro.jp/station/line_hibiya/position.html'},
-    nikko:{title:'東京出發搭 SPACIA X',lines:'SPACIA X 003・09:00 → 10:50',route:'11/26 從東武淺草站 09:00 出發，10:50 抵達東武日光。建議 08:30 到站，預留行李與月台移動時間。',exit:'從淺草上車要找「東武」淺草站，不是都營 A18 或 Metro G19 的月台。',car:'已訂豪華座位（Premium seat），7 位成人；車廂與座位請看手機票券。',url:'https://www.tobu.co.jp/spaciax/'},
-    narita:{title:'京成成田 → AEON MALL',lines:'AEON MALL 直行巴士',route:'京成成田 KS40 站外 6 號站牌，搭 AEON MALL 直行巴士。',exit:'依行程指定的 6 號巴士站搭乘；飯店與成田山方向的步行路線分開看。',car:'上車前確認目的地；回程先約好上車站。',url:'https://new-www.keisei.co.jp/keisei/tetudou/accessj/keisei-narita.php'}
-  };
-  function appendTransitWayfinding(detail,i) {
-    const byDay={1:{3:['ginzaHibiya']},2:{0:['gotokuji'],3:['shinjuku']},3:{0:state.routes[state.group]==='sumida'?[]:['yanaka','yanakaReturn']},4:{0:['gaien'],9:['shibuyaHome']},5:{4:['asakusabashi'],5:['home'],6:['ten'],7:['harbs'],8:['roppongi']},6:{0:['nikko']},8:{3:['narita']}};
-    const arrival=(state.group==='B'&&state.day===1)||(state.group==='C'&&state.day===3);
-    const keys=arrival?(i===0?['home']:[]):(byDay[state.day]?.[i]||[]);
-    if(i===0 && !arrival && state.day<=5)keys.unshift('home');
-    if(!keys.length)return;
-    const colors={A:'#e85298',G:'#f39700',H:'#9caeb7',Z:'#9b7cb6',DT:'#20a288',SG:'#e8b800',OH:'#2385c4',KS:'#2564a8',JB:'#ffd400'};
-    const marked=text=>{const fragment=document.createDocumentFragment();let end=0;const regex=/\b(DT|SG|OH|KS|JB|A|G|H|Z)(\d{2})\b/g;for(const m of text.matchAll(regex)){fragment.append(document.createTextNode(text.slice(end,m.index)));const badge=document.createElement('span');badge.className='rail-station-badge';badge.style.setProperty('--rail-color',colors[m[1]]);badge.textContent=m[1]+' '+m[2];fragment.append(badge);end=m.index+m[0].length;}fragment.append(document.createTextNode(text.slice(end)));return fragment;};
-    const block=document.createElement('section');block.className='transit-wayfinding';
-    for(const key of keys){const info=transitWayfinding[key],card=document.createElement('section'),h=document.createElement('h3');h.textContent=info.title;card.append(h);const facts=document.createElement('dl');facts.className='table-card';for(const [label,value]of [['路線／顏色',info.lines],['方向／站號',info.route],['出口',info.exit],['車廂／轉乘',info.car]]){const row=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.append(marked(value));row.append(dt,dd);facts.append(row);}card.append(facts);if(info.linkLabel){const link=document.createElement('a');link.href=info.url;link.textContent=info.linkLabel;link.target='_blank';link.rel='noopener noreferrer';card.append(link);}block.append(card);}
-    detail.prepend(block);
+  function markReadingStations(text) {
+    const colors={M:'#f62e36',A:'#e85298',G:'#f39700',H:'#9caeb7',Z:'#9b7cb6',OH:'#2385c4',KS:'#2564a8',JB:'#d5b400'};
+    return escape(text).replace(/\b(OH|KS|JB|M|A|G|H|Z)(\d{2})\b/g,(_,line,no)=>`<span class="rail-station-badge" style="--rail-color:${colors[line]}">${line} ${no}</span>`);
+  }
+  function readingDetail(copy) {
+    const paragraphs=[['怎麼走',copy.directions],['留意',copy.note],['補充',copy.extra]].filter(([,text])=>text);
+    let html='<div class="reading-directions">'+paragraphs.map(([label,text])=>`<p class="${label==='留意'?'reading-note':''}"><strong>${label}</strong>${markReadingStations(text)}</p>`).join('')+'</div>';
+    if(copy.car)html+=`<details class="reading-car"><summary>出口與車廂參考</summary><p>${escape(copy.car)}</p></details>`;
+    const links=(copy.links||[]).filter(link=>!link.url.includes('maps')&&!link.url.includes('goo.gl')&&!link.url.includes('restaurant-guide/venues'));
+    if(links.length)html+='<nav class="reading-links" aria-label="交通與預約連結">'+links.map(link=>`<a href="${escape(link.url)}"${link.url.startsWith('http')?' target="_blank" rel="noopener noreferrer"':''}>${escape(link.label)} ↗</a>`).join('')+'</nav>';
+    return html;
   }
   function organizeDailyDetails() {
     if(state.view!=='days')return;
-    const shared=!(state.group==='B'&&state.day===1)&&!(state.group==='C'&&state.day===3);
     main.querySelectorAll('.stop-content').forEach((stop,i)=>{
+      const copy=readingStop(i);if(!copy)return;
       let detail=stop.querySelector('.schedule-detail-body');
-      const time=stop.querySelector('.schedule-time');
-      if(!time)return;
-      const access=shared?(state.day===3&&i===0 ? (state.routes[state.group]==='yanaka'?'09:00 出門，步行到とうきょうスカイツリー駅前搭上 26 至根津駅前；根津神社 → 谷中銀座 → 夕やけだんだん → 日暮里。由日暮里搭京成線至青砥，轉押上到晴空塔。':state.routes[state.group]==='sumida'?'09:00 出門，先前往押上，依京島・向島路線步行；完成後回晴空塔。':dailyAccessNotes[3][0]):dailyAccessNotes[state.day]?.[i]):null;
-      if(!detail){detail=document.createElement('div');detail.className='document schedule-detail-body';detail.id=`slot-detail-${state.day}-${i}`;detail.hidden=true;stop.append(detail);}
-      // Preserve existing station-by-station and alternative-route instructions.
-      const briefing=document.createElement('section');briefing.className='supplement-section';
-      const heading=document.createElement('h3');heading.textContent='交通與路線';briefing.append(heading);
-      const facts=document.createElement('dl');facts.className='table-card';
-      // The summary already contains the time, stop order and meal cautions.
-      const rows=[['怎麼去',access]];
-      rows.forEach(([label,value])=>{if(!value)return;const row=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;row.append(dt,dd);facts.append(row);});
-      if(facts.children.length){briefing.append(facts);detail.prepend(briefing);}
-      appendTransitWayfinding(detail,i);
-      if(!detail.textContent.trim()&&!detail.querySelector('img,a')){
-        const existingToggle=stop.querySelector('.schedule-toggle');
-        if(existingToggle)existingToggle.replaceWith(time);
-        detail.remove();return;
+      const time=stop.querySelector('.schedule-time');if(!time)return;
+      if(!detail){detail=document.createElement('div');detail.className='document schedule-detail-body';detail.hidden=true;stop.append(detail);}
+      const anchors=[...detail.querySelectorAll('[data-inline-source]')].map(e=>e.outerHTML).join('');
+      const walkingMaps=[...detail.querySelectorAll('a[href*="/maps/dir/"]')].map(a=>a.cloneNode(true));
+      if(state.day===3&&state.group!=='C'&&i===0) {
+        detail.innerHTML=anchors+readingDayThreeRoutes()+readingDetail({...copy,directions:'',note:'兩條路線擇一，完成後都前往晴空塔午餐、購物。',links:[]});
+      } else detail.innerHTML=anchors+readingDetail(copy);
+      const known=new Set([...stop.querySelectorAll('a[href]')].filter(a=>!detail.contains(a)).map(a=>a.href));
+      detail.querySelectorAll('.reading-links a').forEach(a=>{if(known.has(a.href))a.remove();else known.add(a.href);});
+      const maps=document.createElement('nav');maps.className='reading-links';maps.setAttribute('aria-label','路線導航');
+      walkingMaps.forEach(a=>{if(!known.has(a.href)){known.add(a.href);maps.append(a);}});
+      if(maps.children.length)detail.append(maps);
+      if(state.day===8&&i===3){
+        const source=$('#day8-aeon-bus'),full=document.createElement('details');
+        full.className='reading-timetable';full.innerHTML='<summary>完整巴士時刻表與站牌</summary>';
+        source?.querySelectorAll('.aeon-section-title,.aeon-time-table,.guide-callout,.guide-button-row,.small-print').forEach(el=>{const wrap=document.createElement('div');wrap.append(el.cloneNode(true));full.insertAdjacentHTML('beforeend',readable(wrap));});
+        detail.append(full);
       }
       let toggle=stop.querySelector('.schedule-toggle');
-      if(!toggle){toggle=document.createElement('button');toggle.type='button';toggle.className='schedule-toggle';toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls',detail.id);time.before(toggle);toggle.append(time);const label=document.createElement('span');label.className='schedule-toggle-label';label.innerHTML='詳細行程 <span aria-hidden="true">＋</span>';toggle.append(label);}
-      detail.id=`revised-detail-${state.group}-${state.day}-${i}`;
-      toggle.setAttribute('aria-controls',detail.id);
+      if(!toggle){toggle=document.createElement('button');toggle.type='button';toggle.className='schedule-toggle';toggle.setAttribute('aria-expanded','false');time.before(toggle);toggle.append(time);const label=document.createElement('span');label.className='schedule-toggle-label';label.innerHTML='詳細行程 <span aria-hidden="true">＋</span>';toggle.append(label);}
+      detail.id=`revised-detail-${state.group}-${state.day}-${i}`;toggle.setAttribute('aria-controls',detail.id);
     });
   }
   function polishDailyLinks() {

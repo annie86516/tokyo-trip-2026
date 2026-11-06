@@ -711,3 +711,18 @@ input,select,textarea{font-size:14px!important}
 .main[data-view="days"] .bus-pass-detail .bus-pass-reminder{font-size:12px;line-height:1.8}
 .bus-pass-scope{padding-top:10px;border-top:1px solid #d8e6d9}
 @media(max-width:400px){.bus-pass-detail{padding:11px}.main[data-view="days"] .has-bus-pass .schedule-toggle-label{padding:4px 6px;max-width:85px}}
+
+/* Concise itinerary: route once, operational cautions next. */
+.reading-directions > p{margin:0 0 1rem;line-height:1.8;overflow-wrap:anywhere}
+.reading-directions > p > strong{display:block;color:var(--ink);font-size:.92em;margin-bottom:.3rem}
+.reading-directions > .reading-note{border-left:3px solid #b86a43;background:#fff8ed;padding:.65rem .85rem;border-radius:0 10px 10px 0}
+.reading-links{display:flex;flex-wrap:wrap;gap:.55rem 1rem;margin:1rem 0 .3rem;font-size:.9em}
+.reading-car,.reading-ticket{margin-top:1rem}
+.reading-route + .reading-route{border-top:1px solid #ddd2c4;margin-top:1.5rem;padding-top:1rem}
+.reading-steps{list-style:none;padding:0;margin:.8rem 0}
+.reading-steps > li{border-left:2px solid #d8bc9c;padding:0 0 1.2rem 1rem;margin:0}
+.reading-steps small{color:#9e4c36;font-weight:700}
+.reading-steps h4{margin:.2rem 0 .35rem;font-size:1em}
+.reading-steps p{margin:0;line-height:1.8}
+.meal-meeting-note{border-top:1px solid #e1d5c7;padding-top:.7rem;margin-top:.7rem;color:#77432f}
+@media(max-width:600px){.reading-directions > p{line-height:1.85}.reading-links a{padding:.3rem 0}.reading-steps > li{padding-left:.75rem}.reading-ticket .transit-guide-body{padding:.5rem 0}}
