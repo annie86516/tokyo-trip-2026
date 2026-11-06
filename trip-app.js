@@ -192,7 +192,7 @@
   }, true);
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
-  sheet.href = new URL('./trip-app.css?v=20261105-nine-am', document.baseURI).href;
+  sheet.href = new URL('./trip-app.css?v=20261106-transport-passes', document.baseURI).href;
   root.append(sheet);
   const shell = document.createElement('div');
   shell.className = 'shell';
@@ -294,6 +294,16 @@
   }
   // Suggestions are local Japan times, not reservations. Fixed entries come
   // from the existing itinerary; unbooked services remain explicitly pending.
+  function dailyPassRecommendation() {
+    const entry = {
+      4:{source:'tokyo-subway-pass-info',title:'東京地鐵 48 小時券',status:'可選購',note:'11/24 上午首次進站啟用，11/25 續用。官方成人 ¥1,500；可樂參考價 NT$307（11/06）。'},
+      5:{source:'tokyo-subway-pass-info',title:'東京地鐵 48 小時券',status:'續用提醒',note:'若昨天已啟用，今天地鐵續用同張券；本日淺草橋、新橋、日比谷、六本木路線可用。'},
+      6:{source:'nikko-bus-pass-info',title:'中禪寺溫泉 2 日巴士券',status:'建議購買',note:'10:50 抵達東武日光後購買，使用日期 11/26–11/27。成人 ¥2,300，7 人共 ¥16,100。'},
+      7:{source:'nikko-bus-pass-info',title:'中禪寺溫泉 2 日巴士券',status:'續用提醒',note:'若昨天已依建議購票，今天續用同張券往返中禪寺溫泉。適用車程不用再刷 IC 卡；瀑布電梯另付。'}
+    }[state.day];
+    if (!entry) return '';
+    return `<section class="daily-pass-card" aria-label="本日推薦交通票券"><div class="daily-pass-heading"><h2>${escape(entry.title)}</h2><span>${escape(entry.status)}</span></div><p>${escape(entry.note)}</p>${detail('購買、範圍與使用方式',$('#'+entry.source),'daily-transport-pass-'+state.day)}</section>`;
+  }
   function dailyTimes() {
     const suggested = time => ({time, label:'建議時間'});
     const fixed = (time, label='固定時間') => ({time, label, fixed:true});
@@ -353,7 +363,7 @@
     }
     sources.forEach(source => {
       const clone = source.cloneNode(true);
-      clone.querySelectorAll('.group-c-divider-row,.group-c-arrival-row').forEach(el => el.remove());
+      clone.querySelectorAll('.group-c-divider-row,.group-c-arrival-row,#day6-pass-guide,#day7-pass-guide').forEach(el => el.remove());
       const tables = [...clone.querySelectorAll('.route-detail-table')];
       if (tables.length) {
         let rowIndex = 0;
@@ -475,7 +485,7 @@
 
       <section class="weather-section" aria-label="當日行程天氣"><p>天氣資料載入中…</p></section>
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
-      <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div>${dailyDeparture()}</aside>
+      <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div>${dailyDeparture()}${dailyPassRecommendation()}</aside>
       <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${custom}${list(items, extras)}${dayPracticalInfo()}${dayResources()}${dayQuickActions()}
       ${source.querySelector('.day-alert-grid') ? `<div class="document">${readable(source.querySelector('.day-alert-grid'))}</div>` : ''}
 
@@ -652,11 +662,12 @@
   }
   function guide() {
     const sections = [
+      ['推薦交通票券',['tokyo-subway-pass-info','nikko-bus-pass-info']],
       ['交通與寄物',['nikko-luggage-info','narita-shuttle-fallback']],
       ['行前準備',['packing-list-1','packing-list-2']],
       ['日本國內寄件',['japan-post-domestic-1']]
     ];
-    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">入出境、退稅、行李與寄件。</p><nav class="resource-links" aria-label="機場與交通資料"><a href="./airport-guide/index.html">成田機場入境・退稅・出境 ↗</a><a href="./site-two/index.html">日光巴士 ↗</a></nav><nav class="trip-quick-actions" aria-label="點餐輔助">${foodCardButton()}</nav>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
+    return `<div class="eyebrow">TRAVEL NOTES</div><h1>旅行資料</h1><p class="intro">交通票券、入出境、退稅、行李與寄件。</p><nav class="resource-links" aria-label="機場與交通資料"><a href="./airport-guide/index.html">成田機場入境・退稅・出境 ↗</a><a href="./site-two/index.html">日光巴士 ↗</a></nav><nav class="trip-quick-actions" aria-label="點餐輔助">${foodCardButton()}</nav>${sections.map(([title,ids])=>`<h2 class="section-label">${title}</h2>${ids.map(id=>detail($('#'+id).querySelector('h2').textContent,$('#'+id),id)).join('')}`).join('')}`;
   }
   const couponItems = {
     "bic": {
