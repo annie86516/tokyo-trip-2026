@@ -363,7 +363,7 @@
     ];
     return {
       1:[suggested('15:20–16:00'),suggested('入住後，約 16:00–17:15'),suggested('17:15–17:35'),suggested('18:30–20:00'),fixed('21:30 鳥貴族','已訂位')],
-      2:[suggested('09:00–10:30'),suggested('10:30–11:15'),suggested('11:35 起取號，依叫號用餐'),suggested('約 14:30–18:00；依午餐調整'),suggested('18:00–19:00')],
+      2:[suggested('09:00–10:30'),suggested('10:30–11:15'),suggested('約 12:00；現場候位'),suggested('約 14:30–18:00；依午餐調整'),suggested('18:00–19:00')],
       3:[suggested('09:00 出門；13:00 左右起晴空塔'),suggested('17:30–19:00（依用餐進度）')],
       4:[suggested('09:00–10:00'),suggested('10:00–10:45'),suggested('11:00–14:15（與午餐調整順序）'),suggested('11:00–14:15 午餐三選一'),suggested('14:15–14:45 步行往澀谷'),suggested('14:45–15:30 FREAK\'S STORE'),suggested('15:30–17:00 澀谷 PARCO'),suggested('17:00–19:00 PARCO B1 分開晚餐・依候位'),suggested('19:00–20:00 唐吉訶德選逛'),suggested('依集合時間返回民宿')],
       5:[suggested('09:30–10:15'),suggested('10:30–11:30'),fixed('12:00 牛舌訂位・用餐 1 小時','5 位已訂；另 2 位自由用餐'),suggested('午餐後順路選買；約 13:15 會合'),suggested('13:30–15:00 淺草橋神社・シモジマ'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 TEN& 外帶（建議）'),suggested('18:00–19:00 有樂町 HARBS（有位內用／滿席外帶）'),suggested('19:30 左右 六本木新城聖誕市集・大屋頂廣場')],
@@ -1842,41 +1842,30 @@
     "rail": true
   },
   "2-1": {
-    "title": "豪德寺參拜 → 梅丘",
-    "summary": "10:30–11:15 參拜豪德寺，看招福貓與寺院庭園；11:15 左右離開，步行約 20 分鐘到梅丘，接著排午餐。",
-    "directions": "豪德寺 → 梅丘壽司美登利，依原步行地圖往梅丘方向走。",
-    "note": "不要挪動或觸摸奉納的招福貓；途中不另加咖啡停留。",
-    "links": [
-      {
-        "label": "梅丘寿司の美登利 総本店",
-        "url": "https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97"
-      }
-    ]
+    "title": "豪德寺參拜 → 新宿",
+    "summary": "10:30–11:15 參拜豪德寺，看招福貓與寺院庭園。",
+    "directions": "參拜後步行至豪德寺站，搭小田急各站停車往新宿，車程約 15–16 分鐘。到站沿東西自由通路往東口，再走到 SUBNADE 地下街 B1。"
   },
   "2-2": {
-    "title": "午餐｜梅丘壽司美登利總本店",
-    "summary": "預計 11:35 到店，一起取號候位；這是抵達目標，並非訂位時間。午餐若延後，就縮短下午新宿購物。",
-    "directions": "從豪德寺步行到梅丘站附近的總本店。",
-    "note": "店家 11:00 開門；候位長短無法事先保證，不另派人提早排隊。",
+    "title": "午餐｜和幸 SUBNADE 新宿店",
+    "summary": "約 12:00 到店現場候位。週日可點里肌豬排定食 ¥1,630 或腰內豬排定食 ¥1,800。",
+    "directions": "和幸位於 SUBNADE 地下街 B1、201 區。",
+    "note": "不可訂位，依現場候位。",
     "links": [
       {
-        "label": "美登利攻略",
-        "url": "restaurant-guide/venues/07-sushi-midori-umeoka.html"
+        "label": "Google 地圖",
+        "url": "https://www.google.com/maps/search/?api=1&query=とんかつ和幸サブナード新宿店"
       },
       {
-        "label": "梅丘寿司の美登利 総本店",
-        "url": "https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E4%B8%98%E5%AF%BF%E5%8F%B8%E3%81%AE%E7%BE%8E%E7%99%BB%E5%88%A9+%E7%B7%8F%E6%9C%AC%E5%BA%97"
-      },
-      {
-        "label": "梅丘站",
-        "url": "https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E3%83%B6%E4%B8%98%E9%A7%85"
+        "label": "官方菜單",
+        "url": "https://wako-group.co.jp/wp/wp-content/uploads/2025/11/D24.pdf"
       }
     ]
   },
   "2-3": {
     "title": "新宿購物｜BicCamera → Alpen TOKYO",
     "summary": "午餐後到新宿東口，先逛 BicCamera，再到 Alpen TOKYO。先約好集合點；抵達若比預期晚，少逛幾間即可。",
-    "directions": "梅丘 OH09 搭小田急各駅停車往新宿 OH01；出站跟「東口／東西自由通路」指標，到東口商圈，不需進 JR 付費閘門。",
+    "directions": "午餐後從 SUBNADE 地下街走到新宿東口商圈。",
     "note": "14:30 為預估開始時間，以午餐結束時間為準。",
     "links": [
       {
