@@ -297,16 +297,6 @@
   }
   // Suggestions are local Japan times, not reservations. Fixed entries come
   // from the existing itinerary; unbooked services remain explicitly pending.
-  function dailyPassRecommendation() {
-    const entry = {
-      4:{source:'tokyo-subway-pass-info',title:'東京地鐵 48 小時券',status:'可選購',note:'11/24 上午首次進站啟用，11/25 續用。官方成人 ¥1,500；可樂參考價 NT$307（11/06）。'},
-      5:{source:'tokyo-subway-pass-info',title:'東京地鐵 48 小時券',status:'續用提醒',note:'若昨天已啟用，今天地鐵續用同張券；本日淺草橋、新橋、日比谷、六本木路線可用。'},
-      6:{source:'nikko-bus-pass-info',title:'中禪寺溫泉 2 日巴士券',status:'建議購買',note:'10:50 抵達東武日光後購買，使用日期 11/26–11/27。成人每人 ¥2,300。'},
-      7:{source:'nikko-bus-pass-info',title:'中禪寺溫泉 2 日巴士券',status:'續用提醒',note:'若昨天已依建議購票，今天續用同張券往返中禪寺溫泉。適用車程不用再刷 IC 卡；瀑布電梯另付。'}
-    }[state.day];
-    if (!entry) return '';
-    return `<section class="daily-pass-card" aria-label="本日推薦交通票券"><div class="daily-pass-heading"><h2>${escape(entry.title)}</h2><span>${escape(entry.status)}</span></div><p>${escape(entry.note)}</p>${detail('購買、範圍與使用方式',$('#'+entry.source),'daily-transport-pass-'+state.day)}</section>`;
-  }
   function markNikkoBusPassRides() {
     if (state.view !== 'days') return;
     // Same zero-based stop order as dailyTimes; only the covered bus legs.
@@ -531,7 +521,7 @@
 
       <section class="weather-section" aria-label="當日行程天氣"><p>天氣資料載入中…</p></section>
       <div class="itinerary-layout"><aside class="day-overview"><section class="hero">${photo ? `<img src="${escape(photo.getAttribute('src'))}" alt="${escape(photo.alt)}" fetchpriority="high"/>` : ''}<span class="day-stamp" aria-hidden="true">DAY <b>${String(state.day).padStart(2,'0')}</b></span><div class="hero-copy"><small>${escape(date)} · ${state.group} 組</small><h1>${escape(title)}</h1><span class="photo-caption">${icon('pin')}${escape(photo?.alt || '日本之旅')}</span></div></section>
-      <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div>${dailyDeparture()}${dailyPassRecommendation()}</aside>
+      <div class="route"><span class="route-label">${icon('pin')}今日路線<span>TODAY'S ROUTE</span></span>${route}</div>${dailyDeparture()}</aside>
       <section class="day-plan" aria-label="每日安排"><h2 class="section-label">今日安排<span class="section-sub">ITINERARY</span></h2>${custom}${list(items, extras)}${dayPracticalInfo()}${dayResources()}${dayQuickActions()}
       ${source.querySelector('.day-alert-grid') ? `<div class="document">${readable(source.querySelector('.day-alert-grid'))}</div>` : ''}
 
@@ -712,7 +702,6 @@
   }
   function guide() {
     const sections = [
-      ['推薦交通票券',['tokyo-subway-pass-info','nikko-bus-pass-info']],
       ['交通與寄物',['nikko-luggage-info','narita-shuttle-fallback']],
       ['行前準備',['packing-list-1','packing-list-2']],
       ['日本國內寄件',['japan-post-domestic-1']]
