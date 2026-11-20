@@ -281,7 +281,7 @@
       note = '上午兩條路線擇一，與 A、B 航班組別無關。';
     } else {
       rows = {
-        2:[{time:'09:00',label:'東京民宿出門',text:'先吃好早餐，搭車前往豪德寺；步行、候車與轉乘共留約 75–90 分鐘，預計 10:30 開始參拜。'}],
+        2:[{time:'08:30',label:'東京民宿出門',text:'目標 09:50 到豪德寺、11:20 回到新宿站，午餐後於 12:20–12:30 排隊搭木更津巴士。'}],
         4:[{time:'09:00',label:'東京民宿出門',text:'先吃好早餐，前往神宮外苑銀杏大道，預計 10:00 開始散步。'}],
         5:[{time:'09:00',label:'上午・東京民宿出門',text:'步行前往 Mūya，預計 09:30 早餐，再逛淺草寺；12:00 牛舌訂位時間不變。'},
            {time:'16:30',label:'下午・休息後再出門',text:'從民宿搭車前往新橋、日比谷 OKUROJI；TEN& 傍晚外帶 17:30 開始。'}],
@@ -353,7 +353,7 @@
     ];
     return {
       1:[suggested('15:20–16:00'),suggested('入住後，約 16:00–17:15'),suggested('17:15–17:35'),suggested('18:30–20:00'),fixed('21:30 鳥貴族','已訂位')],
-      2:[suggested('09:00–10:30'),suggested('10:30–11:15'),suggested('約 12:00；現場候位'),suggested('約 14:30–18:00；依午餐調整'),suggested('18:00–19:00')],
+      2:[suggested('08:30–09:50'),suggested('09:50–10:30'),suggested('10:30–11:35'),suggested('11:35–12:00'),suggested('12:00–13:00'),suggested('13:00–14:02'),suggested('14:02–19:00'),suggested('19:30–約21:05')],
       3:[suggested('09:00 出門；13:00 左右起晴空塔'),suggested('17:30–19:00（依用餐進度）')],
       4:[suggested('09:00–10:00'),suggested('10:00–10:45'),suggested('11:00–14:15（與午餐調整順序）'),suggested('11:00–14:15 午餐三選一'),suggested('14:15–14:45 步行往澀谷'),suggested('14:45–15:30 FREAK\'S STORE'),suggested('15:30–17:00 澀谷 PARCO'),suggested('17:00–19:00 PARCO B1 分開晚餐・依候位'),suggested('19:00–20:00 唐吉訶德選逛'),suggested('依集合時間返回民宿')],
       5:[suggested('09:30–10:15'),suggested('10:30–11:30'),fixed('12:00 牛舌訂位・用餐 1 小時','5 位已訂；另 2 位自由用餐'),suggested('午餐後順路選買；約 13:15 會合'),suggested('13:30–15:00 淺草橋神社・シモジマ'),suggested('15:30–16:30 回民宿放物品、休息'),suggested('17:30–18:00 TEN& 外帶（建議）'),suggested('18:00–19:00 有樂町 HARBS（有位內用／滿席外帶）'),suggested('19:30 左右 六本木新城聖誕市集・大屋頂廣場')],
@@ -365,7 +365,7 @@
   }
   // Explicit mapping of detail rows to daily time slots (zero based).
   const SLOT_ROWS = {
-    1:[0,0,1,2,3,3,4], 2:[0,1,2,2,3,3,4,4],
+    1:[0,0,1,2,3,3,4], 2:[0,1,2,3,4,5,6,7],
     3:[0,0,0,0,0,0,0,0], 4:[0,1,2,2,3,4,6,7,8,9],
     5:[0,1,2,3,4,4,5,6,7,8], 6:[0,1,2,2,3,4,5,6,7],
     7:[0,1,2,3,4,5,6,7], 8:[0,0,1,2,3,3,3,3,3]
@@ -1814,84 +1814,53 @@
     "links": []
   },
   "2-0": {
-    "title": "出發｜民宿 → 豪德寺",
-    "summary": "09:00 從民宿出門，經淺草橋、新宿轉往豪德寺。全段含步行、等車約 75–90 分鐘；早餐先吃完，抵達後直接參拜。",
-    "directions": "本所吾妻橋 A19 搭淺草線往西馬込／羽田，到淺草橋 A16；轉黃色 JR 中央・總武各站停車往新宿；新宿再轉小田急各駅停車，到豪德寺 OH10，步行約 10–15 分鐘。",
-    "note": "小田急要搭各駅停車，急行不停豪德寺。",
-    "links": [
-      {
-        "label": "豪德寺站官方資訊",
-        "url": "https://www.odakyu.jp/station/gotokuji/"
-      },
-      {
-        "label": "豪德寺站",
-        "url": "https://www.google.com/maps/search/?api=1&query=%E8%B1%AA%E5%BE%B7%E5%AF%BA%E7%AB%99%20%E6%9D%B1%E4%BA%AC"
-      }
-    ],
-    "rail": true
-  },
+  "title": "民宿出發",
+  "summary": "本所吾妻橋 A19 → 淺草線至東日本橋 A15 → 步行轉馬喰橫山 S09 → 新宿線至新宿 S01 → 小田急各站停車至豪德寺 OH10 → 步行約 15 分鐘。含候車、轉乘共留約 80 分鐘。",
+  "directions": "",
+  "links": []
+},
   "2-1": {
-    "title": "豪德寺參拜 → 新宿",
-    "summary": "10:30–11:15 參拜豪德寺，看招福貓與寺院庭園。",
-    "directions": "參拜後步行至豪德寺站，搭小田急各站停車往新宿，車程約 15–16 分鐘。到站沿東西自由通路往東口，再走到 SUBNADE 地下街 B1。"
-  },
+  "title": "豪德寺參拜",
+  "summary": "豪德寺看招財貓、購買授與品；10:30 離開，保留新宿午餐與候車時間。",
+  "directions": "",
+  "links": []
+},
   "2-2": {
-    "title": "午餐｜和幸 SUBNADE 新宿店",
-    "summary": "約 12:00 到店現場候位。週日可點里肌豬排定食 ¥1,630 或腰內豬排定食 ¥1,800。",
-    "directions": "和幸位於 SUBNADE 地下街 B1、201 區。",
-    "note": "不可訂位，依現場候位。",
-    "links": [
-      {
-        "label": "Google 地圖",
-        "url": "https://www.google.com/maps/search/?api=1&query=とんかつ和幸サブナード新宿店"
-      },
-      {
-        "label": "官方菜單",
-        "url": "https://wako-group.co.jp/wp/wp-content/uploads/2025/11/D24.pdf"
-      }
-    ]
-  },
+  "title": "回新宿",
+  "summary": "步行約 15 分鐘回豪德寺站，小田急各站停車往新宿約 15–20 分鐘。目標 11:20 到新宿站，再走約 10–15 分鐘到 SUBNADE。",
+  "directions": "",
+  "links": []
+},
   "2-3": {
-    "title": "新宿購物｜BicCamera → Alpen TOKYO",
-    "summary": "午餐後到新宿東口，先逛 BicCamera，再到 Alpen TOKYO。先約好集合點；抵達若比預期晚，少逛幾間即可。",
-    "directions": "午餐後從 SUBNADE 地下街走到新宿東口商圈。",
-    "note": "14:30 為預估開始時間，以午餐結束時間為準。",
-    "links": [
-      {
-        "label": "BicCamera 優惠券",
-        "url": "./?view=coupons&cpn=bic"
-      },
-      {
-        "label": "Alpen 優惠券",
-        "url": "./?view=coupons&cpn=alpen"
-      },
-      {
-        "label": "新宿站",
-        "url": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%AE%BF%E9%A7%85"
-      }
-    ],
-    "rail": true
-  },
+  "title": "午餐",
+  "summary": "和幸 SUBNADE 新宿店，現場候位；12:00 左右吃完。若候位太久，改簡單外帶，保留搭車時間。",
+  "directions": "",
+  "links": []
+},
   "2-4": {
-    "title": "晚餐｜一蘭 新宿歌舞伎町店",
-    "summary": "18:00–19:00 於一蘭用餐，可分開入座；候位超過 45 分鐘，就改附近餐廳。餐後搭車回本所吾妻橋休息。",
-    "directions": "新宿搭黃色 JR 中央・總武各站停車往千葉方向，到淺草橋；轉都營淺草線往押上，到本所吾妻橋 A19，再步行回民宿。",
-    "note": "一蘭為吧台座位，不保證坐在一起。",
-    "links": [
-      {
-        "label": "一蘭攻略",
-        "url": "restaurant-guide/venues/08-ichiran-kabukicho.html"
-      },
-      {
-        "label": "一蘭 新宿歌舞伎町店",
-        "url": "https://www.google.com/maps/search/?api=1&query=%E4%B8%80%E8%98%AD+%E6%96%B0%E5%AE%BF%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA%E5%BA%97+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8D%80%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-17-10"
-      },
-      {
-        "label": "東京民宿",
-        "url": "https://maps.app.goo.gl/QZX3Ty983HxajN197"
-      }
-    ]
-  },
+  "title": "巴士候車",
+  "summary": "步行約 15–20 分鐘到 バスタ新宿 4 樓。目標 12:20–12:30 開始排隊；先到先上、無法預約，提早排隊仍不保證座位。",
+  "directions": "",
+  "links": []
+},
+  "2-5": {
+  "title": "前往木更津",
+  "summary": "新宿直達三井アウトレットパーク 木更津，表定 62 分鐘。這是當日新宿往 Outlet 最後一班直達車；連假可能塞車。",
+  "directions": "",
+  "links": []
+},
+  "2-6": {
+  "title": "購物與晚餐",
+  "summary": "木更津 Outlet 自由購物，中間安排休息，晚餐在商場吃。19:00 前往東京八重洲方向乘車處排隊。",
+  "directions": "",
+  "links": []
+},
+  "2-7": {
+  "title": "回民宿",
+  "summary": "巴士表定 19:30 → 20:20 東京站八重洲；步行到日本橋 A13，淺草線往押上至本所吾妻橋 A19，再走回民宿。下車後共留約 35–45 分鐘；塞車時順延。",
+  "directions": "",
+  "links": []
+},
   "3-0": {
     "title": "上午自由選線",
     "summary": "09:00 出門，谷根千或京島・向島擇一；A、B 組都能自由選。約 13:00 到晴空塔 Solamachi 吃午餐、逛街，時間可隨散步進度順延。",
