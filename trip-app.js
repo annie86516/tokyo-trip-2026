@@ -47,7 +47,8 @@
     coupon: COUPON_KEYS.includes(params.get('cpn') || saved.coupon) ? (params.get('cpn') || saved.coupon) : 'bic',
     routes: saved.routes && typeof saved.routes === 'object' ? saved.routes : {}
   };
-  const firstDay = () => state.group === 'C' ? 3 : 1;
+  // 所有組別都可瀏覽完整行程；C 組雖從第 3 天抵達，仍可查看第 1、2 天安排。
+  const firstDay = () => 1;
   function clampDay() { state.day = Math.max(firstDay(), Math.min(state.view==='restaurants'?8:9, Math.floor(state.day) || firstDay())); }
   clampDay();
   const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
