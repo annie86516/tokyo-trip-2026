@@ -3194,6 +3194,20 @@
     else if(window.TripMoney) window.TripMoney.unmount();
     if(['restaurants','airport'].includes(state.view)) hydrateSupplement(state.view);
   }
+  // Handle itinerary-day taps during capture so nested mobile controls cannot swallow navigation.
+  root.addEventListener('click', event => {
+    const button = event.composedPath().find(node =>
+      node instanceof HTMLButtonElement && node.dataset && node.dataset.day
+    );
+    if (!button) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    const nextDay = Number(button.dataset.day);
+    if (!Number.isInteger(nextDay) || nextDay < 1 || nextDay > 9) return;
+    state.day = nextDay;
+    state.view = 'days';
+    render(true);
+  }, true);
   root.addEventListener('click',async event=>{
     const button = event.target.closest('button');
     if(!button) {
